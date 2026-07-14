@@ -1,0 +1,418 @@
+'use client'
+
+import React, { useRef, useState, useEffect } from 'react'
+import { Link } from '@/i18n/navigation'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { ArrowRight, Mail } from 'lucide-react'
+import { useLenis } from 'lenis/react'
+import { useTranslations } from 'next-intl'
+import { FluidButton } from '@/components/ui/fluid-button'
+import { LanguageSwitcher } from './LanguageSwitcher'
+
+const FooterContent = () => {
+  const t = useTranslations('footer')
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
+  
+  const lenis = useLenis();
+
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [message, setMessage] = useState('')
+
+  const handleNewsletterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setStatus('loading')
+    setMessage('')
+    
+    const formData = new FormData(e.currentTarget)
+    const email = formData.get('email') as string
+    
+    try {
+      const res = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      })
+      
+      const data = await res.json()
+      
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to subscribe')
+      }
+      
+      setStatus('success')
+      setMessage('Successfully subscribed!')
+      // Reset form
+      const form = e.target as HTMLFormElement
+      form.reset()
+    } catch (err: any) {
+      console.error(err)
+      setStatus('error')
+      setMessage(err.message || 'Something went wrong. Please try again.')
+    }
+  }
+
+  const handleScrollToTop = () => {
+    if (lenis) {
+      // Use an exponential ease-out curve for buttery smooth deceleration
+      lenis.scrollTo(0, { 
+        duration: 2, 
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) 
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <footer className="bg-[#050505] w-full relative z-30 font-sans border-t border-white/5 overflow-hidden text-white">
+
+      {/* Pre-Footer CTA - Staggered Gallery Design */}
+      <div ref={sectionRef} className="relative overflow-hidden bg-[#050505] border-b border-white/5 pt-24 pb-0 flex flex-col items-center">
+        
+        {/* Top Text Section */}
+        <div className="container relative z-20 mx-auto px-4 max-w-4xl text-center flex flex-col items-center gap-6 mb-16">
+          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[1.1] tracking-tight">
+            {t('ctaHeadlineLine1')}<br className="hidden md:block" /> {t('ctaHeadlineLine2')}
+          </h2>
+          <div className="mt-4">
+            <FluidButton
+              href="/shop"
+              text={t('exploreCatalogue')}
+              variant="white"
+            />
+          </div>
+        </div>
+
+        {/* Staggered Image Gallery */}
+        <div className="w-full relative z-10 flex items-end justify-center gap-2 sm:gap-4 px-2 sm:px-4 h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden">
+          
+          <motion.div 
+            initial={{ y: 100, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 0.8, delay: 0 }} viewport={{ once: true }}
+            className="relative w-1/5 max-w-[250px] h-[60%] shrink-0"
+          >
+            <img src="/99 Images/category-1.webp" alt="Category" className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" />
+          </motion.div>
+          
+          <motion.div 
+            initial={{ y: 150, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 0.8, delay: 0.1 }} viewport={{ once: true }}
+            className="relative w-1/5 max-w-[280px] h-[80%] shrink-0 z-10"
+          >
+            <img src="/99 Images/vial-closeup.webp" alt="Vial" className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" />
+          </motion.div>
+          
+          <motion.div 
+            initial={{ y: 80, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}
+            className="relative w-1/4 max-w-[350px] h-[100%] shrink-0 z-20"
+          >
+            <img src="/99 Images/vial-ice-closeup.webp" alt="Vial on Ice" className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" />
+          </motion.div>
+          
+          <motion.div 
+            initial={{ y: 120, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 0.8, delay: 0.3 }} viewport={{ once: true }}
+            className="relative w-1/5 max-w-[280px] h-[75%] shrink-0 z-10"
+          >
+            <img src="/99 Images/purity.webp" alt="Purity" className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" />
+          </motion.div>
+          
+          <motion.div 
+            initial={{ y: 90, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 0.8, delay: 0.4 }} viewport={{ once: true }}
+            className="relative w-1/5 max-w-[250px] h-[65%] shrink-0"
+          >
+            <img src="/99 Images/identity.webp" alt="Identity" className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" />
+          </motion.div>
+          
+        </div>
+      </div>
+
+      {/* Main Footer Links */}
+      <div className="w-full mx-auto px-4 md:px-8 lg:px-12 pb-12 max-w-[1920px] pt-8 md:pt-16 relative z-20">
+        {/* Bento Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 relative z-10 mb-6">
+            
+          {/* Card 1: Brand & Logo */}
+          <div 
+            className="bg-[#002222] rounded-[2rem] p-8 md:p-10 flex flex-col justify-between h-full ring-1 ring-inset ring-white/10 group relative overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            
+            {/* Smooth Edge Cutout (Bottom Right) */}
+            <div className="flex absolute -bottom-[2px] -right-[2px] w-[88px] h-[88px] bg-[#050505] rounded-tl-[2rem] items-center justify-center z-30 pointer-events-auto">
+              <div 
+                className="absolute -top-[1.5rem] right-0 w-6 h-6 bg-contain bg-no-repeat pointer-events-none" 
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 100 0 V 100 H 0 A 100 100 0 0 0 100 0 Z' fill='%23050505'/%3E%3C/svg%3E")` }} 
+              />
+              <div 
+                className="absolute bottom-0 -left-[1.5rem] w-6 h-6 bg-contain bg-no-repeat pointer-events-none" 
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 100 0 V 100 H 0 A 100 100 0 0 0 100 0 Z' fill='%23050505'/%3E%3C/svg%3E")` }} 
+              />
+              
+              <button 
+                onClick={handleScrollToTop}
+                title="Scroll to top"
+                className="w-12 h-12 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 relative z-10 translate-x-1 translate-y-1 hover:-translate-y-0 group/btn"
+              >
+                <ArrowRight className="w-5 h-5 -rotate-90 group-hover/btn:-translate-y-1 transition-transform" />
+              </button>
+            </div>
+            
+            <a href="/">
+              <img src="/99 Images/99pp-Logo.png" alt="99 Purity Peptides Logo" className="h-14 md:h-16 w-auto object-contain mb-10 relative z-10 self-start transition-transform duration-500 hover:scale-105" />
+            </a>
+
+            <div className="relative z-10 mb-8 space-y-3">
+              <h3 className="text-white text-2xl md:text-3xl font-bold tracking-tight leading-snug">
+                Purity You Can Trust.
+              </h3>
+              <p className="text-white/60 text-[13px] max-w-[300px] leading-relaxed font-light">
+                Setting the gold standard in peptide synthesis with verified HPLC/MS testing for uncompromised results.
+              </p>
+            </div>
+
+            <div className="pr-4 md:pr-12 relative z-10 w-full mt-auto">
+              <form onSubmit={handleNewsletterSubmit} className="flex flex-col gap-3 mb-6 w-full">
+                <div className="flex items-center bg-white/5 rounded-full p-1 border border-white/10 focus-within:border-primary focus-within:bg-white/10 transition-colors w-full shadow-inner">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    required
+                    disabled={status === 'loading' || status === 'success'}
+                    className="footer-newsletter-input flex-1 bg-transparent border-none focus:outline-none focus:ring-0 text-[13px] text-white placeholder:text-white/40 px-4 disabled:opacity-50"
+                  />
+                  <button
+                    type="submit"
+                    disabled={status === 'loading' || status === 'success'}
+                    aria-label={t('subscribeAria')}
+                    className="w-9 h-9 rounded-full bg-primary/20 text-primary border border-primary/30 flex items-center justify-center shrink-0 hover:bg-primary hover:text-black transition-all duration-300 disabled:opacity-50 disabled:hover:bg-primary/20 disabled:hover:text-primary"
+                  >
+                    {status === 'loading' ? (
+                       <svg className="animate-spin h-3.5 w-3.5 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    ) : (
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    )}
+                  </button>
+                </div>
+                {message && (
+                  <p className={`text-[10px] font-semibold px-2 ${status === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+                    {message}
+                  </p>
+                )}
+              </form>
+
+              <p className="text-white/70 text-xs md:text-[13px] leading-relaxed font-light tracking-wide pr-12 md:pr-0">
+                Stay ahead of the curve. <span className="font-semibold text-white">Join 5,000+ top-tier labs</span> getting exclusive formulations, early drop access, and breakthrough research news.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 2: Explore */}
+          <div 
+            className="bg-cream rounded-[2rem] p-8 md:p-10 flex flex-col h-full ring-1 ring-inset ring-black/5 shadow-md hover:shadow-lg transition-all duration-500 relative overflow-hidden"
+          >
+            {/* Smooth Edge Cutout (Right Edge Center) */}
+            <div className="flex absolute top-1/2 -translate-y-1/2 -right-[2px] w-[64px] h-[96px] bg-[#050505] rounded-l-[2rem] items-center justify-center z-30 pointer-events-auto">
+              <div 
+                className="absolute -top-[1.5rem] right-0 w-6 h-6 bg-contain bg-no-repeat pointer-events-none" 
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 100 0 V 100 H 0 A 100 100 0 0 0 100 0 Z' fill='%23050505'/%3E%3C/svg%3E")` }} 
+              />
+              <div 
+                className="absolute -bottom-[1.5rem] right-0 w-6 h-6 bg-contain bg-no-repeat pointer-events-none" 
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0 0 H 100 V 100 A 100 100 0 0 0 0 0 Z' fill='%23050505'/%3E%3C/svg%3E")` }} 
+              />
+              
+              <Link href="/shop" title="Shop" className="w-10 h-10 bg-white/5 hover:bg-primary border border-white/10 hover:border-primary text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 relative z-10 translate-x-1 group/btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:scale-110 transition-transform"><path d="m2 7 4.42-4.42a2 2 0 0 1 2.83 0l8.34 8.34a2 2 0 0 1 0 2.83L13.17 18.17a2 2 0 0 1-2.83 0L2 9.83V7z"/><path d="M7 7h.01"/></svg>
+              </Link>
+            </div>
+            
+            <div className="pr-14 md:pr-12 w-full">
+              <h4 className="text-ink font-bold tracking-[0.15em] uppercase text-xs mb-4">{t('explore')}</h4>
+              <ul className="w-full flex flex-col">
+                {[
+                  { label: t('navHome'), href: '/' },
+                  { label: t('navAbout'), href: '/about-us' },
+                  { label: t('navShop'), href: '/shop' },
+                  { label: t('navBlog'), href: '/blog' },
+                  { label: t('navFaq'), href: '/faq' },
+                  { label: t('navCalculator'), href: '/peptide-calculator' },
+                  { label: t('navAffiliates'), href: '/affiliates' }
+                ].map((item) => (
+                  <li key={item.label} className="w-full">
+                    <Link href={item.href} className="group block py-2 border-b border-black/[0.04] last:border-0 relative z-10 transition-transform duration-300 hover:translate-x-1">
+                      <div className="flex justify-between items-center text-ink w-full">
+                        <span className="text-[15px] font-bold group-hover:text-primary transition-colors tracking-tight">
+                          {item.label}
+                        </span>
+                        <div className="w-7 h-7 rounded-full bg-black/[0.04] text-ink flex items-center justify-center transition-all duration-500 group-hover:bg-primary group-hover:text-white group-hover:scale-110">
+                          <ArrowRight className="w-3 h-3 -rotate-45 transition-transform duration-500 group-hover:rotate-0" />
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Card 3: Contact */}
+          <div 
+            className="bg-cream rounded-[2rem] p-8 md:p-10 flex flex-col h-full ring-1 ring-inset ring-black/5 shadow-md hover:shadow-lg transition-all duration-500 relative overflow-hidden"
+          >
+            {/* Smooth Edge Cutout (Right Edge Center) */}
+            <div className="flex absolute top-1/2 -translate-y-1/2 -right-[2px] w-[64px] h-[96px] bg-[#050505] rounded-l-[2rem] items-center justify-center z-30 pointer-events-auto">
+              <div 
+                className="absolute -top-[1.5rem] right-0 w-6 h-6 bg-contain bg-no-repeat pointer-events-none" 
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 100 0 V 100 H 0 A 100 100 0 0 0 100 0 Z' fill='%23050505'/%3E%3C/svg%3E")` }} 
+              />
+              <div 
+                className="absolute -bottom-[1.5rem] right-0 w-6 h-6 bg-contain bg-no-repeat pointer-events-none" 
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0 0 H 100 V 100 A 100 100 0 0 0 0 0 Z' fill='%23050505'/%3E%3C/svg%3E")` }} 
+              />
+              
+              <a href="mailto:support@99puritypeptides.com" title="Email Support" className="w-10 h-10 bg-white/5 hover:bg-primary border border-white/10 hover:border-primary text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 relative z-10 translate-x-1 group/btn">
+                <Mail className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
+              </a>
+            </div>
+
+            <div className="pr-14">
+              <h4 className="text-ink font-bold tracking-[0.15em] uppercase text-xs mb-8">{t('contact')}</h4>
+              <div className="flex flex-col gap-5 items-start">
+                <a href="mailto:orders@99puritypeptides.com" className="flex items-center gap-4 hover:bg-black/[0.03] rounded-2xl p-2 -ml-2 transition-colors group w-full">
+                  <div className="w-10 h-10 rounded-full bg-black/[0.04] border border-black/[0.05] flex items-center justify-center text-ink-muted group-hover:text-white group-hover:bg-primary group-hover:border-primary transition-all duration-300 shrink-0 group-hover:scale-110">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <span className="text-[11px] sm:text-xs text-ink font-semibold tracking-wide truncate">orders@99puritypeptides.com</span>
+                </a>
+                <a href="mailto:support@99puritypeptides.com" className="flex items-center gap-4 hover:bg-black/[0.03] rounded-2xl p-2 -ml-2 transition-colors group w-full">
+                  <div className="w-10 h-10 rounded-full bg-black/[0.04] border border-black/[0.05] flex items-center justify-center text-ink-muted group-hover:text-white group-hover:bg-primary group-hover:border-primary transition-all duration-300 shrink-0 group-hover:scale-110">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <span className="text-[11px] sm:text-xs text-ink font-semibold tracking-wide truncate">support@99puritypeptides.com</span>
+                </a>
+                <a href="tel:+18433307365" className="flex items-center gap-4 hover:bg-black/[0.03] rounded-2xl p-2 -ml-2 transition-colors group w-full">
+                  <div className="w-10 h-10 rounded-full bg-black/[0.04] border border-black/[0.05] flex items-center justify-center text-ink-muted group-hover:text-white group-hover:bg-primary group-hover:border-primary transition-all duration-300 shrink-0 group-hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  </div>
+                  <span className="text-[11px] sm:text-xs text-ink font-semibold tracking-wide">+1 (843) 330-7365</span>
+                </a>
+                <a href="https://x.com/99puritypeptide" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:bg-black/[0.03] rounded-2xl p-2 -ml-2 transition-colors group w-full">
+                  <div className="w-10 h-10 rounded-full bg-black/[0.04] border border-black/[0.05] flex items-center justify-center text-ink-muted group-hover:text-white group-hover:bg-primary group-hover:border-primary transition-all duration-300 shrink-0 group-hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  </div>
+                  <span className="text-[11px] sm:text-xs text-ink font-semibold tracking-wide">@99puritypeptide</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4: Actions */}
+          <div 
+            className="bg-cream rounded-[2rem] p-8 md:p-10 flex flex-col justify-center h-full ring-1 ring-inset ring-black/5 relative overflow-hidden group shadow-md hover:shadow-lg transition-all duration-500"
+          >
+            {/* Smooth Edge Cutout (Top Right Corner) */}
+            <div className="flex absolute -top-[2px] -right-[2px] w-[88px] h-[88px] bg-[#050505] rounded-bl-[2rem] items-center justify-center z-30 pointer-events-auto">
+              <div 
+                className="absolute top-0 -left-[1.5rem] w-6 h-6 bg-contain bg-no-repeat pointer-events-none" 
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0 0 H 100 V 100 A 100 100 0 0 0 0 0 Z' fill='%23050505'/%3E%3C/svg%3E")` }} 
+              />
+              <div 
+                className="absolute -bottom-[1.5rem] right-0 w-6 h-6 bg-contain bg-no-repeat pointer-events-none" 
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0 0 H 100 V 100 A 100 100 0 0 0 0 0 Z' fill='%23050505'/%3E%3C/svg%3E")` }} 
+              />
+              
+              <a href="mailto:orders@99puritypeptides.com" title="Email Orders" className="w-10 h-10 bg-white/5 hover:bg-primary border border-white/10 hover:border-primary text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-300 relative z-10 -translate-x-1 translate-y-1 group/btn">
+                <Mail className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
+              </a>
+            </div>
+
+            <div className="pr-16 pt-16 md:pr-14 md:pt-4">
+              <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              <Link href="/contact-us" className="group/btn border-b border-black/[0.04] pb-6 mb-6 block relative z-10 transition-transform duration-300 hover:translate-x-2">
+                <div className="flex justify-between items-center text-ink mb-1">
+                  <h3 className="text-xl md:text-2xl font-bold group-hover/btn:text-primary transition-colors tracking-tight">{t('contactUs')}</h3>
+                  <div className="w-10 h-10 rounded-full bg-black/[0.04] text-ink flex items-center justify-center transition-all duration-500 group-hover/btn:bg-primary group-hover/btn:text-white group-hover/btn:scale-110">
+                    <ArrowRight className="w-4 h-4 -rotate-45 transition-transform duration-500 group-hover/btn:rotate-0" />
+                  </div>
+                </div>
+                <p className="text-ink/60 text-xs sm:text-sm font-medium">{t('contactUsSubtext')}</p>
+              </Link>
+
+              <Link href="/shop" className="group/btn block relative z-10 transition-transform duration-300 hover:translate-x-2">
+                <div className="flex justify-between items-center text-ink mb-1">
+                  <h3 className="text-xl md:text-2xl font-bold group-hover/btn:text-primary transition-colors tracking-tight">{t('shopCatalogue')}</h3>
+                  <div className="w-10 h-10 rounded-full bg-black/[0.04] text-ink flex items-center justify-center transition-all duration-500 group-hover/btn:bg-primary group-hover/btn:text-white group-hover/btn:scale-110">
+                    <ArrowRight className="w-4 h-4 -rotate-45 transition-transform duration-500 group-hover/btn:rotate-0" />
+                  </div>
+                </div>
+                <p className="text-ink/60 text-xs sm:text-sm font-medium">{t('shopCatalogueSubtext')}</p>
+              </Link>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Full-width Brand Name Card */}
+        <div className="bg-cream rounded-[1.5rem] md:rounded-[2rem] h-[10vw] sm:h-[11vw] md:h-[11.5vw] lg:h-[12vw] xl:h-[12.5vw] relative overflow-hidden border border-primary/10 flex justify-center items-start shadow-sm w-full">
+          <div aria-hidden="true" className="relative z-20 pt-[2vw] sm:pt-[1.5vw] font-heading text-[12.5vw] sm:text-[13.5vw] md:text-[14vw] lg:text-[14.5vw] xl:text-[15vw] leading-[0.8] font-black text-primary/15 text-center tracking-tighter lowercase select-none w-full whitespace-nowrap px-4">
+            99purity
+          </div>
+        </div>
+
+        {/* Bottom Area Outside the Card */}
+        <div className="mt-8 px-4 md:px-8 flex flex-col gap-6 relative z-10">
+          <p className="text-cream/70 text-[10px] leading-relaxed max-w-6xl mx-auto text-center">
+            <span className="font-bold text-cream uppercase tracking-wider mr-2">{t('disclaimerLabel')}:</span>
+            {t('disclaimerText')}
+          </p>
+          <div className="flex flex-col lg:flex-row justify-between items-center text-cream/70 text-[11px] font-medium pt-4 border-t border-cream/10 pb-4">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-4 lg:mb-0">
+              <span className="text-cream/90">99Purity Peptides &copy; {new Date().getFullYear()}</span>
+              <span className="hidden sm:inline">·</span>
+              <Link href="/privacy-policy" className="hover:text-cream transition-colors">{t('privacyPolicy')}</Link>
+              <span className="hidden sm:inline">·</span>
+              <Link href="/terms-and-conditions" className="hover:text-cream transition-colors">{t('termsOfService')}</Link>
+              <span className="hidden sm:inline">·</span>
+              <Link href="/refund-policy" className="hover:text-cream transition-colors">{t('refundPolicy')}</Link>
+              <span className="hidden sm:inline">·</span>
+              <Link href="/shipping-policy" className="hover:text-cream transition-colors">{t('shippingPolicy')}</Link>
+              <span className="hidden sm:inline">·</span>
+              <Link href="/medical-disclaimer" className="hover:text-cream transition-colors">{t('medicalDisclaimer')}</Link>
+            </div>
+            <div className="flex flex-col sm:flex-row items-center gap-4 text-center lg:text-right">
+              <LanguageSwitcher variant="dark" />
+              <span>{t('designedBy')} <a href="https://belkdigital.com" target="_blank" rel="noopener noreferrer" className="text-cyan-400 font-bold hover:text-primary transition-colors">Belk Digital</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+export function Footer() {
+  const [footerHeight, setFooterHeight] = useState(0)
+  const footerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!footerRef.current) return
+    const resizeObserver = new ResizeObserver((entries) => {
+      setFooterHeight(entries[0].contentRect.height)
+    })
+    resizeObserver.observe(footerRef.current)
+    return () => resizeObserver.disconnect()
+  }, [])
+
+  return (
+    <div ref={footerRef} className="w-full relative z-40 bg-black print:hidden" style={{ pointerEvents: 'auto' }}>
+      <FooterContent />
+    </div>
+  )
+}
+

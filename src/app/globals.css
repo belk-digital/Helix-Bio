@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles */
+html,
+body {
+  min-height: 100%;
+}
+
+/* Hide Native Scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@layer utilities {
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes vibrate {
+    0% { transform: translate(0) rotate(0deg); }
+    20% { transform: translate(-3px, 2px) rotate(-2deg); }
+    40% { transform: translate(-3px, -2px) rotate(2deg); }
+    60% { transform: translate(3px, 2px) rotate(0deg); }
+    80% { transform: translate(3px, -2px) rotate(2deg); }
+    100% { transform: translate(0) rotate(0deg); }
+  }
+
+  .animate-vibrate {
+    animation: vibrate 0.08s linear infinite;
+  }
+
+  /* Hide scrollbar */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Override Browser Autofill Blue Background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: #111111 !important;
+}
+
+/* Dark-background inputs (e.g. footer newsletter) need the inverse of the rule above —
+   a transparent inset shadow so the dark parent background shows through, and white text,
+   instead of inheriting the light-form autofill styling meant for auth/checkout inputs. */
+.footer-newsletter-input:-webkit-autofill,
+.footer-newsletter-input:-webkit-autofill:hover,
+.footer-newsletter-input:-webkit-autofill:focus,
+.footer-newsletter-input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    caret-color: #ffffff;
+    /* Chrome animates its own autofill background-color in via a transition; without
+       overriding that transition's duration, its tint briefly shows/blends in before the
+       box-shadow override above visually settles. */
+    transition: background-color 9999s ease-in-out 0s !important;
+}
+
+/* Force Borders on Auth Form Inputs */
+.custom-auth-input {
+  border: 1px solid rgba(10, 10, 10, 0.2) !important;
+  outline: none !important;
+}
+.custom-auth-input:focus {
+  border-color: #008B8B !important;
+  box-shadow: 0 0 0 2px rgba(0, 139, 139, 0.2) !important;
+}
