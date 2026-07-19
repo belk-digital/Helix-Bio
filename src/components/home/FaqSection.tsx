@@ -26,13 +26,13 @@ export function FaqSection() {
 
   return (
     <SharedFaqSection
+      subtitle="FREQUENTLY ASKED QUESTIONS"
       title={
         <>
-          {t('titleLine1')}<br />{t('titleLine2')}
+          {t('titleLine1')} {t('titleLine2')}
         </>
       }
       faqs={faqs}
     />
-  );
+  )
 }
-

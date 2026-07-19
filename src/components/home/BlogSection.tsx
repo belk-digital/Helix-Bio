@@ -1,12 +1,9 @@
 'use client'
 
-import React, { useState } from 'react'
-import { motion, Variants, AnimatePresence } from 'framer-motion'
+import React from 'react'
 import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
-import { ArrowRight } from 'lucide-react'
 import { useTranslations, useLocale } from 'next-intl'
-import { FluidButton } from '@/components/ui/fluid-button'
 
 import { BLOG_POSTS as BLOG_POSTS_EN } from '@/data/blog-posts'
 import { BLOG_POSTS as BLOG_POSTS_ES } from '@/data/blog-posts.es'
@@ -15,282 +12,101 @@ export function BlogSection() {
   const t = useTranslations('home.blogSection')
   const locale = useLocale()
   const BLOG_POSTS = locale === 'es' ? BLOG_POSTS_ES : BLOG_POSTS_EN
-  const [hoveredCol, setHoveredCol] = useState<number | null>(null);
-  const [hoveredCol2, setHoveredCol2] = useState<number | null>(null);
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  }
-
-  const scatterData = [
-    { x: -200, y: -150, rotate: -10 },
-    { x: 150, y: -250, rotate: 15 },
-    { x: 250, y: 150, rotate: -5 },
-    { x: -150, y: 200, rotate: 12 },
-    { x: -300, y: 50, rotate: -8 },
-    { x: 200, y: -100, rotate: 5 },
-    { x: 100, y: 250, rotate: -15 },
-    { x: -250, y: -200, rotate: 10 }
-  ]
-
-  const itemVariants: Variants = {
-    hidden: (i: number) => ({ 
-      opacity: 0, 
-      x: scatterData[i % scatterData.length]?.x || 0,
-      y: scatterData[i % scatterData.length]?.y || 60,
-      rotate: scatterData[i % scatterData.length]?.rotate || 0,
-      scale: 0.85
-    }),
-    visible: { 
-      opacity: 1, 
-      x: 0,
-      y: 0, 
-      rotate: 0,
-      scale: 1,
-      transition: { 
-        type: 'spring',
-        damping: 25,
-        stiffness: 100,
-        mass: 1.5,
-        duration: 1.2,
-      } 
-    }
-  }
+  const featuredPost = BLOG_POSTS[0]
+  const recentPosts = BLOG_POSTS.slice(1, 4)
 
   return (
-    <section className="bg-[#050505] py-24 md:py-32 border-t border-white/5 relative z-30 font-sans overflow-hidden">
-      <div className="container mx-auto px-4 md:px-10 max-w-7xl relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row justify-between items-end mb-16"
-        >
-          <div className="w-full md:w-2/3">
-            <h2 className="font-heading text-[2.2rem] sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[0.9] tracking-tighter uppercase break-words mb-4">
-              {t('titleLine1')}<br />{t('titleLine2')}
-            </h2>
-            <p className="text-white/70 text-sm sm:text-base md:text-lg max-w-xl">
-              {t('subtitle')}
-            </p>
-          </div>
-          <div className="w-full md:w-1/3 flex justify-start md:justify-end mt-6 md:mt-0">
-            <FluidButton
-              href="/blog"
-              text={t('ctaText')}
-              variant="white"
-            />
-          </div>
-        </motion.div>
+    <section className="bg-[#FAFAFA] py-20 md:py-32 font-sans relative overflow-hidden">
+      <div className="container mx-auto px-4 md:px-10 max-w-[1300px]">
+        {/* Header */}
+        <div className="flex flex-col mb-16">
+          <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Blog</span>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#111] leading-[1.05] tracking-tight max-w-4xl font-heading">
+            {t('titleLine1')} {t('titleLine2')}
+          </h2>
+        </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="flex flex-col md:flex-row gap-4 md:gap-6 w-full md:h-[600px]"
-        >
-          {/* Left Column */}
-          <motion.div 
-            layout
-            onMouseEnter={() => setHoveredCol(0)}
-            onMouseLeave={() => setHoveredCol(null)}
-            transition={{ type: "spring", damping: 30, stiffness: 200 }}
-            className={`w-full flex flex-col gap-4 md:gap-6 h-[400px] md:h-full overflow-hidden ${
-              hoveredCol === 0 ? 'md:w-1/2' : (hoveredCol === null ? 'md:w-1/4' : 'md:w-1/4')
-            }`}
-          >
-            <motion.div layout custom={0} variants={itemVariants} className="group cursor-pointer relative rounded-[32px] overflow-hidden flex-1 bg-white/5 border border-white/10 w-full">
-              <Link href={`/${BLOG_POSTS[0].slug}`} className="block w-full h-full relative">
-                <Image 
-                  src={BLOG_POSTS[0].imageSrc} 
-                  alt={BLOG_POSTS[0].title} 
+        {/* Featured Post (Horizontal) */}
+        {featuredPost && (
+          <Link href={`/${featuredPost.slug}`} className="group block mb-6">
+            <div className="bg-white rounded-[2rem] p-4 lg:p-6 shadow-sm border border-black/5 hover:shadow-xl hover:shadow-black/5 transition-all duration-500 flex flex-col lg:flex-row gap-6 lg:gap-12">
+              
+              <div className="relative w-full lg:w-[55%] aspect-[4/3] lg:aspect-auto lg:h-[450px] rounded-[1.5rem] overflow-hidden shrink-0">
+                <Image
+                  src={featuredPost.imageSrc}
+                  alt={featuredPost.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
                   unoptimized
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end">
-                  <h3 className="text-white text-sm md:text-base font-medium leading-snug group-hover:text-primary transition-colors">
-                    {BLOG_POSTS[0].title}
-                  </h3>
-                </div>
-              </Link>
-            </motion.div>
-          </motion.div>
+              </div>
 
-          {/* Middle Column */}
-          <motion.div
-            layout
-            onMouseEnter={() => setHoveredCol(1)}
-            onMouseLeave={() => setHoveredCol(null)}
-            transition={{ type: "spring", damping: 30, stiffness: 200 }}
-            className={`w-full flex flex-col gap-4 md:gap-6 h-[400px] md:h-full overflow-hidden ${
-              hoveredCol === 1 ? 'md:w-1/2' : (hoveredCol === null ? 'md:w-1/2' : 'md:w-1/4')
-            }`}
-          >
-            <motion.div layout custom={2} variants={itemVariants} className="group cursor-pointer relative rounded-[32px] overflow-hidden h-full bg-white/5 border border-white/10 w-full">
-              <Link href={`/${BLOG_POSTS[1].slug}`} className="block w-full h-full relative">
-                <Image 
-                  src={BLOG_POSTS[1].imageSrc} 
-                  alt={BLOG_POSTS[1].title} 
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-white text-lg md:text-2xl font-medium leading-snug group-hover:text-primary transition-colors">
-                    {BLOG_POSTS[1].title}
-                  </h3>
+              <div className="flex flex-col justify-center flex-1 py-4 lg:py-8 pr-4 lg:pr-10">
+                <div className="inline-block px-4 py-1.5 bg-gray-100 text-gray-700 text-xs font-bold rounded-full mb-6 w-fit">
+                  {featuredPost.category}
                 </div>
-              </Link>
-            </motion.div>
-          </motion.div>
+                <h3 className="text-3xl lg:text-[2.5rem] font-bold text-gray-900 mb-6 leading-[1.15] group-hover:text-blue-600 transition-colors">
+                  {featuredPost.title}
+                </h3>
+                <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-10 line-clamp-3 font-medium">
+                  {featuredPost.excerpt}
+                </p>
+                
+                <div className="flex items-center justify-between mt-auto pt-6 border-t border-gray-100">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-gray-200 overflow-hidden relative">
+                      <Image src="/HelixBio Images/hero-1.png" alt="Author" fill className="object-cover" />
+                    </div>
+                    <span className="text-sm font-semibold text-gray-700">HelixBio Research</span>
+                  </div>
+                  <span className="text-sm text-gray-500 font-medium">{featuredPost.date}</span>
+                </div>
+              </div>
 
-          {/* Right Column */}
-          <motion.div 
-            layout
-            onMouseEnter={() => setHoveredCol(2)}
-            onMouseLeave={() => setHoveredCol(null)}
-            transition={{ type: "spring", damping: 30, stiffness: 200 }}
-            className={`w-full flex flex-col gap-4 md:gap-6 h-[400px] md:h-full overflow-hidden ${
-              hoveredCol === 2 ? 'md:w-1/2' : (hoveredCol === null ? 'md:w-1/4' : 'md:w-1/4')
-            }`}
-          >
-            <motion.div layout custom={4} variants={itemVariants} className="group cursor-pointer relative rounded-[32px] overflow-hidden flex-1 bg-white/5 border border-white/10 w-full">
-              <Link href={`/${BLOG_POSTS[2].slug}`} className="block w-full h-full relative">
-                <Image 
-                  src={BLOG_POSTS[2].imageSrc} 
-                  alt={BLOG_POSTS[2].title} 
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end">
-                  <h3 className="text-white text-sm md:text-base font-medium leading-snug group-hover:text-primary transition-colors">
-                    {BLOG_POSTS[2].title}
-                  </h3>
-                </div>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </motion.div>
+            </div>
+          </Link>
+        )}
 
-        {/* Second Row of Posts (Alternating Layout) */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="flex flex-col md:flex-row gap-4 md:gap-6 w-full md:h-[600px] mt-4 md:mt-6"
-        >
-          {/* Left Column (Alternated: Spacer first) */}
-          <motion.div 
-            layout
-            onMouseEnter={() => setHoveredCol2(0)}
-            onMouseLeave={() => setHoveredCol2(null)}
-            transition={{ type: "spring", damping: 30, stiffness: 200 }}
-            className={`w-full flex flex-col gap-4 md:gap-6 h-[400px] md:h-full overflow-hidden ${
-              hoveredCol2 === 0 ? 'md:w-1/2' : (hoveredCol2 === null ? 'md:w-1/4' : 'md:w-1/4')
-            }`}
-          >
-            <motion.div layout custom={6} variants={itemVariants} className="group cursor-pointer relative rounded-[32px] overflow-hidden flex-1 bg-white/5 border border-white/10 w-full">
-              <Link href={`/${BLOG_POSTS[3].slug}`} className="block w-full h-full relative">
-                <Image 
-                  src={BLOG_POSTS[3].imageSrc} 
-                  alt={BLOG_POSTS[3].title} 
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end">
-                  <h3 className="text-white text-sm md:text-base font-medium leading-snug group-hover:text-primary transition-colors">
-                    {BLOG_POSTS[3].title}
-                  </h3>
+        {/* Recent Posts Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {recentPosts.map((post) => (
+            <Link key={post.slug} href={`/${post.slug}`} className="group block">
+              <div className="bg-white rounded-[2rem] p-4 shadow-sm border border-black/5 hover:shadow-xl hover:shadow-black/5 transition-all duration-500 h-full flex flex-col">
+                <div className="relative w-full aspect-[16/10] rounded-[1.5rem] overflow-hidden mb-6">
+                  <Image
+                    src={post.imageSrc}
+                    alt={post.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    unoptimized
+                  />
                 </div>
-              </Link>
-            </motion.div>
-          </motion.div>
+                <div className="px-2 pb-2 flex flex-col flex-1">
+                  <div className="inline-block px-3 py-1.5 bg-gray-100 text-gray-700 text-[11px] font-bold rounded-full mb-4 w-fit">
+                    {post.category}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 leading-[1.3] group-hover:text-blue-600 transition-colors mb-4 line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between">
+                     <span className="text-sm font-semibold text-gray-700">HelixBio</span>
+                     <span className="text-xs text-gray-500 font-medium">{post.readTime}</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
 
-          {/* Middle Column */}
-          <motion.div 
-            layout
-            onMouseEnter={() => setHoveredCol2(1)}
-            onMouseLeave={() => setHoveredCol2(null)}
-            transition={{ type: "spring", damping: 30, stiffness: 200 }}
-            className={`w-full flex flex-col gap-4 md:gap-6 h-[400px] md:h-full overflow-hidden ${
-              hoveredCol2 === 1 ? 'md:w-1/2' : (hoveredCol2 === null ? 'md:w-1/2' : 'md:w-1/4')
-            }`}
-          >
-            <motion.div layout custom={7} variants={itemVariants} className="group cursor-pointer relative rounded-[32px] overflow-hidden h-full bg-white/5 border border-white/10 w-full">
-              <Link href={`/${BLOG_POSTS[4].slug}`} className="block w-full h-full relative">
-                <Image 
-                  src={BLOG_POSTS[4].imageSrc} 
-                  alt={BLOG_POSTS[4].title} 
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-white text-lg md:text-2xl font-medium leading-snug group-hover:text-primary transition-colors">
-                    {BLOG_POSTS[4].title}
-                  </h3>
-                </div>
-              </Link>
-            </motion.div>
-          </motion.div>
+        {/* Load More Button */}
+        <div className="mt-16 flex justify-center">
+          <Link href="/blog" className="px-10 py-4 bg-[#222] text-white text-sm font-bold rounded-[10px] uppercase tracking-widest hover:bg-black transition-colors shadow-lg shadow-black/10">
+            {t('ctaText')}
+          </Link>
+        </div>
 
-          {/* Right Column (Alternated: Post first) */}
-          <motion.div 
-            layout
-            onMouseEnter={() => setHoveredCol2(2)}
-            onMouseLeave={() => setHoveredCol2(null)}
-            transition={{ type: "spring", damping: 30, stiffness: 200 }}
-            className={`w-full flex flex-col gap-4 md:gap-6 h-[400px] md:h-full overflow-hidden ${
-              hoveredCol2 === 2 ? 'md:w-1/2' : (hoveredCol2 === null ? 'md:w-1/4' : 'md:w-1/4')
-            }`}
-          >
-            <motion.div layout custom={0} variants={itemVariants} className="group cursor-pointer relative rounded-[32px] overflow-hidden flex-1 bg-white/5 border border-white/10 w-full">
-              <Link href={`/${BLOG_POSTS[5].slug}`} className="block w-full h-full relative">
-                <Image 
-                  src={BLOG_POSTS[5].imageSrc} 
-                  alt={BLOG_POSTS[5].title} 
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end">
-                  <h3 className="text-white text-sm md:text-base font-medium leading-snug group-hover:text-primary transition-colors">
-                    {BLOG_POSTS[5].title}
-                  </h3>
-                </div>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </motion.div>
       </div>
-
-      {/* Background Decorative Element */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3 z-0" />
     </section>
   )
 }

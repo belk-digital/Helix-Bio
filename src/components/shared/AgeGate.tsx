@@ -230,8 +230,8 @@ export function AgeGate() {
                 {/* Logo Overlay */}
                 <div className={`absolute top-6 right-6 md:top-10 md:right-10 w-24 md:w-48 h-12 md:h-24 pointer-events-none transition-opacity duration-500 will-change-opacity ${isDenied ? 'opacity-20' : 'opacity-100'}`}>
                   <Image 
-                    src="/99 Images/99pp-Logo.png" 
-                    alt="99Purity Peptides Logo" 
+                    src="/HelixBio Images/hb-logo.png" 
+                    alt="HelixBio Logo" 
                     fill
                     priority
                     className="object-contain drop-shadow-2xl"

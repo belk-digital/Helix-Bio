@@ -6,23 +6,23 @@ import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center font-sans uppercase tracking-wider font-medium transition-all duration-300 ease-out-quart rounded-sm focus-visible:outline-none focus-visible:shadow-focus disabled:opacity-40 disabled:pointer-events-none active:scale-[0.98]',
+  'inline-flex items-center justify-center font-heading font-bold uppercase tracking-widest transition-all duration-300 ease-out rounded-[10px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 disabled:opacity-50 disabled:pointer-events-none active:scale-[0.98] whitespace-nowrap',
   {
     variants: {
       variant: {
-        primary:   'bg-cream-sand text-ink border border-ink hover:bg-ink hover:text-white',
-        secondary: 'bg-transparent text-ink border border-ink hover:bg-ink hover:text-white',
-        ghost:     'bg-transparent text-ink hover:bg-cream-warm',
-        link:      'bg-transparent text-ink underline underline-offset-4 hover:text-gold-dark px-0 py-0 h-auto',
-        dark:      'bg-ink text-white border border-ink hover:bg-ink-soft',
-        outline:   'bg-transparent text-ink border border-border-default hover:bg-cream-warm hover:text-ink',
+        primary:   'bg-[#121212] hover:bg-black text-white shadow-sm hover:shadow',
+        secondary: 'bg-white hover:bg-gray-50 text-[#121212] border border-black/10 shadow-sm hover:shadow',
+        ghost:     'bg-transparent text-[#121212] hover:bg-black/5',
+        link:      'bg-transparent text-[#121212] underline underline-offset-4 hover:text-black px-0 py-0 h-auto',
+        dark:      'bg-black text-white hover:bg-[#1a1a1a]',
+        outline:   'bg-transparent text-[#121212] border border-black/10 hover:bg-black/5 hover:border-black/20',
       },
       size: {
-        sm: 'text-label-md px-4 py-2 h-9',
-        md: 'text-label-lg px-6 py-3 h-12',
-        lg: 'text-label-lg px-10 py-4 h-14',
-        icon: 'h-10 w-10',
-        "icon-sm": 'h-8 w-8',
+        sm: 'text-[11px] xl:text-[12px] px-6 py-3 h-11',
+        md: 'text-[12px] xl:text-[13px] min-[1650px]:text-[14px] px-8 py-4 min-[1650px]:px-10 min-[1650px]:py-5 h-12 min-[1650px]:h-14',
+        lg: 'text-[14px] xl:text-[15px] px-12 py-6 h-16',
+        icon: 'h-12 w-12',
+        "icon-sm": 'h-10 w-10',
       },
     },
     defaultVariants: { variant: 'primary', size: 'md' },

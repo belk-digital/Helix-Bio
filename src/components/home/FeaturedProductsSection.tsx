@@ -90,7 +90,7 @@ export function FeaturedProductsSection({ products = [] }: { products?: any[] })
                 </div>
                 <div className="flex flex-col items-end justify-between h-24">
                   <div className="text-lg font-bold text-ink font-heading tracking-tight">${product.price}</div>
-                  <button className="bg-ink hover:bg-slate-700 text-cream text-[9px] font-bold px-6 py-2 rounded-full uppercase tracking-widest transition-all shadow-md mt-auto">
+                  <button className="bg-ink hover:bg-slate-700 text-cream text-[10px] font-bold px-8 py-3 rounded-[10px] uppercase tracking-widest transition-all shadow-md mt-auto">
                     {t('viewButton')}
                   </button>
                 </div>
@@ -101,7 +101,7 @@ export function FeaturedProductsSection({ products = [] }: { products?: any[] })
 
         {/* Footer Button */}
         <div className="flex justify-center mt-12">
-          <Link href="/shop" className="bg-ink hover:bg-slate-700 text-cream text-[10px] font-bold px-10 py-4 rounded-full uppercase tracking-widest transition-colors shadow-lg backdrop-blur-md">
+          <Link href="/shop" className="bg-ink hover:bg-slate-700 text-cream text-[11px] font-bold px-12 py-5 rounded-[10px] uppercase tracking-widest transition-colors shadow-lg backdrop-blur-md">
             {t('viewFullCatalogue')}
           </Link>
         </div>

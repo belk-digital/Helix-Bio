@@ -4,7 +4,7 @@ import { CategoriesSection } from '@/components/home/CategoriesSection'
 import { TrustBadges } from '@/components/shared/TrustBadges'
 import { FaqSection } from '@/components/home/FaqSection'
 import { BlogSection } from '@/components/home/BlogSection'
-import { ParallaxImageSection } from '@/components/home/ParallaxImageSection'
+import { JourneySection } from '@/components/home/JourneySection'
 import { WhatSetsUsApart } from '@/components/home/WhatSetsUsApart'
 import { WhyChooseUs } from '@/components/home/WhyChooseUs'
 import { DifferenceSection } from '@/components/home/DifferenceSection'
@@ -95,7 +95,7 @@ export default async function Homepage() {
         {/* <MerchandiseSection /> */}
         <WhatSetsUsApart />
         <MilitaryDiscountSection />
-        <ParallaxImageSection />
+        <JourneySection />
         <WhyChooseUs />
         <BlogSection />
         <FaqSection />

@@ -1,218 +1,105 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { createPortal } from 'react-dom'
-import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion'
-import { ShieldCheck, Award, FileCheck, X } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowUpRight } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { MagazineGlassCard } from './MagazineGlassCard'
 import Image from 'next/image'
 
 const CHOOSE_US_KEYS = [
-  { key: 'hplcPurity', media: "/99 Images/purity.webp", icon: ShieldCheck },
-  { key: 'msIdentity', media: "/99 Images/identity.webp?v=2", icon: Award },
-  { key: 'coaDocumentation', media: "/99 Images/coa.webp", icon: FileCheck }
+  { key: 'hplcPurity', media: "/99 Images/purity.webp" },
+  { key: 'msIdentity', media: "/99 Images/identity.webp?v=2" },
+  { key: 'coaDocumentation', media: "/99 Images/coa.webp" }
 ]
 
 export function WhyChooseUs() {
   const t = useTranslations('home.whyChooseUs')
-  const CHOOSE_US_DATA = CHOOSE_US_KEYS.map(({ key, media, icon }) => ({
+  const CHOOSE_US_DATA = CHOOSE_US_KEYS.map(({ key, media }) => ({
     tag: t(`items.${key}.tag`),
     title: t(`items.${key}.title`),
     description: t(`items.${key}.description`),
     media,
-    icon
   }))
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [mounted, setMounted] = useState(false);
-  const [isHoveringCard, setIsHoveringCard] = useState(false);
-
-  // Custom Cursor state
-  const cursorX = useMotionValue(-100);
-  const cursorY = useMotionValue(-100);
-  const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
-  const cursorXSpring = useSpring(cursorX, springConfig);
-  const cursorYSpring = useSpring(cursorY, springConfig);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const containerVariants: any = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1, 
-      transition: { staggerChildren: 0.2, delayChildren: 0.2 } 
-    }
-  };
-
-  const cardVariants: any = {
-    hidden: { opacity: 0, y: 60, scale: 0.95 },
-    visible: { 
-      opacity: 1, y: 0, scale: 1,
-      transition: { type: "spring", damping: 20, stiffness: 100 } 
-    }
-  };
+    const timer = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % CHOOSE_US_DATA.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [activeIndex, CHOOSE_US_DATA.length]);
 
   return (
-    <section 
-      onPointerMove={(e) => {
-        cursorX.set(e.clientX);
-        cursorY.set(e.clientY);
-      }}
-      className={`bg-cream py-24 md:py-32 relative font-sans overflow-hidden border-t border-ink/5 min-h-screen flex flex-col justify-center transition-all duration-300 ${selectedIndex !== null ? 'z-[999]' : 'z-30'}`}
-    >
-      {/* Custom Cursor (Desktop Only) */}
-      <motion.div
-        className="pointer-events-none fixed z-[90] hidden xl:flex items-center justify-center w-24 h-24 rounded-full shadow-2xl border border-black/5 bg-white/95 backdrop-blur-md text-ink"
-        style={{
-          x: cursorXSpring,
-          y: cursorYSpring,
-          translateX: '-50%',
-          translateY: '-50%',
-          top: 0,
-          left: 0,
-        }}
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ 
-          scale: isHoveringCard && selectedIndex === null ? 1 : 0, 
-          opacity: isHoveringCard && selectedIndex === null ? 1 : 0 
-        }}
-        transition={{ duration: 0.2 }}
-      >
-        <span className="font-sans font-bold text-[10px] tracking-[0.2em] uppercase text-center leading-[1.4]">
-          {t('clickToViewLine1')}<br/>{t('clickToViewLine2')}<br/>{t('clickToViewLine3')}
-        </span>
-      </motion.div>
-
+    <section className="bg-[#FAFAFA] py-16 md:py-24 relative font-sans overflow-hidden flex flex-col justify-center">
       <div className="container mx-auto px-4 md:px-10 max-w-[120rem] relative z-10">
         
-        <div className="text-center mb-16 md:mb-24">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-block border border-ink/10 rounded-full px-4 py-1.5 mb-6 bg-white shadow-sm"
-          >
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-block border border-ink/10 rounded-full px-4 py-1.5 mb-6 bg-white shadow-sm">
             <span className="text-primary text-xs font-bold tracking-[0.2em] uppercase">{t('eyebrow')}</span>
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-heading text-[2.5rem] sm:text-4xl md:text-5xl lg:text-[6rem] font-black text-ink leading-[0.9] tracking-tighter uppercase drop-shadow-sm break-words"
-          >
+          </div>
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-[5rem] font-black text-ink leading-[1] tracking-tighter uppercase drop-shadow-sm break-words">
             {t('titleLine1')}<br />{t('titleLine2')}
-          </motion.h2>
+          </h2>
         </div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="flex flex-col gap-12 md:gap-16 lg:gap-24 max-w-[90rem] mx-auto"
-        >
-          {CHOOSE_US_DATA.map((item, index) => (
-            <motion.div 
-              key={index} 
-              variants={cardVariants} 
-              className="flex justify-center w-full mx-auto"
-              onMouseEnter={() => setIsHoveringCard(true)}
-              onMouseLeave={() => setIsHoveringCard(false)}
-            >
-              <MagazineGlassCard 
-                title={item.title}
-                description={item.description}
-                icon={item.icon}
-                tag={item.tag}
-                image={item.media}
-                onClick={() => setSelectedIndex(index)}
-                className="xl:!cursor-none"
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-        
-      </div>
-
-      {/* Fullscreen Image Lightbox Modal (Rendered via Portal to escape all stacking contexts) */}
-      {mounted && createPortal(
-        <AnimatePresence>
-          {selectedIndex !== null && (
-            <motion.div
-              initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-              animate={{ opacity: 1, backdropFilter: "blur(24px)" }}
-              exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-              transition={{ duration: 0.4 }}
-              onClick={() => setSelectedIndex(null)}
-              className="fixed inset-0 z-[999999] flex items-center justify-center bg-black/80 p-4 sm:p-8 cursor-zoom-out"
-            >
-              {/* Close Button - Minimalist */}
-              <button 
-                onClick={() => setSelectedIndex(null)}
-                className="absolute top-6 right-6 sm:top-10 sm:right-10 text-white/50 hover:text-white transition-colors duration-300 z-50 group"
-              >
-                <X className="w-8 h-8 sm:w-10 sm:h-10 group-hover:scale-110 transition-transform duration-300" strokeWidth={1.5} />
-              </button>
-
-              {/* Main Modal Content */}
-              <motion.div 
-                initial={{ scale: 0.98, opacity: 0, y: 10 }}
-                animate={{ scale: 1, opacity: 1, y: 0 }}
-                exit={{ scale: 0.98, opacity: 0, y: 10 }}
-                transition={{ type: "spring", damping: 30, stiffness: 200, delay: 0.1 }}
-                className="relative w-full h-full max-w-[90vw] max-h-[85vh] flex flex-col items-center justify-center cursor-grab active:cursor-grabbing z-10"
-                onClick={(e) => e.stopPropagation()}
-                drag="y"
-                dragConstraints={{ top: 0, bottom: 0 }}
-                dragElastic={0.8}
-                onDragEnd={(e, info) => {
-                  if (Math.abs(info.offset.y) > 120 || Math.abs(info.velocity.y) > 500) {
-                    setSelectedIndex(null);
-                  }
-                }}
-              >
-                {/* Image Container - Pure and clean, no borders */}
-                <div className="relative w-full flex-1 min-h-0 drop-shadow-2xl">
-                  <Image 
-                    src={CHOOSE_US_DATA[selectedIndex].media}
-                    alt={CHOOSE_US_DATA[selectedIndex].title}
-                    fill
-                    className="object-contain"
-                    sizes="100vw"
-                    priority
-                  />
-                </div>
-                
-                {/* Ultra-Modern Minimalist Caption */}
-                <motion.div 
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="mt-6 sm:mt-10 shrink-0 flex flex-col items-center text-center"
+        <div className="flex flex-col-reverse xl:flex-row gap-6 w-full max-w-[100rem] mx-auto xl:h-[700px]">
+          
+          {/* Left Column: Interactive Cards */}
+          <div className="w-full xl:w-[40%] flex flex-col gap-4 h-auto xl:h-full shrink-0">
+            {CHOOSE_US_DATA.map((item, index) => {
+              const isActive = activeIndex === index;
+              return (
+                <button 
+                  key={index}
+                  onClick={() => setActiveIndex(index)}
+                  className={`w-full text-left transition-all duration-500 rounded-[24px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden group ${
+                    isActive 
+                      ? 'bg-[#1a1a1a] text-white shadow-xl xl:scale-[1.02] z-10 min-h-[160px] xl:min-h-0 xl:flex-1' 
+                      : 'bg-white text-ink hover:bg-gray-50 min-h-[100px] xl:min-h-0 xl:flex-1'
+                  }`}
                 >
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="w-8 h-[1px] bg-primary/50"></span>
-                    <span className="text-primary/90 text-xs tracking-[0.3em] uppercase font-medium">
-                      {CHOOSE_US_DATA[selectedIndex].tag}
-                    </span>
-                    <span className="w-8 h-[1px] bg-primary/50"></span>
+                  <div className="flex justify-end w-full">
+                    <h3 className={`font-heading text-xl sm:text-3xl xl:text-4xl uppercase tracking-tighter text-right w-full sm:max-w-[80%] leading-[1.1] break-words ${isActive ? 'text-white' : 'text-ink'}`}>
+                      {item.title}
+                    </h3>
                   </div>
-                  <h3 className="text-3xl sm:text-5xl font-heading font-light text-white tracking-wide mb-3 sm:mb-4">
-                    {CHOOSE_US_DATA[selectedIndex].title}
-                  </h3>
-                  <p className="text-white/70 max-w-xl text-xs sm:text-sm md:text-base leading-relaxed font-light px-4">
-                    {CHOOSE_US_DATA[selectedIndex].description}
-                  </p>
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>,
-        document.body
-      )}
+                  
+                  <div className="flex justify-between items-end mt-4 xl:mt-8 w-full gap-4">
+                    <p className={`text-[10px] sm:text-xs uppercase tracking-[0.15em] max-w-[75%] leading-relaxed font-semibold transition-opacity duration-300 ${isActive ? 'opacity-100 text-white/60' : 'opacity-0 xl:opacity-100 text-ink/50 hidden xl:block'}`}>
+                      {item.description}
+                    </p>
+                    <ArrowUpRight className={`w-8 h-8 sm:w-10 sm:h-10 transition-all duration-300 ${isActive ? 'text-[#7dd3fc]' : 'text-[#7dd3fc] group-hover:scale-110 group-hover:translate-x-1 group-hover:-translate-y-1'}`} strokeWidth={1} />
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+          
+          {/* Right Column: Image Panel */}
+          <div className="w-full xl:w-[60%] h-[350px] sm:h-[450px] xl:h-full rounded-[24px] sm:rounded-[32px] overflow-hidden relative shadow-2xl bg-black shrink-0">
+             <AnimatePresence>
+               <motion.div
+                 key={activeIndex}
+                 initial={{ opacity: 0, scale: 1.05 }}
+                 animate={{ opacity: 1, scale: 1 }}
+                 exit={{ opacity: 0 }}
+                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                 className="absolute inset-0"
+               >
+                 <Image 
+                   src={CHOOSE_US_DATA[activeIndex].media}
+                   alt={CHOOSE_US_DATA[activeIndex].title}
+                   fill
+                   className="object-cover"
+                   sizes="(max-width: 1280px) 100vw, 60vw"
+                   priority
+                 />
+               </motion.div>
+             </AnimatePresence>
+          </div>
+
+        </div>
+      </div>
     </section>
   )
 }

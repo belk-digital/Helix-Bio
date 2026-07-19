@@ -43,7 +43,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['Outfit', 'Inter', '"Geist Placeholder"', 'sans-serif'],
-        heading: ['Michroma', '"Big Shoulders Display"', 'sans-serif'],
+        heading: ['"Plus Jakarta Sans"', '"Big Shoulders Display"', 'sans-serif'],
         display: ['"Space Grotesk"', 'sans-serif'],
       },
       fontSize: {

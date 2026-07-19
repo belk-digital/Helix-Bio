@@ -27,8 +27,9 @@ export function TrustBadges() {
   };
 
   return (
-    <section className="bg-cream px-4 md:px-10 pt-24 pb-32 md:pt-32 md:pb-48 lg:pb-64 w-full relative z-30">
-      <div className="max-w-[88rem] mx-auto">
+    <section className="bg-[#FAFAFA] px-4 md:px-10 pt-24 pb-32 md:pt-32 md:pb-48 lg:pb-64 w-full relative">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#ffffff,transparent_70%)] pointer-events-none" />
+      <div className="max-w-[88rem] mx-auto relative z-10">
         {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -40,7 +41,11 @@ export function TrustBadges() {
           <div className="w-full md:w-1/2">
             <p className="text-primary text-xs sm:text-sm tracking-[0.2em] uppercase mb-3 sm:mb-4 font-bold">{t('eyebrow')}</p>
             <h2 className="font-heading text-[2.5rem] sm:text-4xl md:text-5xl lg:text-7xl font-black text-zinc-900 leading-[0.9] tracking-tighter uppercase mb-2 md:mb-4 break-words">
-              {t('titleLine1')} <br className="hidden md:block" /> {t('titleLine2')}<span className="text-primary">.</span>
+              {t('titleLine1')} <br className="hidden md:block" /> 
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-900 via-primary to-zinc-900">
+                {t('titleLine2')}
+              </span>
+              <span className="text-primary">.</span>
             </h2>
             <p className="text-zinc-500 font-bold text-xs sm:text-sm md:text-base tracking-[0.15em] uppercase mb-0 md:mb-8">
               {t('subtitle')}
@@ -57,45 +62,49 @@ export function TrustBadges() {
           </div>
         </motion.div>
 
-        {/* Row 2 - Cards Grid using PinterestGlassCard */}
+        {/* Row 2 - Bento Box Grid using PinterestGlassCard */}
         <motion.div 
           variants={cardContainerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6"
         >
-          {/* Card 1 */}
-          <motion.div variants={cardVariants} className="flex justify-center h-full">
+          {/* Card 1 (Large Featured - Left Side) */}
+          <motion.div variants={cardVariants} className="lg:col-span-2 flex h-full">
             <PinterestGlassCard 
               title={t('cards.purity.title')}
               description={t('cards.purity.description')}
-              icon={<ShieldCheck className="w-5 h-5" />}
+              icon={<ShieldCheck className="w-6 h-6" />}
               tag={t('cards.purity.tag')}
               microcopy={t('cards.purity.microcopy')}
+              size="large"
             />
           </motion.div>
 
-          {/* Card 2 */}
-          <motion.div variants={cardVariants} className="flex justify-center h-full lg:mt-16">
-            <PinterestGlassCard 
-              title={t('cards.stability.title')}
-              description={t('cards.stability.description')}
-              icon={<FlaskConical className="w-5 h-5" />}
-              tag={t('cards.stability.tag')}
-              microcopy={t('cards.stability.microcopy')}
-            />
-          </motion.div>
+          {/* Cards 2 & 3 (Stacked - Right Side) */}
+          <motion.div className="lg:col-span-1 flex flex-col gap-6">
+            <motion.div variants={cardVariants} className="flex-1 flex">
+              <PinterestGlassCard 
+                title={t('cards.stability.title')}
+                description={t('cards.stability.description')}
+                icon={<FlaskConical className="w-5 h-5" />}
+                tag={t('cards.stability.tag')}
+                microcopy={t('cards.stability.microcopy')}
+                size="standard"
+              />
+            </motion.div>
 
-          {/* Card 3 */}
-          <motion.div variants={cardVariants} className="flex justify-center h-full lg:mt-32">
-            <PinterestGlassCard 
-              title={t('cards.dosing.title')}
-              description={t('cards.dosing.description')}
-              icon={<Target className="w-5 h-5" />}
-              tag={t('cards.dosing.tag')}
-              microcopy={t('cards.dosing.microcopy')}
-            />
+            <motion.div variants={cardVariants} className="flex-1 flex">
+              <PinterestGlassCard 
+                title={t('cards.dosing.title')}
+                description={t('cards.dosing.description')}
+                icon={<Target className="w-5 h-5" />}
+                tag={t('cards.dosing.tag')}
+                microcopy={t('cards.dosing.microcopy')}
+                size="standard"
+              />
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

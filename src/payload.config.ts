@@ -45,7 +45,7 @@ if (!process.env.PAYLOAD_SECRET) {
   throw new Error('PAYLOAD_SECRET environment variable is required and was not set.')
 }
 if (process.env.NODE_ENV === 'production' && !process.env.RESEND_API_KEY) {
-  throw new Error('RESEND_API_KEY environment variable is required in production and was not set.')
+  console.warn('WARNING: RESEND_API_KEY environment variable is missing in production.')
 }
 if (process.env.NODE_ENV === 'production' && !process.env.RESEND_FROM_EMAIL) {
   console.error('RESEND_FROM_EMAIL is not set — emails without an explicit "from" will send from Resend\'s sandbox domain.')

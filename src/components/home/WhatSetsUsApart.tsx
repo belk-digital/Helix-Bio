@@ -1,349 +1,104 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion'
-import { ArrowRight, Microscope, Activity, FileText, FlaskConical, Hexagon } from 'lucide-react'
+import React from 'react'
 import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
+import { ArrowRight } from 'lucide-react'
 
-// Custom hook for the scramble/decode text effect
-const ScrambleText = ({ text, activeIndex }: { text: string, activeIndex: number }) => {
-  const [displayText, setDisplayText] = useState(text);
-  
-  useEffect(() => {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}[]|<>?';
-    let frame = 0;
-    const maxFrames = 12; // Controls duration of the scramble
-    
-    const interval = setInterval(() => {
-      frame++;
-      if (frame >= maxFrames) {
-        clearInterval(interval);
-        setDisplayText(text);
-      } else {
-        const scrambled = text.split('').map(char => {
-          if (char === ' ' || char === '\n') return char;
-          // As frames progress, lock in correct characters left to right
-          if (Math.random() < frame / maxFrames) return char;
-          return chars[Math.floor(Math.random() * chars.length)];
-        }).join('');
-        setDisplayText(scrambled);
-      }
-    }, 30); // Speed of character changes
-    
-    return () => clearInterval(interval);
-  }, [text, activeIndex]);
-
-  return <span>{displayText}</span>;
-}
-
-const ADVANTAGE_KEYS = [
-  { key: 'purityStandards', icon: Microscope },
-  { key: 'massSpecValidation', icon: Activity },
-  { key: 'comprehensiveDocs', icon: FileText },
-  { key: 'researchOnly', icon: FlaskConical }
+const ADVANTAGES = [
+  { key: 'purityStandards', image: '/99 Images/purity.webp' },
+  { key: 'massSpecValidation', image: '/99 Images/identity.webp?v=2' },
+  { key: 'comprehensiveDocs', image: '/99 Images/coa.webp' },
+  { key: 'researchOnly', image: '/99 Images/category-1.webp' } 
 ]
 
 export function WhatSetsUsApart() {
   const t = useTranslations('home.whatSetsUsApart')
-  const ADVANTAGES = ADVANTAGE_KEYS.map(({ key, icon }) => ({
-    title: t(`items.${key}.title`),
-    description: t(`items.${key}.description`),
-    icon
-  }))
-  const [activeIndex, setActiveIndex] = useState(0)
-
-  // Custom Cursor Logic
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-  const cursorX = useSpring(mouseX, { stiffness: 400, damping: 28, mass: 0.5 })
-  const cursorY = useSpring(mouseY, { stiffness: 400, damping: 28, mass: 0.5 })
   
-  const [isHoveringSection, setIsHoveringSection] = useState(false)
-  const [isHoveringClickable, setIsHoveringClickable] = useState(false)
-
-  // Auto-cycle through the nodes every 6 seconds
-  useEffect(() => {
-    if (isHoveringSection) return; // Pause auto-rotation when user is interacting
-
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % ADVANTAGES.length)
-    }, 6000)
-    
-    return () => clearInterval(interval)
-  }, [activeIndex, isHoveringSection])
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX - 50)
-      mouseY.set(e.clientY - 50)
-    }
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [mouseX, mouseY])
-
-  // Node coordinates pushed outwards to fill the space, combined with precise 45-degree circuit paths
-  const nodes = [
-    { x: '15%', y: '15%', path: 'M 50 50 L 35 50 L 15 30 L 15 15' }, // Top Left
-    { x: '85%', y: '20%', path: 'M 50 50 L 50 35 L 65 20 L 85 20' }, // Top Right
-    { x: '20%', y: '85%', path: 'M 50 50 L 50 65 L 30 85 L 20 85' }, // Bottom Left
-    { x: '85%', y: '85%', path: 'M 50 50 L 70 50 L 85 65 L 85 85' }, // Bottom Right
-  ]
-  const center = { x: '50%', y: '50%' }
-
-  const activeAdvantage = ADVANTAGES[activeIndex]
-  const ActiveIcon = activeAdvantage.icon
-
   return (
-    <section 
-      onMouseEnter={() => setIsHoveringSection(true)}
-      onMouseLeave={() => setIsHoveringSection(false)}
-      className={`bg-gradient-to-b from-white to-cream py-24 md:py-32 relative z-30 font-sans overflow-hidden min-h-screen flex items-center ${!isHoveringClickable ? 'cursor-none' : 'cursor-auto'}`}
-    >
-      {/* Custom Cursor matching Categories section */}
-      <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[100] hidden md:flex items-center justify-center rounded-full bg-primary text-white font-bold text-[10px] uppercase tracking-widest text-center shadow-[0_10px_40px_rgba(0,139,139,0.4)]"
-        style={{ width: 100, height: 100, x: cursorX, y: cursorY }}
-        animate={{ 
-          scale: isHoveringSection && !isHoveringClickable ? 1 : 0,
-          opacity: isHoveringSection && !isHoveringClickable ? 1 : 0,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 400,
-          damping: 28,
-          mass: 0.5,
-        }}
-      >
-        <span className="max-w-[70px] leading-tight text-[11px] font-bold">{t('clickCursorLine1')}<br/>{t('clickCursorLine2')}</span>
-      </motion.div>
+    <section className="bg-zinc-950 py-20 md:py-32 lg:py-40 relative font-sans overflow-hidden">
+      {/* Background Ambience */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[100rem] h-full pointer-events-none">
+        <div className="absolute top-[10%] left-[5%] w-[40vw] h-[40vw] bg-cyan-900/10 rounded-full blur-[120px] mix-blend-screen" />
+        <div className="absolute bottom-[10%] right-[5%] w-[30vw] h-[30vw] bg-blue-900/10 rounded-full blur-[100px] mix-blend-screen" />
+      </div>
 
-      <div className="w-full mx-auto px-4 sm:px-12 md:px-16 max-w-[120rem] relative z-10">
+      {/* SVG Mask Definition */}
+      <svg width="0" height="0" className="absolute pointer-events-none">
+        <defs>
+          <clipPath id="stages-mask" clipPathUnits="objectBoundingBox">
+            <rect x="0" y="0" width="0.75" height="0.55" rx="0.1375" ry="0.275" />
+            <rect x="0.25" y="0.45" width="0.75" height="0.55" rx="0.1375" ry="0.275" />
+          </clipPath>
+        </defs>
+      </svg>
+
+      <div className="container mx-auto px-6 sm:px-12 md:px-16 max-w-[100rem] relative z-10">
         
-        <div className="flex flex-col items-center text-center mb-16 lg:mb-24 relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-block border border-primary/20 rounded-full px-4 py-1.5 mb-6 bg-white shadow-sm"
-          >
-            <span className="text-primary text-xs font-bold tracking-[0.2em] uppercase">{t('eyebrow')}</span>
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-heading text-5xl md:text-7xl font-black text-ink leading-none tracking-tighter uppercase mb-6"
-          >
-            {t('titleLine1')}<br />{t('titleLine2')}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-ink-muted text-lg leading-relaxed max-w-4xl font-medium"
-          >
-            {t.rich('description', { strong: (chunks) => <strong className="text-ink">{chunks}</strong> })}
-          </motion.p>
+        <div className="mb-20 lg:mb-32">
+          <div className="inline-block border border-white/10 rounded-full px-4 py-1.5 mb-6 bg-white/5 backdrop-blur-sm">
+            <span className="text-white/70 text-xs font-bold tracking-[0.2em] uppercase">The HelixBio Standard</span>
+          </div>
+          <h2 className="font-heading text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] font-black text-white leading-[0.9] tracking-tighter uppercase break-words drop-shadow-2xl">
+            {t('titleLine1')}<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/40">{t('titleLine2')}</span>
+          </h2>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-          
-          {/* Left: Interactive Molecular Diagram */}
-          <div className="w-full lg:w-1/2 relative aspect-square max-w-[800px] mx-auto z-10">
-            
-            {/* SVG Connecting Fiber Optics & Web */}
-            <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible">
+        <div className="flex flex-col">
+          {ADVANTAGES.map((adv, index) => (
+            <div key={adv.key} className="flex flex-col md:flex-row items-start md:items-center py-10 md:py-16 border-t border-white/10 gap-6 md:gap-8 lg:gap-16 group md:hover:bg-white/[0.02] transition-colors duration-500 -mx-6 px-6 sm:-mx-12 sm:px-12 md:-mx-16 md:px-16">
               
-              {/* Background intricate web elements */}
-              <circle cx="50" cy="50" r="25" fill="none" stroke="rgba(0,0,0,0.03)" strokeWidth="0.3" />
-              <circle cx="50" cy="50" r="35" fill="none" stroke="rgba(0,0,0,0.02)" strokeWidth="0.2" strokeDasharray="1 1.5" />
-              <path d="M 25 50 A 25 25 0 0 1 50 25" fill="none" stroke="rgba(0,139,139,0.15)" strokeWidth="0.4" />
-              <path d="M 75 50 A 25 25 0 0 1 50 75" fill="none" stroke="rgba(0,139,139,0.15)" strokeWidth="0.4" />
-              <line x1="50" y1="0" x2="50" y2="100" stroke="rgba(0,0,0,0.02)" strokeWidth="0.1" />
-              <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(0,0,0,0.02)" strokeWidth="0.1" />
+              {/* Top Row for Mobile (Number + Image) */}
+              <div className="flex flex-row items-center gap-6 md:gap-0 w-full md:w-auto">
+                {/* Number */}
+                <div className="w-12 md:w-24 shrink-0 text-white/30 md:text-white/20 md:group-hover:text-cyan-400 font-heading text-xl sm:text-2xl md:text-3xl font-black tracking-widest transition-colors duration-500">
+                  {`0${index + 1}`}
+                </div>
 
-              {nodes.map((n, i) => {
-                const isActive = activeIndex === i;
-                return (
-                  <g key={`bond-${i}`}>
-                    {/* Inactive Fiber Base (looks like a clear physical tube) */}
-                    <path 
-                      d={n.path}
-                      fill="none"
-                      stroke="rgba(0,0,0,0.04)" 
-                      strokeWidth="1.2" 
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path 
-                      d={n.path}
-                      fill="none"
-                      stroke="rgba(255,255,255,0.8)" 
-                      strokeWidth="0.4" 
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-
-                    {/* Active Solid Connection Line */}
-                    {isActive && (
-                      <motion.path 
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        d={n.path}
-                        fill="none"
-                        stroke="#008B8B" 
-                        strokeWidth="0.6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    )}
-                    
-                    {/* Data Pulses */}
-                    <motion.path 
-                      d={n.path}
-                      fill="none"
-                      stroke={isActive ? "rgba(0,139,139,1)" : "rgba(255,255,255,0.6)"} 
-                      strokeWidth={isActive ? "0.8" : "0.4"}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeDasharray={isActive ? "2 12" : "1 25"}
-                      initial={{ strokeDashoffset: 0 }}
-                      animate={{ strokeDashoffset: -100 }}
-                      transition={{ 
-                        repeat: Infinity, 
-                        ease: "linear", 
-                        duration: isActive ? 1.5 : 4 
-                      }}
-                    />
-                  </g>
-                );
-              })}
-            </svg>
-
-            {/* Center Core (Physical Glass Dial) */}
-            <div className="absolute z-10 w-28 h-28 lg:w-36 lg:h-36 bg-white/40 backdrop-blur-2xl border border-white/60 rounded-full flex flex-col items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,1),_0_12px_40px_rgba(0,0,0,0.08)]" style={{ top: center.y, left: center.x, transform: 'translate(-50%, -50%)' }}>
-              {/* Inner metallic/glass rim */}
-              <div className="absolute inset-2 border-2 border-white/50 rounded-full shadow-[inset_0_0_10px_rgba(0,0,0,0.05)] flex items-center justify-center">
-                <motion.div 
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-1 border-[1.5px] border-primary/40 rounded-full border-dashed"
-                />
-              </div>
-              
-              <div className="relative z-10 w-16 h-16 lg:w-24 lg:h-24 -ml-3">
-                <Image 
-                  src="/99 Images/99pp-Logo-small.png" 
-                  alt="99 Purity Peptides Logo" 
-                  fill 
-                  className="object-contain"
-                />
-              </div>
-            </div>
-
-            {/* Orbiting Nodes (Frosted Lenses) */}
-            {ADVANTAGE_KEYS.map(({ key, icon: NodeIcon }, i) => {
-              const n = nodes[i];
-              const isActive = activeIndex === i;
-              return (
-                <div 
-                  key={`node-${i}`}
-                  className="absolute z-20 w-16 h-16 lg:w-20 lg:h-20"
-                  style={{ top: n.y, left: n.x, transform: 'translate(-50%, -50%)' }}
-                >
-                  {/* Pulse Ring Affordance for Inactive Nodes */}
-                  {!isActive && (
-                    <motion.div
-                      initial={{ scale: 0.8, opacity: 0 }}
-                      animate={{ scale: 1.8, opacity: [0, 0.4, 0] }}
-                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut", delay: i * 0.2 }}
-                      className="absolute inset-0 rounded-full border border-primary pointer-events-none will-change-transform"
-                    />
-                  )}
-
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setActiveIndex(i)}
-                    onMouseEnter={() => setIsHoveringClickable(true)}
-                    onMouseLeave={() => setIsHoveringClickable(false)}
-                    aria-label={t(`items.${key}.shortLabel`)}
-                    className={`absolute inset-0 w-full h-full flex items-center justify-center rounded-full transition-all duration-500 backdrop-blur-2xl ${
-                      isActive 
-                        ? 'bg-primary border-4 border-white shadow-[0_12px_30px_rgba(0,139,139,0.25)] scale-110 z-10' 
-                        : 'bg-white/40 border border-white/50 shadow-[inset_0_1px_2px_rgba(255,255,255,1),_0_8px_20px_rgba(0,0,0,0.06)] hover:bg-white/60 hover:shadow-[inset_0_1px_2px_rgba(255,255,255,1),_0_12px_30px_rgba(0,0,0,0.1)] z-10'
-                    }`}
+                {/* Image Mask Container */}
+                <div className="w-32 h-16 sm:w-48 sm:h-24 md:w-72 md:h-36 shrink-0 relative opacity-90 md:opacity-70 md:group-hover:opacity-100 transition-opacity duration-500">
+                  <div 
+                    className="absolute inset-0 w-full h-full shadow-[0_0_20px_rgba(0,0,0,0.5)] md:group-hover:shadow-[0_0_40px_rgba(14,165,233,0.2)] transition-shadow duration-700"
+                    style={{ clipPath: 'url(#stages-mask)' }}
                   >
-                    <NodeIcon className={`w-6 h-6 lg:w-8 lg:h-8 transition-colors duration-500 relative z-20 ${isActive ? 'text-white' : 'text-ink-muted'}`} />
-                  </motion.button>
-
-                  {/* Node Label */}
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-32 text-center pointer-events-none z-30">
-                    <span className={`inline-block px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-white/60 shadow-[0_2px_10px_rgba(0,0,0,0.05)] text-[10px] uppercase tracking-widest font-bold transition-colors duration-500 ${isActive ? 'text-primary' : 'text-ink-muted'}`}>
-                      {t(`items.${key}.shortLabel`)}
-                    </span>
+                    <Image 
+                      src={adv.image} 
+                      alt={t(`items.${adv.key}.title`)} 
+                      fill 
+                      className="object-cover transition-transform duration-1000 ease-out md:group-hover:scale-110" 
+                    />
+                    <div className="absolute inset-0 bg-black/20 md:bg-black/40 md:group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              </div>
 
-          {/* Right: Content Display */}
-          <div className="w-full lg:w-1/2 relative min-h-[400px] flex flex-col justify-center z-10">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeIndex}
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.25, ease: "easeInOut" }}
-                className="relative bg-white/40 border border-white/60 rounded-[40px] p-8 md:p-12 backdrop-blur-[40px] shadow-[0_24px_64px_rgba(0,0,0,0.06),_inset_0_1px_1px_rgba(255,255,255,1)] overflow-hidden will-change-transform"
-              >
-                {/* Ultra-premium glass reflection line */}
-                <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-80" />
-                
-                {/* Huge faded background icon */}
-                <div className="absolute -right-10 -bottom-10 opacity-[0.02] pointer-events-none mix-blend-overlay">
-                  <ActiveIcon className="w-64 h-64 text-ink" />
-                </div>
-
-                <div className="flex items-center gap-4 mb-8 relative z-10">
-                  <div className="w-12 h-12 rounded-full bg-white/50 border border-white shadow-sm flex items-center justify-center backdrop-blur-md">
-                    <ActiveIcon className="w-6 h-6 text-primary" />
-                  </div>
-                  <span className="text-primary font-mono text-xs tracking-widest uppercase font-bold bg-white/50 px-3 py-1 rounded-full border border-white shadow-sm">
-                    {t('nodeLabel', { number: activeIndex + 1 })}
-                  </span>
-                </div>
-
-                <h3 className="text-3xl md:text-4xl font-bold text-ink mb-6 tracking-tight relative z-10 drop-shadow-sm font-mono tracking-tighter">
-                  <ScrambleText text={activeAdvantage.title} activeIndex={activeIndex} />
+              {/* Title */}
+              <div className="flex-1 min-w-[200px] w-full transform transition-transform duration-500 md:group-hover:translate-x-4">
+                <h3 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white/90 md:text-white/80 md:group-hover:text-white transition-colors duration-500 leading-[1.1]">
+                  {t(`items.${adv.key}.title`)}
                 </h3>
-                
-                <p className="text-ink-muted leading-relaxed text-lg md:text-xl font-medium relative z-10 font-mono tracking-tight">
-                  <ScrambleText text={activeAdvantage.description} activeIndex={activeIndex} />
+              </div>
+
+              {/* Description & Link */}
+              <div className="w-full md:w-[35%] xl:w-1/3 shrink-0 flex flex-col items-start gap-4 sm:gap-5 transform transition-transform duration-500 md:group-hover:translate-x-2">
+                <p className="text-white/70 md:text-white/50 md:group-hover:text-white/70 text-sm sm:text-base leading-relaxed font-medium transition-colors duration-500">
+                  {t(`items.${adv.key}.description`)}
                 </p>
+                <Link
+                  href="/about-us"
+                  className="inline-flex items-center gap-3 text-white uppercase tracking-[0.2em] text-[10px] md:text-[11px] font-bold border border-white/20 bg-white/5 rounded-[10px] px-6 py-3 hover:bg-white hover:text-black transition-all duration-300 mt-2 md:mt-0"
+                >
+                  Learn More
+                  <ArrowRight size={14} className="md:group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
 
-                <div className="mt-12 pt-8 border-t border-white/60 relative z-10 flex items-center justify-between">
-                  <Link
-                    href="/about-us"
-                    onMouseEnter={() => setIsHoveringClickable(true)}
-                    onMouseLeave={() => setIsHoveringClickable(false)}
-                    className="inline-flex items-center gap-2 text-primary hover:text-primary-dark transition-colors uppercase tracking-[0.2em] text-xs font-bold group"
-                  >
-                    {t('viewProtocolData')}
-                    <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
-                      <ArrowRight size={12} />
-                    </div>
-                  </Link>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
+            </div>
+          ))}
+          
+          <div className="border-t border-white/10 w-full -mx-6 px-6 sm:-mx-12 sm:px-12 md:-mx-16 md:px-16" />
         </div>
       </div>
     </section>

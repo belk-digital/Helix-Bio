@@ -65,32 +65,29 @@ function CountdownTimer({ expiresAt }: { expiresAt: string }) {
 
   return (
     <div className="flex items-center gap-1 text-[10px] font-mono font-bold tracking-wider">
-      {/* Hours */}
       <div className="flex flex-col items-center gap-[2px]">
-        <div className="flex items-center justify-center bg-white/10 backdrop-blur-md border border-white/20 text-white w-6 h-6 rounded shadow-sm">
+        <div className="flex items-center justify-center bg-white/20 backdrop-blur-md border border-white/30 text-white w-6 h-6 rounded shadow-sm">
           {timeLeft.h}
         </div>
-        <span className="text-[5px] text-white/70 font-sans tracking-widest uppercase">HRS</span>
+        <span className="text-[6px] text-white/90 font-sans tracking-widest uppercase">HRS</span>
       </div>
       
       <span className="text-white/50 text-[10px] animate-pulse -mt-3">:</span>
       
-      {/* Minutes */}
       <div className="flex flex-col items-center gap-[2px]">
-        <div className="flex items-center justify-center bg-white/10 backdrop-blur-md border border-white/20 text-white w-6 h-6 rounded shadow-sm">
+        <div className="flex items-center justify-center bg-white/20 backdrop-blur-md border border-white/30 text-white w-6 h-6 rounded shadow-sm">
           {timeLeft.m}
         </div>
-        <span className="text-[5px] text-white/70 font-sans tracking-widest uppercase">MIN</span>
+        <span className="text-[6px] text-white/90 font-sans tracking-widest uppercase">MIN</span>
       </div>
       
       <span className="text-white/50 text-[10px] animate-pulse -mt-3">:</span>
 
-      {/* Seconds */}
       <div className="flex flex-col items-center gap-[2px]">
-        <div className="flex items-center justify-center bg-white/10 backdrop-blur-md border border-white/20 text-emerald-200 w-6 h-6 rounded shadow-sm">
+        <div className="flex items-center justify-center bg-white/30 backdrop-blur-md border border-white/50 text-white w-6 h-6 rounded shadow-sm font-black">
           {timeLeft.s}
         </div>
-        <span className="text-[5px] text-white/70 font-sans tracking-widest uppercase">SEC</span>
+        <span className="text-[6px] text-white/90 font-sans tracking-widest uppercase">SEC</span>
       </div>
     </div>
   )
@@ -111,12 +108,11 @@ function CouponBox({ code }: { code: string }) {
     <motion.button
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      onClick={handleCopy}
-      className="flex items-center gap-2 border border-dashed border-white/40 hover:border-white/80 bg-white/5 hover:bg-white/10 transition-colors px-3 py-1 rounded-md text-[10px] font-bold tracking-widest"
+      className="flex items-center gap-2 border border-dashed border-white/60 hover:border-white bg-white/10 hover:bg-white/20 transition-colors px-3 py-1 rounded-md text-[10px] font-bold tracking-widest text-white shadow-sm"
       title={t('clickToCopy')}
     >
       {code}
-      <Copy size={10} />
+      <Copy size={12} />
     </motion.button>
   )
 }
@@ -203,7 +199,7 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
     }
   }, [isLoggedIn, initialWishlistItems])
 
-  // Global Search Shortcut
+  // Global Search Shortcut & Custom Event
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
@@ -211,8 +207,15 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
         setIsSearchOpen(true)
       }
     }
+    const handleOpenSearch = () => setIsSearchOpen(true)
+    
     window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
+    window.addEventListener('open-search-modal', handleOpenSearch)
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+      window.removeEventListener('open-search-modal', handleOpenSearch)
+    }
   }, [])
 
   const pathname = usePathname()
@@ -251,33 +254,38 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
   const lastYRef = useRef(0)
 
   useMotionValueEvent(scrollY, 'change', (y) => {
-    setIsScrolled(y > 50)
+    setIsScrolled(y > 20)
     const difference = y - lastYRef.current
-    if (Math.abs(difference) > 20) {
-      if (difference > 0 && y > 150) {
+    
+    // Lower threshold so it reacts instantly to a single scroll wheel tick
+    if (Math.abs(difference) > 5) {
+      // Hide immediately when scrolling down, as long as we aren't at the very top
+      if (difference > 0 && y > 60) {
         setHidden(true)
-      } else {
+      } 
+      // Show immediately when scrolling up
+      else if (difference < 0) {
         setHidden(false)
       }
       lastYRef.current = y
     }
   })
 
-  // Force dark theme text/icons since 99 Purity Peptides is dark
-  const textColor = 'text-white'
+  // Force light theme text/icons for the new white layout
+  const textColor = 'text-black'
   const textHoverColor = 'hover:text-primary transition-colors'
-  const iconColor = '#ffffff'
-  const buttonBorder = 'border-white/20 hover:bg-white/10'
+  const iconColor = '#000000'
+  const buttonBorder = 'border-black/20 hover:bg-black/10'
 
   const headerContent = (
-    <div className={`flex items-center justify-between transition-all duration-300 px-6 w-full text-white ${isTransparentHeader && !isScrolled ? 'py-4' : 'py-2'}`}>
+    <div className={`flex items-center justify-between transition-all duration-300 px-6 md:px-12 w-full text-black py-4 md:py-5`}>
       {/* Left: Logo */}
       <div className="flex-1 xl:flex-none flex justify-start">
         <a 
           href="/" 
           className="flex items-center hover:opacity-80 transition-opacity gap-2"
         >
-          <img src="/99 Images/99pp-Logo.png" alt="99Purity Peptides" className="h-12 sm:h-16 w-auto object-contain" />
+          <img src="/HelixBio Images/hb-logo.png" alt="HelixBio" className="h-10 sm:h-12 w-auto object-contain" />
         </a>
       </div>
 
@@ -287,10 +295,10 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
           const getNavLinkClass = (path: string) => {
             const targetPath = path.replace('/en', '');
             const isActive = targetPath === '' ? pathname === '/en' || pathname === '/' : pathname.includes(targetPath);
-            return `text-[8px] xl:text-[8.5px] min-[1650px]:text-[10px] font-heading tracking-tight min-[1650px]:tracking-[0.1em] uppercase transition-all h-full flex items-center py-2 whitespace-nowrap ${
+            return `relative text-[9px] xl:text-[10px] min-[1650px]:text-[11px] font-heading tracking-[0.05em] min-[1650px]:tracking-[0.1em] uppercase transition-all duration-300 h-full flex items-center py-2 whitespace-nowrap ${
               isActive 
-                ? `font-bold text-primary opacity-100` 
-                : `font-medium ${textColor} opacity-70 hover:opacity-100 hover:text-primary`
+                ? `font-bold text-primary opacity-100 after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-primary after:rounded-full` 
+                : `font-semibold ${textColor} opacity-60 hover:opacity-100 hover:text-black hover:after:w-full after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-black/20 after:transition-all after:duration-300 after:rounded-full`
             }`;
           };
 
@@ -305,9 +313,9 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
                 onMouseEnter={handleMenuEnter}
                 onMouseLeave={handleMenuLeave}
               >
-                <Link href="/shop" onClick={() => setIsMegaMenuOpen(false)} className={`flex items-center gap-1 text-[8px] xl:text-[8.5px] min-[1650px]:text-[10px] font-heading tracking-tight min-[1650px]:tracking-[0.1em] uppercase transition-all h-full py-2 font-medium whitespace-nowrap ${textColor} opacity-70 hover:opacity-100 hover:text-primary`}>
+                <Link href="/shop" onClick={() => setIsMegaMenuOpen(false)} className={`group relative flex items-center gap-1.5 text-[9px] xl:text-[10px] min-[1650px]:text-[11px] font-heading tracking-[0.05em] min-[1650px]:tracking-[0.1em] uppercase transition-all duration-300 h-full py-2 font-semibold whitespace-nowrap ${textColor} opacity-60 hover:opacity-100 hover:text-black hover:after:w-full after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-black/20 after:transition-all after:duration-300 after:rounded-full`}>
                   {t('navCategories')}
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-70 group-hover:opacity-100 transition-opacity"><path d="m6 9 6 6 6-6"/></svg>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-70 group-hover:opacity-100 transition-transform duration-300 group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
                 </Link>
               </div>
 
@@ -335,24 +343,24 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
       </nav>
 
       {/* Right: Search, SHOP NOW Button & Cart */}
-      <div className="flex items-center justify-end gap-2 sm:gap-3 xl:gap-4 min-[1650px]:gap-6 flex-none shrink-0 text-sm relative z-20">
+      <div className="flex items-center justify-end gap-1 sm:gap-2 xl:gap-3 flex-none shrink-0 text-sm relative z-20">
         <button 
           onClick={() => setIsSearchOpen(true)}
-          className={`p-1.5 transition-colors relative flex items-center justify-center ${textColor} ${textHoverColor}`}
+          className={`p-2 rounded-full transition-all duration-300 relative flex items-center justify-center ${textColor} hover:bg-black/5 hover:scale-105`}
           aria-label={t('openSearch')}
         >
-          <Search size={18} strokeWidth={1.5} />
+          <Search size={18} strokeWidth={2} />
         </button>
 
-        <button onClick={cartStore.openCart} className={`p-1.5 transition-colors relative flex items-center justify-center ${textColor} ${textHoverColor}`} aria-label={t('openCart')}>
-          <ShoppingBag size={18} strokeWidth={1.5} />
+        <button onClick={cartStore.openCart} className={`p-2 rounded-full transition-all duration-300 relative flex items-center justify-center ${textColor} hover:bg-black/5 hover:scale-105`} aria-label={t('openCart')}>
+          <ShoppingBag size={18} strokeWidth={2} />
           <AnimatePresence>
             {activeCartCount > 0 && (
               <motion.span 
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0 }}
-                className={`absolute -top-1 -right-1 text-[9px] font-bold w-[14px] h-[14px] flex items-center justify-center rounded-full bg-primary text-white`}
+                className={`absolute top-0 right-0 text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full bg-[#121212] text-white shadow-sm`}
               >
                 {activeCartCount}
               </motion.span>
@@ -360,27 +368,27 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
           </AnimatePresence>
         </button>
         
-        <LanguageSwitcher className={`${textColor} hidden sm:flex`} />
+        <LanguageSwitcher className={`${textColor} hidden sm:flex px-2 hover:bg-black/5 rounded-full transition-colors`} />
 
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center ml-1">
           {mounted ? (
             isLoggedIn ? (
-              <Link href="/account" className={`p-1.5 transition-colors flex items-center justify-center ${textColor} ${textHoverColor}`} title="Account">
-                <User size={18} strokeWidth={1.5} />
+              <Link href="/account" className={`p-2 rounded-full transition-all duration-300 flex items-center justify-center ${textColor} hover:bg-black/5 hover:scale-105`} title="Account">
+                <User size={18} strokeWidth={2} />
               </Link>
             ) : (
               <>
-                <Link href="/login" className={`sm:hidden p-1.5 transition-colors flex items-center justify-center ${textColor} ${textHoverColor}`} title="Login">
-                  <User size={18} strokeWidth={1.5} />
+                <Link href="/login" className={`sm:hidden p-2 rounded-full transition-all duration-300 flex items-center justify-center ${textColor} hover:bg-black/5 hover:scale-105`} title="Login">
+                  <User size={18} strokeWidth={2} />
                 </Link>
-                <Link href="/login" className={`hidden sm:flex transition-colors items-center justify-center ${textColor} ${textHoverColor} px-2 text-[8px] xl:text-[9px] min-[1650px]:text-[10px] font-heading font-bold uppercase tracking-tight min-[1650px]:tracking-widest whitespace-nowrap`}>
+                <Link href="/login" className={`hidden sm:flex transition-all duration-300 items-center justify-center text-black hover:text-black/70 px-4 py-2 text-[9px] xl:text-[10px] min-[1650px]:text-[11px] font-heading font-bold uppercase tracking-widest whitespace-nowrap`}>
                   Login
                 </Link>
               </>
             )
           ) : null}
         </div>
-        <Link href="/shop" className={`hidden md:inline-flex border border-white/30 hover:border-white bg-transparent hover:bg-white text-white hover:text-black rounded-full px-3 py-1.5 min-[1650px]:px-6 min-[1650px]:py-2.5 text-[8px] xl:text-[9px] min-[1650px]:text-[11px] font-heading font-bold tracking-tight min-[1650px]:tracking-[0.1em] uppercase transition-colors duration-300 whitespace-nowrap`}>
+        <Link href="/shop" className={`hidden md:inline-flex bg-[#121212] hover:bg-black text-white rounded-[10px] px-6 py-3 min-[1650px]:px-8 min-[1650px]:py-4 text-[11px] xl:text-[12px] min-[1650px]:text-[13px] font-heading font-bold uppercase tracking-widest transition-all duration-300 whitespace-nowrap ml-2`}>
           {t('shopNow')}
         </Link>
 
@@ -415,7 +423,7 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
                 initial={{ height: 44, opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.3 }}
-                className="w-full bg-primary-dark text-white flex items-center justify-center pointer-events-auto overflow-hidden relative"
+                className="w-full bg-black text-white flex items-center justify-center pointer-events-auto overflow-hidden relative z-50"
               >
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -426,9 +434,9 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
                     transition={{ duration: 0.3 }}
                     className="absolute w-full px-4 md:px-12 h-full flex items-center justify-center"
                   >
-                    {/* Desktop Layout */}
-                    <div className="hidden md:flex flex-row items-center justify-center gap-6 w-full">
-                      <span className="text-[11px] font-heading font-bold tracking-[0.2em] uppercase text-center shrink-0 mt-[2px]">
+                    {/* Desktop & Tablet Layout */}
+                    <div className="hidden sm:flex flex-row items-center justify-center gap-4 lg:gap-6 w-full">
+                      <span className="text-[10px] lg:text-[11px] font-heading font-extrabold tracking-[0.2em] uppercase text-center shrink-0 mt-[2px] drop-shadow-sm">
                         {t(`announcements.${ANNOUNCEMENTS[announcementIndex].key}`)}
                       </span>
                       {ANNOUNCEMENTS[announcementIndex].couponCode && ANNOUNCEMENTS[announcementIndex].expiresAt && (
@@ -440,7 +448,7 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
                     </div>
 
                     {/* Mobile Layout */}
-                    <div className="flex md:hidden flex-row items-center justify-center w-full h-full relative">
+                    <div className="flex sm:hidden flex-row items-center justify-center w-full h-full relative">
                       <AnimatePresence mode="wait">
                         {(!ANNOUNCEMENTS[announcementIndex].couponCode || !showMobileTimer) ? (
                           <motion.span
@@ -449,7 +457,7 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
                             animate={{ y: 0, opacity: 1 }}
                             exit={{ y: -10, opacity: 0 }}
                             transition={{ duration: 0.2 }}
-                            className="text-[9px] font-heading font-bold tracking-[0.1em] uppercase text-center mt-[1px] absolute w-full px-6 leading-snug"
+                            className="text-[9px] font-heading font-extrabold tracking-[0.1em] uppercase text-center mt-[1px] absolute w-full px-6 leading-snug drop-shadow-sm"
                           >
                             {t(`announcements.${ANNOUNCEMENTS[announcementIndex].key}`)}
                           </motion.span>
@@ -472,26 +480,19 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
                 </AnimatePresence>
                 <button 
                   onClick={closeAnnouncement}
-                  className="absolute right-2 md:right-4 text-white/70 hover:text-white transition-colors z-10 p-2 md:p-0"
+                  className="absolute right-2 md:right-4 text-white/80 hover:text-white transition-colors z-50 p-2 md:p-0 bg-black/10 hover:bg-black/20 rounded-full md:bg-transparent md:hover:bg-transparent"
                   aria-label={t('closeAnnouncement')}
                 >
-                  <X size={14} strokeWidth={2} />
+                  <X size={16} strokeWidth={2.5} />
                 </button>
               </motion.div>
             )}
           </AnimatePresence>
 
-          <div className={`w-[calc(100%-2rem)] md:w-[calc(100%-6rem)] mx-auto relative pointer-events-auto rounded-full transition-all duration-500 ${isTransparentHeader && !isScrolled ? 'mt-4 sm:mt-5 md:mt-8 shadow-none' : 'mt-4 shadow-[0_8px_24px_rgba(0,0,0,0.15)] ring-1 ring-white/5'}`}>
-            {isTransparentHeader && !isScrolled ? (
-              <div className="w-full transition-all duration-500 border border-transparent rounded-full">
-                {headerContent}
-              </div>
-            ) : (
-              <div className="w-full transition-all duration-500 rounded-full bg-black/60 backdrop-blur-md border border-white/10 overflow-hidden transform-gpu">
-                <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent pointer-events-none rounded-full" />
-                {headerContent}
-              </div>
-            )}
+          <div className={`w-full relative pointer-events-auto bg-white transition-all duration-500 z-50 ${isScrolled ? 'shadow-[0_4px_20px_rgba(0,0,0,0.03)]' : ''}`}>
+            <div className="w-full mx-auto">
+              {headerContent}
+            </div>
           </div>
         </motion.div>
 

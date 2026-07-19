@@ -260,7 +260,7 @@ export function CoaSection() {
          {/* Call to action */}
          <div className="mt-12 lg:mt-16 flex justify-center px-4">
            <FadeUp delay={1.2}>
-             <a href="/certificates" className="group bg-transparent border border-[#008B8B]/30 text-ink hover:bg-[#008B8B] hover:border-[#008B8B] hover:text-white rounded-full px-6 lg:px-8 py-4 uppercase tracking-widest text-[10px] md:text-xs font-bold transition-all duration-300 flex items-center gap-3">
+             <a href="/certificates" className="group bg-transparent border border-[#008B8B]/30 text-ink hover:bg-[#008B8B] hover:border-[#008B8B] hover:text-white rounded-[10px] px-8 lg:px-10 py-5 uppercase tracking-widest text-[11px] md:text-sm font-bold transition-all duration-300 flex items-center gap-3">
                {t('ctaText')}
                <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />
              </a>

@@ -6,20 +6,33 @@ export default function HomepageLoading() {
       <div className="flex flex-col w-full min-h-screen relative z-10 bg-black overflow-x-clip">
         
         {/* Hero Section Skeleton Mimic */}
-        <div className="relative w-full h-[100dvh] min-h-[500px] md:min-h-[700px] bg-cream p-3 pt-[44px] sm:p-5 sm:pt-[52px] md:p-8 md:pt-16 font-sans overflow-hidden flex">
-          <div className="relative w-full h-full bg-zinc-900 rounded-[2rem] md:rounded-[4rem] overflow-hidden flex flex-col justify-center p-8 md:p-16 lg:p-24">
-            <Skeleton className="w-[80%] max-w-4xl h-16 md:h-24 lg:h-32 mb-6 bg-white/10" />
-            <Skeleton className="w-[60%] max-w-2xl h-6 md:h-8 mb-10 bg-white/10" />
-            
-            <div className="absolute bottom-0 left-0 bg-cream rounded-tr-[3rem] md:rounded-tr-[4rem] p-3 sm:p-5 md:p-8 pt-6 md:pt-10 pr-6 md:pr-10">
-              <Skeleton className="w-[180px] h-[60px] md:w-[220px] md:h-[70px] rounded-full bg-black/10" />
+        <section className="bg-white w-full px-4 sm:px-6 md:px-12 pb-6 md:pb-12 pt-[140px] font-sans min-h-screen flex flex-col">
+          <div className="relative w-full flex-1 min-h-[400px] md:min-h-[450px] rounded-[32px] overflow-visible bg-zinc-200 animate-pulse">
+
+            {/* Text Content Skeleton */}
+            <div className="absolute top-8 sm:top-12 md:top-1/4 left-6 sm:left-8 md:left-16 flex flex-col items-start z-10">
+              <Skeleton className="w-[280px] md:w-[400px] h-10 md:h-16 mb-4 bg-white/20 rounded-lg" />
+              <Skeleton className="w-[200px] md:w-[300px] h-10 md:h-16 mb-6 bg-white/20 rounded-lg" />
+              <Skeleton className="w-[250px] md:w-[350px] h-4 md:h-5 bg-white/20 rounded-full" />
             </div>
 
-            <div className="absolute bottom-10 right-10 flex gap-4">
-              <Skeleton className="w-[200px] h-[300px] rounded-2xl bg-white/5" />
+            {/* Floating Action Bar Skeleton */}
+            <div className="absolute -bottom-24 md:-bottom-10 left-1/2 -translate-x-1/2 w-[95%] md:w-[90%] lg:w-[80%] max-w-5xl bg-white rounded-[24px] shadow-[0_8px_30px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-0 z-20 border border-gray-100">
+              <div className="flex-1 flex justify-start md:justify-center w-full md:w-auto">
+                <Skeleton className="w-full h-[52px] bg-gray-100 rounded-xl" />
+              </div>
+              <div className="hidden md:block w-px h-10 bg-gray-100 shrink-0 mx-2 lg:mx-4" />
+              <div className="flex-[1.5] flex justify-center w-full md:w-auto px-1 md:px-0">
+                <Skeleton className="w-full h-[52px] bg-gray-100 rounded-[16px]" />
+              </div>
+              <div className="hidden md:block w-px h-10 bg-gray-100 shrink-0 mx-2 lg:mx-4" />
+              <div className="flex-1 flex justify-end md:justify-center w-full md:w-auto">
+                <Skeleton className="w-full h-[52px] bg-gray-100 rounded-[16px]" />
+              </div>
             </div>
+
           </div>
-        </div>
+        </section>
 
         {/* Trust Badges Skeleton Mimic */}
         <div className="w-full bg-black py-8 border-y border-white/10">

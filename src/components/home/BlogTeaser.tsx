@@ -103,7 +103,7 @@ export function BlogTeaser() {
            </div>
 
            <div>
-            <Button variant="outline" asChild className="border-slate-300 text-ink hover:bg-[#008B8B] hover:border-[#008B8B] hover:text-white rounded-full px-6 xl:px-8 py-4 uppercase tracking-widest text-[10px] xl:text-xs font-bold transition-all duration-300 shadow-sm">
+            <Button variant="outline" asChild className="border-slate-300 text-ink hover:bg-[#008B8B] hover:border-[#008B8B] hover:text-white px-8 xl:px-10 py-5 uppercase tracking-widest text-[11px] xl:text-sm font-bold transition-all duration-300 shadow-sm">
                <Link href="/blog">{t('ctaText')} →</Link>
              </Button>
            </div>
