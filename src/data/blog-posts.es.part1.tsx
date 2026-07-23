@@ -604,7 +604,7 @@ export const BLOG_POSTS_PART1: {
     category: 'Investigación de crecimiento',
     date: '16 de mayo de 2026',
     readTime: '10 min de lectura',
-    excerpt: 'Descubre los principales beneficios de los péptidos de colágeno, respaldados por la ciencia, para la piel, las articulaciones, los huesos y los músculos. Colágeno hidrolizado de grado investigación disponible en 99 Purity Peptides.',
+    excerpt: 'Descubre los principales beneficios de los péptidos de colágeno, respaldados por la ciencia, para la piel, las articulaciones, los huesos y los músculos. Colágeno hidrolizado de grado investigación disponible en Helix Bio.',
     imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/collagen-peptides-benefits-hero.webp',
     content: (
       <>
@@ -614,7 +614,7 @@ export const BLOG_POSTS_PART1: {
         </p>
         <p className="mb-4">Pero con docenas de productos inundando el mercado, la mayoría de las personas se hacen la misma pregunta crítica: <strong>¿qué hacen realmente los péptidos de colágeno, y qué beneficios respalda la ciencia?</strong></p>
         <p className="mb-4">Esta guía responde exactamente eso. Encontrarás un desglose completo de los beneficios de los péptidos de colágeno respaldado por investigación revisada por pares, una explicación clara de cómo funcionan los péptidos de colágeno a nivel celular, y orientación práctica para investigadores y adultos conscientes de su salud que quieren tomar decisiones informadas.</p>
-        <p className="mb-4">En 99 Purity Peptides, suministramos péptidos de colágeno hidrolizado de grado investigación con pureza verificada — porque la calidad de tus péptidos determina la calidad de tus resultados.</p>
+        <p className="mb-4">En Helix Bio, suministramos péptidos de colágeno hidrolizado de grado investigación con pureza verificada — porque la calidad de tus péptidos determina la calidad de tus resultados.</p>
                 <div className="my-12 overflow-hidden rounded-2xl border border-ink/10 shadow-sm">
             <img src="https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/collagen-peptides-benefits-inline-1.webp" alt="Diagrama que muestra las fibras de proteína de colágeno descomponiéndose en péptidos de colágeno hidrolizado disueltos en agua" className="w-full h-auto object-cover" />
         </div>
@@ -717,7 +717,7 @@ export const BLOG_POSTS_PART1: {
                     </tr>
                     <tr>
                         <td className="border border-ink/20 p-3">Grado de investigación disponible</td>
-                        <td className="border border-ink/20 p-3">Sí (99 Purity Peptides)</td>
+                        <td className="border border-ink/20 p-3">Sí (Helix Bio)</td>
                         <td className="border border-ink/20 p-3">Sí</td>
                         <td className="border border-ink/20 p-3">Sí</td>
                     </tr>
@@ -731,7 +731,7 @@ export const BLOG_POSTS_PART1: {
         </ul>
         <p className="mb-4">Los péptidos de colágeno tienen un excelente perfil de seguridad en toda la literatura clínica. Se derivan de fuentes alimentarias naturales (bovina, porcina, marina o aviar), y no se han reportado efectos adversos graves en ensayos revisados por pares con dosis estándar.</p>
         <p className="mb-4">Para uso en investigación, la pureza es la variable de seguridad primordial. Los contaminantes en las preparaciones de péptidos de baja calidad — incluyendo metales pesados, solventes residuales y contaminantes microbianos — son la principal preocupación, no el colágeno en sí.</p>
-        <p className="mb-4">99 Purity Peptides proporciona documentación de Certificado de Análisis para todos los productos de péptidos de colágeno, garantizando la integridad de la investigación y el cumplimiento de la seguridad.</p>
+        <p className="mb-4">Helix Bio proporciona documentación de Certificado de Análisis para todos los productos de péptidos de colágeno, garantizando la integridad de la investigación y el cumplimiento de la seguridad.</p>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Efectos Secundarios de los Péptidos de Colágeno: Lo Que Debes Saber</h2>
         <p className="mb-4">Los péptidos de colágeno generalmente son bien tolerados. Los efectos menores más comúnmente reportados incluyen:</p>
         <ul className="list-disc pl-6 space-y-4 my-6">
@@ -747,7 +747,7 @@ export const BLOG_POSTS_PART1: {
             <li><strong>Peso molecular medio (2,000–5,000 Da):</strong> Buena absorción; parcialmente digerido durante el tránsito</li>
             <li><strong>Peso molecular alto (&gt; 5,000 Da):</strong> Biodisponibilidad reducida; se requiere más digestión antes de la absorción</li>
         </ul>
-        <p className="mb-4">Los péptidos de colágeno de grado investigación de 99 Purity Peptides se producen utilizando hidrólisis enzimática de precisión para alcanzar el rango de peso molecular óptimo para una máxima biodisponibilidad.</p>
+        <p className="mb-4">Los péptidos de colágeno de grado investigación de Helix Bio se producen utilizando hidrólisis enzimática de precisión para alcanzar el rango de peso molecular óptimo para una máxima biodisponibilidad.</p>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Péptidos de Colágeno para Mujeres: Principales Hallazgos de la Investigación</h2>
         <p className="mb-4">Las mujeres representan la mayoría de los participantes en la investigación de péptidos de colágeno, y varias aplicaciones específicas para mujeres cuentan con un fuerte respaldo clínico:</p>
         <ul className="list-disc pl-6 space-y-4 my-6">
@@ -795,12 +795,12 @@ export const BLOG_POSTS_PART1: {
             <li><strong>Momento de administración:</strong> Se ha estudiado la administración previa o posterior al ejercicio para aplicaciones articulares; el momento es menos crítico para los resultados en la piel</li>
             <li><strong>Estándares de pureza:</strong> Los péptidos de colágeno de grado investigación deben tener perfiles de peso molecular documentados y Certificados de Análisis</li>
         <blockquote className="border-l-4 border-gold pl-4 py-2 my-6 bg-cream-warm italic">
-            <strong>99 Purity Peptides suministra péptidos de colágeno hidrolizado de grado investigación con documentación completa. <a className="text-primary underline hover:text-primary-dark" href="/shop">Ver nuestros productos de péptidos de colágeno →</a></strong>
+            <strong>Helix Bio suministra péptidos de colágeno hidrolizado de grado investigación con documentación completa. <a className="text-primary underline hover:text-primary-dark" href="/shop">Ver nuestros productos de péptidos de colágeno →</a></strong>
         </blockquote>
-        <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">¿Qué Hace Diferente a 99 Purity Peptides?</h2>
+        <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">¿Qué Hace Diferente a Helix Bio?</h2>
         </ul>
         <p className="mb-4">Cuando obtienes péptidos de colágeno para investigación, la pureza no es opcional — es la base de resultados reproducibles.</p>
-        <p className="mb-4"><strong>99 Purity Peptides ofrece:</strong></p>
+        <p className="mb-4"><strong>Helix Bio ofrece:</strong></p>
         <ul className="list-disc pl-6 space-y-4 my-6">
             <li>Pureza ≥99% verificada por análisis de laboratorio de terceros</li>
             <li>Certificado de Análisis (<a className="text-primary underline hover:text-primary-dark" href="/certificates">CoA</a>) completo para cada lote</li>
@@ -838,7 +838,7 @@ export const BLOG_POSTS_PART1: {
         </ul>
         <p className="mb-4">La base de evidencia para los beneficios de los péptidos de colágeno sigue creciendo. Desde la elasticidad de la piel y la movilidad articular hasta la densidad ósea y la recuperación muscular, los péptidos de colágeno representan uno de los suplementos proteicos bioactivos más ampliamente estudiados en la literatura científica.</p>
         <p className="mb-4">Para los investigadores, la clave está en comenzar con pureza verificada. Los productos de péptidos de baja calidad introducen variables de confusión que comprometen la integridad de los datos. Los péptidos de colágeno de alta calidad y grado investigación eliminan por completo esa variable.</p>
-        <p className="mb-4"><strong>99 Purity Peptides está comprometida a suministrar a la comunidad de investigación los péptidos de colágeno de mayor pureza disponibles</strong> — cada lote probado, cada CoA documentado, cada producto listo para una investigación científica seria.</p>
+        <p className="mb-4"><strong>Helix Bio está comprometida a suministrar a la comunidad de investigación los péptidos de colágeno de mayor pureza disponibles</strong> — cada lote probado, cada CoA documentado, cada producto listo para una investigación científica seria.</p>
         <div className="my-6">
             <a href="/shop" className="text-primary hover:text-ink font-bold underline">Ordena Péptidos de Colágeno de Grado Investigación Hoy →</a>
         </div>

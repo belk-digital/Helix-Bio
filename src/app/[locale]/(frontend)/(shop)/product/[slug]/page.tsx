@@ -405,7 +405,7 @@ export default async function ProductPage({
     sku: productData.sku || productData.id,
     brand: {
       '@type': 'Brand',
-      name: '99 Purity Peptides'
+      name: 'Helix Bio'
     },
     offers: {
       '@type': 'Offer',

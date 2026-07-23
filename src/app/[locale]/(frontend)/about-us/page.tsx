@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server'
 import { AboutHero } from '@/components/about/AboutHero'
 import { MissionPhilosophyJourney } from '@/components/about/MissionPhilosophyJourney'
 import { WhyChooseUsGrid } from '@/components/about/WhyChooseUsGrid'
+import { ResearchProcessTimeline } from '@/components/about/ResearchProcessTimeline'
 import { OurServices } from '@/components/about/OurServices'
 import { ComplianceStatement } from '@/components/about/ComplianceStatement'
 import { SharedFaqSection } from '@/components/shared/SharedFaqSection'
@@ -97,10 +98,11 @@ export default async function AboutPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-    <main className="bg-cream min-h-screen">
+    <main className="bg-[#FAFAFA] min-h-screen">
       <AboutHero />
       <MissionPhilosophyJourney />
       <WhyChooseUsGrid />
+      <ResearchProcessTimeline />
       <OurServices />
       <ComplianceStatement />
 

@@ -149,7 +149,7 @@ export const afterAffiliateApplicationChange: CollectionAfterChangeHook = async 
           // Send Welcome Email to Affiliate
           const welcomeHtml = await generateAffiliateWelcomeEmail(newAffiliate, userDoc)
           await sendTrackedEmail(req.payload, {
-            from: 'Affiliates | 99 Purity Peptides <affiliates@99puritypeptides.com>',
+            from: 'Affiliates | Helix Bio <affiliates@99puritypeptides.com>',
             to: userDoc.email,
             subject: 'Welcome to the Partner Program! 🎉',
             html: welcomeHtml,

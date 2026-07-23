@@ -10,28 +10,28 @@ const STEPS = [
     id: 1,
     title: "Step 1.",
     heading: "Selection & Synthesis — The foundation of purity",
-    image: "/99 Images/category-1.webp",
+    image: "/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_50_41 AM.webp",
     type: "image" 
   },
   {
     id: 2,
     title: "Step 2.",
     heading: "Validating identity and mass with 3rd-Party Testing",
-    image: "/99 Images/purity.webp",
+    image: "/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_41_24 AM.webp",
     type: "solid" 
   },
   {
     id: 3,
     title: "Step 3.",
     heading: "Securing compounds via Cold-Chain Packaging",
-    image: "/99 Images/vial.webp",
+    image: "/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_51_21 AM.webp",
     type: "solid"
   },
   {
     id: 4,
     title: "Step 4.",
     heading: "Accelerated Global Delivery direct to your lab",
-    image: "/99 Images/category-3.webp",
+    image: "/HelixBio Images/package-box.webp",
     type: "image"
   }
 ]
@@ -108,7 +108,7 @@ export function JourneySection() {
           <Image src={STEPS[0].image} alt="Step 1" fill className="object-cover transition-transform duration-1000 group-hover:scale-110" />
           <div className="absolute inset-0 bg-black/30 mix-blend-overlay pointer-events-none transition-opacity group-hover:opacity-50" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-          <div className="absolute inset-0 p-8 flex flex-col justify-between">
+          <div className="absolute inset-0 px-8 pt-8 pb-4 flex flex-col justify-end gap-6 z-10">
             <div>
               <div className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full mb-3">
                 <p className="text-white font-medium text-xs tracking-wider uppercase">{STEPS[0].title}</p>
@@ -152,7 +152,7 @@ export function JourneySection() {
              <Image src={STEPS[1].image} alt="Step 2 bg" fill className="object-cover" />
           </motion.div>
           {/* Solid Card */}
-          <div className="absolute inset-0 bg-[#0B1221] rounded-[24px] border border-white/10 p-8 flex flex-col justify-between shadow-[0_30px_60px_rgba(0,0,0,0.25)] z-10 overflow-hidden">
+          <div className="absolute inset-0 bg-[#0B1221] rounded-[24px] border border-white/10 px-8 pt-8 pb-4 flex flex-col justify-end gap-6 shadow-[0_30px_60px_rgba(0,0,0,0.25)] z-10 overflow-hidden">
             <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#0ea5e9] opacity-20 blur-[60px] rounded-full pointer-events-none group-hover:opacity-30 transition-opacity duration-500" />
             
             <div className="relative z-10">
@@ -198,7 +198,7 @@ export function JourneySection() {
              <Image src={STEPS[2].image} alt="Step 3 bg" fill className="object-cover" />
           </motion.div>
           {/* Solid Card */}
-          <div className="absolute inset-0 bg-[#0B1221] rounded-[24px] border border-white/10 p-8 flex flex-col justify-between shadow-[0_30px_60px_rgba(0,0,0,0.25)] z-10 overflow-hidden">
+          <div className="absolute inset-0 bg-[#0B1221] rounded-[24px] border border-white/10 px-8 pt-8 pb-4 flex flex-col justify-end gap-6 shadow-[0_30px_60px_rgba(0,0,0,0.25)] z-10 overflow-hidden">
             <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-[#0284c7] opacity-20 blur-[60px] rounded-full pointer-events-none group-hover:opacity-30 transition-opacity duration-500" />
             
             <div className="relative z-10">
@@ -229,7 +229,7 @@ export function JourneySection() {
           <Image src={STEPS[3].image} alt="Step 4" fill className="object-cover transition-transform duration-1000 group-hover:scale-110" />
           <div className="absolute inset-0 bg-black/30 mix-blend-overlay pointer-events-none transition-opacity group-hover:opacity-50" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-          <div className="absolute inset-0 p-8 flex flex-col justify-between">
+          <div className="absolute inset-0 px-8 pt-8 pb-4 flex flex-col justify-end gap-6 z-10">
             <div>
               <div className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full mb-3">
                 <p className="text-white font-medium text-xs tracking-wider uppercase">{STEPS[3].title}</p>
@@ -253,7 +253,7 @@ export function JourneySection() {
                 <Image src={step.image} alt={step.title} fill className="object-cover transition-transform duration-1000 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-black/30 mix-blend-overlay" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute inset-0 p-6 flex flex-col justify-between">
+                <div className="absolute inset-0 px-6 pt-6 pb-4 flex flex-col justify-end gap-6 z-10">
                   <div>
                     <div className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full mb-3">
                       <p className="text-white font-medium text-xs tracking-wider uppercase">{step.title}</p>
@@ -266,7 +266,7 @@ export function JourneySection() {
                 </div>
               </>
             ) : (
-              <div className="absolute inset-0 bg-[#0B1221] border border-white/10 rounded-[24px] p-6 flex flex-col justify-between z-10 overflow-hidden">
+              <div className="absolute inset-0 bg-[#0B1221] border border-white/10 rounded-[24px] px-6 pt-6 pb-4 flex flex-col justify-end gap-6 z-10 overflow-hidden">
                 <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#0ea5e9] opacity-20 blur-[60px] rounded-full pointer-events-none" />
                 <div className="relative z-10">
                   <div className="inline-block px-3 py-1 bg-white/10 rounded-full mb-3">

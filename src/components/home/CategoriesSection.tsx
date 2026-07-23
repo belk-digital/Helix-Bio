@@ -19,14 +19,14 @@ export interface CategoriesSectionProps {
 }
 
 const CATEGORY_IMAGES = [
-  '/99 Images/category-1.webp',
-  '/99 Images/category-2.webp',
-  '/99 Images/category-3.webp',
-  '/99 Images/category-4.webp',
-  '/99 Images/category-5.webp',
-  '/99 Images/category-6.webp',
-  '/99 Images/category-7.webp',
-  '/99 Images/category-8.webp',
+  '/HelixBio Images/category-1.webp',
+  '/HelixBio Images/category-2.webp',
+  '/HelixBio Images/category-3.webp',
+  '/HelixBio Images/category-4.webp',
+  '/HelixBio Images/category-5.webp',
+  '/HelixBio Images/category-6.webp',
+  '/HelixBio Images/category-7.webp',
+  '/HelixBio Images/category-8.webp',
 ]
 
 // Fallback generic descriptions (in case category doesn't have one)
@@ -79,7 +79,7 @@ export function CategoriesSection({ categories = [] }: CategoriesSectionProps) {
               </div>
 
               {/* Image Right Side with Gradient Blend */}
-              <div className="absolute right-0 top-0 w-[60%] h-full z-0 overflow-hidden pointer-events-none">
+              <div className="absolute right-0 top-0 w-[70%] h-full z-0 overflow-hidden pointer-events-none">
                 <Image
                   src={CATEGORY_IMAGES[index % CATEGORY_IMAGES.length]}
                   alt={getCategoryDisplayName(category.name)}
@@ -87,7 +87,7 @@ export function CategoriesSection({ categories = [] }: CategoriesSectionProps) {
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 {/* Linear gradient overlay masking the left edge of the image into the background color */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#f8f9fa] via-[#f8f9fa]/90 to-transparent w-full" />
+                <div className="absolute left-0 top-0 bottom-0 w-[60%] bg-gradient-to-r from-[#f8f9fa] via-[#f8f9fa]/80 to-transparent" />
               </div>
             </Link>
           ))}

@@ -90,18 +90,18 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Collagen Peptides Benefits: The Complete Science-Backed Guide for 2025",
-      "description": "A comprehensive, research-backed guide to collagen peptides benefits covering skin health, joint mobility, bone density, muscle recovery, and weight management — with clinical citations and research-grade sourcing from 99 Purity Peptides.",
+      "description": "A comprehensive, research-backed guide to collagen peptides benefits covering skin health, joint mobility, bone density, muscle recovery, and weight management — with clinical citations and research-grade sourcing from Helix Bio.",
       "url": "https://99puritypeptides.com/collagen-peptides-benefits",
       "datePublished": "2025-05-01",
       "dateModified": "2025-05-16",
       "author": {
         "@type": "Organization",
-        "name": "99 Purity Peptides Research Editorial Team",
+        "name": "Helix Bio Research Editorial Team",
         "url": "https://99puritypeptides.com"
       },
       "publisher": {
         "@type": "Organization",
-        "name": "99 Purity Peptides",
+        "name": "Helix Bio",
         "url": "https://99puritypeptides.com",
         "logo": {
           "@type": "ImageObject",
@@ -117,7 +117,7 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com",
       "description": "U.S.-based supplier of research-grade peptides including collagen peptides, BPC-157, ipamorelin, and copper peptides with verified purity and Certificate of Analysis documentation.",
       "sameAs": [
@@ -167,13 +167,13 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
       },
       "author": {
         "@type": "Organization",
-        "name": "99 Purity Peptides Research Team",
+        "name": "Helix Bio Research Team",
         "description": "Research Editorial Team specializing in research-grade peptide blends and preclinical literature.",
         "url": "https://99puritypeptides.com"
       },
       "publisher": {
         "@type": "Organization",
-        "name": "99 Purity Peptides",
+        "name": "Helix Bio",
         "url": "https://99puritypeptides.com/",
         "logo": {
           "@type": "ImageObject",
@@ -187,7 +187,7 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
         "description": "A four-component research blend of BPC-157, TB-500, KPV, and GHK-Cu at 50/10/10/10mg in 3mL. Research-use-only.",
         "brand": {
           "@type": "Brand",
-          "name": "99 Purity Peptides"
+          "name": "Helix Bio"
         }
       },
       "mainEntityOfPage": {
@@ -308,7 +308,7 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": "https://99puritypeptides.com/wp-content/uploads/2026/05/Logo.png",
       "contactPoint": {
@@ -458,11 +458,11 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
       "description": "A research-focused analysis of how Retatrutide's triple agonist mechanism — GLP-1, GIP, and Glucagon — interacts with dietary carbohydrate intake and glucose availability.",
       "author": {
         "@type": "Organization",
-        "name": "99 Purity Peptides"
+        "name": "Helix Bio"
       },
       "publisher": {
         "@type": "Organization",
-        "name": "99 Purity Peptides",
+        "name": "Helix Bio",
         "logo": {
           "@type": "ImageObject",
           "url": "https://99puritypeptides.com/logo.png"
@@ -515,7 +515,7 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
       "inLanguage": "en-US",
       "isPartOf": {
         "@type": "WebSite",
-        "name": "99 Purity Peptides",
+        "name": "Helix Bio",
         "url": "https://99puritypeptides.com"
       }
     },
@@ -558,13 +558,13 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
         "@type": "Person",
         "name": "Dr. M. Rivera",
         "jobTitle": "Research Editor",
-        "description": "PhD, Peptide Biochemistry — Research Editor at 99 Purity Peptides",
+        "description": "PhD, Peptide Biochemistry — Research Editor at Helix Bio",
         "alumniOf": "Not Specified",
         "sameAs": []
       },
       "publisher": {
         "@type": "Organization",
-        "name": "99 Purity Peptides",
+        "name": "Helix Bio",
         "logo": {
           "@type": "ImageObject",
           "url": "https://99puritypeptides.com/wp-content/uploads/2025/12/99-Purity-Peptides-white-logo.png"
@@ -591,7 +591,7 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": "https://99puritypeptides.com/wp-content/uploads/2025/12/99-Purity-Peptides-white-logo.png",
       "areaServed": "US",

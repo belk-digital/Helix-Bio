@@ -67,12 +67,12 @@ export async function generateMetadata({
   const post = getBlogPosts(locale).find((p) => p.slug === slug)
 
   if (!post) {
-    return { title: locale === 'es' ? 'Publicación No Encontrada | 99 Purity Peptides' : 'Post Not Found | 99 Purity Peptides' }
+    return { title: locale === 'es' ? 'Publicación No Encontrada | Helix Bio' : 'Post Not Found | Helix Bio' }
   }
 
   const seoData = getBlogSeo(locale)[slug]
 
-  const title = seoData?.title ? seoData.title : `${post.title} | 99 Purity Peptides`
+  const title = seoData?.title ? seoData.title : `${post.title} | Helix Bio`
   const description = seoData?.description ? seoData.description : post.excerpt
   const path = locale === 'en' ? `/${slug}` : `/${locale}/${slug}`
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://99puritypeptides.com'
@@ -142,12 +142,12 @@ export default async function BlogPostPage({
         dateModified: isoDate,
         author: {
           '@type': 'Organization',
-          name: '99 Purity Peptides',
+          name: 'Helix Bio',
           url: baseUrl
         },
         publisher: {
           '@type': 'Organization',
-          name: '99 Purity Peptides',
+          name: 'Helix Bio',
           logo: {
             '@type': 'ImageObject',
             url: `${baseUrl}/logo.png`
@@ -171,12 +171,12 @@ export default async function BlogPostPage({
         '@type': 'WebSite',
         '@id': `${baseUrl}/#website`,
         url: baseUrl,
-        name: '99 Purity Peptides',
+        name: 'Helix Bio',
       },
       {
         '@type': 'Organization',
         '@id': `${baseUrl}/#organization`,
-        name: '99 Purity Peptides',
+        name: 'Helix Bio',
         url: baseUrl,
       },
     ]

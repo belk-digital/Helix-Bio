@@ -16,7 +16,7 @@ export async function generateAffiliateSaleEmail(affiliate: any, commissionAmoun
     content: `
               <h2 style="margin: 0 0 20px 0; font-size: 24px; color: #0A0A0A; font-weight: 800; letter-spacing: -0.5px;">Hi ${name},</h2>
               ${content}
-              <p style="margin: 32px 0 0 0; font-size: 16px; color: #4A4A4A; font-weight: 600;">Best regards,<br>The 99 Purity Peptides Team</p>
+              <p style="margin: 32px 0 0 0; font-size: 16px; color: #4A4A4A; font-weight: 600;">Best regards,<br>The Helix Bio Team</p>
     `
   })
 }

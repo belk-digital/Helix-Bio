@@ -122,7 +122,7 @@ export function HomePreloaderWrapper({ children }: { children: React.ReactNode }
            {/* Branding */}
            <div ref={brandRef} className="flex flex-col items-center gap-1.5 md:gap-2 opacity-0 px-6 max-w-[90vw]">
               <div className="text-white text-base sm:text-lg md:text-2xl font-heading tracking-[0.15em] sm:tracking-widest text-center leading-tight">
-                99 PURITY PEPTIDES
+                Helix Bio
               </div>
               <p className="text-white/40 text-[8px] sm:text-[10px] md:text-xs tracking-[0.15em] sm:tracking-[0.3em] font-medium uppercase text-center leading-relaxed">
                 Clinical Research Synthesis

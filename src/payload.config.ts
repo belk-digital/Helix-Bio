@@ -188,7 +188,7 @@ export default buildConfig({
       collections: ['pages', 'blog-posts'],
       tabbedUI: true,
       uploadsCollection: 'media',
-      generateTitle: ({ doc }: any) => (doc?.title ? `${doc.title} | 99 Purity Peptides` : '99 Purity Peptides'),
+      generateTitle: ({ doc }: any) => (doc?.title ? `${doc.title} | Helix Bio` : 'Helix Bio'),
       generateDescription: ({ doc }: any) => doc?.excerpt || doc?.seoDescription || '',
       generateURL: ({ doc }: any) => {
         const base = process.env.NEXT_PUBLIC_SERVER_URL || 'https://99puritypeptides.com'
@@ -198,7 +198,7 @@ export default buildConfig({
   ],
   email: resendAdapter({
     defaultFromAddress: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
-    defaultFromName: '99 Purity Peptides',
+    defaultFromName: 'Helix Bio',
     apiKey: process.env.RESEND_API_KEY || '',
   }),
 })

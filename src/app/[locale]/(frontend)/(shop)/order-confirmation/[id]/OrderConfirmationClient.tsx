@@ -187,7 +187,7 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
             
             {/* Print Branding Header */}
             <div className="hidden print:flex items-center justify-between py-4 px-0 border-b border-ink/10">
-              <h1 className="text-2xl font-display font-bold tracking-tight text-ink uppercase">99 Purity Peptides</h1>
+              <h1 className="text-2xl font-display font-bold tracking-tight text-ink uppercase">Helix Bio</h1>
               <p className="text-sm font-medium text-ink/60">99puritypeptides.com</p>
             </div>
 

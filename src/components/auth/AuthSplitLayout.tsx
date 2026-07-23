@@ -78,7 +78,7 @@ export function AuthSplitLayout({ children, mode }: AuthSplitLayoutProps) {
             <Link href="/" className="inline-block">
               <Image 
                 src="/99 Images/99pp-Logo.png" 
-                alt="99 Purity Peptides" 
+                alt="Helix Bio" 
                 width={200} 
                 height={66} 
                 className="h-12 md:h-16 w-auto" 
@@ -156,7 +156,7 @@ export function AuthSplitLayout({ children, mode }: AuthSplitLayoutProps) {
 
           {/* Footer */}
           <div className="w-full flex justify-between items-center text-[11px] text-ink/50 mt-auto pt-8">
-            <span>© 2026 99 Purity Peptides</span>
+            <span>© 2026 Helix Bio</span>
             <div className="flex gap-6">
               <Link href="/privacy-policy" className="hover:text-ink transition-colors font-medium">Privacy Policy</Link>
               <Link href="/contact-us" className="hover:text-ink transition-colors font-medium">Support</Link>

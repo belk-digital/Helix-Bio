@@ -168,7 +168,7 @@ export const useCartStore = create<CartState>()(
       }
     },
     {
-      name: '99 Purity Peptides-cart-storage',
+      name: 'Helix Bio-cart-storage',
     },
   ),
 )

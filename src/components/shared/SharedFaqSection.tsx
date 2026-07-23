@@ -57,7 +57,7 @@ export function SharedFaqSection({
                 
                 {/* Left Side: Sticky Number */}
                 <div className="w-full md:w-1/3 lg:w-[35%] relative">
-                  <div className="md:sticky md:top-32 text-[6rem] sm:text-[8rem] md:text-[10rem] lg:text-[14rem] min-[1650px]:text-[18rem] font-heading font-black leading-[0.8] text-ink pb-8 md:pb-24 pt-4 md:pt-0 -ml-1 md:-ml-2 lg:-ml-4 transition-all duration-500 ease-out group-hover:text-transparent group-hover:[-webkit-text-stroke:2px_#008B8B] md:group-hover:[-webkit-text-stroke:4px_#008B8B] group-hover:scale-105 origin-left">
+                  <div className="md:sticky md:top-32 text-[6rem] sm:text-[8rem] md:text-[10rem] lg:text-[14rem] min-[1650px]:text-[18rem] font-heading font-black leading-[0.8] text-ink pb-8 md:pb-24 pt-4 md:pt-0 -ml-1 md:-ml-2 lg:-ml-4 transition-all duration-500 ease-out group-hover:text-transparent group-hover:[-webkit-text-stroke:2px_#92DCE5] md:group-hover:[-webkit-text-stroke:4px_#92DCE5] group-hover:scale-105 origin-left">
                     {num}
                   </div>
                 </div>
@@ -67,13 +67,13 @@ export function SharedFaqSection({
                   {/* Base Border */}
                   <div className="absolute top-0 left-0 w-full h-[4px] md:h-[6px] bg-ink" />
                   {/* Animated Hover Border */}
-                  <div className="absolute top-0 left-0 w-0 h-[4px] md:h-[6px] bg-[#008B8B] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full z-10" />
+                  <div className="absolute top-0 left-0 w-0 h-[4px] md:h-[6px] bg-primary transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full z-10" />
 
                   <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 relative z-20">
                     
                     {/* Title Column */}
                     <div className="w-full lg:w-5/12 transform transition-transform duration-500 group-hover:translate-x-2">
-                      <h3 className="text-2xl sm:text-3xl lg:text-4xl min-[1650px]:text-5xl font-heading font-bold text-ink group-hover:text-[#008B8B] transition-colors duration-500 leading-[1.1] tracking-tight pr-4">
+                      <h3 className="text-2xl sm:text-3xl lg:text-4xl min-[1650px]:text-5xl font-heading font-bold text-ink group-hover:text-primary transition-colors duration-500 leading-[1.1] tracking-tight pr-4">
                         {faq.question}
                       </h3>
                       <p className="text-zinc-500 font-bold text-xs sm:text-sm mt-4 tracking-[0.1em] uppercase opacity-70 group-hover:opacity-100 transition-opacity duration-500">
@@ -83,7 +83,7 @@ export function SharedFaqSection({
 
                     {/* Description Column */}
                     <div className="w-full lg:w-7/12 transform transition-transform duration-500 lg:group-hover:translate-x-2">
-                      <div className="text-sm sm:text-base min-[1650px]:text-lg text-zinc-600 group-hover:text-ink transition-colors duration-500 leading-relaxed font-medium [&_a]:text-[#008B8B] [&_a]:underline [&_a]:underline-offset-2">
+                      <div className="text-sm sm:text-base min-[1650px]:text-lg text-zinc-600 group-hover:text-ink transition-colors duration-500 leading-relaxed font-medium [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2">
                         {faq.answer}
                       </div>
                     </div>

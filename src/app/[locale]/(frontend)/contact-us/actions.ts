@@ -89,7 +89,7 @@ export async function submitContactForm(formData: FormData) {
           <tr>
             <td style="background-color: #FAF7F2; padding: 24px 40px; text-align: center; border-top: 1px solid #E8E2D5;">
               <p style="margin: 0 0 8px 0; color: #8A8A8A; font-size: 12px;">You can reply directly to this email to respond to ${name}.</p>
-              <p style="margin: 0; color: #8A8A8A; font-size: 12px;">&copy; ${new Date().getFullYear()} 99 Purity Peptides. Internal Notification.</p>
+              <p style="margin: 0; color: #8A8A8A; font-size: 12px;">&copy; ${new Date().getFullYear()} Helix Bio. Internal Notification.</p>
             </td>
           </tr>
         </table>
@@ -101,7 +101,7 @@ export async function submitContactForm(formData: FormData) {
     `
 
     await sendTrackedEmail(payload, {
-      from: '99 Purity Peptides <contact@99puritypeptides.com>',
+      from: 'Helix Bio <contact@99puritypeptides.com>',
       to: 'contact@99puritypeptides.com',
       replyTo: email,
       subject: `[Contact Form] ${subject}`,

@@ -8,27 +8,27 @@ import { FadeUp } from '@/components/motion/FadeUp'
 const PILLARS = [
   {
     id: '01',
-    title: 'Independent Testing',
-    desc: 'Every single batch is tested by accredited US-based third-party laboratories via HPLC & Mass Spectrometry before it is ever made available for research.',
-    image: '/Featured%20Images/scientist-at-microscope.webp'
+    title: 'Rigorous Synthesis',
+    desc: 'Our proprietary synthesis protocols ensure unprecedented batch-to-batch consistency and stability for all research applications.',
+    image: '/HelixBio Images/category-3.webp'
   },
   {
     id: '02',
-    title: '≥99% Purity Guarantee',
-    desc: 'We enforce a strict 99% purity floor across our entire catalog. If a batch tests at 98.9%, it is discarded. There are no exceptions to this standard.',
-    image: '/Featured%20Images/clear-glass-dropper.webp'
+    title: 'Purity at the core',
+    desc: 'We do not compromise. Every peptide is purified through advanced HPLC, guaranteeing 99%+ purity for reliable experimental results.',
+    image: '/HelixBio Images/category-1.webp'
   },
   {
     id: '03',
-    title: 'USA Fulfillment',
-    desc: 'Our compounds are stocked securely in domestic, climate-controlled facilities. We fulfill and ship all orders directly from the United States for rapid delivery.',
-    image: '/Featured%20Images/three-floating-vials.webp'
+    title: 'American Innovation',
+    desc: 'Proudly synthesized and rigorously tested in our state-of-the-art US facilities, maintaining the highest quality control standards.',
+    image: '/HelixBio Images/military-3.webp'
   },
   {
     id: '04',
-    title: 'Lyophilized Stability',
-    desc: 'Compounds are rigorously lyophilized and vacuum-sealed to prevent degradation, ensuring structural integrity from our laboratory to yours.',
-    image: '/Featured%20Images/crushed-white-powder.webp'
+    title: 'Transparent Results',
+    desc: 'We believe in complete transparency. Batch-specific Certificates of Analysis (COAs) and Mass Spectrometry data are always accessible.',
+    image: '/HelixBio Images/category-8.webp'
   }
 ]
 

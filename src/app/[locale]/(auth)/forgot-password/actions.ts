@@ -46,7 +46,7 @@ export async function requestPasswordReset(input: ForgotPasswordInput) {
         await sendTrackedEmail(payload, {
           from: 'support@99puritypeptides.com',
           to: parsed.data.email,
-          subject: 'Reset Your Password - 99 Purity Peptides',
+          subject: 'Reset Your Password - Helix Bio',
           html,
         })
       }

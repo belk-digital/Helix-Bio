@@ -1,220 +1,166 @@
 'use client'
 
-import React, { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { FadeUp } from '@/components/motion/FadeUp'
+import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { Microscope, ShieldCheck, FlaskConical } from 'lucide-react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 
 export function MissionPhilosophyJourney() {
   const t = useTranslations('content.missionPhilosophyJourney')
-  const containerRef = useRef<HTMLElement>(null);
   
-  // Premium crisp entrance animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
-      }
-    }
-  };
+  // Track which pillar is active. Default to 0.
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [isHovered, setIsHovered] = useState(false)
 
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 40,
-      rotateX: 10,
-      scale: 0.95
+  const cards = [
+    {
+      id: 0,
+      label: t('card1Label'),
+      title: t('card1Title'),
+      text: t('card1Text'),
+      icon: Microscope,
+      image: "/HelixBio Images/multiple-vial.webp",
+      number: "01"
     },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      rotateX: 0,
-      scale: 1,
-      transition: {
-        type: "spring" as const,
-        stiffness: 100,
-        damping: 20,
-        mass: 1
-      }
+    {
+      id: 1,
+      label: t('card2Label'),
+      title: t('card2Title'),
+      text: t('card2Text'),
+      icon: ShieldCheck,
+      image: "/HelixBio Images/helixbio-as-routine.webp",
+      number: "02"
+    },
+    {
+      id: 2,
+      label: t('card3Label'),
+      title: t('card3Title'),
+      text: t('card3Text'),
+      icon: FlaskConical,
+      image: "/HelixBio Images/package-box.webp",
+      number: "03"
     }
-  };
+  ]
+
+  // Auto-play interval with pause-on-hover
+  useEffect(() => {
+    if (isHovered) return; // Pause timer if user is hovering
+    
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % cards.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [cards.length, isHovered]);
 
   return (
-    <section ref={containerRef} className="py-32 lg:py-48 px-6 bg-cream relative perspective-1000">
+    <section className="py-24 lg:py-40 px-4 sm:px-6 md:px-8 lg:px-10 bg-[#FAFAFA] relative overflow-hidden">
       
-      {/* Crisp Technical Geometry Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        {/* Subtle Dot Grid Base */}
-        <div className="absolute inset-0 opacity-40" style={{ backgroundImage: "radial-gradient(#e2e8f0 1px, transparent 1px)", backgroundSize: "48px 48px" }} />
-
-        {/* Large Rotating Ring */}
-        <motion.div 
-          animate={{ rotate: 360 }}
-          transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[10%] -left-[20%] w-[60vw] h-[60vw] border-[1px] border-ink/5 rounded-full"
-        />
-
-        {/* Vertical Technical Typography */}
-        <div className="absolute top-1/2 left-8 -translate-y-1/2 -rotate-90 origin-left text-ink/5 font-mono text-[8vw] whitespace-nowrap font-bold tracking-widest select-none">
-          RESEARCH &bull; PURITY
-        </div>
+      {/* Background */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "radial-gradient(#000 1px, transparent 1px)", backgroundSize: "48px 48px" }} />
       </div>
 
-      <div className="max-w-[1200px] mx-auto relative z-10">
+      <div className="max-w-[1920px] mx-auto relative z-10">
         
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-          className="text-center mb-24 lg:mb-40"
-        >
-          <motion.div 
-            variants={{hidden: {opacity: 0, y: 20}, visible: {opacity: 1, y: 0}}} 
-            className="flex items-center justify-center gap-4 mb-6"
-          >
+        {/* Header */}
+        <div className="text-center mb-12 lg:mb-24">
+          <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-[1px] w-8 md:w-12 bg-primary/40" />
             <h2 className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.3em] text-primary font-bold">
               {t('eyebrow')}
             </h2>
             <div className="h-[1px] w-8 md:w-12 bg-primary/40" />
-          </motion.div>
-          <motion.h3 variants={{hidden: {opacity: 0, y: 20}, visible: {opacity: 1, y: 0}}} className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-black text-ink tracking-tighter uppercase leading-[0.95]">
+          </div>
+          <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-heading font-black text-ink tracking-tighter uppercase leading-[0.95]">
             {t('title')}
-          </motion.h3>
-        </motion.div>
+          </h3>
+        </div>
 
-        <div className="relative w-full pb-[20vh]">
-          
-          {/* Card 1: Mission */}
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={cardVariants}
-            className="sticky top-16 lg:top-24 w-full rounded-[2.5rem] lg:rounded-[3rem] border border-white/10 bg-ink text-white shadow-2xl overflow-hidden group mb-8 lg:mb-12 flex flex-col lg:flex-row transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-default hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-            style={{ zIndex: 10 }}
-          >
-            {/* Left Content */}
-            <div className="relative z-10 w-full lg:w-[60%] lg:group-hover:w-[50%] p-8 lg:p-12 flex flex-col justify-center bg-ink transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
-              {/* Premium SVG Noise */}
-              <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.15] mix-blend-screen z-0">
-                <filter id="noise1">
-                  <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
-                </filter>
-                <rect width="100%" height="100%" filter="url(#noise1)" />
-              </svg>
-              
-              <div className="relative z-10 flex flex-col justify-center py-2 lg:py-4">
-                <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-6 group-hover:border-primary/50 transition-colors duration-500">
-                  <span className="text-4xl lg:text-6xl font-serif text-white tracking-tighter leading-none opacity-50 group-hover:opacity-100 group-hover:text-primary transition-all duration-500">01</span>
-                  <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white/5 rounded-xl lg:rounded-2xl flex items-center justify-center border border-white/10 group-hover:bg-primary/20 group-hover:border-primary/50 group-hover:rotate-12 transition-all duration-500">
-                    <Microscope className="w-6 h-6 lg:w-8 lg:h-8 text-primary transition-colors duration-500" strokeWidth={1.5} />
-                  </div>
+        {/* Expanding Pillars Accordion */}
+        <div 
+          className="w-full max-w-7xl mx-auto h-[600px] lg:h-[700px] flex flex-col md:flex-row gap-2 sm:gap-4"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          {cards.map((card, index) => {
+            const isActive = activeIndex === index;
+            const Icon = card.icon;
+
+            return (
+              <motion.div
+                key={card.id}
+                onClick={() => setActiveIndex(index)}
+                onMouseEnter={() => setActiveIndex(index)}
+                animate={{
+                  flex: isActive ? 5 : 1,
+                }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className={`relative rounded-[2rem] overflow-hidden cursor-pointer flex flex-col md:flex-row shadow-2xl transition-all duration-300 ${
+                  isActive ? 'bg-zinc-900 border border-white/10' : 'bg-white border border-black/5 hover:bg-zinc-50'
+                }`}
+              >
+                
+                {/* Background Image (Only visible when active) */}
+                <div className={`absolute inset-0 z-0 transition-opacity duration-700 ease-in-out ${isActive ? 'opacity-40' : 'opacity-0'}`}>
+                  <Image 
+                    src={card.image} 
+                    alt={card.title} 
+                    fill 
+                    className={`object-cover ${isActive ? 'scale-100' : 'scale-110'} transition-transform duration-1000 ease-out`} 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
                 </div>
-                <div className="mb-3 text-primary font-mono tracking-widest text-xs lg:text-sm font-bold uppercase transition-colors duration-500">{t('card1Label')}</div>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black uppercase text-white mb-4 tracking-tight leading-[1.1] transition-colors duration-500 break-words">
-                  {t('card1Title')}
-                </h3>
-                <p className="text-base lg:text-lg text-white/70 leading-relaxed font-light transition-colors duration-500">
-                  {t('card1Text')}
-                </p>
-              </div>
-            </div>
-            {/* Right Image - Expands on hover */}
-            <div className="w-full lg:w-[40%] lg:group-hover:w-[50%] h-[300px] lg:h-auto relative overflow-hidden hidden md:block bg-ink transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
-              <Image src="/99 Images/semax-bg.webp" alt="Mission" fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-60 group-hover:opacity-100" />
-              <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/20 to-transparent lg:bg-gradient-to-l lg:from-transparent lg:via-ink/20 lg:to-ink pointer-events-none opacity-100 group-hover:opacity-0 transition-opacity duration-700" />
-            </div>
-          </motion.div>
 
-          {/* Card 2: Philosophy */}
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={cardVariants}
-            className="sticky top-20 lg:top-[8.5rem] w-full rounded-[2.5rem] lg:rounded-[3rem] border border-ink/10 bg-cream text-ink shadow-2xl overflow-hidden group mb-8 lg:mb-12 flex flex-col lg:flex-row-reverse transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-default hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)]"
-            style={{ zIndex: 20 }}
-          >
-            {/* Left Content (Actually on right) */}
-            <div className="relative z-10 w-full lg:w-[60%] lg:group-hover:w-[50%] p-8 lg:p-12 flex flex-col justify-center bg-cream transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
-              {/* Premium SVG Noise */}
-              <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.4] mix-blend-multiply z-0">
-                <filter id="noise2">
-                  <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
-                </filter>
-                <rect width="100%" height="100%" filter="url(#noise2)" />
-              </svg>
-              
-              <div className="relative z-10 flex flex-col justify-center py-2 lg:py-4">
-                <div className="flex items-center justify-between border-b border-ink/10 pb-6 mb-6 group-hover:border-primary/50 transition-colors duration-500">
-                  <span className="text-4xl lg:text-6xl font-serif text-ink tracking-tighter leading-none opacity-50 group-hover:opacity-100 group-hover:text-primary transition-all duration-500">02</span>
-                  <div className="w-12 h-12 lg:w-16 lg:h-16 bg-ink/5 rounded-xl lg:rounded-2xl flex items-center justify-center border border-ink/10 group-hover:bg-primary/20 group-hover:border-primary/50 group-hover:rotate-12 transition-all duration-500">
-                    <ShieldCheck className="w-6 h-6 lg:w-8 lg:h-8 text-primary transition-colors duration-500" strokeWidth={1.5} />
-                  </div>
+                {/* Number Watermark */}
+                <div className={`absolute -bottom-4 md:-bottom-10 right-4 md:-right-6 font-heading font-black leading-none transition-all duration-700 pointer-events-none z-10 ${
+                  isActive ? 'text-[120px] md:text-[250px] text-white/[0.03]' : 'text-[60px] text-ink/[0.03]'
+                }`}>
+                  {card.number}
                 </div>
-                <div className="mb-3 text-primary font-mono tracking-widest text-xs lg:text-sm font-bold uppercase transition-colors duration-500">{t('card2Label')}</div>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black uppercase text-ink mb-4 tracking-tight leading-[1.1] transition-colors duration-500 break-words">
-                  {t('card2Title')}
-                </h3>
-                <p className="text-base lg:text-lg text-ink/70 leading-relaxed font-light transition-colors duration-500">
-                  {t('card2Text')}
-                </p>
-              </div>
-            </div>
-            {/* Right Image (Expands on hover) */}
-            <div className="w-full lg:w-[40%] lg:group-hover:w-[50%] h-[300px] lg:h-auto relative overflow-hidden hidden md:block bg-cream transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
-              <Image src="/99 Images/transparant-vial.png" alt="Philosophy" fill className="object-contain object-left scale-125 group-hover:scale-110 transition-transform duration-700 ease-out" />
-            </div>
-          </motion.div>
 
-          {/* Card 3: Journey */}
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={cardVariants}
-            className="sticky top-24 lg:top-[11rem] w-full rounded-[2.5rem] lg:rounded-[3rem] border border-white/10 bg-[#1A1A1A] text-white shadow-2xl overflow-hidden group flex flex-col lg:flex-row transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-default hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-            style={{ zIndex: 30 }}
-          >
-            {/* Left Content */}
-            <div className="relative z-10 w-full lg:w-[60%] lg:group-hover:w-[50%] p-8 lg:p-12 flex flex-col justify-center bg-[#1A1A1A] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
-              {/* Premium SVG Noise */}
-              <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.15] mix-blend-screen z-0">
-                <filter id="noise3">
-                  <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
-                </filter>
-                <rect width="100%" height="100%" filter="url(#noise3)" />
-              </svg>
-              
-              <div className="relative z-10 flex flex-col justify-center py-2 lg:py-4">
-                <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-6 group-hover:border-primary/50 transition-colors duration-500">
-                  <span className="text-4xl lg:text-6xl font-serif text-white tracking-tighter leading-none opacity-50 group-hover:opacity-100 group-hover:text-primary transition-all duration-500">03</span>
-                  <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white/5 rounded-xl lg:rounded-2xl flex items-center justify-center border border-white/10 group-hover:bg-primary/20 group-hover:border-primary/50 group-hover:rotate-12 transition-all duration-500">
-                    <FlaskConical className="w-6 h-6 lg:w-8 lg:h-8 text-primary transition-colors duration-500" strokeWidth={1.5} />
+                {/* Content Container */}
+                <div className="relative z-20 flex flex-col md:flex-row w-full h-full p-6 md:p-8">
+                  
+                  {/* Always Visible Header / Icon Area */}
+                  <div className={`flex md:flex-col items-center justify-between md:justify-start gap-4 md:w-16 shrink-0 transition-all duration-500 ${isActive ? '' : 'w-full'}`}>
+                    <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-500 ${
+                      isActive ? 'bg-primary/20 border-primary/40 shadow-[0_0_20px_rgba(14,165,233,0.3)]' : 'bg-zinc-100 border-black/5'
+                    }`}>
+                      <Icon className={`w-6 h-6 md:w-8 md:h-8 transition-colors duration-500 ${isActive ? 'text-primary' : 'text-ink/40'}`} strokeWidth={1.5} />
+                    </div>
+                    
+                    {/* Vertical Title (Desktop Inactive) or Horizontal Title (Mobile Inactive) */}
+                    <div className={`transition-all duration-500 flex-1 flex md:items-center justify-center md:pt-8 ${isActive ? 'opacity-0 w-0 h-0 hidden md:block' : 'opacity-100 w-full'}`}>
+                      <h3 
+                        className={`font-heading font-bold uppercase tracking-widest whitespace-nowrap text-lg md:text-2xl md:[writing-mode:vertical-rl] md:rotate-180 ${isActive ? 'text-white' : 'text-ink/40'}`}
+                      >
+                        {card.label}
+                      </h3>
+                    </div>
                   </div>
-                </div>
-                <div className="mb-3 text-primary font-mono tracking-widest text-xs lg:text-sm font-bold uppercase transition-colors duration-500">{t('card3Label')}</div>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black uppercase text-white mb-4 tracking-tight leading-[1.1] transition-colors duration-500 break-words">
-                  {t('card3Title')}
-                </h3>
-                <p className="text-base lg:text-lg text-white/70 leading-relaxed font-light transition-colors duration-500">
-                  {t('card3Text')}
-                </p>
-              </div>
-            </div>
-            {/* Right Image (Expands on hover) */}
-            <div className="w-full lg:w-[40%] lg:group-hover:w-[50%] h-[300px] lg:h-auto relative overflow-hidden hidden md:block bg-[#1A1A1A] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
-              <Image src="/99 Images/identity.webp" alt="Journey" fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-60 group-hover:opacity-100" />
-            </div>
-          </motion.div>
 
+                  {/* Expanding Detailed Content */}
+                  <div className={`flex flex-col justify-end overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    isActive ? 'opacity-100 flex-1 ml-0 md:ml-8 mt-4 md:mt-0' : 'opacity-0 w-0 h-0'
+                  }`}>
+                    <div className="min-w-[250px]">
+                      <span className="text-primary font-mono tracking-widest text-xs md:text-sm font-bold uppercase mb-2 block">
+                        {card.label}
+                      </span>
+                      <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black uppercase text-white mb-4 tracking-tighter leading-[0.95]">
+                        {card.title}
+                      </h3>
+                      <p className="text-base md:text-lg text-white/70 leading-relaxed font-light max-w-xl">
+                        {card.text}
+                      </p>
+                    </div>
+                  </div>
+                  
+                </div>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>

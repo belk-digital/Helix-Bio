@@ -500,7 +500,7 @@ export async function createPayloadOrder(
                const invoiceHtml = await generateOrderInvoiceHtml(order, payload);
 
                await sendTrackedEmail(payload, {
-                   from: 'Orders | 99 Purity Peptides <orders@99puritypeptides.com>',
+                   from: 'Orders | Helix Bio <orders@99puritypeptides.com>',
                    to: customerEmail,
                    bcc: 'orders@99puritypeptides.com',
                    subject: `Order Invoice #${order.orderNumber || order.id}`,
@@ -672,7 +672,7 @@ export async function notifyAdminFailedPayment(orderId: string, errorMessage: st
     })
 
     await sendTrackedEmail(payload, {
-      from: 'Orders | 99 Purity Peptides <orders@99puritypeptides.com>',
+      from: 'Orders | Helix Bio <orders@99puritypeptides.com>',
       to: 'support@99puritypeptides.com',
       subject: `⚠️ Payment Failed - Order #${orderNumber}`,
       html: html,

@@ -96,7 +96,10 @@ const FooterContent = () => {
             </div>
 
             {/* Scrolling Curved Marquee (3D Cylinder) */}
-            <div className="w-full h-[320px] md:h-[420px] lg:h-[480px] relative flex items-center justify-center cta-cylinder-container" style={{ perspective: '3000px' }}>
+            <div 
+              className="w-full h-[240px] md:h-[300px] lg:h-[340px] relative flex items-center justify-center cta-cylinder-container" 
+              style={{ perspective: '3000px' }}
+            >
                <style>{`
                  .cta-cylinder-container {
                    --cyl-radius: 890px;
@@ -129,47 +132,47 @@ const FooterContent = () => {
                  }
                `}</style>
                
-               {/* Left/Right Fade Masks to blend into the d9f0ff background */}
-               <div className="absolute left-0 top-0 w-16 md:w-48 h-full bg-gradient-to-r from-[#d9f0ff] to-transparent z-10 pointer-events-none" />
-               <div className="absolute right-0 top-0 w-16 md:w-48 h-full bg-gradient-to-l from-[#d9f0ff] to-transparent z-10 pointer-events-none" />
+               {/* Left/Right Fade Masks (Extended vertically to cover overflow) */}
+               <div className="absolute left-0 -top-[100px] -bottom-[100px] w-16 md:w-32 lg:w-48 bg-gradient-to-r from-[#d9f0ff] via-[#d9f0ff]/80 to-transparent z-10 pointer-events-none" />
+               <div className="absolute right-0 -top-[100px] -bottom-[100px] w-16 md:w-32 lg:w-48 bg-gradient-to-l from-[#d9f0ff] via-[#d9f0ff]/80 to-transparent z-10 pointer-events-none" />
 
                <div className="relative w-full h-full animate-cylinder flex items-center justify-center">
                  {[
                    ...[
-                     '/99 Images/category-1.webp',
-                     '/99 Images/category-2.webp',
-                     '/99 Images/category-3.webp',
-                     '/99 Images/purity.webp',
-                     '/99 Images/identity.webp',
-                     '/99 Images/vial-closeup.webp',
-                     '/99 Images/vial-ice-closeup.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_23_31 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_41_24 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_44_49 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_46_36 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_50_41 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_51_21 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_51_53 AM.webp',
                    ],
                    ...[
-                     '/99 Images/category-1.webp',
-                     '/99 Images/category-2.webp',
-                     '/99 Images/category-3.webp',
-                     '/99 Images/purity.webp',
-                     '/99 Images/identity.webp',
-                     '/99 Images/vial-closeup.webp',
-                     '/99 Images/vial-ice-closeup.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_23_31 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_41_24 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_44_49 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_46_36 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_50_41 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_51_21 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_51_53 AM.webp',
                    ],
                    ...[
-                     '/99 Images/category-1.webp',
-                     '/99 Images/category-2.webp',
-                     '/99 Images/category-3.webp',
-                     '/99 Images/purity.webp',
-                     '/99 Images/identity.webp',
-                     '/99 Images/vial-closeup.webp',
-                     '/99 Images/vial-ice-closeup.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_23_31 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_41_24 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_44_49 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_46_36 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_50_41 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_51_21 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_51_53 AM.webp',
                    ],
                    ...[
-                     '/99 Images/category-1.webp',
-                     '/99 Images/category-2.webp',
-                     '/99 Images/category-3.webp',
-                     '/99 Images/purity.webp',
-                     '/99 Images/identity.webp',
-                     '/99 Images/vial-closeup.webp',
-                     '/99 Images/vial-ice-closeup.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_23_31 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_41_24 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_44_49 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_46_36 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_50_41 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_51_21 AM.webp',
+                     '/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_51_53 AM.webp',
                    ]
                  ].map((src, idx) => {
                    const angle = idx * (360 / 28);
@@ -191,8 +194,7 @@ const FooterContent = () => {
             </div>
 
             {/* Bottom Button */}
-            {/* Bottom Button */}
-            <div className="relative z-20 flex justify-center mt-8 md:mt-12">
+            <div className="relative z-20 flex justify-center mt-4 md:mt-6">
                <Link 
                  href="/shop" 
                  className="w-full sm:w-auto h-12 md:h-14 bg-[#121212] text-white px-8 xl:px-10 rounded-[16px] font-semibold flex items-center justify-center gap-2 hover:bg-gray-900 transition-colors shrink-0 shadow-md group"

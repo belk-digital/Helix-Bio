@@ -7,25 +7,25 @@
 export const BLOG_SEO_ES: Record<string, { title: string | null, description: string | null, schemas: any[] }> = {
   "how-much-bacteriostatic-water-reconstitute-peptides": {
     "title": "Cuánta Agua Bacteriostática para Reconstituir Péptidos (Tabla 2026)",
-    "description": "¿Cuánta agua bacteriostática se usa para reconstituir péptidos? Tabla completa de mL a unidades y mg/mL, más una calculadora gratuita. Referencia RUO de 99 Purity Peptides.",
+    "description": "¿Cuánta agua bacteriostática se usa para reconstituir péptidos? Tabla completa de mL a unidades y mg/mL, más una calculadora gratuita. Referencia RUO de Helix Bio.",
     "schemas": [
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "Cuánta Agua Bacteriostática para Reconstituir Péptidos (Tabla 2026)",
-    "description": "¿Cuánta agua bacteriostática se usa para reconstituir péptidos? Tabla completa de mL a unidades y mg/mL, más una calculadora gratuita. Referencia RUO de 99 Purity Peptides.",
+    "description": "¿Cuánta agua bacteriostática se usa para reconstituir péptidos? Tabla completa de mL a unidades y mg/mL, más una calculadora gratuita. Referencia RUO de Helix Bio.",
     "image": {
       "@type": "ImageObject",
       "url": "https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/bac-water-reconstitution-hero.png"
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -408,12 +408,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -470,12 +470,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -532,12 +532,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -594,12 +594,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -656,12 +656,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -718,12 +718,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -780,12 +780,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -842,12 +842,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -891,25 +891,25 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
   },
   "collagen-peptides-benefits": {
     "title": "Beneficios de los Péptidos de Colágeno: Guía Respaldada por la Ciencia (2026)",
-    "description": "Descubre los principales beneficios de los péptidos de colágeno, respaldados por la ciencia, para la piel, las articulaciones, los huesos y los músculos. Colágeno hidrolizado de grado investigación disponible en 99 Purity Peptides.",
+    "description": "Descubre los principales beneficios de los péptidos de colágeno, respaldados por la ciencia, para la piel, las articulaciones, los huesos y los músculos. Colágeno hidrolizado de grado investigación disponible en Helix Bio.",
     "schemas": [
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "Beneficios de los Péptidos de Colágeno: Guía Respaldada por la Ciencia (2026)",
-    "description": "Descubre los principales beneficios de los péptidos de colágeno, respaldados por la ciencia, para la piel, las articulaciones, los huesos y los músculos. Colágeno hidrolizado de grado investigación disponible en 99 Purity Peptides.",
+    "description": "Descubre los principales beneficios de los péptidos de colágeno, respaldados por la ciencia, para la piel, las articulaciones, los huesos y los músculos. Colágeno hidrolizado de grado investigación disponible en Helix Bio.",
     "image": {
       "@type": "ImageObject",
       "url": "https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/collagen-peptides-benefits-hero.webp"
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -1052,12 +1052,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -1138,7 +1138,7 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
         "name": "¿Son seguros los péptidos de investigación para usarse en la piel?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Los péptidos de grado investigación como los de 99 Purity Peptides son únicamente para uso en investigación — no para uso humano ni veterinario, diagnóstico ni tratamiento. Los cosméticos tópicos de péptidos de cobre de venta libre son una categoría regulada aparte. Respeta siempre la designación RUO."
+          "text": "Los péptidos de grado investigación como los de Helix Bio son únicamente para uso en investigación — no para uso humano ni veterinario, diagnóstico ni tratamiento. Los cosméticos tópicos de péptidos de cobre de venta libre son una categoría regulada aparte. Respeta siempre la designación RUO."
         }
       },
       {
@@ -1162,7 +1162,7 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
         "name": "¿Dónde puedo comprar GHK-Cu de grado investigación o péptidos enfocados en colágeno?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "99 Purity Peptides ofrece GHK-Cu dentro de mezclas de investigación como GLOW, junto con un catálogo completo de compuestos verificados analíticamente. Todos los productos son de uso exclusivo en investigación. Explora la tienda y aplica el código 99PURITY para un 10% de descuento."
+          "text": "Helix Bio ofrece GHK-Cu dentro de mezclas de investigación como GLOW, junto con un catálogo completo de compuestos verificados analíticamente. Todos los productos son de uso exclusivo en investigación. Explora la tienda y aplica el código 99PURITY para un 10% de descuento."
         }
       }
     ]
@@ -1184,12 +1184,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -1262,7 +1262,7 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
         "name": "¿Qué contiene la mezcla de péptidos KLOW?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "La mezcla KLOW contiene cuatro péptidos sintéticos: BPC-157 a 50mg, TB-500 a 10mg, KPV (Lys-Pro-Val) a 10mg y GHK-Cu (complejo de cobre glicil-L-histidil-L-lisina) a 10mg — 80mg en total en 3mL. Esta especificación de 50/10/10/10mg es consistente con el stack de recuperación de cuatro componentes ampliamente referenciado que se vende en 99 Purity Peptides."
+          "text": "La mezcla KLOW contiene cuatro péptidos sintéticos: BPC-157 a 50mg, TB-500 a 10mg, KPV (Lys-Pro-Val) a 10mg y GHK-Cu (complejo de cobre glicil-L-histidil-L-lisina) a 10mg — 80mg en total en 3mL. Esta especificación de 50/10/10/10mg es consistente con el stack de recuperación de cuatro componentes ampliamente referenciado que se vende en Helix Bio."
         }
       },
       {
@@ -1310,7 +1310,7 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
         "name": "¿Cuál es el protocolo de KLOW?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "El protocolo de KLOW se refiere al diseño experimental definido por un investigador que especifica el volumen de reconstitución, el tamaño de alícuota, las condiciones de almacenamiento y el método de aplicación en el modelo de laboratorio. Los protocolos varían según el objetivo de investigación, el modelo de tejido y las directrices institucionales. Para orientación sobre manejo y almacenamiento, 99 Purity Peptides proporciona documentación de reconstitución con cada pedido."
+          "text": "El protocolo de KLOW se refiere al diseño experimental definido por un investigador que especifica el volumen de reconstitución, el tamaño de alícuota, las condiciones de almacenamiento y el método de aplicación en el modelo de laboratorio. Los protocolos varían según el objetivo de investigación, el modelo de tejido y las directrices institucionales. Para orientación sobre manejo y almacenamiento, Helix Bio proporciona documentación de reconstitución con cada pedido."
         }
       },
       {
@@ -1462,7 +1462,7 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
         "name": "¿Qué es una calculadora de péptidos?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Una calculadora de péptidos es una herramienta de laboratorio para calcular la concentración de una solución de péptido reconstituida dada la masa total de péptido y el volumen de diluyente. Para mezclas multicomponente como KLOW, la masa de cada componente se ingresa por separado frente al volumen de reconstitución para determinar la concentración por componente. 99 Purity Peptides proporciona una calculadora de péptidos gratuita en 99puritypeptides.com/peptide-calculator/."
+          "text": "Una calculadora de péptidos es una herramienta de laboratorio para calcular la concentración de una solución de péptido reconstituida dada la masa total de péptido y el volumen de diluyente. Para mezclas multicomponente como KLOW, la masa de cada componente se ingresa por separado frente al volumen de reconstitución para determinar la concentración por componente. Helix Bio proporciona una calculadora de péptidos gratuita en 99puritypeptides.com/peptide-calculator/."
         }
       },
       {
@@ -1470,7 +1470,7 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
         "name": "¿Dónde pueden los investigadores obtener el péptido KLOW?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Los investigadores que buscan obtener KLOW deben identificar proveedores que publiquen la proporción específica de 50/10/10/10mg, proporcionen documentación de CoA específica del lote con datos de HPLC y LC-MS por componente, y designen el producto como exclusivo para uso en investigación. La especificación verificada de KLOW 50/10/10/10mg 3mL de 99 Purity Peptides está listada en 99puritypeptides.com/product/klow/, con documentación de verificación analítica completa disponible."
+          "text": "Los investigadores que buscan obtener KLOW deben identificar proveedores que publiquen la proporción específica de 50/10/10/10mg, proporcionen documentación de CoA específica del lote con datos de HPLC y LC-MS por componente, y designen el producto como exclusivo para uso en investigación. La especificación verificada de KLOW 50/10/10/10mg 3mL de Helix Bio está listada en 99puritypeptides.com/product/klow/, con documentación de verificación analítica completa disponible."
         }
       },
       {
@@ -1478,7 +1478,7 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
         "name": "¿Está disponible el péptido KLOW en formato spray?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "El producto KLOW de 99 Purity Peptides se suministra como un polvo liofilizado para reconstitución en un vial de investigación estándar de 3mL. Existen productos de péptidos en formato spray en el catálogo para algunos compuestos (spray de BPC-157, spray de AOD), pero KLOW en sí se suministra en el formato de vial liofilizado estándar."
+          "text": "El producto KLOW de Helix Bio se suministra como un polvo liofilizado para reconstitución en un vial de investigación estándar de 3mL. Existen productos de péptidos en formato spray en el catálogo para algunos compuestos (spray de BPC-157, spray de AOD), pero KLOW en sí se suministra en el formato de vial liofilizado estándar."
         }
       },
       {
@@ -1548,12 +1548,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -1696,12 +1696,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -1828,12 +1828,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -2042,13 +2042,13 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
 ]
   },
   "peptide-reconstitution-calculator": {
-    "title": "Calculadora de Péptidos: Herramienta de Dosificación y Reconstitución | 99 Purity Peptides",
+    "title": "Calculadora de Péptidos: Herramienta de Dosificación y Reconstitución | Helix Bio",
     "description": "Resultados precisos de la calculadora de péptidos en segundos. Introduce el tamaño de tu vial, el volumen de agua bacteriostática y la dosis objetivo — nuestra herramienta convierte al instante tu dosificación de péptidos en unidades de jeringa precisas.",
     "schemas": [
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "Calculadora de Péptidos: Herramienta de Dosificación y Reconstitución | 99 Purity Peptides",
+    "headline": "Calculadora de Péptidos: Herramienta de Dosificación y Reconstitución | Helix Bio",
     "description": "Resultados precisos de la calculadora de péptidos en segundos. Introduce el tamaño de tu vial, el volumen de agua bacteriostática y la dosis objetivo — nuestra herramienta convierte al instante tu dosificación de péptidos en unidades de jeringa precisas.",
     "image": {
       "@type": "ImageObject",
@@ -2056,12 +2056,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -2204,12 +2204,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -2472,12 +2472,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -2860,12 +2860,12 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -3098,7 +3098,7 @@ export const BLOG_SEO_ES: Record<string, { title: string | null, description: st
         "name": "¿Dónde puedo encontrar especificaciones de investigación verificadas de tesamorelina?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "El material de calidad de referencia con certificados de análisis publicados está disponible a través del catálogo de investigación de 99 Purity Peptides."
+          "text": "El material de calidad de referencia con certificados de análisis publicados está disponible a través del catálogo de investigación de Helix Bio."
         }
       }
     ]

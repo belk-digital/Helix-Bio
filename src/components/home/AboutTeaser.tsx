@@ -39,7 +39,7 @@ export function AboutTeaser() {
         >
           <Image 
             src="/Featured%20Images/scientist-at-microscope.webp"
-            alt="US-based peptide synthesis facility — ISO-certified laboratory where 99 Purity Peptides compounds are produced"
+            alt="US-based peptide synthesis facility — ISO-certified laboratory where Helix Bio compounds are produced"
             fill
             className="object-cover opacity-100"
           />

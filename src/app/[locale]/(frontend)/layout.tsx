@@ -16,14 +16,14 @@ export async function generateMetadata() {
   const t = await getTranslations('common')
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'https://99puritypeptides.com'),
-    title: '99 Purity Peptides',
+    title: 'Helix Bio',
     description: t('siteTagline'),
     openGraph: {
-      images: [{ url: getOgImageUrl('99 Purity Peptides', t('siteTagline')) }],
+      images: [{ url: getOgImageUrl('Helix Bio', t('siteTagline')) }],
     },
     twitter: {
       card: 'summary_large_image',
-      images: [getOgImageUrl('99 Purity Peptides', t('siteTagline'))],
+      images: [getOgImageUrl('Helix Bio', t('siteTagline'))],
     },
   }
 }

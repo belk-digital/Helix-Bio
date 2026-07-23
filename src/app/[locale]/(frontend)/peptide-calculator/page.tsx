@@ -99,7 +99,7 @@ export default async function Page({
     },
     "creator": {
       "@type": "Organization",
-      "name": "99 Purity Peptides"
+      "name": "Helix Bio"
     }
   }
 
@@ -137,12 +137,12 @@ export default async function Page({
         '@type': 'WebSite',
         '@id': `${baseUrl}/#website`,
         url: baseUrl,
-        name: '99 Purity Peptides',
+        name: 'Helix Bio',
       },
       {
         '@type': 'Organization',
         '@id': `${baseUrl}/#organization`,
-        name: '99 Purity Peptides',
+        name: 'Helix Bio',
         url: baseUrl,
       },
     ],

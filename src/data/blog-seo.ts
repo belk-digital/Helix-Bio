@@ -1,7 +1,7 @@
 export const BLOG_SEO: Record<string, { title: string | null, description: string | null, schemas: any[] }> = {
   "how-much-bacteriostatic-water-reconstitute-peptides": {
     "title": "How Much Bacteriostatic Water to Reconstitute Peptides (2026 Chart)",
-    "description": "How much bacteriostatic water to reconstitute peptides? Get the full mL-to-units and mg/mL chart, plus a free calculator. RUO lab reference from 99 Purity Peptides.",
+    "description": "How much bacteriostatic water to reconstitute peptides? Get the full mL-to-units and mg/mL chart, plus a free calculator. RUO lab reference from Helix Bio.",
     "schemas": [
       {
         "@context": "https://schema.org",
@@ -14,12 +14,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         },
         "author": {
           "@type": "Organization",
-          "name": "99 Purity Peptides Research Team",
+          "name": "Helix Bio Research Team",
           "url": "https://99puritypeptides.com/"
         },
         "publisher": {
           "@type": "Organization",
-          "name": "99 Purity Peptides",
+          "name": "Helix Bio",
           "url": "https://99puritypeptides.com/",
           "logo": {
             "@type": "ImageObject",
@@ -411,12 +411,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -472,12 +472,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -533,12 +533,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -594,12 +594,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -655,12 +655,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -716,12 +716,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -777,12 +777,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -838,12 +838,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
     },
     "author": {
       "@type": "Organization",
-      "name": "99 Purity Peptides Research Team",
+      "name": "Helix Bio Research Team",
       "url": "https://99puritypeptides.com/"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "99 Purity Peptides",
+      "name": "Helix Bio",
       "url": "https://99puritypeptides.com/",
       "logo": {
         "@type": "ImageObject",
@@ -886,7 +886,7 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
   },
   "collagen-peptides-benefits": {
     "title": "Collagen Peptides Benefits: Science-Backed Guide (2026)",
-    "description": "Discover the top science-backed collagen peptides benefits for skin, joints, bone, and muscle. Research-grade hydrolyzed collagen available at 99 Purity Peptides.",
+    "description": "Discover the top science-backed collagen peptides benefits for skin, joints, bone, and muscle. Research-grade hydrolyzed collagen available at Helix Bio.",
     "schemas": [
       {
         "@context": "https://schema.org",
@@ -978,18 +978,18 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": "Collagen Peptides Benefits: The Complete Science-Backed Guide for 2025",
-        "description": "A comprehensive, research-backed guide to collagen peptides benefits covering skin health, joint mobility, bone density, muscle recovery, and weight management — with clinical citations and research-grade sourcing from 99 Purity Peptides.",
+        "description": "A comprehensive, research-backed guide to collagen peptides benefits covering skin health, joint mobility, bone density, muscle recovery, and weight management — with clinical citations and research-grade sourcing from Helix Bio.",
         "url": "https://99puritypeptides.com/collagen-peptides-benefits",
         "datePublished": "2025-05-01",
         "dateModified": "2025-05-16",
         "author": {
           "@type": "Organization",
-          "name": "99 Purity Peptides Research Editorial Team",
+          "name": "Helix Bio Research Editorial Team",
           "url": "https://99puritypeptides.com"
         },
         "publisher": {
           "@type": "Organization",
-          "name": "99 Purity Peptides",
+          "name": "Helix Bio",
           "url": "https://99puritypeptides.com",
           "logo": {
             "@type": "ImageObject",
@@ -1005,7 +1005,7 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "99 Purity Peptides",
+        "name": "Helix Bio",
         "url": "https://99puritypeptides.com",
         "description": "U.S.-based supplier of research-grade peptides including collagen peptides, BPC-157, ipamorelin, and copper peptides with verified purity and Certificate of Analysis documentation.",
         "sameAs": [
@@ -1054,12 +1054,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
   },
   "author": {
     "@type": "Organization",
-    "name": "99 Purity Peptides Research Team",
+    "name": "Helix Bio Research Team",
     "url": "https://99puritypeptides.com/"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "99 Purity Peptides",
+    "name": "Helix Bio",
     "url": "https://99puritypeptides.com/",
     "logo": {
       "@type": "ImageObject",
@@ -1140,7 +1140,7 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "name": "Are research peptides safe to use on skin?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Research-grade peptides such as those from 99 Purity Peptides are for research use only — not for human or veterinary use, diagnosis, or treatment. OTC topical copper-peptide cosmetics are a separate, regulated category. Always respect the RUO designation."
+          "text": "Research-grade peptides such as those from Helix Bio are for research use only — not for human or veterinary use, diagnosis, or treatment. OTC topical copper-peptide cosmetics are a separate, regulated category. Always respect the RUO designation."
         }
       },
       {
@@ -1164,7 +1164,7 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "name": "Where can I buy research-grade GHK-Cu or collagen-focused peptides?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "99 Purity Peptides offers GHK-Cu within research blends such as GLOW, alongside a full catalog of analytically verified compounds. All products are research-use-only. Browse the shop and apply code 99PURITY for 10% off."
+          "text": "Helix Bio offers GHK-Cu within research blends such as GLOW, alongside a full catalog of analytically verified compounds. All products are research-use-only. Browse the shop and apply code 99PURITY for 10% off."
         }
       }
     ]
@@ -1191,12 +1191,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         },
         "author": {
           "@type": "Organization",
-          "name": "99 Purity Peptides",
+          "name": "Helix Bio",
           "url": "https://99puritypeptides.com/"
         },
         "publisher": {
           "@type": "Organization",
-          "name": "99 Purity Peptides",
+          "name": "Helix Bio",
           "url": "https://99puritypeptides.com/",
           "logo": {
             "@type": "ImageObject",
@@ -1210,7 +1210,7 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
           "description": "A four-component research blend of BPC-157, TB-500, KPV, and GHK-Cu at 50/10/10/10mg in 3mL. Research-use-only.",
           "brand": {
             "@type": "Brand",
-            "name": "99 Purity Peptides"
+            "name": "Helix Bio"
           }
         },
         "mainEntityOfPage": {
@@ -1331,7 +1331,7 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "99 Purity Peptides",
+        "name": "Helix Bio",
         "url": "https://99puritypeptides.com/",
         "logo": "https://99puritypeptides.com/99%20Images/99pp-Logo.png",
         "contactPoint": {
@@ -1484,12 +1484,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
   },
   "author": {
     "@type": "Organization",
-    "name": "99 Purity Peptides Research Team",
+    "name": "Helix Bio Research Team",
     "url": "https://99puritypeptides.com/"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "99 Purity Peptides",
+    "name": "Helix Bio",
     "url": "https://99puritypeptides.com/",
     "logo": {
       "@type": "ImageObject",
@@ -1628,11 +1628,11 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "description": "A research-focused analysis of how Retatrutide's triple agonist mechanism — GLP-1, GIP, and Glucagon — interacts with dietary carbohydrate intake and glucose availability.",
         "author": {
           "@type": "Organization",
-          "name": "99 Purity Peptides"
+          "name": "Helix Bio"
         },
         "publisher": {
           "@type": "Organization",
-          "name": "99 Purity Peptides",
+          "name": "Helix Bio",
           "logo": {
             "@type": "ImageObject",
             "url": "https://99puritypeptides.com/logo.png"
@@ -1685,7 +1685,7 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "inLanguage": "en-US",
         "isPartOf": {
           "@type": "WebSite",
-          "name": "99 Purity Peptides",
+          "name": "Helix Bio",
           "url": "https://99puritypeptides.com"
         }
       },
@@ -1730,12 +1730,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
   },
   "author": {
     "@type": "Organization",
-    "name": "99 Purity Peptides Research Team",
+    "name": "Helix Bio Research Team",
     "url": "https://99puritypeptides.com/"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "99 Purity Peptides",
+    "name": "Helix Bio",
     "url": "https://99puritypeptides.com/",
     "logo": {
       "@type": "ImageObject",
@@ -1944,13 +1944,13 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
 ]
   },
   "peptide-reconstitution-calculator": {
-    "title": "Peptide Calculator: Dosage & Reconstitution Tool | 99 Purity Peptides",
+    "title": "Peptide Calculator: Dosage & Reconstitution Tool | Helix Bio",
     "description": "Calculate your exact peptide dosage in seconds. Enter vial size, BAC water volume & desired dose to get precise syringe units instantly. Free peptide reconstitution calculator.",
     "schemas": [
   {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Peptide Calculator: Dosage & Reconstitution Tool | 99 Purity Peptides",
+  "headline": "Peptide Calculator: Dosage & Reconstitution Tool | Helix Bio",
   "description": "Calculate your exact peptide dosage in seconds. Enter vial size, BAC water volume & desired dose to get precise syringe units instantly. Free peptide reconstitution calculator.",
   "image": {
     "@type": "ImageObject",
@@ -1958,12 +1958,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
   },
   "author": {
     "@type": "Organization",
-    "name": "99 Purity Peptides Research Team",
+    "name": "Helix Bio Research Team",
     "url": "https://99puritypeptides.com/"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "99 Purity Peptides",
+    "name": "Helix Bio",
     "url": "https://99puritypeptides.com/",
     "logo": {
       "@type": "ImageObject",
@@ -2106,12 +2106,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
   },
   "author": {
     "@type": "Organization",
-    "name": "99 Purity Peptides Research Team",
+    "name": "Helix Bio Research Team",
     "url": "https://99puritypeptides.com/"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "99 Purity Peptides",
+    "name": "Helix Bio",
     "url": "https://99puritypeptides.com/",
     "logo": {
       "@type": "ImageObject",
@@ -2374,12 +2374,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
   },
   "author": {
     "@type": "Organization",
-    "name": "99 Purity Peptides Research Team",
+    "name": "Helix Bio Research Team",
     "url": "https://99puritypeptides.com/"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "99 Purity Peptides",
+    "name": "Helix Bio",
     "url": "https://99puritypeptides.com/",
     "logo": {
       "@type": "ImageObject",
@@ -2944,7 +2944,7 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
             "name": "Where can I find verified tesamorelin research specifications?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Reference-grade material with published certificates of analysis is available through 99 Purity Peptides' research catalog."
+              "text": "Reference-grade material with published certificates of analysis is available through Helix Bio' research catalog."
             }
           }
         ]
@@ -2959,9 +2959,9 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
           {"@type":"MedicalCondition","name":"Visceral adiposity"}
         ],
         "keywords": "tesamorelin visceral fat reduction percentage, tesamorelin phase 3 trials, GHRH analog, visceral adipose tissue",
-        "author": {"@type":"Organization","name":"99 Purity Peptides"},
+        "author": {"@type":"Organization","name":"Helix Bio"},
         "publisher": {
-          "@type":"Organization","name":"99 Purity Peptides",
+          "@type":"Organization","name":"Helix Bio",
           "logo":{"@type":"ImageObject","url":"https://99puritypeptides.com/logo.png"}
         },
         "mainEntityOfPage": "https://99puritypeptides.com/tesamorelin-visceral-fat-reduction-percentage/",

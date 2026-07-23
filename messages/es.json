@@ -8,7 +8,7 @@
   },
   "auth": {
     "login": {
-      "title": "Inicia sesión en 99 Purity Peptides",
+      "title": "Inicia sesión en Helix Bio",
       "subtitle": "¡Bienvenido de nuevo! Inicia sesión para continuar",
       "google": "Continuar con Google",
       "or": "O",
@@ -22,11 +22,11 @@
       "resendVerification": "Reenviar correo de verificación",
       "resending": "Enviando…",
       "verificationResent": "Un nuevo correo de verificación está en camino — revisa tu bandeja de entrada.",
-      "metaTitle": "Iniciar Sesión | 99 Purity Peptides",
-      "metaDescription": "Inicia sesión en tu cuenta de 99 Purity Peptides para gestionar pedidos, rastrear envíos y acceder a tu historial de compras de péptidos de investigación."
+      "metaTitle": "Iniciar Sesión | Helix Bio",
+      "metaDescription": "Inicia sesión en tu cuenta de Helix Bio para gestionar pedidos, rastrear envíos y acceder a tu historial de compras de péptidos de investigación."
     },
     "register": {
-      "title": "Regístrate en 99 Purity Peptides",
+      "title": "Regístrate en Helix Bio",
       "subtitle": "Crea una cuenta para continuar",
       "google": "Continuar con Google",
       "or": "O",
@@ -39,8 +39,8 @@
       "genericError": "Algo salió mal. Por favor, inténtalo de nuevo.",
       "successMessage": "¡Cuenta creada con éxito! Por favor, revisa tu correo para verificar tu cuenta.",
       "backToLogin": "Volver al inicio de sesión",
-      "metaTitle": "Crear una Cuenta | 99 Purity Peptides",
-      "metaDescription": "Crea una cuenta gratuita en 99 Purity Peptides para realizar pedidos, guardar tus datos y rastrear envíos de péptidos de investigación."
+      "metaTitle": "Crear una Cuenta | Helix Bio",
+      "metaDescription": "Crea una cuenta gratuita en Helix Bio para realizar pedidos, guardar tus datos y rastrear envíos de péptidos de investigación."
     },
     "forgotPassword": {
       "title": "Restablece tu contraseña",
@@ -49,8 +49,8 @@
       "submit": "Enviar Enlace",
       "success": "Si existe una cuenta con ese correo, se ha enviado un enlace de restablecimiento.",
       "backToLogin": "Volver a iniciar sesión",
-      "metaTitle": "Contraseña Olvidada | 99 Purity Peptides",
-      "metaDescription": "Restablece la contraseña de tu cuenta de 99 Purity Peptides solicitando un enlace seguro enviado a tu correo electrónico."
+      "metaTitle": "Contraseña Olvidada | Helix Bio",
+      "metaDescription": "Restablece la contraseña de tu cuenta de Helix Bio solicitando un enlace seguro enviado a tu correo electrónico."
     },
     "resetPassword": {
       "title": "Elige una nueva contraseña",
@@ -62,8 +62,8 @@
       "mismatch": "Las contraseñas no coinciden",
       "invalidToken": "Este enlace de restablecimiento no es válido o ha expirado",
       "backToLogin": "Volver a iniciar sesión",
-      "metaTitle": "Restablecer Contraseña | 99 Purity Peptides",
-      "metaDescription": "Elige una nueva contraseña para recuperar el acceso a tu cuenta de 99 Purity Peptides."
+      "metaTitle": "Restablecer Contraseña | Helix Bio",
+      "metaDescription": "Elige una nueva contraseña para recuperar el acceso a tu cuenta de Helix Bio."
     }
   },
   "ageGate": {
@@ -189,7 +189,7 @@
     "shopCatalogue": "Ver Catálogo",
     "shopCatalogueSubtext": "Ver todos los péptidos de investigación",
     "disclaimerLabel": "Aviso Legal",
-    "disclaimerText": "El contenido de este sitio web no ha sido evaluado ni aprobado por la Administración de Alimentos y Medicamentos de EE. UU. (FDA). Los productos vendidos por 99 Purity Peptides se ofrecen únicamente con fines de investigación y laboratorio, y no están destinados a diagnosticar, tratar, curar o prevenir ninguna enfermedad. 99 Purity Peptides no es una farmacia de preparación magistral y no opera como una instalación de composición química según lo definido en la Sección 503A de la Ley Federal de Alimentos, Medicamentos y Cosméticos. Los productos no son para uso humano ni veterinario, y no están destinados a la ingestión, inyección ni ninguna forma de administración. Los niveles de pureza pueden variar según el producto y el lote; ciertos artículos pueden mostrar una pureza inferior al 99%.",
+    "disclaimerText": "El contenido de este sitio web no ha sido evaluado ni aprobado por la Administración de Alimentos y Medicamentos de EE. UU. (FDA). Los productos vendidos por Helix Bio se ofrecen únicamente con fines de investigación y laboratorio, y no están destinados a diagnosticar, tratar, curar o prevenir ninguna enfermedad. Helix Bio no es una farmacia de preparación magistral y no opera como una instalación de composición química según lo definido en la Sección 503A de la Ley Federal de Alimentos, Medicamentos y Cosméticos. Los productos no son para uso humano ni veterinario, y no están destinados a la ingestión, inyección ni ninguna forma de administración. Los niveles de pureza pueden variar según el producto y el lote; ciertos artículos pueden mostrar una pureza inferior al 99%.",
     "privacyPolicy": "Política de Privacidad",
     "termsOfService": "Términos de Servicio",
     "refundPolicy": "Política de Reembolso",
@@ -300,7 +300,7 @@
       "titleLine1": "Pureza Verificada.",
       "titleLine2": "Cada Lote, Sin Excepción.",
       "description": "La verificación de pureza por terceros es la piedra angular de los compuestos de grado investigación. Cada vial que enviamos incluye un COA verificado de forma independiente que demuestra lo que realmente contiene, no solo lo que afirmamos. Esto es exactamente lo que analizamos, y por qué importa.",
-      "vialAlt": "Vial de péptido de investigación de precisión con documento de Certificado de Análisis — 99 Purity Peptides",
+      "vialAlt": "Vial de péptido de investigación de precisión con documento de Certificado de Análisis — Helix Bio",
       "metric1Title": "Pureza HPLC ≥99%",
       "metric1Desc": "Aislamiento cromatográfico riguroso para cada compuesto, verificado antes de que se envíe cualquier pedido.",
       "metric1Tooltip": "El HPLC separa mezclas de compuestos por polaridad molecular, confirmando concentración y pureza hasta ≥99%.",
@@ -407,7 +407,7 @@
       "defaultTag": "Verificado"
     },
     "merchandise": {
-      "eyebrow": "Artículos 99 Purity",
+      "eyebrow": "Artículos Helix Bio",
       "titleLine1": "Representa La",
       "titleLine2": "Investigación.",
       "exploreGear": "Explorar Artículos",
@@ -530,7 +530,7 @@
       }
     },
     "trustBadges": {
-      "eyebrow": "El Estándar 99 Purity",
+      "eyebrow": "El Estándar Helix Bio",
       "titleLine1": "DISEÑADO PARA UNA",
       "titleLine2": "PRECISIÓN ABSOLUTA",
       "subtitle": "Fabricado en EE. UU. Verificado por terceros.",
@@ -843,14 +843,14 @@
       "statusProcessing": "Procesando",
       "statusShipped": "Enviado",
       "statusDelivered": "Entregado",
-      "metaTitle": "Resumen de la Cuenta | 99 Purity Peptides",
+      "metaTitle": "Resumen de la Cuenta | Helix Bio",
       "metaDescription": "Consulta tus pedidos recientes, lista de deseos, puntos de pureza y datos de tu cuenta en un solo lugar."
     },
     "addresses": {
       "title": "Direcciones Guardadas",
       "subtitle": "Administra dónde se envían tu equipo de laboratorio y tus péptidos.",
-      "metaTitle": "Direcciones Guardadas | 99 Purity Peptides",
-      "metaDescription": "Administra las direcciones de envío guardadas en tu cuenta de 99 Purity Peptides.",
+      "metaTitle": "Direcciones Guardadas | Helix Bio",
+      "metaDescription": "Administra las direcciones de envío guardadas en tu cuenta de Helix Bio.",
       "addNewAddress": "Agregar Nueva Dirección",
       "editAddressTitle": "Editar Dirección",
       "addAddressTitle": "Agregar una Nueva Dirección",
@@ -888,14 +888,14 @@
     },
     "layout": {
       "title": "Mi Cuenta",
-      "metaTitle": "Mi Cuenta | 99 Purity Peptides",
-      "metaDescription": "Administra tu cuenta de 99 Purity Peptides, pedidos, direcciones y preferencias."
+      "metaTitle": "Mi Cuenta | Helix Bio",
+      "metaDescription": "Administra tu cuenta de Helix Bio, pedidos, direcciones y preferencias."
     },
     "orders": {
       "title": "Historial de Pedidos",
       "subtitle": "Rastrea, gestiona y devuelve tus compras recientes.",
-      "metaTitle": "Historial de Pedidos | 99 Purity Peptides",
-      "metaDescription": "Rastrea, gestiona y revisa tus pedidos recientes de 99 Purity Peptides.",
+      "metaTitle": "Historial de Pedidos | Helix Bio",
+      "metaDescription": "Rastrea, gestiona y revisa tus pedidos recientes de Helix Bio.",
       "filterStatus": "Filtrar Estado",
       "filterAll": "Todos los Pedidos",
       "filterProcessing": "Procesando",
@@ -944,8 +944,8 @@
       "paymentSuccessful": "Pago Exitoso",
       "paymentRefunded": "Reembolsado",
       "paymentProcessing": "Pago en Proceso",
-      "metaTitle": "Detalles del Pedido | 99 Purity Peptides",
-      "metaDescription": "Consulta los detalles, artículos y estado de envío de tu pedido de 99 Purity Peptides."
+      "metaTitle": "Detalles del Pedido | Helix Bio",
+      "metaDescription": "Consulta los detalles, artículos y estado de envío de tu pedido de Helix Bio."
     },
     "settings": {
       "toastUpdateFailed": "No se pudo actualizar el perfil",
@@ -981,7 +981,7 @@
       "orderSmsUpdatesDescription": "Recibe mensajes de texto en tiempo real sobre los envíos y entregas de tus pedidos.",
       "errorUnauthorized": "No autorizado",
       "errorUnexpected": "Ocurrió un error inesperado",
-      "metaTitle": "Configuración de la Cuenta | 99 Purity Peptides",
+      "metaTitle": "Configuración de la Cuenta | Helix Bio",
       "metaDescription": "Administra tu información personal, preferencias de seguridad y notificaciones."
     },
     "wishlist": {
@@ -993,7 +993,7 @@
       "emptyTitle": "Tu lista de deseos está vacía",
       "emptyDescription": "Guarda los artículos que quieras comprar más tarde haciendo clic en el ícono de corazón en cualquier página de producto.",
       "startBrowsing": "Comenzar a Explorar",
-      "metaTitle": "Mi Lista de Deseos | 99 Purity Peptides",
+      "metaTitle": "Mi Lista de Deseos | Helix Bio",
       "metaDescription": "Consulta y administra los péptidos de investigación que has guardado en tu lista de deseos."
     },
     "sidebar": {
@@ -1051,12 +1051,12 @@
     }
   },
   "cartPage": {
-    "metaTitle": "Tu Carrito | 99 Purity Peptides",
+    "metaTitle": "Tu Carrito | Helix Bio",
     "metaDescription": "Revisa los péptidos de investigación en tu carrito antes de continuar con el pago seguro."
   },
   "checkout": {
-    "metaTitle": "Pago Seguro | 99 Purity Peptides",
-    "metaDescription": "Completa tu pago seguro de péptidos de investigación en 99 Purity Peptides.",
+    "metaTitle": "Pago Seguro | Helix Bio",
+    "metaDescription": "Completa tu pago seguro de péptidos de investigación en Helix Bio.",
     "cartDrawer": {
       "title": "CARRITO",
       "closeCartAria": "Cerrar carrito",
@@ -1215,8 +1215,8 @@
     }
   },
   "orderConfirmation": {
-    "metaTitle": "Pedido Confirmado | 99 Purity Peptides",
-    "metaDescription": "Tu pedido de 99 Purity Peptides ha sido realizado. Consulta la confirmación y los detalles de pago.",
+    "metaTitle": "Pedido Confirmado | Helix Bio",
+    "metaDescription": "Tu pedido de Helix Bio ha sido realizado. Consulta la confirmación y los detalles de pago.",
     "paymentSuccessful": "Pago Exitoso",
     "orderPlaced": "Pedido Realizado",
     "thankYouZelle": "Gracias, {name}. Por favor completa tu pago por Zelle a continuación.",
@@ -1258,13 +1258,13 @@
   },
   "legal": {
     "privacyPolicy": {
-      "metaTitle": "Política de Privacidad | 99 Purity Peptides",
-      "metaDescription": "Descubre cómo 99 Purity Peptides recopila, usa y protege los datos personales, respaldando el cumplimiento de productos de uso en investigación y un procesamiento seguro de pedidos.",
+      "metaTitle": "Política de Privacidad | Helix Bio",
+      "metaDescription": "Descubre cómo Helix Bio recopila, usa y protege los datos personales, respaldando el cumplimiento de productos de uso en investigación y un procesamiento seguro de pedidos.",
       "eyebrow": "Información Legal",
       "titleLine1": "Política de Privacidad de",
-      "titleLine2": "99 Purity Peptides",
+      "titleLine2": "Helix Bio",
       "effectiveDate": "Fecha de Vigencia: Enero de 2026",
-      "intro": "En 99 Purity Peptides, tu privacidad es importante para nosotros. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos tu información personal cuando interactúas con nuestro sitio web y servicios. Al usar nuestro sitio web, aceptas las prácticas descritas a continuación.",
+      "intro": "En Helix Bio, tu privacidad es importante para nosotros. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos tu información personal cuando interactúas con nuestro sitio web y servicios. Al usar nuestro sitio web, aceptas las prácticas descritas a continuación.",
       "section1Title": "Información que Recopilamos",
       "section1Text": "Recopilamos información para brindarte nuestros servicios de manera eficiente y segura. Los tipos de información que podemos recopilar incluyen:",
       "section1Item1Label": "Información Personal:",
@@ -1306,7 +1306,7 @@
       "section5ContactText": "Para ejercer cualquiera de estos derechos, contáctanos en:",
       "section5EmailLabel": "Correo electrónico:",
       "section6Title": "Aviso sobre Productos de Uso en Investigación",
-      "section6Intro": "Todos los productos vendidos por 99 Purity Peptides son estrictamente para uso en investigación:",
+      "section6Intro": "Todos los productos vendidos por Helix Bio son estrictamente para uso en investigación:",
       "section6Item1": "No para uso humano ni veterinario.",
       "section6Item2": "No están destinados a diagnóstico, tratamiento ni fines terapéuticos",
       "section6Item3": "Los usuarios son responsables del manejo y cumplimiento de todas las leyes y normativas de seguridad aplicables.",
@@ -1320,15 +1320,15 @@
       "contactLabel": "Contacto"
     },
     "refundPolicy": {
-      "metaTitle": "Política de Reembolso | 99 Purity Peptides",
-      "metaDescription": "Consulta la Política de Reembolso de 99 Purity Peptides para productos de uso en investigación, elegibilidad, proceso, pedidos dañados y pautas de devolución.",
+      "metaTitle": "Política de Reembolso | Helix Bio",
+      "metaDescription": "Consulta la Política de Reembolso de Helix Bio para productos de uso en investigación, elegibilidad, proceso, pedidos dañados y pautas de devolución.",
       "eyebrow": "Información Legal",
       "titleLine1": "Política de Reembolso de",
-      "titleLine2": "99 Purity Peptides",
+      "titleLine2": "Helix Bio",
       "effectiveDate": "Fecha de Vigencia: Enero de 2026",
-      "intro": "En 99 Purity Peptides, nos comprometemos a ofrecer péptidos, compuestos y productos bioquímicos de investigación de alta calidad. Por favor lee cuidadosamente nuestra Política de Reembolso antes de realizar un pedido para entender tus derechos y responsabilidades.",
+      "intro": "En Helix Bio, nos comprometemos a ofrecer péptidos, compuestos y productos bioquímicos de investigación de alta calidad. Por favor lee cuidadosamente nuestra Política de Reembolso antes de realizar un pedido para entender tus derechos y responsabilidades.",
       "section1Title": "Propósito de Esta Política",
-      "section1Text": "Esta Política de Reembolso explica las circunstancias bajo las cuales se ofrecen reembolsos o cambios. Todos los productos vendidos por 99 Purity Peptides son estrictamente para uso en investigación — no para uso humano ni veterinario, diagnóstico o tratamiento. Los reembolsos se ofrecen para garantizar la satisfacción del cliente, manteniendo al mismo tiempo la integridad y seguridad de nuestros productos.",
+      "section1Text": "Esta Política de Reembolso explica las circunstancias bajo las cuales se ofrecen reembolsos o cambios. Todos los productos vendidos por Helix Bio son estrictamente para uso en investigación — no para uso humano ni veterinario, diagnóstico o tratamiento. Los reembolsos se ofrecen para garantizar la satisfacción del cliente, manteniendo al mismo tiempo la integridad y seguridad de nuestros productos.",
       "section2Title": "Elegibilidad para Reembolsos",
       "section2Intro": "Para calificar para un reembolso o cambio, tu pedido debe cumplir con los siguientes criterios:",
       "section2Item1": "El producto debe estar sin usar, sin abrir y en su empaque original.",
@@ -1360,7 +1360,7 @@
       "section7Title": "Avisos Legales",
       "section7Item1": "Todos los productos son exclusivamente para fines de laboratorio e investigación. El uso indebido de cualquier producto para fines humanos o veterinarios anula cualquier elegibilidad de reembolso.",
       "section7Item2": "Los reembolsos están sujetos a verificación y a discreción de la empresa, de acuerdo con las leyes aplicables.",
-      "section7Item3": "99 Purity Peptides se reserva el derecho de modificar esta Política de Reembolso en cualquier momento.",
+      "section7Item3": "Helix Bio se reserva el derecho de modificar esta Política de Reembolso en cualquier momento.",
       "contactTitle": "Contáctanos",
       "contactIntro": "Para cualquier pregunta relacionada con reembolsos, por favor contacta a nuestro equipo de soporte:",
       "orderQueriesLabel": "Consultas relacionadas con pedidos",
@@ -1370,13 +1370,13 @@
       "closingText2": "Punto clave: Siempre revisa tu pedido, sigue las pautas de manejo y contáctanos de inmediato ante cualquier problema. Nuestro objetivo es mantener la seguridad, calidad y transparencia en todos los productos de uso en investigación."
     },
     "shippingPolicy": {
-      "metaTitle": "Política de Envío | 99 Purity Peptides",
-      "metaDescription": "Conoce la política de envío, tiempos de entrega, empaque, restricciones internacionales y manejo seguro de productos de uso en investigación de 99 Purity Peptides.",
+      "metaTitle": "Política de Envío | Helix Bio",
+      "metaDescription": "Conoce la política de envío, tiempos de entrega, empaque, restricciones internacionales y manejo seguro de productos de uso en investigación de Helix Bio.",
       "eyebrow": "Información Legal",
       "titleLine1": "Política de Envío de",
-      "titleLine2": "99 Purity Peptides",
+      "titleLine2": "Helix Bio",
       "effectiveDate": "Fecha de Vigencia: Enero de 2026",
-      "intro": "En 99 Purity Peptides, nos comprometemos a ofrecer péptidos, compuestos y productos bioquímicos de investigación de alta calidad. Por favor lee cuidadosamente nuestra Política de Reembolso antes de realizar un pedido para entender tus derechos y responsabilidades.",
+      "intro": "En Helix Bio, nos comprometemos a ofrecer péptidos, compuestos y productos bioquímicos de investigación de alta calidad. Por favor lee cuidadosamente nuestra Política de Reembolso antes de realizar un pedido para entender tus derechos y responsabilidades.",
       "section1Title": "Procesamiento de Pedidos",
       "section1Text": "Todos los pedidos se revisan y procesan cuidadosamente dentro de 1 a 3 días hábiles. Durante este tiempo, nuestro equipo verifica los detalles del pedido, comprueba la disponibilidad del producto y garantiza que todos los artículos cumplan con los estándares de calidad.",
       "section1Note": "Nota: Los pedidos realizados en fines de semana o días festivos se procesarán el siguiente día hábil.",
@@ -1413,7 +1413,7 @@
       "section7Item2": "Revisaremos el problema y ofreceremos opciones de reemplazo o reembolso según corresponda.",
       "section8Title": "Avisos Legales y de Seguridad",
       "section8Item1": "Todos los productos vendidos son estrictamente para uso en investigación. No están destinados a uso humano ni veterinario, diagnóstico o tratamiento.",
-      "section8Item2": "99 Purity Peptides no es responsable por el uso indebido, manejo inadecuado o retrasos de envío fuera de nuestro control.",
+      "section8Item2": "Helix Bio no es responsable por el uso indebido, manejo inadecuado o retrasos de envío fuera de nuestro control.",
       "section8Item3": "Las políticas de envío pueden actualizarse periódicamente; se recomienda a los clientes revisar esta página para obtener la información más reciente.",
       "contactTitle": "Contáctanos",
       "contactIntro": "Para cualquier pregunta sobre envíos, tiempos de entrega o seguimiento:",
@@ -1423,19 +1423,19 @@
       "closingText": "Nuestro equipo está listo para ayudarte y garantizar que tu pedido llegue de forma segura y puntual."
     },
     "medicalDisclaimer": {
-      "metaTitle": "Aviso Médico | 99 Purity Peptides",
-      "metaDescription": "Todo el contenido y los productos de 99 Purity Peptides son exclusivamente para uso en investigación. No para uso humano ni veterinario, diagnóstico o tratamiento.",
+      "metaTitle": "Aviso Médico | Helix Bio",
+      "metaDescription": "Todo el contenido y los productos de Helix Bio son exclusivamente para uso en investigación. No para uso humano ni veterinario, diagnóstico o tratamiento.",
       "eyebrow": "Información Legal",
       "titleLine1": "Aviso Médico de",
-      "titleLine2": "99 Purity Peptides",
+      "titleLine2": "Helix Bio",
       "effectiveDate": "Fecha de Vigencia: Enero de 2026",
-      "intro": "La información proporcionada en este sitio web y a través de nuestros productos está destinada únicamente a fines de investigación. Todos los péptidos, compuestos y materiales relacionados vendidos por 99 Purity Peptides son exclusivamente para investigación de laboratorio y académica. Estos productos no están destinados a uso humano ni veterinario, diagnóstico o tratamiento.",
+      "intro": "La información proporcionada en este sitio web y a través de nuestros productos está destinada únicamente a fines de investigación. Todos los péptidos, compuestos y materiales relacionados vendidos por Helix Bio son exclusivamente para investigación de laboratorio y académica. Estos productos no están destinados a uso humano ni veterinario, diagnóstico o tratamiento.",
       "section1Title": "No Constituye Asesoramiento Médico",
-      "section1Text": "El contenido de este sitio, incluidas las descripciones de productos, resúmenes de investigación y artículos del blog, no constituye asesoramiento médico. 99 Purity Peptides no es un proveedor de atención médica y los materiales presentados son únicamente para fines informativos y educativos. Siempre busca la orientación de un profesional médico o científico licenciado antes de actuar según cualquier información obtenida de este sitio.",
+      "section1Text": "El contenido de este sitio, incluidas las descripciones de productos, resúmenes de investigación y artículos del blog, no constituye asesoramiento médico. Helix Bio no es un proveedor de atención médica y los materiales presentados son únicamente para fines informativos y educativos. Siempre busca la orientación de un profesional médico o científico licenciado antes de actuar según cualquier información obtenida de este sitio.",
       "section2Title": "Limitación de Uso del Producto",
-      "section2Text": "Todos los productos ofrecidos por 99 Purity Peptides están destinados a entornos controlados de laboratorio o investigación. Cualquier uso fuera de este contexto, incluida la autoadministración, está estrictamente prohibido y puede violar las leyes y regulaciones locales. Los usuarios son responsables de garantizar que todo el manejo, almacenamiento y uso cumplan con los protocolos de investigación y estándares de seguridad aplicables.",
+      "section2Text": "Todos los productos ofrecidos por Helix Bio están destinados a entornos controlados de laboratorio o investigación. Cualquier uso fuera de este contexto, incluida la autoadministración, está estrictamente prohibido y puede violar las leyes y regulaciones locales. Los usuarios son responsables de garantizar que todo el manejo, almacenamiento y uso cumplan con los protocolos de investigación y estándares de seguridad aplicables.",
       "section3Title": "Responsabilidad",
-      "section3Text": "99 Purity Peptides no asume responsabilidad alguna por el uso indebido de los productos, el manejo inadecuado o cualquier efecto adverso resultante de un uso no autorizado. Al usar este sitio web y comprar nuestros productos, reconoces y aceptas que 99 Purity Peptides no es responsable de ningún daño directo, indirecto o consecuente derivado de tus acciones.",
+      "section3Text": "Helix Bio no asume responsabilidad alguna por el uso indebido de los productos, el manejo inadecuado o cualquier efecto adverso resultante de un uso no autorizado. Al usar este sitio web y comprar nuestros productos, reconoces y aceptas que Helix Bio no es responsable de ningún daño directo, indirecto o consecuente derivado de tus acciones.",
       "section4Title": "Responsabilidad del Usuario",
       "section4Intro": "Es responsabilidad de todos los usuarios:",
       "section4Item1": "Cumplir con todas las leyes locales, estatales y federales relacionadas con los químicos de investigación.",
@@ -1447,18 +1447,18 @@
       "orderQueriesLabel": "Consultas relacionadas con pedidos",
       "supportIssuesLabel": "Soporte y problemas",
       "contactLabel": "Contacto",
-      "closingText": "Al acceder a este sitio web o comprar nuestros productos, aceptas cumplir con este Aviso Médico y reconoces que 99 Purity Peptides no es responsable de ningún uso indebido o aplicación no autorizada de nuestros materiales de investigación."
+      "closingText": "Al acceder a este sitio web o comprar nuestros productos, aceptas cumplir con este Aviso Médico y reconoces que Helix Bio no es responsable de ningún uso indebido o aplicación no autorizada de nuestros materiales de investigación."
     },
     "termsAndConditions": {
-      "metaTitle": "Términos y Condiciones | 99 Purity Peptides",
-      "metaDescription": "Consulta los Términos y Condiciones de 99 Purity Peptides para productos de uso en investigación, responsabilidades de cuenta, pedidos, responsabilidad y cumplimiento legal.",
+      "metaTitle": "Términos y Condiciones | Helix Bio",
+      "metaDescription": "Consulta los Términos y Condiciones de Helix Bio para productos de uso en investigación, responsabilidades de cuenta, pedidos, responsabilidad y cumplimiento legal.",
       "eyebrow": "Información Legal",
       "titleLine1": "Términos y Condiciones de",
-      "titleLine2": "99 Purity Peptides",
+      "titleLine2": "Helix Bio",
       "effectiveDate": "Fecha de Vigencia: Enero de 2026",
-      "intro": "Bienvenido a 99 Purity Peptides. Al acceder o usar nuestro sitio web, comprar productos o interactuar con nuestros servicios, aceptas quedar sujeto a los siguientes Términos y Condiciones. Si no estás de acuerdo, por favor no uses nuestro sitio web ni nuestros servicios.",
+      "intro": "Bienvenido a Helix Bio. Al acceder o usar nuestro sitio web, comprar productos o interactuar con nuestros servicios, aceptas quedar sujeto a los siguientes Términos y Condiciones. Si no estás de acuerdo, por favor no uses nuestro sitio web ni nuestros servicios.",
       "section1Title": "Propósito",
-      "section1Text": "99 Purity Peptides ofrece péptidos de grado investigación, moléculas pequeñas y compuestos relacionados. Todos los productos están destinados exclusivamente a fines de laboratorio e investigación. No son para uso humano ni veterinario, diagnóstico o tratamiento. Estos Términos rigen tu acceso, uso y compra de nuestros productos y servicios.",
+      "section1Text": "Helix Bio ofrece péptidos de grado investigación, moléculas pequeñas y compuestos relacionados. Todos los productos están destinados exclusivamente a fines de laboratorio e investigación. No son para uso humano ni veterinario, diagnóstico o tratamiento. Estos Términos rigen tu acceso, uso y compra de nuestros productos y servicios.",
       "section2Title": "Productos de Uso Exclusivo en Investigación",
       "section2Intro": "Todos los productos vendidos a través de nuestro sitio web son estrictamente para fines de investigación. Al comprar o usar nuestros productos, confirmas que:",
       "section2Item1": "Entiendes y aceptas que los productos no están destinados al consumo ni al uso médico.",
@@ -1477,13 +1477,13 @@
       "section5Title": "Envío y Entrega",
       "section5Item1": "Enviamos únicamente a regiones aprobadas. Ciertos productos pueden tener restricciones debido a leyes locales.",
       "section5Item2": "Los plazos de envío son estimados y pueden variar debido a logística o procesamiento aduanero.",
-      "section5Item3": "99 Purity Peptides no es responsable de retrasos o daños durante el tránsito.",
+      "section5Item3": "Helix Bio no es responsable de retrasos o daños durante el tránsito.",
       "section6Title": "Responsabilidad del Producto y Seguridad",
       "section6Item1": "Los productos no están aprobados para uso humano ni veterinario.",
       "section6Item2": "Los usuarios asumen todos los riesgos asociados con el almacenamiento, manejo y aplicaciones de investigación.",
-      "section6Item3": "99 Purity Peptides no es responsable por el uso indebido, ingestión accidental o aplicaciones no aprobadas.",
+      "section6Item3": "Helix Bio no es responsable por el uso indebido, ingestión accidental o aplicaciones no aprobadas.",
       "section7Title": "Propiedad Intelectual",
-      "section7Item1": "Todo el contenido del sitio web, imágenes, descripciones de productos, marca y diseños son propiedad de 99 Purity Peptides.",
+      "section7Item1": "Todo el contenido del sitio web, imágenes, descripciones de productos, marca y diseños son propiedad de Helix Bio.",
       "section7Item2": "Está estrictamente prohibida la reproducción, distribución o uso comercial no autorizado.",
       "section8Title": "Conducta del Usuario",
       "section8Intro": "Al usar nuestro sitio web, aceptas no:",
@@ -1493,19 +1493,19 @@
       "section8Note": "Las infracciones pueden resultar en la cancelación del pedido, suspensión de la cuenta o acciones legales.",
       "section9Title": "Limitación de Responsabilidad",
       "section9Intro": "En la máxima medida permitida por la ley:",
-      "section9Item1": "99 Purity Peptides no es responsable de daños resultantes de uso indebido, aplicaciones no autorizadas o errores del sitio web.",
+      "section9Item1": "Helix Bio no es responsable de daños resultantes de uso indebido, aplicaciones no autorizadas o errores del sitio web.",
       "section9Item2": "La responsabilidad por problemas del producto se limita al precio de compra del producto.",
       "section10Title": "Indemnización",
-      "section10Intro": "Aceptas indemnizar y eximir de responsabilidad a 99 Purity Peptides, sus empleados y afiliados de cualquier reclamo, daño o gasto derivado de:",
+      "section10Intro": "Aceptas indemnizar y eximir de responsabilidad a Helix Bio, sus empleados y afiliados de cualquier reclamo, daño o gasto derivado de:",
       "section10Item1": "Uso inadecuado de los productos.",
       "section10Item2": "Incumplimiento de los Términos y Condiciones.",
       "section10Item3": "Incumplimiento de leyes locales o federales relacionadas con el uso del producto.",
       "section11Title": "Ley Aplicable",
-      "section11Text": "Estos Términos se rigen por las leyes de la jurisdicción en la que opera 99 Purity Peptides. Cualquier disputa se resolverá conforme a dichas leyes.",
+      "section11Text": "Estos Términos se rigen por las leyes de la jurisdicción en la que opera Helix Bio. Cualquier disputa se resolverá conforme a dichas leyes.",
       "section12Title": "Privacidad y Uso de Datos",
-      "section12Text": "Tu uso de 99 Purity Peptides también está sujeto a nuestra Política de Privacidad, la cual describe cómo recopilamos, usamos y protegemos tus datos personales.",
+      "section12Text": "Tu uso de Helix Bio también está sujeto a nuestra Política de Privacidad, la cual describe cómo recopilamos, usamos y protegemos tus datos personales.",
       "section13Title": "Cambios en los Términos",
-      "section13Text": "99 Purity Peptides se reserva el derecho de actualizar o modificar estos Términos en cualquier momento. Los cambios entrarán en vigor una vez publicados en el sitio web. El uso continuo de nuestro sitio web o productos constituye la aceptación de los Términos actualizados.",
+      "section13Text": "Helix Bio se reserva el derecho de actualizar o modificar estos Términos en cualquier momento. Los cambios entrarán en vigor una vez publicados en el sitio web. El uso continuo de nuestro sitio web o productos constituye la aceptación de los Términos actualizados.",
       "contactTitle": "Atención al Cliente",
       "contactIntro": "Si tienes preguntas sobre estos Términos y Condiciones, por favor contáctanos:",
       "orderQueriesLabel": "Consultas relacionadas con pedidos",
@@ -1551,8 +1551,8 @@
   },
   "affiliate": {
     "landing": {
-      "metaTitle": "Programa de Afiliados | Gana 15% de Comisión | 99 Purity Peptides",
-      "metaDescription": "Gana un 15% de comisión promocionando los péptidos de investigación de 99 Purity Peptides, además de un 15% de descuento para tu audiencia. Seguimiento en tiempo real y pagos mensuales.",
+      "metaTitle": "Programa de Afiliados | Gana 15% de Comisión | Helix Bio",
+      "metaDescription": "Gana un 15% de comisión promocionando los péptidos de investigación de Helix Bio, además de un 15% de descuento para tu audiencia. Seguimiento en tiempo real y pagos mensuales.",
       "heroJoinButtonLong": "Únete al Programa de Afiliados Ahora",
       "heroJoinButtonShort": "Únete al Programa",
       "heroTitle": "Afiliados",
@@ -1830,8 +1830,8 @@
       "dashboard": "Panel de Afiliados"
     },
     "dashboard": {
-      "metaTitle": "Panel de Afiliados | 99 Purity Peptides",
-      "metaDescription": "Rastrea tus clics de referidos, conversiones y comisiones en tu panel de afiliados de 99 Purity Peptides.",
+      "metaTitle": "Panel de Afiliados | Helix Bio",
+      "metaDescription": "Rastrea tus clics de referidos, conversiones y comisiones en tu panel de afiliados de Helix Bio.",
       "overviewEyebrow": "Panel de Afiliados",
       "tierSuffix": "Nivel",
       "totalClicks": "Clics Totales",
@@ -1856,8 +1856,8 @@
     "dashboardLayout": {
       "title": "Panel de Afiliado",
       "defaultPartnerName": "Socio",
-      "metaTitle": "Panel de Afiliados | 99 Purity Peptides",
-      "metaDescription": "Rastrea tus clics de referidos, conversiones y comisiones en tu panel de afiliados de 99 Purity Peptides."
+      "metaTitle": "Panel de Afiliados | Helix Bio",
+      "metaDescription": "Rastrea tus clics de referidos, conversiones y comisiones en tu panel de afiliados de Helix Bio."
     },
     "conversions": {
       "title": "Conversiones",
@@ -1953,8 +1953,8 @@
   },
   "content": {
     "aboutPage": {
-      "metaTitle": "Sobre 99 Purity Peptides | Empresa de Péptidos de Confianza en EE. UU.",
-      "metaDescription": "Conoce 99 Purity Peptides, un proveedor de péptidos de confianza en el que investigadores de EE. UU. confían para obtener péptidos de investigación sintéticos de alta pureza.",
+      "metaTitle": "Sobre Helix Bio | Empresa de Péptidos de Confianza en EE. UU.",
+      "metaDescription": "Conoce Helix Bio, un proveedor de péptidos de confianza en el que investigadores de EE. UU. confían para obtener péptidos de investigación sintéticos de alta pureza.",
       "faqTitle": "Preguntas",
       "faqDescription": "Preguntas frecuentes sobre péptidos de investigación, pedidos y estándares de laboratorio",
       "faqs": {
@@ -1963,7 +1963,7 @@
           "answer": "Un proveedor de péptidos confiable demuestra prácticas de documentación transparentes, claridad en la clasificación de investigación, evaluación analítica estructurada y un posicionamiento claro de uso exclusivo para investigación. La trazabilidad de lotes y la verificación de pureza son indicadores clave de la credibilidad del proveedor."
         },
         "analyticalQuality": {
-          "question": "¿Cómo garantiza 99 Purity Peptides la calidad analítica?",
+          "question": "¿Cómo garantiza Helix Bio la calidad analítica?",
           "answer": "Implementamos procedimientos de evaluación analítica de péptidos para verificar la identidad molecular y los estándares de pureza antes de su liberación. El acceso a la documentación respalda a los investigadores que evalúan péptidos con COA y estándares de validación de pureza."
         },
         "laboratoryResearchOnly": {
@@ -1977,8 +1977,8 @@
       }
     },
     "contactPage": {
-      "metaTitle": "Contáctenos | 99 Purity Peptides",
-      "metaDescription": "Contacta a 99 Purity Peptides para consultas sobre pedidos, documentación, cuenta o el sitio web. Péptidos de uso exclusivo en investigación. No se ofrece asesoramiento."
+      "metaTitle": "Contáctenos | Helix Bio",
+      "metaDescription": "Contacta a Helix Bio para consultas sobre pedidos, documentación, cuenta o el sitio web. Péptidos de uso exclusivo en investigación. No se ofrece asesoramiento."
     },
     "contactForm": {
       "errorRequiredFields": "Por favor complete todos los campos obligatorios.",
@@ -1998,15 +1998,15 @@
       "submit": "Enviar solicitud"
     },
     "faqPage": {
-      "metaTitle": "Preguntas Frecuentes | 99 Purity Peptides",
-      "metaDescription": "Respuestas completas sobre péptidos de investigación, estándares analíticos, procesos de pedido y manejo de laboratorio de 99 Purity Peptides."
+      "metaTitle": "Preguntas Frecuentes | Helix Bio",
+      "metaDescription": "Respuestas completas sobre péptidos de investigación, estándares analíticos, procesos de pedido y manejo de laboratorio de Helix Bio."
     },
     "aboutHero": {
       "viewPeptidesShort": "Ver Péptidos",
       "viewPeptidesLong": "Ver Péptidos de Investigación",
       "titleLine1": "ACERCA DE 99",
       "titleLine2": "PURITY PEPTIDES",
-      "subtitle": "99 Purity Peptides opera como una empresa de péptidos enfocada en la investigación, en la que confían laboratorios de EE. UU. y profesionales de investigación independientes al adquirir péptidos sintéticos de investigación."
+      "subtitle": "Helix Bio opera como una empresa de péptidos enfocada en la investigación, en la que confían laboratorios de EE. UU. y profesionales de investigación independientes al adquirir péptidos sintéticos de investigación."
     },
     "complianceStatement": {
       "officialNotice": "Aviso Oficial",
@@ -2014,7 +2014,7 @@
       "titleLine2": "Cumplimiento",
       "subtitle": "Términos de Uso para Investigación",
       "statements": {
-        "researchOnly": "Los productos ofrecidos por 99 Purity Peptides son péptidos sintéticos de investigación destinados únicamente a la investigación de laboratorio.",
+        "researchOnly": "Los productos ofrecidos por Helix Bio son péptidos sintéticos de investigación destinados únicamente a la investigación de laboratorio.",
         "notForHumanAnimalUse": "No apto para uso humano ni animal.",
         "notForDiagnosisTreatment": "No apto para diagnóstico, tratamiento, ingestión o administración de ningún tipo.",
         "notFdaApproved": "Los productos no han sido evaluados ni aprobados por la Administración de Alimentos y Medicamentos de EE. UU. (FDA)."
@@ -2025,26 +2025,26 @@
       "title": "Principios y Valores",
       "card1Label": "Nuestra Misión",
       "card1Title": "Impulsando los Estándares de Investigación Científica",
-      "card1Text": "La misión de 99 Purity Peptides como empresa de péptidos de investigación es apoyar a los profesionales de laboratorio brindando acceso a péptidos de grado laboratorio que cumplen con estándares documentados de calidad analítica.",
+      "card1Text": "La misión de Helix Bio como empresa de péptidos de investigación es apoyar a los profesionales de laboratorio brindando acceso a péptidos de grado laboratorio que cumplen con estándares documentados de calidad analítica.",
       "card2Label": "Nuestra Filosofía",
       "card2Title": "Integridad y Transparencia en la Investigación",
       "card2Text": "Nuestra filosofía operativa se centra en la integridad de la investigación, la claridad de cumplimiento y la trazabilidad de los materiales. Como proveedor de péptidos enfocado en el cumplimiento normativo, clasificamos claramente todos los productos como péptidos sintéticos de investigación destinados únicamente a aplicaciones de investigación de laboratorio.",
       "card3Label": "Nuestra Trayectoria",
       "card3Title": "Un Enfoque en el Suministro para Investigación de Laboratorio",
-      "card3Text": "99 Purity Peptides fue creada para atender la necesidad de péptidos sintéticos de investigación claramente clasificados dentro de la comunidad científica. El desarrollo de la organización se ha guiado por el rigor analítico, prácticas de manejo controlado y el cumplimiento de la designación de uso exclusivo para investigación en todos sus productos."
+      "card3Text": "Helix Bio fue creada para atender la necesidad de péptidos sintéticos de investigación claramente clasificados dentro de la comunidad científica. El desarrollo de la organización se ha guiado por el rigor analítico, prácticas de manejo controlado y el cumplimiento de la designación de uso exclusivo para investigación en todos sus productos."
     },
     "ourServices": {
       "capabilitiesLabel": "Nuestras Capacidades",
       "titleLine1": "Suministro de Péptidos",
       "titleLine2": "Sintéticos de Investigación",
       "card1Title": "Excelencia de Grado Laboratorio",
-      "card1Text": "99 Purity Peptides suministra péptidos de investigación sintetizados químicamente en múltiples categorías de investigación de laboratorio. Nuestro catálogo de péptidos de grado laboratorio respalda entornos analíticos donde se requiere una clasificación estructurada y estándares documentados de pureza.",
+      "card1Text": "Helix Bio suministra péptidos de investigación sintetizados químicamente en múltiples categorías de investigación de laboratorio. Nuestro catálogo de péptidos de grado laboratorio respalda entornos analíticos donde se requiere una clasificación estructurada y estándares documentados de pureza.",
       "card2Title": "Aplicación Exclusiva",
       "card2Text1": "Todos los materiales se proporcionan exclusivamente para aplicaciones de investigación de laboratorio y analíticas.",
       "card2Text2": "No brindamos asesoramiento médico, orientación sobre dosis ni recomendaciones de aplicación.",
       "footerLabel": "Compromiso con la Investigación",
       "footerTitle": "Apoyando Entornos Científicos Controlados",
-      "footerText": "99 Purity Peptides funciona únicamente como proveedor de material de investigación. El soporte operativo incluye:",
+      "footerText": "Helix Bio funciona únicamente como proveedor de material de investigación. El soporte operativo incluye:",
       "listItems": {
         "orderProcessing": "Procesamiento de pedidos",
         "documentationAccess": "Acceso a documentación",
@@ -2111,7 +2111,7 @@
     "contactHero": {
       "getSupport": "Obtener Soporte",
       "title": "Contáctenos",
-      "subtitle": "99 Purity Peptides suministra péptidos sintéticos de investigación destinados exclusivamente a entornos de investigación de laboratorio y experimentales."
+      "subtitle": "Helix Bio suministra péptidos sintéticos de investigación destinados exclusivamente a entornos de investigación de laboratorio y experimentales."
     },
     "faqHero": {
       "viewPeptidesShort": "Ver Péptidos",

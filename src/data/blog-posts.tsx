@@ -998,7 +998,7 @@ export const BLOG_POSTS: {
 
         <div className="my-12 p-8 bg-zinc-900 rounded-2xl text-center">
           <h3 className="text-xl font-bold font-serif text-white mb-4">Run your exact numbers</h3>
-          <p className="text-white/70 mb-6 max-w-xl mx-auto text-sm">Skip the mental math. Enter your vial size and target mass into the 99 Purity Peptides <a className="text-gold underline hover:text-gold/80" href="/peptide-calculator">peptide calculator</a> and <a className="text-gold underline hover:text-gold/80" href="/peptide-reconstitution-calculator">reconstitution calculator</a> — they return the precise water volume and syringe units instantly, in millilitres or units. Then explore the <a className="text-gold underline hover:text-gold/80" href="/shop">research catalog</a> for third-party-tested, 99%-purity compounds and the correct bacteriostatic and acetic-acid water.</p>
+          <p className="text-white/70 mb-6 max-w-xl mx-auto text-sm">Skip the mental math. Enter your vial size and target mass into the Helix Bio <a className="text-gold underline hover:text-gold/80" href="/peptide-calculator">peptide calculator</a> and <a className="text-gold underline hover:text-gold/80" href="/peptide-reconstitution-calculator">reconstitution calculator</a> — they return the precise water volume and syringe units instantly, in millilitres or units. Then explore the <a className="text-gold underline hover:text-gold/80" href="/shop">research catalog</a> for third-party-tested, 99%-purity compounds and the correct bacteriostatic and acetic-acid water.</p>
         </div>
 
         <hr className="border-t border-ink/10 my-16" />
@@ -1175,7 +1175,7 @@ export const BLOG_POSTS: {
     category: 'Growth research',
     date: 'May 16, 2026',
     readTime: '10 min read',
-    excerpt: 'Discover the top science-backed collagen peptides benefits for skin, joints, bone, and muscle. Research-grade hydrolyzed collagen available at 99 Purity Peptides.',
+    excerpt: 'Discover the top science-backed collagen peptides benefits for skin, joints, bone, and muscle. Research-grade hydrolyzed collagen available at Helix Bio.',
     imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/collagen-peptides-benefits-hero.webp',
     content: (
       <>
@@ -1185,7 +1185,7 @@ export const BLOG_POSTS: {
         </p>
         <p className="mb-4">But with dozens of products flooding the market, most people are asking the same critical question: <strong>what do collagen peptides actually do, and which benefits does the science support?</strong></p>
         <p className="mb-4">This guide answers exactly that. You will find a complete breakdown of collagen peptides benefits backed by peer-reviewed research, a clear explanation of how collagen peptides work at the cellular level, and practical guidance for researchers and health-conscious adults who want to make informed decisions.</p>
-        <p className="mb-4">At 99 Purity Peptides, we supply research-grade hydrolyzed collagen peptides with verified purity — because the quality of your peptides determines the quality of your results.</p>
+        <p className="mb-4">At Helix Bio, we supply research-grade hydrolyzed collagen peptides with verified purity — because the quality of your peptides determines the quality of your results.</p>
                 <div className="my-12 overflow-hidden rounded-2xl border border-ink/10 shadow-sm">
             <img src="https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/collagen-peptides-benefits-inline-1.webp" alt="Diagram showing collagen protein fibers breaking down into hydrolyzed collagen peptides dissolved in water" className="w-full h-auto object-cover" />
         </div>
@@ -1288,7 +1288,7 @@ export const BLOG_POSTS: {
                     </tr>
                     <tr>
                         <td className="border border-ink/20 p-3">Research grade available</td>
-                        <td className="border border-ink/20 p-3">Yes (99 Purity Peptides)</td>
+                        <td className="border border-ink/20 p-3">Yes (Helix Bio)</td>
                         <td className="border border-ink/20 p-3">Yes</td>
                         <td className="border border-ink/20 p-3">Yes</td>
                     </tr>
@@ -1302,7 +1302,7 @@ export const BLOG_POSTS: {
         </ul>
         <p className="mb-4">Collagen peptides have an excellent safety profile across the clinical literature. They are derived from natural food sources (bovine, porcine, marine, or avian), and no serious adverse effects have been reported in peer-reviewed trials at standard doses.</p>
         <p className="mb-4">For research use, purity is the paramount safety variable. Contaminants in low-quality peptide preparations — including heavy metals, residual solvents, and microbial contaminants — are the primary concern, not the collagen itself.</p>
-        <p className="mb-4">99 Purity Peptides provides Certificate of Analysis documentation for all collagen peptide products, ensuring research integrity and safety compliance.</p>
+        <p className="mb-4">Helix Bio provides Certificate of Analysis documentation for all collagen peptide products, ensuring research integrity and safety compliance.</p>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Collagen Peptides Side Effects: What to Know</h2>
         <p className="mb-4">Collagen peptides are generally well tolerated. The most commonly reported minor effects include:</p>
         <ul className="list-disc pl-6 space-y-4 my-6">
@@ -1318,7 +1318,7 @@ export const BLOG_POSTS: {
             <li><strong>Medium molecular weight (2,000–5,000 Da):</strong> Good absorption; partially digested during transit</li>
             <li><strong>High molecular weight (&gt; 5,000 Da):</strong> Reduced bioavailability; more digestion required before absorption</li>
         </ul>
-        <p className="mb-4">Research-grade collagen peptides from 99 Purity Peptides are produced using precision enzymatic hydrolysis to target the optimal molecular weight range for maximal bioavailability.</p>
+        <p className="mb-4">Research-grade collagen peptides from Helix Bio are produced using precision enzymatic hydrolysis to target the optimal molecular weight range for maximal bioavailability.</p>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Collagen Peptides for Women: Key Research Findings</h2>
         <p className="mb-4">Women account for the majority of collagen peptide research participants, and several female-specific applications have strong clinical support:</p>
         <ul className="list-disc pl-6 space-y-4 my-6">
@@ -1366,12 +1366,12 @@ export const BLOG_POSTS: {
             <li><strong>Timing:</strong> Pre- or post-exercise administration has been studied for joint applications; timing is less critical for skin outcomes</li>
             <li><strong>Purity standards:</strong> Research-grade collagen peptides should have documented molecular weight profiles and Certificates of Analysis</li>
         <blockquote className="border-l-4 border-gold pl-4 py-2 my-6 bg-cream-warm italic">
-            <strong>99 Purity Peptides supplies research-grade hydrolyzed collagen peptides with full documentation. <a className="text-primary underline hover:text-primary-dark" href="/shop">View our collagen peptide products →</a></strong>
+            <strong>Helix Bio supplies research-grade hydrolyzed collagen peptides with full documentation. <a className="text-primary underline hover:text-primary-dark" href="/shop">View our collagen peptide products →</a></strong>
         </blockquote>
-        <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">What Makes 99 Purity Peptides Different?</h2>
+        <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">What Makes Helix Bio Different?</h2>
         </ul>
         <p className="mb-4">When you source collagen peptides for research, purity is not optional — it is the foundation of reproducible results.</p>
-        <p className="mb-4"><strong>99 Purity Peptides provides:</strong></p>
+        <p className="mb-4"><strong>Helix Bio provides:</strong></p>
         <ul className="list-disc pl-6 space-y-4 my-6">
             <li>≥99% purity verified by third-party laboratory analysis</li>
             <li>Full Certificate of Analysis (<a className="text-primary underline hover:text-primary-dark" href="/certificates">CoA</a>) for every batch</li>
@@ -1409,7 +1409,7 @@ export const BLOG_POSTS: {
         </ul>
         <p className="mb-4">The evidence base for collagen peptides benefits continues to grow. From skin elasticity and joint mobility to bone density and muscle recovery, collagen peptides represent one of the most extensively studied bioactive protein supplements in the scientific literature.</p>
         <p className="mb-4">For researchers, the key is starting with verified purity. Low-grade peptide products introduce confounding variables that compromise data integrity. High-grade, research-quality collagen peptides eliminate that variable entirely.</p>
-        <p className="mb-4"><strong>99 Purity Peptides is committed to supplying the research community with the highest purity collagen peptides available</strong> — every batch tested, every CoA documented, every product ready for serious scientific inquiry.</p>
+        <p className="mb-4"><strong>Helix Bio is committed to supplying the research community with the highest purity collagen peptides available</strong> — every batch tested, every CoA documented, every product ready for serious scientific inquiry.</p>
         <div className="my-6">
             <a href="/shop" className="text-primary hover:text-ink font-bold underline">Order Research-Grade Collagen Peptides Today →</a>
         </div>
@@ -1814,7 +1814,7 @@ export const BLOG_POSTS: {
       <>
         <div className="prose prose-lg text-ink/80 max-w-none">
         <p className="text-sm text-ink/60 italic mb-2">Published: June 2, 2026  |  Last reviewed: June 2, 2026</p>
-        <p className="text-sm text-ink/60 italic mb-2">Reviewed by: Dr. Michael Aronowitz, PhD — Senior Research Editor, 99 Purity Peptides</p>
+        <p className="text-sm text-ink/60 italic mb-2">Reviewed by: Dr. Michael Aronowitz, PhD — Senior Research Editor, Helix Bio</p>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Introduction</h2>
         <p className="mb-4"><a className="text-primary underline hover:text-primary-dark" href="/product/retatrutide">Retatrutide</a> weight loss research entered a new phase on May 21, 2026, when Eli Lilly reported topline results from the Phase 3 TRIUMPH-1 obesity trial. The compound, identified as LY3437943 in the scientific literature, is an investigational triple hormone receptor agonist. It acts on three metabolic receptors simultaneously — GLP-1, GIP, and glucagon — through a single molecule.</p>
         <p className="mb-4">This reference compiles what published primary sources currently say about retatrutide in the context of obesity research, covering the mechanism, Phase 2 and Phase 3 trial data, the reported side-effect profile, the current FDA regulatory status, and laboratory considerations that apply when suppliers provide the compound as a research reference standard.</p>
@@ -2166,7 +2166,7 @@ export const BLOG_POSTS: {
     content: (
       <>
         <div className="prose prose-lg text-ink/80 max-w-none">
-        <p className="text-sm text-ink/60 italic mb-2">By the 99 Purity Peptides Research Team</p>
+        <p className="text-sm text-ink/60 italic mb-2">By the Helix Bio Research Team</p>
         <p className="text-sm text-ink/60 italic mb-2">Last reviewed: June 11, 2026 | Last updated: June 11, 2026</p>
         <div className="bg-cream-warm p-6 rounded-2xl border border-ink/5 my-8">
             <h3 className="font-bold text-lg mb-4">Quick Facts — KLOW Peptide Blend</h3>
@@ -2229,7 +2229,7 @@ export const BLOG_POSTS: {
         <p className="mb-4">BPC-157 has the most extensive preclinical tissue-repair literature of the four components. A frequently cited 2019 Å ikir iÄ‡ et al. study documented significantly accelerated tendon-to-bone healing in rat rotator cuff models compared to untreated controls, with VEGF pathway upregulation as a proposed mechanism [1]. Separate investigations report BPC-157 effects on ligament healing, muscle injury models, and bone repair in rodents. TB-500's angiogenic activity provides a complementary mechanism — vascular supply to injured tissue is required for repair, and in vitro data indicates TB-500 promotes endothelial tube formation through actin-polymerization modulation [6].</p>
         <p className="mb-4">Research suggests this dual-mechanism approach — growth factor upregulation via BPC-157 combined with endothelial migration support via TB-500 — represents a meaningful multi-pathway research model for tissue reconstruction studies.</p>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">Joint and Soft-Tissue Research Applications</h3>
-        <p className="mb-4">The 99 Purity Peptides product page positions KLOW specifically for "joint and soft-tissue recovery blend" research — models of chronic joint stress, tendon and ligament overload, and long-term soft-tissue wear. The preclinical literature supports this framing. Å ikir iÄ‡'s group published multiple studies on BPC-157's effects in rat models of ACL damage, Achilles tendon transection, and quadriceps muscle injury, consistently reporting accelerated structural recovery metrics [2,3].</p>
+        <p className="mb-4">The Helix Bio product page positions KLOW specifically for "joint and soft-tissue recovery blend" research — models of chronic joint stress, tendon and ligament overload, and long-term soft-tissue wear. The preclinical literature supports this framing. Å ikir iÄ‡'s group published multiple studies on BPC-157's effects in rat models of ACL damage, Achilles tendon transection, and quadriceps muscle injury, consistently reporting accelerated structural recovery metrics [2,3].</p>
         <p className="mb-4">KPV's anti-inflammatory contribution is relevant here: synovial inflammation is a consistent feature of chronic joint stress models, and the reduction of IL-1β and TNF-α that KPV demonstrates in cell culture models would be a logical correlate in a joint-stress research context [7].</p>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">Anti-Inflammatory Pathway Research</h3>
         <p className="mb-4">Three of the four KLOW components demonstrate anti-inflammatory activity through distinct pathways. BPC-157 has been shown in vitro to suppress NF-ÎºB pathway activation and reduce pro-inflammatory prostaglandin production. TB-500's Ac-SDKP fragment inhibits macrophage migration inhibitory factor (MIF) in cell culture models. KPV acts directly on MC1R/MC4R receptors on macrophages and epithelial cells, reducing IL-6 and TNF-α at the transcription level [7,8].</p>
@@ -2310,7 +2310,7 @@ export const BLOG_POSTS: {
         <p className="mb-4">The "klow dosage chart" query reflects researchers looking for a structured reference table to guide experimental design. The table above provides the reconstitution math. For further dilutions from a reconstituted stock, the standard dilution formula applies: C1 × V1 = C2 × V2, where C1 is the post-reconstitution concentration and C2 is the target experimental concentration.</p>
         <p className="mb-4">Investigators working with cell culture assays will typically dilute the reconstituted stock further in cell culture media to reach low-microgram or nanogram target concentrations per the individual component's established active range in the published literature.</p>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">Using a Peptide Calculator with Multi-Component Blends</h3>
-        <p className="mb-4">Standard <a className="text-primary underline hover:text-primary-dark" href="/peptide-calculator">peptide calculators</a> are designed for single-component vials and calculate concentration based on total peptide mass and added volume. For a multi-component blend like KLOW, the calculator must be run separately for each component — total mass 50mg for BPC-157, 10mg each for TB-500, KPV, and GHK-Cu — against the same total volume. The results will give the per-component concentration in the reconstituted solution. The 99 Purity Peptides peptide calculator can be used for this purpose; enter each component's mass individually against the same target volume.</p>
+        <p className="mb-4">Standard <a className="text-primary underline hover:text-primary-dark" href="/peptide-calculator">peptide calculators</a> are designed for single-component vials and calculate concentration based on total peptide mass and added volume. For a multi-component blend like KLOW, the calculator must be run separately for each component — total mass 50mg for BPC-157, 10mg each for TB-500, KPV, and GHK-Cu — against the same total volume. The results will give the per-component concentration in the reconstituted solution. The Helix Bio peptide calculator can be used for this purpose; enter each component's mass individually against the same target volume.</p>
         <p className="mb-4"><strong>&gt; DEFINITION CALLOUT — Peptide Calculator:</strong> A tool for calculating the concentration (mg/mL or mcg/mL) of a reconstituted peptide solution given the total peptide mass in the vial and the volume of diluent added. Essential for multi-component blends where per-component concentrations differ from total blend mass.</p>
         <p className="mb-4">&gt; <strong>Key Takeaway:</strong> The KLOW blend contains 80mg total peptide across four components in a 3mL vial. Adding 3mL BAC water produces approximately 26.67mg/mL combined — with BPC-157 at ~16.67mg/mL and each supporting component at ~3.33mg/mL. These are laboratory dilution reference values, not dosing guidance.</p>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">KLOW Reconstitution and Handling</h2>
@@ -2323,14 +2323,14 @@ export const BLOG_POSTS: {
         <p className="mb-4">See the reconstitution math table in the Dosage section above. For research contexts requiring specific per-component concentrations, reconstituting at the full 3mL (standard to the vial size) and then working from the per-component concentrations with C1 × V1 = C2 × V2 dilutions into cell culture media or experimental vehicle provides maximum flexibility.</p>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">Storage, Refrigeration, and Stability of Multi-Peptide Blends</h3>
         <p className="mb-4">Lyophilized KLOW should be stored at −20°C before reconstitution, sealed and protected from light and moisture. Once reconstituted, refrigerate at 2–8°C. Multi-peptide blends present an additional stability consideration: each component has its own degradation kinetics, and the weakest link determines the effective shelf life of the reconstituted solution. GHK-Cu is sensitive to oxidation (the copper ion can participate in undesired redox reactions under suboptimal storage); BPC-157 is relatively stable in solution; KPV and TB-500 fragment degradation in solution is primarily temperature-dependent.</p>
-        <p className="mb-4">For best practices on <a className="text-primary underline hover:text-primary-dark" href="/reconstituted-peptide-stability-storage">reconstituted peptide stability</a>, the 99 Purity Peptides research blog provides detailed guidance on storage conditions for reconstituted solutions.</p>
+        <p className="mb-4">For best practices on <a className="text-primary underline hover:text-primary-dark" href="/reconstituted-peptide-stability-storage">reconstituted peptide stability</a>, the Helix Bio research blog provides detailed guidance on storage conditions for reconstituted solutions.</p>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">Shelf Life Once Reconstituted</h3>
-        <p className="mb-4">General peptide research guidance suggests reconstituted solutions used within 28 days when stored at 2–8°C with bacteriostatic preservative. Aliquoting into single-use research volumes and storing unused aliquots at −80°C extends the effective shelf life significantly. For the full protocol rationale, see the <a className="text-primary underline hover:text-primary-dark" href="/peptide-calculator-reconstitution-guide">peptide reconstitution guide</a> on 99 Purity Peptides.</p>
+        <p className="mb-4">General peptide research guidance suggests reconstituted solutions used within 28 days when stored at 2–8°C with bacteriostatic preservative. Aliquoting into single-use research volumes and storing unused aliquots at −80°C extends the effective shelf life significantly. For the full protocol rationale, see the <a className="text-primary underline hover:text-primary-dark" href="/peptide-calculator-reconstitution-guide">peptide reconstitution guide</a> on Helix Bio.</p>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">Handling Considerations Specific to Four-Component Blends</h3>
         <p className="mb-4">Multi-peptide blends introduce one quality-control consideration that single-component vials do not: the researcher cannot verify component identity from visual inspection or simple purity testing alone. HPLC chromatograms of a blend will show multiple peaks; confirming that each peak corresponds to the expected component requires mass spectrometry (LC-MS) identification in addition to HPLC purity percentage. This is why supplier documentation for KLOW should ideally include both HPLC and LC-MS data covering all four components individually. See the Sourcing section below for the full documentation checklist.</p>
         <p className="mb-4">&gt; <strong>Key Takeaway:</strong> KLOW reconstitution in laboratory settings uses bacteriostatic water added slowly down the vial wall with gentle swirl — no vortexing. Reconstituted solution should be refrigerated at 2–8°C and used within 28 days or aliquoted and frozen. Multi-component blend stability requires attention to the most sensitive component in the formulation.</p>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">KLOW vs GLOW: The Most Common Comparison</h2>
-        <p className="mb-4">The "glow vs klow" and "klow vs glow peptide" queries are among the highest-search-interest comparison terms in the CSV data. Both products are sold by 99 Purity Peptides and are structurally related — but they are not interchangeable.</p>
+        <p className="mb-4">The "glow vs klow" and "klow vs glow peptide" queries are among the highest-search-interest comparison terms in the CSV data. Both products are sold by Helix Bio and are structurally related — but they are not interchangeable.</p>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">Composition Difference — KLOW (50/10/10/10) vs GLOW (50/10/10)</h3>
         <p className="mb-4">GLOW is a three-component blend at 50mg/10mg/10mg. KLOW is a four-component blend at 50mg/10mg/10mg/10mg. The structural difference is KPV — present in KLOW, absent from GLOW. The dominant component also differs: KLOW leads with BPC-157 at 50mg, while GLOW leads with GHK-Cu at 50mg. This inversion reflects their different research focus areas.</p>
         <p className="mb-4"><strong>GLOW composition</strong> (verified from 99puritypeptides.com/product/glow/):</p>
@@ -2347,7 +2347,7 @@ export const BLOG_POSTS: {
             <li>GHK-Cu: 10mg</li>
         </ul>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">Why KPV Is in KLOW but Not GLOW</h3>
-        <p className="mb-4">GLOW is described on the 99 Purity Peptides product page as "a cosmetic-oriented skin and connective-tissue rejuvenation blend" — research targeting dermal remodeling, collagen support, and skin elasticity. KPV's primary research literature focuses on mucosal inflammation and gut epithelial protection, with some documentation in skin wound models. For a dermal-remodeling-focused research blend, GHK-Cu at the dominant concentration is mechanistically more relevant than KPV's anti-inflammatory contribution. KLOW, targeting joint and soft-tissue recovery models, benefits from KPV's anti-inflammatory input at the synovial and connective-tissue level.</p>
+        <p className="mb-4">GLOW is described on the Helix Bio product page as "a cosmetic-oriented skin and connective-tissue rejuvenation blend" — research targeting dermal remodeling, collagen support, and skin elasticity. KPV's primary research literature focuses on mucosal inflammation and gut epithelial protection, with some documentation in skin wound models. For a dermal-remodeling-focused research blend, GHK-Cu at the dominant concentration is mechanistically more relevant than KPV's anti-inflammatory contribution. KLOW, targeting joint and soft-tissue recovery models, benefits from KPV's anti-inflammatory input at the synovial and connective-tissue level.</p>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">Why BPC-157 Is Dominant in KLOW vs GHK-Cu Dominant in GLOW</h3>
         <p className="mb-4">The dominant component drives the primary research application. BPC-157's preclinical tissue-repair and joint-recovery literature is the most extensive of any component in either blend, making it the logical anchor for a musculoskeletal recovery formulation. GHK-Cu's collagen synthesis and fibroblast-stimulation literature makes it the natural anchor for a skin-focused research formulation. Swapping the dominant component between the two blends changes the primary biological signal — which is why researchers should not substitute GLOW for KLOW or vice versa in a joint-recovery model.</p>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">Research Application Differences (Recovery vs Dermal/Cosmetic)</h3>
@@ -2487,21 +2487,21 @@ export const BLOG_POSTS: {
         <p className="mb-4">The RUO classification applies to each component of KLOW individually and to the blend collectively. Researchers working with KLOW should maintain documentation of the research purpose and institutional context of use, consistent with standard laboratory materials management practices.</p>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">CoA Verification Across Four Separate Peptides</h3>
         <p className="mb-4">A certificate of analysis (CoA) for a single-component peptide vial documents purity, identity, molecular weight, and batch-specific analytical data for one compound. A CoA for a four-component blend faces a higher verification burden: it must document purity and identity for each component separately, confirm the blending ratio, and — ideally — provide both HPLC chromatogram data and LC-MS identification data for each peak.</p>
-        <p className="mb-4">Investigators should request and review the CoA for each KLOW order. <a className="text-primary underline hover:text-primary-dark" href="/certificates">99 Purity Peptides' certificates page</a> provides sample CoA documentation demonstrating the analytical standards the supplier applies.</p>
+        <p className="mb-4">Investigators should request and review the CoA for each KLOW order. <a className="text-primary underline hover:text-primary-dark" href="/certificates">Helix Bio' certificates page</a> provides sample CoA documentation demonstrating the analytical standards the supplier applies.</p>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">HPLC and Mass Spectrometry Considerations for Blends</h3>
         <p className="mb-4">Standard reversed-phase HPLC of a four-component blend produces a multi-peak chromatogram. Each peak should correspond to a known component at the expected retention time for that peptide's molecular weight and polarity. Comparing peak area ratios allows verification of approximate component ratios (though mass response factors differ between peptides, so precise ratio verification requires calibration curves). LC-MS confirmation provides molecular weight data for each peak, confirming compound identity independently of retention time matching.</p>
         <p className="mb-4">Suppliers providing only a single-peak purity percentage for a multi-component product are not meeting the verification standard appropriate for blend research. The CoA should address each component.</p>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">Red Flags When Evaluating a KLOW Supplier</h3>
         <p className="mb-4">Researchers sourcing KLOW should watch for: absence of multi-component CoA data; HPLC data showing only total purity without peak-resolved component analysis; no LC-MS identity data; vague blend composition descriptions (e.g., "may contain BPC-157, TB-500, KPV, GHK etc." without specific ratios); no batch-specific documentation; and reconstitution guidance that implies human administration rather than laboratory use.</p>
-        <p className="mb-4">Verified research-grade suppliers publish batch-specific CoA data, specify exact component ratios in their product documentation, provide both HPLC and MS data, and are explicit about RUO classification. The <a className="text-primary underline hover:text-primary-dark" href="/product/klow">99 Purity Peptides KLOW specification</a> — 50mg/10mg/10mg/10mg in 3mL, with analytical verification across all included components — reflects this standard.</p>
+        <p className="mb-4">Verified research-grade suppliers publish batch-specific CoA data, specify exact component ratios in their product documentation, provide both HPLC and MS data, and are explicit about RUO classification. The <a className="text-primary underline hover:text-primary-dark" href="/product/klow">Helix Bio KLOW specification</a> — 50mg/10mg/10mg/10mg in 3mL, with analytical verification across all included components — reflects this standard.</p>
         <p className="mb-4">&gt; <strong>Key Takeaway:</strong> Sourcing research-grade KLOW requires CoA documentation that addresses all four components individually, HPLC chromatogram data with resolved peaks for each component, and LC-MS identity confirmation. A supplier providing only a composite purity figure for a four-component blend is not meeting research-grade documentation standards.</p>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Where to Buy KLOW Peptide for Research</h2>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">What to Look For in a Research-Grade Supplier</h3>
-        <p className="mb-4">The criteria for a research-grade KLOW supplier follow from the sourcing standards above. A verified supplier should: publish specific component ratios rather than approximate formulation descriptions; provide batch-specific CoA documentation including HPLC and LC-MS data; clearly designate all products as research-use-only; offer technical support for application-specific questions; and ship in compliance with applicable laboratory supply regulations. The <a className="text-primary underline hover:text-primary-dark" href="/shop?category=Recovery%20Research%20Peptides">recovery research peptide category</a> at 99 Purity Peptides lists the KLOW blend alongside related recovery-focused formulations with these standards applied.</p>
+        <p className="mb-4">The criteria for a research-grade KLOW supplier follow from the sourcing standards above. A verified supplier should: publish specific component ratios rather than approximate formulation descriptions; provide batch-specific CoA documentation including HPLC and LC-MS data; clearly designate all products as research-use-only; offer technical support for application-specific questions; and ship in compliance with applicable laboratory supply regulations. The <a className="text-primary underline hover:text-primary-dark" href="/shop?category=Recovery%20Research%20Peptides">recovery research peptide category</a> at Helix Bio lists the KLOW blend alongside related recovery-focused formulations with these standards applied.</p>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">Documentation Every Reputable Vendor Should Provide</h3>
         <p className="mb-4">Minimum documentation for a KLOW purchase should include: (1) product specification sheet confirming the 50/10/10/10mg ratio and 3mL volume; (2) batch-specific HPLC chromatogram with resolved peaks for all components; (3) LC-MS data confirming molecular weight identity of each component; (4) CoA with purity percentages for each component individually; (5) storage and handling recommendations appropriate to a multi-peptide lyophilized product; (6) explicit RUO designation with no language implying human use.</p>
-        <h3 className="text-xl font-bold text-ink mt-8 mb-4">99 Purity Peptides KLOW — 50/10/10/10mg / 3ML Specification</h3>
-        <p className="mb-4"><a className="text-primary underline hover:text-primary-dark" href="/product/klow">99 Purity Peptides' verified KLOW 50/10/10/10mg 3mL specification</a> confirms the component ratio, vial volume, and price point ($135.00 single vial). The product page notes that each batch undergoes analytical verification to confirm molecular identity, purity, and structural consistency of all included components. Researchers requiring supporting supplies — <a className="text-primary underline hover:text-primary-dark" href="/product/bac-water-bacteriostatic-water">bacteriostatic water</a>, <a className="text-primary underline hover:text-primary-dark" href="/product/10-needles">sterile needles and syringes</a> — are available in the same catalog, minimizing supply-chain fragmentation for multi-component protocol preparation.</p>
+        <h3 className="text-xl font-bold text-ink mt-8 mb-4">Helix Bio KLOW — 50/10/10/10mg / 3ML Specification</h3>
+        <p className="mb-4"><a className="text-primary underline hover:text-primary-dark" href="/product/klow">Helix Bio' verified KLOW 50/10/10/10mg 3mL specification</a> confirms the component ratio, vial volume, and price point ($135.00 single vial). The product page notes that each batch undergoes analytical verification to confirm molecular identity, purity, and structural consistency of all included components. Researchers requiring supporting supplies — <a className="text-primary underline hover:text-primary-dark" href="/product/bac-water-bacteriostatic-water">bacteriostatic water</a>, <a className="text-primary underline hover:text-primary-dark" href="/product/10-needles">sterile needles and syringes</a> — are available in the same catalog, minimizing supply-chain fragmentation for multi-component protocol preparation.</p>
         <p className="mb-4">For researchers comparing <a className="text-primary underline hover:text-primary-dark" href="/shop?category=Recovery%20Research%20Peptides">the full recovery peptide catalog</a>, the KLOW listing appears alongside the GLOW blend and individual component products including <a className="text-primary underline hover:text-primary-dark" href="/product/bpc-157">BPC-157</a> and <a className="text-primary underline hover:text-primary-dark" href="/product/tb-500">TB-500</a>.</p>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Key Takeaways Before the FAQ</h2>
         <p className="mb-4">1. <strong>KLOW peptide is a four-component research blend</strong> — BPC-157 (50mg), TB-500 (10mg), KPV (10mg), GHK-Cu (10mg) — 80mg total in a 3mL lyophilized vial. Research-use-only.</p>
@@ -2529,7 +2529,7 @@ export const BLOG_POSTS: {
         <p className="mb-4"><strong>What does KLOW peptide do?</strong></p>
         <p className="mb-4">KLOW provides simultaneous research input into four biological pathways: BPC-157 modulates VEGF/EGF-related cytoprotection and tissue repair; TB-500 supports actin regulation and endothelial cell migration; KPV suppresses pro-inflammatory cytokines (IL-6, IL-1β, TNF-α) via MC1R/MC4R; GHK-Cu activates copper-dependent collagen synthesis and antioxidant gene expression. All in one pre-verified blend.</p>
         <p className="mb-4"><strong>What is in the KLOW peptide blend?</strong></p>
-        <p className="mb-4">The KLOW blend contains four synthetic peptides: BPC-157 at 50mg, TB-500 at 10mg, KPV (Lys-Pro-Val) at 10mg, and GHK-Cu (glycyl-L-histidyl-L-lysine copper complex) at 10mg — 80mg total in 3mL. This 50/10/10/10mg specification is consistent with the widely referenced four-component recovery stack sold at 99 Purity Peptides.</p>
+        <p className="mb-4">The KLOW blend contains four synthetic peptides: BPC-157 at 50mg, TB-500 at 10mg, KPV (Lys-Pro-Val) at 10mg, and GHK-Cu (glycyl-L-histidyl-L-lysine copper complex) at 10mg — 80mg total in 3mL. This 50/10/10/10mg specification is consistent with the widely referenced four-component recovery stack sold at Helix Bio.</p>
         <p className="mb-4"><strong>What is KLOW dosage in research?</strong></p>
         <p className="mb-4">KLOW dosage in research contexts is determined by the investigator's experimental design and the target concentration for each component. The reconstituted solution at standard 3mL BAC water gives ~16.67mg/mL BPC-157 and ~3.33mg/mL each of TB-500, KPV, and GHK-Cu. Further dilutions to target concentrations follow standard laboratory dilution math. No human dosing guidance is provided or implied.</p>
         <p className="mb-4"><strong>What is a KLOW dosage chart?</strong></p>
@@ -2541,7 +2541,7 @@ export const BLOG_POSTS: {
         <p className="mb-4"><strong>What is KLOW dosing in research protocols?</strong></p>
         <p className="mb-4">KLOW dosing in research protocol context refers to selecting a reconstitution volume and, if needed, further dilution to achieve the desired per-component concentration for the experimental model. Investigators reference the published literature on individual components for concentration selection guidance. All protocol decisions are research-specific and RUO-compliant.</p>
         <p className="mb-4"><strong>What is the KLOW protocol?</strong></p>
-        <p className="mb-4">The KLOW protocol refers to a researcher's defined experimental design specifying reconstitution volume, aliquot size, storage conditions, and application method in the laboratory model. Protocols vary by research objective, tissue model, and institutional guidelines. For handling and storage guidance, 99 Purity Peptides provides reconstitution documentation with each order.</p>
+        <p className="mb-4">The KLOW protocol refers to a researcher's defined experimental design specifying reconstitution volume, aliquot size, storage conditions, and application method in the laboratory model. Protocols vary by research objective, tissue model, and institutional guidelines. For handling and storage guidance, Helix Bio provides reconstitution documentation with each order.</p>
         <p className="mb-4"><strong>What is the KLOW peptide protocol?</strong></p>
         <p className="mb-4">KLOW peptide protocol is the research-specific application plan for the blend — covering reconstitution, storage, aliquot preparation, and the experimental delivery method for the model system being studied. No universal protocol applies across all research models; investigators design protocols based on their specific research question and institutional guidelines.</p>
         <p className="mb-4"><strong>What is KLOW reconstitution?</strong></p>
@@ -2579,11 +2579,11 @@ export const BLOG_POSTS: {
         <p className="mb-4"><strong>What is BAC water?</strong></p>
         <p className="mb-4">Bacteriostatic water (BAC water) is sterile water containing 0.9% benzyl alcohol as a preservative, used to reconstitute lyophilized research peptides in multi-use vials. The benzyl alcohol inhibits bacterial growth, extending the usable life of the reconstituted solution in laboratory storage at 2–8°C. Available at 99puritypeptides.com/product/bac-water-bacteriostatic-water/.</p>
         <p className="mb-4"><strong>What is a peptide calculator?</strong></p>
-        <p className="mb-4">A peptide calculator is a laboratory tool for calculating the concentration of a reconstituted peptide solution given total peptide mass and diluent volume. For multi-component blends like KLOW, each component's mass is entered separately against the reconstitution volume to determine per-component concentration. 99 Purity Peptides provides a free peptide calculator at 99puritypeptides.com/peptide-calculator/.</p>
+        <p className="mb-4">A peptide calculator is a laboratory tool for calculating the concentration of a reconstituted peptide solution given total peptide mass and diluent volume. For multi-component blends like KLOW, each component's mass is entered separately against the reconstitution volume to determine per-component concentration. Helix Bio provides a free peptide calculator at 99puritypeptides.com/peptide-calculator/.</p>
         <p className="mb-4"><strong>Where can researchers source KLOW peptide?</strong></p>
-        <p className="mb-4">Researchers sourcing KLOW should identify suppliers that publish the specific 50/10/10/10mg ratio, provide batch-specific CoA documentation with per-component HPLC and LC-MS data, and designate the product as research-use-only. 99 Purity Peptides' verified KLOW 50/10/10/10mg 3mL specification is listed at 99puritypeptides.com/product/klow/, with full analytical verification documentation available.</p>
+        <p className="mb-4">Researchers sourcing KLOW should identify suppliers that publish the specific 50/10/10/10mg ratio, provide batch-specific CoA documentation with per-component HPLC and LC-MS data, and designate the product as research-use-only. Helix Bio' verified KLOW 50/10/10/10mg 3mL specification is listed at 99puritypeptides.com/product/klow/, with full analytical verification documentation available.</p>
         <p className="mb-4"><strong>Is KLOW peptide available as a spray?</strong></p>
-        <p className="mb-4">The 99 Purity Peptides KLOW product is supplied as a lyophilized powder for reconstitution in a standard 3mL research vial. Spray-form peptide products exist in the catalog for some compounds (BPC-157 spray, AOD spray) but KLOW itself is supplied in the standard lyophilized vial format.</p>
+        <p className="mb-4">The Helix Bio KLOW product is supplied as a lyophilized powder for reconstitution in a standard 3mL research vial. Spray-form peptide products exist in the catalog for some compounds (BPC-157 spray, AOD spray) but KLOW itself is supplied in the standard lyophilized vial format.</p>
         <p className="mb-4"><strong>What peptides are researchers studying alongside KLOW?</strong></p>
         <p className="mb-4">Researchers in recovery and tissue-repair areas also investigate CJC-1295/<a className="text-primary underline hover:text-primary-dark" href="/product/ipamorelin">Ipamorelin</a> for GH-axis modulation, Tesamorelin for metabolic and body-composition endpoints, the BPC-157/TB-500 blend, and <a className="text-primary underline hover:text-primary-dark" href="/product/semax">Semax</a>/Selank for neuroprotective angles. Each addresses different research questions from KLOW's primary joint/soft-tissue and anti-inflammatory focus.</p>
         <p className="mb-4"><strong>What are research peptides?</strong></p>
@@ -2623,7 +2623,7 @@ export const BLOG_POSTS: {
         <p className="mb-4">All products are research-use-only (RUO). Not for human or veterinary administration.</p>
         <p className="mb-4"><a className="text-primary underline hover:text-primary-dark" href="/shop?category=Recovery%20Research%20Peptides"><strong>Browse the recovery research peptide catalog →</strong></a></p>
         <p className="mb-4"><a className="text-primary underline hover:text-primary-dark" href="/shop"><strong>View all research peptides →</strong></a></p>
-        <p className="mb-4"><em>For questions about analytical documentation, CoA interpretation, or product specifications, contact the 99 Purity Peptides research support team at [support@99puritypeptides.com](mailto:support@99puritypeptides.com).</em></p>
+        <p className="mb-4"><em>For questions about analytical documentation, CoA interpretation, or product specifications, contact the Helix Bio research support team at [support@99puritypeptides.com](mailto:support@99puritypeptides.com).</em></p>
         
         </div>
       </>
@@ -2642,7 +2642,7 @@ export const BLOG_POSTS: {
         <div className="prose prose-lg text-ink/80 max-w-none">
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Quick Answer</h2>
         <p className="mb-4">Collagen peptides and peptide therapy are two different approaches to skin aging. Collagen peptides are hydrolyzed protein fragments taken orally, with multiple randomized controlled trials showing improved skin hydration and elasticity. "Peptide therapy" for skin usually refers to bioactive signaling peptides such as <a className="text-primary underline hover:text-primary-dark" href="/product/ghk-cu">GHK-Cu</a> (copper peptide), studied for collagen synthesis and tissue remodeling, and available as topicals and as research-grade compounds for laboratory study only. They aren't really competitors: collagen peptides supply raw material from the inside; signaling peptides like GHK-Cu instruct skin cells from the outside.</p>
-        <p className="mb-4">Important framing: 99 Purity Peptides supplies research-grade compounds for research use only (RUO) — not for human consumption, diagnosis, or treatment. Nothing below is medical advice.</p>
+        <p className="mb-4">Important framing: Helix Bio supplies research-grade compounds for research use only (RUO) — not for human consumption, diagnosis, or treatment. Nothing below is medical advice.</p>
         <p className="mb-4">If you have spent any time researching skin and aging, you have probably run into two phrases that sound similar but mean very different things: collagen peptides and peptide therapy. The marketing often blurs them together. The biology does not. One is a protein you ingest. The other is a signal that tells skin cells what to do. Understanding that distinction is the difference between buying the right thing and wasting months.</p>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">The two approaches at a glance</h3>
         <div className="overflow-x-auto my-6">
@@ -2709,7 +2709,7 @@ export const BLOG_POSTS: {
             <p className="font-semibold text-ink">Takeaway: GHK-Cu is the most compelling "signaling" peptide for skin — strong mechanism, long cosmetic track record, but a thinner modern RCT base than oral collagen.</p>
         </div>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Where research-grade peptides come in</h2>
-        <p className="mb-4">At 99 Purity Peptides, GHK-Cu is studied within multi-compound research blends rather than sold as an isolated skincare product. The <a className="text-primary underline hover:text-primary-dark" href="/product/glow">GLOW</a> research blend is described as a cosmetic-oriented skin and connective-tissue rejuvenation blend combining GHK-Cu and <a className="text-primary underline hover:text-primary-dark" href="/product/bpc-157">BPC-157</a> with supportive cofactors — investigated in dermal remodeling, collagen support, and skin elasticity research. Every batch is analytically verified for purity with batch-specific quality control. These are RUO reagents for laboratory study — not skincare.</p>
+        <p className="mb-4">At Helix Bio, GHK-Cu is studied within multi-compound research blends rather than sold as an isolated skincare product. The <a className="text-primary underline hover:text-primary-dark" href="/product/glow">GLOW</a> research blend is described as a cosmetic-oriented skin and connective-tissue rejuvenation blend combining GHK-Cu and <a className="text-primary underline hover:text-primary-dark" href="/product/bpc-157">BPC-157</a> with supportive cofactors — investigated in dermal remodeling, collagen support, and skin elasticity research. Every batch is analytically verified for purity with batch-specific quality control. These are RUO reagents for laboratory study — not skincare.</p>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">How do peptides compare to retinol and other actives?</h2>
         <p className="mb-4">Most women researching skin aging already know retinol. It's useful context: retinol (a vitamin A derivative) speeds cell turnover and is one of the best-studied topical anti-agers, but it can irritate, and gentler alternatives like bakuchiol exist. Peptides work differently — collagen peptides nourish from within; GHK-Cu signals repair pathways. They're generally considered complementary to a retinol routine rather than replacements. The same goes for supporting actives like hyaluronic acid (hydration) and niacinamide (barrier support), which many people layer alongside peptide approaches.</p>
         <div className="bg-cream-warm p-4 rounded-xl border border-ink/5 my-4">
@@ -2723,7 +2723,7 @@ export const BLOG_POSTS: {
         </ul>
         <p className="mb-4">Bottom line: They answer different questions. Collagen peptides = structural raw material with strong RCT support. Peptide therapy (GHK-Cu) = targeted signaling with a strong mechanism and long cosmetic history.</p>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Why purity matters for any peptide research</h2>
-        <p className="mb-4">Whether you're studying collagen fragments or copper peptides, the data is only as good as the reagent. 99 Purity Peptides supplies every compound with analytical verification confirming molecular identity and purity, batch-specific quality control, and documented impurity profiles — the analytical transparency research protocols require. Compare options across the full research catalog.</p>
+        <p className="mb-4">Whether you're studying collagen fragments or copper peptides, the data is only as good as the reagent. Helix Bio supplies every compound with analytical verification confirming molecular identity and purity, batch-specific quality control, and documented impurity profiles — the analytical transparency research protocols require. Compare options across the full research catalog.</p>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Shop the sale</h2>
         <p className="mb-4">Research-grade peptides are currently discounted. Use code 99PURITY for 10% off all products (or KITS5 for 5% off kits). Browse all research peptides →</p>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Frequently Asked Questions</h2>
@@ -2746,7 +2746,7 @@ export const BLOG_POSTS: {
             </div>
             <div className="bg-cream-warm p-6 rounded-2xl border border-ink/5">
                 <h3 className="font-bold text-lg mb-2">Are research peptides safe to use on skin?</h3>
-                <p className="text-ink/80 text-sm">Research-grade peptides such as those from 99 Purity Peptides are for research use only — not for human or veterinary use, diagnosis, or treatment. OTC topical copper-peptide cosmetics are a separate, regulated category. Always respect the RUO designation.</p>
+                <p className="text-ink/80 text-sm">Research-grade peptides such as those from Helix Bio are for research use only — not for human or veterinary use, diagnosis, or treatment. OTC topical copper-peptide cosmetics are a separate, regulated category. Always respect the RUO designation.</p>
             </div>
             <div className="bg-cream-warm p-6 rounded-2xl border border-ink/5">
                 <h3 className="font-bold text-lg mb-2">Can I use peptides and retinol together?</h3>
@@ -2758,7 +2758,7 @@ export const BLOG_POSTS: {
             </div>
             <div className="bg-cream-warm p-6 rounded-2xl border border-ink/5">
                 <h3 className="font-bold text-lg mb-2">Where can I buy research-grade GHK-Cu or collagen-focused peptides?</h3>
-                <p className="text-ink/80 text-sm">99 Purity Peptides offers GHK-Cu within research blends such as GLOW, alongside a full catalog of analytically verified compounds. All products are research-use-only. Browse the shop and apply code 99PURITY for 10% off.</p>
+                <p className="text-ink/80 text-sm">Helix Bio offers GHK-Cu within research blends such as GLOW, alongside a full catalog of analytically verified compounds. All products are research-use-only. Browse the shop and apply code 99PURITY for 10% off.</p>
             </div>
         </div>
         <p className="mb-4 mt-8">Ready to source verified research peptides? Explore the GLOW skin & connective-tissue research blend, read the GHK-Cu research guide, or shop the full catalog with code 99PURITY for 10% off. All compounds analytically verified for purity. For research use only.</p>
@@ -2779,7 +2779,7 @@ export const BLOG_POSTS: {
     content: (
       <>
         <p className="text-ink/60 text-sm mb-4 italic">Last reviewed: May 27, 2026 · Last updated: May 27, 2026</p>
-        <p className="text-ink/60 text-sm mb-12 italic">Author: Dr. M. Rivera, PhD (Peptide Biochemistry) — Research Editor, 99 Purity Peptides</p>
+        <p className="text-ink/60 text-sm mb-12 italic">Author: Dr. M. Rivera, PhD (Peptide Biochemistry) — Research Editor, Helix Bio</p>
         <div className="my-12 overflow-hidden rounded-2xl border border-ink/10 shadow-sm">
             <img src="https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/ghk-cu-peptide-research-vial-hero.png" alt="GHK-Cu peptide lyophilized powder vial with HPLC chromatogram for research use" className="w-full h-auto object-cover" />
         </div>
@@ -2926,7 +2926,7 @@ export const BLOG_POSTS: {
         </div>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Regulatory and Legal Status</h2>
         <h3 className="text-xl font-semibold text-ink mt-12 mb-4">Research-Use-Only (RUO) Classification</h3>
-        <p className="mb-4">GHK-Cu sold by 99 Purity Peptides and comparable research-grade suppliers is supplied for research use only. RUO classification means the material is intended for in-vitro research, assay development, and pre-clinical laboratory work — not for diagnostic, therapeutic, or human-administration purposes.</p>
+        <p className="mb-4">GHK-Cu sold by Helix Bio and comparable research-grade suppliers is supplied for research use only. RUO classification means the material is intended for in-vitro research, assay development, and pre-clinical laboratory work — not for diagnostic, therapeutic, or human-administration purposes.</p>
         <h3 className="text-xl font-semibold text-ink mt-12 mb-4">FDA Position on Research Peptides</h3>
         <p className="mb-4">GHK-Cu is not an FDA-approved drug. The Food and Drug Administration regulates therapeutic peptides separately from research reagents; research-grade peptides are not evaluated for clinical efficacy or safety in human use [11]. Researchers using GHK-Cu in any pre-clinical study should confirm institutional and federal compliance independently.</p>
         <h3 className="text-xl font-semibold text-ink mt-12 mb-4">Research-Grade vs Cosmetic-Grade Regulatory Differences</h3>
@@ -3360,8 +3360,8 @@ export const BLOG_POSTS: {
           </a>
         </div>
 
-        <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">What Makes 99 Purity Peptides Different?</h2>
-        <p className="mb-4">Reproducible research depends on reproducible inputs. 99 Purity Peptides supplies reference-grade research compounds with documentation built for laboratory standards:</p>
+        <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">What Makes Helix Bio Different?</h2>
+        <p className="mb-4">Reproducible research depends on reproducible inputs. Helix Bio supplies reference-grade research compounds with documentation built for laboratory standards:</p>
         <ul className="list-disc pl-6 space-y-2 mb-12 text-ink/80">
           <li>Third-party tested purity with published certificates of analysis (COA).</li>
           <li>Lyophilized peptides handled and shipped to preserve stability.</li>
@@ -3496,7 +3496,7 @@ export const BLOG_POSTS: {
           </div>
           <div className="bg-cream-warm p-6 rounded-2xl border border-ink/5">
             <h3 className="font-bold text-lg mb-2">Q24. Where can I find verified tesamorelin research specifications?</h3>
-            <p className="text-ink/80 text-sm">Reference-grade material with published certificates of analysis is available through 99 Purity Peptides' research catalog.</p>
+            <p className="text-ink/80 text-sm">Reference-grade material with published certificates of analysis is available through Helix Bio' research catalog.</p>
           </div>
         </div>
       </>
@@ -4337,8 +4337,8 @@ export const BLOG_POSTS: {
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Sum Up</h2>
         <p className="mb-4">BPC-157 research remains an evolving field within peptide science. When studied under controlled laboratory conditions, it serves as a model compound for investigating complex cellular signaling pathways.</p>
         <p className="mb-4">Maintaining analytical verification, research classification clarity, and compliance awareness is essential for responsible research application.</p>
-        <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">The 99 Purity Peptides</h2>
-        <p className="mb-4">At <a className="text-primary underline hover:text-primary-dark" href="/">99 Purity Peptides</a>, we supply research-grade synthetic peptides intended strictly for laboratory use. Transparency, analytical documentation, and research-use-only compliance form the foundation of our sourcing standards.</p>
+        <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">The Helix Bio</h2>
+        <p className="mb-4">At <a className="text-primary underline hover:text-primary-dark" href="/">Helix Bio</a>, we supply research-grade synthetic peptides intended strictly for laboratory use. Transparency, analytical documentation, and research-use-only compliance form the foundation of our sourcing standards.</p>
       </>
     )
   },

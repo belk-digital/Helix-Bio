@@ -152,10 +152,10 @@ export default async function Homepage() {
                 },
                 {
                   "@type": "Question",
-                  "name": "What is 99 Purity Peptides and how do peptides relate to it?",
+                  "name": "What is Helix Bio and how do peptides relate to it?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "99 Purity Peptides is the practice of optimizing physical appearance through controllable factors. Research peptides are studied in relation to skin collagen, tissue recovery, body composition, and hair density. Our compounds are research use only."
+                    "text": "Helix Bio is the practice of optimizing physical appearance through controllable factors. Research peptides are studied in relation to skin collagen, tissue recovery, body composition, and hair density. Our compounds are research use only."
                   }
                 },
                 {
@@ -171,7 +171,7 @@ export default async function Homepage() {
             {
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "99 Purity Peptides",
+              "name": "Helix Bio",
               "url": "https://99puritypeptides.com",
               "description": "US-based research peptide supplier providing ≥99% HPLC-pure compounds with third-party COA verification."
             },

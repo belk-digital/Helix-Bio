@@ -96,7 +96,18 @@ export function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
-    <div className="w-full h-full bg-white rounded-[20px] sm:rounded-[32px] p-2 sm:p-3 shadow-[0_20px_40px_rgba(0,0,0,0.06)] border border-ink/5 group cursor-pointer relative origin-center transition-all duration-500 hover:z-30 hover:shadow-2xl flex flex-col justify-between">
+    <div className="w-full h-full bg-white/95 rounded-[24px] sm:rounded-[36px] p-3 sm:p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white group cursor-pointer relative origin-center transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(14,165,233,0.1)] flex flex-col justify-between overflow-hidden">
+      
+      {/* Premium Blue Noise Texture */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.15] mix-blend-multiply"
+        style={{ 
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.055 0 0 0 0 0.647 0 0 0 0 0.914 0.21 0.72 0.07 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
+      {/* Subtle Inner Ring */}
+      <div className="absolute inset-0 rounded-[24px] sm:rounded-[36px] ring-1 ring-inset ring-white pointer-events-none z-10" />
+      
       <Link href={`/product/${product.slug}`} className="absolute inset-0 z-20" aria-label={`View ${product.name}`} />
       
       {/* Top Text Content & Wishlist */}
@@ -146,7 +157,7 @@ export function ProductCard({ product }: ProductCardProps) {
       </div>
 
       {/* Inner Image Container */}
-      <div className="relative w-full aspect-[4/5] rounded-[14px] sm:rounded-[24px] overflow-hidden bg-ink/5 pointer-events-none z-10 mt-auto">
+      <div className="relative w-full aspect-[4/5] rounded-[16px] sm:rounded-[24px] overflow-hidden bg-[#FAFAFA] pointer-events-none z-10 mt-auto shadow-inner">
         <Image 
           src={product.image}
           alt={product.name}
@@ -194,9 +205,9 @@ export function ProductCard({ product }: ProductCardProps) {
         <button
           onClick={handleAddToCart}
           aria-label="Add to cart"
-          className="absolute bottom-2 right-2 sm:bottom-5 sm:right-5 w-8 h-8 sm:w-12 sm:h-12 bg-white text-ink rounded-full flex items-center justify-center transition-all duration-300 shadow-xl group-hover:scale-110 z-30 hover:bg-black hover:text-white group-hover:bg-black group-hover:text-white pointer-events-auto"
+          className="absolute bottom-3 right-3 sm:bottom-5 sm:right-5 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 backdrop-blur-md text-primary rounded-full flex items-center justify-center transition-all duration-500 shadow-[0_4px_20px_rgba(0,0,0,0.1)] group-hover:scale-110 z-30 hover:bg-primary hover:text-white group-hover:shadow-[0_8px_30px_rgba(14,165,233,0.3)] pointer-events-auto border border-white/50"
         >
-          <ShoppingCart className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-current transition-colors" />
+          <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5 text-current transition-colors" />
         </button>
       </div>
     </div>

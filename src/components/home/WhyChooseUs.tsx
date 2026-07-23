@@ -7,9 +7,9 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
 const CHOOSE_US_KEYS = [
-  { key: 'hplcPurity', media: "/99 Images/purity.webp" },
-  { key: 'msIdentity', media: "/99 Images/identity.webp?v=2" },
-  { key: 'coaDocumentation', media: "/99 Images/coa.webp" }
+  { key: 'hplcPurity', media: "/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_41_24 AM.webp" },
+  { key: 'msIdentity', media: "/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_44_49 AM.webp" },
+  { key: 'coaDocumentation', media: "/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_46_36 AM.webp" }
 ]
 
 export function WhyChooseUs() {

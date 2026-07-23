@@ -49,7 +49,7 @@ export function DifferenceSection() {
 
             {/* The Image */}
             <Image 
-              src="/99 Images/category-2.webp" 
+              src="/HelixBio Images/helixbio-as-routine.webp" 
               alt="HelixBio Facility" 
               fill 
               className="object-cover transition-transform duration-700 group-hover:scale-105"

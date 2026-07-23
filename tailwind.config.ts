@@ -7,8 +7,8 @@ const config: Config = {
       colors: {
         background: '#000000',
         primary: {
-          DEFAULT: '#008B8B', // Deep Cyan
-          dark: '#006666',
+          DEFAULT: '#92DCE5', // Helix Bio Logo Blue
+          dark: '#0284c7', // sky-600 (keeping dark shade for contrast if needed)
         },
         'card-bg': 'rgba(255, 255, 255, 0.05)',
         // Backgrounds
@@ -25,10 +25,10 @@ const config: Config = {
           subtle: '#8A8A8A',
         },
         gold: {
-          DEFAULT: '#008B8B', // Replaced with deep cyan per user request
-          light: '#00AAAA',
-          dark: '#006666',
-          deep: '#004444',
+          DEFAULT: '#92DCE5', // Replaced with logo blue
+          light: '#38bdf8',
+          dark: '#0284c7',
+          deep: '#0369a1',
         },
         success: { DEFAULT: '#6B8E5E', bg: '#E8EFE3' },
         error: { DEFAULT: '#B85450', bg: '#F5E3E1' },
@@ -38,7 +38,7 @@ const config: Config = {
           subtle: '#E8E2D5',
           DEFAULT: '#D6CDB8',
           strong: '#0A0A0A',
-          gold: '#008B8B',
+          gold: '#92DCE5',
         },
       },
       fontFamily: {

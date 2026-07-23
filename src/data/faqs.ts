@@ -18,7 +18,7 @@ export const faqData: FaqCategoryType[] = [
       },
       {
         "question": "What are peptides used for in research?",
-        "answer": "<p><span style=\"font-weight: 400;\">Peptides are used in laboratory research to study cellular signaling, receptor binding, metabolic pathways, and molecular mechanisms. In scientific settings, synthetic research peptides assist researchers in exploring biological processes under controlled experimental conditions.</span></p>\r\n<p><span style=\"font-weight: 400;\">Research applications vary depending on the peptide’s structure and classification, but all materials supplied by 99 Purity Peptides are designated exclusively for laboratory research use.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">Peptides are used in laboratory research to study cellular signaling, receptor binding, metabolic pathways, and molecular mechanisms. In scientific settings, synthetic research peptides assist researchers in exploring biological processes under controlled experimental conditions.</span></p>\r\n<p><span style=\"font-weight: 400;\">Research applications vary depending on the peptide’s structure and classification, but all materials supplied by Helix Bio are designated exclusively for laboratory research use.</span></p>"
       },
       {
         "question": "How are synthetic research peptides produced?",
@@ -39,7 +39,7 @@ export const faqData: FaqCategoryType[] = [
     "items": [
       {
         "question": "Are research peptides legal in the United States?",
-        "answer": "<p><span style=\"font-weight: 400;\">Research peptides may be legally purchased in the United States when intended strictly for laboratory research purposes. However, regulatory status can vary depending on the compound and its classification.</span></p>\r\n<p><span style=\"font-weight: 400;\">Buyers are responsible for understanding and complying with applicable federal, state, and local regulations before purchase. 99 Purity Peptides supplies synthetic research peptides under research-use-only designation.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">Research peptides may be legally purchased in the United States when intended strictly for laboratory research purposes. However, regulatory status can vary depending on the compound and its classification.</span></p>\r\n<p><span style=\"font-weight: 400;\">Buyers are responsible for understanding and complying with applicable federal, state, and local regulations before purchase. Helix Bio supplies synthetic research peptides under research-use-only designation.</span></p>"
       },
       {
         "question": "What does “For Research Use Only” mean?",
@@ -67,8 +67,8 @@ export const faqData: FaqCategoryType[] = [
         "answer": "<p><span style=\"font-weight: 400;\">A Certificate of Analysis (COA) is a document that provides analytical testing results for a specific product batch.</span></p>\r\n<p><span style=\"font-weight: 400;\">For peptides with COA documentation, the certificate typically includes purity percentages, batch numbers, and analytical method summaries. COA documentation supports transparency and helps researchers verify peptide purity prior to use.</span></p>"
       },
       {
-        "question": "How does 99 Purity Peptides verify analytical purity?",
-        "answer": "<p><span style=\"font-weight: 400;\">As a lab tested peptide supplier, 99 Purity Peptides relies on structured analytical verification processes to confirm identity and purity benchmarks.</span></p>\r\n<p><span style=\"font-weight: 400;\">Analytical testing peptides may be evaluated using techniques such as HPLC or mass spectrometry to ensure consistency and structural integrity prior to release.</span></p>"
+        "question": "How does Helix Bio verify analytical purity?",
+        "answer": "<p><span style=\"font-weight: 400;\">As a lab tested peptide supplier, Helix Bio relies on structured analytical verification processes to confirm identity and purity benchmarks.</span></p>\r\n<p><span style=\"font-weight: 400;\">Analytical testing peptides may be evaluated using techniques such as HPLC or mass spectrometry to ensure consistency and structural integrity prior to release.</span></p>"
       },
       {
         "question": "Are your peptides third-party tested?",
@@ -92,8 +92,8 @@ export const faqData: FaqCategoryType[] = [
         "answer": "<p><span style=\"font-weight: 400;\">When evaluating how to choose a peptide supplier, researchers should look for:</span></p>\r\n<p><span style=\"font-size: 16px;\">• Clear research classification<br /></span><span style=\"font-size: 16px;\">• Transparent documentation practices<br /></span><span style=\"font-size: 16px;\">• Peptides with COA availability<br /></span><span style=\"font-size: 16px;\">• Third-party testing standards<br /></span><span style=\"font-weight: 400;\">• Defined research use only positioning</span></p>\r\n<p><span style=\"font-weight: 400;\">A trusted peptide supplier emphasises analytical verification and compliance clarity.</span></p>"
       },
       {
-        "question": "Is 99 Purity Peptides a USA peptide supplier?",
-        "answer": "<p><span style=\"font-weight: 400;\">Yes. 99 Purity Peptides operates as a peptide supplier USA researchers source from for laboratory-grade materials.</span></p>\r\n<p><span style=\"font-weight: 400;\">We ship research peptides across the United States in accordance with research-use-only designation standards.</span></p>"
+        "question": "Is Helix Bio a USA peptide supplier?",
+        "answer": "<p><span style=\"font-weight: 400;\">Yes. Helix Bio operates as a peptide supplier USA researchers source from for laboratory-grade materials.</span></p>\r\n<p><span style=\"font-weight: 400;\">We ship research peptides across the United States in accordance with research-use-only designation standards.</span></p>"
       },
       {
         "question": "Do you ship research peptides nationwide in the USA?",
@@ -105,7 +105,7 @@ export const faqData: FaqCategoryType[] = [
       },
       {
         "question": "Do you offer an affiliate or partnership program?",
-        "answer": "<p><span style=\"font-weight: 400;\">Yes. 99 Purity Peptides offers an affiliate program for partners interested in promoting research peptide products through compliant marketing channels.</span></p>\r\n<p><span style=\"font-weight: 400;\">Affiliate participation is subject to approval and must align with research-use-only positioning and regulatory standards.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">Yes. Helix Bio offers an affiliate program for partners interested in promoting research peptide products through compliant marketing channels.</span></p>\r\n<p><span style=\"font-weight: 400;\">Affiliate participation is subject to approval and must align with research-use-only positioning and regulatory standards.</span></p>"
       }
     ]
   },
@@ -217,7 +217,7 @@ export const faqData: FaqCategoryType[] = [
         "answer": "<span style=\"font-weight: 400;\">No. It is for research use only.<br />\r\n</span>"
       },
       {
-        "question": "Do 99 Purity Peptides provide clinical guidance?",
+        "question": "Do Helix Bio provide clinical guidance?",
         "answer": "<p><span style=\"font-weight: 400;\">No clinical or experimental guidance is provided.</span></p>"
       },
       {

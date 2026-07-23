@@ -15,24 +15,35 @@ function Skeleton({ className, ...props }: React.ComponentProps<'div'>) {
 // 1. ProductCard Skeleton
 export function ProductCardSkeleton() {
   return (
-    <div className="block relative w-full h-[460px] sm:h-[500px] rounded-[32px] bg-white p-2 sm:p-3 shadow-sm border border-border-subtle">
-      <div className="relative w-full h-full rounded-[24px] overflow-hidden bg-cream">
-        {/* Image Area Skeleton */}
-        <div className="absolute inset-0 bg-ink/5 animate-pulse" />
-        
-        {/* Bottom Content Area Skeleton */}
-        <div className="absolute bottom-0 left-0 right-0 z-30 p-4 sm:p-5 bg-white rounded-b-[24px]">
-          <Skeleton className="h-5 w-3/4 mb-1" />
-          <div className="h-[36px] flex flex-col justify-center gap-1.5 mt-1">
-            <Skeleton className="h-3 w-full" />
-            <Skeleton className="h-3 w-5/6" />
+    <div className="w-full h-full bg-white/95 rounded-[24px] sm:rounded-[36px] p-3 sm:p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white relative flex flex-col overflow-hidden min-h-[400px]">
+       {/* Background Noise Texture */}
+       <div className="absolute inset-0 opacity-[0.03] mix-blend-multiply pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }} />
+       
+       {/* Top Text Content Skeleton */}
+       <div className="px-3 sm:px-5 pt-3 sm:pt-5 pb-3 sm:pb-5 flex flex-col gap-1.5 sm:gap-3 relative z-30">
+          <div className="pr-6 sm:pr-8">
+             <Skeleton className="h-5 sm:h-7 w-3/4 mb-1 sm:mb-2 rounded-md" />
+             <Skeleton className="h-2.5 sm:h-3 w-1/3 rounded-sm" />
           </div>
-          <div className="flex items-center justify-between mt-2">
-            <Skeleton className="h-6 w-16" />
-            <Skeleton className="h-9 w-20 rounded-full" />
+          <div className="flex flex-col gap-1 sm:gap-1.5 mt-1">
+             <Skeleton className="h-2.5 sm:h-3 w-full rounded-sm" />
+             <Skeleton className="h-2.5 sm:h-3 w-5/6 rounded-sm" />
           </div>
-        </div>
-      </div>
+       </div>
+
+       {/* Inner Image Container Skeleton */}
+       <div className="relative w-full aspect-[4/5] rounded-[16px] sm:rounded-[24px] overflow-hidden bg-cream mt-auto border border-black/5">
+         <div className="absolute inset-0 bg-ink/5 animate-pulse" />
+         
+         {/* Price Skeleton */}
+         <div className="absolute bottom-3 left-3 sm:bottom-5 sm:left-5 z-20">
+            <Skeleton className="h-2 sm:h-3 w-8 mb-1 sm:mb-1.5 rounded-sm bg-black/10" />
+            <Skeleton className="h-5 sm:h-7 w-16 sm:w-20 rounded-md bg-black/10" />
+         </div>
+         
+         {/* Button Skeleton */}
+         <Skeleton className="absolute bottom-3 right-3 sm:bottom-5 sm:right-5 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/10" />
+       </div>
     </div>
   )
 }

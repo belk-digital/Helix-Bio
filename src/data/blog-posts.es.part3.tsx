@@ -389,7 +389,7 @@ export const BLOG_POSTS_PART3: { slug: string; title: string; category: string; 
 
         <div className="my-12 p-8 bg-zinc-900 rounded-2xl text-center">
           <h3 className="text-xl font-bold font-serif text-white mb-4">Calcule sus cifras exactas</h3>
-          <p className="text-white/70 mb-6 max-w-xl mx-auto text-sm">Evite el cálculo mental. Ingrese el tamaño de su vial y la masa objetivo en la <a className="text-gold underline hover:text-gold/80" href="/peptide-calculator">calculadora de péptidos</a> y la <a className="text-gold underline hover:text-gold/80" href="/peptide-reconstitution-calculator">calculadora de reconstitución</a> de 99 Purity Peptides — devuelven al instante el volumen de agua y las unidades de jeringa precisas, en mililitros o unidades. Después explore el <a className="text-gold underline hover:text-gold/80" href="/shop">catálogo de investigación</a> para compuestos de pureza 99% verificados por terceros y el agua bacteriostática y de ácido acético correctas.</p>
+          <p className="text-white/70 mb-6 max-w-xl mx-auto text-sm">Evite el cálculo mental. Ingrese el tamaño de su vial y la masa objetivo en la <a className="text-gold underline hover:text-gold/80" href="/peptide-calculator">calculadora de péptidos</a> y la <a className="text-gold underline hover:text-gold/80" href="/peptide-reconstitution-calculator">calculadora de reconstitución</a> de Helix Bio — devuelven al instante el volumen de agua y las unidades de jeringa precisas, en mililitros o unidades. Después explore el <a className="text-gold underline hover:text-gold/80" href="/shop">catálogo de investigación</a> para compuestos de pureza 99% verificados por terceros y el agua bacteriostática y de ácido acético correctas.</p>
         </div>
 
         <hr className="border-t border-ink/10 my-16" />
@@ -1398,8 +1398,8 @@ export const BLOG_POSTS_PART3: { slug: string; title: string; category: string; 
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">En Resumen</h2>
         <p className="mb-4">La investigación de BPC-157 sigue siendo un campo en evolución dentro de la ciencia de péptidos. Cuando se estudia bajo condiciones de laboratorio controladas, sirve como un compuesto modelo para investigar vías complejas de señalización celular.</p>
         <p className="mb-4">Mantener la verificación analítica, la claridad de clasificación de investigación y la conciencia sobre el cumplimiento normativo es esencial para una aplicación de investigación responsable.</p>
-        <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">99 Purity Peptides</h2>
-        <p className="mb-4">En <a className="text-primary underline hover:text-primary-dark" href="/">99 Purity Peptides</a>, suministramos péptidos sintéticos de grado de investigación destinados estrictamente al uso en laboratorio. La transparencia, la documentación analítica y el cumplimiento de uso exclusivo en investigación forman la base de nuestros estándares de abastecimiento.</p>
+        <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Helix Bio</h2>
+        <p className="mb-4">En <a className="text-primary underline hover:text-primary-dark" href="/">Helix Bio</a>, suministramos péptidos sintéticos de grado de investigación destinados estrictamente al uso en laboratorio. La transparencia, la documentación analítica y el cumplimiento de uso exclusivo en investigación forman la base de nuestros estándares de abastecimiento.</p>
       </>
     )
   },

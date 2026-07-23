@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import { Microscope, ShieldAlert, Activity, FileWarning, AlertTriangle } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
@@ -26,8 +26,7 @@ export function ComplianceStatement() {
     }
   ];
 
-  // Premium crisp entrance animation variants
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -38,48 +37,30 @@ export function ComplianceStatement() {
     }
   };
 
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 40,
-      rotateX: 10,
-      scale: 0.95
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      rotateX: 0,
-      scale: 1,
-      transition: {
-        type: "spring" as const,
-        stiffness: 100,
-        damping: 20,
-        mass: 1
-      }
-    }
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
 
-  const titleVariants = {
+  const titleVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } 
-    }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
   };
 
   return (
-    <section className="py-24 lg:py-32 bg-[#050505] relative overflow-hidden border-t border-white/5 perspective-1000">
+    <section className="py-32 lg:py-48 bg-ink relative overflow-hidden">
       
-      {/* Subtle Premium Background (No glows) */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Massive background watermark */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center opacity-[0.02] pointer-events-none">
-          <AlertTriangle className="w-[80vw] h-[80vw] max-w-[800px] max-h-[800px]" strokeWidth={0.5} />
+      {/* Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:100px_100px]" />
+        
+        {/* Massive watermark */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center opacity-[0.03]">
+          <AlertTriangle className="w-[100vw] h-[100vw] max-w-[1200px] max-h-[1200px]" strokeWidth={0.5} />
         </div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 max-w-7xl">
+      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 relative z-10">
         
         {/* Header */}
         <motion.div 
@@ -87,52 +68,52 @@ export function ComplianceStatement() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="text-center mb-16 lg:mb-24"
+          className="text-center mb-24 lg:mb-32"
         >
-          <motion.h2 variants={titleVariants} className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-6 font-bold flex items-center justify-center gap-4">
-            <span className="w-8 h-[1px] bg-primary/30"></span>
-            {t('officialNotice')}
-            <span className="w-8 h-[1px] bg-primary/30"></span>
-          </motion.h2>
-          <motion.h3 variants={titleVariants} className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-heading font-black text-white tracking-tighter uppercase mb-4 leading-[1.1] break-words">
-            {t('titleLine1')} <br className="md:hidden" />{t('titleLine2')}
+          <motion.div variants={titleVariants} className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-[1px] w-12 md:w-24 bg-red-500/50" />
+            <h2 className="font-mono text-xs uppercase tracking-[0.4em] text-red-500 font-bold">
+              {t('officialNotice')}
+            </h2>
+            <div className="h-[1px] w-12 md:w-24 bg-red-500/50" />
+          </motion.div>
+          <motion.h3 variants={titleVariants} className="text-4xl sm:text-5xl md:text-7xl lg:text-[100px] font-heading font-black text-white tracking-tighter uppercase leading-[0.9] max-w-5xl mx-auto mb-6">
+            {t('titleLine1')} <br className="hidden md:block" />{t('titleLine2')}
           </motion.h3>
           <motion.p variants={titleVariants} className="text-white/40 uppercase tracking-widest text-sm md:text-base font-light">
             {t('subtitle')}
           </motion.p>
         </motion.div>
 
-        {/* 2x2 Bento Grid for Low Content */}
+        {/* Cinematic Grid */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 max-w-6xl mx-auto"
         >
           {statements.map((item, index) => (
             <motion.div 
               key={index} 
               variants={cardVariants}
-              whileHover={{ scale: 0.98 }}
-              whileTap={{ scale: 0.95 }}
-              className="h-full bg-white/[0.02] border border-white/5 rounded-[2rem] p-6 md:p-8 lg:p-12 relative overflow-hidden group hover:bg-[#111] hover:border-white/20 transition-all duration-300 ease-out flex flex-col justify-between cursor-default"
+              className="bg-zinc-900 border border-white/5 rounded-[2rem] p-8 md:p-12 relative overflow-hidden group hover:border-red-500/30 transition-all duration-500 flex flex-col justify-between"
             >
               
-              {/* Sharp geometric accent line on hover instead of a glowing gradient */}
-              <div className="absolute top-0 left-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-500 ease-in-out" />
+              {/* Red Accent Line */}
+              <div className="absolute top-0 left-0 w-0 h-1 bg-red-500 group-hover:w-full transition-all duration-700 ease-out" />
               
               {/* Number Watermark */}
-              <div className="absolute -bottom-4 -right-4 text-[120px] font-heading font-black text-white/[0.02] leading-none pointer-events-none group-hover:text-white/[0.05] group-hover:-translate-y-4 transition-all duration-500 ease-out">
+              <div className="absolute -bottom-4 -right-4 text-[150px] font-heading font-black text-white/[0.02] leading-none pointer-events-none group-hover:text-white/[0.05] transition-colors duration-500">
                 0{index + 1}
               </div>
 
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white group-hover:border-white transition-all duration-300 ease-out">
-                  <item.icon className="w-7 h-7 text-white/50 group-hover:text-black transition-colors duration-300" strokeWidth={1.5} />
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-red-500/10 transition-colors duration-500">
+                  <item.icon className="w-8 h-8 text-white/40 group-hover:text-red-500 transition-colors duration-500" strokeWidth={1.5} />
                 </div>
                 
-                <p className="text-white/80 font-light text-xl lg:text-2xl leading-relaxed group-hover:text-white transition-colors duration-300 mt-auto">
+                <p className="text-white/80 font-light text-xl lg:text-3xl leading-relaxed group-hover:text-white transition-colors duration-500">
                   {item.text}
                 </p>
               </div>
