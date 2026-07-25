@@ -1,6 +1,6 @@
 import React from 'react'
 import { ProductClient } from './ProductClient'
-import { getOgImageUrl } from '@/lib/utils'
+import { getOgImageUrl, encodeImageUrl } from '@/lib/utils'
 import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
@@ -110,7 +110,7 @@ export default async function ProductPage({
   // Map images
   const mappedImages = rawProduct.images?.map((img: any) => {
     if (typeof img.image === 'object' && img.image?.url) {
-      return img.image.url
+      return encodeImageUrl(img.image.url)
     }
     return ''
   }).filter(Boolean) || []
@@ -131,7 +131,7 @@ export default async function ProductPage({
     mappedVariants = rawProduct.variants.map((v: any, index: number) => {
       const mappedImages = v.images?.map((img: any) => {
         if (typeof img.image === 'object' && img.image?.url) {
-          return img.image.url
+          return encodeImageUrl(img.image.url)
         }
         return ''
       }).filter(Boolean) || []
@@ -208,7 +208,7 @@ export default async function ProductPage({
   // Extract COA URL
   let coaFileUrl = undefined
   if (typeof rawProduct.coaFile === 'object' && rawProduct.coaFile?.url) {
-    coaFileUrl = rawProduct.coaFile.url
+    coaFileUrl = encodeImageUrl(rawProduct.coaFile.url)
   }
 
   // Map to ProductData interface
@@ -235,7 +235,7 @@ export default async function ProductPage({
       discountPercentage: b.discountPercentage,
       price: b.price,
       salePrice: b.salePrice,
-      image: typeof b.image === 'object' && b.image?.url ? b.image.url : undefined,
+      image: typeof b.image === 'object' && b.image?.url ? encodeImageUrl(b.image.url) : undefined,
       variantOverrides: b.variantOverrides?.map((vo: any) => ({
         variantSku: vo.variantSku,
         price: vo.price,
@@ -286,10 +286,10 @@ export default async function ProductPage({
         let imageUrl = '/99 Images/product-image.webp'
         let hoverImageUrl = undefined
         if (p.images && p.images.length > 0 && typeof p.images[0].image === 'object' && p.images[0].image?.url) {
-          imageUrl = p.images[0].image.url
+          imageUrl = encodeImageUrl(p.images[0].image.url)
         }
         if (p.images && p.images.length > 1 && typeof p.images[1].image === 'object' && p.images[1].image?.url) {
-          hoverImageUrl = p.images[1].image.url
+          hoverImageUrl = encodeImageUrl(p.images[1].image.url)
         }
 
         return {
@@ -329,10 +329,10 @@ export default async function ProductPage({
       let imageUrl = '/99 Images/product-image.webp'
       let hoverImageUrl = undefined
       if (p.images && p.images.length > 0 && typeof p.images[0].image === 'object' && p.images[0].image?.url) {
-        imageUrl = p.images[0].image.url
+        imageUrl = encodeImageUrl(p.images[0].image.url)
       }
       if (p.images && p.images.length > 1 && typeof p.images[1].image === 'object' && p.images[1].image?.url) {
-        hoverImageUrl = p.images[1].image.url
+        hoverImageUrl = encodeImageUrl(p.images[1].image.url)
       }
 
       return {
@@ -368,7 +368,7 @@ export default async function ProductPage({
   let mappedBlogs = blogDocs.map((post: any) => {
     let imageUrl = '/99 Images/product-image.webp'
     if (post.heroImage && typeof post.heroImage === 'object' && post.heroImage.url) {
-      imageUrl = post.heroImage.url
+      imageUrl = encodeImageUrl(post.heroImage.url)
     }
     return {
       id: String(post.id),

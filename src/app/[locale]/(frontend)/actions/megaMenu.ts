@@ -31,14 +31,29 @@ export async function getMegaMenuData() {
       id: doc.id,
       name: doc.name,
       slug: doc.slug,
-      products: productsRes.docs.map(prod => ({
-        name: prod.name,
-        slug: prod.slug,
-        image: typeof prod.images?.[0]?.image === 'object' && prod.images[0].image?.url 
-          ? prod.images[0].image.url 
-          : '/placeholder.jpg',
-        price: prod.price
-      }))
+      products: productsRes.docs.map(prod => {
+        let imageUrl = '/placeholder.jpg'
+        if (typeof prod.images?.[0]?.image === 'object' && prod.images[0].image?.url) {
+          const rawUrl = prod.images[0].image.url
+          try {
+            if (rawUrl.startsWith('http://') || rawUrl.startsWith('https://')) {
+              const parsed = new URL(rawUrl)
+              parsed.pathname = parsed.pathname.split('/').map((s: string) => encodeURIComponent(decodeURIComponent(s))).join('/')
+              imageUrl = parsed.toString()
+            } else {
+              imageUrl = rawUrl.split('/').map((s: string) => encodeURIComponent(decodeURIComponent(s))).join('/')
+            }
+          } catch (e) {
+            imageUrl = rawUrl
+          }
+        }
+        return {
+          name: prod.name,
+          slug: prod.slug,
+          image: imageUrl,
+          price: prod.price
+        }
+      })
     })
   }
 

@@ -11,10 +11,8 @@ export function HomePreloaderWrapper({ children }: { children: React.ReactNode }
   const [isReady, setIsReady] = useState(false)
   const [shouldAnimate, setShouldAnimate] = useState(true)
   const preloaderRef = useRef<HTMLDivElement>(null)
-  const bondsRef = useRef<SVGPathElement>(null)
-  const nodesRef = useRef<SVGGElement>(null)
+  const dotsRef = useRef<HTMLDivElement>(null)
   const brandRef = useRef<HTMLDivElement>(null)
-  const wrapperRef = useRef<HTMLDivElement>(null)
 
   // Check Session Storage on Mount
   useEffect(() => {
@@ -45,45 +43,83 @@ export function HomePreloaderWrapper({ children }: { children: React.ReactNode }
       }
     })
 
+    const dots = dotsRef.current?.children || [];
+
     // Setup initial states
-    gsap.set(wrapperRef.current, { opacity: 1 })
-    gsap.set(nodesRef.current?.children || [], { opacity: 0, scale: 0, transformOrigin: 'center' })
-    gsap.set(brandRef.current, { opacity: 0, y: 10 })
+    gsap.set(dots, { scale: 0, opacity: 0, x: 0, y: 0 })
+    gsap.set(brandRef.current, { opacity: 0, y: 15, filter: "blur(8px)" })
     
-    // Draw the bonds (lines)
-    if (bondsRef.current) {
-      const length = bondsRef.current.getTotalLength()
-      gsap.set(bondsRef.current, { strokeDasharray: length, strokeDashoffset: length })
-      tl.to(bondsRef.current, { strokeDashoffset: 0, duration: 1.0, ease: "power2.inOut" })
-    } else {
-      tl.to({}, { duration: 1.0 }) // fallback timing
-    }
+    // 1. Dots pop in at the exact center
+    tl.to(dots, {
+      scale: 1,
+      opacity: 1,
+      duration: 0.6,
+      ease: "back.out(2)"
+    })
 
-    // Pop the atoms (circles) in sequence
-    tl.to(nodesRef.current?.children || [], { 
+    // 2. Dots elegantly spread out into a triangle
+    const radius = 22;
+    tl.to(dots, {
+      x: (i) => Math.cos((i * 120 - 90) * (Math.PI / 180)) * radius,
+      y: (i) => Math.sin((i * 120 - 90) * (Math.PI / 180)) * radius,
+      duration: 1.2,
+      ease: "power3.inOut"
+    }, "-=0.2")
+
+    // Start infinite mesmerizing rotation
+    const rotationTween = gsap.to(dotsRef.current, {
+      rotation: 360,
+      duration: 4,
+      repeat: -1,
+      ease: "linear"
+    });
+
+    // Start infinite organic pulsing
+    const pulseTween = gsap.to(dots, {
+      scale: 1.4,
+      boxShadow: "0 0 20px rgba(146, 220, 229, 0.9)",
+      duration: 1,
+      stagger: {
+        each: 0.33,
+        repeat: -1,
+        yoyo: true
+      },
+      ease: "sine.inOut"
+    });
+
+    // 3. Brand text beautifully fades in and unblurs
+    tl.to(brandRef.current, { 
       opacity: 1, 
-      scale: 1, 
-      duration: 0.4, 
-      stagger: 0.05, 
-      ease: "back.out(1.7)" 
-    }, "-=0.3")
+      y: 0, 
+      filter: "blur(0px)",
+      duration: 1.2, 
+      ease: "power3.out" 
+    }, "-=0.8")
 
-    // Instantly apply glow (do not animate filter as it causes extreme frame drops)
-    tl.set(wrapperRef.current, {
-      filter: "drop-shadow(0px 0px 30px rgba(0,139,139,0.5))"
-    }, "<")
+    // 4. Hold to let the user enjoy the animation
+    tl.to({}, { duration: 1.8 })
 
-    // Fade in brand text
-    tl.to(brandRef.current, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, "-=0.2")
+    // 5. Elegant Exit Sequence
+    tl.add(() => {
+      // Smoothly slow down rotation before collapsing
+      gsap.to(rotationTween, { timeScale: 0, duration: 0.8, ease: "power2.out" });
+    })
 
-    // Hold for a moment so the user sees it
-    tl.to({}, { duration: 0.5 })
+    // Collapse dots back to a single point and vanish
+    tl.to(dots, {
+      x: 0,
+      y: 0,
+      scale: 0,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power3.in"
+    })
 
-    // Fade out everything smoothly (no fast upward parallax, no zooming, no dizziness)
-    tl.to([wrapperRef.current, brandRef.current], { opacity: 0, scale: 0.95, duration: 0.5, ease: "power2.inOut" })
+    // Fade out brand text
+    tl.to(brandRef.current, { opacity: 0, y: -10, duration: 0.4, ease: "power2.in" }, "<0.2")
     
-    // Slide the black background up off the screen smoothly
-    tl.to(preloaderRef.current, { yPercent: -100, duration: 0.8, ease: "power3.inOut" }, "<0.1")
+    // Slide up black background gracefully
+    tl.to(preloaderRef.current, { yPercent: -100, duration: 0.8, ease: "expo.inOut" }, "-=0.1")
 
   }, { scope: preloaderRef, dependencies: [shouldAnimate] })
 
@@ -95,36 +131,21 @@ export function HomePreloaderWrapper({ children }: { children: React.ReactNode }
         ref={preloaderRef}
         className="fixed inset-0 z-[999999] flex flex-col items-center justify-center bg-[#050505] overflow-hidden transform-gpu will-change-transform"
       >
-         <div className="relative flex flex-col items-center justify-center z-10 gap-8">
+         <div className="relative flex flex-col items-center justify-center z-10 gap-10">
            
-           {/* The Molecule SVG */}
-           <div ref={wrapperRef} className="relative w-[100px] sm:w-[120px] md:w-[160px] aspect-square flex items-center justify-center opacity-0 mb-4 md:mb-0">
-              <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-md">
-                <g stroke="#008B8B" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                  {/* Hexagon ring with internal branches */}
-                  <path ref={bondsRef} d="M 100,20 L 170,60 L 170,140 L 100,180 L 30,140 L 30,60 Z M 100,20 L 100,70 L 140,95 M 100,70 L 60,95 M 100,180 L 100,130" />
-                </g>
-                <g fill="#00AAAA" ref={nodesRef}>
-                  <circle cx="100" cy="20" r="10" className="opacity-0" />
-                  <circle cx="170" cy="60" r="8" className="opacity-0" />
-                  <circle cx="170" cy="140" r="8" className="opacity-0" />
-                  <circle cx="100" cy="180" r="10" className="opacity-0" />
-                  <circle cx="30" cy="140" r="8" className="opacity-0" />
-                  <circle cx="30" cy="60" r="8" className="opacity-0" />
-                  <circle cx="100" cy="70" r="6" className="opacity-0" />
-                  <circle cx="140" cy="95" r="6" className="opacity-0" />
-                  <circle cx="60" cy="95" r="6" className="opacity-0" />
-                  <circle cx="100" cy="130" r="6" className="opacity-0" />
-                </g>
-              </svg>
+           {/* Premium Orbital Dots Animation */}
+           <div ref={dotsRef} className="relative w-16 h-16 flex items-center justify-center">
+             <div className="absolute w-2.5 h-2.5 rounded-full bg-[#92DCE5] shadow-[0_0_10px_rgba(146,220,229,0.5)]"></div>
+             <div className="absolute w-2.5 h-2.5 rounded-full bg-[#92DCE5] shadow-[0_0_10px_rgba(146,220,229,0.5)]"></div>
+             <div className="absolute w-2.5 h-2.5 rounded-full bg-[#92DCE5] shadow-[0_0_10px_rgba(146,220,229,0.5)]"></div>
            </div>
 
            {/* Branding */}
-           <div ref={brandRef} className="flex flex-col items-center gap-1.5 md:gap-2 opacity-0 px-6 max-w-[90vw]">
-              <div className="text-white text-base sm:text-lg md:text-2xl font-heading tracking-[0.15em] sm:tracking-widest text-center leading-tight">
-                Helix Bio
+           <div ref={brandRef} className="flex flex-col items-center opacity-0 px-6 max-w-[90vw]">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-heading tracking-[0.15em] text-white font-medium text-center drop-shadow-sm">
+                HELIX BIO
               </div>
-              <p className="text-white/40 text-[8px] sm:text-[10px] md:text-xs tracking-[0.15em] sm:tracking-[0.3em] font-medium uppercase text-center leading-relaxed">
+              <p className="text-white/40 text-[9px] sm:text-[10px] md:text-xs tracking-[0.3em] font-sans uppercase text-center mt-3">
                 Clinical Research Synthesis
               </p>
            </div>

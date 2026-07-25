@@ -106,7 +106,7 @@ export function Hero() {
       <div className="mt-32 md:mt-20 shrink-0 w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
         
         {/* Card 1 */}
-        <div className="bg-[#f8f8f8] rounded-3xl p-6 flex flex-col justify-center gap-4">
+        <div className="bg-white rounded-3xl p-6 flex flex-col justify-center gap-4">
           <div className="flex items-center gap-2">
             <h2 className="text-4xl font-bold text-black tracking-tight">10 k+</h2>
             <div className="flex -space-x-3 ml-auto">

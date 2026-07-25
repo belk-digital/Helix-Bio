@@ -489,7 +489,7 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
             )}
           </AnimatePresence>
 
-          <div className={`w-full relative pointer-events-auto bg-white transition-all duration-500 z-50 ${isScrolled ? 'shadow-[0_4px_20px_rgba(0,0,0,0.03)]' : ''}`}>
+          <div className={`w-full relative pointer-events-auto bg-[#FAFAFA] transition-all duration-500 z-50 ${isScrolled ? 'shadow-[0_4px_20px_rgba(0,0,0,0.03)]' : ''}`}>
             <div className="w-full mx-auto">
               {headerContent}
             </div>

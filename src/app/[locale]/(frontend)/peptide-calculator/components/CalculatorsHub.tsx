@@ -28,13 +28,10 @@ export function CalculatorsHub() {
       
       <FadeUp className="w-full max-w-5xl mx-auto mb-10 lg:mb-16 flex justify-center">
         {/* Navigation Tabs - Floating Island Design */}
-        <div className="inline-flex flex-wrap items-center justify-center gap-1 sm:gap-2 p-2 sm:p-3 bg-zinc-950/90 backdrop-blur-3xl rounded-[2rem] sm:rounded-full border border-white/10 shadow-lg relative group transition-all duration-700 hover:shadow-xl hover:border-white/20 z-20">
+        <div className="inline-flex flex-wrap items-center justify-center gap-1 sm:gap-2 p-2 sm:p-3 bg-white/90 backdrop-blur-3xl rounded-2xl border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative group transition-all duration-700 hover:shadow-xl hover:border-black/10 z-20">
           
           {/* Subtle inner glow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 rounded-[2rem] sm:rounded-full pointer-events-none" />
-          
-          {/* Ambient outer glow on hover - Toned down significantly */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-gold/5 to-primary/10 blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-1000 -z-10 rounded-full" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 rounded-2xl pointer-events-none" />
 
           {TABS.map(tab => {
             const isActive = activeTab === tab.id;
@@ -42,14 +39,14 @@ export function CalculatorsHub() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative flex items-center gap-2 sm:gap-3 px-4 py-3 sm:px-6 sm:py-4 rounded-[1.5rem] sm:rounded-full text-xs sm:text-sm font-medium transition-all duration-500 overflow-hidden ${
-                  isActive ? 'text-white' : 'text-white/60 hover:text-white hover:bg-white/5 hover:scale-105'
+                className={`relative flex items-center gap-2 sm:gap-3 px-4 py-3 sm:px-6 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-500 ${
+                  isActive ? 'text-white shadow-sm' : 'text-ink/50 hover:text-ink hover:bg-black/5 hover:scale-105'
                 }`}
               >
                 {isActive && (
                   <motion.div
                     layoutId="activeTabBg"
-                    className="absolute inset-0 bg-gradient-to-r from-primary via-[#95C2B4] to-primary rounded-[1.5rem] sm:rounded-full -z-10 bg-[length:200%_auto] animate-gradient shadow-md"
+                    className="absolute inset-0 bg-ink rounded-xl -z-10 shadow-lg"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -66,6 +63,24 @@ export function CalculatorsHub() {
                 
                 {/* Active dot indicator for mobile instead of full text */}
                 {isActive && <div className="md:hidden w-1.5 h-1.5 rounded-full bg-white animate-pulse" />}
+                
+                {/* Mobile Animated Bubble Popup */}
+                <AnimatePresence>
+                  {isActive && (
+                    <div className="absolute -top-12 left-1/2 -translate-x-1/2 z-50 md:hidden pointer-events-none">
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.8 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 5, scale: 0.9 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 25 }}
+                        className="bg-ink text-white px-4 py-2 rounded-xl text-xs font-bold shadow-xl whitespace-nowrap flex items-center justify-center relative"
+                      >
+                        {tab.label}
+                        <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-ink rotate-45" />
+                      </motion.div>
+                    </div>
+                  )}
+                </AnimatePresence>
               </button>
             )
           })}

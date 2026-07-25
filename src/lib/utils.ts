@@ -13,3 +13,17 @@ export function getOgImageUrl(title: string, description?: string) {
   }
   return url.toString()
 }
+
+export function encodeImageUrl(url: string | undefined): string {
+  if (!url) return ''
+  try {
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+      const parsed = new URL(url)
+      parsed.pathname = parsed.pathname.split('/').map(s => encodeURIComponent(decodeURIComponent(s))).join('/')
+      return parsed.toString()
+    }
+    return url.split('/').map(s => encodeURIComponent(decodeURIComponent(s))).join('/')
+  } catch (e) {
+    return url
+  }
+}

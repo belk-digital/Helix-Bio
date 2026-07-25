@@ -480,11 +480,27 @@ export async function getShopProducts(params: {
       let hoverImageUrl: string | undefined = undefined
 
       if (doc.images && doc.images.length > 0) {
+        const encodeUrl = (url: string) => {
+          if (!url) return url
+          try {
+            // Check if it's an absolute URL
+            if (url.startsWith('http://') || url.startsWith('https://')) {
+              const parsed = new URL(url)
+              parsed.pathname = parsed.pathname.split('/').map(s => encodeURIComponent(decodeURIComponent(s))).join('/')
+              return parsed.toString()
+            }
+            // Relative URL
+            return url.split('/').map(s => encodeURIComponent(decodeURIComponent(s))).join('/')
+          } catch (e) {
+            return url
+          }
+        }
+
         if (typeof doc.images[0].image === 'object' && doc.images[0].image !== null) {
-          imageUrl = (doc.images[0].image as any).url || imageUrl
+          imageUrl = encodeUrl((doc.images[0].image as any).url) || imageUrl
         }
         if (doc.images.length > 1 && typeof doc.images[1].image === 'object' && doc.images[1].image !== null) {
-          hoverImageUrl = (doc.images[1].image as any).url
+          hoverImageUrl = encodeUrl((doc.images[1].image as any).url)
         }
       }
 

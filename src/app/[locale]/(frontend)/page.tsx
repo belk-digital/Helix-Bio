@@ -9,6 +9,7 @@ import { WhatSetsUsApart } from '@/components/home/WhatSetsUsApart'
 import { WhyChooseUs } from '@/components/home/WhyChooseUs'
 import { DifferenceSection } from '@/components/home/DifferenceSection'
 import { BestSellerSection } from '@/components/home/BestSellerSection'
+import { ImageSliderSection } from '@/components/home/ImageSliderSection'
 import { MerchandiseSection } from '@/components/home/MerchandiseSection'
 import { MilitaryDiscountSection } from '@/components/home/MilitaryDiscountSection'
 import { Metadata } from 'next'
@@ -89,6 +90,7 @@ export default async function Homepage() {
       <div className="flex flex-col w-full min-h-screen relative z-10 bg-black overflow-x-clip">
         <Hero />
         <BestSellerSection products={products} />
+        <ImageSliderSection />
         <DifferenceSection />
         <TrustBadges />
         <CategoriesSection categories={categories} />

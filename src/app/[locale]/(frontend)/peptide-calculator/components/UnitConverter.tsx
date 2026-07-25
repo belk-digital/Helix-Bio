@@ -1,251 +1,187 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { FadeUp } from '@/components/motion/FadeUp'
-import { ArrowRightLeft, Info, Scale, Droplet } from 'lucide-react'
+import { RefreshCw, ArrowRight } from 'lucide-react'
 
-type ConversionType = 'mass' | 'volume';
-type MassUnit = 'mg' | 'mcg';
-type VolumeUnit = 'ml' | 'iu';
+type Unit = 'mg' | 'mcg' | 'mL' | 'IU';
+
+const DynamicInput = ({ value, onChange, minWidth = 2 }: { value: string, onChange: (v: string) => void, minWidth?: number }) => (
+  <input 
+    type="text" 
+    value={value} 
+    onChange={(e) => {
+      const val = e.target.value;
+      if (val === '' || /^[0-9]*\.?[0-9]*$/.test(val)) {
+        onChange(val);
+      }
+    }} 
+    className="bg-transparent border-b-2 border-black/10 hover:border-primary/50 text-primary focus:outline-none focus:border-primary px-1 mx-1 text-center font-black transition-colors inline-block"
+    style={{ width: `${Math.max(minWidth, value.length || 1) + 0.5}ch` }}
+  />
+)
+
+const DynamicSelect = ({ value, options, onChange }: { value: string, options: {label: string, value: string}[], onChange: (v: string) => void }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const selectedLabel = options.find(o => o.value == value)?.label;
+
+  return (
+    <div className="relative inline-block mx-1" onMouseLeave={() => setIsOpen(false)}>
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="bg-transparent border-b-2 border-black/10 hover:border-primary/50 text-primary focus:outline-none px-1 mx-1 font-black transition-colors flex items-center gap-1 inline-flex"
+      >
+        {selectedLabel}
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: 10, scale: 0.95 }} 
+            animate={{ opacity: 1, y: 0, scale: 1 }} 
+            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+            className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-white rounded-2xl shadow-[0_20px_40px_rgb(0,0,0,0.1)] border border-black/5 overflow-hidden z-50 min-w-[120px]"
+          >
+            <div className="flex flex-col p-1">
+              {options.map(opt => (
+                <button
+                  key={opt.value}
+                  onClick={() => { onChange(String(opt.value)); setIsOpen(false); }}
+                  className={`w-full text-left px-4 py-3 rounded-xl text-sm font-bold transition-colors ${value == opt.value ? 'bg-primary text-white' : 'text-ink hover:bg-black/5'}`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
 
 export function UnitConverter() {
   const t = useTranslations('calculator.unitConverter')
-  const [conversionType, setConversionType] = useState<ConversionType>('mass');
   
-  // Mass state
-  const [massValue, setMassValue] = useState('5');
-  const [massFrom, setMassFrom] = useState<MassUnit>('mg');
-  const [massTo, setMassTo] = useState<MassUnit>('mcg');
+  const [val, setVal] = useState('5');
+  const [fromUnit, setFromUnit] = useState<Unit>('mg');
+  const [toUnit, setToUnit] = useState<Unit>('mcg');
 
-  // Volume state
-  const [volValue, setVolValue] = useState('0.1');
-  const [volFrom, setVolFrom] = useState<VolumeUnit>('ml');
-  const [volTo, setVolTo] = useState<VolumeUnit>('iu');
-
-  const swapUnits = () => {
-    if (conversionType === 'mass') {
-      setMassFrom(massTo);
-      setMassTo(massFrom);
-    } else {
-      setVolFrom(volTo);
-      setVolTo(volFrom);
-    }
+  const handleFromChange = (newFrom: string) => {
+    const unit = newFrom as Unit;
+    setFromUnit(unit);
+    if (unit === 'mg' && toUnit !== 'mcg' && toUnit !== 'mg') setToUnit('mcg');
+    if (unit === 'mcg' && toUnit !== 'mg' && toUnit !== 'mcg') setToUnit('mg');
+    if (unit === 'mL' && toUnit !== 'IU' && toUnit !== 'mL') setToUnit('IU');
+    if (unit === 'IU' && toUnit !== 'mL' && toUnit !== 'IU') setToUnit('mL');
   }
 
-  // Math
+  const getToOptions = () => {
+    if (fromUnit === 'mg' || fromUnit === 'mcg') {
+      return [{label: 'mg', value: 'mg'}, {label: 'mcg', value: 'mcg'}];
+    }
+    return [{label: 'mL', value: 'mL'}, {label: 'IU', value: 'IU'}];
+  }
+
+  const numericVal = parseFloat(val) || 0;
   let result = 0;
   let formattedResult = '—';
 
-  if (conversionType === 'mass') {
-    const val = parseFloat(massValue) || 0;
-    if (massFrom === 'mg' && massTo === 'mcg') {
-      result = val * 1000;
-    } else if (massFrom === 'mcg' && massTo === 'mg') {
-      result = val / 1000;
-    } else {
-      result = val;
-    }
-    if (val > 0) formattedResult = result.toLocaleString(undefined, { maximumFractionDigits: 3 });
-  } else {
-    const val = parseFloat(volValue) || 0;
-    if (volFrom === 'ml' && volTo === 'iu') {
-      result = val * 100; // U-100 syringe
-    } else if (volFrom === 'iu' && volTo === 'ml') {
-      result = val / 100;
-    } else {
-      result = val;
-    }
-    if (val > 0) formattedResult = result.toLocaleString(undefined, { maximumFractionDigits: 3 });
+  if (numericVal > 0) {
+    if (fromUnit === 'mg' && toUnit === 'mcg') result = numericVal * 1000;
+    else if (fromUnit === 'mcg' && toUnit === 'mg') result = numericVal / 1000;
+    else if (fromUnit === 'mL' && toUnit === 'IU') result = numericVal * 100;
+    else if (fromUnit === 'IU' && toUnit === 'mL') result = numericVal / 100;
+    else result = numericVal; 
+    
+    formattedResult = result.toLocaleString(undefined, { maximumFractionDigits: 3 });
   }
 
   return (
-    <section className="w-full rounded-[2.5rem] overflow-hidden bg-zinc-950 p-6 sm:p-8 md:p-12 border border-white/10 relative shadow-2xl">
+    <section className="w-full rounded-3xl bg-white p-4 sm:p-6 md:p-12 lg:p-16 border border-black/5 shadow-[0_20px_60px_rgb(0,0,0,0.05)] relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-20">
       
-      {/* Subtle Background Effects */}
-      <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.2] mix-blend-overlay z-0">
-        <filter id="noiseDashboard3">
-          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch" />
-        </filter>
-        <rect width="100%" height="100%" filter="url(#noiseDashboard3)" />
-      </svg>
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-
-      {/* Header */}
-      <FadeUp className="mb-10 text-center md:text-left relative z-10 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div>
-          <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-black uppercase text-white tracking-tighter leading-none mb-3">
-            {t('titleUnit')} <span className="text-white/40 font-light">{t('titleConverter')}</span>
-          </h1>
-          <p className="text-white/40 font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] flex items-center justify-center md:justify-start gap-2">
-            <Info className="w-4 h-4 shrink-0" /> {t('researchMeasurementsDashboard')}
-          </p>
-        </div>
-      </FadeUp>
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 relative z-10">
-        
-        {/* Left Dashboard Panel */}
-        <div className="lg:col-span-8 flex flex-col gap-6 md:gap-8">
-          
-          {/* Top Readout Cards */}
-          <div className="grid grid-cols-1 gap-4 md:gap-6">
-            <FadeUp delay={0.1} className="bg-zinc-900/50 border border-white/5 rounded-3xl p-6 md:p-8 backdrop-blur-xl shadow-inner relative overflow-hidden group">
-               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-               <div className="flex items-center gap-3 mb-4">
-                 <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                   {conversionType === 'mass' ? <Scale className="w-4 h-4 text-primary" /> : <Droplet className="w-4 h-4 text-primary" />}
-                 </div>
-                 <p className="text-[10px] uppercase font-mono text-white/40 tracking-[0.2em]">{t('convertedResult')}</p>
-               </div>
-               <div className="flex items-baseline gap-4">
-                 <p className="text-5xl sm:text-6xl md:text-7xl font-display tracking-tighter text-white">
-                   {formattedResult}
-                 </p>
-                 <span className="text-2xl md:text-4xl font-display text-white/20 italic uppercase">
-                   {conversionType === 'mass' ? massTo : volTo}
-                 </span>
-               </div>
-            </FadeUp>
+      {/* Left: Conversational Form */}
+      <div className="flex-1 flex flex-col justify-center">
+        <FadeUp>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+            <h2 className="text-xs font-black uppercase tracking-[0.2em] text-ink/30">Universal Converter</h2>
+            <button
+              onClick={() => { setVal('5'); setFromUnit('mg'); setToUnit('mcg'); }}
+              className="w-8 h-8 rounded-full border border-black/10 hover:bg-black/5 flex items-center justify-center text-ink/40 transition-colors"
+            >
+              <RefreshCw className="w-3.5 h-3.5" />
+            </button>
           </div>
 
-          {/* Input Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            
-            {/* Toggles */}
-            <FadeUp delay={0.2} className="bg-white/5 border border-white/10 rounded-[2rem] p-6 sm:p-8 backdrop-blur-md flex flex-col justify-center">
-              <label className="block text-[10px] font-mono uppercase tracking-[0.2em] text-white/50 mb-4">{t('conversionType')}</label>
-              <div className="flex bg-white/5 p-1 rounded-2xl w-full border border-white/5 relative mb-6">
-                {[
-                  { id: 'mass', label: t('mass') },
-                  { id: 'volume', label: t('volume') }
-                ].map((opt) => (
-                  <button
-                    key={opt.id} onClick={() => setConversionType(opt.id as ConversionType)}
-                    className={`flex-1 relative py-4 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-colors duration-300 ${conversionType === opt.id ? 'text-zinc-900' : 'text-white/40 hover:text-white'}`}
-                  >
-                    {conversionType === opt.id && <motion.div layoutId="unitConversionToggle" className="absolute inset-0 bg-white rounded-xl -z-10 shadow-lg" transition={{ type: 'spring', stiffness: 400, damping: 30 }} />}
-                    <span className="relative z-10">{opt.label}</span>
-                  </button>
-                ))}
-              </div>
-              <button
-                onClick={swapUnits}
-                className="group flex items-center justify-center gap-3 w-full py-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors text-[10px] font-bold uppercase tracking-widest text-white/60 hover:text-white"
-              >
-                <ArrowRightLeft className="w-4 h-4" /> {t('swapDirection')}
-              </button>
-            </FadeUp>
+          <div className="text-2xl sm:text-3xl md:text-[2.5rem] font-heading font-light text-ink tracking-tight leading-[1.7] md:leading-[1.7] relative z-10">
+            I want to convert <DynamicInput value={val} onChange={setVal} /> 
+            <DynamicSelect 
+              value={fromUnit} 
+              onChange={handleFromChange}
+              options={[{label: 'mg', value: 'mg'}, {label: 'mcg', value: 'mcg'}, {label: 'mL', value: 'mL'}, {label: 'IU', value: 'IU'}]} 
+            /> 
+            into 
+            <DynamicSelect 
+              value={toUnit} 
+              onChange={(v) => setToUnit(v as Unit)}
+              options={getToOptions()} 
+            />.
+          </div>
+        </FadeUp>
+      </div>
 
-            {/* Input Value */}
-            <FadeUp delay={0.3} className="bg-white/5 border border-white/10 rounded-[2rem] p-6 sm:p-8 backdrop-blur-md flex flex-col relative overflow-hidden">
-              <label className="block text-[10px] font-mono uppercase tracking-[0.2em] text-white/50 mb-6">{t('valueToConvert')}</label>
-              <div className="flex-1 flex flex-col justify-end">
-                <AnimatePresence mode="wait">
+      {/* Right: Result Display */}
+      <div className="w-full lg:w-[450px] shrink-0">
+        <FadeUp delay={0.2} className="h-full">
+          <div className="bg-[#FAFAFA] rounded-2xl border border-black/5 p-8 md:p-12 flex flex-col items-center justify-center text-center h-full shadow-[inset_0_2px_20px_rgba(0,0,0,0.02)] min-h-[400px] relative">
+            
+            <h3 className="absolute top-8 font-black uppercase tracking-[0.2em] text-ink/30 text-xs">Converted Result</h3>
+            
+            {/* Visual Conversion Graphic */}
+            <div className="flex items-center gap-6 text-ink/20 my-10">
+               <div className="text-3xl font-black">{fromUnit}</div>
+               <div className="w-20 h-px bg-ink/10 relative flex items-center justify-center">
                   <motion.div 
-                    key={conversionType}
-                    initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }}
-                    transition={{ duration: 0.3 }}
+                    animate={{ x: [-10, 10, -10] }} 
+                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                    className="absolute"
                   >
-                    <div className="flex items-end justify-between mb-4 border-b border-white/10 pb-4">
-                      {conversionType === 'mass' ? (
-                        <>
-                          <input 
-                            type="number" min="0" step="any" value={massValue} onChange={e => setMassValue(e.target.value)}
-                            className="bg-transparent text-4xl sm:text-5xl font-display tracking-tighter text-white focus:outline-none w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                            placeholder="0"
-                          />
-                          <span className="text-2xl font-display text-white/30 uppercase">{massFrom}</span>
-                        </>
-                      ) : (
-                        <>
-                          <input 
-                            type="number" min="0" step="any" value={volValue} onChange={e => setVolValue(e.target.value)}
-                            className="bg-transparent text-4xl sm:text-5xl font-display tracking-tighter text-white focus:outline-none w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                            placeholder="0"
-                          />
-                          <span className="text-2xl font-display text-white/30 uppercase">{volFrom}</span>
-                        </>
-                      )}
-                    </div>
+                    <ArrowRight className="w-5 h-5 text-primary" />
                   </motion.div>
-                </AnimatePresence>
-                <div className="flex gap-2">
-                  <button onClick={() => conversionType === 'mass' ? setMassValue(prev => Math.max(0, (parseFloat(prev) || 0) - 1).toString()) : setVolValue(prev => Math.max(0, (parseFloat(prev) || 0) - 0.1).toFixed(1))} className="flex-1 h-12 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70 transition-colors">-</button>
-                  <button onClick={() => conversionType === 'mass' ? setMassValue(prev => ((parseFloat(prev) || 0) + 1).toString()) : setVolValue(prev => ((parseFloat(prev) || 0) + 0.1).toFixed(1))} className="flex-1 h-12 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70 transition-colors">+</button>
-                </div>
-              </div>
-            </FadeUp>
-            
-          </div>
-        </div>
-
-        {/* Right Panel: Visualization & Reference */}
-        <div className="lg:col-span-4 rounded-[2.5rem] bg-gradient-to-b from-white/5 to-transparent border border-white/10 backdrop-blur-xl flex flex-col items-center justify-center relative overflow-hidden p-8 min-h-[400px]">
-          
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-primary/20 rounded-full blur-[80px] pointer-events-none" />
-
-          {/* Quick Reference Chart */}
-          <FadeUp delay={0.4} className="w-full relative z-10 flex flex-col h-full justify-between">
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/5 border border-white/10 mb-4">
-                <ArrowRightLeft className="w-6 h-6 text-white/40" />
-              </div>
-              <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/40">{t('quickReference')}</p>
+               </div>
+               <div className="text-3xl font-black text-primary">{toUnit}</div>
             </div>
 
-            <div className="bg-zinc-950/50 backdrop-blur-md rounded-2xl p-6 border border-white/5 flex-1 flex flex-col justify-center">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={conversionType}
-                  initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
+            <div className="relative w-full flex flex-col items-center">
+              <AnimatePresence mode="popLayout">
+                <motion.div 
+                  key={formattedResult + toUnit}
+                  initial={{ scale: 0.8, opacity: 0, y: 10 }}
+                  animate={{ scale: 1, opacity: 1, y: 0 }}
+                  exit={{ scale: 0.8, opacity: 0, y: -10 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  className="text-6xl md:text-7xl font-black text-primary tracking-tighter leading-none drop-shadow-sm mb-4"
                 >
-                  {conversionType === 'mass' ? (
-                    <ul className="space-y-4">
-                      <li className="flex justify-between items-end border-b border-white/5 pb-2">
-                        <span className="text-xs font-mono text-white/50">1 <span className="uppercase">mg</span></span>
-                        <span className="text-lg font-display text-white">1,000 <span className="text-xs text-white/40 uppercase">mcg</span></span>
-                      </li>
-                      <li className="flex justify-between items-end border-b border-white/5 pb-2">
-                        <span className="text-xs font-mono text-white/50">5 <span className="uppercase">mg</span></span>
-                        <span className="text-lg font-display text-white">5,000 <span className="text-xs text-white/40 uppercase">mcg</span></span>
-                      </li>
-                      <li className="flex justify-between items-end">
-                        <span className="text-xs font-mono text-white/50">10 <span className="uppercase">mg</span></span>
-                        <span className="text-lg font-display text-white">10,000 <span className="text-xs text-white/40 uppercase">mcg</span></span>
-                      </li>
-                    </ul>
-                  ) : (
-                    <ul className="space-y-4">
-                      <li className="flex justify-between items-end border-b border-white/5 pb-2">
-                        <span className="text-xs font-mono text-white/50">0.1 <span className="uppercase">ml</span></span>
-                        <span className="text-lg font-display text-white">10 <span className="text-xs text-white/40 uppercase">iu</span></span>
-                      </li>
-                      <li className="flex justify-between items-end border-b border-white/5 pb-2">
-                        <span className="text-xs font-mono text-white/50">0.5 <span className="uppercase">ml</span></span>
-                        <span className="text-lg font-display text-white">50 <span className="text-xs text-white/40 uppercase">iu</span></span>
-                      </li>
-                      <li className="flex justify-between items-end">
-                        <span className="text-xs font-mono text-white/50">1.0 <span className="uppercase">ml</span></span>
-                        <span className="text-lg font-display text-white">100 <span className="text-xs text-white/40 uppercase">iu</span></span>
-                      </li>
-                    </ul>
-                  )}
+                  {formattedResult}
                 </motion.div>
               </AnimatePresence>
+              <div className="text-sm font-black uppercase tracking-widest text-ink/40">{toUnit}</div>
             </div>
-            
-            {conversionType === 'volume' && (
-              <p className="text-[9px] uppercase font-mono text-primary/60 tracking-widest mt-6 text-center">
-                {t('assumesU100Syringe')}
-              </p>
-            )}
-          </FadeUp>
 
-        </div>
+            {fromUnit === 'mL' && toUnit === 'IU' && (
+              <div className="absolute bottom-8 text-xs font-bold uppercase tracking-widest text-ink/30">
+                Assumes U-100 Syringe
+              </div>
+            )}
+            
+          </div>
+        </FadeUp>
       </div>
+
     </section>
   )
 }
