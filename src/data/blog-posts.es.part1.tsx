@@ -18,7 +18,7 @@ export const BLOG_POSTS_PART1: {
     date: '9 de mayo de 2026',
     readTime: '6 min de lectura',
     excerpt: 'Resultados precisos de la calculadora de péptidos en segundos. Introduce el tamaño de tu vial, el volumen de agua bacteriostática y la dosis objetivo — nuestra herramienta convierte al instante tu dosificación de péptidos en unidades de jeringa precisas.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/peptide-reconstitution-calculator-hero.webp',
+    imageSrc: '/HelixBio Images/military-3.webp',
     content: (
       <>
         <p className="first-letter:text-7xl first-letter:font-serif first-letter:float-left first-letter:mr-4 first-letter:text-ink first-letter:mt-2">
@@ -153,7 +153,7 @@ export const BLOG_POSTS_PART1: {
     date: '10 de mayo de 2026',
     readTime: '8 min de lectura',
     excerpt: '¿Requiere la Retatrutida carbohidratos para funcionar? Explora la ciencia detrás del triple agonismo, la actividad del receptor de glucagón y el metabolismo de carbohidratos en la investigación.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/retatrutide-and-carbs-hero.webp',
+    imageSrc: '/HelixBio Images/military-2.webp',
     content: (
       <>
         <p className="first-letter:text-7xl first-letter:font-serif first-letter:float-left first-letter:mr-4 first-letter:text-ink first-letter:mt-2">
@@ -371,7 +371,7 @@ export const BLOG_POSTS_PART1: {
     date: '16 de mayo de 2026',
     readTime: '12 min de lectura',
     excerpt: 'Domina la reconstitución de péptidos con nuestra calculadora interactiva. Aprende las proporciones de agua bacteriostática, las conversiones de mcg a mg y las técnicas estériles para laboratorios de EE. UU.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/peptide-calculator-reconstitution-guide-hero.webp',
+    imageSrc: '/HelixBio Images/category-8.webp',
     content: (
       <>
         <p className="first-letter:text-7xl first-letter:font-serif first-letter:float-left first-letter:mr-4 first-letter:text-ink first-letter:mt-2">
@@ -605,7 +605,7 @@ export const BLOG_POSTS_PART1: {
     date: '16 de mayo de 2026',
     readTime: '10 min de lectura',
     excerpt: 'Descubre los principales beneficios de los péptidos de colágeno, respaldados por la ciencia, para la piel, las articulaciones, los huesos y los músculos. Colágeno hidrolizado de grado investigación disponible en Helix Bio.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/collagen-peptides-benefits-hero.webp',
+    imageSrc: '/HelixBio Images/military-1.webp',
     content: (
       <>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Introducción</h2>
@@ -902,7 +902,7 @@ export const BLOG_POSTS_PART1: {
     date: '21 de mayo de 2026',
     readTime: '12 min de lectura',
     excerpt: 'Retatrutida explicada: mecanismo de triple agonista, datos de la Fase 3 TRIUMPH-1, estado ante la FDA y manejo en laboratorio. Una referencia neutral de uso exclusivo en investigación.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/retatrutide-peptide-research-guide-hero.webp',
+    imageSrc: '/HelixBio Images/category-7.webp',
     content: (
       <>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Introducción</h2>

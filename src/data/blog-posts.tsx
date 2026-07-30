@@ -29,7 +29,7 @@ export const BLOG_POSTS: {
     date: 'May 9, 2026',
     readTime: '6 min read',
     excerpt: 'Accurate peptide calculator results in seconds. Enter your vial size, bacteriostatic water volume, and target dose — our tool instantly converts your peptide dosage into precise syringe units.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/peptide-reconstitution-calculator-hero.webp',
+    imageSrc: '/HelixBio Images/military-3.webp',
     content: (
       <>
         <p className="first-letter:text-7xl first-letter:font-serif first-letter:float-left first-letter:mr-4 first-letter:text-ink first-letter:mt-2">
@@ -164,7 +164,7 @@ export const BLOG_POSTS: {
     date: 'May 10, 2026',
     readTime: '8 min read',
     excerpt: 'Does Retatrutide require carbohydrates to work? Explore the science behind triple agonism, glucagon receptor activity, and carbohydrate metabolism in research.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/retatrutide-and-carbs-hero.webp',
+    imageSrc: '/HelixBio Images/military-2.webp',
     content: (
       <>
         <p className="first-letter:text-7xl first-letter:font-serif first-letter:float-left first-letter:mr-4 first-letter:text-ink first-letter:mt-2">
@@ -382,7 +382,7 @@ export const BLOG_POSTS: {
     date: 'May 16, 2026',
     readTime: '12 min read',
     excerpt: 'Master peptide reconstitution with our interactive calculator. Learn bacteriostatic water ratios, mcg to mg conversions & sterile techniques for U.S. labs.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/peptide-calculator-reconstitution-guide-hero.webp',
+    imageSrc: '/HelixBio Images/category-8.webp',
     content: (
       <>
         <p className="first-letter:text-7xl first-letter:font-serif first-letter:float-left first-letter:mr-4 first-letter:text-ink first-letter:mt-2">
@@ -618,7 +618,7 @@ export const BLOG_POSTS: {
     date: 'July 13, 2026',
     readTime: '14 min read',
     excerpt: 'The complete mL-to-units and mg/mL reconstitution chart, plus a free calculator. RUO laboratory reference covering bacteriostatic water ratios for every common vial size.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/bac-water-reconstitution-hero.png',
+    imageSrc: '/HelixBio Images/category-1.webp',
     content: (
       <>
         <div className="p-4 md:p-6 bg-gold/10 border border-gold/30 rounded-xl text-sm text-ink/80 mb-10">
@@ -1176,7 +1176,7 @@ export const BLOG_POSTS: {
     date: 'May 16, 2026',
     readTime: '10 min read',
     excerpt: 'Discover the top science-backed collagen peptides benefits for skin, joints, bone, and muscle. Research-grade hydrolyzed collagen available at Helix Bio.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/collagen-peptides-benefits-hero.webp',
+    imageSrc: '/HelixBio Images/military-1.webp',
     content: (
       <>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Introduction</h2>
@@ -1473,7 +1473,7 @@ export const BLOG_POSTS: {
     date: 'May 21, 2026',
     readTime: '12 min read',
     excerpt: 'Retatrutide peptide explained: triple-agonist mechanism, Phase 3 TRIUMPH-1 data, FDA status, and lab handling. A neutral, research-use-only reference.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/retatrutide-peptide-research-guide-hero.webp',
+    imageSrc: '/HelixBio Images/category-7.webp',
     content: (
       <>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Introduction</h2>
@@ -1809,7 +1809,7 @@ export const BLOG_POSTS: {
     date: 'June 2, 2026',
     readTime: '12 min read',
     excerpt: 'Research-use-only reference on retatrutide (LY3437943), Eli Lilly\'s investigational triple hormone receptor agonist (GLP-1, GIP, glucagon) being studied for obesity and related indications.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/retatrutide-weight-loss-research-guide-2026-hero.webp',
+    imageSrc: '/HelixBio Images/category-5.webp',
     content: (
       <>
         <div className="prose prose-lg text-ink/80 max-w-none">
@@ -2162,7 +2162,7 @@ export const BLOG_POSTS: {
     date: 'June 11, 2026',
     readTime: '10 min read',
     excerpt: 'KLOW peptide blend: verified 50/10/10/10mg composition, BPC-157, TB-500, KPV, GHK-Cu. Research benefits, dosage chart, KLOW vs GLOW comparison. 2026 reference.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/klow-peptide-blend-research-guide-2026-hero.png',
+    imageSrc: '/HelixBio Images/category-4.webp',
     content: (
       <>
         <div className="prose prose-lg text-ink/80 max-w-none">
@@ -2636,7 +2636,7 @@ export const BLOG_POSTS: {
     date: 'June 16, 2026',
     readTime: '8 min read',
     excerpt: 'Collagen peptides vs peptide therapy for skin: compare GHK-Cu and hydrolyzed collagen, what research shows, and where each fits. RUO research peptides.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/collagen-peptides-vs-peptide-therapy-skin-hero.webp',
+    imageSrc: '/HelixBio Images/category-3.webp',
     content: (
       <>
         <div className="prose prose-lg text-ink/80 max-w-none">
@@ -2775,7 +2775,7 @@ export const BLOG_POSTS: {
     date: 'May 26, 2026',
     readTime: '12 min read',
     excerpt: 'GHK-Cu peptide research reference: mechanism, collagen pathway evidence, lab handling, purity standards, and 35+ FAQs from peer-reviewed studies.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/ghk-cu-peptide-research-vial-hero.png',
+    imageSrc: '/HelixBio Images/category-6.webp',
     content: (
       <>
         <p className="text-ink/60 text-sm mb-4 italic">Last reviewed: May 27, 2026 · Last updated: May 27, 2026</p>
@@ -3144,7 +3144,7 @@ export const BLOG_POSTS: {
     date: 'June 23, 2026',
     readTime: '12 min read',
     excerpt: 'What percentage of visceral fat does tesamorelin reduce in research? Phase 3 clinical trials report roughly an 15-18% VAT reduction near 26 weeks. Review the data, timelines, and reference standards.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/tesamorelin-visceral-fat-reduction-percentage-hero.jpg',
+    imageSrc: '/HelixBio Images/category-2.webp',
     content: (
       <>
         <p className="first-letter:text-7xl first-letter:font-serif first-letter:float-left first-letter:mr-4 first-letter:text-ink first-letter:mt-2">
@@ -3509,7 +3509,7 @@ export const BLOG_POSTS: {
     date: 'April 26, 2026',
     readTime: '5 min read',
     excerpt: 'Complete guide to reconstituted peptide stability, degradation mechanisms, and optimal storage protocols for laboratory research integrity.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/reconstituted-peptide-stability-storage-hero.jpg',
+    imageSrc: '/HelixBio Images/multiple-vial.webp',
     content: (
       <>
         <div className="my-12 overflow-hidden rounded-2xl border border-ink/10 shadow-sm">

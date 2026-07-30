@@ -36,10 +36,17 @@ const Toaster = ({ ...props }: ToasterProps) => {
       }
       toastOptions={{
         classNames: {
-          toast: 'cn-toast group border border-ink/10 !bg-white !opacity-100 text-ink shadow-[0_8px_30px_rgb(0,0,0,0.12)]',
-          description: '!text-gray-500 !font-medium',
-          actionButton: 'bg-primary text-primary-foreground hover:bg-primary/90',
-          cancelButton: 'bg-muted text-muted-foreground hover:bg-muted/90',
+          toast: 'group flex items-start gap-3 !bg-[#121212] !text-white !border !border-white/10 !shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] !rounded-[24px] !p-4 sm:!p-5',
+          title: '!font-bold !text-sm !tracking-wide',
+          description: '!text-white/80 !font-medium !text-xs !mt-1',
+          icon: '!w-5 !h-5 !text-white',
+          success: '!bg-green-600 !border-green-500/50',
+          error: '!bg-red-600 !border-red-500/50',
+          warning: '!bg-amber-500 !border-amber-400/50',
+          info: '!bg-primary-dark !border-primary/50',
+          actionButton: '!bg-white !text-black !font-bold !rounded-full !px-5 !py-2 hover:!scale-105 !transition-transform !border-0',
+          cancelButton: '!bg-white/20 !text-white !font-bold !rounded-full !px-5 !py-2 hover:!bg-white/30 !border-0',
+          closeButton: '!bg-white/20 !text-white hover:!bg-white/30 !border-0 !rounded-full',
         },
       }}
       {...props}

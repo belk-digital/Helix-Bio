@@ -9,7 +9,7 @@ export const BLOG_POSTS_PART2: { slug: string; title: string; category: string; 
     date: '2 de junio de 2026',
     readTime: '12 min de lectura',
     excerpt: 'Referencia para uso exclusivo en investigación sobre la retatrutida (LY3437943), el agonista triple investigacional de receptores hormonales (GLP-1, GIP, glucagón) de Eli Lilly, en estudio para la obesidad y afecciones relacionadas.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/retatrutide-weight-loss-research-guide-2026-hero.webp',
+    imageSrc: '/HelixBio Images/category-5.webp',
     content: (
       <>
         <div className="prose prose-lg text-ink/80 max-w-none">
@@ -299,7 +299,7 @@ export const BLOG_POSTS_PART2: { slug: string; title: string; category: string; 
     date: '11 de junio de 2026',
     readTime: '10 min de lectura',
     excerpt: 'Mezcla de péptidos KLOW: composición verificada de 50/10/10/10mg, BPC-157, TB-500, KPV, GHK-Cu. Beneficios de investigación, tabla de dosis, comparación KLOW vs GLOW. Referencia 2026.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/klow-peptide-blend-research-guide-2026-hero.png',
+    imageSrc: '/HelixBio Images/category-4.webp',
     content: (
       <>
         <div className="prose prose-lg text-ink/80 max-w-none">
@@ -773,7 +773,7 @@ export const BLOG_POSTS_PART2: { slug: string; title: string; category: string; 
     date: '16 de junio de 2026',
     readTime: '8 min de lectura',
     excerpt: 'Péptidos de colágeno vs. terapia con péptidos para la piel: comparamos GHK-Cu y el colágeno hidrolizado, lo que muestra la investigación y dónde encaja cada uno. Péptidos de investigación RUO.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/collagen-peptides-vs-peptide-therapy-skin-hero.webp',
+    imageSrc: '/HelixBio Images/category-3.webp',
     content: (
       <>
         <div className="prose prose-lg text-ink/80 max-w-none">
@@ -912,7 +912,7 @@ export const BLOG_POSTS_PART2: { slug: string; title: string; category: string; 
     date: '26 de mayo de 2026',
     readTime: '12 min de lectura',
     excerpt: 'Referencia de investigación sobre el péptido GHK-Cu: mecanismo, evidencia de la vía del colágeno, manejo en laboratorio, estándares de pureza y más de 35 preguntas frecuentes basadas en estudios revisados por pares.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/ghk-cu-peptide-research-vial-hero.png',
+    imageSrc: '/HelixBio Images/category-6.webp',
     content: (
       <>
         <p className="text-ink/60 text-sm mb-4 italic">Última revisión: 27 de mayo de 2026 · Última actualización: 27 de mayo de 2026</p>
@@ -1280,7 +1280,7 @@ export const BLOG_POSTS_PART2: { slug: string; title: string; category: string; 
     date: '23 de junio de 2026',
     readTime: '12 min de lectura',
     excerpt: '¿Qué porcentaje de grasa visceral reduce la tesamorelina en investigación? Los ensayos clínicos de Fase 3 reportan una reducción de VAT de aproximadamente 15-18% cerca de las 26 semanas. Revisa los datos, los plazos y los estándares de referencia.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/tesamorelin-visceral-fat-reduction-percentage-hero.jpg',
+    imageSrc: '/HelixBio Images/category-2.webp',
     content: (
       <>
         <p className="first-letter:text-7xl first-letter:font-serif first-letter:float-left first-letter:mr-4 first-letter:text-ink first-letter:mt-2">

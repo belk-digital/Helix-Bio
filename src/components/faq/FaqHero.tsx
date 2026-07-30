@@ -2,77 +2,125 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
+import { ArrowUpRight, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import { FluidButton } from '@/components/ui/fluid-button'
+import { Link } from '@/i18n/navigation'
 
 export function FaqHero() {
   const t = useTranslations('content.faqHero')
+  
   return (
-    <div className="relative w-full h-[75dvh] min-h-[450px] md:min-h-[600px] bg-cream p-3 pt-[56px] [.announcement-closed_&]:pt-3 sm:p-5 sm:pt-[64px] [.announcement-closed_&]:sm:pt-5 md:p-8 md:pt-[76px] [.announcement-closed_&]:md:pt-8 font-sans overflow-hidden flex transition-[padding] duration-300">
-      {/* Main Inner Container */}
-      <div className="relative w-full h-full bg-zinc-900 rounded-[2rem] md:rounded-[4rem] overflow-hidden flex flex-col justify-between">
+    <div className="w-full bg-[#FAFAFA] font-sans">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 pt-32 sm:pt-36 md:pt-44 pb-4 mx-auto max-w-[1920px]">
         
-        {/* Border Ring Overlay */}
-        <div className="absolute inset-0 rounded-[2rem] md:rounded-[4rem] ring-1 ring-inset ring-white/5 pointer-events-none z-20" />
-
-        {/* Background Image */}
-        <Image
-          src="/99 Images/vial-ice-closeup.webp"
-          alt="Research Peptides Vials on Ice"
-          fill
-          className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-60"
-          priority
-        />
-
-        {/* Dark Gradient Overlay inside card */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent z-10 pointer-events-none" />
-
-        {/* Cutouts & UI Overlay (Inverted corners) */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-30">
-          {/* Bottom Center Cutout for Button */}
-          <div className="absolute -bottom-px left-0 right-0 mx-auto w-fit bg-cream rounded-t-[2.5rem] md:rounded-t-[4rem] pointer-events-auto p-3 sm:p-5 md:p-8 pt-6 md:pt-10 px-6 md:px-12 flex justify-center items-center">
-            {/* Left Fillet (Inverted Corner) */}
-            <div 
-              className="absolute bottom-0 -left-[calc(2.5rem-1px)] w-10 h-10 md:-left-[calc(4rem-1px)] md:w-16 md:h-16 bg-contain bg-no-repeat pointer-events-none z-0"
-              style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M100 0v100H0A100 100 0 0 0 100 0Z' fill='%23FAF7F2'/%3E%3C/svg%3E")` }}
-            />
-            {/* Right Fillet (Inverted Corner) */}
-            <div 
-              className="absolute bottom-0 -right-[calc(2.5rem-1px)] w-10 h-10 md:-right-[calc(4rem-1px)] md:w-16 md:h-16 bg-contain bg-no-repeat pointer-events-none z-0"
-              style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M0 0v100h100A100 100 0 0 1 0 0Z' fill='%23FAF7F2'/%3E%3C/svg%3E")` }}
-            />
-            <FluidButton
-              href="/shop"
-              text={<><span className="md:hidden">{t('viewPeptidesShort')}</span><span className="hidden md:inline">{t('viewPeptidesLong')}</span></>}
-              className="relative z-10"
-            />
-          </div>
-        </div>
-
-        {/* Main Content inside the card */}
-        <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 sm:px-8 md:px-24 w-full h-full max-w-6xl pb-32 sm:pb-28 pt-16 md:pb-20 md:pt-10 mx-auto">
-          <motion.div
+        {/* Header Row */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 md:mb-10">
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="w-full max-w-5xl mx-auto px-2"
+            transition={{ duration: 0.8 }}
           >
-            <h1 className="w-full font-heading text-4xl sm:text-[6.5vw] md:text-[6vw] lg:text-[70px] leading-[1.05] text-white tracking-tighter uppercase font-black drop-shadow-2xl mb-3 md:mb-4">
-              {t('titleLine1')}<br className="md:hidden" /> {t('titleLine2')}
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-ink uppercase tracking-tighter leading-[0.9] mb-2 sm:mb-4">
+              {t('titleLine1')} {t('titleLine2')}
             </h1>
+            <p className="text-ink/50 text-sm md:text-base tracking-wide font-medium max-w-xl">
+              {t('subtitle')}
+            </p>
           </motion.div>
+        </div>
 
-          <motion.p
+        {/* Banner Row */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative w-full h-[400px] sm:h-[450px] md:h-[550px] rounded-[2rem] md:rounded-[3rem] overflow-hidden mb-4 sm:mb-6 shadow-2xl group cursor-pointer bg-zinc-900"
+        >
+          <Image
+            src="/HelixBio Images/package-box.webp"
+            alt="FAQ HelixBio Support and Resources"
+            fill
+            className="object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"
+            priority
+          />
+          
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
+          
+          {/* Bottom Info Pill */}
+          <div className="absolute bottom-4 left-4 right-4 sm:bottom-10 sm:left-10 sm:right-28 z-20 pointer-events-none">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-6 shadow-2xl transition-transform duration-500 group-hover:-translate-y-2">
+              <span className="bg-white/20 text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2 sm:mb-3 inline-block shadow-sm">
+                SUPPORT & RESOURCES
+              </span>
+              <p className="text-white text-xs sm:text-base md:text-lg font-medium tracking-wide mb-1 leading-relaxed line-clamp-3 sm:line-clamp-none">
+                Comprehensive answers regarding research peptides, analytical standards, ordering processes, and laboratory handling. We prioritize clarity and scientific accuracy in every response.
+              </p>
+            </div>
+          </div>
+          
+          {/* Floating Icon */}
+          <div className="absolute bottom-10 right-10 z-20 w-12 h-12 bg-white/20 backdrop-blur-md rounded-full items-center justify-center border border-white/30 text-white transition-transform duration-500 group-hover:scale-110 group-hover:bg-white group-hover:text-ink hidden sm:flex">
+            <ArrowUpRight className="w-5 h-5" />
+          </div>
+        </motion.div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="bg-white rounded-[1.5rem] p-6 sm:p-8 flex items-end justify-between hover:shadow-lg transition-all duration-300 cursor-default border border-black/5 shadow-[0_4px_20px_rgb(0,0,0,0.03)]"
+          >
+            <div className="flex flex-col">
+              <span className="text-4xl sm:text-5xl font-black text-ink font-heading tracking-tighter">
+                24/7
+              </span>
+              <span className="text-[10px] sm:text-xs font-bold text-ink/50 uppercase tracking-widest mt-1">
+                EXPERT SUPPORT
+              </span>
+            </div>
+            <Link href="/contact-us" className="w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center mb-1 hover:bg-primary transition-colors cursor-pointer pointer-events-auto">
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
+          
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-2 md:mt-4 text-white/80 text-xs sm:text-sm md:text-lg max-w-2xl font-light leading-relaxed tracking-wide mx-auto px-2"
+            className="bg-white rounded-[1.5rem] p-6 sm:p-8 flex justify-between relative hover:shadow-lg transition-all duration-300 cursor-default border border-black/5 shadow-[0_4px_20px_rgb(0,0,0,0.03)]"
           >
-            {t('subtitle')}
-          </motion.p>
-        </div>
+            <div className="flex flex-col justify-end h-full">
+              <span className="text-4xl sm:text-5xl font-black text-ink font-heading tracking-tighter">
+                99%
+              </span>
+              <span className="text-[10px] sm:text-xs font-bold text-ink/50 uppercase tracking-widest mt-1">
+                PURITY GUARANTEED
+              </span>
+            </div>
+            <span className="absolute top-6 right-6 border border-ink/10 text-ink/60 text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-ink/5">
+              TESTED
+            </span>
+          </motion.div>
 
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="bg-ink rounded-[1.5rem] p-6 sm:p-8 flex items-end relative hover:bg-black transition-all duration-300 cursor-default shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
+          >
+            <div className="flex flex-col">
+              <span className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tighter">
+                SAME DAY
+              </span>
+              <span className="text-[10px] sm:text-xs font-bold text-white/50 uppercase tracking-widest mt-1">
+                SHIPPING DISPATCH
+              </span>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </div>
   )

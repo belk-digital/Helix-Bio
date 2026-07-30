@@ -6,7 +6,7 @@ import { Link } from '@/i18n/navigation'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent, useMotionValue, useSpring } from 'framer-motion'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
-import { Heart, ChevronRight, ChevronLeft, Download, Check, ShieldCheck, FlaskConical, MapPin, Zap, ShoppingCart, Truck, Sparkles, Loader2, Award } from 'lucide-react'
+import { Heart, ChevronRight, ChevronLeft, Download, Check, ShieldCheck, FlaskConical, MapPin, Zap, ShoppingCart, Truck, Sparkles, Loader2, Award, Globe, Lock, RotateCcw, CheckCircle2 } from 'lucide-react'
 import { Container } from '@/components/ui/container'
 import { Button } from '@/components/ui/button'
 import { PinterestGlassCard } from '@/components/home/PinterestGlassCard'
@@ -320,46 +320,53 @@ export function ProductClient({ product }: ProductClientProps) {
   }
 
   return (
-    <div className="flex flex-col w-full min-h-screen bg-white overflow-x-clip">
-      {/* 1. Hero Section */}
-      <section className="w-full relative z-10 flex flex-col lg:flex-row bg-white">
-
+    <div className="flex flex-col w-full min-h-screen bg-[#FAFAFA] overflow-x-clip">
+      
+      {/* 1. Vibrant 2-Column Hero Section */}
+      <section className="w-full relative z-10 flex flex-col lg:flex-row bg-[#FAFAFA] px-4 sm:px-6 md:px-12 pt-[120px] lg:pt-[140px] pb-6 md:pb-12 gap-6 lg:gap-12 max-w-[1600px] mx-auto">
+        
         {/* Left: Sticky Image Panel */}
-        <div className="w-full lg:w-1/2 lg:h-screen lg:sticky lg:top-0 flex items-start justify-center bg-gray-50 relative lg:overflow-hidden">
-          <div className="w-full px-4 sm:px-6 lg:px-0 lg:w-[85%] lg:h-full lg:flex lg:flex-col pt-[100px] sm:pt-[120px] lg:pt-[160px] pb-6 sm:pb-10 lg:pb-6">
+        <div className="w-full lg:w-[40%] xl:w-[45%] lg:sticky lg:top-[120px] relative self-start flex items-center justify-center">
+          <div className="w-full flex flex-col items-center justify-center">
             <ImageGallery key={selectedVariant?.id} images={galleryImages} />
           </div>
         </div>
 
         {/* Right: Editorial Product Info */}
-        <div className="w-full lg:w-1/2 flex flex-col px-4 sm:px-6 py-8 lg:px-16 xl:px-20 lg:pt-[190px] lg:pb-28 relative z-10">
+        <div className="w-full lg:w-[60%] xl:w-[55%] flex flex-col py-4 lg:py-8 relative z-10 lg:pl-4 xl:pl-8">
 
           {/* Breadcrumbs */}
-          <div className="flex items-center gap-1.5 text-[10px] font-medium text-black/30 uppercase tracking-widest mb-8">
-            <Link href="/" className="hover:text-black/60 transition-colors">{t('home')}</Link>
-            <ChevronRight size={10} className="text-black/20" />
-            <Link href="/shop" className="hover:text-black/60 transition-colors">{t('shop')}</Link>
+          <div className="flex items-center gap-2 text-[10px] font-bold text-ink/50 uppercase tracking-widest mb-6">
+            <Link href="/" className="hover:text-ink transition-colors">{t('home')}</Link>
+            <ChevronRight size={10} className="text-ink/30" />
+            <Link href="/shop" className="hover:text-ink transition-colors">{t('shop')}</Link>
+            <ChevronRight size={10} className="text-ink/30" />
+            <span className="text-ink">{product.name}</span>
           </div>
 
           {/* Meta Row: Category · Badges */}
-          <div className="flex items-center flex-wrap gap-x-3 gap-y-1.5 mb-6">
-            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-black/35">
+          <div className="flex items-center flex-wrap gap-x-4 gap-y-2 mb-6">
+            {/* Vibrant Gradient Category Pill */}
+            <div className="inline-flex items-center gap-1.5 bg-gradient-to-r from-primary to-primary-dark text-white px-3.5 py-1.5 rounded-full text-[10px] font-black tracking-[0.2em] uppercase shadow-lg shadow-primary/30">
+              <FlaskConical size={12} strokeWidth={2.5} />
               {(product.category as any)?.name || product.category || t('researchPeptide')}
-            </span>
-            {product.badges?.slice(0, 2).map((badge) => (
-              <React.Fragment key={badge}>
-                <span className="text-black/15 text-xs select-none">·</span>
-                <span className="text-[9px] font-bold tracking-[0.15em] uppercase text-primary-dark/70">{badge}</span>
-              </React.Fragment>
+            </div>
+            
+            {/* Minimal Editorial Badges */}
+            {product.badges?.slice(0, 3).map((badge) => (
+              <div key={badge} className="flex items-center gap-3">
+                <span className="w-1 h-1 rounded-full bg-ink/20" />
+                <span className="text-[10px] font-bold text-ink/40 tracking-[0.15em] uppercase">{badge}</span>
+              </div>
             ))}
           </div>
 
-          {/* Product Name */}
+          {/* Product Name (Home Page Typography) */}
           <motion.h1
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="font-heading text-[30px] sm:text-[40px] lg:text-[52px] xl:text-[60px] leading-[0.92] font-black text-black mb-5 tracking-tighter uppercase break-words"
+            className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-ink leading-[1.1] tracking-tighter uppercase mb-5"
           >
             {product.name}
           </motion.h1>
@@ -370,35 +377,32 @@ export function ProductClient({ product }: ProductClientProps) {
             initial={{ opacity: 0.6, y: 4 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.18, ease: 'easeOut' }}
-            className="flex flex-wrap items-baseline gap-x-3 gap-y-1.5 mb-8"
+            className="flex flex-wrap items-baseline gap-x-4 gap-y-2 mb-8"
           >
-            <span className="text-[28px] sm:text-[32px] lg:text-[40px] font-bold text-black leading-none tracking-tight">
+            <span className="text-3xl sm:text-4xl font-bold text-ink tracking-tight">
               {selectedVariant?.salePrice || selectedVariant?.price}
             </span>
             {selectedVariant?.salePrice && (
               <>
-                <span className="text-base text-black/25 line-through font-medium">{selectedVariant.price}</span>
-                <span className="inline-flex items-center text-[9px] font-black tracking-[0.12em] uppercase bg-black text-white px-2.5 py-1.5 rounded-full">
+                <span className="text-lg text-ink/40 line-through font-medium">{selectedVariant.price}</span>
+                <span className="inline-flex items-center text-[10px] font-black tracking-[0.2em] uppercase bg-gradient-to-r from-primary to-primary-dark text-white px-3 py-1.5 rounded-full shadow-md shadow-primary/20">
                   {t('savePercent', { percent: Math.round(((parseFloat(selectedVariant.price.replace(/[^0-9.]/g, '')) - parseFloat(selectedVariant.salePrice.replace(/[^0-9.]/g, ''))) / parseFloat(selectedVariant.price.replace(/[^0-9.]/g, ''))) * 100) })}
                 </span>
               </>
             )}
           </motion.div>
 
-          {/* Divider */}
-          <div className="h-px bg-black/[0.06] mb-8" />
-
           {/* Short Description */}
-          <p className="text-black/50 leading-[1.75] text-[14px] lg:text-[15px] w-full mb-8">
+          <p className="text-ink/70 text-base md:text-lg leading-relaxed mb-8">
             {product.shortDescription || product.description?.substring(0, 200) + '...'}
           </p>
 
-          {/* Variant Selector */}
+          {/* Variant Selector Container */}
           {product.variants.length > 1 && (
-            <div className="mb-8">
-              <div className="flex items-center justify-between mb-3.5">
-                <span className="text-[9px] font-black text-black/35 uppercase tracking-[0.22em]">{t('selectSize')}</span>
-                <span className="text-[10px] text-black/30 font-medium">{selectedVariant?.title}</span>
+            <div className="mb-8 bg-white p-6 rounded-[32px] shadow-sm border border-ink/5">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-[10px] font-bold text-ink/50 uppercase tracking-widest">{t('selectSize')}</span>
+                <span className="text-[11px] text-ink/80 font-medium">{selectedVariant?.title}</span>
               </div>
               <VariantSelector
                 variants={product.variants}
@@ -408,63 +412,63 @@ export function ProductClient({ product }: ProductClientProps) {
             </div>
           )}
 
-          {/* Stock */}
-          <div className="mb-7">
-            <StockIndicator stock={currentStock} />
-          </div>
 
-          {/* CTA Area */}
-          <div className="flex flex-col gap-2.5 mb-7">
+
+          {/* CTA Action Box */}
+          <div className="flex flex-col gap-4 mb-8 bg-white p-6 sm:p-8 rounded-[32px] md:rounded-[40px] shadow-[0_8px_48px_-12px_rgba(0,0,0,0.05)] border border-ink/5">
             {/* Row: Quantity + Add to Cart + Wishlist */}
-            <div className="flex items-stretch gap-2 sm:gap-2.5">
-              <QuantityStepper
-                value={quantity}
-                onChange={setQuantity}
-                className="h-14 w-[90px] sm:w-[120px] shrink-0 rounded-2xl border border-black/10 bg-white text-black hover:border-black/20 transition-colors flex"
-              />
+            <div className="flex flex-col sm:flex-row items-stretch gap-3">
+              <div className="flex gap-3 h-[60px]">
+                <QuantityStepper
+                  value={quantity}
+                  onChange={setQuantity}
+                  className="flex-1 sm:flex-none sm:w-[120px] h-full shrink-0 rounded-full"
+                />
+                <button
+                  onClick={handleWishlistClick}
+                  disabled={isWishlistPending}
+                  className={`h-full w-[60px] flex items-center justify-center shrink-0 rounded-full border transition-colors duration-200 ${
+                    inWishlist
+                      ? 'border-red-100 bg-red-50 text-red-500'
+                      : 'border-ink/10 bg-white hover:bg-gray-50 text-ink/40'
+                  }`}
+                >
+                  {isWishlistPending
+                    ? <Loader2 className="w-5 h-5 animate-spin text-ink/30" />
+                    : <Heart className={`w-5 h-5 ${inWishlist ? "fill-current" : ""}`} strokeWidth={inWishlist ? 2.5 : 2} />
+                  }
+                </button>
+              </div>
+              
               <button
-                className={`flex-1 h-14 rounded-2xl text-[9.5px] sm:text-[11px] font-bold tracking-[0.1em] sm:tracking-[0.2em] uppercase flex items-center justify-center gap-1.5 sm:gap-2 transition-all duration-200 ${
+                className={`w-full sm:w-auto sm:flex-1 h-[60px] rounded-[24px] text-sm font-semibold tracking-wide uppercase flex items-center justify-center gap-2 transition-all duration-300 shadow-md ${
                   !selectedVariant?.inStock
-                    ? 'bg-black/[0.07] text-black/25 cursor-not-allowed'
+                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed shadow-none'
                     : justAdded
-                    ? 'bg-green-600 text-white'
-                    : 'bg-black text-white hover:bg-black/80'
+                    ? 'bg-green-600 text-white shadow-green-600/20'
+                    : 'bg-[#121212] text-white hover:bg-gray-900 hover:-translate-y-0.5'
                 }`}
                 onClick={handleAddToCart}
                 disabled={!selectedVariant?.inStock}
               >
                 <AnimatePresence mode="wait">
                   {justAdded ? (
-                    <motion.span key="added" initial={{ opacity: 0, y: 3 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -3 }} className="flex items-center gap-1.5 sm:gap-2 whitespace-nowrap">
-                      <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={2.5} /> {t('added')}
+                    <motion.span key="added" initial={{ opacity: 0, y: 3 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -3 }} className="flex items-center gap-2 whitespace-nowrap">
+                      <Check className="w-5 h-5" strokeWidth={2.5} /> {t('added')}
                     </motion.span>
                   ) : (
-                    <motion.span key="add" initial={{ opacity: 0, y: 3 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -3 }} className="flex items-center gap-1.5 sm:gap-2 whitespace-nowrap">
-                      <ShoppingCart className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={1.5} />
+                    <motion.span key="add" initial={{ opacity: 0, y: 3 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -3 }} className="flex items-center gap-2 whitespace-nowrap">
+                      <ShoppingCart className="w-5 h-5" strokeWidth={2} />
                       {selectedVariant?.inStock ? t('addToCart') : t('outOfStock')}
                     </motion.span>
                   )}
                 </AnimatePresence>
               </button>
-              <button
-                onClick={handleWishlistClick}
-                disabled={isWishlistPending}
-                className={`h-14 w-12 sm:w-14 flex items-center justify-center shrink-0 rounded-2xl border transition-colors duration-200 ${
-                  inWishlist
-                    ? 'border-black/20 bg-black/[0.05]'
-                    : 'border-black/10 bg-white hover:border-black/20'
-                }`}
-              >
-                {isWishlistPending
-                  ? <Loader2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-spin text-black/35" />
-                  : <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${inWishlist ? "fill-black text-black" : "text-black/40"}`} strokeWidth={inWishlist ? 2 : 1.5} />
-                }
-              </button>
             </div>
 
             {/* Buy Now */}
             <button
-              className="w-full h-14 rounded-2xl text-[11px] font-bold tracking-[0.2em] uppercase text-black border border-black/10 bg-white hover:bg-black hover:text-white hover:border-black transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+              className="w-full h-[60px] rounded-[24px] text-sm font-semibold tracking-wide uppercase text-ink border-2 border-ink/10 bg-transparent hover:border-ink hover:bg-ink hover:text-white transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
               onClick={() => {
                 handleAddToCart()
                 setTimeout(() => window.location.href = '/checkout', 300)
@@ -475,26 +479,31 @@ export function ProductClient({ product }: ProductClientProps) {
             </button>
           </div>
 
-          {/* Trust Strip */}
-          <div className="flex flex-wrap items-center justify-between gap-y-4 py-5 border-t border-b border-black/[0.06] mb-8">
-            <div className="flex items-center gap-2 shrink-0 w-[45%] lg:w-auto lg:pr-5">
-              <Truck size={12} className="text-black/30 shrink-0" />
-              <span className="text-[8px] sm:text-[9px] font-bold text-black/40 uppercase tracking-[0.18em]">{t('trustFastShipping')}</span>
+          {/* Trust Badges (Minimalist Grid) */}
+          <div className="grid grid-cols-2 gap-y-5 gap-x-6 mb-10 pb-8 border-b border-ink/10">
+            <div className="flex items-center gap-3 group">
+              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary-dark group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                <Globe size={14} strokeWidth={2.5} />
+              </div>
+              <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-ink/70 group-hover:text-ink transition-colors">Ships Worldwide</span>
             </div>
-            <div className="hidden lg:block h-3 w-px bg-black/10 shrink-0" />
-            <div className="flex items-center gap-2 shrink-0 w-[45%] lg:w-auto lg:px-5">
-              <FlaskConical size={12} className="text-black/30 shrink-0" />
-              <span className="text-[8px] sm:text-[9px] font-bold text-black/40 uppercase tracking-[0.18em]">{t('trustPurity')}</span>
+            <div className="flex items-center gap-3 group">
+              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary-dark group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                <Lock size={14} strokeWidth={2.5} />
+              </div>
+              <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-ink/70 group-hover:text-ink transition-colors">Secure Checkout</span>
             </div>
-            <div className="hidden lg:block h-3 w-px bg-black/10 shrink-0" />
-            <div className="flex items-center gap-2 shrink-0 w-[45%] lg:w-auto lg:px-5">
-              <ShieldCheck size={12} className="text-black/30 shrink-0" />
-              <span className="text-[8px] sm:text-[9px] font-bold text-black/40 uppercase tracking-[0.18em]">{t('trustThirdPartyTested')}</span>
+            <div className="flex items-center gap-3 group">
+              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary-dark group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                <FlaskConical size={14} strokeWidth={2.5} />
+              </div>
+              <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-ink/70 group-hover:text-ink transition-colors">Lab Tested</span>
             </div>
-            <div className="hidden lg:block h-3 w-px bg-black/10 shrink-0" />
-            <div className="flex items-center gap-2 shrink-0 w-[45%] lg:w-auto lg:pl-5">
-              <Award size={12} className="text-black/30 shrink-0" />
-              <span className="text-[8px] sm:text-[9px] font-bold text-black/40 uppercase tracking-[0.18em]">{t('trustGuaranteed')}</span>
+            <div className="flex items-center gap-3 group">
+              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary-dark group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                <CheckCircle2 size={14} strokeWidth={2.5} />
+              </div>
+              <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-ink/70 group-hover:text-ink transition-colors">Quality Assured</span>
             </div>
           </div>
 
@@ -504,21 +513,21 @@ export function ProductClient({ product }: ProductClientProps) {
               href={product.coaFile}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[9px] font-bold text-black/30 uppercase tracking-[0.18em] hover:text-black/55 transition-colors mb-8 lg:hidden"
+              className="flex items-center justify-center gap-2 text-[11px] font-bold text-ink/50 uppercase tracking-[0.2em] hover:text-ink transition-colors mb-8 lg:hidden bg-white py-4 rounded-full border border-ink/10 shadow-sm"
             >
-              <Download size={11} />
+              <Download size={14} />
               {t('certificateOfAnalysis')}
             </a>
           )}
 
           {/* Bulk Bundles */}
           {product.bulkBundles && product.bulkBundles.length > 0 && (
-            <div className="pt-8 border-t border-black/[0.06]">
-              <div className="flex items-center justify-between mb-5">
-                <span className="text-[9px] font-black text-black/35 uppercase tracking-[0.22em]">{t('bulkPricing')}</span>
-                <span className="text-[9px] text-black/25 font-medium tracking-wide">{t('buyMoreSaveMore')}</span>
+            <div className="mb-8 p-6 sm:p-8 bg-white rounded-[32px] shadow-sm border border-ink/5">
+              <div className="flex items-center justify-between mb-6">
+                <span className="text-xs font-bold text-ink uppercase tracking-widest">{t('bulkPricing')}</span>
+                <span className="text-[10px] text-white bg-gradient-to-r from-primary to-primary-dark px-3 py-1.5 rounded-full font-black tracking-[0.2em] uppercase shadow-md shadow-primary/20">{t('buyMoreSaveMore')}</span>
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-3">
                 {product.bulkBundles.map((bundle, idx) => {
                   let priceNum = 0;
                   let salePriceNum = 0;
@@ -559,18 +568,18 @@ export function ProductClient({ product }: ProductClientProps) {
                         toast.success(t('addedBundleToCart'), { action: { label: t('view'), onClick: cartStore.openCart } })
                         setTimeout(() => setJustAdded(false), 1500)
                       }}
-                      className="w-full flex items-center justify-between px-5 py-4 rounded-2xl bg-white border border-black/[0.06] hover:border-black/[0.12] hover:shadow-sm transition-all duration-200 text-left"
+                      className="w-full flex items-center justify-between px-6 py-5 rounded-[24px] bg-[#FAFAFA] border border-transparent hover:border-ink/10 hover:bg-white hover:shadow-md transition-all duration-300 text-left group"
                     >
-                      <div className="flex flex-col gap-0.5">
-                        <span className="font-bold text-black text-[13px] uppercase tracking-wider">{bundle.name}</span>
+                      <div className="flex flex-col gap-1.5">
+                        <span className="font-bold text-ink text-base tracking-tight group-hover:text-primary-dark transition-colors">{bundle.name}</span>
                         {discount > 0 && (
-                          <span className="text-[9px] font-bold text-black/35 uppercase tracking-[0.15em]">{t('savePercent', { percent: discount })}</span>
+                          <span className="text-[10px] font-bold text-green-600 uppercase tracking-widest">{t('savePercent', { percent: discount })}</span>
                         )}
                       </div>
-                      <div className="flex flex-col items-end gap-0.5">
-                        <span className="font-bold text-black text-[17px] tracking-tight">${(salePriceNum || priceNum).toFixed(2)}</span>
+                      <div className="flex flex-col items-end gap-1">
+                        <span className="font-bold text-ink text-xl tracking-tight">${(salePriceNum || priceNum).toFixed(2)}</span>
                         {salePriceNum > 0 && priceNum > 0 && salePriceNum !== priceNum && (
-                          <span className="text-[10px] text-black/20 line-through">${priceNum.toFixed(2)}</span>
+                          <span className="text-[12px] text-ink/40 line-through font-medium">${priceNum.toFixed(2)}</span>
                         )}
                       </div>
                     </button>
@@ -584,7 +593,7 @@ export function ProductClient({ product }: ProductClientProps) {
       </section>
 
       {/* 2. Dark Credentials Section */}
-      <section className="w-full relative overflow-hidden bg-black">
+      <section className="relative overflow-hidden bg-[#121212] mx-4 sm:mx-6 lg:mx-8 xl:mx-12 w-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] lg:w-[calc(100%-4rem)] xl:w-[calc(100%-6rem)] rounded-[32px] lg:rounded-[40px] mb-8 lg:mb-12">
         {/* Ghost watermark */}
         <div className="absolute right-0 top-1/2 -translate-y-1/2 font-heading font-black text-white/[0.025] select-none pointer-events-none leading-none tracking-tighter text-[180px] sm:text-[260px] lg:text-[380px] pr-4">
           99.9
@@ -612,22 +621,29 @@ export function ProductClient({ product }: ProductClientProps) {
             )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex flex-wrap lg:flex-nowrap items-start gap-12 lg:gap-0 lg:divide-x lg:divide-white/10 mt-8 sm:mt-12 lg:mt-0 border-t lg:border-t-0 border-white/10 pt-12 lg:pt-0">
             {[
               { value: '≥99%',    label: t('statVerifiedPurityLabel'),  desc: t('statVerifiedPurityDesc')          },
               { value: t('statLabTestedValue'), label: t('statLabTestedLabel'),       desc: t('statLabTestedDesc')    },
               { value: t('statGradeQualityValue'),  label: t('statGradeQualityLabel'),    desc: t('statGradeQualityDesc')        },
               { value: 'COA',       label: t('statDocumentedLabel'),       desc: t('statDocumentedDesc')       },
             ].map((stat, i) => (
-              <div key={stat.label} className={`h-full ${i % 2 !== 0 ? "md:translate-y-8 lg:translate-y-0" : ""}`}>
-                <PinterestGlassCard
-                  title={stat.value}
-                  description={stat.desc}
-                  tag={stat.label}
-                  iconPosition="none"
-                  theme="black"
-                  className="h-full"
-                />
+              <div 
+                key={stat.label} 
+                className="w-full sm:w-[calc(50%-1.5rem)] lg:w-1/4 lg:px-6 xl:px-8 first:lg:pl-0 last:lg:pr-0 group"
+              >
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary transition-colors duration-300" />
+                  <span className="text-primary text-[10px] font-black tracking-[0.2em] uppercase">
+                    {stat.label}
+                  </span>
+                </div>
+                <div className="font-heading font-black text-white text-5xl sm:text-[3.5rem] tracking-tighter leading-none mb-3 group-hover:text-primary transition-colors duration-300 whitespace-nowrap">
+                  {stat.value}
+                </div>
+                <p className="text-white/50 text-sm font-medium tracking-wide leading-relaxed max-w-[200px]">
+                  {stat.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -635,14 +651,14 @@ export function ProductClient({ product }: ProductClientProps) {
       </section>
 
       {/* 3. Details Tab Section */}
-      <section className="w-full relative z-10 py-20 lg:py-32 bg-white">
+      <section className="w-full relative z-10 py-20 lg:py-32 bg-[#FAFAFA]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <ProductDetailTabs tabs={product.tabs} />
         </div>
       </section>
 
       {/* 5. Related Editorial Carousel */}
-      <section className="w-full py-24 bg-white overflow-hidden relative">
+      <section className="w-full py-24 bg-[#FAFAFA] overflow-hidden relative">
         <Container size="wide" className="relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
@@ -700,7 +716,7 @@ export function ProductClient({ product }: ProductClientProps) {
 
       {/* 3. Suggested Blogs Section */}
       {product.suggestedBlogs && product.suggestedBlogs.length > 0 && (
-        <section className="w-full py-24 bg-white border-t border-gray-100">
+        <section className="w-full py-24 bg-[#FAFAFA] border-t border-gray-100">
           <Container size="wide">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
               <div>

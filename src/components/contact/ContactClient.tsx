@@ -39,7 +39,7 @@ export function ContactClient() {
   ];
 
   return (
-    <div className="bg-cream min-h-screen relative font-sans text-ink overflow-hidden">
+    <div className="bg-[#FAFAFA] min-h-screen relative font-sans text-ink overflow-hidden">
       
       <ContactHero />
 

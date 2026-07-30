@@ -1,88 +1,79 @@
 'use client'
 
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { cn } from '@/lib/utils'
+import { Plus, Minus } from 'lucide-react'
 import { Tab } from './ProductTabs'
+import { cn } from '@/lib/utils'
 
 interface ProductDetailTabsProps {
   tabs: Tab[]
 }
 
 export function ProductDetailTabs({ tabs }: ProductDetailTabsProps) {
-  const [activeId, setActiveId] = useState(tabs[0]?.id || '')
-  const stripRef = useRef<HTMLDivElement>(null)
+  const [activeId, setActiveId] = useState<string | null>(tabs[0]?.id || null)
 
   if (!tabs || tabs.length === 0) return null
 
-  const active = tabs.find(t => t.id === activeId) || tabs[0]
-
-  const handleTabClick = (id: string) => {
-    setActiveId(id)
-    const btn = stripRef.current?.querySelector(`[data-tab="${id}"]`) as HTMLElement
-    btn?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+  const toggleTab = (id: string) => {
+    setActiveId(prev => prev === id ? null : id)
   }
 
   return (
-    <div className="w-full flex flex-col items-center mx-auto">
-      {/* Floating Pill Tab Strip */}
-      <div className="w-full flex justify-center mb-8 lg:mb-12 px-4 sm:px-0">
-        <div className="w-full lg:w-max lg:max-w-full overflow-x-auto scrollbar-none rounded-2xl lg:rounded-full">
-          <div
-            ref={stripRef}
-            className="grid grid-cols-2 lg:inline-flex gap-1.5 lg:gap-0 p-1.5 bg-black/[0.04] rounded-2xl lg:rounded-full border border-black/[0.06] shadow-inner w-full lg:w-max"
-          >
-          {tabs.map((tab) => {
-            const isActive = activeId === tab.id
-            return (
-              <button
-                key={tab.id}
-                data-tab={tab.id}
-                onClick={() => handleTabClick(tab.id)}
-                className={cn(
-                  "relative shrink-0 px-2 sm:px-4 lg:px-8 py-3 lg:py-3.5 text-[9px] sm:text-[10px] lg:text-[12px] font-bold uppercase tracking-widest transition-colors duration-300 focus:outline-none rounded-xl lg:rounded-full text-center flex items-center justify-center min-h-[52px] lg:min-h-0",
-                  isActive ? "text-black" : "text-black/40 hover:text-black/70"
-                )}
-              >
-                <span className="relative z-10">{tab.label}</span>
-                {isActive && (
-                  <motion.div
-                    layoutId="active-tab-pill"
-                    className="absolute inset-0 bg-white rounded-xl lg:rounded-full shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-black/[0.04]"
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                  />
-                )}
-              </button>
-            )
-          })}
-        </div>
-      </div>
-    </div>
-
-      {/* Content Container */}
-      <div className="w-full max-w-[1200px] mx-auto bg-white/80 backdrop-blur-xl border border-white rounded-[32px] shadow-[0_8px_48px_-12px_rgba(0,0,0,0.05)] overflow-hidden min-h-[300px]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeId}
-            initial={{ opacity: 0, y: 15, scale: 0.99 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -15, scale: 0.99 }}
-            transition={{ duration: 0.35, ease: [0.25, 0, 0.1, 1] }}
-            className="px-6 py-10 lg:px-16 lg:py-16"
-          >
-            {typeof active?.content === 'string' ? (
-              <div
-                className="text-black/60 leading-[1.8] text-[15px] lg:text-[16px] prose prose-lg max-w-none prose-headings:text-black prose-headings:font-black prose-headings:tracking-tighter prose-headings:uppercase prose-a:text-black prose-a:underline-offset-4 prose-strong:text-black prose-li:text-black/60"
-                dangerouslySetInnerHTML={{ __html: active.content }}
-              />
-            ) : (
-              <div className="text-black/60 leading-[1.8] text-[15px] lg:text-[16px]">
-                {active?.content}
+    <div className="w-full max-w-[1440px] mx-auto border-t border-ink/10">
+      {tabs.map((tab) => {
+        const isActive = activeId === tab.id
+        
+        return (
+          <div key={tab.id} className="border-b border-ink/10">
+            <button
+              onClick={() => toggleTab(tab.id)}
+              className="w-full flex items-center justify-between py-8 lg:py-12 group focus:outline-none"
+            >
+              <h3 className={cn(
+                "font-heading font-black text-2xl sm:text-4xl lg:text-5xl tracking-tighter uppercase text-left transition-colors duration-500",
+                isActive ? "text-ink" : "text-ink/30 group-hover:text-ink/60"
+              )}>
+                {tab.label}
+              </h3>
+              
+              <div className={cn(
+                "w-10 h-10 lg:w-14 lg:h-14 rounded-full flex items-center justify-center shrink-0 transition-all duration-500",
+                isActive 
+                  ? "bg-primary text-white shadow-[0_0_20px_rgba(146,220,229,0.3)] scale-105" 
+                  : "bg-ink/5 text-ink/30 group-hover:bg-ink/10 group-hover:text-ink/60"
+              )}>
+                {isActive ? <Minus size={24} strokeWidth={2.5} className="w-5 h-5 lg:w-6 lg:h-6" /> : <Plus size={24} strokeWidth={2.5} className="w-5 h-5 lg:w-6 lg:h-6" />}
               </div>
-            )}
-          </motion.div>
-        </AnimatePresence>
-      </div>
+            </button>
+
+            <AnimatePresence initial={false}>
+              {isActive && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  className="overflow-hidden"
+                >
+                  <div className="pb-12 lg:pb-16 max-w-4xl pr-8 lg:pr-16">
+                    {typeof tab.content === 'string' ? (
+                      <div
+                        className="text-ink/60 leading-[1.8] text-[15px] lg:text-[18px] prose prose-lg max-w-none prose-headings:text-ink prose-headings:font-black prose-headings:tracking-tighter prose-headings:uppercase prose-a:text-ink prose-a:underline-offset-4 prose-strong:text-ink prose-li:text-ink/60"
+                        dangerouslySetInnerHTML={{ __html: tab.content }}
+                      />
+                    ) : (
+                      <div className="text-ink/60 leading-[1.8] text-[15px] lg:text-[18px]">
+                        {tab.content}
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        )
+      })}
     </div>
   )
 }

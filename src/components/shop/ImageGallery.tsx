@@ -69,7 +69,7 @@ export function ImageGallery({ images }: ImageGalleryProps) {
 
       {/* Main Image */}
       <div
-        className="relative w-full mx-auto aspect-[4/5] sm:aspect-[3/4] lg:aspect-auto lg:flex-1 lg:h-full bg-gray-50 rounded-2xl overflow-hidden"
+        className="relative w-full bg-transparent overflow-hidden"
         ref={emblaRef}
         // Zoom-on-hover effect disabled for now.
         // onMouseEnter={() => setIsHovering(true)}
@@ -80,16 +80,17 @@ export function ImageGallery({ images }: ImageGalleryProps) {
           {images.map((img, idx) => (
             <div
               key={idx}
-              className="relative min-w-0 shrink-0 grow-0 basis-full h-full overflow-hidden"
+              className="relative min-w-0 shrink-0 grow-0 basis-full overflow-hidden flex items-center justify-center"
               // onMouseMove={handleMouseMove}
               // onMouseLeave={handleMouseLeave}
             >
               <Image
                 src={img}
                 alt={t('productViewAlt', { number: idx + 1 })}
-                fill
+                width={1000}
+                height={1000}
                 priority={idx === 0}
-                className="object-contain transition-transform duration-700 ease-out"
+                className="w-auto h-auto max-w-full max-h-[60vh] lg:max-h-[calc(100vh-160px)] object-contain transition-transform duration-700 ease-out rounded-[32px] md:rounded-[40px] shadow-sm"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>

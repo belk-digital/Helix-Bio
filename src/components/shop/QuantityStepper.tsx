@@ -41,7 +41,8 @@ export function QuantityStepper({
 
   return (
     <div className={cn(
-      "inline-flex items-center justify-between border border-ink/10 rounded-full bg-white shadow-sm transition-all hover:border-ink/20 px-1", 
+      "inline-flex items-center justify-between border rounded-full shadow-sm transition-all px-1", 
+      theme === 'dark' ? "border-white/20 bg-white/5 hover:border-white/40" : "border-ink/10 bg-white hover:border-ink/20",
       isResponsive ? "h-8 md:h-12 w-[84px] md:w-[120px]" : isSm ? "h-8 w-[84px]" : "h-12 w-[120px]",
       className
     )}>
@@ -49,7 +50,8 @@ export function QuantityStepper({
         onClick={handleDecrement}
         disabled={value <= min}
         className={cn(
-          "flex items-center justify-center text-ink/60 hover:text-ink hover:bg-ink/5 rounded-full transition-colors disabled:opacity-30 flex-shrink-0",
+          "flex items-center justify-center rounded-full transition-colors disabled:opacity-30 flex-shrink-0",
+          theme === 'dark' ? "text-white/60 hover:text-white hover:bg-white/10" : "text-ink/60 hover:text-ink hover:bg-ink/5",
           isResponsive ? "w-6 h-6 md:w-10 md:h-10" : isSm ? "w-6 h-6" : "w-10 h-10"
         )}
         aria-label={t('decreaseQuantity')}
@@ -58,7 +60,8 @@ export function QuantityStepper({
       </button>
       
       <div className={cn(
-        "flex-1 flex items-center justify-center font-bold select-none text-ink",
+        "flex-1 flex items-center justify-center font-bold select-none",
+        theme === 'dark' ? "text-white" : "text-ink",
         isResponsive ? "text-xs md:text-base" : isSm ? "text-xs" : "text-base"
       )}>
         {value}
@@ -68,7 +71,8 @@ export function QuantityStepper({
         onClick={handleIncrement}
         disabled={value >= max}
         className={cn(
-          "flex items-center justify-center text-ink/60 hover:text-ink hover:bg-ink/5 rounded-full transition-colors disabled:opacity-30 flex-shrink-0",
+          "flex items-center justify-center rounded-full transition-colors disabled:opacity-30 flex-shrink-0",
+          theme === 'dark' ? "text-white/60 hover:text-white hover:bg-white/10" : "text-ink/60 hover:text-ink hover:bg-ink/5",
           isResponsive ? "w-6 h-6 md:w-10 md:h-10" : isSm ? "w-6 h-6" : "w-10 h-10"
         )}
         aria-label={t('increaseQuantity')}

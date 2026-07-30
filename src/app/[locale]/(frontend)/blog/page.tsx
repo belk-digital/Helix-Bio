@@ -11,6 +11,7 @@ import { BlogPostCard } from '@/components/editorial/BlogPostCard'
 import { BlogBentoGrid } from '@/components/editorial/BlogBentoGrid'
 import { Button } from '@/components/ui/button'
 import { FluidButton } from '@/components/ui/fluid-button'
+import { BlogHero } from '@/components/blog/BlogHero'
 import { useLocale, useTranslations } from 'next-intl'
 import { BLOG_POSTS as BLOG_POSTS_EN } from '@/data/blog-posts'
 import { BLOG_POSTS as BLOG_POSTS_ES } from '@/data/blog-posts.es'
@@ -35,6 +36,7 @@ export default function BlogIndexPage() {
   const [activeCategory, setActiveCategory] = useState(ALL_LABEL)
   const [isScrolledToEnd, setIsScrolledToEnd] = useState(false)
   const [visibleCount, setVisibleCount] = useState(6)
+  
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(scrollContainerRef, { once: true, amount: 0.5 })
 
@@ -90,70 +92,8 @@ export default function BlogIndexPage() {
   const hasMore = visibleCount < filteredPosts.length
 
   return (
-    <main className="bg-cream min-h-screen text-ink font-sans overflow-hidden">
-      {/* ... Hero Section (Truncated for brevity) */}
-      <div className="relative w-full h-[100dvh] min-h-[600px] md:min-h-[700px] bg-cream p-3 pt-[56px] [.announcement-closed_&]:pt-3 sm:p-5 sm:pt-[64px] [.announcement-closed_&]:sm:pt-5 md:p-8 md:pt-[76px] [.announcement-closed_&]:md:pt-8 overflow-hidden flex transition-[padding] duration-300 mb-16 md:mb-24">
-        {/* ... Hero Content ... */}
-        <div className="relative w-full h-full bg-zinc-900 rounded-[2rem] md:rounded-[4rem] overflow-hidden flex flex-col justify-between">
-          <div className="absolute inset-0 rounded-[2rem] md:rounded-[4rem] ring-1 ring-inset ring-white/5 pointer-events-none z-20" />
-
-          {/* Background Image */}
-          <Image
-            src="/99 Images/journal_hero_bg_white.png"
-            alt="Science Blog Background"
-            fill
-            className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-50 mix-blend-luminosity"
-            priority
-          />
-
-          {/* Background Gradients */}
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 opacity-50 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3 opacity-50 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10 pointer-events-none" />
-
-          {/* Cutouts & UI Overlay (Inverted corners) */}
-          <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-30">
-            <div className="absolute bottom-0 left-0 right-0 mx-auto w-fit bg-cream rounded-t-[2.5rem] md:rounded-t-[4rem] pointer-events-auto p-3 sm:p-5 md:p-8 pt-6 md:pt-10 px-6 md:px-12 flex justify-center items-center">
-              {/* Left Fillet */}
-              <div 
-                className="absolute bottom-0 -left-[calc(2.5rem-1px)] w-10 h-10 md:-left-[calc(4rem-1px)] md:w-16 md:h-16 bg-contain bg-no-repeat pointer-events-none z-0"
-                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M100 0v100H0A100 100 0 0 0 100 0Z' fill='%23FAF7F2'/%3E%3C/svg%3E")` }}
-              />
-              {/* Right Fillet */}
-              <div 
-                className="absolute bottom-0 -right-[calc(2.5rem-1px)] w-10 h-10 md:-right-[calc(4rem-1px)] md:w-16 md:h-16 bg-contain bg-no-repeat pointer-events-none z-0"
-                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M0 0v100h100A100 100 0 0 1 0 0Z' fill='%23FAF7F2'/%3E%3C/svg%3E")` }}
-              />
-              <FluidButton 
-                text={<><span className="hidden sm:inline">{t('hero.exploreLatestLong')}</span><span className="sm:hidden">{t('hero.exploreLatestShort')}</span></>} 
-                className="relative z-10" 
-              />
-            </div>
-          </div>
-
-          <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 sm:px-8 md:px-16 w-full h-full max-w-7xl pb-32 sm:pb-28 pt-20 md:pb-24 md:pt-10 lg:pb-32 mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.1 }}
-              className="w-full max-w-6xl mx-auto"
-            >
-              <h1 className="w-full font-heading text-[8vw] sm:text-[5vw] md:text-[4.5vw] lg:text-[56px] xl:text-[72px] leading-[1.1] md:leading-[1.05] text-white tracking-tighter uppercase font-black drop-shadow-2xl mb-6">
-                {t('hero.title')}
-              </h1>
-            </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="mt-2 text-white/80 text-sm sm:text-base md:text-lg lg:text-xl max-w-4xl font-light leading-relaxed tracking-wide mx-auto"
-            >
-              {t('hero.description')}
-            </motion.p>
-          </div>
-        </div>
-      </div>
+    <main className="bg-[#FAFAFA] min-h-screen text-ink font-sans overflow-x-clip">
+      <BlogHero />
 
       {/* Compliance Notice */}
       <section className="px-4 md:px-6 mb-12 lg:mb-16 max-w-[1280px] mx-auto">
@@ -233,8 +173,8 @@ export default function BlogIndexPage() {
                     e.stopPropagation();
                     if (navigator.share) {
                       navigator.share({
-                        title: latestPost?.title,
-                        text: latestPost?.excerpt,
+                        title: latestPost?.title || "Post",
+                        text: latestPost?.excerpt || "",
                         url: window.location.origin + '/' + latestPost?.slug,
                       }).catch(console.error);
                     } else {
@@ -298,7 +238,7 @@ export default function BlogIndexPage() {
       </section>
 
       {/* Grid */}
-      <section className="px-4 md:px-6 max-w-[1280px] mx-auto mb-32">
+      <section className="px-4 md:px-6 max-w-[1280px] mx-auto mb-16 md:mb-24">
         {displayedPosts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
             {displayedPosts.map((post, index) => (
@@ -324,15 +264,19 @@ export default function BlogIndexPage() {
         )}
       </section>
 
-      {/* Infinite Scroll trigger area */}
+      {/* Load More */}
       {hasMore && (
-        <section className="pb-32 flex justify-center">
+        <section className="pb-32 flex justify-center items-center px-4 w-full">
           <FadeUp>
-            <FluidButton 
-              text={t('loadMore')} 
-              className="w-full sm:w-auto"
+            <button
               onClick={() => setVisibleCount(prev => prev + 6)}
-            />
+              className="group flex items-center justify-center gap-3 px-8 py-4 bg-ink text-white rounded-full shadow hover:shadow-md hover:bg-ink/80 transition-all duration-300 text-xs font-bold tracking-widest uppercase"
+            >
+              {t('loadMore')}
+              <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
           </FadeUp>
         </section>
       )}

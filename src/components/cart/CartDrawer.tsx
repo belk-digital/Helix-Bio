@@ -100,25 +100,26 @@ export function CartDrawer() {
           />
 
           {/* Drawer */}
+          {/* Drawer */}
           <motion.div
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             style={{ willChange: 'transform' }}
-            className="fixed top-0 right-0 h-[100dvh] w-full md:w-[480px] bg-cream md:rounded-l-[2rem] z-[101] shadow-2xl flex flex-col overflow-hidden transform-gpu"
+            className="fixed top-0 right-0 h-[100dvh] w-full md:w-[480px] bg-zinc-950/90 backdrop-blur-2xl md:rounded-l-[2rem] z-[101] shadow-2xl flex flex-col overflow-hidden transform-gpu border-l border-white/10"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 pt-8 pb-4 md:px-8 md:pt-10 shrink-0 relative">
-              <h2 className="font-heading text-3xl sm:text-4xl font-black text-ink tracking-tight flex items-center gap-3">
+            <div className="flex items-center justify-between px-6 pt-8 pb-4 md:px-8 md:pt-10 shrink-0 relative border-b border-white/10">
+              <h2 className="font-heading text-3xl sm:text-4xl font-black text-white tracking-tight flex items-center gap-3">
                 {t('title')}
-                <span className="flex items-center justify-center bg-primary text-white text-xs w-6 h-6 rounded-full font-bold shadow-[0_0_10px_rgba(0,255,255,0.4)]">
+                <span className="flex items-center justify-center bg-primary text-ink text-xs w-6 h-6 rounded-full font-bold shadow-[0_0_15px_rgba(0,255,255,0.5)]">
                   {items.reduce((acc, i) => acc + i.quantity, 0)}
                 </span>
               </h2>
               <button
                 onClick={closeCart}
-                className="p-2 -mr-2 bg-ink/5 hover:bg-ink/10 rounded-full text-ink hover:text-primary transition-colors focus:outline-none"
+                className="p-2 -mr-2 bg-white/5 hover:bg-white/10 rounded-full text-white/70 hover:text-white transition-colors focus:outline-none"
                 aria-label={t('closeCartAria')}
               >
                 <X size={20} strokeWidth={2} />
@@ -127,20 +128,24 @@ export function CartDrawer() {
 
             {items.length === 0 ? (
               /* Empty State */
-              <div className="flex-1 flex flex-col items-center justify-center bg-cream px-6">
-                <div className="w-20 h-20 bg-ink/5 rounded-full flex items-center justify-center mb-6">
-                  <ShoppingBag className="w-10 h-10 text-ink/30" strokeWidth={1.5} />
+              <div className="flex-1 flex flex-col items-center justify-center px-6 relative">
+                {/* Background glow */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/20 blur-[100px] rounded-full pointer-events-none" />
+                
+                <div className="w-24 h-24 bg-white/5 border border-white/10 rounded-full flex items-center justify-center mb-8 relative group">
+                  <div className="absolute inset-0 rounded-full border border-primary/50 animate-ping opacity-20 group-hover:opacity-100 transition-opacity" />
+                  <ShoppingBag className="w-10 h-10 text-primary drop-shadow-[0_0_10px_rgba(0,255,255,0.8)]" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-heading text-2xl font-bold text-ink mb-2">{t('emptyTitle')}</h3>
-                <p className="text-ink/60 text-center mb-8 max-w-xs">
+                <h3 className="font-heading text-3xl font-black text-white mb-3 uppercase tracking-wider relative z-10">{t('emptyTitle')}</h3>
+                <p className="text-white/50 text-center mb-10 max-w-xs leading-relaxed relative z-10 font-medium">
                   {t('emptyText')}
                 </p>
                 <FluidButton
                   href="/shop"
                   onClick={closeCart}
                   text={t('discoverQuality')}
-                  variant="dark"
-                  className="mb-4"
+                  variant="white"
+                  className="relative z-10 shadow-[0_0_30px_rgba(255,255,255,0.15)]"
                 />
               </div>
             ) : (
@@ -148,13 +153,13 @@ export function CartDrawer() {
               <>
                 {/* Shipping Progress */}
                 {freeShippingThreshold !== null && (
-                  <div className="px-6 md:px-8 py-2 shrink-0">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-ink/60 mb-2">
+                  <div className="px-6 md:px-8 py-4 shrink-0 bg-white/5 border-b border-white/5">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-white/60 mb-2">
                       {amountToFreeShipping > 0
                         ? t('freeShippingProgress', { amount: amountToFreeShipping.toFixed(2) })
                         : t('freeShippingUnlocked')}
                     </p>
-                    <div className="w-full h-1.5 bg-ink/5 rounded-full overflow-hidden shadow-inner">
+                    <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden shadow-inner">
                       <motion.div 
                         className="h-full bg-primary rounded-full shadow-[0_0_10px_rgba(0,255,255,0.6)] relative"
                         initial={{ width: 0 }}
@@ -169,7 +174,7 @@ export function CartDrawer() {
 
                 {/* Items List */}
                 <div 
-                  className="flex-1 overflow-y-auto px-6 md:px-8 py-4 overscroll-y-contain" 
+                  className="flex-1 overflow-y-auto px-6 md:px-8 py-4 overscroll-y-contain custom-scrollbar" 
                   data-lenis-prevent="true"
                   style={{ WebkitOverflowScrolling: 'touch' }}
                 >
@@ -182,36 +187,39 @@ export function CartDrawer() {
                           initial={{ opacity: 0, scale: 0.95, height: 0 }}
                           animate={{ opacity: 1, scale: 1, height: 'auto' }}
                           exit={{ opacity: 0, scale: 0.95, height: 0 }}
-                          className="flex gap-4 p-4 bg-white rounded-2xl shadow-sm border border-ink/5 hover:border-primary/20 transition-all duration-300"
+                          className="flex gap-4 p-4 bg-white/5 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 relative group overflow-hidden"
                         >
-                          <div className="relative w-20 h-20 bg-cream rounded-xl shrink-0 overflow-hidden">
-                            <Image src={item.product?.imageUrl || '/placeholder.png'} alt={item.product?.name || 'Product'} fill className="object-cover hover:scale-105 transition-transform duration-500" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-2xl" />
+                          <div className="relative w-20 h-20 bg-black/50 rounded-xl shrink-0 overflow-hidden border border-white/5">
+                            <Image src={item.product?.imageUrl || '/placeholder.png'} alt={item.product?.name || 'Product'} fill className="object-cover hover:scale-110 transition-transform duration-500 opacity-90 group-hover:opacity-100" />
                           </div>
-                          <div className="flex flex-col flex-1 justify-between py-0.5 min-w-0">
+                          <div className="flex flex-col flex-1 justify-between py-0.5 min-w-0 relative z-10">
                             <div className="flex justify-between items-start gap-2">
                               <div className="flex flex-col">
-                                <Link href={`/product/${item.product?.slug || item.productId}`} onClick={closeCart} className="text-sm font-bold font-heading text-ink hover:text-primary transition-colors line-clamp-1 leading-tight">
+                                <Link href={`/product/${item.product?.slug || item.productId}`} onClick={closeCart} className="text-sm font-bold font-heading text-white hover:text-primary transition-colors line-clamp-1 leading-tight">
                                   {item.product?.name}
                                 </Link>
-                                <span className="text-[10px] uppercase tracking-wider text-ink/50 mt-1 font-bold">
+                                <span className="text-[10px] uppercase tracking-wider text-white/50 mt-1 font-bold">
                                   {item.variantTitle || item.variantSku}
                                 </span>
                               </div>
                               <button
                                 onClick={() => removeItem(item.lineId)}
-                                className="text-ink/30 hover:text-error transition-colors p-1.5 bg-black/0 hover:bg-error/10 rounded-full -mt-1 -mr-1"
+                                className="text-white/30 hover:text-red-400 transition-colors p-1.5 hover:bg-red-400/10 rounded-full -mt-1 -mr-1"
                                 aria-label={t('removeItemAria')}
                               >
                                 <X size={14} strokeWidth={2} />
                               </button>
                             </div>
                             <div className="flex items-end justify-between mt-2">
-                              <QuantityStepper 
-                                value={item.quantity} 
-                                onChange={(val) => updateQuantity(item.lineId, val)} 
-                                size="responsive"
-                              />
-                              <span className="text-sm font-extrabold text-ink">
+                              <div className="bg-white/10 rounded-full p-1 backdrop-blur-sm border border-white/10 shadow-sm">
+                                <QuantityStepper 
+                                  value={item.quantity} 
+                                  onChange={(val) => updateQuantity(item.lineId, val)} 
+                                  size="responsive"
+                                />
+                              </div>
+                              <span className="text-sm font-extrabold text-white tracking-wide">
                                 ${(item.priceSnapshot * item.quantity).toFixed(2)}
                               </span>
                             </div>
@@ -223,14 +231,14 @@ export function CartDrawer() {
                 </div>
 
                 {/* Sticky Summary */}
-                <div className="px-6 pt-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] md:px-8 md:pb-8 bg-white shrink-0 border-t border-ink/5 z-10 relative">
+                <div className="px-6 pt-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] md:px-8 md:pb-8 bg-zinc-950/80 backdrop-blur-xl shrink-0 border-t border-white/10 z-10 relative">
                   <div className="flex justify-between items-center mb-3">
-                    <span className="text-[10px] font-bold text-ink/50 uppercase tracking-[0.2em]">{t('subtotal')}</span>
-                    <span className="text-2xl text-ink font-black font-heading tracking-tight">${subtotal.toFixed(2)}</span>
+                    <span className="text-[10px] font-bold text-white/50 uppercase tracking-[0.2em]">{t('subtotal')}</span>
+                    <span className="text-2xl text-white font-black font-heading tracking-tight">${subtotal.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between items-center mb-6">
-                    <span className="text-[10px] font-bold text-ink/50 uppercase tracking-[0.2em]">{t('shipping')}</span>
-                    <span className="text-sm text-ink font-bold">
+                    <span className="text-[10px] font-bold text-white/50 uppercase tracking-[0.2em]">{t('shipping')}</span>
+                    <span className="text-sm text-primary font-bold">
                       {t('calculatedAtCheckout')}
                     </span>
                   </div>
@@ -239,11 +247,11 @@ export function CartDrawer() {
                       href="/checkout"
                       onClick={closeCart}
                       text={t('checkout')}
-                      variant="dark"
-                      className="w-full md:w-auto"
+                      variant="white"
+                      className="w-full shadow-[0_0_20px_rgba(255,255,255,0.1)]"
                     />
                   </div>
-                  <Link href="/cart" onClick={closeCart} className="flex items-center justify-center w-full text-ink/40 hover:text-ink text-[10px] uppercase tracking-[0.2em] font-bold transition-colors">
+                  <Link href="/cart" onClick={closeCart} className="flex items-center justify-center w-full text-white/40 hover:text-primary text-[10px] uppercase tracking-[0.2em] font-bold transition-colors">
                     {t('viewFullCart')}
                   </Link>
                 </div>

@@ -9,7 +9,7 @@ export const BLOG_POSTS_PART3: { slug: string; title: string; category: string; 
     date: '13 de julio de 2026',
     readTime: '14 min de lectura',
     excerpt: 'La tabla completa de mL a unidades y mg/mL para la reconstitución, más una calculadora gratuita. Referencia de laboratorio RUO con las proporciones de agua bacteriostática para cada tamaño de vial habitual.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/bac-water-reconstitution-hero.png',
+    imageSrc: '/HelixBio Images/category-1.webp',
     content: (
       <>
         <div className="p-4 md:p-6 bg-gold/10 border border-gold/30 rounded-xl text-sm text-ink/80 mb-10">
@@ -567,7 +567,7 @@ export const BLOG_POSTS_PART3: { slug: string; title: string; category: string; 
     date: '26 de abril de 2026',
     readTime: '5 min de lectura',
     excerpt: 'Guía completa sobre la estabilidad de péptidos reconstituidos, mecanismos de degradación y protocolos óptimos de almacenamiento para la integridad de la investigación de laboratorio.',
-    imageSrc: 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/reconstituted-peptide-stability-storage-hero.jpg',
+    imageSrc: '/HelixBio Images/multiple-vial.webp',
     content: (
       <>
         <div className="my-12 overflow-hidden rounded-2xl border border-ink/10 shadow-sm">
