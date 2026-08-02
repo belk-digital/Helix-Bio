@@ -11,6 +11,9 @@
  */
 export const accessUsers: any = {
   create: () => true,
+  admin: ({ req: { user } }: any) => {
+    return !!user && ['admin', 'staff'].includes(user?.role)
+  },
   read: ({ req: { user } }: any) => {
     if (!user) return false
     if (['admin', 'staff'].includes(user.role)) return true

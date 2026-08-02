@@ -1,7 +1,6 @@
 import React from 'react'
 import { redirect } from 'next/navigation'
-import { AffiliateSidebar } from '@/components/affiliates/AffiliateSidebar'
-import { AffiliateMobileSidebar } from '@/components/affiliates/AffiliateMobileSidebar'
+import { AffiliateTopNav } from '@/components/affiliates/AffiliateTopNav'
 import { getPayloadUser } from '@/lib/auth/getPayloadUser'
 import { getPayload } from 'payload'
 import config from '@payload-config'
@@ -40,20 +39,12 @@ export default async function AffiliateDashboardLayout({ children }: { children:
   const tier = affiliate.tier || 'standard'
 
   return (
-    <div className="bg-[#F8F9FA] min-h-screen selection:bg-black/10 flex flex-col lg:flex-row">
-      {/* Static Sidebar for Desktop */}
-      <div className="hidden lg:block w-[280px] shrink-0 z-40 bg-white lg:rounded-r-3xl border-r border-gray-100 shadow-sm">
-        <AffiliateSidebar userName={userName} tier={tier} />
-      </div>
-
-      {/* Mobile Sidebar */}
-      <AffiliateMobileSidebar>
-        <AffiliateSidebar userName={userName} tier={tier} />
-      </AffiliateMobileSidebar>
+    <div className="bg-[#F8F9FA] min-h-screen selection:bg-black/10 flex flex-col">
+      <AffiliateTopNav userName={userName} tier={tier} />
 
       {/* Main Content */}
       <div className="flex-1 w-full min-w-0 px-4 py-8 md:p-10 lg:p-12">
-        <div className="max-w-[1200px] mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           {children}
         </div>
       </div>

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { X, CreditCard, ShoppingBag, ArrowRight, Loader2, Check, Trash2, Lock, ShieldCheck, Package } from 'lucide-react'
+import { X, CreditCard, ShoppingBag, ArrowRight, ArrowLeft, ChevronRight as ChevronRightIcon, Loader2, Check, Trash2, Lock, ShieldCheck, Package, Receipt } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { Container } from '@/components/ui/container'
@@ -13,11 +13,6 @@ import { QuantityStepper } from '@/components/shop/QuantityStepper'
 import { useCartStore } from '@/lib/cart/store'
 import { ProductCard } from '@/components/shared/ProductCard'
 import { StaggerChildren, staggerItemVariants } from '@/components/motion/StaggerChildren'
-
-import { Space_Grotesk } from 'next/font/google'
-
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
-
 
 
 import { useSearchParams, useRouter } from 'next/navigation'
@@ -378,131 +373,160 @@ export function CartClient() {
 
   if (!hasHydrated) {
     return (
-      <Container size="page" className="py-24 md:py-32 flex items-center justify-center min-h-[60vh]">
-        <Loader2 size={32} className="animate-spin text-ink/30" />
+      <Container size="page" className="py-24 flex items-center justify-center min-h-[50vh]">
+        <Loader2 size={24} className="animate-spin text-ink/30" />
       </Container>
     )
   }
 
   if (items.length === 0) {
     return (
-      <Container size="page" className="py-24 md:py-32 flex flex-col items-center justify-center text-center min-h-[60vh]">
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="w-32 h-32 rounded-full bg-[#f4f7fb] flex items-center justify-center mb-8 text-[#008B8B]"
-        >
-          <ShoppingBag size={48} strokeWidth={1} />
-        </motion.div>
-        <h1 className={`text-4xl md:text-5xl font-bold tracking-tight text-ink mb-4 ${spaceGrotesk.className}`}>
+      <Container size="page" className="py-24 flex flex-col items-center justify-center text-center min-h-[50vh]">
+        <ShoppingBag size={32} className="text-ink/20 mb-6" />
+        <h1 className="text-2xl font-light tracking-tight text-ink mb-2">
           {t('emptyTitle')}
         </h1>
-        <p className="text-lg text-ink/60 mb-12 max-w-md mx-auto font-light">
+        <p className="text-sm text-ink/50 mb-8 max-w-sm font-light">
           {t('emptyText')}
         </p>
         <Link
           href="/shop"
-          className="bg-ink text-white px-8 py-4 rounded-full font-medium tracking-wide flex items-center gap-2 hover:bg-ink/90 transition-all hover:scale-105 active:scale-95"
+          className="bg-ink text-white px-6 py-2.5 rounded-md font-medium text-xs uppercase tracking-widest hover:bg-ink/90 transition-colors"
         >
           {t('browseProducts')}
-          <ArrowRight size={18} />
         </Link>
       </Container>
     )
   }
 
   return (
-    <Container size="page" className="py-16 md:py-24">
-      <div className="flex items-end justify-between mb-12">
-        <h1 className={`text-4xl md:text-5xl font-bold tracking-tight text-ink ${spaceGrotesk.className}`}>
-          {t('yourCart')} <span className="text-ink/30 ml-2 font-normal">({items.reduce((acc, i) => acc + i.quantity, 0)})</span>
-        </h1>
+    <Container size="wide" className="py-12 md:py-16">
+      {/* Massive Header mirroring OrdersClient */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 border-b border-gray-200 pb-12">
+        <div className="flex flex-col gap-2">
+          <h1 className="text-5xl md:text-7xl font-light text-black tracking-tight leading-none">
+            {t('yourCart')}
+          </h1>
+          <p className="text-gray-500 mt-2 max-w-lg text-sm md:text-base leading-relaxed font-light">
+            Review your selected items before proceeding to checkout.
+          </p>
+        </div>
+        
+        <div className="flex flex-col items-end pb-2">
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 font-heading mb-1">
+            Total Items
+          </span>
+          <span className="text-xl font-light text-black group-hover:text-[#1e5661] transition-colors">
+            {items.reduce((acc, i) => acc + i.quantity, 0)}
+          </span>
+        </div>
       </div>
       
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-12 lg:gap-20">
-        {/* Left Column: Items */}
-        <div className="flex flex-col">
-          <div className="border-t border-slate-100">
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+        
+        {/* Left Column: Dense Item List */}
+        <div className="flex-1 flex flex-col">
+          
+          {/* Header Row (Hidden on mobile) */}
+          <div className="hidden sm:grid sm:grid-cols-[80px_1fr_100px_120px_120px] lg:grid-cols-[80px_1fr_120px_140px_140px] gap-4 lg:gap-6 items-center text-[10px] font-bold uppercase tracking-widest text-gray-400 font-heading pb-4 pl-4 pr-4 border-b border-slate-100">
+            <div>Product</div>
+            <div>Details</div>
+            <div className="text-center">Price</div>
+            <div className="text-center">Qty</div>
+            <div className="text-right">Total</div>
+          </div>
+
+          <div className="flex flex-col divide-y divide-gray-100">
             {items.map((item) => (
-              <div key={item.lineId} className="flex flex-row gap-4 sm:gap-8 py-6 sm:py-8 border-b border-slate-100 group">
-                {/* Product Image Thumbnail */}
-                <Link href={`/product/${item.product?.slug || item.productId}`} className="relative w-24 sm:w-32 md:w-36 aspect-[4/5] bg-[#F5F5F7] shrink-0 rounded-[1.25rem] sm:rounded-[1.5rem] overflow-hidden">
+              <div key={item.lineId} className="grid grid-cols-[auto_1fr] sm:grid-cols-[80px_1fr_100px_120px_120px] lg:grid-cols-[80px_1fr_120px_140px_140px] gap-4 lg:gap-6 items-start sm:items-center py-6 sm:py-8 transition-colors hover:bg-gray-50/50 -mx-4 px-4 rounded-[24px] group">
+                
+                {/* 1. Thumbnail */}
+                <Link href={`/product/${item.product?.slug || item.productId}`} className="relative w-16 h-16 sm:w-20 sm:h-20 bg-[#F5F5F7] rounded-[16px] overflow-hidden shrink-0">
                   <Image 
                     src={item.product?.imageUrl || '/placeholder.png'} 
                     alt={item.product?.name || 'Product'} 
                     fill 
-                    className="object-cover object-center transition-transform duration-700 group-hover:scale-105" 
+                    className="object-cover object-center group-hover:scale-105 transition-transform" 
                   />
                 </Link>
                 
-                {/* Product Details */}
-                <div className="flex flex-col flex-1 justify-between py-1 sm:py-0">
-                  <div className="flex flex-col sm:flex-row justify-between items-start gap-2 sm:gap-4">
-                    <div className="flex flex-col gap-1 sm:gap-1.5 pr-4 sm:pr-0">
-                      <Link href={`/product/${item.product?.slug || item.productId}`} className={`text-base sm:text-xl md:text-2xl font-bold text-ink hover:text-[#008B8B] transition-colors leading-tight ${spaceGrotesk.className}`}>
-                        {item.product?.name}
-                      </Link>
-                      {(item.variantTitle || item.variantSku) && !['DEFAULT', 'DEFAULT TITLE'].includes((item.variantTitle || item.variantSku || '').toUpperCase()) && (
-                        <span className="text-[9px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] text-ink/50 line-clamp-1">
-                          {item.variantTitle || item.variantSku}
-                        </span>
-                      )}
-                    </div>
-                    <span className="text-sm sm:text-lg md:text-xl font-medium text-ink mt-1 sm:mt-0 whitespace-nowrap">
-                      ${item.priceSnapshot.toFixed(2)}
+                {/* 2. Details (Name & Variant) */}
+                <div className="flex flex-col min-w-0 pr-0 sm:pr-4">
+                  <Link href={`/product/${item.product?.slug || item.productId}`} className="text-lg sm:text-xl font-light text-black group-hover:text-[#1e5661] transition-colors truncate">
+                    {item.product?.name}
+                  </Link>
+                  {(item.variantTitle || item.variantSku) && !['DEFAULT', 'DEFAULT TITLE'].includes((item.variantTitle || item.variantSku || '').toUpperCase()) && (
+                    <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400 font-heading mt-2 truncate">
+                      {item.variantTitle || item.variantSku}
+                    </span>
+                  )}
+                  {/* Remove Item Button */}
+                  <button
+                    onClick={() => removeItem(item.lineId)}
+                    className="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-red-500 transition-colors mt-3 w-fit text-left flex items-center gap-1.5"
+                    aria-label={t('removeItemAria')}
+                  >
+                    <Trash2 size={12} />
+                    {t('remove')}
+                  </button>
+                </div>
+
+                {/* Mobile-only Price & Stepper Row */}
+                <div className="flex sm:hidden col-span-2 items-center justify-between mt-2 pt-5 border-t border-gray-100">
+                  <span className="text-xl font-light text-black">${item.priceSnapshot.toFixed(2)}</span>
+                  <QuantityStepper size="sm" value={item.quantity} onChange={(val) => updateQuantity(item.lineId, val)} />
+                </div>
+                
+                {/* 3. Price (Desktop) */}
+                <div className="hidden sm:block text-center text-lg font-light text-black">
+                  ${item.priceSnapshot.toFixed(2)}
+                </div>
+
+                {/* 4. Quantity (Desktop) */}
+                <div className="hidden sm:flex items-center justify-center">
+                  <QuantityStepper 
+                    size="md"
+                    value={item.quantity} 
+                    onChange={(val) => updateQuantity(item.lineId, val)} 
+                  />
+                </div>
+
+                {/* 5. Total (Desktop Only) */}
+                <div className="hidden sm:flex items-center justify-end">
+                  <div className="flex flex-col items-end gap-1">
+                    <span className="text-xl sm:text-2xl font-light text-black">
+                      ${(item.priceSnapshot * item.quantity).toFixed(2)}
                     </span>
                   </div>
-                  
-                  <div className="flex items-center justify-between mt-4 sm:mt-auto">
-                    <div className="flex items-center gap-4 sm:gap-6">
-                      <div className="scale-90 sm:scale-100 origin-left">
-                        <QuantityStepper 
-                          value={item.quantity} 
-                          onChange={(val) => updateQuantity(item.lineId, val)} 
-                        />
-                      </div>
-                      <button
-                        onClick={() => removeItem(item.lineId)}
-                        className="group flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-ink/30 hover:text-red-500 transition-colors mt-1"
-                        aria-label={t('removeItemAria')}
-                      >
-                        <Trash2 size={14} className="group-hover:-translate-y-0.5 transition-transform" />
-                        <span className="hidden sm:inline">{t('remove')}</span>
-                      </button>
-                    </div>
-
-                    <div className="hidden sm:flex flex-col text-right">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-ink/40 mb-1">{t('total')}</span>
-                      <span className="text-lg text-ink font-semibold">
-                        ${(item.priceSnapshot * item.quantity).toFixed(2)}
-                      </span>
-                    </div>
-                  </div>
                 </div>
+
               </div>
             ))}
           </div>
-          
-          <div className="mt-8 hidden sm:block">
-            <Link href="/shop" className="text-sm font-semibold tracking-wider uppercase text-ink/60 hover:text-ink transition-colors flex items-center gap-2">
-              <ArrowRight size={16} className="rotate-180" />
+
+          <div className="mt-8">
+            <Link href="/shop" className="text-[11px] font-bold uppercase tracking-widest text-gray-400 font-heading hover:text-black transition-colors flex items-center gap-2 w-fit">
+              <ArrowLeft size={14} />
               {t('continueExploring')}
             </Link>
           </div>
         </div>
 
-        {/* Right Column: Order Summary */}
-        <div className="relative">
-          <div className="sticky top-32 bg-[#F5F5F7]/40 p-8 md:p-10 rounded-[2rem] border border-slate-100">
-            <h2 className={`text-2xl font-bold text-ink mb-8 ${spaceGrotesk.className}`}>
-              {t('orderSummary')}
-            </h2>
+        {/* Right Column: Order Summary Card */}
+        <div className="w-full lg:w-96 shrink-0">
+          <div className="sticky top-32 bg-white rounded-[24px] p-8 border border-gray-100 shadow-xl shadow-black/[0.03]">
+            
+            <div className="mb-8">
+              <h2 className="text-3xl font-light text-black tracking-tight">
+                {t('orderSummary')}
+              </h2>
+            </div>
 
-            <div className="flex flex-col gap-5 mb-8 border-b border-slate-200/60 pb-8">
-              <div className="flex justify-between items-center text-ink/80">
-                <span className="font-light">{t('subtotal')}</span>
-                <span className="font-medium">${subtotal.toFixed(2)}</span>
+            <div className="flex flex-col gap-2 text-sm pb-8 mb-8 border-b border-gray-100">
+              
+              <div className="flex justify-between items-center py-3">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 font-heading">{t('subtotal')}</span>
+                <span className="font-light text-lg text-black">${subtotal.toFixed(2)}</span>
               </div>
 
               {/* Discount Row */}
@@ -512,56 +536,54 @@ export function CartClient() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    className="flex justify-between items-center text-[#008B8B] overflow-hidden"
+                    className="flex justify-between items-center py-3 overflow-hidden text-emerald-600"
                   >
-                    <span className="font-medium flex items-center gap-2">
+                    <span className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] font-heading">
                       {t('discount')}
-                      <button onClick={handleRemoveCoupon} aria-label={t('removeCouponAria')} className="hover:text-red-500 transition-colors">
-                        <X size={14} />
+                      <button onClick={handleRemoveCoupon} className="hover:text-red-500 transition-colors bg-emerald-50 rounded-md p-1">
+                        <X size={10} strokeWidth={3} />
                       </button>
                     </span>
-                    <span className="font-bold">-${discountAmount.toFixed(2)}</span>
+                    <span className="font-medium text-lg">-${discountAmount.toFixed(2)}</span>
                   </motion.div>
                 )}
               </AnimatePresence>
 
-              <div className="flex justify-between items-center text-ink/80">
-                <span className="font-light">{t('estimatedShipping')}</span>
-                <span className="font-medium">
-                  {isLoadingData ? <Loader2 size={16} className="animate-spin" /> : (finalShipping === 0 ? t('free') : `$${finalShipping.toFixed(2)}`)}
+              <div className="flex justify-between items-center py-3">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 font-heading">{t('estimatedShipping')}</span>
+                <span className="font-light text-lg text-black">
+                  {isLoadingData ? <Loader2 size={14} className="animate-spin text-gray-400" /> : (finalShipping === 0 ? t('free') : `$${finalShipping.toFixed(2)}`)}
                 </span>
               </div>
-              <div className="flex justify-between items-center text-ink/80">
-                <span className="font-light">
-                  {t('processingFee')}{feePercentage ? ` (${feePercentage}%)` : ''}
-                </span>
-                <span className="font-medium">
-                  {isLoadingData ? <Loader2 size={16} className="animate-spin" /> : `$${taxAmount.toFixed(2)}`}
+              
+              <div className="flex justify-between items-center py-3">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 font-heading">{t('processingFee')}{feePercentage ? ` (${feePercentage}%)` : ''}</span>
+                <span className="font-light text-lg text-black">
+                  {isLoadingData ? <Loader2 size={14} className="animate-spin text-gray-400" /> : `$${taxAmount.toFixed(2)}`}
                 </span>
               </div>
             </div>
 
-            <div className="flex justify-between items-end mb-10">
-              <span className="text-sm font-bold uppercase tracking-widest text-ink/60">{t('total')}</span>
+            <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-2 sm:gap-0 mb-10">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 font-heading sm:mb-2">{t('total')}</span>
               {isLoadingData ? (
-                <Loader2 size={28} className="animate-spin text-ink/40" />
+                <Loader2 size={32} className="animate-spin text-gray-300" />
               ) : (
-                <span className={`text-4xl font-bold text-ink ${spaceGrotesk.className}`}>
+                <span className="text-4xl sm:text-5xl font-light tracking-tight text-black leading-none break-all">
                   ${finalTotal.toFixed(2)}
                 </span>
               )}
             </div>
 
-            {/* Coupon Code Engine */}
-            <div className="flex flex-col gap-3 mb-10">
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-ink/60">{t('couponCode')}</span>
-              <div className="relative flex items-center w-full">
+            {/* Pill Coupon Input */}
+            <div className="flex flex-col gap-2 mb-10">
+              <div className="relative flex items-center w-full group">
                 <Input
                   placeholder={t('enterCodePlaceholder')}
                   value={couponCode}
                   onChange={(e) => setCouponCode(e.target.value)}
                   disabled={activeCoupon !== null || couponState === 'loading'}
-                  className="w-full bg-white border-transparent focus-visible:ring-1 focus-visible:ring-ink/10 rounded-full h-14 pl-6 pr-28 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.05)] text-sm font-medium uppercase placeholder:normal-case"
+                  className="w-full bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] rounded-[16px] h-12 px-6 pr-28 text-[11px] font-bold uppercase tracking-[0.1em] text-black font-heading placeholder:text-gray-400 transition-all shadow-none"
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') handleApplyCoupon()
                   }}
@@ -569,22 +591,22 @@ export function CartClient() {
                 <button
                   onClick={activeCoupon ? handleRemoveCoupon : () => handleApplyCoupon()}
                   disabled={(!couponCode && !activeCoupon) || couponState === 'loading'}
-                  className={`absolute right-2 top-2 bottom-2 px-5 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all ${
+                  className={`absolute right-1 top-1 bottom-1 px-5 rounded-[12px] text-[10px] font-bold uppercase tracking-widest font-heading transition-all flex items-center justify-center min-w-[80px] ${
                     activeCoupon
-                      ? 'bg-red-500/10 text-red-600 hover:bg-red-500/20'
-                      : 'bg-ink text-white hover:bg-ink/90 disabled:opacity-30 disabled:bg-slate-200 disabled:text-slate-500'
+                      ? 'bg-red-50 text-red-600 hover:bg-red-100'
+                      : 'bg-white shadow-sm border border-gray-100 text-black hover:border-gray-300 disabled:opacity-50 disabled:hover:border-gray-100'
                   }`}
                 >
-                  {couponState === 'loading' ? <Loader2 size={14} className="animate-spin mx-auto" /> : (activeCoupon ? t('remove') : t('apply'))}
+                  {couponState === 'loading' ? <Loader2 size={12} className="animate-spin" /> : (activeCoupon ? t('remove') : t('apply'))}
                 </button>
               </div>
               <AnimatePresence>
                 {couponMessage && (
                   <motion.div 
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className={`text-sm font-medium mt-1 ${couponState === 'error' ? 'text-red-500' : 'text-[#008B8B]'}`}
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className={`text-[10px] font-bold uppercase tracking-widest font-heading mt-2 px-4 ${couponState === 'error' ? 'text-red-500' : 'text-emerald-600'}`}
                   >
                     {couponMessage}
                   </motion.div>
@@ -594,47 +616,36 @@ export function CartClient() {
 
             <Link
               href="/checkout"
-              className="w-full bg-ink text-white h-14 rounded-full font-medium tracking-wide flex items-center justify-center gap-2 hover:bg-ink/90 transition-all hover:scale-[1.02] active:scale-[0.98] mb-6 shadow-lg shadow-ink/20"
+              className="w-full bg-primary text-white h-14 rounded-[16px] font-extrabold font-heading text-[11px] tracking-widest uppercase flex items-center justify-center gap-3 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 mb-8 group"
             >
               {t('secureCheckout')}
-              <ArrowRight size={18} />
+              <ChevronRightIcon size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
 
-            {/* Premium Trust Signals */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-ink/50 mt-2">
-              <div className="flex items-center gap-1.5">
-                <Lock size={14} strokeWidth={2} />
-                <span className="text-[9px] font-bold uppercase tracking-[0.2em]">{t('encrypted')}</span>
+            <div className="flex justify-center gap-8 border-t border-gray-100 pt-8 text-gray-400">
+              <div className="flex flex-col items-center gap-2">
+                <Lock size={16} className="text-gray-300" />
+                <span className="text-[9px] font-bold uppercase tracking-[0.2em] font-heading">{t('encrypted')}</span>
               </div>
-              <div className="hidden sm:block w-1 h-1 rounded-full bg-slate-300"></div>
-              <div className="flex items-center gap-1.5">
-                <Package size={14} strokeWidth={2} />
-                <span className="text-[9px] font-bold uppercase tracking-[0.2em]">{t('discreetShipping')}</span>
+              <div className="flex flex-col items-center gap-2">
+                <Package size={16} className="text-gray-300" />
+                <span className="text-[9px] font-bold uppercase tracking-[0.2em] font-heading">Shipping</span>
               </div>
-            </div>
-
-            {/* Mobile Continue Exploring */}
-            <div className="mt-8 pt-6 border-t border-slate-200/60 sm:hidden text-center">
-              <Link href="/shop" className="text-[11px] font-bold tracking-widest uppercase text-ink/60 hover:text-ink transition-colors flex items-center justify-center gap-2">
-                <ArrowRight size={14} className="rotate-180" />
-                {t('continueExploring')}
-              </Link>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Cross-Sells: Also Considered */}
+      {/* Cross-Sells: Compact Format */}
       {relatedProducts.length > 0 && (
-        <div className="mt-32 pt-24 border-t border-slate-100">
-          <div className="mb-12">
-            <span className="text-[#008B8B] text-[11px] uppercase tracking-[0.2em] font-bold mb-3 block">{t('completeYourResearch')}</span>
-            <h2 className={`text-4xl md:text-5xl font-bold tracking-tight text-ink ${spaceGrotesk.className}`}>
+        <div className="mt-20 pt-10 border-t border-slate-100">
+          <div className="mb-6">
+            <h2 className="text-xl font-bold tracking-tight text-ink">
               {t('alsoConsidered')}
             </h2>
           </div>
           
-          <StaggerChildren staggerDelay={0.05} className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
+          <StaggerChildren staggerDelay={0.05} className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {relatedProducts.map((p) => (
               <motion.div variants={staggerItemVariants} key={p.id}>
                 <ProductCard product={p} />

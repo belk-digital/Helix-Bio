@@ -152,7 +152,7 @@ export async function updatePasswordAction(input: {
 </html>
       `
       await sendTrackedEmail(payload, {
-        from: 'Support | Helix Bio <support@99puritypeptides.com>',
+        from: 'Support | Helix Bio <support@helixbio.com>',
         to: user.email,
         subject: 'Your password has been changed',
         html: emailHtml,
@@ -160,7 +160,7 @@ export async function updatePasswordAction(input: {
 
       // Notify admin
       await sendTrackedEmail(payload, {
-        to: 'support@99puritypeptides.com',
+        to: 'support@helixbio.com',
         subject: `Security Alert: User Password Changed`,
         html: `<p>The password for the user <strong>${user.email}</strong> was recently changed.</p>`
       })
@@ -207,7 +207,7 @@ export async function requestEmailChangeAction(newEmail: string) {
     })
 
     await sendTrackedEmail(payload, {
-      from: 'Support | Helix Bio <support@99puritypeptides.com>',
+      from: 'Support | Helix Bio <support@helixbio.com>',
       to: normalizedEmail,
       subject: 'Verify your new email address',
       html: `

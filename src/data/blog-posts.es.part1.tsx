@@ -380,7 +380,7 @@ export const BLOG_POSTS_PART1: {
 
         <p className="mb-4">Esta guía completa ofrece a los laboratorios de investigación de EE. UU. el recurso definitivo para los cálculos de reconstitución de péptidos, las proporciones de agua bacteriostática, las conversiones de microgramos a miligramos y los protocolos de técnica estéril. Ya sea que trabajes con <a className="text-primary underline hover:text-primary-dark" href="/product/retatrutide">Retatrutida</a>, <a className="text-primary underline hover:text-primary-dark" href="/product/tesamorelin">Tesamorelina</a>, <a className="text-primary underline hover:text-primary-dark" href="/product/bpc-157">BPC-157</a>, <a className="text-primary underline hover:text-primary-dark" href="/product/tb-500">TB-500</a> o cualquier péptido de investigación, dominar estos cálculos garantiza precisión, reproducibilidad y una estabilidad óptima del péptido.</p>
 
-        <p className="mb-8 italic text-ink/70">Para los investigadores que buscan la más alta calidad: 99PurityPeptides ofrece péptidos de investigación con pureza del 99% con Certificados de Análisis completos y pruebas de laboratorio certificadas por terceros bajo norma ISO, garantizando que tus cálculos de reconstitución se basen en un contenido de péptido verificado.</p>
+        <p className="mb-8 italic text-ink/70">Para los investigadores que buscan la más alta calidad: HelixBioPeptides ofrece péptidos de investigación con pureza del 99% con Certificados de Análisis completos y pruebas de laboratorio certificadas por terceros bajo norma ISO, garantizando que tus cálculos de reconstitución se basen en un contenido de péptido verificado.</p>
 
                 <div className="my-12 overflow-hidden rounded-2xl border border-ink/10 shadow-sm">
             <img src="https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/peptide-calculator-reconstitution-guide-inline-1.webp" alt="Estación de trabajo de laboratorio con panel de la calculadora de péptidos, cristalería y tubos de ensayo para cálculos de dosificación en investigación" className="w-full h-auto object-cover" />
@@ -889,7 +889,7 @@ export const BLOG_POSTS_PART1: {
             </div>
             <div className="bg-cream-warm p-6 rounded-2xl border border-ink/5">
                 <h3 className="font-bold text-lg mb-2">¿Dónde puedo comprar péptidos de colágeno de grado investigación?</h3>
-                <p className="text-ink/80 text-sm">Los péptidos de colágeno de grado investigación con pureza verificada, perfiles de peso molecular documentados y Certificado de Análisis están disponibles en 99PurityPeptides.com. Todos los productos están destinados a uso en investigación y cumplen con los estándares de etiquetado para uso en investigación.</p>
+                <p className="text-ink/80 text-sm">Los péptidos de colágeno de grado investigación con pureza verificada, perfiles de peso molecular documentados y Certificado de Análisis están disponibles en HelixBioPeptides.com. Todos los productos están destinados a uso en investigación y cumplen con los estándares de etiquetado para uso en investigación.</p>
             </div>
         </div>
       </>

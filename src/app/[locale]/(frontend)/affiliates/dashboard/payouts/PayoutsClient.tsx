@@ -117,47 +117,44 @@ export function PayoutsClient({ payoutRequests, availableBalance, totalPendingHo
       variants={containerVars}
       initial="hidden"
       animate="show"
-      className="flex flex-col gap-8"
+      className="flex flex-col gap-16"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Available Balance Card */}
-        <motion.div variants={itemVars} className="bg-black p-8 rounded-3xl text-white shadow-xl flex flex-col justify-between min-h-[200px]">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight mb-2 font-heading">
+      {/* Top Balances */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 border-b border-gray-100 pb-12">
+        <motion.div variants={itemVars} className="flex flex-col gap-4">
+          <div className="flex flex-col gap-1">
+            <h1 className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">
               {t('availableBalanceTitle')}
             </h1>
-            <p className="text-gray-400 text-sm">{t('availableBalanceDesc')}</p>
+            <p className="text-gray-500 text-sm max-w-sm">{t('availableBalanceDesc')}</p>
           </div>
-          <div className="mt-8">
-            <span className="text-5xl font-black text-[#008B8B] tracking-tight">{formatMoney(availableBalance)}</span>
+          <div className="mt-2">
+            <span className="text-[80px] lg:text-[100px] leading-[0.9] font-bold text-[#1e5661] tracking-tighter">{formatMoney(availableBalance)}</span>
           </div>
         </motion.div>
 
-        {/* Pending Hold Card */}
-        <motion.div variants={itemVars} className="bg-white border border-gray-100 p-8 rounded-3xl shadow-sm flex flex-col justify-between min-h-[200px]">
-          <div>
-            <div className="flex items-center gap-2 mb-2">
-              <Clock className="w-5 h-5 text-gray-400" />
-              <h1 className="text-xl font-bold tracking-tight text-black font-heading">
-                {t('dayHoldTitle', { days: pendingPeriodDays })}
-              </h1>
-            </div>
-            <p className="text-gray-500 text-sm">{t('dayHoldDesc', { days: pendingPeriodDays })}</p>
+        <motion.div variants={itemVars} className="flex flex-col gap-4">
+          <div className="flex flex-col gap-1">
+            <h1 className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">
+              {t('dayHoldTitle', { days: pendingPeriodDays })}
+            </h1>
+            <p className="text-gray-500 text-sm max-w-sm">{t('dayHoldDesc', { days: pendingPeriodDays })}</p>
           </div>
-          <div className="mt-8">
-            <span className="text-4xl font-black text-gray-400 tracking-tight">{formatMoney(totalPendingHold)}</span>
+          <div className="mt-2">
+            <span className="text-[80px] lg:text-[100px] leading-[0.9] font-bold text-gray-300 tracking-tighter">{formatMoney(totalPendingHold)}</span>
           </div>
         </motion.div>
       </div>
 
-      <motion.div variants={itemVars} className="bg-white border border-gray-100 p-8 rounded-3xl shadow-sm">
-        <h2 className="text-2xl font-bold tracking-tight text-black mb-6 font-heading">
+      {/* Request Form */}
+      <motion.div variants={itemVars} className="flex flex-col gap-8 pb-12 border-b border-gray-100">
+        <h2 className="text-sm font-medium tracking-[0.2em] uppercase text-black">
           {t('requestPayoutTitle')}
         </h2>
 
-        <form onSubmit={handleRequestPayout} className="flex flex-col md:flex-row gap-6 items-end">
-          <div className="flex-1 w-full flex flex-col gap-2">
-            <label className="text-xs uppercase tracking-widest text-gray-400 font-bold">{t('amountLabel')}</label>
+        <form onSubmit={handleRequestPayout} className="flex flex-col lg:flex-row gap-8 items-end max-w-5xl">
+          <div className="flex-1 w-full flex flex-col gap-3">
+            <label className="text-[10px] uppercase tracking-[0.2em]  font-medium">{t('amountLabel')}</label>
             <input
               type="number"
               step="0.01"
@@ -165,18 +162,18 @@ export function PayoutsClient({ payoutRequests, availableBalance, totalPendingHo
               max={availableBalance.toString()}
               value={amount}
               onChange={e => setAmount(e.target.value)}
-              className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-black font-medium focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all"
+              className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-2xl text-black font-medium focus:outline-none focus:border-black transition-colors"
               placeholder="0.00"
               required
             />
           </div>
 
-          <div className="flex-1 w-full flex flex-col gap-2">
-            <label className="text-xs uppercase tracking-widest text-gray-400 font-bold">{t('methodLabel')}</label>
+          <div className="flex-1 w-full flex flex-col gap-3">
+            <label className="text-[10px] uppercase tracking-[0.2em]  font-medium">{t('methodLabel')}</label>
             <select
               value={method}
               onChange={e => setMethod(e.target.value as any)}
-              className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-black font-medium focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all"
+              className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-xl text-black font-medium focus:outline-none focus:border-black transition-colors"
             >
               <option value="zelle">{t('methodZelle')}</option>
               <option value="cashapp">{t('methodCashapp')}</option>
@@ -184,13 +181,13 @@ export function PayoutsClient({ payoutRequests, availableBalance, totalPendingHo
             </select>
           </div>
 
-          <div className="flex-[1.5] w-full flex flex-col gap-2">
-            <label className="text-xs uppercase tracking-widest text-gray-400 font-bold">{t('detailsLabel')}</label>
+          <div className="flex-[2] w-full flex flex-col gap-3">
+            <label className="text-[10px] uppercase tracking-[0.2em]  font-medium">{t('detailsLabel')}</label>
             <input
               type="text"
               value={details}
               onChange={e => setDetails(e.target.value)}
-              className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-black font-medium focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all"
+              className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-xl text-black font-medium focus:outline-none focus:border-black transition-colors"
               placeholder={t('detailsPlaceholder')}
               required
             />
@@ -199,34 +196,46 @@ export function PayoutsClient({ payoutRequests, availableBalance, totalPendingHo
           <button
             type="submit"
             disabled={isRequesting || availableBalance < minimumThreshold}
-            className="w-full md:w-auto bg-black text-white px-8 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full lg:w-auto bg-black text-white px-10 py-4 rounded-full text-xs font-medium uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
           >
-            {isRequesting ? <Loader2 className="w-5 h-5 animate-spin" /> : t('requestButton')}
+            {isRequesting ? <Loader2 className="w-4 h-4 animate-spin" /> : t('requestButton')}
           </button>
         </form>
 
         {error && (
-          <div className="mt-4 p-4 bg-red-50 text-red-600 rounded-xl text-sm font-medium border border-red-100">
+          <div className="mt-2 text-red-500 text-sm font-medium tracking-wide">
             {error}
           </div>
         )}
         {success && (
-          <div className="mt-4 p-4 bg-emerald-50 text-emerald-600 rounded-xl text-sm font-medium border border-emerald-100 flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5" /> {success}
+          <div className="mt-2 text-emerald-600 text-sm font-medium tracking-wide flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4" /> {success}
           </div>
         )}
       </motion.div>
       
-      <div className="flex flex-col gap-4">
-        <h2 className="text-xl font-bold tracking-tight text-black px-2 font-heading">
-          {t('payoutHistoryTitle')}
-        </h2>
+      {/* Payout Ledger */}
+      <div className="flex flex-col">
+        <div className="flex items-end justify-between pb-4 mb-6">
+          <h2 className="text-sm font-medium tracking-[0.2em] text-black uppercase">
+            {t('payoutHistoryTitle')}
+          </h2>
+        </div>
+
+        {payoutRequests.length > 0 && (
+          <motion.div variants={itemVars} className="hidden md:flex items-center justify-between pb-4 border-b border-gray-200 px-4">
+            <span className="w-1/3 text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">{t('dateLabel')}</span>
+            <span className="w-1/3 text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">{t('methodLabel')}</span>
+            <span className="w-1/3 text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400 text-right">{t('amountColumnLabel')}</span>
+          </motion.div>
+        )}
+
         {payoutRequests.length === 0 ? (
-          <motion.div variants={itemVars} className="bg-white p-12 rounded-3xl border border-dashed border-gray-200 flex flex-col items-center justify-center text-center gap-4 text-gray-500">
-            <WalletCards size={48} className="text-gray-200" />
-            <div className="flex flex-col gap-1">
-              <h3 className="text-lg font-bold text-black">{t('emptyTitle')}</h3>
-              <p className="text-sm">{t('emptyDesc')}</p>
+          <motion.div variants={itemVars} className="py-24 flex flex-col items-center justify-center text-center gap-6 text-gray-400 border-b border-gray-100">
+            <WalletCards size={48} className="opacity-20" />
+            <div className="flex flex-col gap-2">
+              <h3 className="text-xl font-light text-black uppercase tracking-widest">{t('emptyTitle')}</h3>
+              <p className="text-base">{t('emptyDesc')}</p>
             </div>
           </motion.div>
         ) : (
@@ -234,33 +243,31 @@ export function PayoutsClient({ payoutRequests, availableBalance, totalPendingHo
             <motion.div 
               key={req.id} 
               variants={itemVars}
-              className="group flex flex-col md:flex-row md:items-center justify-between p-6 bg-white border border-gray-100 rounded-3xl shadow-sm hover:shadow-lg hover:shadow-black/5 hover:border-gray-200 transition-all duration-300 gap-6 relative overflow-hidden"
+              className="group flex flex-col md:flex-row md:items-center justify-between py-6 md:py-8 border-b border-gray-100 hover:bg-gray-50 transition-colors px-4 -mx-4 rounded-lg"
             >
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-black translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300" />
-              
-              <div className="flex flex-col gap-2 pl-2 md:w-1/4">
-                <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">{t('dateLabel')}</span>
-                <span className="text-base font-bold text-black">{req.date}</span>
+              <div className="flex flex-col gap-2 md:w-1/3">
+                <span className="md:hidden text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">{t('dateLabel')}</span>
+                <span className="text-lg font-light text-black tracking-widest">{req.date}</span>
               </div>
 
-              <div className="flex flex-col gap-2 md:w-1/4">
-                <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">{t('methodLabel')}</span>
-                <span className="text-sm font-medium text-gray-600 capitalize">{req.method}</span>
-                <span className="text-xs text-gray-400 truncate max-w-[150px]">{req.details}</span>
+              <div className="flex flex-col gap-2 md:w-1/3 mt-4 md:mt-0">
+                <span className="md:hidden text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">{t('methodLabel')}</span>
+                <span className="text-lg font-light text-black capitalize">{req.method}</span>
+                <span className="text-sm text-gray-500 truncate max-w-[200px]">{req.details}</span>
               </div>
 
-              <div className="flex flex-col md:items-end gap-2 md:w-1/2">
-                <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">{t('amountColumnLabel')}</span>
-                <div className="flex items-center gap-4">
-                  <span className="text-base text-black font-bold">{formatMoney(req.amount)}</span>
-                  <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full">
-                    <span className={`w-1.5 h-1.5 rounded-full ${
-                      req.status === 'pending' ? 'bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]' :
-                      req.status === 'paid' ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]' :
-                      req.status === 'rejected' ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]' :
-                      'bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]'
+              <div className="flex flex-col md:items-end gap-2 md:w-1/3 mt-6 md:mt-0">
+                <span className="md:hidden text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400 text-right">{t('amountColumnLabel')}</span>
+                <div className="flex items-center justify-between md:justify-end gap-6 w-full">
+                  <span className="text-2xl text-black font-light tracking-tight">{formatMoney(req.amount)}</span>
+                  <div className="flex items-center gap-2">
+                    <span className={`w-2 h-2 rounded-full ${
+                      req.status === 'pending' ? 'bg-amber-400' :
+                      req.status === 'paid' ? 'bg-emerald-500' :
+                      req.status === 'rejected' ? 'bg-red-500' :
+                      'bg-emerald-400'
                     }`} />
-                    <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-gray-600">{statusLabel(req.status)}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-gray-500">{statusLabel(req.status)}</span>
                   </div>
                 </div>
               </div>

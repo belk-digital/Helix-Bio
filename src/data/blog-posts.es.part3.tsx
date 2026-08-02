@@ -862,12 +862,12 @@ export const BLOG_POSTS_PART3: { slug: string; title: string; category: string; 
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6"><strong>Resumen</strong></h2>
         <p className="mb-4">La tesamorelina se destaca en el espacio de investigación de secretagogos de GH por una razón simple: tiene los datos. A través de múltiples ensayos de Fase III aleatorizados y controlados con cientos de participantes, ha demostrado consistentemente una reducción selectiva de grasa visceral, mejoras en la grasa hepática y beneficios metabólicos posteriores, sin alterar de manera significativa la grasa subcutánea o el peso corporal total.</p>
         <p className="mb-4">Para los investigadores que estudian la adiposidad visceral, el eje GH/IGF-1, el síndrome metabólico, o la farmacología comparativa de los péptidos de hormona de crecimiento, la tesamorelina proporciona la base clínicamente más validada disponible en la clase. Su mecanismo fisiológico mediado por la pituitaria la convierte en una herramienta de investigación excepcionalmente controlada, que produce efectos significativos y medibles en el depósito de grasa específico más estrechamente vinculado al riesgo cardiometabólico.</p>
-        <p className="mb-4">Para uso exclusivo en investigación de laboratorio. Todos los compuestos vendidos por 99PurityPeptides están destinados exclusivamente a investigación in vitro y analítica. No apto para uso humano o veterinario.</p>
+        <p className="mb-4">Para uso exclusivo en investigación de laboratorio. Todos los compuestos vendidos por HelixBioPeptides están destinados exclusivamente a investigación in vitro y analítica. No apto para uso humano o veterinario.</p>
         <div className="my-8 overflow-x-auto rounded-2xl border border-ink/10">
           <table className="w-full text-sm text-left border-collapse">
             <tbody>
               <tr className="border-b border-ink/5">
-                <td className="p-4 text-ink/80"><em>Para uso exclusivo en investigación de laboratorio. Todos los compuestos vendidos por 99PurityPeptides están destinados exclusivamente a investigación in vitro y analítica. No apto para uso humano o veterinario.</em></td>
+                <td className="p-4 text-ink/80"><em>Para uso exclusivo en investigación de laboratorio. Todos los compuestos vendidos por HelixBioPeptides están destinados exclusivamente a investigación in vitro y analítica. No apto para uso humano o veterinario.</em></td>
               </tr>
             </tbody>
           </table>
@@ -927,7 +927,7 @@ export const BLOG_POSTS_PART3: { slug: string; title: string; category: string; 
         <p className="mb-4">La intersección entre la retatrutida y la investigación de células cancerosas es una de las áreas más inesperadas — y científicamente convincentes — que ha surgido de la literatura sobre triple agonistas en 2025. Dos equipos de investigación independientes, utilizando diferentes modelos de cáncer y diferentes marcos mecánicos, han producido hallazgos que apuntan hacia el potencial de la retatrutida para alterar los entornos permisivos para tumores en entornos preclínicos.</p>
         <p className="mb-4">Ya sea mediante la reprogramación inmunológica en modelos de cáncer pancreático y pulmonar, o mediante la interrupción de la quimiorresistencia impulsada por YAP en el cáncer de mama triple negativo, el perfil de triple receptor de la retatrutida parece producir efectos que ni los compuestos de un solo agonista ni los de doble agonista replican completamente.</p>
         <p className="mb-4">Para los investigadores que diseñan estudios en oncología metabólica, farmacología comparativa de receptores, o el eje obesidad-cáncer, estos hallazgos hacen un caso sólido para incluir la retatrutida como herramienta de investigación.</p>
-        <p className="mb-4">Para uso exclusivo en investigación de laboratorio. Todos los compuestos vendidos por 99PurityPeptides están destinados exclusivamente a investigación in vitro y analítica. No apto para uso humano o veterinario.</p>
+        <p className="mb-4">Para uso exclusivo en investigación de laboratorio. Todos los compuestos vendidos por HelixBioPeptides están destinados exclusivamente a investigación in vitro y analítica. No apto para uso humano o veterinario.</p>
         <p className="mb-4">→ Compra Retatrutida (LY3437943) de Pureza 99%+ — Verificado por <a className="text-primary underline hover:text-primary-dark" href="/certificates">CoA</a>, Envío desde EE. UU. Verificado por HPLC y espectrometría de masas. Certificado de Análisis incluido con cada pedido. Garantía de pureza: reembolso completo si algún producto no cumple con las especificaciones indicadas en la etiqueta.</p>
         <p className="mb-4">La investigación preclínica de 2025 muestra que la retatrutida reduce el injerto tumoral, retrasa el inicio del tumor y disminuye significativamente el volumen tumoral en modelos de ratones. En los modelos de cáncer pancreático, la retatrutida produjo una reducción de 14 veces en el volumen tumoral, mientras que los modelos de cáncer pulmonar mostraron una reducción de 17 veces. El compuesto también parece reprogramar el sistema inmunológico y el microambiente tumoral, con efectos que persisten incluso después de suspender el tratamiento.</p>
         <p className="mb-4">En el estudio de Marathe et al. (2025), la retatrutida mostró efectos antitumorales significativamente más fuertes que la semaglutida en modelos de cáncer impulsados por obesidad. Si bien ambos compuestos produjeron pérdida de peso, la retatrutida logró una reducción tumoral de 14 veces en cáncer pancreático frente a solo 4 veces con semaglutida. La retatrutida también redujo de manera única los depósitos de grasa visceral y produjo una reprogramación inmunológica duradera que la semaglutida no replicó.</p>
@@ -947,7 +947,7 @@ export const BLOG_POSTS_PART3: { slug: string; title: string; category: string; 
   },
   {
     slug: 'research-peptide-storage-best-practices',
-    title: 'Almacenamiento de Péptidos de Investigación en Laboratorios | 99PurityPeptides',
+    title: 'Almacenamiento de Péptidos de Investigación en Laboratorios | HelixBioPeptides',
     category: 'Protocolos de recuperación',
     date: '12 de marzo de 2026',
     readTime: '3 min de lectura',
@@ -956,7 +956,7 @@ export const BLOG_POSTS_PART3: { slug: string; title: string; category: string; 
     content: (
       <>
         <div className="my-12 overflow-hidden rounded-2xl border border-ink/10 shadow-sm">
-            <img src="https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/research-peptide-storage-best-practices-hero.jpg" alt="Almacenamiento de Péptidos de Investigación en Laboratorios | 99PurityPeptides" className="w-full h-auto object-cover" />
+            <img src="https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/blog-images/research-peptide-storage-best-practices-hero.jpg" alt="Almacenamiento de Péptidos de Investigación en Laboratorios | HelixBioPeptides" className="w-full h-auto object-cover" />
         </div>
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6">Introducción</h2>
         <p className="first-letter:text-7xl first-letter:font-serif first-letter:float-left first-letter:mr-4 first-letter:text-ink first-letter:mt-2">El almacenamiento adecuado de los péptidos de investigación es fundamental para mantener la integridad molecular, garantizar la reproducibilidad experimental y maximizar la utilidad de estos valiosos compuestos de laboratorio. Los péptidos de investigación son moléculas biológicas sensibles que pueden degradarse mediante múltiples vías, incluyendo hidrólisis, oxidación, desamidación y agregación, cuando se exponen a condiciones de almacenamiento inapropiadas.</p>

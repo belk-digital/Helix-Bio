@@ -88,3 +88,13 @@ input:-webkit-autofill:active {
   border-color: #008B8B !important;
   box-shadow: 0 0 0 2px rgba(0, 139, 139, 0.2) !important;
 }
+
+/* Hide Tidio globally when mobile menu is open */
+body.mobile-menu-open #tidio-chat-iframe,
+body.mobile-menu-open #tidio-chat,
+body.mobile-menu-open #custom-tidio-button {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

@@ -24,11 +24,11 @@ export async function resendVerificationEmail(rawEmail: string) {
   if (user && !user.emailVerified && user.authProvider !== 'google') {
     try {
       const token = jwt.sign({ userId: user.id, purpose: 'verify-email' }, process.env.PAYLOAD_SECRET, { expiresIn: '48h' })
-      const base = process.env.NEXT_PUBLIC_SERVER_URL || 'https://99puritypeptides.com'
+      const base = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
       const verifyUrl = `${base}/api/verify-email?token=${token}`
       const html = generateVerifyEmailEmail(user.firstName, verifyUrl)
       await sendTrackedEmail(payload, {
-        from: 'Support | Helix Bio <support@99puritypeptides.com>',
+        from: 'Support | Helix Bio <support@helixbio.com>',
         to: email,
         subject: 'Verify your email - Helix Bio',
         html,

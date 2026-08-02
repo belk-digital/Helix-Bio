@@ -3,8 +3,7 @@
 import React, { useState } from 'react'
 import { Link } from '@/i18n/navigation'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { ChevronLeft, ChevronRight, Filter, Package } from 'lucide-react'
-import { EmptyState } from '@/components/shared/EmptyState'
+import { ChevronLeft, ChevronRight, Filter, Package, ChevronRight as ChevronRightIcon } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { getBadgeStatus, type BadgeOrderStatus } from '@/lib/orders/statusLabel'
@@ -42,22 +41,22 @@ export function OrdersClient({ orders }: AccountOrdersProps) {
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="flex flex-col w-full"
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="flex flex-col w-full font-sans"
     >
       
-      {/* Header & Filters */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 border-b border-gray-200 pb-6">
+      {/* Massive Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 border-b border-gray-200 pb-12">
         <div className="flex flex-col gap-2">
-          <h1 className="text-4xl text-black font-bold tracking-tighter font-heading">
+          <h1 className="text-5xl md:text-7xl font-light text-black tracking-tight leading-none">
             {t('title')}
           </h1>
-          <p className="text-sm text-gray-500">{t('subtitle')}</p>
+          <p className="text-gray-500 mt-2 max-w-lg text-sm md:text-base leading-relaxed font-light">{t('subtitle')}</p>
         </div>
 
-        <div className="flex items-center gap-3 bg-white p-1 rounded-2xl shadow-sm border border-gray-100">
+        <div className="flex items-center gap-3 bg-white p-1 rounded-full shadow-sm border border-gray-100 mt-4 md:mt-0">
           <div className="pl-4 hidden sm:flex items-center justify-center">
             <Filter size={14} className="text-gray-400" />
           </div>
@@ -82,92 +81,79 @@ export function OrdersClient({ orders }: AccountOrdersProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="flex flex-col gap-4"
+            className="flex flex-col"
           >
-            {filteredOrders.map((order, i) => (
-              <motion.div 
-                key={order.id} 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05 }}
-                className="group flex flex-col md:flex-row md:items-center justify-between p-6 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 hover:border-gray-200 transition-all duration-300 gap-6 cursor-pointer relative overflow-hidden"
-              >
-                
-                <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-12 flex-1">
+            <div className="flex flex-col divide-y divide-gray-100">
+              {filteredOrders.map((order, i) => (
+                <Link href={`/account/orders/${order.id}`} key={order.id} className="group flex flex-col md:flex-row md:items-center justify-between py-8 transition-colors hover:bg-gray-50/50 -mx-4 px-4 rounded-2xl cursor-pointer">
                   
-                  {/* Order Number & Date */}
-                  <div className="flex flex-col gap-2 min-w-[140px]">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 font-heading">{t('orderPlaced')}</span>
-                    <span className="text-sm font-medium text-black font-heading">{order.date}</span>
-                    <span className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mt-1 font-heading">#{order.id}</span>
-                  </div>
+                  <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-16 flex-1">
+                    
+                    {/* Order Number & Date */}
+                    <div className="flex flex-col gap-1 w-32">
+                      <span className="text-xs text-gray-400">{order.date}</span>
+                      <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400 mt-2">{t('orderPlaced')}</span>
+                    </div>
 
-                  {/* Status Badge */}
-                  <div className="flex flex-col gap-2">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 hidden md:block font-heading">{t('status')}</span>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-col gap-1 w-40">
+                      <span className="text-xl font-light text-black group-hover:text-[#1e5661] transition-colors">#{order.id}</span>
+                      <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400 mt-2">Order ID</span>
+                    </div>
+
+                    {/* Status Badge */}
+                    <div className="flex flex-col gap-1">
                       {(() => {
                         const mappedStatus = getBadgeStatus(order.status)
+                        const isProcessing = mappedStatus === 'Processing' || mappedStatus === 'Placed'
                         return (
-                          <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full border ${
-                            mappedStatus === 'Processing' ? 'bg-amber-50 border-amber-200 text-amber-700' :
-                            mappedStatus === 'Shipped' ? 'bg-blue-50 border-blue-200 text-blue-700' :
-                            mappedStatus === 'Placed' ? 'bg-blue-50 border-blue-200 text-blue-700' :
-                            mappedStatus === 'Delivered' ? 'bg-emerald-50 border-emerald-200 text-emerald-700' :
-                            'bg-red-50 border-red-200 text-red-700'
+                          <span className={`text-[11px] font-medium uppercase tracking-widest px-3 py-1 rounded-full w-fit ${
+                            isProcessing ? 'bg-amber-50 text-amber-600' : 
+                            mappedStatus === 'Delivered' ? 'bg-emerald-50 text-emerald-600' :
+                            mappedStatus === 'Shipped' ? 'bg-blue-50 text-blue-600' :
+                            'bg-red-50 text-red-600'
                           }`}>
-                            <span className={`w-1.5 h-1.5 rounded-full ${
-                              mappedStatus === 'Processing' ? 'bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]' :
-                              mappedStatus === 'Shipped' ? 'bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]' :
-                              mappedStatus === 'Placed' ? 'bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]' :
-                              mappedStatus === 'Delivered' ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]' :
-                              'bg-red-500'
-                            }`} />
-                            <span className="text-[10px] font-bold uppercase tracking-[0.1em] font-heading">{STATUS_LABELS[mappedStatus]}</span>
-                          </div>
+                            {STATUS_LABELS[mappedStatus]}
+                          </span>
                         )
                       })()}
+                      <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400 mt-2">{t('status')}</span>
                     </div>
                   </div>
 
-                  {/* Total */}
-                  <div className="flex flex-col gap-2 mt-4 md:mt-0 md:ml-auto">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 hidden md:block text-right font-heading">{t('total')}</span>
-                    <div className="flex items-end gap-2 md:justify-end">
-                      <span className="text-2xl font-bold text-black tracking-tight font-heading">
+                  {/* Total & Action */}
+                  <div className="flex items-center gap-8 mt-6 md:mt-0">
+                    <div className="flex flex-col items-end gap-1">
+                      <span className="text-2xl font-light text-black">
                         ${order.total.toFixed(2)}
                       </span>
-                      <span className="text-xs font-medium text-gray-400 mb-1 font-heading">{t('itemCount', { count: order.itemCount })}</span>
+                      <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">
+                        {t('itemCount', { count: order.itemCount })}
+                      </span>
+                    </div>
+                    
+                    <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-[#1e5661] group-hover:border-[#1e5661] group-hover:text-white transition-all transform group-hover:translate-x-1">
+                      <ChevronRightIcon size={16} />
                     </div>
                   </div>
-
-                </div>
-
-                {/* Action */}
-                <div className="flex items-center shrink-0 mt-4 md:mt-0">
-                  <Link href={`/account/orders/${order.id}`} className="w-full md:w-auto bg-gray-50 group-hover:bg-black text-black group-hover:text-white rounded-full px-8 py-4 text-[11px] font-bold uppercase tracking-[0.15em] transition-all duration-300 whitespace-nowrap text-center flex items-center justify-center gap-2 font-heading">
-                    {t('viewDetails')}
-                  </Link>
-                </div>
-
-              </motion.div>
-            ))}
+                </Link>
+              ))}
+            </div>
             
             {/* Pagination Scaffolding */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-between border-t border-gray-200 pt-8 gap-4">
-              <span className="text-xs font-medium text-gray-500">
+            <div className="mt-12 flex flex-col sm:flex-row items-center justify-between border-t border-gray-200 pt-8 gap-4">
+              <span className="text-xs font-light text-gray-500">
                 {t.rich('showingResults', {
-                  bold: (chunks) => <span className="font-bold text-black">{chunks}</span>,
+                  bold: (chunks) => <span className="font-medium text-black">{chunks}</span>,
                   from: 1,
                   to: filteredOrders.length,
                   total: filteredOrders.length,
                 })}
               </span>
               <div className="flex items-center gap-2">
-                <button disabled className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-50 text-gray-400 border border-gray-100 cursor-not-allowed">
+                <button disabled className="w-10 h-10 rounded-full flex items-center justify-center bg-transparent text-gray-400 border border-gray-200 cursor-not-allowed">
                   <ChevronLeft size={16} />
                 </button>
-                <button disabled className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-50 text-gray-400 border border-gray-100 cursor-not-allowed">
+                <button disabled className="w-10 h-10 rounded-full flex items-center justify-center bg-transparent text-gray-400 border border-gray-200 cursor-not-allowed">
                   <ChevronRight size={16} />
                 </button>
               </div>
@@ -177,21 +163,17 @@ export function OrdersClient({ orders }: AccountOrdersProps) {
         ) : (
           <motion.div 
             key="empty"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            className="w-full bg-gray-50 border border-dashed border-gray-200 rounded-2xl p-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="w-full flex flex-col items-center justify-center py-20 text-center"
           >
-            <EmptyState
-              icon={Package}
-              title={t('emptyTitle')}
-              description={t('emptyDescription')}
-              action={
-                <Link href="/shop" className="inline-flex items-center justify-center bg-black hover:bg-gray-800 text-white rounded-full px-8 py-4 text-[11px] font-bold uppercase tracking-[0.15em] transition-colors shadow-lg font-heading">
-                  {t('startShopping')}
-                </Link>
-              }
-            />
+            <Package size={48} className="text-gray-200 mb-6" strokeWidth={1} />
+            <h2 className="text-2xl font-light text-black tracking-tight mb-2">{t('emptyTitle')}</h2>
+            <p className="text-gray-500 font-light max-w-sm mb-8">{t('emptyDescription')}</p>
+            <Link href="/shop" className="border border-gray-200 hover:border-black text-black rounded-full px-8 py-3 text-[11px] font-bold uppercase tracking-widest transition-colors font-heading">
+              {t('startShopping')}
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

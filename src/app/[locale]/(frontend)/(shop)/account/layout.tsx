@@ -1,7 +1,5 @@
 import React from 'react'
-import { AccountSidebar } from '@/components/account/AccountSidebar'
-import { MobileSidebar } from '@/components/account/MobileSidebar'
-
+import { AccountTopNav } from '@/components/account/AccountTopNav'
 import { getPayloadUser } from '@/lib/auth/getPayloadUser'
 import { getPayload } from 'payload'
 import config from '@payload-config'
@@ -36,20 +34,14 @@ export default async function AccountLayout({ children }: { children: React.Reac
   }
 
   return (
-    <div className="bg-[#F8F9FA] min-h-screen selection:bg-black/10 flex flex-col lg:flex-row">
-      {/* Static Sidebar for Desktop */}
-      <div className="hidden lg:block w-[280px] shrink-0 z-40 bg-white lg:rounded-r-3xl border-r border-gray-100 shadow-sm">
-        <AccountSidebar userName={userName} purityPoints={purityPoints} affiliateStatus={affiliateStatus} />
-      </div>
+    <div className="bg-[#fbfcff] min-h-screen selection:bg-black/10 flex flex-col relative overflow-hidden">
       
-      {/* Mobile Sidebar */}
-      <MobileSidebar>
-        <AccountSidebar userName={userName} purityPoints={purityPoints} affiliateStatus={affiliateStatus} />
-      </MobileSidebar>
+      {/* Top Navigation (Replaces Sidebar) */}
+      <AccountTopNav userName={userName} purityPoints={purityPoints} affiliateStatus={affiliateStatus} />
 
-      {/* Main Content */}
-      <div className="flex-1 w-full min-w-0 px-4 py-8 md:p-10 lg:p-12">
-        <div className="max-w-[1200px] mx-auto">
+      {/* Main Content Area (Full Width) */}
+      <div className="flex-1 w-full min-w-0 px-4 py-8 md:py-12 lg:py-16 relative z-10">
+        <div className="max-w-[1400px] mx-auto">
           {children}
         </div>
       </div>

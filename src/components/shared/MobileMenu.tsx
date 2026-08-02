@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
 import {
   X, Search, Heart, User, LogIn,
@@ -46,12 +47,26 @@ export function MobileMenu({ isOpen, onClose, isLoggedIn = false, onSearchClick,
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
+      document.body.classList.add('mobile-menu-open')
+      
+      // Hide Tidio when menu opens
+      if (typeof window !== 'undefined' && (window as any).tidioChatApi) {
+        (window as any).tidioChatApi.hide()
+      }
+
       const handleEsc = (e: KeyboardEvent) => {
         if (e.key === 'Escape') onClose()
       }
       window.addEventListener('keydown', handleEsc)
       return () => {
         document.body.style.overflow = ''
+        document.body.classList.remove('mobile-menu-open')
+        
+        // Show Tidio when menu closes
+        if (typeof window !== 'undefined' && (window as any).tidioChatApi) {
+          (window as any).tidioChatApi.show()
+        }
+        
         window.removeEventListener('keydown', handleEsc)
       }
     }
@@ -86,7 +101,7 @@ export function MobileMenu({ isOpen, onClose, isLoggedIn = false, onSearchClick,
           animate="open"
           exit="exit"
           variants={menuVariants}
-          className="fixed inset-0 z-[100] bg-cream flex flex-col pointer-events-auto transform-gpu will-change-transform"
+          className="fixed inset-0 z-[100] bg-[#F2F2F7] flex flex-col pointer-events-auto transform-gpu will-change-transform"
         >
           {/* Performant static noise texture (0 GPU overhead) */}
           <div className="absolute inset-0 opacity-10 pointer-events-none z-0 bg-noise" />
@@ -111,66 +126,68 @@ export function MobileMenu({ isOpen, onClose, isLoggedIn = false, onSearchClick,
           {/* Scrollable Main Area */}
           <div className="flex-1 overflow-y-auto overflow-x-hidden relative z-10 pb-40">
             
-            <div className="px-6 py-8 sm:py-12 flex flex-col gap-10">
+            <div className="py-6 flex flex-col gap-8">
               
-              {/* Massive Main Links */}
-              <div className="flex flex-col gap-6 sm:gap-8">
-                {MAIN_LINKS.map((link) => (
-                  <motion.div key={link.key} variants={itemVariants}>
-                    <Link
-                      href={link.href}
-                      onClick={onClose}
-                      className="group flex items-center justify-between"
-                    >
-                      <h2 className="font-heading text-3xl sm:text-4xl font-black text-ink tracking-tight group-hover:text-primary transition-colors duration-300">
-                        {t(`links.${link.key}`)}
-                      </h2>
-                      <ArrowRight size={24} className="text-ink/20 group-hover:text-primary group-hover:translate-x-2 transition-all duration-300" strokeWidth={1.5} />
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="w-full h-px bg-black/5" />
-
-              {/* Categories Sleek List */}
-              <motion.div variants={itemVariants} className="flex flex-col">
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-6">{t('exploreCategories')}</h3>
-                <div className="flex flex-col gap-4">
-                  {categories.map((cat, index) => {
-                    const Icon = CATEGORY_ICONS[index % CATEGORY_ICONS.length]
-                    return (
-                      <Link
-                        key={cat.id}
-                        href={`/shop?category=${encodeURIComponent(cat.name)}`}
-                        onClick={onClose}
-                        className="group flex items-center gap-4 py-1"
-                      >
-                        <div className="w-10 h-10 rounded-full bg-white border border-black/5 flex items-center justify-center text-ink/50 group-hover:text-primary group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-300 shrink-0 shadow-sm">
-                          <Icon size={18} strokeWidth={1.5} />
-                        </div>
-                        <span className="text-[15px] font-semibold text-ink/80 group-hover:text-ink transition-colors">{getCategoryDisplayName(cat.name)}</span>
-                      </Link>
-                    )
-                  })}
-                </div>
-              </motion.div>
-
-              <div className="w-full h-px bg-black/5" />
-
-              {/* Support Links */}
-              <motion.div variants={itemVariants} className="flex flex-col">
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink/40 mb-6">{t('support')}</h3>
-                <div className="flex flex-col gap-4">
-                  {SUPPORT_LINKS.map((link) => (
+              {/* Massive Main Links - iOS Native Block Style */}
+              <motion.div variants={itemVariants} className="px-4 sm:px-6">
+                <div className="bg-white rounded-[24px] overflow-hidden flex flex-col shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+                  {MAIN_LINKS.map((link, index) => (
                     <Link
                       key={link.key}
                       href={link.href}
                       onClick={onClose}
-                      className="group flex items-center gap-4 py-1"
+                      className={`group flex items-center justify-between p-5 px-6 active:bg-black/5 transition-colors ${index !== MAIN_LINKS.length - 1 ? 'border-b border-black/5' : ''}`}
                     >
-                      <link.icon size={18} strokeWidth={1.5} className="text-ink/40 group-hover:text-primary transition-colors" />
-                      <span className="text-[15px] font-medium text-ink/60 group-hover:text-ink transition-colors">{t(`links.${link.key}`)}</span>
+                      <h2 className="text-[19px] font-semibold text-black tracking-tight group-hover:text-primary transition-colors">
+                        {t(`links.${link.key}`)}
+                      </h2>
+                      <ArrowRight size={20} className="text-black/20 group-hover:text-primary transition-all" strokeWidth={2} />
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Categories Horizontal Carousel */}
+              <motion.div variants={itemVariants} className="flex flex-col">
+                <h3 className="px-6 sm:px-8 text-[11px] font-bold uppercase tracking-[0.2em] text-black/40 mb-4">{t('exploreCategories')}</h3>
+                <div className="flex overflow-x-auto gap-3 sm:gap-4 pb-4 px-4 sm:px-6 no-scrollbar snap-x snap-mandatory">
+                  {categories.map((cat, index) => (
+                    <Link
+                      key={cat.id}
+                      href={`/shop?category=${encodeURIComponent(cat.name)}`}
+                      onClick={onClose}
+                      className="snap-center shrink-0 w-[240px] sm:w-[280px] aspect-[4/3] sm:aspect-video rounded-[20px] overflow-hidden relative group shadow-[0_4px_12px_rgba(0,0,0,0.05)] active:scale-95 transition-transform"
+                    >
+                      <Image 
+                        src={`/HelixBio Images/category-${(index % 8) + 1}.webp`} 
+                        alt={cat.name} 
+                        fill 
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/5" />
+                      <div className="absolute inset-0 p-4 sm:p-5 flex flex-col justify-end">
+                        <h4 className="text-white font-medium text-lg sm:text-xl tracking-tight leading-tight drop-shadow-md">{getCategoryDisplayName(cat.name)}</h4>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Support Links - iOS Native Block Style */}
+              <motion.div variants={itemVariants} className="px-4 sm:px-6">
+                <h3 className="px-2 text-[11px] font-bold uppercase tracking-[0.2em] text-black/40 mb-3">{t('support')}</h3>
+                <div className="bg-white rounded-[24px] overflow-hidden flex flex-col shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+                  {SUPPORT_LINKS.map((link, index) => (
+                    <Link
+                      key={link.key}
+                      href={link.href}
+                      onClick={onClose}
+                      className={`group flex items-center gap-4 p-4 px-6 active:bg-black/5 transition-colors ${index !== SUPPORT_LINKS.length - 1 ? 'border-b border-black/5' : ''}`}
+                    >
+                      <div className="w-8 h-8 rounded-full bg-black/5 flex items-center justify-center shrink-0">
+                        <link.icon size={16} strokeWidth={2} className="text-black/60 group-hover:text-primary transition-colors" />
+                      </div>
+                      <span className="text-[17px] font-medium text-black/80 group-hover:text-black transition-colors">{t(`links.${link.key}`)}</span>
                     </Link>
                   ))}
                 </div>

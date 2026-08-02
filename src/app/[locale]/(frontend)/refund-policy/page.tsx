@@ -91,7 +91,7 @@ export default function RefundPolicyPage() {
                 </h2>
                 <p>{t('section4Intro')}</p>
                 <ul className="list-disc pl-6 space-y-2 mt-4 marker:text-primary">
-                  <li>{t.rich('section4Item1', { email: (chunks) => <a href="mailto:support@99puritypeptides.com" className="hover:text-primary transition-colors break-all">{chunks}</a>, phone: (chunks) => <a href="tel:+18433307365" className="hover:text-primary transition-colors break-all">{chunks}</a> })}</li>
+                  <li>{t.rich('section4Item1', { email: (chunks) => <a href="mailto:support@helixbio.com" className="hover:text-primary transition-colors break-all">{chunks}</a>, phone: (chunks) => <a href="tel:+18433307365" className="hover:text-primary transition-colors break-all">{chunks}</a> })}</li>
                   <li>{t('section4Item2')}</li>
                   <li>{t('section4Item3')}</li>
                   <li>{t('section4Item4')}</li>
@@ -119,7 +119,7 @@ export default function RefundPolicyPage() {
                 </h2>
                 <p>{t('section6Intro')}</p>
                 <ul className="list-disc pl-6 space-y-2 mt-4 marker:text-primary">
-                  <li>{t('section6OrderQueriesLabel')} <a href="mailto:orders@99puritypeptides.com" className="hover:text-primary transition-colors break-all">orders@99puritypeptides.com</a></li>
+                  <li>{t('section6OrderQueriesLabel')} <a href="mailto:orders@helixbio.com" className="hover:text-primary transition-colors break-all">orders@helixbio.com</a></li>
                 </ul>
                 <p className="mt-4">
                   {t('section6Text')}
@@ -149,11 +149,11 @@ export default function RefundPolicyPage() {
                   <div className="flex flex-col gap-6">
                     <div>
                       <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink/40 block mb-2">{t('orderQueriesLabel')}</span>
-                      <a href="mailto:orders@99puritypeptides.com" className="text-base sm:text-lg md:text-xl font-medium hover:text-primary transition-colors break-all">orders@99puritypeptides.com</a>
+                      <a href="mailto:orders@helixbio.com" className="text-base sm:text-lg md:text-xl font-medium hover:text-primary transition-colors break-all">orders@helixbio.com</a>
                     </div>
                     <div>
                       <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink/40 block mb-2">{t('supportIssuesLabel')}</span>
-                      <a href="mailto:support@99puritypeptides.com" className="text-base sm:text-lg md:text-xl font-medium hover:text-primary transition-colors break-all">support@99puritypeptides.com</a>
+                      <a href="mailto:support@helixbio.com" className="text-base sm:text-lg md:text-xl font-medium hover:text-primary transition-colors break-all">support@helixbio.com</a>
                     </div>
                     <div>
                       <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink/40 block mb-2">{t('contactLabel')}</span>

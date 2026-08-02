@@ -61,6 +61,9 @@ export default buildConfig({
       beforeNavLinks: ['@/components/admin/NavBadges'],
     },
   },
+  routes: {
+    admin: '/the-upside-down',
+  },
   globals: [
     AffiliateSettings,
   ],
@@ -191,7 +194,7 @@ export default buildConfig({
       generateTitle: ({ doc }: any) => (doc?.title ? `${doc.title} | Helix Bio` : 'Helix Bio'),
       generateDescription: ({ doc }: any) => doc?.excerpt || doc?.seoDescription || '',
       generateURL: ({ doc }: any) => {
-        const base = process.env.NEXT_PUBLIC_SERVER_URL || 'https://99puritypeptides.com'
+        const base = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
         return `${base}/${doc?.slug || ''}`
       },
     }),

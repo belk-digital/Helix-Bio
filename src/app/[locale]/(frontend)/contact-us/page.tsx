@@ -52,7 +52,7 @@ export default async function ContactPage({
   const t = await getTranslations({ locale, namespace: 'content.contactPage' })
   const title = t('metaTitle')
   const description = t('metaDescription')
-  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://99puritypeptides.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
   const path = locale === 'en' ? `/${slug}` : `/${locale}/${slug}`
   const url = `${baseUrl}${path}`
 

@@ -6,8 +6,8 @@ import configPromise from '@payload-config'
 import { getShopProducts } from '../(shop)/actions'
 import { getOgImageUrl } from '@/lib/utils'
 
-const title = 'Shop High-Quality Synthetic Research Peptides | 99PurityPeptides'
-const description = 'Shop high-quality synthetic research peptides at 99PurityPeptides. Wide selection of lab-grade peptides crafted for research and analytical studies.'
+const title = 'Shop High-Quality Synthetic Research Peptides | HelixBioPeptides'
+const description = 'Shop high-quality synthetic research peptides at HelixBioPeptides. Wide selection of lab-grade peptides crafted for research and analytical studies.'
 
 export async function generateMetadata({
   params,
@@ -86,7 +86,7 @@ export default async function ShopPage() {
     )
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://99puritypeptides.com'
+  const siteUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
 
   return (
     <>

@@ -9,6 +9,7 @@ import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
+import { Container } from '@/components/ui/container'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { CheckoutPageSkeleton } from '@/components/ui/skeleton'
 import { COUNTRIES } from '@/lib/countries'
@@ -487,16 +488,22 @@ export function CheckoutClient() {
 
   return (
     <div className="pt-32 pb-16 md:pt-36 md:pb-24 bg-white min-h-screen">
-      <div className="w-[calc(100%-2rem)] md:w-[calc(100%-6rem)] mx-auto">
+      <Container size="wide">
 
-        <div className="flex items-end justify-between mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-ink font-heading">
-            {t('secureCheckout')}
-          </h1>
+        {/* Massive Header mirroring Cart */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 border-b border-gray-200 pb-12">
+          <div className="flex flex-col gap-2">
+            <h1 className="text-5xl md:text-7xl font-light text-black tracking-tight leading-none">
+              {t('secureCheckout')}
+            </h1>
+            <p className="text-gray-500 mt-2 max-w-lg text-sm md:text-base leading-relaxed font-light">
+              Provide your information securely below to complete your order.
+            </p>
+          </div>
         </div>
 
         {/* Mobile Summary Accordion */}
-        <div className="lg:hidden mb-8 bg-[#F5F5F7]/40 rounded-3xl p-1 shadow-sm border border-slate-100">
+        <div className="lg:hidden mb-8 bg-[#F5F5F7]/40 rounded-[24px] p-1 shadow-sm border border-slate-100">
           <button
             onClick={() => setMobileSummaryOpen(!mobileSummaryOpen)}
             className="w-full p-4 flex items-center justify-between text-ink"
@@ -549,7 +556,7 @@ export function CheckoutClient() {
                   {/* Promo Code */}
                   <div className="flex flex-col gap-3">
                     {appliedCoupon ? (
-                      <div className="flex items-center justify-between p-4 bg-green-50 border border-green-500/20 rounded-2xl">
+                      <div className="flex items-center justify-between p-4 bg-green-50 border border-green-500/20 rounded-[16px]">
                         <div className="flex items-center gap-3">
                           <Tag size={16} className="text-green-600" />
                           <div className="flex flex-col">
@@ -562,28 +569,31 @@ export function CheckoutClient() {
                         </button>
                       </div>
                     ) : (
-                      <form onSubmit={handleApplyCoupon} className="flex gap-2">
+                      <form onSubmit={handleApplyCoupon} className="relative w-full">
                         <Input
                           value={couponCode}
                           onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
                           placeholder={t('discountCodePlaceholder')}
-                          className="flex-1 h-12 rounded-2xl border-ink/10 bg-white focus-visible:ring-ink shadow-sm"
+                          className="w-full bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] rounded-[16px] h-12 px-6 pr-28 text-[11px] font-bold uppercase tracking-[0.1em] text-black font-heading placeholder:text-gray-400 transition-all shadow-none"
                         />
-                        <Button
+                        <button
                           type="submit"
-                          variant="dark"
                           disabled={!couponCode.trim() || isVerifyingCoupon}
-                          className="h-12 px-6 rounded-2xl text-xs uppercase tracking-widest disabled:opacity-100 disabled:bg-ink/5 disabled:text-ink/40 disabled:border-transparent transition-colors text-white"
+                          className={`absolute right-1 top-1 bottom-1 px-5 rounded-[12px] text-[10px] font-bold uppercase tracking-widest font-heading transition-all flex items-center justify-center min-w-[80px] ${
+                            (!couponCode.trim() || isVerifyingCoupon)
+                              ? 'bg-ink/5 text-ink/40 cursor-not-allowed'
+                              : 'bg-white shadow-sm border border-gray-100 text-black hover:border-gray-300'
+                          }`}
                         >
-                          {isVerifyingCoupon ? <Loader2 size={16} className="animate-spin text-ink/40" /> : t('apply')}
-                        </Button>
+                          {isVerifyingCoupon ? <Loader2 size={14} className="animate-spin text-ink/40" /> : t('apply')}
+                        </button>
                       </form>
                     )}
                   </div>
 
                   {/* Maxx Points */}
                   {availablePoints > 0 && (
-                    <div className={`flex flex-col gap-3 p-4 rounded-2xl border transition-all ${isRedeemingPoints ? 'bg-amber-50 border-amber-200/60 shadow-inner-sm' : 'bg-white border-ink/10 shadow-sm'}`}>
+                    <div className={`flex flex-col gap-3 p-4 rounded-[16px] border transition-all ${isRedeemingPoints ? 'bg-amber-50 border-amber-200/60 shadow-inner-sm' : 'bg-white border-ink/10 shadow-sm'}`}>
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
                           <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isRedeemingPoints ? 'bg-amber-100 text-amber-600' : 'bg-cream text-ink/40'}`}>
@@ -681,14 +691,14 @@ export function CheckoutClient() {
               
               {/* Contact */}
               <section className="flex flex-col gap-4">
-                <h2 className="text-xl font-heading font-bold text-ink mb-2">{t('contactInformation')}</h2>
+                <h2 className="text-2xl font-light tracking-tight text-black mb-2">{t('contactInformation')}</h2>
                 <Input
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder={t('emailAddress')}
                   type="email"
-                  className={`h-14 rounded-2xl bg-white shadow-sm focus-visible:ring-ink transition-colors ${attemptedSubmit && !formData.email ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`}
+                  className={`h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 transition-all shadow-none ${attemptedSubmit && !formData.email ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`}
                   required
                 />
                 <div className="flex items-start gap-3 mt-1 px-1">
@@ -707,12 +717,12 @@ export function CheckoutClient() {
 
               {/* Delivery */}
               <section className="flex flex-col gap-4">
-                <h2 className="text-xl font-heading font-bold text-ink mb-2">{t('deliveryAddress')}</h2>
+                <h2 className="text-2xl font-light tracking-tight text-black mb-2">{t('deliveryAddress')}</h2>
                 
                 {user && addresses.length > 0 && (
                   <div className="flex flex-col gap-3 mb-4">
                     {addresses.map((addr) => (
-                      <label key={addr.id} className={`flex items-start gap-4 p-5 rounded-2xl border transition-colors cursor-pointer shadow-sm ${selectedAddressId === String(addr.id) ? 'border-ink bg-ink/5' : 'border-slate-100 bg-white hover:border-ink/30'}`}>
+                      <label key={addr.id} className={`flex items-start gap-4 p-5 rounded-[16px] border transition-colors cursor-pointer shadow-sm ${selectedAddressId === String(addr.id) ? 'border-ink bg-ink/5' : 'border-slate-100 bg-white hover:border-ink/30'}`}>
                         <input 
                           type="radio" 
                           name="addressSelection" 
@@ -752,7 +762,7 @@ export function CheckoutClient() {
                       </label>
                     ))}
 
-                    <label className={`flex items-center gap-4 p-5 rounded-2xl border transition-colors cursor-pointer shadow-sm ${selectedAddressId === 'new' ? 'border-ink bg-ink/5' : 'border-slate-100 bg-white hover:border-ink/30'}`}>
+                    <label className={`flex items-center gap-4 p-5 rounded-[16px] border transition-colors cursor-pointer shadow-sm ${selectedAddressId === 'new' ? 'border-ink bg-ink/5' : 'border-slate-100 bg-white hover:border-ink/30'}`}>
                       <input 
                         type="radio" 
                         name="addressSelection" 
@@ -774,33 +784,33 @@ export function CheckoutClient() {
                 {(!user || selectedAddressId === 'new') && (
                   <div className="flex flex-col gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
                     <div className="grid grid-cols-2 gap-4">
-                      <Input name="firstName" value={formData.firstName} onChange={handleInputChange} placeholder={t('firstName')} className={`h-14 rounded-2xl bg-white shadow-sm focus-visible:ring-ink transition-colors ${attemptedSubmit && selectedAddressId === 'new' && !formData.firstName ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
-                      <Input name="lastName" value={formData.lastName} onChange={handleInputChange} placeholder={t('lastName')} className={`h-14 rounded-2xl bg-white shadow-sm focus-visible:ring-ink transition-colors ${attemptedSubmit && selectedAddressId === 'new' && !formData.lastName ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
+                      <Input name="firstName" value={formData.firstName} onChange={handleInputChange} placeholder={t('firstName')} className={`h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 transition-all shadow-none ${attemptedSubmit && selectedAddressId === 'new' && !formData.firstName ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
+                      <Input name="lastName" value={formData.lastName} onChange={handleInputChange} placeholder={t('lastName')} className={`h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 transition-all shadow-none ${attemptedSubmit && selectedAddressId === 'new' && !formData.lastName ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
                     </div>
-                    <Input name="address" value={formData.address} onChange={handleInputChange} placeholder={t('address')} className={`h-14 rounded-2xl bg-white shadow-sm focus-visible:ring-ink transition-colors ${attemptedSubmit && selectedAddressId === 'new' && !formData.address ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
-                    <Input name="apartment" value={formData.apartment} onChange={handleInputChange} placeholder={t('apartmentOptional')} className="h-14 rounded-2xl border-slate-100 bg-white shadow-sm focus-visible:ring-ink" />
+                    <Input name="address" value={formData.address} onChange={handleInputChange} placeholder={t('address')} className={`h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 transition-all shadow-none ${attemptedSubmit && selectedAddressId === 'new' && !formData.address ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
+                    <Input name="apartment" value={formData.apartment} onChange={handleInputChange} placeholder={t('apartmentOptional')} className="h-14 rounded-[16px] border-slate-100 bg-white shadow-sm focus-visible:ring-ink" />
                     <div className="grid grid-cols-6 gap-4">
                       <div className="col-span-3 sm:col-span-2">
-                        <Input name="city" value={formData.city} onChange={handleInputChange} placeholder={t('city')} className={`h-14 rounded-2xl bg-white shadow-sm focus-visible:ring-ink transition-colors ${attemptedSubmit && selectedAddressId === 'new' && !formData.city ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
+                        <Input name="city" value={formData.city} onChange={handleInputChange} placeholder={t('city')} className={`h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 transition-all shadow-none ${attemptedSubmit && selectedAddressId === 'new' && !formData.city ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
                       </div>
                       <div className="col-span-3 sm:col-span-2">
-                        <Input name="state" value={formData.state} onChange={handleInputChange} placeholder={t('state')} className={`h-14 rounded-2xl bg-white shadow-sm focus-visible:ring-ink transition-colors ${attemptedSubmit && selectedAddressId === 'new' && !formData.state ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
+                        <Input name="state" value={formData.state} onChange={handleInputChange} placeholder={t('state')} className={`h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 transition-all shadow-none ${attemptedSubmit && selectedAddressId === 'new' && !formData.state ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
                       </div>
                       <div className="col-span-6 sm:col-span-2">
-                        <Input name="zip" value={formData.zip} onChange={handleInputChange} placeholder={t('zipCode')} className={`h-14 rounded-2xl bg-white shadow-sm focus-visible:ring-ink transition-colors ${attemptedSubmit && selectedAddressId === 'new' && !formData.zip ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
+                        <Input name="zip" value={formData.zip} onChange={handleInputChange} placeholder={t('zipCode')} className={`h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 transition-all shadow-none ${attemptedSubmit && selectedAddressId === 'new' && !formData.zip ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
                       </div>
                     </div>
                     <Select
                       value={formData.country}
                       onValueChange={(value) => setFormData(prev => ({ ...prev, country: value }))}
                     >
-                      <SelectTrigger className="h-14 rounded-2xl bg-white shadow-sm border-slate-100 focus:ring-ink w-full data-[state=open]:ring-1 data-[state=open]:ring-ink/10 transition-shadow">
+                      <SelectTrigger className="h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 w-full transition-all shadow-none">
                         <SelectValue placeholder={t('country')} />
                       </SelectTrigger>
                       <SelectContent
                         position="popper"
                         sideOffset={8}
-                        className="max-h-72 rounded-2xl border-slate-100 bg-white p-2 shadow-xl shadow-black/[0.06]"
+                        className="max-h-72 rounded-[16px] border-slate-100 bg-white p-2 shadow-xl shadow-black/[0.06]"
                       >
                         {COUNTRIES.map((c) => (
                           <SelectItem
@@ -821,15 +831,15 @@ export function CheckoutClient() {
 
                 {/* Phone is always shown and required, even when a saved address is selected —
                     older addresses saved before this field existed may not have one on file. */}
-                <Input name="phone" value={formData.phone} onChange={handleInputChange} placeholder={t('phoneForDelivery')} type="tel" className={`h-14 rounded-2xl bg-white shadow-sm focus-visible:ring-ink transition-colors ${attemptedSubmit && !formData.phone ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required />
+                <Input name="phone" value={formData.phone} onChange={handleInputChange} placeholder={t('phoneForDelivery')} type="tel" className={`h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 transition-all shadow-none ${attemptedSubmit && !formData.phone ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required />
               </section>
 
               {/* Shipping Method */}
               <section className="flex flex-col gap-4">
-                <h2 className="text-xl font-heading font-bold text-ink mb-2">{t('shippingMethod')}</h2>
+                <h2 className="text-2xl font-light tracking-tight text-black mb-2">{t('shippingMethod')}</h2>
                 <div className="flex flex-col gap-3">
                   {visibleShippingMethods.map((method: any) => (
-                    <label key={method.method} className={`flex items-center justify-between p-5 rounded-2xl border transition-colors cursor-pointer shadow-sm ${shippingMethod === method.method ? 'border-ink bg-ink/5' : 'border-slate-100 bg-white hover:border-ink/30'}`}>
+                    <label key={method.method} className={`flex items-center justify-between p-5 rounded-[16px] border transition-colors cursor-pointer shadow-sm ${shippingMethod === method.method ? 'border-ink bg-ink/5' : 'border-slate-100 bg-white hover:border-ink/30'}`}>
                       <div className="flex items-center gap-4">
                         <input
                           type="radio"
@@ -861,16 +871,16 @@ export function CheckoutClient() {
 
               {/* Payment */}
               <section className="flex flex-col gap-4">
-                <h2 className="text-xl font-heading font-bold text-ink mb-2">{t('payment')}</h2>
+                <h2 className="text-2xl font-light tracking-tight text-black mb-2">{t('payment')}</h2>
                 <p className="text-xs font-medium text-ink/50 mb-2 flex items-center gap-1.5"><Lock size={12} /> {t('encryptionNotice')}</p>
 
                 {total <= 0 ? (
-                  <div className="w-full h-56 bg-green-50 border border-green-500/20 rounded-3xl flex flex-col items-center justify-center gap-4 shadow-sm relative overflow-hidden p-6 text-center">
+                  <div className="w-full h-56 bg-green-50 border border-green-500/20 rounded-[24px] flex flex-col items-center justify-center gap-4 shadow-sm relative overflow-hidden p-6 text-center">
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
                        <Check size={24} />
                     </div>
                     <span className="text-sm font-bold text-green-800">{t('orderFullyCovered')}</span>
-                    <Button onClick={handleZeroTotalCheckout} disabled={isProcessing} variant="dark" size="lg" className="w-full h-14 rounded-full !text-white">
+                    <Button onClick={handleZeroTotalCheckout} disabled={isProcessing} size="lg" className="w-full h-14 rounded-[16px] bg-primary font-extrabold text-[11px] tracking-widest uppercase text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
                       {isProcessing ? <Loader2 className="animate-spin" /> : t('completeFreeOrder')}
                     </Button>
                   </div>
@@ -891,7 +901,7 @@ export function CheckoutClient() {
                   <div className="flex flex-col gap-4">
                     <div className="flex flex-col gap-3">
                       {ENABLE_CIRCOFLOWS && (
-                        <label className={`flex items-center justify-between p-5 rounded-2xl border transition-colors cursor-pointer shadow-sm ${
+                        <label className={`flex items-center justify-between p-5 rounded-[16px] border transition-colors cursor-pointer shadow-sm ${
                           selectedPaymentMethod === 'circoflows' ? 'border-ink bg-ink/5' : 'border-slate-100 bg-white hover:border-ink/30'
                         }`}>
                           <div className="flex items-center gap-4">
@@ -910,7 +920,7 @@ export function CheckoutClient() {
                           </div>
                         </label>
                       )}
-                      <label className={`flex items-center justify-between p-5 rounded-2xl border transition-colors cursor-pointer shadow-sm ${
+                      <label className={`flex items-center justify-between p-5 rounded-[16px] border transition-colors cursor-pointer shadow-sm ${
                         selectedPaymentMethod === 'zelle' ? 'border-ink bg-ink/5' : 'border-slate-100 bg-white hover:border-ink/30'
                       }`}>
                         <div className="flex items-center gap-4">
@@ -929,7 +939,7 @@ export function CheckoutClient() {
                         </div>
                       </label>
 
-                      <label className={`flex items-center justify-between p-5 rounded-2xl border transition-colors cursor-pointer shadow-sm ${
+                      <label className={`flex items-center justify-between p-5 rounded-[16px] border transition-colors cursor-pointer shadow-sm ${
                         selectedPaymentMethod === 'amex' ? 'border-ink bg-ink/5' : 'border-slate-100 bg-white hover:border-ink/30'
                       }`}>
                         <div className="flex items-center gap-4">
@@ -949,11 +959,11 @@ export function CheckoutClient() {
                       </label>
                     </div>
 
-                    <div className="w-full p-6 sm:p-8 bg-white border border-ink/10 rounded-3xl shadow-sm flex flex-col items-center gap-6 text-center mt-2">
+                    <div className="w-full p-6 sm:p-8 bg-white border border-ink/10 rounded-[24px] shadow-sm flex flex-col items-center gap-6 text-center mt-2">
                       <Button onClick={
                         selectedPaymentMethod === 'circoflows' ? handleCircoFlowsPlaceOrder :
                         selectedPaymentMethod === 'zelle' ? handleZellePlaceOrder : handleAmexPlaceOrder
-                      } disabled={isProcessing} variant="dark" size="lg" className="w-full h-14 rounded-full !text-white">
+                      } disabled={isProcessing} size="lg" className="w-full h-14 rounded-[16px] bg-primary font-extrabold text-[11px] tracking-widest uppercase text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all group">
                         {isProcessing ? <Loader2 className="animate-spin" /> : t('placeOrder')}
                       </Button>
                     </div>
@@ -966,9 +976,9 @@ export function CheckoutClient() {
 
           {/* Right Column: Order Summary (Desktop) */}
           <div className="hidden lg:block relative">
-            <div className="bg-[#F5F5F7]/40 p-8 md:p-10 rounded-[2rem] border border-slate-100 flex flex-col gap-8">
+            <div className="sticky top-32 bg-white rounded-[24px] p-8 border border-gray-100 shadow-xl shadow-black/[0.03] flex flex-col gap-8">
               
-              <h2 className="text-2xl font-bold text-ink font-heading">
+              <h2 className="text-3xl font-light text-black tracking-tight">
                 {t('orderSummary')}
               </h2>
               
@@ -977,7 +987,7 @@ export function CheckoutClient() {
                 {items.map((item) => (
                   <div key={item.lineId} className="flex gap-4 group">
                     <div className="relative w-20 h-20 shrink-0 transition-transform group-hover:scale-105">
-                      <div className="w-full h-full bg-cream border border-ink/5 rounded-2xl overflow-hidden relative">
+                      <div className="w-full h-full bg-cream border border-ink/5 rounded-[16px] overflow-hidden relative">
                         <Image src={item.product?.imageUrl || '/placeholder.png'} alt={item.product?.name || 'Product'} fill className="object-cover" />
                       </div>
                       <div className="absolute -top-2 -right-2 w-auto min-w-[24px] h-6 px-1 bg-ink text-cream rounded-full flex items-center justify-center text-[11px] font-bold z-10 shadow-sm border-2 border-white">
@@ -1000,7 +1010,7 @@ export function CheckoutClient() {
               {/* Promo Code */}
               <div className="flex flex-col gap-3">
                 {appliedCoupon ? (
-                  <div className="flex items-center justify-between p-4 bg-green-50 border border-green-500/20 rounded-2xl">
+                  <div className="flex items-center justify-between p-4 bg-green-50 border border-green-500/20 rounded-[16px]">
                     <div className="flex items-center gap-3">
                       <Tag size={16} className="text-green-600" />
                       <div className="flex flex-col">
@@ -1013,28 +1023,31 @@ export function CheckoutClient() {
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleApplyCoupon} className="flex gap-2">
+                  <form onSubmit={handleApplyCoupon} className="relative w-full">
                     <Input
                       value={couponCode}
                       onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
                       placeholder={t('discountCodePlaceholder')}
-                      className="flex-1 h-12 rounded-2xl border-ink/10 bg-cream/50 focus-visible:ring-ink shadow-inner-sm"
+                      className="w-full bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] rounded-[16px] h-12 px-6 pr-28 text-[11px] font-bold uppercase tracking-[0.1em] text-black font-heading placeholder:text-gray-400 transition-all shadow-none"
                     />
-                    <Button
+                    <button
                       type="submit"
-                      variant="dark"
                       disabled={!couponCode.trim() || isVerifyingCoupon}
-                      className="h-12 px-6 rounded-2xl text-xs uppercase tracking-widest disabled:opacity-100 disabled:bg-ink/5 disabled:text-ink/40 disabled:border-transparent transition-colors text-white"
+                      className={`absolute right-1 top-1 bottom-1 px-5 rounded-[12px] text-[10px] font-bold uppercase tracking-widest font-heading transition-all flex items-center justify-center min-w-[80px] ${
+                        (!couponCode.trim() || isVerifyingCoupon)
+                          ? 'bg-ink/5 text-ink/40 cursor-not-allowed'
+                          : 'bg-white shadow-sm border border-gray-100 text-black hover:border-gray-300'
+                      }`}
                     >
-                      {isVerifyingCoupon ? <Loader2 size={16} className="animate-spin text-ink/40" /> : t('apply')}
-                    </Button>
+                      {isVerifyingCoupon ? <Loader2 size={14} className="animate-spin text-ink/40" /> : t('apply')}
+                    </button>
                   </form>
                 )}
               </div>
 
               {/* Maxx Points */}
               {availablePoints > 0 && (
-                <div className={`flex flex-col gap-3 p-5 rounded-2xl border transition-all ${isRedeemingPoints ? 'bg-amber-50 border-amber-200/60 shadow-inner-sm' : 'bg-white border-ink/10 shadow-sm'}`}>
+                <div className={`flex flex-col gap-3 p-5 rounded-[16px] border transition-all ${isRedeemingPoints ? 'bg-amber-50 border-amber-200/60 shadow-inner-sm' : 'bg-white border-ink/10 shadow-sm'}`}>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isRedeemingPoints ? 'bg-amber-100 text-amber-600' : 'bg-cream text-ink/40'}`}>
@@ -1118,7 +1131,7 @@ export function CheckoutClient() {
           </div>
 
         </div>
-      </div>
+      </Container>
     </div>
   )
 }

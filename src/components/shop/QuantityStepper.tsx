@@ -41,9 +41,9 @@ export function QuantityStepper({
 
   return (
     <div className={cn(
-      "inline-flex items-center justify-between border rounded-full shadow-sm transition-all px-1", 
+      "inline-flex items-center justify-between border rounded-xl shadow-sm transition-all px-1", 
       theme === 'dark' ? "border-white/20 bg-white/5 hover:border-white/40" : "border-ink/10 bg-white hover:border-ink/20",
-      isResponsive ? "h-8 md:h-12 w-[84px] md:w-[120px]" : isSm ? "h-8 w-[84px]" : "h-12 w-[120px]",
+      isResponsive ? "h-8 md:h-10 w-[84px] md:w-[104px]" : isSm ? "h-8 w-[84px]" : "h-10 w-[104px]",
       className
     )}>
       <button 

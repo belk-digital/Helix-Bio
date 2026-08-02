@@ -53,7 +53,7 @@ export function DashboardClient({ userName = 'Partner', tier = 'standard', stats
 
   // Formatting helpers
   const formatMoney = (dollars: number) => `$${dollars.toFixed(2)}`
-  const [baseUrl, setBaseUrl] = useState('https://99puritypeptides.com')
+  const [baseUrl, setBaseUrl] = useState('https://helixbio.com')
   
   React.useEffect(() => {
     setBaseUrl(window.location.origin)
@@ -80,115 +80,75 @@ export function DashboardClient({ userName = 'Partner', tier = 'standard', stats
       variants={containerVars}
       initial="hidden"
       animate="show"
-      className="flex flex-col gap-8"
+      className="flex flex-col gap-12"
     >
-
-      {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center bg-white text-[#1e5661] text-xl font-bold shrink-0 font-heading">
-            99
-          </div>
-          <div className="flex flex-col">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 font-heading">{t('overviewEyebrow')}</span>
-            <h1 className="text-3xl lg:text-[40px] font-bold text-[#1e5661] tracking-tighter leading-none mt-1 mb-1 font-heading uppercase">
-              {userName}
-            </h1>
-            <span className="text-[11px] text-gray-500 mt-0.5 capitalize">{tier} {t('tierSuffix')}</span>
-          </div>
-        </div>
-      </div>
-
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
-        <motion.div variants={itemVars} className="group relative bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-500 overflow-hidden">
-          <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 group-hover:scale-110 transition-all duration-500 text-[#2b646c]">
-            <MousePointerClick size={64} />
-          </div>
-          <div className="relative z-10 flex flex-col h-full justify-between">
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 font-heading">{t('totalClicks')}</span>
-            <span className="text-5xl text-black leading-none font-bold tracking-tighter font-heading">{stats.totalClicks}</span>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 pb-12 border-b border-gray-100">
+        <motion.div variants={itemVars} className="flex flex-col justify-between">
+          <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400 mb-6">{t('totalClicks')}</span>
+          <span className="text-6xl text-black leading-none font-light tracking-tight">{stats.totalClicks}</span>
+        </motion.div>
+
+        <motion.div variants={itemVars} className="flex flex-col justify-between">
+          <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400 mb-6">{t('conversions')}</span>
+          <div className="flex items-end gap-4">
+            <span className="text-6xl text-black leading-none font-light tracking-tight">{stats.totalConversions}</span>
+            <span className="text-sm font-bold text-[#1e5661] bg-[#1e5661]/10 px-3 py-1.5 rounded-full mb-1">{stats.conversionRate}</span>
           </div>
         </motion.div>
 
-        <motion.div variants={itemVars} className="group relative bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-500 overflow-hidden">
-          <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 group-hover:scale-110 transition-all duration-500 text-emerald-500">
-            <Target size={64} />
-          </div>
-          <div className="relative z-10 flex flex-col h-full justify-between">
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 font-heading">{t('conversions')}</span>
-            <div className="flex items-end gap-3">
-              <span className="text-5xl text-black leading-none font-bold tracking-tighter font-heading">{stats.totalConversions}</span>
-              <span className="text-sm font-bold text-emerald-500 bg-emerald-50 px-2 py-1 rounded-md mb-1">{stats.conversionRate}</span>
-            </div>
-          </div>
+        <motion.div variants={itemVars} className="flex flex-col justify-between">
+          <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400 mb-6">{t('pendingCommission')}</span>
+          <span className="text-6xl text-black leading-none font-light tracking-tight">{formatMoney(stats.totalCommissionPending)}</span>
         </motion.div>
 
-        <motion.div variants={itemVars} className="group relative bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-500 overflow-hidden">
-          <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 group-hover:scale-110 transition-all duration-500 text-amber-500">
-            <DollarSign size={64} />
-          </div>
-          <div className="relative z-10 flex flex-col h-full justify-between">
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 font-heading">{t('pendingCommission')}</span>
-            <span className="text-5xl text-black leading-none font-bold tracking-tighter font-heading">{formatMoney(stats.totalCommissionPending)}</span>
-          </div>
-        </motion.div>
-
-        <motion.div variants={itemVars} className="group relative bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-500 overflow-hidden">
-          <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 group-hover:scale-110 transition-all duration-500 text-purple-500">
-            <Wallet size={64} />
-          </div>
-          <div className="relative z-10 flex flex-col h-full justify-between">
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-4 font-heading">{t('totalPaidOut')}</span>
-            <span className="text-5xl text-black leading-none font-bold tracking-tighter font-heading">{formatMoney(stats.totalCommissionPaid)}</span>
-          </div>
+        <motion.div variants={itemVars} className="flex flex-col justify-between">
+          <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400 mb-6">{t('totalPaidOut')}</span>
+          <span className="text-6xl text-black leading-none font-light tracking-tight">{formatMoney(stats.totalCommissionPaid)}</span>
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 xl:grid-cols-[1fr_340px] gap-12 items-start">
+      <div className="grid grid-cols-1 xl:grid-cols-[1fr_380px] gap-16 items-start">
         
-        {/* Left Column: Recent Conversions */}
-        <motion.div variants={itemVars} className="flex flex-col gap-6">
-          <div className="flex items-center justify-between border-b border-gray-200 pb-4">
-            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-black">{t('recentConversions')}</h3>
-            <Link href="/affiliates/dashboard/conversions" className="text-[10px] font-bold uppercase tracking-[0.1em] text-[#008B8B] hover:text-blue-700 transition-colors bg-blue-50 px-3 py-1.5 rounded-full hover:bg-blue-100">
-              {t('viewAll')}
+        {/* Left Column: Recent Conversions (Ledger Style) */}
+        <motion.div variants={itemVars} className="flex flex-col">
+          <div className="flex items-end justify-between border-b-2 border-black pb-4 mb-6">
+            <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-black">{t('recentConversions')}</h3>
+            <Link href="/affiliates/dashboard/conversions" className="text-[10px] font-medium uppercase tracking-[0.1em] text-gray-500 hover:text-black transition-colors">
+              {t('viewAll')} →
             </Link>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col">
             {recentConversions.length === 0 ? (
-              <div className="bg-white p-8 rounded-3xl border border-dashed border-gray-200 flex flex-col items-center justify-center text-center gap-4 text-gray-500">
-                <Target size={32} className="text-gray-300" />
-                <p className="text-sm">{t('noConversionsYet')}</p>
-                <p className="text-xs text-gray-400">{t('shareLinkToEarn')}</p>
+              <div className="py-16 flex flex-col items-center justify-center text-center gap-4 text-gray-400">
+                <Target size={32} className="opacity-20" />
+                <p className="text-sm font-medium">{t('noConversionsYet')}</p>
+                <p className="text-xs">{t('shareLinkToEarn')}</p>
               </div>
             ) : (
               recentConversions.map((conv, i) => (
                 <motion.div 
                   key={conv.id} 
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 + 0.3 }}
-                  className="group flex flex-col sm:flex-row sm:items-center justify-between p-6 bg-white border border-gray-100 rounded-3xl shadow-sm hover:shadow-lg hover:shadow-black/5 hover:border-gray-200 transition-all duration-300 gap-4 cursor-pointer relative overflow-hidden"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.05 + 0.3 }}
+                  className="group flex flex-col sm:flex-row sm:items-center justify-between py-6 border-b border-gray-100 hover:bg-gray-50 transition-colors px-2 -mx-2 rounded-lg cursor-pointer"
                 >
-                  {/* Highlight bar on hover */}
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300" />
-                  
-                  <div className="flex flex-col gap-2 pl-2">
-                    <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-black">{t('orderNumber', { id: conv.id.substring(0, 8) })}</span>
-                    <span className="text-xs font-medium text-gray-500">{conv.date}</span>
+                  <div className="flex flex-col gap-2">
+                    <span className="text-[11px] font-medium uppercase tracking-widest text-black">{t('orderNumber', { id: conv.id.substring(0, 8) })}</span>
+                    <span className="text-xs font-light text-gray-500">{conv.date}</span>
                   </div>
                   
-                  <div className="flex flex-col sm:items-end gap-2">
-                    <span className="text-sm text-emerald-600 font-bold">+{formatMoney(conv.amount)}</span>
-                    <div className="flex items-center gap-2 bg-gray-50 px-2.5 py-1 rounded-full">
+                  <div className="flex flex-col sm:items-end gap-2 mt-4 sm:mt-0">
+                    <span className="text-base text-black font-light">+{formatMoney(conv.amount)}</span>
+                    <div className="flex items-center gap-2">
                       <span className={`w-1.5 h-1.5 rounded-full ${
-                        conv.status === 'pending' ? 'bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]' : 
-                        conv.status === 'approved' ? 'bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]' : 
-                        'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]'
+                        conv.status === 'pending' ? 'bg-amber-400' : 
+                        conv.status === 'approved' ? 'bg-blue-500' : 
+                        'bg-[#1e5661]'
                       }`} />
-                      <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-gray-600">{statusLabel(conv.status)}</span>
+                      <span className="text-[10px] font-medium uppercase tracking-[0.1em] text-gray-500">{statusLabel(conv.status)}</span>
                     </div>
                   </div>
                 </motion.div>
@@ -197,45 +157,44 @@ export function DashboardClient({ userName = 'Partner', tier = 'standard', stats
           </div>
         </motion.div>
 
-        {/* Right Column: Share Tools */}
-        <motion.div variants={itemVars} className="flex flex-col gap-6">
-          <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-black border-b border-gray-200 pb-4">{t('shareTools')}</h3>
+        {/* Right Column: Share Tools (Clean minimal cards) */}
+        <motion.div variants={itemVars} className="flex flex-col bg-gray-50 rounded-3xl p-8 lg:p-10 border border-gray-100">
+          <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-black border-b border-gray-200 pb-4 mb-8">{t('shareTools')}</h3>
 
           {/* Referral Link */}
-          <div className="flex flex-col gap-3">
-            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-500">{t('yourReferralLink')}</span>
-            <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex flex-col gap-3">
-              <div className="bg-gray-50 rounded-xl px-4 py-3 text-sm font-mono text-gray-700 break-all border border-gray-200/50">
+          <div className="flex flex-col gap-4">
+            <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">{t('yourReferralLink')}</span>
+            <div className="flex flex-col gap-3">
+              <div className="bg-white rounded-xl px-4 py-4 text-sm font-mono text-gray-800 break-all border border-gray-200 selection:bg-black/10">
                 {referralUrl}
               </div>
               <div className="flex gap-2">
                 <Button
                   onClick={() => handleCopy(referralUrl, 'link')}
                   variant="outline"
-                  className="flex-1 rounded-xl h-10 text-xs font-bold uppercase tracking-widest gap-2 bg-white"
+                  className="flex-1 rounded-xl h-12 text-[10px] font-medium uppercase tracking-[0.2em] gap-2 bg-white hover:bg-gray-50 border-gray-200 text-black shadow-sm"
                 >
-                  {copiedLink ? <Check size={14} className="text-green-500" /> : <Copy size={14} />}
+                  {copiedLink ? <Check size={14} className="text-[#1e5661]" /> : <Copy size={14} />}
                   {copiedLink ? t('copied') : t('copy')}
                 </Button>
-                <a href={referralUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-10 h-10 rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-200 text-gray-500 transition-colors">
+                <a href={referralUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 rounded-xl bg-white hover:bg-gray-50 border border-gray-200 text-black transition-colors shadow-sm">
                   <ExternalLink size={16} />
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Coupon Code */}
           {stats.couponCode && (
-            <div className="flex flex-col gap-3 mt-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-500">{t('yourCouponCode')}</span>
-              <div className="bg-gradient-to-br from-[#f8faff] to-[#eef4ff] p-4 rounded-2xl border border-blue-100 shadow-sm flex flex-col gap-3 relative overflow-hidden">
-                <div className="absolute -right-4 -top-4 w-24 h-24 bg-blue-500/5 rounded-full blur-xl" />
-                <div className="bg-white rounded-xl px-4 py-3 text-lg font-mono font-bold text-[#008B8B] text-center border border-blue-100/50 relative z-10">
+            <div className="flex flex-col gap-4 mt-10 pt-10 border-t border-gray-200/50">
+              <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">{t('yourCouponCode')}</span>
+              <div className="bg-[#1e5661] p-6 rounded-2xl flex flex-col gap-4 relative overflow-hidden shadow-xl">
+                <div className="absolute -right-4 -top-4 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
+                <div className="text-2xl font-mono font-bold text-white text-center relative z-10 tracking-widest py-2">
                   {stats.couponCode}
                 </div>
                 <Button
                   onClick={() => handleCopy(stats.couponCode, 'code')}
-                  className="w-full rounded-xl h-10 text-xs font-bold uppercase tracking-widest gap-2 bg-[#008B8B] hover:bg-blue-600 text-white border-none shadow-md"
+                  className="w-full rounded-xl h-12 text-[10px] font-medium uppercase tracking-[0.2em] gap-2 bg-white hover:bg-gray-50 text-[#1e5661] border-none shadow-sm"
                 >
                   {copiedCode ? <Check size={14} /> : <Copy size={14} />}
                   {copiedCode ? t('copied') : t('copyCode')}
@@ -243,7 +202,6 @@ export function DashboardClient({ userName = 'Partner', tier = 'standard', stats
               </div>
             </div>
           )}
-
         </motion.div>
       </div>
     </motion.div>

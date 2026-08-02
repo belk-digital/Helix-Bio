@@ -19,7 +19,7 @@ export function ContactClient() {
         <>
           {t.rich('faqs.contactInfo.answer', {
             phone: (chunks) => <a href="tel:+18433307365" className="text-primary font-bold underline underline-offset-4 hover:text-ink transition-colors !cursor-pointer pointer-events-auto" data-hide-cursor="true">{chunks}</a>,
-            email: (chunks) => <a href="mailto:support@99puritypeptides.com" className="text-primary font-bold underline underline-offset-4 hover:text-ink transition-colors !cursor-pointer pointer-events-auto" data-hide-cursor="true">{chunks}</a>,
+            email: (chunks) => <a href="mailto:support@helixbio.com" className="text-primary font-bold underline underline-offset-4 hover:text-ink transition-colors !cursor-pointer pointer-events-auto" data-hide-cursor="true">{chunks}</a>,
           })}
         </>
       )
@@ -50,7 +50,7 @@ export function ContactClient() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 mb-24 relative">
           
           <motion.a 
-            href="mailto:Support@99puritypeptides.com"
+            href="mailto:Support@helixbio.com"
             className="block w-full h-full cursor-pointer hover:-translate-y-2 transition-transform duration-500 ease-out"
           >
             <PinterestGlassCard
@@ -64,7 +64,7 @@ export function ContactClient() {
           </motion.a>
 
           <motion.a 
-            href="mailto:Orders@99puritypeptides.com"
+            href="mailto:Orders@helixbio.com"
             className="block w-full h-full cursor-pointer hover:-translate-y-2 transition-transform duration-500 ease-out"
           >
             <PinterestGlassCard

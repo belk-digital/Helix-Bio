@@ -81,7 +81,7 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
           "name": "Where can I buy research-grade collagen peptides?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Research-grade collagen peptides with verified purity, documented molecular weight profiles, and Certificate of Analysis are available at 99PurityPeptides.com. All products are intended for research use and comply with research-use labeling standards."
+            "text": "Research-grade collagen peptides with verified purity, documented molecular weight profiles, and Certificate of Analysis are available at HelixBioPeptides.com. All products are intended for research use and comply with research-use labeling standards."
           }
         }
       ]
@@ -91,38 +91,38 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
       "@type": "Article",
       "headline": "Collagen Peptides Benefits: The Complete Science-Backed Guide for 2025",
       "description": "A comprehensive, research-backed guide to collagen peptides benefits covering skin health, joint mobility, bone density, muscle recovery, and weight management — with clinical citations and research-grade sourcing from Helix Bio.",
-      "url": "https://99puritypeptides.com/collagen-peptides-benefits",
+      "url": "https://helixbio.com/collagen-peptides-benefits",
       "datePublished": "2025-05-01",
       "dateModified": "2025-05-16",
       "author": {
         "@type": "Organization",
         "name": "Helix Bio Research Editorial Team",
-        "url": "https://99puritypeptides.com"
+        "url": "https://helixbio.com"
       },
       "publisher": {
         "@type": "Organization",
         "name": "Helix Bio",
-        "url": "https://99puritypeptides.com",
+        "url": "https://helixbio.com",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://99puritypeptides.com/logo.png"
+          "url": "https://helixbio.com/logo.png"
         }
       },
-      "image": "https://99puritypeptides.com/images/collagen-peptides-benefits-infographic.webp",
+      "image": "https://helixbio.com/images/collagen-peptides-benefits-infographic.webp",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://99puritypeptides.com/collagen-peptides-benefits"
+        "@id": "https://helixbio.com/collagen-peptides-benefits"
       }
     },
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Helix Bio",
-      "url": "https://99puritypeptides.com",
+      "url": "https://helixbio.com",
       "description": "U.S.-based supplier of research-grade peptides including collagen peptides, BPC-157, ipamorelin, and copper peptides with verified purity and Certificate of Analysis documentation.",
       "sameAs": [
-        "https://twitter.com/99puritypeptides",
-        "https://www.facebook.com/99puritypeptides"
+        "https://twitter.com/helixbio",
+        "https://www.facebook.com/helixbio"
       ]
     },
     {
@@ -133,19 +133,19 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://99puritypeptides.com"
+          "item": "https://helixbio.com"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Research Blog",
-          "item": "https://99puritypeptides.com/blog"
+          "item": "https://helixbio.com/blog"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Collagen Peptides Benefits",
-          "item": "https://99puritypeptides.com/collagen-peptides-benefits"
+          "item": "https://helixbio.com/collagen-peptides-benefits"
         }
       ]
     }
@@ -156,12 +156,12 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
       "@type": "TechArticle",
       "headline": "KLOW Peptide Blend: 2026 Research Guide, Benefits & Dosage",
       "description": "Comprehensive research reference for the KLOW peptide blend: verified 50mg BPC-157 / 10mg TB-500 / 10mg KPV / 10mg GHK-Cu composition, dosage chart, KLOW vs GLOW comparison, reconstitution math, and sourcing criteria for research-grade multi-component peptides.",
-      "url": "https://99puritypeptides.com/klow-peptide-blend-research-guide-2026/",
+      "url": "https://helixbio.com/klow-peptide-blend-research-guide-2026/",
       "datePublished": "2026-06-11",
       "dateModified": "2026-06-11",
       "image": {
         "@type": "ImageObject",
-        "url": "https://99puritypeptides.com/wp-content/uploads/2026/06/klow-peptide-blend-vial-50mg.webp",
+        "url": "https://helixbio.com/wp-content/uploads/2026/06/klow-peptide-blend-vial-50mg.webp",
         "width": 1080,
         "height": 675
       },
@@ -169,21 +169,21 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
         "@type": "Organization",
         "name": "Helix Bio Research Team",
         "description": "Research Editorial Team specializing in research-grade peptide blends and preclinical literature.",
-        "url": "https://99puritypeptides.com"
+        "url": "https://helixbio.com"
       },
       "publisher": {
         "@type": "Organization",
         "name": "Helix Bio",
-        "url": "https://99puritypeptides.com/",
+        "url": "https://helixbio.com/",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://99puritypeptides.com/wp-content/uploads/2026/05/Logo.png"
+          "url": "https://helixbio.com/wp-content/uploads/2026/05/Logo.png"
         }
       },
       "isRelatedTo": {
         "@type": "Product",
         "name": "KLOW 50mg/10mg/10mg/10mg 3ML Research Compound Blend",
-        "url": "https://99puritypeptides.com/product/klow/",
+        "url": "https://helixbio.com/product/klow/",
         "description": "A four-component research blend of BPC-157, TB-500, KPV, and GHK-Cu at 50/10/10/10mg in 3mL. Research-use-only.",
         "brand": {
           "@type": "Brand",
@@ -192,7 +192,7 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://99puritypeptides.com/klow-peptide-blend-research-guide-2026/"
+        "@id": "https://helixbio.com/klow-peptide-blend-research-guide-2026/"
       }
     },
     {
@@ -289,19 +289,19 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://99puritypeptides.com/"
+          "item": "https://helixbio.com/"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Recovery Research Peptides",
-          "item": "https://99puritypeptides.com/product-category/recovery-research-peptides/"
+          "item": "https://helixbio.com/product-category/recovery-research-peptides/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "KLOW Peptide Guide",
-          "item": "https://99puritypeptides.com/klow-peptide-blend-research-guide-2026/"
+          "item": "https://helixbio.com/klow-peptide-blend-research-guide-2026/"
         }
       ]
     },
@@ -309,12 +309,12 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Helix Bio",
-      "url": "https://99puritypeptides.com/",
-      "logo": "https://99puritypeptides.com/wp-content/uploads/2026/05/Logo.png",
+      "url": "https://helixbio.com/",
+      "logo": "https://helixbio.com/wp-content/uploads/2026/05/Logo.png",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+1-843-330-7365",
-        "email": "orders@99puritypeptides.com",
+        "email": "orders@helixbio.com",
         "contactType": "customer service",
         "areaServed": "US",
         "availableLanguage": "English"
@@ -395,7 +395,7 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
       "@context": "https://schema.org",
       "@type": "DefinedTermSet",
       "name": "KLOW Peptide Research Glossary",
-      "url": "https://99puritypeptides.com/klow-peptide-blend-research-guide-2026/#glossary",
+      "url": "https://helixbio.com/klow-peptide-blend-research-guide-2026/#glossary",
       "hasDefinedTerm": [
         {
           "@type": "DefinedTerm",
@@ -465,14 +465,14 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
         "name": "Helix Bio",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://99puritypeptides.com/logo.png"
+          "url": "https://helixbio.com/logo.png"
         }
       },
       "datePublished": "2025-01-01",
       "dateModified": "2025-07-01",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://99puritypeptides.com/blog/retatrutide-and-carbs"
+        "@id": "https://helixbio.com/blog/retatrutide-and-carbs"
       },
       "keywords": "retatrutide, carbohydrate metabolism, triple agonist, GLP-1, GIP, glucagon receptor, glucose regulation"
     },
@@ -511,12 +511,12 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
       "@type": "WebPage",
       "name": "Retatrutide and Carbs: Does This Triple Agonist Need Glucose?",
       "description": "Research analysis of Retatrutide's interaction with carbohydrate metabolism through its triple agonist GLP-1, GIP, and Glucagon receptor mechanism.",
-      "url": "https://99puritypeptides.com/blog/retatrutide-and-carbs",
+      "url": "https://helixbio.com/blog/retatrutide-and-carbs",
       "inLanguage": "en-US",
       "isPartOf": {
         "@type": "WebSite",
         "name": "Helix Bio",
-        "url": "https://99puritypeptides.com"
+        "url": "https://helixbio.com"
       }
     },
     {
@@ -527,19 +527,19 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://99puritypeptides.com"
+          "item": "https://helixbio.com"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Research Blog",
-          "item": "https://99puritypeptides.com/blog"
+          "item": "https://helixbio.com/blog"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Retatrutide and Carbs",
-          "item": "https://99puritypeptides.com/blog/retatrutide-and-carbs"
+          "item": "https://helixbio.com/blog/retatrutide-and-carbs"
         }
       ]
     }
@@ -548,10 +548,10 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
     {
       "@context": "https://schema.org",
       "@type": "TechArticle",
-      "@id": "https://99puritypeptides.com/blog/ghk-cu-copper-peptide-research-guide/#article",
+      "@id": "https://helixbio.com/blog/ghk-cu-copper-peptide-research-guide/#article",
       "headline": "GHK-Cu Peptide: Complete Research Guide 2026",
       "description": "GHK-Cu peptide research reference: mechanism, collagen pathway evidence, lab handling, purity standards, and 35+ FAQs from peer-reviewed studies.",
-      "image": "https://99puritypeptides.com/wp-content/uploads/2026/05/ghk-cu-peptide-research-vial-hero.webp",
+      "image": "https://helixbio.com/wp-content/uploads/2026/05/ghk-cu-peptide-research-vial-hero.webp",
       "datePublished": "2026-05-27T08:00:00-04:00",
       "dateModified": "2026-05-27T08:00:00-04:00",
       "author": {
@@ -567,10 +567,10 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
         "name": "Helix Bio",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://99puritypeptides.com/wp-content/uploads/2025/12/99-Purity-Peptides-white-logo.png"
+          "url": "https://helixbio.com/wp-content/uploads/2025/12/99-Purity-Peptides-white-logo.png"
         }
       },
-      "mainEntityOfPage": "https://99puritypeptides.com/blog/ghk-cu-copper-peptide-research-guide/",
+      "mainEntityOfPage": "https://helixbio.com/blog/ghk-cu-copper-peptide-research-guide/",
       "about": "Research-use-only reference on the copper tripeptide GHK-Cu including mechanism, lab handling, purity verification, and pre-clinical evidence summary.",
       "audience": {
         "@type": "Audience",
@@ -583,22 +583,22 @@ export const BLOG_SCHEMAS: Record<string, any[]> = {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://99puritypeptides.com/"},
-        {"@type":"ListItem","position":2,"name":"Blog","item":"https://99puritypeptides.com/blog/"},
-        {"@type":"ListItem","position":3,"name":"GHK-Cu Copper Peptide Research Guide","item":"https://99puritypeptides.com/blog/ghk-cu-copper-peptide-research-guide/"}
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://helixbio.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://helixbio.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"GHK-Cu Copper Peptide Research Guide","item":"https://helixbio.com/blog/ghk-cu-copper-peptide-research-guide/"}
       ]
     },
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Helix Bio",
-      "url": "https://99puritypeptides.com/",
-      "logo": "https://99puritypeptides.com/wp-content/uploads/2025/12/99-Purity-Peptides-white-logo.png",
+      "url": "https://helixbio.com/",
+      "logo": "https://helixbio.com/wp-content/uploads/2025/12/99-Purity-Peptides-white-logo.png",
       "areaServed": "US",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+1-843-330-7365",
-        "email": "orders@99puritypeptides.com",
+        "email": "orders@helixbio.com",
         "contactType": "Research Support"
       }
     },

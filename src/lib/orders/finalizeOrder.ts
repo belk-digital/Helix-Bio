@@ -106,9 +106,9 @@ export async function finalizeOrder(orderId: string | number, paymentIntentMetad
             const invoiceHtml = await generateOrderInvoiceHtml(order, payload);
 
             await sendTrackedEmail(payload, {
-                from: 'Orders | Helix Bio <orders@99puritypeptides.com>',
+                from: 'Orders | Helix Bio <orders@helixbio.com>',
                 to: customerEmail,
-                bcc: 'orders@99puritypeptides.com',
+                bcc: 'orders@helixbio.com',
                 subject: `Order Confirmation #${order.orderNumber || order.id}`,
                 html: invoiceHtml,
             })

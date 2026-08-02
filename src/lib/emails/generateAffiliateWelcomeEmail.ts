@@ -1,7 +1,7 @@
 import { emailLayout } from './emailLayout'
 
 export async function generateAffiliateWelcomeEmail(affiliate: any, user: any): Promise<string> {
-  const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://99puritypeptides.com';
+  const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com';
   
   const affiliateName = affiliate.displayName || user?.firstName || 'Partner';
   const referralLink = `${serverUrl}/ref/${affiliate.referralSlug}`;

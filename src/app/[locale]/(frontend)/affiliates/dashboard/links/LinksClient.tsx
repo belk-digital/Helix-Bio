@@ -83,49 +83,52 @@ export function LinksClient({ referralLink, couponCode: initialCouponCode, custo
       variants={containerVars}
       initial="hidden"
       animate="show"
-      className="flex flex-col gap-8 max-w-3xl"
+      className="flex flex-col gap-16 max-w-4xl"
     >
-      <motion.div variants={itemVars}>
-        <h1 className="text-3xl font-bold tracking-tight text-[#1e5661] mb-2 font-heading">
+      <motion.div variants={itemVars} className="border-b-2 border-black pb-8">
+        <h1 className="text-4xl lg:text-[56px] font-light tracking-tight text-black leading-none mb-4">
           {t('title')}
         </h1>
-        <p className="text-gray-500">{t('subtitle')}</p>
+        <p className="text-gray-500 max-w-xl text-lg">{t('subtitle')}</p>
       </motion.div>
 
       {/* Referral Link Card */}
-      <motion.div variants={itemVars} className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col gap-4 relative overflow-hidden">
-        <div className="flex flex-col gap-1">
-          <h3 className="text-lg font-bold text-black">{t('referralLinkTitle')}</h3>
+      <motion.div variants={itemVars} className="flex flex-col md:flex-row gap-12 lg:gap-24 items-start border-b border-gray-100 pb-12">
+        <div className="flex flex-col gap-2 md:w-1/3 shrink-0">
+          <h3 className="text-sm font-medium text-black uppercase tracking-[0.2em]">{t('referralLinkTitle')}</h3>
           <p className="text-sm text-gray-500">{t('referralLinkDesc')}</p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3 mt-2">
-          <div className="flex-1 bg-gray-50 rounded-xl px-4 py-3.5 text-sm font-mono text-gray-700 break-all border border-gray-200/50 flex items-center">
-            {referralLink}
-          </div>
-          <div className="flex gap-2 shrink-0">
-            <Button
-              onClick={() => handleCopy(referralLink, 'link')}
-              variant="outline"
-              className="rounded-xl h-12 px-6 text-xs font-bold uppercase tracking-widest gap-2 bg-white"
-            >
-              {copiedLink ? <Check size={16} className="text-green-500" /> : <Copy size={16} />}
-              {copiedLink ? t('copied') : t('copy')}
-            </Button>
-            <a href={referralLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-50 hover:bg-gray-100 border border-gray-200 text-gray-500 transition-colors">
-              <ExternalLink size={18} />
-            </a>
+        <div className="flex flex-col gap-6 w-full">
+          <div className="flex flex-col sm:flex-row gap-4 items-end">
+            <div className="flex-1 w-full flex flex-col gap-3">
+              <label className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">{t('yourReferralLink') || 'URL'}</label>
+              <div className="bg-transparent border-b-2 border-gray-200 px-0 py-3 text-lg font-mono text-black break-all select-all selection:bg-black/10">
+                {referralLink}
+              </div>
+            </div>
+            <div className="flex gap-2 shrink-0 w-full sm:w-auto h-[52px]">
+              <Button
+                onClick={() => handleCopy(referralLink, 'link')}
+                variant="outline"
+                className="flex-1 sm:flex-none rounded-none h-full px-8 text-xs font-medium uppercase tracking-[0.2em] gap-2 bg-transparent text-black border-2 border-black hover:bg-black hover:text-white transition-colors"
+              >
+                {copiedLink ? <Check size={16} /> : <Copy size={16} />}
+                {copiedLink ? t('copied') : t('copy')}
+              </Button>
+              <a href={referralLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-14 h-full bg-gray-50 hover:bg-gray-100 text-black transition-colors">
+                <ExternalLink size={18} />
+              </a>
+            </div>
           </div>
         </div>
       </motion.div>
 
       {/* Coupon Code Card */}
-      <motion.div variants={itemVars} className="bg-gradient-to-br from-[#f8faff] to-[#eef4ff] p-8 rounded-3xl border border-blue-100 shadow-sm flex flex-col gap-4 relative overflow-hidden">
-        <div className="absolute -right-12 -top-12 w-48 h-48 bg-blue-500/5 rounded-full blur-3xl" />
-        
-        <div className="flex flex-col gap-1 relative z-10">
-          <h3 className="text-lg font-bold text-[#008B8B]">{t('couponCodeTitle')}</h3>
-          <p className="text-sm text-blue-900/60">
+      <motion.div variants={itemVars} className="flex flex-col md:flex-row gap-12 lg:gap-24 items-start">
+        <div className="flex flex-col gap-2 md:w-1/3 shrink-0">
+          <h3 className="text-sm font-medium text-[#008B8B] uppercase tracking-[0.2em]">{t('couponCodeTitle')}</h3>
+          <p className="text-sm text-gray-500">
             {t.rich('couponCodeDesc', {
               discount: customerDiscount,
               commission: commissionRate,
@@ -134,7 +137,7 @@ export function LinksClient({ referralLink, couponCode: initialCouponCode, custo
           </p>
         </div>
         
-        <div className="flex flex-col sm:flex-row gap-3 mt-2 relative z-10">
+        <div className="flex flex-col sm:flex-row gap-4 w-full items-end">
           <AnimatePresence mode="wait">
             {isEditing ? (
               <motion.div 
@@ -142,18 +145,21 @@ export function LinksClient({ referralLink, couponCode: initialCouponCode, custo
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="flex-1 flex flex-col gap-2"
+                className="flex-1 w-full flex flex-col gap-3"
               >
-                <input
-                  type="text"
-                  value={newCode}
-                  onChange={(e) => setNewCode(e.target.value.toUpperCase())}
-                  placeholder={t('codePlaceholder')}
-                  maxLength={20}
-                  className="w-full bg-white rounded-xl px-4 py-3.5 text-lg font-mono font-bold text-[#008B8B] border-2 border-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/20 transition-all shadow-inner"
-                  autoFocus
-                />
-                {error && <span className="text-xs font-medium text-red-500 bg-red-50 px-3 py-1.5 rounded-lg w-fit">{error}</span>}
+                <label className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">{t('yourCouponCode') || 'CODE'}</label>
+                <div className="flex flex-col gap-2">
+                  <input
+                    type="text"
+                    value={newCode}
+                    onChange={(e) => setNewCode(e.target.value.toUpperCase())}
+                    placeholder={t('codePlaceholder')}
+                    maxLength={20}
+                    className="w-full bg-transparent border-b-2 border-[#008B8B] px-0 py-3 text-2xl font-mono font-bold text-[#008B8B] focus:outline-none focus:border-blue-600 transition-colors"
+                    autoFocus
+                  />
+                  {error && <span className="text-xs font-medium text-red-500">{error}</span>}
+                </div>
               </motion.div>
             ) : (
               <motion.div 
@@ -161,16 +167,19 @@ export function LinksClient({ referralLink, couponCode: initialCouponCode, custo
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="flex-1 bg-white rounded-xl px-4 py-3.5 text-lg font-mono font-bold text-[#008B8B] border border-blue-100/50 flex items-center justify-between shadow-sm"
+                className="flex-1 w-full flex flex-col gap-3"
               >
-                <span>{couponCode}</span>
-                <button
-                  onClick={() => setIsEditing(true)}
-                  className="p-2 text-blue-300 hover:text-blue-500 hover:bg-blue-50 rounded-lg transition-colors"
-                  title={t('editCodeTitle')}
-                >
-                  <Edit2 size={16} />
-                </button>
+                <label className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">{t('yourCouponCode') || 'CODE'}</label>
+                <div className="w-full bg-transparent border-b-2 border-gray-200 px-0 py-3 text-2xl font-mono font-bold text-black flex items-center justify-between">
+                  <span>{couponCode}</span>
+                  <button
+                    onClick={() => setIsEditing(true)}
+                    className="text-gray-400 hover:text-black transition-colors"
+                    title={t('editCodeTitle')}
+                  >
+                    <Edit2 size={16} />
+                  </button>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
@@ -182,20 +191,20 @@ export function LinksClient({ referralLink, couponCode: initialCouponCode, custo
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
-                className="flex gap-2 shrink-0 w-full sm:w-auto h-[52px]"
+                className="flex gap-2 shrink-0 w-full sm:w-auto h-[56px]"
               >
                 <Button 
                   onClick={handleCancelEdit}
                   disabled={isSaving}
                   variant="outline"
-                  className="flex-1 sm:flex-none rounded-xl h-full px-6 text-xs font-bold uppercase tracking-widest gap-2 bg-white text-gray-500 border-gray-200"
+                  className="flex-1 sm:flex-none rounded-none h-full px-6 text-xs font-medium uppercase tracking-[0.2em] gap-2 bg-transparent text-gray-500 border-2 border-gray-200 hover:bg-gray-100"
                 >
                   <X size={16} />
                 </Button>
                 <Button 
                   onClick={handleSaveCode}
                   disabled={isSaving}
-                  className="flex-1 sm:w-32 rounded-xl h-full px-8 text-xs font-bold uppercase tracking-widest gap-2 bg-[#008B8B] hover:bg-blue-600 text-white border-none shadow-md"
+                  className="flex-1 sm:w-32 rounded-none h-full px-8 text-xs font-medium uppercase tracking-[0.2em] gap-2 bg-[#008B8B] hover:bg-blue-600 text-white border-none"
                 >
                   {isSaving ? <Loader2 size={16} className="animate-spin" /> : <Check size={16} />}
                   {isSaving ? t('saving') : t('save')}
@@ -207,11 +216,11 @@ export function LinksClient({ referralLink, couponCode: initialCouponCode, custo
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
-                className="shrink-0 w-full sm:w-auto h-[52px]"
+                className="shrink-0 w-full sm:w-auto h-[56px]"
               >
                 <Button
                   onClick={() => handleCopy(couponCode, 'code')}
-                  className="w-full rounded-xl h-full px-8 text-xs font-bold uppercase tracking-widest gap-2 bg-[#008B8B] hover:bg-blue-600 text-white border-none shadow-md"
+                  className="w-full rounded-none h-full px-10 text-xs font-medium uppercase tracking-[0.2em] gap-2 bg-black hover:bg-gray-800 text-white border-none"
                 >
                   {copiedCode ? <Check size={16} /> : <Copy size={16} />}
                   {copiedCode ? t('copied') : t('copyCode')}

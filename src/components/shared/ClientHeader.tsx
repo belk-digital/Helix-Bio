@@ -509,136 +509,97 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
       >
         {/* Background Blur Overlay for Mega Menu */}
         <div 
-          className={`fixed inset-0 bg-black/10 transition-opacity duration-300 ${isMegaMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-          style={{ backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' }}
+          className={`fixed inset-0 bg-black/60 transition-opacity duration-300 ${isMegaMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
           onMouseEnter={handleMenuLeave}
         />
 
         {/* Full-Width Mega Menu Dropdown */}
         <div 
-          className={`absolute left-0 right-0 w-[calc(100%-2rem)] md:w-[calc(100%-6rem)] mx-auto z-50 transition-all duration-300 ${isTransparentHeader && !isScrolled ? 'top-14 md:top-16' : 'top-10 md:top-12'} ${isMegaMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
+          className={`absolute left-0 right-0 top-0 w-full z-50 transition-all duration-300 ${isMegaMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
           onMouseEnter={handleMenuEnter}
           onMouseLeave={handleMenuLeave}
         >
           <div 
-            className={`w-full max-h-[80vh] overflow-y-auto no-scrollbar rounded-[32px] md:rounded-[40px] bg-black/60 border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.4)] transition-all duration-300 ${isMegaMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}
-            style={{ backdropFilter: 'blur(32px)', WebkitBackdropFilter: 'blur(32px)' }}
+            className={`w-full max-h-[100dvh] lg:max-h-[85vh] overflow-hidden no-scrollbar bg-white border-b border-black/5 shadow-2xl transition-all duration-300 ${isMegaMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}
           >
-          {/* Noise Texture Overlay */}
-          <div 
-            className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none" 
-            style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} 
-          />
 
-          <div className="w-full flex flex-col md:flex-row relative z-10 text-white min-h-[350px] xl:min-h-[450px]">
-            {/* Left side: Massive typography list (40%) */}
-            <div className="w-full md:w-2/5 flex flex-col justify-center py-6 px-8 xl:px-16 border-r border-white/5 relative z-20">
-              <span className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.3em] mb-3 xl:mb-4">{t('megaMenu.navigation')}</span>
-              <div className="flex flex-col gap-0.5 xl:gap-1">
-                {isLoadingMenu ? (
-                  Array.from({ length: 5 }).map((_, i) => (
-                    <div key={i} className="h-10 w-3/4 bg-white/5 rounded-md animate-pulse" />
-                  ))
-                ) : categoriesData.map((cat: any, index: number) => {
-                  const isActive = activeCategory === cat.id || (activeCategory === null && index === 0);
-                  return (
-                    <Link
-                      key={cat.id || index}
-                      href={`/shop?category=${encodeURIComponent(cat.name)}#products-grid`}
-                      onClick={() => setIsMegaMenuOpen(false)}
-                      onMouseEnter={() => setActiveCategory(cat.id)}
-                      className={`group relative w-full block transition-all duration-500 py-0.5 cursor-pointer ${isActive ? 'opacity-100' : 'opacity-40 hover:opacity-100'}`}
-                    >
-                      <h3 className={`text-xs lg:text-sm xl:text-base 2xl:text-lg font-light tracking-tight transition-all duration-500 ${isActive ? 'text-primary translate-x-4' : 'text-white'}`}>
-                        {getCategoryDisplayName(cat.name)}
-                      </h3>
-                      {/* Animated indicator dot */}
-                      <span className={`absolute left-[-20px] top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-primary transition-all duration-500 ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`} />
-                    </Link>
-                  )
-                })}
+          <div className="max-w-[1440px] mx-auto w-full flex flex-col relative z-10 text-black p-6 sm:p-8 lg:p-12 lg:py-10 max-h-[100dvh] lg:max-h-[85vh] overflow-y-auto">
+            {/* Header */}
+            <div className="w-full flex justify-between items-end mb-8 xl:mb-12 relative z-20 shrink-0">
+              <div className="flex flex-col">
+                <span className="text-[10px] font-bold text-black/40 uppercase tracking-[0.3em] mb-2">{t('megaMenu.navigation')}</span>
+                <h4 className="text-3xl xl:text-4xl font-light text-black">Explore Categories</h4>
               </div>
+              <Link
+                href="/shop"
+                onClick={() => setIsMegaMenuOpen(false)}
+                className="hidden sm:inline-flex items-center gap-2 px-6 py-3 rounded-full border border-black/10 hover:border-black hover:bg-black hover:text-white transition-colors text-[10px] font-bold uppercase tracking-[0.2em]"
+              >
+                View All Compounds &rarr;
+              </Link>
             </div>
 
-            {/* Right side: Multiple products grid (60%) */}
-            <div className="w-full md:w-3/5 relative bg-black/20 rounded-r-[32px] md:rounded-r-[40px]">
+            {/* Visual Grid */}
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4 lg:gap-5 pb-8">
               {isLoadingMenu ? (
-                <div className="absolute inset-0 bg-white/5 animate-pulse" />
-              ) : categoriesData.map((cat: any, index: number) => {
-                const isActive = activeCategory === cat.id || (activeCategory === null && index === 0);
-                return (
-                  <div 
-                    key={cat.id || index}
-                    className={`${isActive ? 'relative opacity-100 scale-100 z-10' : 'absolute inset-0 opacity-0 scale-110 pointer-events-none z-0'} w-full flex flex-col transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] px-8 pt-6 pb-12 xl:px-12 xl:pt-8 xl:pb-20`}
-                  >
-                    {/* Header for Right Side */}
-                    <div className="w-full flex justify-between items-end mb-4 xl:mb-6 relative z-20">
-                      <div className="flex flex-col">
-                        <span className="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-1">{t('megaMenu.featuredFormulations')}</span>
-                        <h4 className="text-xl xl:text-2xl font-light text-white">{getCategoryDisplayName(cat.name)}</h4>
-                      </div>
-                      <Link
-                        href={`/shop?category=${encodeURIComponent(cat.name)}`}
-                        onClick={() => setIsMegaMenuOpen(false)}
-                        className="inline-flex items-center gap-2 px-5 py-2 xl:px-6 xl:py-3 rounded-full border border-white/20 hover:bg-white hover:text-black transition-colors text-[9px] xl:text-[10px] font-bold uppercase tracking-[0.2em] backdrop-blur-md"
-                      >
-                        {t('megaMenu.exploreCategory')} &rarr;
-                      </Link>
-                    </div>
+                Array.from({ length: 9 }).map((_, i) => (
+                  <div key={i} className="w-full aspect-video bg-black/5 rounded-[20px] animate-pulse" />
+                ))
+              ) : categoriesData.map((cat: any, index: number) => (
+                <div key={cat.id || index} className="group relative w-full aspect-[4/3] sm:aspect-video rounded-[20px] overflow-hidden bg-black/5 flex flex-col justify-end">
+                  {/* Background Image */}
+                  <div className="absolute inset-0">
+                    <Image 
+                      src={`/HelixBio Images/category-${(index % 8) + 1}.webp`} 
+                      alt={cat.name} 
+                      fill 
+                      className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+                  </div>
 
-                    {cat.products && cat.products.length > 0 ? (
-                      <div className="w-full flex-1 relative flex items-center justify-center group/showcase">
-                        {/* Dramatic Background Glow */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] aspect-square rounded-full bg-primary/10 opacity-0 group-hover/showcase:opacity-100 blur-[80px] xl:blur-[120px] transition-all duration-1000 pointer-events-none" />
-                        
-                        {/* Staggered Grid of 3 ProductCards - Rebuilt exclusively for the Mega Menu to ensure 100% text readability without any scaling hacks */}
-                        <div className="w-full relative z-10 flex items-start justify-center mt-2 xl:mt-4">
-                          <div className="w-full grid grid-cols-3 gap-3 xl:gap-5 px-0 lg:px-4 xl:px-8">
-                            {cat.products.slice(0, 3).map((prod: any, pIndex: number) => (
-                              <Link 
-                                href={`/product/${prod.slug}`}
-                                key={prod.id || pIndex} 
-                                onClick={() => setIsMegaMenuOpen(false)}
-                                className={`group flex flex-col justify-between w-full bg-white rounded-[16px] xl:rounded-[24px] p-2.5 xl:p-3 shadow-[0_10px_30px_rgba(0,0,0,0.1)] border border-ink/5 relative transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 ${pIndex === 1 ? 'translate-y-4 xl:translate-y-8' : ''}`}
-                              >
-                                {/* Top Text Content */}
-                                <div className="flex flex-col gap-1.5 xl:gap-2 mb-3 relative z-20">
-                                  <div className="pr-4">
-                                    <h3 className="text-xs xl:text-sm font-semibold text-ink tracking-tight line-clamp-1">{prod.name}</h3>
-                                    <p className="text-primary text-[8px] xl:text-[9px] font-bold uppercase tracking-[0.1em] mt-0.5">{prod.category || t('megaMenu.researchPeptideFallback')}</p>
-                                  </div>
-                                  <p className="text-ink/60 text-[9px] xl:text-[10px] leading-tight line-clamp-2">{prod.shortDescription || t('megaMenu.productDescriptionFallback')}</p>
-                                </div>
-                                
-                                {/* Inner Image Container */}
-                                <div className="relative w-full aspect-[4/5] xl:aspect-square rounded-[10px] xl:rounded-[16px] overflow-hidden bg-ink/5 mt-auto">
-                                  <Image src={prod.image} alt={prod.name} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
-                                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-100" />
-                                  
-                                  <div className="absolute bottom-2 left-2 xl:bottom-3 xl:left-3 z-20 flex flex-col">
-                                    <span className="text-white/80 text-[7px] xl:text-[8px] font-bold tracking-[0.1em] uppercase mb-0.5">{t('megaMenu.from')}</span>
-                                    <span className="text-white text-xs xl:text-sm font-light tracking-tight">
-                                      {prod.priceRange ? (typeof prod.priceRange === 'string' ? prod.priceRange.replace('From ', '') : prod.priceRange) : `$${prod.price}`}
-                                    </span>
-                                  </div>
-                                  
-                                  <div className="absolute bottom-2 right-2 xl:bottom-3 xl:right-3 w-6 h-6 xl:w-8 xl:h-8 bg-white text-ink rounded-full flex items-center justify-center shadow-lg transition-colors group-hover:bg-ink group-hover:text-white">
-                                    <ShoppingBag className="w-3 h-3 xl:w-4 xl:h-4 text-current" />
-                                  </div>
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="flex flex-col items-center justify-center opacity-50 flex-1">
-                        <span className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.3em]">{t('megaMenu.newArrivalsPending')}</span>
+                  {/* Content */}
+                  <div className="relative z-20 p-4 sm:p-5 w-full flex flex-col justify-end h-full">
+                    <Link
+                      href={`/shop?category=${encodeURIComponent(cat.name)}`}
+                      onClick={() => setIsMegaMenuOpen(false)}
+                      className="w-full block mb-2"
+                    >
+                      <h3 className="text-lg sm:text-xl font-light text-white tracking-tight group-hover:translate-x-1.5 transition-transform duration-500 line-clamp-2">
+                        {getCategoryDisplayName(cat.name)}
+                      </h3>
+                    </Link>
+
+                    {/* Quick Product Links */}
+                    {cat.products && cat.products.length > 0 && (
+                      <div className="flex flex-col gap-1.5 border-t border-white/20 pt-3 opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 pointer-events-none group-hover:pointer-events-auto">
+                        {cat.products.slice(0, 3).map((prod: any, i: number) => (
+                          <Link 
+                            href={`/product/${prod.slug}`} 
+                            key={prod.id || prod.slug || i} 
+                            onClick={() => setIsMegaMenuOpen(false)}
+                            className="text-[10px] sm:text-xs text-white/70 hover:text-white flex items-center justify-between group/link transition-colors"
+                          >
+                            <span className="line-clamp-1 flex-1 pr-2 font-medium">{prod.name}</span>
+                            <span className="opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all">&rarr;</span>
+                          </Link>
+                        ))}
                       </div>
                     )}
                   </div>
-                )
-              })}
+                </div>
+              ))}
+            </div>
+            
+            {/* Mobile View All Button */}
+            <div className="w-full flex sm:hidden pb-12 shrink-0">
+              <Link
+                href="/shop"
+                onClick={() => setIsMegaMenuOpen(false)}
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-black/10 hover:border-black hover:bg-black hover:text-white transition-colors text-xs font-bold uppercase tracking-[0.2em]"
+              >
+                View All Compounds &rarr;
+              </Link>
             </div>
           </div>
           </div>

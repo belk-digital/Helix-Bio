@@ -1,168 +1,129 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion'
+import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from '@/i18n/navigation'
-import { FlaskConical, Search, Beaker, Home, ArrowRight } from 'lucide-react'
-import { FluidButton } from '@/components/ui/fluid-button'
-import { Button } from '@/components/ui/button'
+import { Search, ArrowRight, Home, ChevronRight } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { SearchOverlay } from '@/components/shared/SearchOverlay'
 import { useReducedMotion } from '@/components/motion/useReducedMotion'
 
-
-
-function VialIllustration() {
+// Floating particles component for luxury biotech feel
+function MolecularBackground() {
   const reduced = useReducedMotion()
-  const bubbles = [0, 1, 2, 3, 4]
+  const [isMounted, setIsMounted] = useState(false)
+  
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  if (!isMounted || reduced) return null
+
+  // Generate 12 elegant floating particles
+  const particles = Array.from({ length: 12 }).map((_, i) => ({
+    id: i,
+    size: Math.random() * 100 + 40,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    duration: Math.random() * 20 + 25,
+    delay: Math.random() * 5,
+  }))
 
   return (
-    <motion.div
-      className="relative w-24 h-32 sm:w-28 sm:h-36 mx-auto"
-      animate={reduced ? undefined : { rotate: [-3, 3, -3] }}
-      transition={reduced ? undefined : { duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-    >
-      {/* Vial cap */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-10 h-5 sm:w-12 sm:h-6 bg-ink rounded-t-md" />
-      {/* Vial body */}
-      <div className="absolute top-4 sm:top-5 left-1/2 -translate-x-1/2 w-20 h-24 sm:w-24 sm:h-28 rounded-b-[1.5rem] rounded-t-md border-2 border-ink/15 bg-white/60 backdrop-blur-sm overflow-hidden shadow-lg">
-        {/* Liquid fill */}
-        <div className="absolute bottom-0 left-0 right-0 h-[65%] bg-gradient-to-t from-primary/70 to-primary/40">
-          {/* Bubbles rising */}
-          {bubbles.map((i) => (
-            <motion.span
-              key={i}
-              className="absolute bottom-0 rounded-full bg-white/70"
-              style={{
-                left: `${15 + i * 16}%`,
-                width: 4 + (i % 3),
-                height: 4 + (i % 3),
-              }}
-              animate={reduced ? undefined : { y: [-4, -80], opacity: [0, 1, 0] }}
-              transition={
-                reduced
-                  ? undefined
-                  : {
-                      duration: 2.4 + (i % 3) * 0.4,
-                      repeat: Infinity,
-                      delay: i * 0.5,
-                      ease: 'easeOut',
-                    }
-              }
-            />
-          ))}
-        </div>
-      </div>
-      {/* Label */}
-      <div className="absolute top-[54%] left-1/2 -translate-x-1/2 w-14 sm:w-16 h-8 sm:h-9 bg-white border border-ink/10 rounded-sm shadow-sm flex flex-col items-center justify-center gap-0.5">
-        <span className="text-[6px] sm:text-[7px] font-mono font-bold tracking-widest text-ink/60">RUO</span>
-        <span className="text-[8px] sm:text-[9px] font-mono font-black text-primary">404</span>
-      </div>
-    </motion.div>
-  )
-}
-
-function MagneticHeadline({ children }: { children: React.ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const reduced = useReducedMotion()
-  const x = useMotionValue(0)
-  const y = useMotionValue(0)
-  const sx = useSpring(x, { stiffness: 150, damping: 15 })
-  const sy = useSpring(y, { stiffness: 150, damping: 15 })
-
-  const onMove = (e: React.MouseEvent) => {
-    if (!ref.current || reduced) return
-    const rect = ref.current.getBoundingClientRect()
-    x.set((e.clientX - rect.left - rect.width / 2) * 0.06)
-    y.set((e.clientY - rect.top - rect.height / 2) * 0.06)
-  }
-  const onLeave = () => {
-    x.set(0)
-    y.set(0)
-  }
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      style={{ x: reduced ? 0 : sx, y: reduced ? 0 : sy }}
-    >
-      {children}
-    </motion.div>
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {particles.map((p) => (
+        <motion.div
+          key={p.id}
+          className="absolute rounded-full border border-primary/20 bg-primary/5 blur-[1px]"
+          style={{
+            width: p.size,
+            height: p.size,
+            left: `${p.x}%`,
+            top: `${p.y}%`,
+          }}
+          animate={{
+            y: ['0%', '-30%', '0%'],
+            x: ['0%', '10%', '0%'],
+            rotate: [0, 90, 180],
+          }}
+          transition={{
+            duration: p.duration,
+            repeat: Infinity,
+            delay: p.delay,
+            ease: 'linear',
+          }}
+        />
+      ))}
+    </div>
   )
 }
 
 export default function NotFound() {
   const [searchOpen, setSearchOpen] = useState(false)
-  const reduced = useReducedMotion()
   const t = useTranslations('notFound')
 
   return (
-    <main className="relative min-h-screen bg-cream flex flex-col items-center text-center px-6 pt-24 pb-12 overflow-x-hidden overflow-y-auto">
-      {/* Decorative background blobs, matching the site's ambient-glow pattern */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] sm:w-[800px] sm:h-[800px] bg-primary/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] bg-gold/5 rounded-full blur-[100px] pointer-events-none translate-y-1/3 -translate-x-1/3" />
+    <main className="relative min-h-[100dvh] bg-[#FAFAFA] flex flex-col items-center justify-start overflow-y-auto overflow-x-hidden pt-[140px] pb-12 px-4 sm:px-6">
+      <style dangerouslySetInnerHTML={{ __html: `
+        #global-footer { display: none !important; }
+      `}} />
+      <MolecularBackground />
 
-      <div className="relative z-10 w-full max-w-2xl mx-auto flex flex-col items-center my-auto py-12">
-        <MagneticHeadline>
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-heading text-[88px] sm:text-[130px] md:text-[170px] leading-none text-transparent bg-clip-text bg-gradient-to-b from-ink to-ink/60 select-none tracking-tighter flex items-center justify-center gap-1 sm:gap-4 mb-2"
-          >
-            <span>4</span>
-            <div className="-mt-1 sm:-mt-6 -mx-4 sm:mx-0 scale-[0.65] sm:scale-100 origin-center">
-              <VialIllustration />
-            </div>
-            <span>4</span>
-          </motion.h1>
-        </MagneticHeadline>
-
-        <p className="text-body-sm sm:text-body-md text-ink/50 max-w-[440px] mx-auto mt-8 mb-10 sm:mb-12">
-          {t('title')}
-        </p>
-
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-md mx-auto mb-8">
-          <FluidButton
-            href="/"
-            variant="cyan"
-            text={
-              <span className="flex items-center gap-2">
-                <Home size={16} strokeWidth={2} />
-                {t('returnHome')}
-              </span>
-            }
-            className="w-full sm:w-auto"
-          />
-          <Link href="/shop" className="w-full sm:w-auto">
-            <Button
-              variant="outline"
-              size="lg"
-              className="w-full rounded-full uppercase tracking-widest text-xs h-14 px-8 border-ink/20 hover:border-ink"
-            >
-              <span className="flex items-center gap-2">
-                <FlaskConical size={16} strokeWidth={2} />
-                {t('browseShop')}
-              </span>
-            </Button>
-          </Link>
-        </div>
-
-        <button
-          onClick={() => setSearchOpen(true)}
-          className="group inline-flex items-center gap-2 text-ink/50 hover:text-primary transition-colors duration-300 text-label-md uppercase tracking-widest"
-        >
-          <Search size={14} strokeWidth={2} />
-          <span className="border-b border-transparent group-hover:border-primary/40 pb-0.5 transition-colors">
-            {t('search')}
-          </span>
-          <ArrowRight size={14} strokeWidth={2} className="transition-transform duration-300 group-hover:translate-x-1" />
-        </button>
-
+      {/* Massive 404 Watermark */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+        <h1 className="text-[35vw] font-black text-black/[0.02] select-none tracking-tighter leading-none">
+          404
+        </h1>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="relative z-10 w-full max-w-2xl mx-auto my-auto"
+      >
+        {/* Glassmorphism Card */}
+        <div className="bg-white/70 backdrop-blur-2xl border border-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[32px] sm:rounded-[48px] p-8 sm:p-12 lg:p-16 flex flex-col items-center text-center">
+          
+          <div className="w-20 h-20 sm:w-24 sm:h-24 bg-primary/5 text-primary rounded-full flex items-center justify-center mb-8 shadow-inner">
+            <Search size={32} strokeWidth={1.5} className="sm:hidden" />
+            <Search size={40} strokeWidth={1.5} className="hidden sm:block" />
+          </div>
+
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-black tracking-tight mb-4">
+            Formula <span className="font-semibold">Not Found</span>
+          </h2>
+          
+          <p className="text-sm sm:text-base text-black/50 max-w-md mx-auto mb-10 leading-relaxed">
+            The specific compound or sequence you are looking for does not exist in our current registry. It may have been archived or moved.
+          </p>
+
+          {/* Integrated Search Bar Trigger */}
+          <button
+            onClick={() => setSearchOpen(true)}
+            className="w-full max-w-md mx-auto group relative flex items-center bg-black/5 hover:bg-black/10 transition-colors rounded-full h-14 sm:h-16 px-6 mb-10 text-left"
+          >
+            <Search size={20} className="text-black/40 mr-4" />
+            <span className="text-black/50 text-sm sm:text-base flex-1">Search the registry...</span>
+            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-black group-hover:scale-110 transition-transform">
+              <ArrowRight size={16} />
+            </div>
+          </button>
+
+          {/* Quick Links */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full justify-center">
+            <Link href="/" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-black text-white hover:bg-black/80 transition-colors text-[10px] font-bold uppercase tracking-[0.2em] w-full sm:w-auto">
+              <Home size={14} />
+              Return Home
+            </Link>
+            <Link href="/shop" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-transparent border border-black/10 hover:border-black text-black transition-colors text-[10px] font-bold uppercase tracking-[0.2em] w-full sm:w-auto">
+              Browse Products
+              <ChevronRight size={14} />
+            </Link>
+          </div>
+          
+        </div>
+      </motion.div>
 
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </main>

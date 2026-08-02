@@ -886,7 +886,7 @@ export function AffiliatesLandingClient({ userStatus }: Props) {
              </p>
              <p className="text-ink/70 text-sm font-bold mb-8 md:mb-10 flex flex-col sm:flex-row gap-1 sm:gap-2">
                <span>{t('finalCtaQuestions')}</span> 
-               <a href="mailto:affiliates@99puritypeptides.com" className="text-ink hover:text-white transition-colors font-black underline underline-offset-4">affiliates@99puritypeptides.com</a>
+               <a href="mailto:affiliates@helixbio.com" className="text-ink hover:text-white transition-colors font-black underline underline-offset-4">affiliates@helixbio.com</a>
              </p>
              <div className="flex w-full md:w-auto mt-2">
                <FluidButton

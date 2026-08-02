@@ -12,8 +12,8 @@ export async function GET(req: NextRequest) {
       : 'Helix Bio'
       
     // Strip redundant brand name to keep text short and clean
-    if (title.includes(' | 99PurityPeptides')) {
-      title = title.replace(' | 99PurityPeptides', '')
+    if (title.includes(' | HelixBioPeptides')) {
+      title = title.replace(' | HelixBioPeptides', '')
     }
     title = title.slice(0, 90)
       
@@ -26,7 +26,7 @@ export async function GET(req: NextRequest) {
     
     // We must use a PNG or JPG because OG image generator does not support WebP.
     // I converted the requested og-image.webp to og-image.png so it works natively here!
-    const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://99puritypeptides.com'
+    const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
     const bgUrl = `${serverUrl}/99%20Images/og-image.png`
 
     return new ImageResponse(
@@ -134,7 +134,7 @@ export async function GET(req: NextRequest) {
                   letterSpacing: '0.02em',
                 }}
               >
-                99puritypeptides.com
+                helixbio.com
               </div>
             </div>
           </div>

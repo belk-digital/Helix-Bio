@@ -10,27 +10,27 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "description": "The full mL-to-units and mg/mL reconstitution chart plus a free calculator. RUO laboratory reference.",
         "image": {
           "@type": "ImageObject",
-          "url": "https://99puritypeptides.com/99%20Blog%20Images/peptide-reconstitution-calculator-hero.webp"
+          "url": "https://helixbio.com/99%20Blog%20Images/peptide-reconstitution-calculator-hero.webp"
         },
         "author": {
           "@type": "Organization",
           "name": "Helix Bio Research Team",
-          "url": "https://99puritypeptides.com/"
+          "url": "https://helixbio.com/"
         },
         "publisher": {
           "@type": "Organization",
           "name": "Helix Bio",
-          "url": "https://99puritypeptides.com/",
+          "url": "https://helixbio.com/",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://99puritypeptides.com/99%20Images/99pp-Logo.png"
+            "url": "https://helixbio.com/99%20Images/99pp-Logo.png"
           }
         },
         "datePublished": "2026-07-13",
         "dateModified": "2026-07-13",
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://99puritypeptides.com/how-much-bacteriostatic-water-reconstitute-peptides/"
+          "@id": "https://helixbio.com/how-much-bacteriostatic-water-reconstitute-peptides/"
         },
         "about": ["Peptide reconstitution", "Bacteriostatic water", "Research peptides"],
         "isAccessibleForFree": true
@@ -369,19 +369,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://99puritypeptides.com/"
+            "item": "https://helixbio.com/"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Research Guides",
-            "item": "https://99puritypeptides.com/blog/"
+            "item": "https://helixbio.com/blog/"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Bacteriostatic Water Reconstitution Chart",
-            "item": "https://99puritypeptides.com/how-much-bacteriostatic-water-reconstitute-peptides/"
+            "item": "https://helixbio.com/how-much-bacteriostatic-water-reconstitute-peptides/"
           }
         ]
       },
@@ -392,7 +392,7 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
           "@type": "SpeakableSpecification",
           "cssSelector": [".quick-answer", ".units-conversion", ".faq-answer"]
         },
-        "url": "https://99puritypeptides.com/how-much-bacteriostatic-water-reconstitute-peptides/"
+        "url": "https://helixbio.com/how-much-bacteriostatic-water-reconstitute-peptides/"
       }
     ]
   },
@@ -412,22 +412,22 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
     "author": {
       "@type": "Organization",
       "name": "Helix Bio Research Team",
-      "url": "https://99puritypeptides.com/"
+      "url": "https://helixbio.com/"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Helix Bio",
-      "url": "https://99puritypeptides.com/",
+      "url": "https://helixbio.com/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://99puritypeptides.com/99%20Images/99pp-Logo.png"
+        "url": "https://helixbio.com/99%20Images/99pp-Logo.png"
       }
     },
     "datePublished": "2026-04-26",
     "dateModified": "2026-04-26",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://99puritypeptides.com/reconstituted-peptide-stability-storage/"
+      "@id": "https://helixbio.com/reconstituted-peptide-stability-storage/"
     },
     "isAccessibleForFree": true
   },
@@ -439,19 +439,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://99puritypeptides.com/"
+        "item": "https://helixbio.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Research Guides",
-        "item": "https://99puritypeptides.com/blog/"
+        "item": "https://helixbio.com/blog/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Reconstituted Peptide Stability",
-        "item": "https://99puritypeptides.com/reconstituted-peptide-stability-storage/"
+        "item": "https://helixbio.com/reconstituted-peptide-stability-storage/"
       }
     ]
   }
@@ -473,22 +473,22 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
     "author": {
       "@type": "Organization",
       "name": "Helix Bio Research Team",
-      "url": "https://99puritypeptides.com/"
+      "url": "https://helixbio.com/"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Helix Bio",
-      "url": "https://99puritypeptides.com/",
+      "url": "https://helixbio.com/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://99puritypeptides.com/99%20Images/99pp-Logo.png"
+        "url": "https://helixbio.com/99%20Images/99pp-Logo.png"
       }
     },
     "datePublished": "2026-04-07",
     "dateModified": "2026-04-07",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://99puritypeptides.com/bpc-157-tb-500-stack-research/"
+      "@id": "https://helixbio.com/bpc-157-tb-500-stack-research/"
     },
     "isAccessibleForFree": true
   },
@@ -500,19 +500,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://99puritypeptides.com/"
+        "item": "https://helixbio.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Research Guides",
-        "item": "https://99puritypeptides.com/blog/"
+        "item": "https://helixbio.com/blog/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "BPC-157 TB-500 Stack Research",
-        "item": "https://99puritypeptides.com/bpc-157-tb-500-stack-research/"
+        "item": "https://helixbio.com/bpc-157-tb-500-stack-research/"
       }
     ]
   }
@@ -534,22 +534,22 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
     "author": {
       "@type": "Organization",
       "name": "Helix Bio Research Team",
-      "url": "https://99puritypeptides.com/"
+      "url": "https://helixbio.com/"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Helix Bio",
-      "url": "https://99puritypeptides.com/",
+      "url": "https://helixbio.com/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://99puritypeptides.com/99%20Images/99pp-Logo.png"
+        "url": "https://helixbio.com/99%20Images/99pp-Logo.png"
       }
     },
     "datePublished": "2026-03-31",
     "dateModified": "2026-03-31",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://99puritypeptides.com/tesamorelin-visceral-fat-research/"
+      "@id": "https://helixbio.com/tesamorelin-visceral-fat-research/"
     },
     "isAccessibleForFree": true
   },
@@ -561,19 +561,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://99puritypeptides.com/"
+        "item": "https://helixbio.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Research Guides",
-        "item": "https://99puritypeptides.com/blog/"
+        "item": "https://helixbio.com/blog/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Tesamorelin Visceral Fat Research",
-        "item": "https://99puritypeptides.com/tesamorelin-visceral-fat-research/"
+        "item": "https://helixbio.com/tesamorelin-visceral-fat-research/"
       }
     ]
   }
@@ -595,22 +595,22 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
     "author": {
       "@type": "Organization",
       "name": "Helix Bio Research Team",
-      "url": "https://99puritypeptides.com/"
+      "url": "https://helixbio.com/"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Helix Bio",
-      "url": "https://99puritypeptides.com/",
+      "url": "https://helixbio.com/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://99puritypeptides.com/99%20Images/99pp-Logo.png"
+        "url": "https://helixbio.com/99%20Images/99pp-Logo.png"
       }
     },
     "datePublished": "2026-03-18",
     "dateModified": "2026-03-18",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://99puritypeptides.com/retatrutide-cancer-research-preclinical-studies/"
+      "@id": "https://helixbio.com/retatrutide-cancer-research-preclinical-studies/"
     },
     "isAccessibleForFree": true
   },
@@ -622,32 +622,32 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://99puritypeptides.com/"
+        "item": "https://helixbio.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Research Guides",
-        "item": "https://99puritypeptides.com/blog/"
+        "item": "https://helixbio.com/blog/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Retatrutide Cancer Research",
-        "item": "https://99puritypeptides.com/retatrutide-cancer-research-preclinical-studies/"
+        "item": "https://helixbio.com/retatrutide-cancer-research-preclinical-studies/"
       }
     ]
   }
 ]
   },
   "research-peptide-storage-best-practices": {
-    "title": "Storing Research Peptides in Laboratories | 99PurityPeptides",
+    "title": "Storing Research Peptides in Laboratories | HelixBioPeptides",
     "description": "Complete laboratory guide for storing research peptides. Temperature requirements, and preventing degradation for reproducible results.",
     "schemas": [
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "Storing Research Peptides in Laboratories | 99PurityPeptides",
+    "headline": "Storing Research Peptides in Laboratories | HelixBioPeptides",
     "description": "Complete laboratory guide for storing research peptides. Temperature requirements, and preventing degradation for reproducible results.",
     "image": {
       "@type": "ImageObject",
@@ -656,22 +656,22 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
     "author": {
       "@type": "Organization",
       "name": "Helix Bio Research Team",
-      "url": "https://99puritypeptides.com/"
+      "url": "https://helixbio.com/"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Helix Bio",
-      "url": "https://99puritypeptides.com/",
+      "url": "https://helixbio.com/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://99puritypeptides.com/99%20Images/99pp-Logo.png"
+        "url": "https://helixbio.com/99%20Images/99pp-Logo.png"
       }
     },
     "datePublished": "2026-03-12",
     "dateModified": "2026-03-12",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://99puritypeptides.com/research-peptide-storage-best-practices/"
+      "@id": "https://helixbio.com/research-peptide-storage-best-practices/"
     },
     "isAccessibleForFree": true
   },
@@ -683,19 +683,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://99puritypeptides.com/"
+        "item": "https://helixbio.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Research Guides",
-        "item": "https://99puritypeptides.com/blog/"
+        "item": "https://helixbio.com/blog/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Research Peptide Storage Best Practices",
-        "item": "https://99puritypeptides.com/research-peptide-storage-best-practices/"
+        "item": "https://helixbio.com/research-peptide-storage-best-practices/"
       }
     ]
   }
@@ -717,22 +717,22 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
     "author": {
       "@type": "Organization",
       "name": "Helix Bio Research Team",
-      "url": "https://99puritypeptides.com/"
+      "url": "https://helixbio.com/"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Helix Bio",
-      "url": "https://99puritypeptides.com/",
+      "url": "https://helixbio.com/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://99puritypeptides.com/99%20Images/99pp-Logo.png"
+        "url": "https://helixbio.com/99%20Images/99pp-Logo.png"
       }
     },
     "datePublished": "2026-02-23",
     "dateModified": "2026-02-23",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://99puritypeptides.com/what-are-research-peptides-complete-laboratory-guide-2026/"
+      "@id": "https://helixbio.com/what-are-research-peptides-complete-laboratory-guide-2026/"
     },
     "isAccessibleForFree": true
   },
@@ -744,19 +744,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://99puritypeptides.com/"
+        "item": "https://helixbio.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Research Guides",
-        "item": "https://99puritypeptides.com/blog/"
+        "item": "https://helixbio.com/blog/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "What Are Research Peptides?",
-        "item": "https://99puritypeptides.com/what-are-research-peptides-complete-laboratory-guide-2026/"
+        "item": "https://helixbio.com/what-are-research-peptides-complete-laboratory-guide-2026/"
       }
     ]
   }
@@ -778,22 +778,22 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
     "author": {
       "@type": "Organization",
       "name": "Helix Bio Research Team",
-      "url": "https://99puritypeptides.com/"
+      "url": "https://helixbio.com/"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Helix Bio",
-      "url": "https://99puritypeptides.com/",
+      "url": "https://helixbio.com/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://99puritypeptides.com/99%20Images/99pp-Logo.png"
+        "url": "https://helixbio.com/99%20Images/99pp-Logo.png"
       }
     },
     "datePublished": "2026-01-14",
     "dateModified": "2026-01-14",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://99puritypeptides.com/top-peptides-for-metabolic-studies/"
+      "@id": "https://helixbio.com/top-peptides-for-metabolic-studies/"
     },
     "isAccessibleForFree": true
   },
@@ -805,19 +805,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://99puritypeptides.com/"
+        "item": "https://helixbio.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Research Guides",
-        "item": "https://99puritypeptides.com/blog/"
+        "item": "https://helixbio.com/blog/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Top Peptides for Metabolic Studies",
-        "item": "https://99puritypeptides.com/top-peptides-for-metabolic-studies/"
+        "item": "https://helixbio.com/top-peptides-for-metabolic-studies/"
       }
     ]
   }
@@ -839,22 +839,22 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
     "author": {
       "@type": "Organization",
       "name": "Helix Bio Research Team",
-      "url": "https://99puritypeptides.com/"
+      "url": "https://helixbio.com/"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Helix Bio",
-      "url": "https://99puritypeptides.com/",
+      "url": "https://helixbio.com/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://99puritypeptides.com/99%20Images/99pp-Logo.png"
+        "url": "https://helixbio.com/99%20Images/99pp-Logo.png"
       }
     },
     "datePublished": "2026-01-07",
     "dateModified": "2026-01-07",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://99puritypeptides.com/everything-lab-researchers-need-to-know-about-bpc-157/"
+      "@id": "https://helixbio.com/everything-lab-researchers-need-to-know-about-bpc-157/"
     },
     "isAccessibleForFree": true
   },
@@ -866,19 +866,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://99puritypeptides.com/"
+        "item": "https://helixbio.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Research Guides",
-        "item": "https://99puritypeptides.com/blog/"
+        "item": "https://helixbio.com/blog/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Everything About BPC-157",
-        "item": "https://99puritypeptides.com/everything-lab-researchers-need-to-know-about-bpc-157/"
+        "item": "https://helixbio.com/everything-lab-researchers-need-to-know-about-bpc-157/"
       }
     ]
   }
@@ -969,7 +969,7 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
             "name": "Where can I buy research-grade collagen peptides?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Research-grade collagen peptides with verified purity, documented molecular weight profiles, and Certificate of Analysis are available at 99PurityPeptides.com. All products are intended for research use and comply with research-use labeling standards."
+              "text": "Research-grade collagen peptides with verified purity, documented molecular weight profiles, and Certificate of Analysis are available at HelixBioPeptides.com. All products are intended for research use and comply with research-use labeling standards."
             }
           }
         ]
@@ -979,38 +979,38 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "@type": "Article",
         "headline": "Collagen Peptides Benefits: The Complete Science-Backed Guide for 2025",
         "description": "A comprehensive, research-backed guide to collagen peptides benefits covering skin health, joint mobility, bone density, muscle recovery, and weight management — with clinical citations and research-grade sourcing from Helix Bio.",
-        "url": "https://99puritypeptides.com/collagen-peptides-benefits",
+        "url": "https://helixbio.com/collagen-peptides-benefits",
         "datePublished": "2025-05-01",
         "dateModified": "2025-05-16",
         "author": {
           "@type": "Organization",
           "name": "Helix Bio Research Editorial Team",
-          "url": "https://99puritypeptides.com"
+          "url": "https://helixbio.com"
         },
         "publisher": {
           "@type": "Organization",
           "name": "Helix Bio",
-          "url": "https://99puritypeptides.com",
+          "url": "https://helixbio.com",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://99puritypeptides.com/logo.png"
+            "url": "https://helixbio.com/logo.png"
           }
         },
-        "image": "https://99puritypeptides.com/images/collagen-peptides-benefits-infographic.webp",
+        "image": "https://helixbio.com/images/collagen-peptides-benefits-infographic.webp",
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://99puritypeptides.com/collagen-peptides-benefits"
+          "@id": "https://helixbio.com/collagen-peptides-benefits"
         }
       },
       {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Helix Bio",
-        "url": "https://99puritypeptides.com",
+        "url": "https://helixbio.com",
         "description": "U.S.-based supplier of research-grade peptides including collagen peptides, BPC-157, ipamorelin, and copper peptides with verified purity and Certificate of Analysis documentation.",
         "sameAs": [
-          "https://twitter.com/99puritypeptides",
-          "https://www.facebook.com/99puritypeptides"
+          "https://twitter.com/helixbio",
+          "https://www.facebook.com/helixbio"
         ]
       },
       {
@@ -1021,19 +1021,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://99puritypeptides.com"
+            "item": "https://helixbio.com"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Research Blog",
-            "item": "https://99puritypeptides.com/blog"
+            "item": "https://helixbio.com/blog"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Collagen Peptides Benefits",
-            "item": "https://99puritypeptides.com/collagen-peptides-benefits"
+            "item": "https://helixbio.com/collagen-peptides-benefits"
           }
         ]
       }
@@ -1055,22 +1055,22 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
   "author": {
     "@type": "Organization",
     "name": "Helix Bio Research Team",
-    "url": "https://99puritypeptides.com/"
+    "url": "https://helixbio.com/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Helix Bio",
-    "url": "https://99puritypeptides.com/",
+    "url": "https://helixbio.com/",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://99puritypeptides.com/99%20Images/99pp-Logo.png"
+      "url": "https://helixbio.com/99%20Images/99pp-Logo.png"
     }
   },
   "datePublished": "2026-06-16",
   "dateModified": "2026-06-16",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://99puritypeptides.com/collagen-peptides-vs-peptide-therapy-skin/"
+    "@id": "https://helixbio.com/collagen-peptides-vs-peptide-therapy-skin/"
   },
   "isAccessibleForFree": true
 },
@@ -1082,19 +1082,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://99puritypeptides.com/"
+      "item": "https://helixbio.com/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Research Guides",
-      "item": "https://99puritypeptides.com/blog/"
+      "item": "https://helixbio.com/blog/"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "Collagen Peptides vs Peptide Therapy",
-      "item": "https://99puritypeptides.com/collagen-peptides-vs-peptide-therapy-skin/"
+      "item": "https://helixbio.com/collagen-peptides-vs-peptide-therapy-skin/"
     }
   ]
 },
@@ -1180,33 +1180,33 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "@type": "TechArticle",
         "headline": "KLOW Peptide Blend: 2026 Research Guide, Benefits & Dosage",
         "description": "Comprehensive research reference for the KLOW peptide blend: verified 50mg BPC-157 / 10mg TB-500 / 10mg KPV / 10mg GHK-Cu composition, dosage chart, KLOW vs GLOW comparison, reconstitution math, and sourcing criteria for research-grade multi-component peptides.",
-        "url": "https://99puritypeptides.com/klow-peptide-blend-research-guide-2026/",
+        "url": "https://helixbio.com/klow-peptide-blend-research-guide-2026/",
         "datePublished": "2026-06-11",
         "dateModified": "2026-06-11",
         "image": {
           "@type": "ImageObject",
-          "url": "https://99puritypeptides.com/99%20Blog%20Images/klow-peptide-blend-research-guide-2026-hero.png",
+          "url": "https://helixbio.com/99%20Blog%20Images/klow-peptide-blend-research-guide-2026-hero.png",
           "width": 1080,
           "height": 675
         },
         "author": {
           "@type": "Organization",
           "name": "Helix Bio",
-          "url": "https://99puritypeptides.com/"
+          "url": "https://helixbio.com/"
         },
         "publisher": {
           "@type": "Organization",
           "name": "Helix Bio",
-          "url": "https://99puritypeptides.com/",
+          "url": "https://helixbio.com/",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://99puritypeptides.com/99%20Images/99pp-Logo.png"
+            "url": "https://helixbio.com/99%20Images/99pp-Logo.png"
           }
         },
         "isRelatedTo": {
           "@type": "Product",
           "name": "KLOW 50mg/10mg/10mg/10mg 3ML Research Compound Blend",
-          "url": "https://99puritypeptides.com/product/klow/",
+          "url": "https://helixbio.com/product/klow/",
           "description": "A four-component research blend of BPC-157, TB-500, KPV, and GHK-Cu at 50/10/10/10mg in 3mL. Research-use-only.",
           "brand": {
             "@type": "Brand",
@@ -1215,7 +1215,7 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         },
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://99puritypeptides.com/klow-peptide-blend-research-guide-2026/"
+          "@id": "https://helixbio.com/klow-peptide-blend-research-guide-2026/"
         }
       },
       {
@@ -1312,19 +1312,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://99puritypeptides.com/"
+            "item": "https://helixbio.com/"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Recovery Research Peptides",
-            "item": "https://99puritypeptides.com/product-category/recovery-research-peptides/"
+            "item": "https://helixbio.com/product-category/recovery-research-peptides/"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "KLOW Peptide Guide",
-            "item": "https://99puritypeptides.com/klow-peptide-blend-research-guide-2026/"
+            "item": "https://helixbio.com/klow-peptide-blend-research-guide-2026/"
           }
         ]
       },
@@ -1332,12 +1332,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Helix Bio",
-        "url": "https://99puritypeptides.com/",
-        "logo": "https://99puritypeptides.com/99%20Images/99pp-Logo.png",
+        "url": "https://helixbio.com/",
+        "logo": "https://helixbio.com/99%20Images/99pp-Logo.png",
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+1-843-330-7365",
-          "email": "orders@99puritypeptides.com",
+          "email": "orders@helixbio.com",
           "contactType": "customer service",
           "areaServed": "US",
           "availableLanguage": "English"
@@ -1413,7 +1413,7 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "@context": "https://schema.org",
         "@type": "DefinedTermSet",
         "name": "KLOW Peptide Research Glossary",
-        "url": "https://99puritypeptides.com/klow-peptide-blend-research-guide-2026/#glossary",
+        "url": "https://helixbio.com/klow-peptide-blend-research-guide-2026/#glossary",
         "hasDefinedTerm": [
           {
             "@type": "DefinedTerm",
@@ -1485,22 +1485,22 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
   "author": {
     "@type": "Organization",
     "name": "Helix Bio Research Team",
-    "url": "https://99puritypeptides.com/"
+    "url": "https://helixbio.com/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Helix Bio",
-    "url": "https://99puritypeptides.com/",
+    "url": "https://helixbio.com/",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://99puritypeptides.com/99%20Images/99pp-Logo.png"
+      "url": "https://helixbio.com/99%20Images/99pp-Logo.png"
     }
   },
   "datePublished": "2026-05-16",
   "dateModified": "2026-05-16",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://99puritypeptides.com/peptide-calculator-reconstitution-guide/"
+    "@id": "https://helixbio.com/peptide-calculator-reconstitution-guide/"
   },
   "isAccessibleForFree": true
 },
@@ -1512,19 +1512,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://99puritypeptides.com/"
+      "item": "https://helixbio.com/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Research Guides",
-      "item": "https://99puritypeptides.com/blog/"
+      "item": "https://helixbio.com/blog/"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "Peptide Calculator Reconstitution Guide",
-      "item": "https://99puritypeptides.com/peptide-calculator-reconstitution-guide/"
+      "item": "https://helixbio.com/peptide-calculator-reconstitution-guide/"
     }
   ]
 },
@@ -1635,14 +1635,14 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
           "name": "Helix Bio",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://99puritypeptides.com/logo.png"
+            "url": "https://helixbio.com/logo.png"
           }
         },
         "datePublished": "2025-01-01",
         "dateModified": "2025-07-01",
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://99puritypeptides.com/retatrutide-and-carbs/"
+          "@id": "https://helixbio.com/retatrutide-and-carbs/"
         },
         "keywords": "retatrutide, carbohydrate metabolism, triple agonist, GLP-1, GIP, glucagon receptor, glucose regulation"
       },
@@ -1681,12 +1681,12 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "@type": "WebPage",
         "name": "Retatrutide and Carbs: Does This Triple Agonist Need Glucose?",
         "description": "Research analysis of Retatrutide's interaction with carbohydrate metabolism through its triple agonist GLP-1, GIP, and Glucagon receptor mechanism.",
-        "url": "https://99puritypeptides.com/retatrutide-and-carbs/",
+        "url": "https://helixbio.com/retatrutide-and-carbs/",
         "inLanguage": "en-US",
         "isPartOf": {
           "@type": "WebSite",
           "name": "Helix Bio",
-          "url": "https://99puritypeptides.com"
+          "url": "https://helixbio.com"
         }
       },
       {
@@ -1697,19 +1697,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://99puritypeptides.com"
+            "item": "https://helixbio.com"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Research Blog",
-            "item": "https://99puritypeptides.com/blog/"
+            "item": "https://helixbio.com/blog/"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Retatrutide and Carbs",
-            "item": "https://99puritypeptides.com/retatrutide-and-carbs/"
+            "item": "https://helixbio.com/retatrutide-and-carbs/"
           }
         ]
       }
@@ -1731,22 +1731,22 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
   "author": {
     "@type": "Organization",
     "name": "Helix Bio Research Team",
-    "url": "https://99puritypeptides.com/"
+    "url": "https://helixbio.com/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Helix Bio",
-    "url": "https://99puritypeptides.com/",
+    "url": "https://helixbio.com/",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://99puritypeptides.com/99%20Images/99pp-Logo.png"
+      "url": "https://helixbio.com/99%20Images/99pp-Logo.png"
     }
   },
   "datePublished": "2026-06-02",
   "dateModified": "2026-06-02",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://99puritypeptides.com/retatrutide-weight-loss-research-guide-2026/"
+    "@id": "https://helixbio.com/retatrutide-weight-loss-research-guide-2026/"
   },
   "isAccessibleForFree": true
 },
@@ -1758,19 +1758,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://99puritypeptides.com/"
+      "item": "https://helixbio.com/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Research Guides",
-      "item": "https://99puritypeptides.com/blog/"
+      "item": "https://helixbio.com/blog/"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "Retatrutide for Weight Loss",
-      "item": "https://99puritypeptides.com/retatrutide-weight-loss-research-guide-2026/"
+      "item": "https://helixbio.com/retatrutide-weight-loss-research-guide-2026/"
     }
   ]
 },
@@ -1959,22 +1959,22 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
   "author": {
     "@type": "Organization",
     "name": "Helix Bio Research Team",
-    "url": "https://99puritypeptides.com/"
+    "url": "https://helixbio.com/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Helix Bio",
-    "url": "https://99puritypeptides.com/",
+    "url": "https://helixbio.com/",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://99puritypeptides.com/99%20Images/99pp-Logo.png"
+      "url": "https://helixbio.com/99%20Images/99pp-Logo.png"
     }
   },
   "datePublished": "2026-05-09",
   "dateModified": "2026-05-09",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://99puritypeptides.com/peptide-reconstitution-calculator/"
+    "@id": "https://helixbio.com/peptide-reconstitution-calculator/"
   },
   "isAccessibleForFree": true
 },
@@ -1986,19 +1986,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://99puritypeptides.com/"
+      "item": "https://helixbio.com/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Research Guides",
-      "item": "https://99puritypeptides.com/blog/"
+      "item": "https://helixbio.com/blog/"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "Peptide Reconstitution Calculator",
-      "item": "https://99puritypeptides.com/peptide-reconstitution-calculator/"
+      "item": "https://helixbio.com/peptide-reconstitution-calculator/"
     }
   ]
 },
@@ -2107,22 +2107,22 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
   "author": {
     "@type": "Organization",
     "name": "Helix Bio Research Team",
-    "url": "https://99puritypeptides.com/"
+    "url": "https://helixbio.com/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Helix Bio",
-    "url": "https://99puritypeptides.com/",
+    "url": "https://helixbio.com/",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://99puritypeptides.com/99%20Images/99pp-Logo.png"
+      "url": "https://helixbio.com/99%20Images/99pp-Logo.png"
     }
   },
   "datePublished": "2026-05-21",
   "dateModified": "2026-05-21",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://99puritypeptides.com/retatrutide-peptide-research-guide/"
+    "@id": "https://helixbio.com/retatrutide-peptide-research-guide/"
   },
   "isAccessibleForFree": true
 },
@@ -2134,19 +2134,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://99puritypeptides.com/"
+      "item": "https://helixbio.com/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Research Guides",
-      "item": "https://99puritypeptides.com/blog/"
+      "item": "https://helixbio.com/blog/"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "Retatrutide Peptide Research Guide",
-      "item": "https://99puritypeptides.com/retatrutide-peptide-research-guide/"
+      "item": "https://helixbio.com/retatrutide-peptide-research-guide/"
     }
   ]
 },
@@ -2375,22 +2375,22 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
   "author": {
     "@type": "Organization",
     "name": "Helix Bio Research Team",
-    "url": "https://99puritypeptides.com/"
+    "url": "https://helixbio.com/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Helix Bio",
-    "url": "https://99puritypeptides.com/",
+    "url": "https://helixbio.com/",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://99puritypeptides.com/99%20Images/99pp-Logo.png"
+      "url": "https://helixbio.com/99%20Images/99pp-Logo.png"
     }
   },
   "datePublished": "2026-05-26",
   "dateModified": "2026-05-26",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://99puritypeptides.com/ghk-cu-copper-peptide-research-guide/"
+    "@id": "https://helixbio.com/ghk-cu-copper-peptide-research-guide/"
   },
   "isAccessibleForFree": true
 },
@@ -2402,19 +2402,19 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://99puritypeptides.com/"
+      "item": "https://helixbio.com/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Research Guides",
-      "item": "https://99puritypeptides.com/blog/"
+      "item": "https://helixbio.com/blog/"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "GHK-Cu Copper Peptide Research Guide",
-      "item": "https://99puritypeptides.com/ghk-cu-copper-peptide-research-guide/"
+      "item": "https://helixbio.com/ghk-cu-copper-peptide-research-guide/"
     }
   ]
 },
@@ -2962,9 +2962,9 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "author": {"@type":"Organization","name":"Helix Bio"},
         "publisher": {
           "@type":"Organization","name":"Helix Bio",
-          "logo":{"@type":"ImageObject","url":"https://99puritypeptides.com/logo.png"}
+          "logo":{"@type":"ImageObject","url":"https://helixbio.com/logo.png"}
         },
-        "mainEntityOfPage": "https://99puritypeptides.com/tesamorelin-visceral-fat-reduction-percentage/",
+        "mainEntityOfPage": "https://helixbio.com/tesamorelin-visceral-fat-reduction-percentage/",
         "datePublished": "2026-06-23",
         "dateModified": "2026-06-23"
       },
@@ -2972,9 +2972,9 @@ export const BLOG_SEO: Record<string, { title: string | null, description: strin
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://99puritypeptides.com/"},
-          {"@type":"ListItem","position":2,"name":"Research Guides","item":"https://99puritypeptides.com/research-guides/"},
-          {"@type":"ListItem","position":3,"name":"Tesamorelin Visceral Fat Reduction","item":"https://99puritypeptides.com/tesamorelin-visceral-fat-reduction-percentage/"}
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://helixbio.com/"},
+          {"@type":"ListItem","position":2,"name":"Research Guides","item":"https://helixbio.com/research-guides/"},
+          {"@type":"ListItem","position":3,"name":"Tesamorelin Visceral Fat Reduction","item":"https://helixbio.com/tesamorelin-visceral-fat-reduction-percentage/"}
         ]
       }
     ]

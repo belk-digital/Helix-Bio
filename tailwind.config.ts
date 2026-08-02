@@ -77,7 +77,7 @@ const config: Config = {
         md: '0 4px 12px rgba(10, 10, 10, 0.06)',
         lg: '0 12px 32px rgba(10, 10, 10, 0.08)',
         xl: '0 24px 64px rgba(10, 10, 10, 0.12)',
-        focus: '0 0 0 3px rgba(201, 181, 142, 0.4)',
+        focus: '0 0 0 3px rgba(146, 220, 229, 0.4)',
       },
       maxWidth: {
         content: '720px',

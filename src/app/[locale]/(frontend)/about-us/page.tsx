@@ -66,7 +66,7 @@ export default async function AboutPage({
     answer: t(`faqs.${key}.answer`),
   }))
 
-  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://99puritypeptides.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
   const path = locale === 'en' ? `/${slug}` : `/${locale}/${slug}`
   const url = `${baseUrl}${path}`
 

@@ -1,7 +1,7 @@
 import { emailLayout } from './emailLayout'
 
 export function generateMilitaryRejectionEmail(name: string): string {
-  const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://99puritypeptides.com';
+  const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com';
   
   return emailLayout({
     title: 'Verification Update',

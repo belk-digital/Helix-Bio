@@ -11,7 +11,7 @@ const SLIDES = [
     id: 0,
     title: "PRECISION LABS",
     subtitle: "Research environments",
-    image: "/HelixBio Images/ChatGPT Image Jul 20, 2026, 06_16_28 AM.webp"
+    image: "/HelixBio Images/featured-research-2.webp"
   },
   {
     id: 1,

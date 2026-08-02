@@ -48,7 +48,7 @@ export default async function RefundPolicyLayout({
   const t = await getTranslations('legal.refundPolicy')
   const title = t('metaTitle')
   const description = t('metaDescription')
-  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://99puritypeptides.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
   const path = locale === 'en' ? '/refund-policy' : `/${locale}/refund-policy`
   const url = `${baseUrl}${path}`
 

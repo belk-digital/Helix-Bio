@@ -92,6 +92,7 @@
     "quickCategories": "Categorías Rápidas",
     "searchResults": "Resultados de Búsqueda ({count})",
     "institutionalAccess": "Acceso Institucional",
+    "pressEnter": "Presiona Enter para buscar",
     "kbdHint": "Usa <kbd>⌘ + K</kbd> para buscar desde cualquier módulo del laboratorio",
     "helpCenter": "Centro de Ayuda",
     "categories": {
@@ -111,10 +112,10 @@
     "exploreCategories": "Explorar Categorías",
     "support": "Soporte",
     "links": {
-      "shopFormulations": "Ver Formulaciones",
+      "shopFormulations": "Comprar",
       "peptideCalculator": "Calculadora de Péptidos",
       "blog": "Blog",
-      "ourLaboratory": "Nuestro Laboratorio",
+      "ourLaboratory": "Sobre Nosotros",
       "faq": "Preguntas Frecuentes",
       "contactSupport": "Contactar Soporte",
       "affiliateProgram": "Programa de Afiliados"
@@ -1882,6 +1883,8 @@
       "metaDescription": "Accede a tus enlaces de referido y códigos de cupón personalizados para empezar a ganar comisiones.",
       "referralLinkTitle": "Tu Enlace de Referido Estándar",
       "referralLinkDesc": "Comparte este enlace. Cualquiera que haga clic en él será rastreado como tu referido.",
+      "yourReferralLink": "Tu Enlace de Referido",
+      "yourCouponCode": "Tu Código de Cupón",
       "copied": "¡Copiado!",
       "copy": "Copiar",
       "couponCodeTitle": "Tu Código de Cupón Personalizado",

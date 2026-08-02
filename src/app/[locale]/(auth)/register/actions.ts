@@ -55,11 +55,11 @@ export async function registerUser(input: RegisterInput) {
     if (process.env.PAYLOAD_SECRET) {
       try {
         const token = jwt.sign({ userId: created.id, purpose: 'verify-email' }, process.env.PAYLOAD_SECRET, { expiresIn: '48h' })
-        const base = process.env.NEXT_PUBLIC_SERVER_URL || 'https://99puritypeptides.com'
+        const base = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
         const verifyUrl = `${base}/api/verify-email?token=${token}`
         const html = generateVerifyEmailEmail(firstName, verifyUrl)
         await sendTrackedEmail(payload, {
-          from: 'Support | Helix Bio <support@99puritypeptides.com>',
+          from: 'Support | Helix Bio <support@helixbio.com>',
           to: email.toLowerCase(),
           subject: 'Verify your email - Helix Bio',
           html,

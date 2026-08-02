@@ -101,8 +101,8 @@ export async function submitContactForm(formData: FormData) {
     `
 
     await sendTrackedEmail(payload, {
-      from: 'Helix Bio <contact@99puritypeptides.com>',
-      to: 'contact@99puritypeptides.com',
+      from: 'Helix Bio <contact@helixbio.com>',
+      to: 'contact@helixbio.com',
       replyTo: email,
       subject: `[Contact Form] ${subject}`,
       html: html,

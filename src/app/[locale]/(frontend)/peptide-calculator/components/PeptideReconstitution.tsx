@@ -27,9 +27,24 @@ const DynamicInput = ({ value, onChange, minWidth = 2 }: { value: string, onChan
 const DynamicSelect = ({ value, options, onChange }: { value: string | number, options: {label: string, value: string | number}[], onChange: (v: string) => void }) => {
   const [isOpen, setIsOpen] = useState(false);
   const selectedLabel = options.find(o => o.value == value)?.label;
+  const dropdownRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
-    <div className="relative inline-block mx-1" onMouseLeave={() => setIsOpen(false)}>
+    <div className="relative inline-block mx-1" ref={dropdownRef}>
       <button 
         onClick={() => setIsOpen(!isOpen)}
         className="bg-transparent border-b-2 border-black/10 hover:border-primary/50 text-primary focus:outline-none px-1 mx-1 font-black transition-colors flex items-center gap-1 inline-flex"

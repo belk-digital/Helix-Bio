@@ -61,22 +61,32 @@ export function ConversionsClient({ conversions }: ConversionsClientProps) {
       variants={containerVars}
       initial="hidden"
       animate="show"
-      className="flex flex-col gap-8"
+      className="flex flex-col gap-12"
     >
-      <motion.div variants={itemVars}>
-        <h1 className="text-3xl font-bold tracking-tight text-[#1e5661] mb-2 font-heading">
+      <motion.div variants={itemVars} className="border-b-2 border-black pb-8">
+        <h1 className="text- -light tracking-tight text-[#1e5661] uppercase leading-none mb-4">
           {t('title')}
         </h1>
-        <p className="text-gray-500">{t('subtitle')}</p>
+        <p className="text-gray-500 max-w-xl text-lg">{t('subtitle')}</p>
       </motion.div>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col">
+        {/* Ledger Header - Desktop Only */}
+        {conversions.length > 0 && (
+          <motion.div variants={itemVars} className="hidden md:flex items-center justify-between pb-4 border-b border-gray-200 px-4">
+            <span className="w-1/4 text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">{t('orderIdLabel')}</span>
+            <span className="w-1/4 text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">{t('dateLabel')}</span>
+            <span className="w-1/4 text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">{t('orderValueLabel')}</span>
+            <span className="w-1/4 text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400 text-right">{t('commissionLabel')}</span>
+          </motion.div>
+        )}
+
         {conversions.length === 0 ? (
-          <motion.div variants={itemVars} className="bg-white p-12 rounded-3xl border border-dashed border-gray-200 flex flex-col items-center justify-center text-center gap-4 text-gray-500">
-            <Target size={48} className="text-gray-200" />
-            <div className="flex flex-col gap-1">
-              <h3 className="text-lg font-bold text-black">{t('emptyTitle')}</h3>
-              <p className="text-sm">{t('emptyDesc')}</p>
+          <motion.div variants={itemVars} className="py-24 flex flex-col items-center justify-center text-center gap-6 text-gray-400 border-b border-gray-100">
+            <Target size={48} className="opacity-20" />
+            <div className="flex flex-col gap-2">
+              <h3 className="text-xl font-light text-black uppercase tracking-widest">{t('emptyTitle')}</h3>
+              <p className="text-base">{t('emptyDesc')}</p>
             </div>
           </motion.div>
         ) : (
@@ -84,38 +94,35 @@ export function ConversionsClient({ conversions }: ConversionsClientProps) {
             <motion.div 
               key={conv.id} 
               variants={itemVars}
-              className="group flex flex-col md:flex-row md:items-center justify-between p-6 bg-white border border-gray-100 rounded-3xl shadow-sm hover:shadow-lg hover:shadow-black/5 hover:border-gray-200 transition-all duration-300 gap-6 cursor-pointer relative overflow-hidden"
+              className="group flex flex-col md:flex-row md:items-center justify-between py-6 md:py-8 border-b border-gray-100 hover:bg-gray-50 transition-colors px-4 -mx-4 rounded-lg"
             >
-              {/* Highlight bar on hover */}
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300" />
-              
-              <div className="flex flex-col gap-2 pl-2 md:w-1/4">
-                <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">{t('orderIdLabel')}</span>
-                <span className="text-base font-bold text-black">#{conv.id.substring(0, 8)}</span>
+              <div className="flex flex-col gap-2 md:w-1/4">
+                <span className="md:hidden text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">{t('orderIdLabel')}</span>
+                <span className="text-lg font-light text-black tracking-widest">#{conv.id.substring(0, 8)}</span>
               </div>
 
-              <div className="flex flex-col gap-2 md:w-1/4">
-                <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">{t('dateLabel')}</span>
+              <div className="flex flex-col gap-2 md:w-1/4 mt-4 md:mt-0">
+                <span className="md:hidden text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">{t('dateLabel')}</span>
                 <span className="text-sm font-medium text-gray-600">{conv.date}</span>
               </div>
 
-              <div className="flex flex-col gap-2 md:w-1/4">
-                <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">{t('orderValueLabel')}</span>
-                <span className="text-sm font-medium text-gray-600">{formatMoney(conv.orderValue)}</span>
+              <div className="flex flex-col gap-2 md:w-1/4 mt-4 md:mt-0">
+                <span className="md:hidden text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400">{t('orderValueLabel')}</span>
+                <span className="text-lg text-black">{formatMoney(conv.orderValue)}</span>
               </div>
 
-              <div className="flex flex-col md:items-end gap-2 md:w-1/4">
-                <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">{t('commissionLabel')}</span>
-                <div className="flex items-center gap-4">
-                  <span className="text-base text-emerald-600 font-bold">+{formatMoney(conv.commissionAmount)}</span>
-                  <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full">
-                    <span className={`w-1.5 h-1.5 rounded-full ${
-                      conv.status === 'pending' ? 'bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]' :
-                      conv.status === 'approved' ? 'bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]' :
-                      conv.status === 'paid' ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]' :
-                      'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]'
+              <div className="flex flex-col md:items-end gap-2 md:w-1/4 mt-6 md:mt-0">
+                <span className="md:hidden text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400 text-right">{t('commissionLabel')}</span>
+                <div className="flex items-center justify-between md:justify-end gap-6 w-full">
+                  <span className="text-2xl text-emerald-600 font-bold tracking-tight">+{formatMoney(conv.commissionAmount)}</span>
+                  <div className="flex items-center gap-2">
+                    <span className={`w-2 h-2 rounded-full ${
+                      conv.status === 'pending' ? 'bg-amber-400' :
+                      conv.status === 'approved' ? 'bg-blue-500' :
+                      conv.status === 'paid' ? 'bg-[#1e5661]' :
+                      'bg-red-500'
                     }`} />
-                    <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-gray-600">{statusLabel(conv.status)}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-gray-500">{statusLabel(conv.status)}</span>
                   </div>
                 </div>
               </div>
@@ -125,10 +132,10 @@ export function ConversionsClient({ conversions }: ConversionsClientProps) {
       </div>
 
       {hasMore && (
-        <motion.div variants={itemVars} className="flex justify-center mt-4">
+        <motion.div variants={itemVars} className="flex justify-center mt-8">
           <button
             onClick={() => setPage(p => p + 1)}
-            className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all shadow-md"
+            className="bg-black hover:bg-gray-800 text-white px-10 py-4 rounded-full text-xs font-medium uppercase tracking-[0.2em] transition-all shadow-md"
           >
             Load More
           </button>

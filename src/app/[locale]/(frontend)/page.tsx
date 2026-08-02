@@ -111,17 +111,17 @@ export default async function Homepage() {
             {
               "@context": "https://schema.org",
               "@type": "WebPage",
-              "@id": "https://99puritypeptides.com/#webpage",
-              "url": "https://99puritypeptides.com/",
+              "@id": "https://helixbio.com/#webpage",
+              "url": "https://helixbio.com/",
               "name": title,
               "description": description
             },
             {
               "@context": "https://schema.org",
               "@type": "BreadcrumbList",
-              "@id": "https://99puritypeptides.com/#breadcrumb",
+              "@id": "https://helixbio.com/#breadcrumb",
               "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://99puritypeptides.com/" }
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://helixbio.com/" }
               ]
             },
             {
@@ -174,18 +174,18 @@ export default async function Homepage() {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Helix Bio",
-              "url": "https://99puritypeptides.com",
+              "url": "https://helixbio.com",
               "description": "US-based research peptide supplier providing ≥99% HPLC-pure compounds with third-party COA verification."
             },
             {
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "url": "https://99puritypeptides.com",
+              "url": "https://helixbio.com",
               "potentialAction": {
                 "@type": "SearchAction",
                 "target": {
                   "@type": "EntryPoint",
-                  "urlTemplate": "https://99puritypeptides.com/shop?q={search_term_string}"
+                  "urlTemplate": "https://helixbio.com/shop?q={search_term_string}"
                 },
                 "query-input": "required name=search_term_string"
               }

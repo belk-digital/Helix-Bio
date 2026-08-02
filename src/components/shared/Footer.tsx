@@ -222,7 +222,7 @@ const FooterContent = () => {
             {/* Logo & Tagline */}
             <div className="flex flex-col gap-5 md:col-span-6 lg:col-span-5">
               <a href="/">
-                <img src="/HelixBio Images/hb-logo.png" alt="99Purity Peptides" className="h-14 md:h-20 lg:h-24 w-auto object-contain" />
+                <img src="/HelixBio Images/hb-logo.png" alt="HelixBio" className="h-14 md:h-20 lg:h-24 w-auto object-contain" />
               </a>
               <p className="text-black/50 text-base md:text-[17px] font-medium leading-relaxed mt-2 max-w-[400px]">
                 Setting the gold standard in peptide synthesis with verified HPLC/MS testing for uncompromised results.
@@ -251,7 +251,7 @@ const FooterContent = () => {
               {[
                 { label: t('navCalculator'), href: '/peptide-calculator' },
                 { label: t('navAffiliates'), href: '/affiliates' },
-                { label: 'X (Twitter)', href: 'https://x.com/99puritypeptide' },
+                { label: 'X (Twitter)', href: 'https://x.com/helixbiopeptide' },
               ].map(link => (
                  <Link key={link.label} href={link.href} target={link.href.startsWith('http') ? "_blank" : undefined} className="text-black/60 hover:text-black text-base font-medium transition-colors tracking-wide w-fit">
                    {link.label}
@@ -280,7 +280,7 @@ const FooterContent = () => {
             {/* Newsletter (Moved to Left) */}
             <div className="flex items-end order-1 mt-6 lg:mt-0 md:col-span-6 lg:col-span-5">
               <div className="w-full max-w-[420px] flex flex-col items-start text-left">
-                <h3 className="text-black text-4xl md:text-[40px] font-medium mb-1 tracking-tight">99Purity Peptides</h3>
+                <h3 className="text-black text-4xl md:text-[40px] font-medium mb-1 tracking-tight">HelixBio</h3>
                 <p className="text-black/50 text-2xl md:text-3xl font-light mb-8 tracking-wide">in your mailbox</p>
                 
                 <form onSubmit={handleNewsletterSubmit} className="w-full relative group">
@@ -329,15 +329,15 @@ const FooterContent = () => {
             <div className="flex items-end order-2 lg:order-3 md:col-span-6 lg:col-span-3 lg:justify-start">
               <div className="flex flex-col gap-6 text-left">
                 <div className="flex flex-col gap-2">
-                  <a href="mailto:support@99puritypeptides.com" className="text-black/90 font-medium hover:text-black transition-colors tracking-wide text-base md:text-[17px] w-fit">
-                    support@99puritypeptides.com
+                  <a href="mailto:support@helixbio.com" className="text-black/90 font-medium hover:text-black transition-colors tracking-wide text-base md:text-[17px] w-fit">
+                    support@helixbio.com
                   </a>
                   <a href="tel:+18433307365" className="text-black/50 text-[15px] hover:text-black/70 transition-colors tracking-wide w-fit">
                     +1 (843) 330-7365
                   </a>
                 </div>
                 <div className="text-black/40 text-[13px] md:text-[14px] font-medium leading-relaxed tracking-wide mt-3">
-                  99Purity Peptides<br/>
+                  HelixBio<br/>
                   {new Date().getFullYear()} © All rights reserved
                 </div>
               </div>
@@ -378,7 +378,7 @@ export function Footer() {
   }, [])
 
   return (
-    <div ref={footerRef} className="w-full relative z-40 bg-black print:hidden" style={{ pointerEvents: 'auto' }}>
+    <div id="global-footer" ref={footerRef} className="w-full relative z-40 bg-black print:hidden" style={{ pointerEvents: 'auto' }}>
       <FooterContent />
     </div>
   )

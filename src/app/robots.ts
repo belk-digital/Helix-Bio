@@ -25,7 +25,7 @@ const GLOBAL_PRIVATE_PATHS = [
 ]
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://99puritypeptides.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
 
   const disallow = [
     ...GLOBAL_PRIVATE_PATHS,

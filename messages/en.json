@@ -92,6 +92,7 @@
     "quickCategories": "Quick Categories",
     "searchResults": "Search Results ({count})",
     "institutionalAccess": "Institutional Access",
+    "pressEnter": "Press Enter to search",
     "kbdHint": "Use <kbd>⌘ + K</kbd> to search from any laboratory module",
     "helpCenter": "Help Center",
     "categories": {
@@ -111,10 +112,10 @@
     "exploreCategories": "Explore Categories",
     "support": "Support",
     "links": {
-      "shopFormulations": "Shop Formulations",
+      "shopFormulations": "Shop",
       "peptideCalculator": "Peptide Calculator",
       "blog": "Blog",
-      "ourLaboratory": "Our Laboratory",
+      "ourLaboratory": "About Us",
       "faq": "F.A.Q",
       "contactSupport": "Contact Support",
       "affiliateProgram": "Affiliate Program"
@@ -1883,6 +1884,8 @@
       "metaDescription": "Access your personalized referral links and coupon codes to start earning commissions.",
       "referralLinkTitle": "Your Standard Referral Link",
       "referralLinkDesc": "Share this link. Anyone who clicks it will be tracked as your referral.",
+      "yourReferralLink": "Your Referral Link",
+      "yourCouponCode": "Your Coupon Code",
       "copied": "Copied!",
       "copy": "Copy",
       "couponCodeTitle": "Your Custom Coupon Code",

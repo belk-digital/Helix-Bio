@@ -391,7 +391,7 @@ export const BLOG_POSTS: {
 
         <p className="mb-4">This comprehensive guide provides U.S. research laboratories with the definitive resource for peptide reconstitution calculations, bacteriostatic water ratios, microgram-to-milligram conversions, and sterile technique protocols. Whether you're working with <a className="text-primary underline hover:text-primary-dark" href="/product/retatrutide">Retatrutide</a>, <a className="text-primary underline hover:text-primary-dark" href="/product/tesamorelin">Tesamorelin</a>, <a className="text-primary underline hover:text-primary-dark" href="/product/bpc-157">BPC-157</a>, <a className="text-primary underline hover:text-primary-dark" href="/product/tb-500">TB-500</a>, or any research peptide, mastering these calculations ensures precision, reproducibility, and optimal peptide stability.</p>
 
-        <p className="mb-8 italic text-ink/70">For researchers seeking the highest quality: 99PurityPeptides provides 99% purity research peptides with full Certificates of Analysis and third-party ISO-certified lab testing—ensuring your reconstitution calculations are based on verified peptide content.</p>
+        <p className="mb-8 italic text-ink/70">For researchers seeking the highest quality: HelixBioPeptides provides 99% purity research peptides with full Certificates of Analysis and third-party ISO-certified lab testing—ensuring your reconstitution calculations are based on verified peptide content.</p>
 
         <p className="mb-8">Looking for the full mL-to-units and mg/mL breakdown by vial size? See the <a className="text-primary underline hover:text-primary-dark" href="/how-much-bacteriostatic-water-reconstitute-peptides">complete bacteriostatic water reconstitution chart</a> for every common ratio at a glance.</p>
 
@@ -1460,7 +1460,7 @@ export const BLOG_POSTS: {
             </div>
             <div className="bg-cream-warm p-6 rounded-2xl border border-ink/5">
                 <h3 className="font-bold text-lg mb-2">Where can I buy research-grade collagen peptides?</h3>
-                <p className="text-ink/80 text-sm">Research-grade collagen peptides with verified purity, documented molecular weight profiles, and Certificate of Analysis are available at 99PurityPeptides.com. All products are intended for research use and comply with research-use labeling standards.</p>
+                <p className="text-ink/80 text-sm">Research-grade collagen peptides with verified purity, documented molecular weight profiles, and Certificate of Analysis are available at HelixBioPeptides.com. All products are intended for research use and comply with research-use labeling standards.</p>
             </div>
         </div>
       </>
@@ -2333,13 +2333,13 @@ export const BLOG_POSTS: {
         <p className="mb-4">The "glow vs klow" and "klow vs glow peptide" queries are among the highest-search-interest comparison terms in the CSV data. Both products are sold by Helix Bio and are structurally related — but they are not interchangeable.</p>
         <h3 className="text-xl font-bold text-ink mt-8 mb-4">Composition Difference — KLOW (50/10/10/10) vs GLOW (50/10/10)</h3>
         <p className="mb-4">GLOW is a three-component blend at 50mg/10mg/10mg. KLOW is a four-component blend at 50mg/10mg/10mg/10mg. The structural difference is KPV — present in KLOW, absent from GLOW. The dominant component also differs: KLOW leads with BPC-157 at 50mg, while GLOW leads with GHK-Cu at 50mg. This inversion reflects their different research focus areas.</p>
-        <p className="mb-4"><strong>GLOW composition</strong> (verified from 99puritypeptides.com/product/glow/):</p>
+        <p className="mb-4"><strong>GLOW composition</strong> (verified from helixbio.com/product/glow/):</p>
         <ul className="list-disc pl-6 space-y-2 my-4">
             <li>GHK-Cu: 50mg (dominant)</li>
             <li>BPC-157: 10mg</li>
             <li>TB-500: 10mg</li>
         </ul>
-        <p className="mb-4"><strong>KLOW composition</strong> (verified from 99puritypeptides.com/product/klow/):</p>
+        <p className="mb-4"><strong>KLOW composition</strong> (verified from helixbio.com/product/klow/):</p>
         <ul className="list-disc pl-6 space-y-2 my-4">
             <li>BPC-157: 50mg (dominant)</li>
             <li>TB-500: 10mg</li>
@@ -2537,7 +2537,7 @@ export const BLOG_POSTS: {
         <p className="mb-4"><strong>What is KLOW 80mg?</strong></p>
         <p className="mb-4">"KLOW 80mg" refers to the total peptide mass in one KLOW vial: 50mg BPC-157 + 10mg TB-500 + 10mg KPV + 10mg GHK-Cu = 80mg combined. Some community references use "KLOW 80mg" as a shorthand for the standard product specification.</p>
         <p className="mb-4"><strong>What is the KLOW dosage calculator?</strong></p>
-        <p className="mb-4">The KLOW dosage calculator refers to using a standard peptide calculator — such as the one at 99puritypeptides.com/peptide-calculator/ — to calculate per-component concentrations after reconstitution. Enter each component's mass (50mg for BPC-157; 10mg for TB-500, KPV, and GHK-Cu) against the same BAC water volume to get individual component concentrations. Not for human dosing guidance.</p>
+        <p className="mb-4">The KLOW dosage calculator refers to using a standard peptide calculator — such as the one at helixbio.com/peptide-calculator/ — to calculate per-component concentrations after reconstitution. Enter each component's mass (50mg for BPC-157; 10mg for TB-500, KPV, and GHK-Cu) against the same BAC water volume to get individual component concentrations. Not for human dosing guidance.</p>
         <p className="mb-4"><strong>What is KLOW dosing in research protocols?</strong></p>
         <p className="mb-4">KLOW dosing in research protocol context refers to selecting a reconstitution volume and, if needed, further dilution to achieve the desired per-component concentration for the experimental model. Investigators reference the published literature on individual components for concentration selection guidance. All protocol decisions are research-specific and RUO-compliant.</p>
         <p className="mb-4"><strong>What is the KLOW protocol?</strong></p>
@@ -2561,7 +2561,7 @@ export const BLOG_POSTS: {
         <p className="mb-4"><strong>What is glow vs klow peptide (comparison)?</strong></p>
         <p className="mb-4">See the full glow vs klow answer above. The structural inversion of dominant components — GHK-Cu leading in GLOW, BPC-157 leading in KLOW — is the defining distinction. Researchers selecting between the two should match the dominant component to their primary research application: dermal/collagen synthesis → GLOW; joint/tissue repair and anti-inflammatory models → KLOW.</p>
         <p className="mb-4"><strong>What is glow peptide?</strong></p>
-        <p className="mb-4">GLOW peptide is a three-component research blend containing GHK-Cu (50mg), BPC-157 (10mg), and TB-500 (10mg) in 3mL — 70mg total. It is positioned for cosmetic-oriented skin and connective-tissue research including dermal remodeling, collagen support, and skin elasticity models. Available at 99puritypeptides.com/product/glow/.</p>
+        <p className="mb-4">GLOW peptide is a three-component research blend containing GHK-Cu (50mg), BPC-157 (10mg), and TB-500 (10mg) in 3mL — 70mg total. It is positioned for cosmetic-oriented skin and connective-tissue research including dermal remodeling, collagen support, and skin elasticity models. Available at helixbio.com/product/glow/.</p>
         <p className="mb-4"><strong>What are glow peptide benefits in research?</strong></p>
         <p className="mb-4">Research benefits associated with the GLOW blend draw from the dominant GHK-Cu literature: collagen synthesis upregulation, fibroblast stimulation, antioxidant gene activation, and wound re-epithelialization in skin models. BPC-157 at 10mg contributes cytoprotective and growth-factor pathway support. TB-500 contributes actin-regulated cell migration. No human efficacy claims are made.</p>
         <p className="mb-4"><strong>What is glow stack peptide?</strong></p>
@@ -2577,19 +2577,19 @@ export const BLOG_POSTS: {
         <p className="mb-4"><strong>What is GHK-Cu?</strong></p>
         <p className="mb-4">GHK-Cu (glycyl-L-histidyl-L-lysine copper complex) is a naturally occurring tripeptide-copper chelate found in human plasma, studied extensively since Loren Pickart's 1973 characterization. Research applications include wound healing, collagen synthesis, antioxidant gene activation, and fibroblast stimulation. GHK-Cu is the dominant component of the GLOW blend and a supporting component of KLOW at 10mg.</p>
         <p className="mb-4"><strong>What is BAC water?</strong></p>
-        <p className="mb-4">Bacteriostatic water (BAC water) is sterile water containing 0.9% benzyl alcohol as a preservative, used to reconstitute lyophilized research peptides in multi-use vials. The benzyl alcohol inhibits bacterial growth, extending the usable life of the reconstituted solution in laboratory storage at 2–8°C. Available at 99puritypeptides.com/product/bac-water-bacteriostatic-water/.</p>
+        <p className="mb-4">Bacteriostatic water (BAC water) is sterile water containing 0.9% benzyl alcohol as a preservative, used to reconstitute lyophilized research peptides in multi-use vials. The benzyl alcohol inhibits bacterial growth, extending the usable life of the reconstituted solution in laboratory storage at 2–8°C. Available at helixbio.com/product/bac-water-bacteriostatic-water/.</p>
         <p className="mb-4"><strong>What is a peptide calculator?</strong></p>
-        <p className="mb-4">A peptide calculator is a laboratory tool for calculating the concentration of a reconstituted peptide solution given total peptide mass and diluent volume. For multi-component blends like KLOW, each component's mass is entered separately against the reconstitution volume to determine per-component concentration. Helix Bio provides a free peptide calculator at 99puritypeptides.com/peptide-calculator/.</p>
+        <p className="mb-4">A peptide calculator is a laboratory tool for calculating the concentration of a reconstituted peptide solution given total peptide mass and diluent volume. For multi-component blends like KLOW, each component's mass is entered separately against the reconstitution volume to determine per-component concentration. Helix Bio provides a free peptide calculator at helixbio.com/peptide-calculator/.</p>
         <p className="mb-4"><strong>Where can researchers source KLOW peptide?</strong></p>
-        <p className="mb-4">Researchers sourcing KLOW should identify suppliers that publish the specific 50/10/10/10mg ratio, provide batch-specific CoA documentation with per-component HPLC and LC-MS data, and designate the product as research-use-only. Helix Bio' verified KLOW 50/10/10/10mg 3mL specification is listed at 99puritypeptides.com/product/klow/, with full analytical verification documentation available.</p>
+        <p className="mb-4">Researchers sourcing KLOW should identify suppliers that publish the specific 50/10/10/10mg ratio, provide batch-specific CoA documentation with per-component HPLC and LC-MS data, and designate the product as research-use-only. Helix Bio' verified KLOW 50/10/10/10mg 3mL specification is listed at helixbio.com/product/klow/, with full analytical verification documentation available.</p>
         <p className="mb-4"><strong>Is KLOW peptide available as a spray?</strong></p>
         <p className="mb-4">The Helix Bio KLOW product is supplied as a lyophilized powder for reconstitution in a standard 3mL research vial. Spray-form peptide products exist in the catalog for some compounds (BPC-157 spray, AOD spray) but KLOW itself is supplied in the standard lyophilized vial format.</p>
         <p className="mb-4"><strong>What peptides are researchers studying alongside KLOW?</strong></p>
         <p className="mb-4">Researchers in recovery and tissue-repair areas also investigate CJC-1295/<a className="text-primary underline hover:text-primary-dark" href="/product/ipamorelin">Ipamorelin</a> for GH-axis modulation, Tesamorelin for metabolic and body-composition endpoints, the BPC-157/TB-500 blend, and <a className="text-primary underline hover:text-primary-dark" href="/product/semax">Semax</a>/Selank for neuroprotective angles. Each addresses different research questions from KLOW's primary joint/soft-tissue and anti-inflammatory focus.</p>
         <p className="mb-4"><strong>What are research peptides?</strong></p>
-        <p className="mb-4">Research peptides are synthetic amino acid chains supplied as laboratory-grade reagents for preclinical research, assay development, and mechanistic studies. They are not drugs and are not intended for human administration. For a comprehensive overview, see the guide at 99puritypeptides.com/what-are-research-peptides-complete-laboratory-guide-2026/.</p>
+        <p className="mb-4">Research peptides are synthetic amino acid chains supplied as laboratory-grade reagents for preclinical research, assay development, and mechanistic studies. They are not drugs and are not intended for human administration. For a comprehensive overview, see the guide at helixbio.com/what-are-research-peptides-complete-laboratory-guide-2026/.</p>
         <p className="mb-4"><strong>What is the BPC-157/TB-500 stack?</strong></p>
-        <p className="mb-4">The BPC-157/TB-500 blend is a two-component precursor to the KLOW four-component formulation, combining BPC-157 and TB-500 at equal 10mg/10mg mass in 3mL. KLOW adds KPV and GHK-Cu to this foundation and increases BPC-157 to 50mg as the dominant component. The two-component stack is available separately at 99puritypeptides.com/product/tb500-bpc157/.</p>
+        <p className="mb-4">The BPC-157/TB-500 blend is a two-component precursor to the KLOW four-component formulation, combining BPC-157 and TB-500 at equal 10mg/10mg mass in 3mL. KLOW adds KPV and GHK-Cu to this foundation and increases BPC-157 to 50mg as the dominant component. The two-component stack is available separately at helixbio.com/product/tb500-bpc157/.</p>
         <p className="mb-4"><strong>What is BPC-157?</strong></p>
         <p className="mb-4">BPC-157 (Body Protection Compound-157) is a synthetic 15-amino-acid peptide (sequence GEPPPGKPADDAGLV; MW ~1,419 Da) derived from a partial sequence of human gastric protective protein. It is the most-studied component of the KLOW blend and the dominant component at 50mg, researched primarily for cytoprotective, pro-angiogenic, and anti-inflammatory properties in preclinical models.</p>
         <p className="mb-4"><strong>What is TB-500?</strong></p>
@@ -2623,7 +2623,7 @@ export const BLOG_POSTS: {
         <p className="mb-4">All products are research-use-only (RUO). Not for human or veterinary administration.</p>
         <p className="mb-4"><a className="text-primary underline hover:text-primary-dark" href="/shop?category=Recovery%20Research%20Peptides"><strong>Browse the recovery research peptide catalog →</strong></a></p>
         <p className="mb-4"><a className="text-primary underline hover:text-primary-dark" href="/shop"><strong>View all research peptides →</strong></a></p>
-        <p className="mb-4"><em>For questions about analytical documentation, CoA interpretation, or product specifications, contact the Helix Bio research support team at [support@99puritypeptides.com](mailto:support@99puritypeptides.com).</em></p>
+        <p className="mb-4"><em>For questions about analytical documentation, CoA interpretation, or product specifications, contact the Helix Bio research support team at [support@helixbio.com](mailto:support@helixbio.com).</em></p>
         
         </div>
       </>
@@ -3801,12 +3801,12 @@ export const BLOG_POSTS: {
         <h2 className="text-2xl font-semibold text-ink mt-16 mb-6"><strong>Summary</strong></h2>
         <p className="mb-4">Tesamorelin stands out in the GH secretagogue research space for a simple reason: it has the data. Across multiple Phase III randomized controlled trials involving hundreds of participants, it has consistently demonstrated selective visceral fat reduction, improvements in liver fat, and downstream metabolic benefits — without meaningfully altering subcutaneous fat or overall body weight.</p>
         <p className="mb-4">For researchers studying visceral adiposity, the GH/IGF-1 axis, metabolic syndrome, or the comparative pharmacology of growth hormone peptides, tesamorelin provides the most clinically validated foundation available in the class. Its pituitary-mediated, physiologic mechanism makes it a uniquely controlled research tool — one that produces meaningful, measurable effects in the specific fat depot most closely linked to cardiometabolic risk.</p>
-        <p className="mb-4">For laboratory research use only. All compounds sold by 99PurityPeptides are intended exclusively for in vitro and analytical research. Not for human or veterinary use.</p>
+        <p className="mb-4">For laboratory research use only. All compounds sold by HelixBioPeptides are intended exclusively for in vitro and analytical research. Not for human or veterinary use.</p>
         <div className="my-8 overflow-x-auto rounded-2xl border border-ink/10">
           <table className="w-full text-sm text-left border-collapse">
             <tbody>
               <tr className="border-b border-ink/5">
-                <td className="p-4 text-ink/80"><em>For laboratory research use only. All compounds sold by 99PurityPeptides are intended exclusively for in vitro and analytical research. Not for human or veterinary use.</em></td>
+                <td className="p-4 text-ink/80"><em>For laboratory research use only. All compounds sold by HelixBioPeptides are intended exclusively for in vitro and analytical research. Not for human or veterinary use.</em></td>
               </tr>
             </tbody>
           </table>
@@ -3866,7 +3866,7 @@ export const BLOG_POSTS: {
         <p className="mb-4">The intersection of retatrutide and cancer cell research is one of the more unexpected — and scientifically compelling — areas to emerge from the triple-agonist literature in 2025. Two independent research teams, using different cancer models and different mechanistic frameworks, have produced findings that point toward retatrutide’s potential to alter tumor-permissive environments in preclinical settings.</p>
         <p className="mb-4">Whether through immune reprogramming in pancreatic and lung cancer models, or through disruption of YAP-driven chemoresistance in triple-negative breast cancer, the triple-receptor profile of retatrutide appears to produce effects that neither single-agonist nor dual-agonist compounds fully replicate.</p>
         <p className="mb-4">For researchers designing studies in metabolic oncology, comparative receptor pharmacology, or the obesity–cancer axis, these findings make a strong case for including retatrutide as a research tool.</p>
-        <p className="mb-4">For laboratory research use only. All compounds sold by 99PurityPeptides are intended exclusively for in vitro and analytical research. Not for human or veterinary use.</p>
+        <p className="mb-4">For laboratory research use only. All compounds sold by HelixBioPeptides are intended exclusively for in vitro and analytical research. Not for human or veterinary use.</p>
         <p className="mb-4">→ Shop 99%+ Purity Retatrutide (LY3437943) — <a className="text-primary underline hover:text-primary-dark" href="/certificates">COA</a> Verified, USA Shipped HPLC and mass spectrometry verified. Certificate of Analysis included with every order. Purity guarantee: full refund if any product does not meet stated label claims.</p>
         <p className="mb-4">Preclinical research from 2025 shows retatrutide reduces tumor engraftment, delays tumor onset, and significantly decreases tumor volume in mouse models. In pancreatic cancer models, retatrutide produced a 14-fold reduction in tumor volume, while lung cancer models showed a 17-fold reduction. The compound also appears to reprogram the immune system and tumor microenvironment, with effects persisting even after treatment withdrawal.</p>
         <p className="mb-4">In the Marathe et al. (2025) study, retatrutide showed significantly stronger anti-tumor effects than semaglutide in obesity-driven cancer models. While both compounds produced weight loss, retatrutide achieved a 14-fold tumor reduction in pancreatic cancer versus only 4-fold with semaglutide. Retatrutide also uniquely reduced visceral fat deposits and produced durable immune reprogramming that semaglutide did not replicate.</p>
@@ -3886,7 +3886,7 @@ export const BLOG_POSTS: {
   },
   {
     slug: 'research-peptide-storage-best-practices',
-    title: 'Storing Research Peptides in Laboratories | 99PurityPeptides',
+    title: 'Storing Research Peptides in Laboratories | HelixBioPeptides',
     category: 'Recovery protocols',
     date: 'March 12, 2026',
     readTime: '3 min read',

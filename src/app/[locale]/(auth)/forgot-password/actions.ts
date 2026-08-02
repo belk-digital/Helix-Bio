@@ -36,7 +36,7 @@ export async function requestPasswordReset(input: ForgotPasswordInput) {
 
       if (userDocs.docs.length > 0) {
         const user = userDocs.docs[0]
-        const base = process.env.NEXT_PUBLIC_SERVER_URL || 'https://99puritypeptides.com'
+        const base = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
         const locale = (user as any)?.preferredLocale === 'es' ? '/es' : ''
         const url = `${base}${locale}/reset-password/${token}`
         
@@ -44,7 +44,7 @@ export async function requestPasswordReset(input: ForgotPasswordInput) {
         const html = await generateForgotPasswordEmail(url, user)
 
         await sendTrackedEmail(payload, {
-          from: 'support@99puritypeptides.com',
+          from: 'support@helixbio.com',
           to: parsed.data.email,
           subject: 'Reset Your Password - Helix Bio',
           html,

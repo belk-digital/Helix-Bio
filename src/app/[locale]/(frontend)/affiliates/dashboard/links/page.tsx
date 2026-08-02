@@ -33,7 +33,7 @@ export default async function AffiliateLinksPage() {
     redirect('/affiliates/dashboard')
   }
 
-  const referralLink = `${process.env.NEXT_PUBLIC_SERVER_URL || 'https://99puritypeptides.com'}/ref/${affiliate.referralSlug}`
+  const referralLink = `${process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'}/ref/${affiliate.referralSlug}`
 
   return (
     <LinksClient 

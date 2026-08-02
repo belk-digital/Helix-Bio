@@ -86,7 +86,7 @@ export async function POST(request: Request) {
 </html>
       `
       await sendTrackedEmail(payload, {
-        to: 'affiliates@99puritypeptides.com',
+        to: 'affiliates@helixbio.com',
         subject: `[Payout Request] $${amount.toFixed(2)} from ${affiliate.displayName || affiliate.referralSlug}`,
         html: emailHtml,
       })

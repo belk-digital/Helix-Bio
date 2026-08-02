@@ -42,7 +42,7 @@ export async function GET(req: Request) {
           const firstName = user.firstName || 'there'
 
           await resend.emails.send({
-            from: process.env.RESEND_FROM_EMAIL || '99Purity Peptides <orders@99puritypeptides.com>',
+            from: process.env.RESEND_FROM_EMAIL || 'HelixBio <orders@helixbio.com>',
             to: user.email,
             subject: 'Did you forget something in your cart?',
             html: `<!DOCTYPE html>
@@ -73,8 +73,8 @@ export async function GET(req: Request) {
     <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="container">
       <tr>
         <td class="header">
-          <a href="https://99puritypeptides.com">
-            <img src="https://99puritypeptides.com/99%20Images/99pp-Logo.png" alt="99Purity Peptides" class="logo-img" />
+          <a href="https://helixbio.com">
+            <img src="https://helixbio.com/99%20Images/99pp-Logo.png" alt="HelixBio" class="logo-img" />
           </a>
         </td>
       </tr>
@@ -88,14 +88,14 @@ export async function GET(req: Request) {
           <p>
             Return to the lab to secure your order and resume your research.
           </p>
-          <a href="https://99puritypeptides.com/cart" class="btn">Return to Cart</a>
+          <a href="https://helixbio.com/cart" class="btn">Return to Cart</a>
         </td>
       </tr>
       <tr>
         <td class="footer">
           <p class="disclaimer">
             <strong>FDA Disclaimer:</strong> These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease. All products offered are for laboratory and research use only.<br><br>
-            © 2026 99Purity Peptides. All rights reserved.
+            © 2026 HelixBio. All rights reserved.
           </p>
         </td>
       </tr>

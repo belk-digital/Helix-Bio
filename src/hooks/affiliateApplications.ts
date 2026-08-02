@@ -149,7 +149,7 @@ export const afterAffiliateApplicationChange: CollectionAfterChangeHook = async 
           // Send Welcome Email to Affiliate
           const welcomeHtml = await generateAffiliateWelcomeEmail(newAffiliate, userDoc)
           await sendTrackedEmail(req.payload, {
-            from: 'Affiliates | Helix Bio <affiliates@99puritypeptides.com>',
+            from: 'Affiliates | Helix Bio <affiliates@helixbio.com>',
             to: userDoc.email,
             subject: 'Welcome to the Partner Program! 🎉',
             html: welcomeHtml,
@@ -159,11 +159,11 @@ export const afterAffiliateApplicationChange: CollectionAfterChangeHook = async 
           // Send Notification Email to Admin
           const adminHtml = generateAdminAffiliateNotificationEmail(doc, newAffiliate, userDoc)
           await sendTrackedEmail(req.payload, {
-            to: 'affiliates@99puritypeptides.com',
+            to: 'affiliates@helixbio.com',
             subject: `New Affiliate Registered: ${newAffiliate.displayName}`,
             html: adminHtml,
           })
-          req.payload.logger.info(`Sent admin notification to affiliates@99puritypeptides.com`)
+          req.payload.logger.info(`Sent admin notification to affiliates@helixbio.com`)
         }
       } catch (emailErr) {
         req.payload.logger.error({ err: emailErr }, 'Error sending affiliate emails')
