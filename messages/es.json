@@ -995,7 +995,8 @@
       "emptyDescription": "Guarda los artículos que quieras comprar más tarde haciendo clic en el ícono de corazón en cualquier página de producto.",
       "startBrowsing": "Comenzar a Explorar",
       "metaTitle": "Mi Lista de Deseos | Helix Bio",
-      "metaDescription": "Consulta y administra los péptidos de investigación que has guardado en tu lista de deseos."
+      "metaDescription": "Consulta y administra los péptidos de investigación que has guardado en tu lista de deseos.",
+      "selectVariantRequired": "Por favor selecciona una variante en la página del producto."
     },
     "sidebar": {
       "welcomeBack": "Bienvenido de Nuevo",
@@ -1101,6 +1102,7 @@
       "processingFee": "Cargo por Procesamiento",
       "couponCode": "Código de Descuento",
       "enterCodePlaceholder": "Ingresa el código...",
+      "haveCoupon": "¿Tienes un cupón? Ingresa tu código.",
       "apply": "Aplicar",
       "secureCheckout": "FINALIZAR COMPRA SEGURA",
       "encrypted": "Encriptado",
@@ -1120,6 +1122,10 @@
       "emptyTitle": "Tu carrito está vacío",
       "emptyText": "Parece que aún no has añadido nada.",
       "shopNow": "Comprar Ahora",
+      "backToCart": "Volver al carrito",
+      "hideOrderSummary": "Ocultar resumen del pedido",
+      "showOrderSummary": "Mostrar resumen del pedido",
+      "estimatedShipping": "Envío estimado",
       "secureCheckout": "Finalizar Compra Segura",
       "orderSummary": "Resumen del Pedido",
       "remove": "Eliminar",

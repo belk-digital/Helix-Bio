@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { X, CreditCard, ShoppingBag, ArrowRight, ArrowLeft, ChevronRight as ChevronRightIcon, Loader2, Check, Trash2, Lock, ShieldCheck, Package, Receipt } from 'lucide-react'
+import { X, CreditCard, ShoppingBag, ArrowRight, ArrowLeft, ChevronRight as ChevronRightIcon, Loader2, Check, Trash2, Lock, ShieldCheck, Package, Receipt, RefreshCw } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { Container } from '@/components/ui/container'
@@ -401,100 +401,90 @@ export function CartClient() {
 
   return (
     <Container size="wide" className="py-12 md:py-16">
-      {/* Massive Header mirroring OrdersClient */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 border-b border-gray-200 pb-12">
-        <div className="flex flex-col gap-2">
-          <h1 className="text-5xl md:text-7xl font-light text-black tracking-tight leading-none">
-            {t('yourCart')}
-          </h1>
-          <p className="text-gray-500 mt-2 max-w-lg text-sm md:text-base leading-relaxed font-light">
-            Review your selected items before proceeding to checkout.
-          </p>
-        </div>
-        
-        <div className="flex flex-col items-end pb-2">
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 font-heading mb-1">
-            Total Items
-          </span>
-          <span className="text-xl font-light text-black group-hover:text-[#1e5661] transition-colors">
-            {items.reduce((acc, i) => acc + i.quantity, 0)}
-          </span>
-        </div>
+      
+      {/* Top Header: < Back and YOUR CART */}
+      <div className="mb-12">
+        <Link href="/shop" className="text-[11px] font-bold uppercase tracking-widest text-black hover:text-gray-500 transition-colors flex items-center gap-2 w-fit mb-6">
+          <ArrowLeft size={14} />
+          BACK
+        </Link>
+        <h1 className="text-4xl md:text-5xl font-light text-black tracking-tight leading-none uppercase">
+          {t('yourCart')}
+        </h1>
       </div>
       
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+      <div className="flex flex-col lg:flex-row gap-0">
         
         {/* Left Column: Dense Item List */}
-        <div className="flex-1 flex flex-col">
-          
-          {/* Header Row (Hidden on mobile) */}
-          <div className="hidden sm:grid sm:grid-cols-[80px_1fr_100px_120px_120px] lg:grid-cols-[80px_1fr_120px_140px_140px] gap-4 lg:gap-6 items-center text-[10px] font-bold uppercase tracking-widest text-gray-400 font-heading pb-4 pl-4 pr-4 border-b border-slate-100">
-            <div>Product</div>
-            <div>Details</div>
-            <div className="text-center">Price</div>
-            <div className="text-center">Qty</div>
-            <div className="text-right">Total</div>
-          </div>
-
-          <div className="flex flex-col divide-y divide-gray-100">
+        <div className="flex-1 flex flex-col lg:pr-16">
+          <div className="flex flex-col">
             {items.map((item) => (
-              <div key={item.lineId} className="grid grid-cols-[auto_1fr] sm:grid-cols-[80px_1fr_100px_120px_120px] lg:grid-cols-[80px_1fr_120px_140px_140px] gap-4 lg:gap-6 items-start sm:items-center py-6 sm:py-8 transition-colors hover:bg-gray-50/50 -mx-4 px-4 rounded-[24px] group">
+              <div key={item.lineId} className="flex flex-row items-start sm:items-center py-6 sm:py-8 border-b border-gray-200 gap-4 sm:gap-6 group w-full">
                 
-                {/* 1. Thumbnail */}
-                <Link href={`/product/${item.product?.slug || item.productId}`} className="relative w-16 h-16 sm:w-20 sm:h-20 bg-[#F5F5F7] rounded-[16px] overflow-hidden shrink-0">
+                {/* 1. Remove (X) Desktop only */}
+                <button
+                  onClick={() => removeItem(item.lineId)}
+                  className="hidden sm:flex text-gray-400 hover:text-red-500 transition-colors shrink-0"
+                  aria-label={t('removeItemAria')}
+                >
+                  <X size={18} strokeWidth={1.5} />
+                </button>
+
+                {/* 2. Thumbnail */}
+                <Link href={`/product/${item.product?.slug || item.productId}`} className="relative w-24 h-24 sm:w-20 sm:h-20 shrink-0 rounded-[16px] overflow-hidden bg-[#f0f0f0]">
                   <Image 
                     src={item.product?.imageUrl || '/placeholder.png'} 
                     alt={item.product?.name || 'Product'} 
-                    fill 
-                    className="object-cover object-center group-hover:scale-105 transition-transform" 
+                    width={600}
+                    height={600}
+                    quality={100}
+                    className="w-full h-full object-cover object-center mix-blend-multiply group-hover:scale-105 transition-transform" 
                   />
                 </Link>
                 
-                {/* 2. Details (Name & Variant) */}
-                <div className="flex flex-col min-w-0 pr-0 sm:pr-4">
-                  <Link href={`/product/${item.product?.slug || item.productId}`} className="text-lg sm:text-xl font-light text-black group-hover:text-[#1e5661] transition-colors truncate">
-                    {item.product?.name}
-                  </Link>
-                  {(item.variantTitle || item.variantSku) && !['DEFAULT', 'DEFAULT TITLE'].includes((item.variantTitle || item.variantSku || '').toUpperCase()) && (
-                    <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-gray-400 font-heading mt-2 truncate">
-                      {item.variantTitle || item.variantSku}
+                {/* 3. Details (Name & Variant) + Stepper & Price */}
+                <div className="flex flex-col sm:flex-row sm:items-center flex-1 min-w-0 gap-3 sm:gap-4">
+                  
+                  {/* Title & Info */}
+                  <div className="flex flex-col flex-1 min-w-0">
+                    <div className="flex justify-between items-start w-full">
+                      <Link href={`/product/${item.product?.slug || item.productId}`} className="text-sm sm:text-base font-bold text-black hover:text-gray-600 transition-colors pr-2 leading-tight">
+                        {item.product?.name}
+                      </Link>
+                      <button onClick={() => removeItem(item.lineId)} className="sm:hidden text-gray-400 hover:text-red-500 shrink-0 mt-0.5">
+                        <X size={16} />
+                      </button>
+                    </div>
+                    
+                    {(item.variantTitle || item.variantSku) && !['DEFAULT', 'DEFAULT TITLE'].includes((item.variantTitle || item.variantSku || '').toUpperCase()) && (
+                      <span className="text-[11px] text-gray-400 mt-1.5 truncate">
+                        {item.variantTitle || item.variantSku}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Mobile Price & Stepper Row */}
+                  <div className="flex items-center justify-between sm:hidden mt-2 w-full">
+                    <span className="text-sm font-bold text-black">
+                      ${(item.priceSnapshot * item.quantity).toFixed(2)}
                     </span>
-                  )}
-                  {/* Remove Item Button */}
-                  <button
-                    onClick={() => removeItem(item.lineId)}
-                    className="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-red-500 transition-colors mt-3 w-fit text-left flex items-center gap-1.5"
-                    aria-label={t('removeItemAria')}
-                  >
-                    <Trash2 size={12} />
-                    {t('remove')}
-                  </button>
-                </div>
+                    <div className="flex items-center justify-center border border-gray-200 rounded-full bg-transparent px-2 h-8 w-20">
+                      <button onClick={() => updateQuantity(item.lineId, Math.max(1, item.quantity - 1))} className="px-2 text-gray-500 hover:text-black transition-colors">-</button>
+                      <span className="flex-1 text-center text-[10px] font-bold text-black">{item.quantity}</span>
+                      <button onClick={() => updateQuantity(item.lineId, item.quantity + 1)} className="px-2 text-gray-500 hover:text-black transition-colors">+</button>
+                    </div>
+                  </div>
 
-                {/* Mobile-only Price & Stepper Row */}
-                <div className="flex sm:hidden col-span-2 items-center justify-between mt-2 pt-5 border-t border-gray-100">
-                  <span className="text-xl font-light text-black">${item.priceSnapshot.toFixed(2)}</span>
-                  <QuantityStepper size="sm" value={item.quantity} onChange={(val) => updateQuantity(item.lineId, val)} />
-                </div>
-                
-                {/* 3. Price (Desktop) */}
-                <div className="hidden sm:block text-center text-lg font-light text-black">
-                  ${item.priceSnapshot.toFixed(2)}
-                </div>
+                  {/* Desktop Stepper */}
+                  <div className="hidden sm:flex items-center justify-center border border-gray-200 rounded-full bg-transparent px-2 h-9 w-24">
+                    <button onClick={() => updateQuantity(item.lineId, Math.max(1, item.quantity - 1))} className="px-2 text-gray-500 hover:text-black transition-colors">-</button>
+                    <span className="flex-1 text-center text-xs font-bold text-black">{item.quantity}</span>
+                    <button onClick={() => updateQuantity(item.lineId, item.quantity + 1)} className="px-2 text-gray-500 hover:text-black transition-colors">+</button>
+                  </div>
 
-                {/* 4. Quantity (Desktop) */}
-                <div className="hidden sm:flex items-center justify-center">
-                  <QuantityStepper 
-                    size="md"
-                    value={item.quantity} 
-                    onChange={(val) => updateQuantity(item.lineId, val)} 
-                  />
-                </div>
-
-                {/* 5. Total (Desktop Only) */}
-                <div className="hidden sm:flex items-center justify-end">
-                  <div className="flex flex-col items-end gap-1">
-                    <span className="text-xl sm:text-2xl font-light text-black">
+                  {/* Desktop Total Price */}
+                  <div className="hidden sm:flex flex-col items-end min-w-[80px]">
+                    <span className="text-base font-bold text-black">
                       ${(item.priceSnapshot * item.quantity).toFixed(2)}
                     </span>
                   </div>
@@ -504,100 +494,34 @@ export function CartClient() {
             ))}
           </div>
 
-          <div className="mt-8">
-            <Link href="/shop" className="text-[11px] font-bold uppercase tracking-widest text-gray-400 font-heading hover:text-black transition-colors flex items-center gap-2 w-fit">
-              <ArrowLeft size={14} />
-              {t('continueExploring')}
-            </Link>
-          </div>
-        </div>
-
-        {/* Right Column: Order Summary Card */}
-        <div className="w-full lg:w-96 shrink-0">
-          <div className="sticky top-32 bg-white rounded-[24px] p-8 border border-gray-100 shadow-xl shadow-black/[0.03]">
-            
-            <div className="mb-8">
-              <h2 className="text-3xl font-light text-black tracking-tight">
-                {t('orderSummary')}
-              </h2>
-            </div>
-
-            <div className="flex flex-col gap-2 text-sm pb-8 mb-8 border-b border-gray-100">
+          {/* Bottom Left: Coupon Area */}
+          <div className="mt-8 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 mb-12 lg:mb-0">
+            <div className="flex flex-col gap-3 w-full sm:w-auto">
+              <span className="text-xs text-gray-500 font-light">{t('haveCoupon')}</span>
               
-              <div className="flex justify-between items-center py-3">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 font-heading">{t('subtotal')}</span>
-                <span className="font-light text-lg text-black">${subtotal.toFixed(2)}</span>
-              </div>
-
-              {/* Discount Row */}
-              <AnimatePresence>
-                {activeCoupon && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    className="flex justify-between items-center py-3 overflow-hidden text-emerald-600"
-                  >
-                    <span className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] font-heading">
-                      {t('discount')}
-                      <button onClick={handleRemoveCoupon} className="hover:text-red-500 transition-colors bg-emerald-50 rounded-md p-1">
-                        <X size={10} strokeWidth={3} />
-                      </button>
-                    </span>
-                    <span className="font-medium text-lg">-${discountAmount.toFixed(2)}</span>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              <div className="flex justify-between items-center py-3">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 font-heading">{t('estimatedShipping')}</span>
-                <span className="font-light text-lg text-black">
-                  {isLoadingData ? <Loader2 size={14} className="animate-spin text-gray-400" /> : (finalShipping === 0 ? t('free') : `$${finalShipping.toFixed(2)}`)}
-                </span>
-              </div>
-              
-              <div className="flex justify-between items-center py-3">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 font-heading">{t('processingFee')}{feePercentage ? ` (${feePercentage}%)` : ''}</span>
-                <span className="font-light text-lg text-black">
-                  {isLoadingData ? <Loader2 size={14} className="animate-spin text-gray-400" /> : `$${taxAmount.toFixed(2)}`}
-                </span>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-2 sm:gap-0 mb-10">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 font-heading sm:mb-2">{t('total')}</span>
-              {isLoadingData ? (
-                <Loader2 size={32} className="animate-spin text-gray-300" />
-              ) : (
-                <span className="text-4xl sm:text-5xl font-light tracking-tight text-black leading-none break-all">
-                  ${finalTotal.toFixed(2)}
-                </span>
-              )}
-            </div>
-
-            {/* Pill Coupon Input */}
-            <div className="flex flex-col gap-2 mb-10">
-              <div className="relative flex items-center w-full group">
-                <Input
-                  placeholder={t('enterCodePlaceholder')}
-                  value={couponCode}
-                  onChange={(e) => setCouponCode(e.target.value)}
-                  disabled={activeCoupon !== null || couponState === 'loading'}
-                  className="w-full bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] rounded-[16px] h-12 px-6 pr-28 text-[11px] font-bold uppercase tracking-[0.1em] text-black font-heading placeholder:text-gray-400 transition-all shadow-none"
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') handleApplyCoupon()
-                  }}
-                />
+              <div className="flex gap-4 items-center w-full">
+                <div className="relative w-full sm:w-64">
+                  <input
+                    placeholder={t('couponCode')}
+                    value={couponCode}
+                    onChange={(e) => setCouponCode(e.target.value)}
+                    disabled={activeCoupon !== null || couponState === 'loading'}
+                    className="w-full bg-transparent border-b border-gray-300 focus:border-black h-10 px-0 text-[11px] tracking-widest text-black placeholder:text-gray-300 transition-all outline-none disabled:opacity-50"
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') handleApplyCoupon()
+                    }}
+                  />
+                </div>
                 <button
                   onClick={activeCoupon ? handleRemoveCoupon : () => handleApplyCoupon()}
                   disabled={(!couponCode && !activeCoupon) || couponState === 'loading'}
-                  className={`absolute right-1 top-1 bottom-1 px-5 rounded-[12px] text-[10px] font-bold uppercase tracking-widest font-heading transition-all flex items-center justify-center min-w-[80px] ${
+                  className={`h-10 px-6 border rounded-[12px] text-[10px] font-bold uppercase tracking-widest transition-colors flex items-center justify-center shrink-0 ${
                     activeCoupon
-                      ? 'bg-red-50 text-red-600 hover:bg-red-100'
-                      : 'bg-white shadow-sm border border-gray-100 text-black hover:border-gray-300 disabled:opacity-50 disabled:hover:border-gray-100'
+                      ? 'border-red-200 text-red-500 hover:bg-red-50'
+                      : 'border-gray-300 text-black hover:border-black disabled:opacity-50'
                   }`}
                 >
-                  {couponState === 'loading' ? <Loader2 size={12} className="animate-spin" /> : (activeCoupon ? t('remove') : t('apply'))}
+                  {couponState === 'loading' ? <Loader2 size={12} className="animate-spin" /> : (activeCoupon ? t('remove') : t('apply', { fallback: 'APPLY' }))}
                 </button>
               </div>
               <AnimatePresence>
@@ -606,31 +530,82 @@ export function CartClient() {
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
-                    className={`text-[10px] font-bold uppercase tracking-widest font-heading mt-2 px-4 ${couponState === 'error' ? 'text-red-500' : 'text-emerald-600'}`}
+                    className={`text-[10px] font-bold uppercase tracking-widest mt-1 ${couponState === 'error' ? 'text-red-500' : 'text-emerald-600'}`}
                   >
                     {couponMessage}
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
+          </div>
+        </div>
+
+        {/* Right Column: Order Summary Card */}
+        <div className="w-full lg:w-[420px] lg:pl-12 border-t lg:border-t-0 lg:border-l border-gray-200 lg:border-gray-300 pt-10 lg:pt-0 shrink-0">
+          <div className="sticky top-32">
+            
+            <div className="mb-10">
+              <h2 className="text-xl font-light text-black tracking-wide uppercase">
+                {t('orderSummary')}
+              </h2>
+            </div>
+
+            <div className="flex flex-col gap-4 text-xs pb-6 border-b-[2px] border-black mb-6">
+              
+              <div className="flex justify-between items-center text-gray-500">
+                <span>{t('estimatedShipping')}</span>
+                <span className="text-black font-medium">
+                  {isLoadingData ? <Loader2 size={12} className="animate-spin text-gray-400" /> : (finalShipping === 0 ? t('free') : `$${finalShipping.toFixed(2)}`)}
+                </span>
+              </div>
+
+              <div className="flex justify-between items-center text-gray-500">
+                <span>{t('processingFee')}{feePercentage ? ` (${feePercentage}%)` : ''}</span>
+                <span className="text-black font-medium">
+                  {isLoadingData ? <Loader2 size={12} className="animate-spin text-gray-400" /> : `$${taxAmount.toFixed(2)}`}
+                </span>
+              </div>
+
+              {activeCoupon && (
+                <div className="flex justify-between items-center text-emerald-600">
+                  <span>{t('discount')}</span>
+                  <span className="font-medium">-${discountAmount.toFixed(2)}</span>
+                </div>
+              )}
+
+              <div className="flex justify-between items-center text-gray-500 mt-2">
+                <span>{t('subtotal')}</span>
+                <span className="text-black font-medium">${subtotal.toFixed(2)}</span>
+              </div>
+
+            </div>
+
+            <div className="flex justify-between items-center mb-10">
+              <span className="text-sm font-bold text-black uppercase">{t('total')}</span>
+              {isLoadingData ? (
+                <Loader2 size={24} className="animate-spin text-gray-300" />
+              ) : (
+                <span className="text-base font-bold text-black">
+                  ${finalTotal.toFixed(2)}
+                </span>
+              )}
+            </div>
 
             <Link
               href="/checkout"
-              className="w-full bg-primary text-white h-14 rounded-[16px] font-extrabold font-heading text-[11px] tracking-widest uppercase flex items-center justify-center gap-3 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 mb-8 group"
+              className="w-full bg-[#121212] text-white h-[52px] rounded-[16px] font-bold text-[10px] tracking-widest uppercase flex items-center justify-center transition-colors hover:bg-black mb-6 shadow-sm"
             >
               {t('secureCheckout')}
-              <ChevronRightIcon size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
 
-            <div className="flex justify-center gap-8 border-t border-gray-100 pt-8 text-gray-400">
-              <div className="flex flex-col items-center gap-2">
-                <Lock size={16} className="text-gray-300" />
-                <span className="text-[9px] font-bold uppercase tracking-[0.2em] font-heading">{t('encrypted')}</span>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <Package size={16} className="text-gray-300" />
-                <span className="text-[9px] font-bold uppercase tracking-[0.2em] font-heading">Shipping</span>
-              </div>
+            <div className="flex justify-center">
+              <Link
+                href="/shop"
+                className="text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:text-black transition-colors flex items-center gap-2"
+              >
+                <ArrowLeft size={10} strokeWidth={2.5} />
+                {t('continueExploring')}
+              </Link>
             </div>
           </div>
         </div>
@@ -638,14 +613,14 @@ export function CartClient() {
 
       {/* Cross-Sells: Compact Format */}
       {relatedProducts.length > 0 && (
-        <div className="mt-20 pt-10 border-t border-slate-100">
-          <div className="mb-6">
-            <h2 className="text-xl font-bold tracking-tight text-ink">
-              {t('alsoConsidered')}
+        <div className="mt-24 pt-16 border-t border-gray-200">
+          <div className="mb-8">
+            <h2 className="text-2xl font-light tracking-tight text-black">
+              {t('alsoConsidered', { fallback: 'Also Considered' })}
             </h2>
           </div>
           
-          <StaggerChildren staggerDelay={0.05} className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          <StaggerChildren staggerDelay={0.05} className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
             {relatedProducts.map((p) => (
               <motion.div variants={staggerItemVariants} key={p.id}>
                 <ProductCard product={p} />

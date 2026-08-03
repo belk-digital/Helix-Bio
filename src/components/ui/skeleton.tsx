@@ -15,34 +15,35 @@ function Skeleton({ className, ...props }: React.ComponentProps<'div'>) {
 // 1. ProductCard Skeleton
 export function ProductCardSkeleton() {
   return (
-    <div className="w-full h-full bg-white/95 rounded-[24px] sm:rounded-[36px] p-3 sm:p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white relative flex flex-col overflow-hidden min-h-[400px]">
-       {/* Background Noise Texture */}
-       <div className="absolute inset-0 opacity-[0.03] mix-blend-multiply pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }} />
+    <div className="w-full h-full bg-[#2a2a2a] rounded-[24px] sm:rounded-[32px] p-2 sm:p-3 relative flex flex-col border border-white/10 min-h-[400px]">
        
-       {/* Top Text Content Skeleton */}
-       <div className="px-3 sm:px-5 pt-3 sm:pt-5 pb-3 sm:pb-5 flex flex-col gap-1.5 sm:gap-3 relative z-30">
-          <div className="pr-6 sm:pr-8">
-             <Skeleton className="h-5 sm:h-7 w-3/4 mb-1 sm:mb-2 rounded-md" />
-             <Skeleton className="h-2.5 sm:h-3 w-1/3 rounded-sm" />
-          </div>
-          <div className="flex flex-col gap-1 sm:gap-1.5 mt-1">
-             <Skeleton className="h-2.5 sm:h-3 w-full rounded-sm" />
-             <Skeleton className="h-2.5 sm:h-3 w-5/6 rounded-sm" />
-          </div>
+       {/* Image Container Skeleton */}
+       <div className="relative w-full aspect-[4/5] sm:aspect-square rounded-[16px] sm:rounded-[24px] overflow-hidden bg-white/5 shrink-0 animate-pulse">
+         
+         {/* Wishlist Button Skeleton */}
+         <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-30">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10" />
+         </div>
        </div>
 
-       {/* Inner Image Container Skeleton */}
-       <div className="relative w-full aspect-[4/5] rounded-[16px] sm:rounded-[24px] overflow-hidden bg-cream mt-auto border border-black/5">
-         <div className="absolute inset-0 bg-ink/5 animate-pulse" />
-         
-         {/* Price Skeleton */}
-         <div className="absolute bottom-3 left-3 sm:bottom-5 sm:left-5 z-20">
-            <Skeleton className="h-2 sm:h-3 w-8 mb-1 sm:mb-1.5 rounded-sm bg-black/10" />
-            <Skeleton className="h-5 sm:h-7 w-16 sm:w-20 rounded-md bg-black/10" />
-         </div>
-         
-         {/* Button Skeleton */}
-         <Skeleton className="absolute bottom-3 right-3 sm:bottom-5 sm:right-5 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/10" />
+       {/* Text Content Skeleton */}
+       <div className="pt-4 px-2 sm:px-3 pb-2 flex flex-col flex-1 gap-2">
+          {/* Title */}
+          <Skeleton className="h-5 sm:h-6 w-3/4 mb-1 rounded-md bg-white/10" />
+          {/* Category */}
+          <Skeleton className="h-3 sm:h-4 w-1/3 rounded-sm bg-white/5 mb-1" />
+          {/* Description */}
+          <Skeleton className="h-2.5 sm:h-3 w-full rounded-sm bg-white/5" />
+          <Skeleton className="h-2.5 sm:h-3 w-5/6 rounded-sm bg-white/5" />
+
+          {/* Bottom Row */}
+          <div className="mt-auto pt-4 flex items-center justify-between">
+             {/* Price Skeleton */}
+             <Skeleton className="h-6 sm:h-8 w-20 rounded-md bg-white/10" />
+             
+             {/* Action Button Skeleton */}
+             <Skeleton className="w-10 h-10 sm:w-14 sm:h-14 bg-white/20 rounded-xl sm:rounded-2xl" />
+          </div>
        </div>
     </div>
   )
@@ -138,61 +139,72 @@ export function COARowSkeleton() {
 }
 
 // 6. Checkout Page Skeleton — mirrors CheckoutClient's real two-column layout
-// (grid-cols-[1fr_440px]) so the page doesn't jump/reflow once data finishes loading.
 export function CheckoutPageSkeleton() {
   return (
-    <div className="pt-32 pb-16 md:pt-36 md:pb-24 bg-white min-h-screen">
-      <div className="w-[calc(100%-2rem)] md:w-[calc(100%-6rem)] mx-auto">
-        <div className="mb-12">
-          <Skeleton className="h-10 w-64 md:h-12 md:w-96 rounded-lg" />
+    <div className="pt-32 pb-16 md:pt-36 md:pb-24 bg-[#fafafa] min-h-screen font-sans">
+      <div className="w-full max-w-[1200px] mx-auto px-4 md:px-8">
+        
+        {/* Massive Header mirroring Cart */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 border-b border-gray-200 pb-12 animate-pulse">
+          <div className="flex flex-col gap-4">
+            <div className="h-14 md:h-20 w-64 md:w-96 bg-gray-200 rounded-xl" />
+            <div className="h-4 md:h-5 w-full max-w-sm bg-gray-100 rounded-md mt-2" />
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-12 lg:gap-20 animate-pulse">
+          
           {/* Left Column: Form sections */}
           <div className="flex flex-col gap-10">
             {[
-              { titleWidth: 'w-40', fields: 1 },
-              { titleWidth: 'w-32', fields: 3 },
-              { titleWidth: 'w-36', fields: 2 },
+              { titleWidth: 'w-48', fields: 1 },
+              { titleWidth: 'w-40', fields: 3 },
+              { titleWidth: 'w-44', fields: 2 },
             ].map((section, i) => (
               <div key={i} className="flex flex-col gap-4">
-                <Skeleton className={`h-6 ${section.titleWidth} rounded-md mb-1`} />
+                <div className={`h-6 ${section.titleWidth} bg-gray-200 rounded-md mb-2`} />
                 {Array.from({ length: section.fields }).map((_, j) => (
-                  <Skeleton key={j} className="h-14 w-full rounded-2xl" />
+                  <div key={j} className="h-14 w-full bg-gray-50 border border-gray-100 rounded-[16px]" />
                 ))}
               </div>
             ))}
-            <Skeleton className="h-16 w-full rounded-2xl mt-2" />
+            <div className="h-16 w-full bg-black/5 rounded-[24px] mt-2" />
           </div>
 
           {/* Right Column: Order summary card */}
           <div className="bg-[#F5F5F7]/40 rounded-3xl p-6 md:p-8 border border-slate-100 h-fit flex flex-col gap-6">
-            <Skeleton className="h-6 w-36 rounded-md" />
+            <div className="h-6 w-36 bg-gray-200 rounded-md" />
+            
             {Array.from({ length: 2 }).map((_, i) => (
               <div key={i} className="flex gap-4 items-center">
-                <Skeleton className="w-16 h-16 rounded-xl shrink-0" />
+                <div className="w-16 h-16 bg-cream border border-black/5 rounded-xl shrink-0" />
                 <div className="flex-1 flex flex-col gap-2">
-                  <Skeleton className="h-4 w-3/4" />
-                  <Skeleton className="h-3 w-1/3" />
+                  <div className="h-4 w-3/4 bg-gray-200 rounded-sm" />
+                  <div className="h-3 w-1/3 bg-gray-100 rounded-sm" />
                 </div>
-                <Skeleton className="h-4 w-12" />
+                <div className="h-4 w-12 bg-gray-200 rounded-sm" />
               </div>
             ))}
-            <div className="flex flex-col gap-3 pt-4 border-t border-slate-200/60">
-              <div className="flex justify-between">
-                <Skeleton className="h-4 w-20" />
-                <Skeleton className="h-4 w-14" />
-              </div>
-              <div className="flex justify-between">
-                <Skeleton className="h-4 w-24" />
-                <Skeleton className="h-4 w-14" />
-              </div>
-              <div className="flex justify-between">
-                <Skeleton className="h-6 w-16" />
-                <Skeleton className="h-6 w-20" />
-              </div>
+
+            <div className="w-full h-px bg-gray-100 my-2" />
+
+            <div className="flex flex-col gap-4">
+               <div className="flex justify-between">
+                 <div className="h-4 w-20 bg-gray-100 rounded-md" />
+                 <div className="h-4 w-16 bg-gray-200 rounded-md" />
+               </div>
+               <div className="flex justify-between">
+                 <div className="h-4 w-24 bg-gray-100 rounded-md" />
+                 <div className="h-4 w-12 bg-gray-200 rounded-md" />
+               </div>
             </div>
-            <Skeleton className="h-14 w-full rounded-2xl" />
+
+            <div className="w-full h-px bg-gray-100 my-2" />
+            
+            <div className="flex justify-between items-end">
+               <div className="h-4 w-16 bg-gray-100 rounded-md" />
+               <div className="h-8 w-24 bg-gray-300 rounded-lg" />
+            </div>
           </div>
         </div>
       </div>

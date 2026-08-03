@@ -111,7 +111,7 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
 
   const pointsRow = redeemedPoints > 0 ? `
     <tr>
-      <td style="padding: 8px 0; font-size: 14px; color: #6b7280;">Purity Points Redeemed</td>
+      <td style="padding: 8px 0; font-size: 14px; color: #6b7280;">HB Points Redeemed</td>
       <td align="right" style="padding: 8px 0; font-size: 14px; color: #16a34a;">-${formatMoney(redeemedPoints)}</td>
     </tr>
   ` : '';
@@ -153,22 +153,22 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
                 <p style="margin: 0 0 24px 0; font-size: 15px; color: #2A2A2A; line-height: 1.6;">We weren't able to process payment for your order <strong>#${orderNumber}</strong>, so it hasn't been placed. You're welcome to try placing the order again.</p>
                 
                 <div style="text-align: center; margin: 32px 0;">
-                  <a href="${serverUrl}/checkout" style="background-color: #1e5661; color: #ffffff; padding: 14px 28px; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 16px; display: inline-block;">Try Checking Out Again</a>
+                  <a href="${serverUrl}/checkout" style="background-color: #0A0A0A; color: #ffffff; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; display: inline-block;">Try Checking Out Again</a>
                 </div>
               ` : statusContext === 'cancelled' || statusContext === 'refunded' ? `
                 <h2 style="margin: 0 0 16px 0; font-size: 24px; color: #0A0A0A; font-weight: 800; letter-spacing: -0.5px;">Your order has been ${statusContext}</h2>
                 <p style="margin: 0 0 16px 0; font-size: 15px; color: #2A2A2A; line-height: 1.6;">Hi ${customerName},</p>
                 <p style="margin: 0 0 24px 0; font-size: 15px; color: #2A2A2A; line-height: 1.6;">Your order <strong>#${orderNumber}</strong> has been <strong>${statusContext}</strong>.</p>
-                ${order.redeemedPoints ? `<p style="margin: 0 0 16px 0; font-size: 15px; color: #2A2A2A; line-height: 1.6;">Any Purity Points used on this order have been credited back to your account.</p>` : ''}
+                ${order.redeemedPoints ? `<p style="margin: 0 0 16px 0; font-size: 15px; color: #2A2A2A; line-height: 1.6;">Any HB Points used on this order have been credited back to your account.</p>` : ''}
               ` : `
                 <h2 style="margin: 0 0 16px 0; font-size: 24px; color: #0A0A0A; font-weight: 800; letter-spacing: -0.5px;">Thank you for your order, ${customerName}!</h2>
               `}
               
           ${customNote ? `
           <!-- Custom Admin Note -->
-              <div style="background-color: #fdfbf7; border-left: 4px solid #1e5661; padding: 20px; border-radius: 0 8px 8px 0; margin-bottom: 24px;">
-                <h3 style="margin: 0 0 8px 0; color: #1e5661; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Message regarding your order</h3>
-                <p style="margin: 0; color: #2A2A2A; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${escapeHtml(customNote)}</p>
+              <div style="background-color: #FAFAFA; border-left: 4px solid #0A0A0A; padding: 24px; border-radius: 0 12px 12px 0; margin-bottom: 24px;">
+                <h3 style="margin: 0 0 8px 0; color: #0A0A0A; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Message regarding your order</h3>
+                <p style="margin: 0; color: #4A4A4A; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${escapeHtml(customNote)}</p>
               </div>
           ` : ''}
 
@@ -209,10 +209,10 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
 
           ${statusContext === 'success' && safeTrackingLink ? `
           <!-- Tracking Link -->
-              <div style="background-color: #fdfbf7; border-left: 4px solid #10B981; padding: 20px; border-radius: 0 8px 8px 0; margin-bottom: 32px;">
-                <h3 style="margin: 0 0 8px 0; color: #065F46; font-size: 15px; font-weight: 600;">Track Your Order</h3>
-                <p style="margin: 0 0 12px 0; color: #065F46; font-size: 14px; line-height: 1.6;">Your package is on the way! You can track its progress using the link below.</p>
-                <a href="${safeTrackingLink}" target="_blank" style="display: inline-block; padding: 8px 16px; background-color: #10B981; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; border-radius: 4px;">Track Package</a>
+              <div style="background-color: #FAFAFA; border-left: 4px solid #10B981; padding: 24px; border-radius: 0 12px 12px 0; margin-bottom: 32px;">
+                <h3 style="margin: 0 0 8px 0; color: #065F46; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Track Your Order</h3>
+                <p style="margin: 0 0 16px 0; color: #065F46; font-size: 14px; line-height: 1.6;">Your package is on the way! You can track its progress using the link below.</p>
+                <a href="${safeTrackingLink}" target="_blank" style="display: inline-block; padding: 14px 24px; background-color: #10B981; color: #ffffff; text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; border-radius: 8px;">Track Package</a>
               </div>
           ` : ''}
 
@@ -220,26 +220,26 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
               <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 32px;">
                 <tr>
                   <td width="25%">
-                    <p style="margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #8A8A8A; font-weight: 700;">Order Number</p>
-                    <p style="margin: 4px 0 0 0; font-size: 16px; color: #0A0A0A; font-weight: 500;">${orderNumber}</p>
+                    <p style="margin: 0; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #6B7280; font-weight: 700;">Order Number</p>
+                    <p style="margin: 4px 0 0 0; font-size: 15px; color: #0A0A0A; font-weight: 600;">${orderNumber}</p>
                   </td>
                   <td width="25%" align="center">
-                    <p style="margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #8A8A8A; font-weight: 700;">Payment Method</p>
-                    <p style="margin: 4px 0 0 0; font-size: 16px; color: #0A0A0A; font-weight: 500;">${escapeHtml(paymentMethodLabel)}</p>
+                    <p style="margin: 0; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #6B7280; font-weight: 700;">Payment Method</p>
+                    <p style="margin: 4px 0 0 0; font-size: 15px; color: #0A0A0A; font-weight: 600;">${escapeHtml(paymentMethodLabel)}</p>
                   </td>
                   <td width="25%" align="center">
-                    <p style="margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #8A8A8A; font-weight: 700;">Payment Status</p>
-                    <p style="margin: 4px 0 0 0; font-size: 16px; color: ${order.paymentStatus === 'unpaid' ? '#B91C1C' : '#15803D'}; font-weight: 700;">${order.paymentStatus === 'unpaid' ? 'UNPAID' : 'PAID'}</p>
+                    <p style="margin: 0; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #6B7280; font-weight: 700;">Payment Status</p>
+                    <p style="margin: 4px 0 0 0; font-size: 15px; color: ${order.paymentStatus === 'unpaid' ? '#B91C1C' : '#15803D'}; font-weight: 700;">${order.paymentStatus === 'unpaid' ? 'UNPAID' : 'PAID'}</p>
                   </td>
                   <td width="25%" align="right">
-                    <p style="margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #8A8A8A; font-weight: 700;">Date</p>
-                    <p style="margin: 4px 0 0 0; font-size: 16px; color: #0A0A0A; font-weight: 500;">${orderDate}</p>
+                    <p style="margin: 0; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #6B7280; font-weight: 700;">Date</p>
+                    <p style="margin: 4px 0 0 0; font-size: 15px; color: #0A0A0A; font-weight: 600;">${orderDate}</p>
                   </td>
                 </tr>
               </table>
 
           <!-- Items -->
-              <p style="margin: 0 0 16px 0; font-size: 18px; font-weight: 700; color: #0A0A0A; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid #e2ddd3; padding-bottom: 8px;">Order Summary</p>
+              <p style="margin: 0 0 16px 0; font-size: 13px; font-weight: 800; color: #0A0A0A; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid #E5E7EB; padding-bottom: 12px;">Order Summary</p>
               <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 24px;">
                 ${itemsHtml}
               </table>
@@ -258,18 +258,18 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
                 </tr>
                 ${feeRow}
                 <tr>
-                  <td style="padding: 16px 0 0 0; font-size: 16px; font-weight: 700; color: #0A0A0A; border-top: 1px solid #e2ddd3;">Total</td>
-                  <td align="right" style="padding: 16px 0 0 0; font-size: 18px; font-weight: 800; color: #1e5661; border-top: 1px solid #e2ddd3;">${formatMoney(total)}</td>
+                  <td style="padding: 16px 0 0 0; font-size: 15px; font-weight: 700; color: #0A0A0A; border-top: 1px solid #E5E7EB;">Total</td>
+                  <td align="right" style="padding: 16px 0 0 0; font-size: 18px; font-weight: 800; color: #0A0A0A; border-top: 1px solid #E5E7EB;">${formatMoney(total)}</td>
                 </tr>
               </table>
 
           <!-- Shipping Info -->
-              <div style="background-color: #fdfbf7; border-radius: 12px; border: 1px solid #e2ddd3; padding: 24px; margin-bottom: 32px;">
+              <div style="background-color: #FAFAFA; border-radius: 12px; border: 1px solid #E5E7EB; padding: 24px; margin-bottom: 32px;">
               <table width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td width="50%" valign="top" style="padding-bottom: 24px;">
-                    <p style="margin: 0 0 12px 0; font-size: 13px; font-weight: 700; color: #8A8A8A; text-transform: uppercase; letter-spacing: 0.1em;">Shipping Address</p>
-                    <p style="margin: 0; font-size: 14px; color: #2A2A2A; line-height: 1.5;">
+                    <p style="margin: 0 0 12px 0; font-size: 11px; font-weight: 700; color: #6B7280; text-transform: uppercase; letter-spacing: 0.1em;">Shipping Address</p>
+                    <p style="margin: 0; font-size: 14px; color: #0A0A0A; line-height: 1.6; font-weight: 500;">
                       ${customerName}<br>
                       ${shipAddr.line1 || ''} ${shipAddr.line2 ? `<br>${shipAddr.line2}` : ''}<br>
                       ${shipAddr.city || ''}, ${shipAddr.state || ''} ${shipAddr.postalCode || ''}<br>
@@ -277,8 +277,8 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
                     </p>
                   </td>
                   <td width="50%" valign="top" style="padding-bottom: 24px;">
-                    <p style="margin: 0 0 12px 0; font-size: 13px; font-weight: 700; color: #8A8A8A; text-transform: uppercase; letter-spacing: 0.1em;">Billing Address</p>
-                    <p style="margin: 0; font-size: 14px; color: #2A2A2A; line-height: 1.5;">
+                    <p style="margin: 0 0 12px 0; font-size: 11px; font-weight: 700; color: #6B7280; text-transform: uppercase; letter-spacing: 0.1em;">Billing Address</p>
+                    <p style="margin: 0; font-size: 14px; color: #0A0A0A; line-height: 1.6; font-weight: 500;">
                       ${customerName}<br>
                       ${billAddr.line1 || ''} ${billAddr.line2 ? `<br>${billAddr.line2}` : ''}<br>
                       ${billAddr.city || ''}, ${billAddr.state || ''} ${billAddr.postalCode || ''}<br>
@@ -287,9 +287,9 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
                   </td>
                 </tr>
                 <tr>
-                  <td colspan="2" style="padding-top: 24px; border-top: 1px solid #e2ddd3;">
-                    <p style="margin: 0 0 12px 0; font-size: 13px; font-weight: 700; color: #8A8A8A; text-transform: uppercase; letter-spacing: 0.1em;">Contact Information</p>
-                    <p style="margin: 0; font-size: 14px; color: #2A2A2A; line-height: 1.5;">
+                  <td colspan="2" style="padding-top: 24px; border-top: 1px solid #E5E7EB;">
+                    <p style="margin: 0 0 12px 0; font-size: 11px; font-weight: 700; color: #6B7280; text-transform: uppercase; letter-spacing: 0.1em;">Contact Information</p>
+                    <p style="margin: 0; font-size: 14px; color: #0A0A0A; line-height: 1.6; font-weight: 500;">
                       ${customerEmail ? `Email: ${escapeHtml(customerEmail)}<br>` : ''}
                       ${order.customerPhone ? `Phone: ${escapeHtml(order.customerPhone)}` : ''}
                       ${!customerEmail && !order.customerPhone ? 'No contact information provided' : ''}
@@ -301,7 +301,7 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
 
           <!-- View Order Button -->
               <div style="text-align: center;">
-                <a href="${serverUrl}/account/orders/${order.id}" style="display: inline-block; padding: 16px 32px; background-color: #1e5661; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: bold; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.05em;">View Order Status</a>
+                <a href="${serverUrl}/account/orders/${order.id}" style="display: inline-block; padding: 16px 40px; background-color: #0A0A0A; color: #ffffff; text-decoration: none; font-size: 12px; font-weight: bold; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.1em;">View Order Status</a>
               </div>
     `
   })

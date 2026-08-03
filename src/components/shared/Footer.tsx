@@ -214,74 +214,25 @@ const FooterContent = () => {
         {/* Unified Light Card */}
         <div className="bg-white rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 lg:p-16 w-full shadow-xl relative overflow-hidden">
           
-          {/* Precise 12-Column Grid Layout matching reference proportions */}
-          <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-y-16 lg:gap-y-20 gap-x-8 w-full mb-12 lg:mb-16">
+          {/* Main Layout Area */}
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 w-full mb-12 lg:mb-16">
             
-            {/* --- ROW 1 --- */}
-            
-            {/* Logo & Tagline */}
-            <div className="flex flex-col gap-5 md:col-span-6 lg:col-span-5">
-              <a href="/">
-                <img src="/HelixBio Images/hb-logo.png" alt="HelixBio" className="h-14 md:h-20 lg:h-24 w-auto object-contain" />
-              </a>
-              <p className="text-black/50 text-base md:text-[17px] font-medium leading-relaxed mt-2 max-w-[400px]">
-                Setting the gold standard in peptide synthesis with verified HPLC/MS testing for uncompromised results.
-              </p>
-            </div>
-            
-            {/* Link Col 1 */}
-            <div className="flex flex-col gap-5 lg:col-span-2">
-              <h4 className="text-black/30 text-[13px] font-bold uppercase tracking-widest mb-2 lg:hidden">Menu</h4>
-              {[
-                { label: t('navHome'), href: '/' },
-                { label: t('navShop'), href: '/shop' },
-                { label: t('navAbout'), href: '/about-us' },
-                { label: t('navBlog'), href: '/blog' },
-                { label: t('navFaq'), href: '/faq' },
-              ].map(link => (
-                <Link key={link.label} href={link.href} className="text-black/60 hover:text-black text-base font-medium transition-colors tracking-wide w-fit">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
+            {/* LEFT SIDE (Logo, Tagline, Newsletter) */}
+            <div className="flex flex-col gap-10 lg:w-5/12">
+              {/* Logo & Tagline */}
+              <div className="flex flex-col gap-5">
+                <a href="/">
+                  <img src="/HelixBio Images/hb-logo.png" alt="HelixBio" className="h-14 md:h-20 lg:h-24 w-auto object-contain" />
+                </a>
+                <p className="text-black/50 text-base md:text-[17px] font-medium leading-relaxed max-w-[400px]">
+                  Setting the gold standard in peptide synthesis with verified HPLC/MS testing for uncompromised results.
+                </p>
+              </div>
 
-            {/* Link Col 2 */}
-            <div className="flex flex-col gap-5 lg:col-span-2">
-              <h4 className="text-black/30 text-[13px] font-bold uppercase tracking-widest mb-2 lg:hidden">Social & More</h4>
-              {[
-                { label: t('navCalculator'), href: '/peptide-calculator' },
-                { label: t('navAffiliates'), href: '/affiliates' },
-                { label: 'X (Twitter)', href: 'https://x.com/helixbiopeptide' },
-              ].map(link => (
-                 <Link key={link.label} href={link.href} target={link.href.startsWith('http') ? "_blank" : undefined} className="text-black/60 hover:text-black text-base font-medium transition-colors tracking-wide w-fit">
-                   {link.label}
-                 </Link>
-              ))}
-            </div>
-
-            {/* Link Col 3 */}
-            <div className="flex flex-col gap-5 lg:col-span-3">
-              <h4 className="text-black/30 text-[13px] font-bold uppercase tracking-widest mb-2 lg:hidden">Legal</h4>
-              {[
-                { label: t('termsOfService'), href: '/terms-and-conditions' },
-                { label: t('privacyPolicy'), href: '/privacy-policy' },
-                { label: t('refundPolicy'), href: '/refund-policy' },
-                { label: t('shippingPolicy'), href: '/shipping-policy' },
-                { label: t('medicalDisclaimer'), href: '/medical-disclaimer' },
-              ].map(link => (
-                <Link key={link.label} href={link.href} className="text-black/50 hover:text-black text-base font-medium transition-colors tracking-wide w-fit">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-
-            {/* --- ROW 2 --- */}
-
-            {/* Newsletter (Moved to Left) */}
-            <div className="flex items-end order-1 mt-6 lg:mt-0 md:col-span-6 lg:col-span-5">
-              <div className="w-full max-w-[420px] flex flex-col items-start text-left">
-                <h3 className="text-black text-4xl md:text-[40px] font-medium mb-1 tracking-tight">HelixBio</h3>
-                <p className="text-black/50 text-2xl md:text-3xl font-light mb-8 tracking-wide">in your mailbox</p>
+              {/* Newsletter */}
+              <div className="w-full max-w-[420px] flex flex-col items-start text-left mt-2 lg:mt-auto">
+                <h3 className="text-black text-3xl md:text-[40px] font-medium mb-1 tracking-tight">HelixBio</h3>
+                <p className="text-black/50 text-xl md:text-3xl font-light mb-6 tracking-wide">in your mailbox</p>
                 
                 <form onSubmit={handleNewsletterSubmit} className="w-full relative group">
                   <input
@@ -290,12 +241,12 @@ const FooterContent = () => {
                     placeholder="name@example.com"
                     required
                     disabled={status === 'loading' || status === 'success'}
-                    className="w-full bg-black/5 text-black placeholder:text-black/40 rounded-[20px] px-7 py-5 outline-none text-base disabled:opacity-80 font-medium shadow-inner transition-all focus:ring-4 focus:ring-black/5"
+                    className="w-full bg-black/5 text-black placeholder:text-black/40 rounded-[20px] px-7 py-4 md:py-5 outline-none text-base disabled:opacity-80 font-medium shadow-inner transition-all focus:ring-4 focus:ring-black/5"
                   />
                   <button
                     type="submit"
                     disabled={status === 'loading' || status === 'success'}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-black hover:bg-black/80 text-white rounded-xl flex items-center justify-center transition-colors disabled:opacity-50"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-black hover:bg-black/80 text-white rounded-xl flex items-center justify-center transition-colors disabled:opacity-50"
                   >
                     {status === 'loading' ? (
                        <svg className="animate-spin h-5 w-5 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
@@ -311,38 +262,91 @@ const FooterContent = () => {
                 )}
               </div>
             </div>
-
-            {/* Back to top (Moved to Center) */}
-            <div className="flex items-end order-3 lg:order-2 mt-8 lg:mt-0 md:col-span-6 lg:col-span-4 lg:justify-start">
-              <button 
-                onClick={handleScrollToTop}
-                className="group flex items-center gap-8 bg-black/5 hover:bg-black/10 text-black pl-8 pr-2.5 py-2.5 rounded-[20px] transition-colors w-fit border border-black/5 hover:border-black/10"
-              >
-                <span className="text-base font-medium tracking-wide">Back to top</span>
-                <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center group-hover:-translate-y-0.5 transition-transform shrink-0">
-                  <ArrowRight className="w-5 h-5 -rotate-90" strokeWidth={2.5} />
-                </div>
-              </button>
-            </div>
             
-            {/* Contact & Copyright */}
-            <div className="flex items-end order-2 lg:order-3 md:col-span-6 lg:col-span-3 lg:justify-start">
-              <div className="flex flex-col gap-6 text-left">
-                <div className="flex flex-col gap-2">
-                  <a href="mailto:support@helixbio.com" className="text-black/90 font-medium hover:text-black transition-colors tracking-wide text-base md:text-[17px] w-fit">
-                    support@helixbio.com
-                  </a>
-                  <a href="tel:+18433307365" className="text-black/50 text-[15px] hover:text-black/70 transition-colors tracking-wide w-fit">
-                    +1 (843) 330-7365
-                  </a>
+            {/* RIGHT SIDE (Links, Contact, Back to top) */}
+            <div className="flex flex-col gap-12 lg:gap-16 lg:w-7/12 lg:pl-8 xl:pl-16 pt-4 lg:pt-0">
+              
+              {/* Links Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 w-full">
+                {/* Link Col 1 */}
+                <div className="flex flex-col gap-4">
+                  <h4 className="text-black/30 text-[12px] font-bold uppercase tracking-widest mb-1 lg:mb-2">Menu</h4>
+                  {[
+                    { label: t('navHome'), href: '/' },
+                    { label: t('navShop'), href: '/shop' },
+                    { label: t('navAbout'), href: '/about-us' },
+                    { label: t('navBlog'), href: '/blog' },
+                    { label: t('navFaq'), href: '/faq' },
+                  ].map(link => (
+                    <Link key={link.label} href={link.href} className="text-black/60 hover:text-black text-sm md:text-base font-medium transition-colors tracking-wide w-fit">
+                      {link.label}
+                    </Link>
+                  ))}
                 </div>
-                <div className="text-black/40 text-[13px] md:text-[14px] font-medium leading-relaxed tracking-wide mt-3">
-                  HelixBio<br/>
-                  {new Date().getFullYear()} © All rights reserved
+
+                {/* Link Col 2 */}
+                <div className="flex flex-col gap-4">
+                  <h4 className="text-black/30 text-[12px] font-bold uppercase tracking-widest mb-1 lg:mb-2">Social & More</h4>
+                  {[
+                    { label: t('navCalculator'), href: '/peptide-calculator' },
+                    { label: t('navAffiliates'), href: '/affiliates' },
+                    { label: 'X (Twitter)', href: 'https://x.com/helixbiopeptide' },
+                  ].map(link => (
+                     <Link key={link.label} href={link.href} target={link.href.startsWith('http') ? "_blank" : undefined} className="text-black/60 hover:text-black text-sm md:text-base font-medium transition-colors tracking-wide w-fit">
+                       {link.label}
+                     </Link>
+                  ))}
+                </div>
+
+                {/* Link Col 3 */}
+                <div className="flex flex-col gap-4 col-span-2 md:col-span-1">
+                  <h4 className="text-black/30 text-[12px] font-bold uppercase tracking-widest mb-1 lg:mb-2">Legal</h4>
+                  {[
+                    { label: t('termsOfService'), href: '/terms-and-conditions' },
+                    { label: t('privacyPolicy'), href: '/privacy-policy' },
+                    { label: t('refundPolicy'), href: '/refund-policy' },
+                    { label: t('shippingPolicy'), href: '/shipping-policy' },
+                    { label: t('medicalDisclaimer'), href: '/medical-disclaimer' },
+                  ].map(link => (
+                    <Link key={link.label} href={link.href} className="text-black/50 hover:text-black text-sm md:text-base font-medium transition-colors tracking-wide w-fit">
+                      {link.label}
+                    </Link>
+                  ))}
                 </div>
               </div>
+
+              {/* Bottom Right (Contact & Back to top) */}
+              <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 lg:mt-auto pt-8 border-t border-black/5 lg:border-none lg:pt-0 items-start sm:items-end justify-between">
+                
+                {/* Contact & Copyright */}
+                <div className="flex flex-col gap-4 text-left">
+                  <div className="flex flex-col gap-1">
+                    <a href="mailto:support@helixbio.com" className="text-black/90 font-medium hover:text-black transition-colors tracking-wide text-base w-fit">
+                      support@helixbio.com
+                    </a>
+                    <a href="tel:+18433307365" className="text-black/50 text-[14px] hover:text-black/70 transition-colors tracking-wide w-fit">
+                      +1 (843) 330-7365
+                    </a>
+                  </div>
+                  <div className="text-black/40 text-[12px] font-medium leading-relaxed tracking-wide mt-2">
+                    HelixBio — {new Date().getFullYear()} © All rights reserved
+                  </div>
+                </div>
+
+                {/* Back to top */}
+                <button 
+                  onClick={handleScrollToTop}
+                  className="group flex items-center gap-6 bg-black/5 hover:bg-black/10 text-black pl-6 pr-2 py-2 rounded-[16px] transition-colors w-fit border border-black/5 hover:border-black/10"
+                >
+                  <span className="text-sm font-medium tracking-wide">Back to top</span>
+                  <div className="w-10 h-10 rounded-xl bg-black text-white flex items-center justify-center group-hover:-translate-y-0.5 transition-transform shrink-0">
+                    <ArrowRight className="w-4 h-4 -rotate-90" strokeWidth={2.5} />
+                  </div>
+                </button>
+                
+              </div>
+
             </div>
-            
           </div>
           
           {/* Disclaimer & Footer Bottom */}

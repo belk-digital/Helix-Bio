@@ -108,9 +108,9 @@ export async function reservePoints(payload: Payload, userId: number, desired: n
   const db = payload.db as any
 
   const result: any = await db.drizzle.execute(sql`
-    UPDATE "users" SET "purity_points" = "purity_points" - ${desired}
-    WHERE "id" = ${userId} AND "purity_points" >= ${desired}
-    RETURNING "purity_points"`)
+    UPDATE "users" SET "hb_points" = "hb_points" - ${desired}
+    WHERE "id" = ${userId} AND "hb_points" >= ${desired}
+    RETURNING "hb_points"`)
   const rows = result.rows || result
   if (rows && rows.length > 0) {
     return desired
@@ -118,13 +118,13 @@ export async function reservePoints(payload: Payload, userId: number, desired: n
 
   // Someone else spent some of the balance concurrently — fall back to whatever is left.
   const current = await payload.findByID({ collection: 'users', id: userId, overrideAccess: true, depth: 0 })
-  const available = Math.max(0, Math.floor(current?.purityPoints || 0))
+  const available = Math.max(0, Math.floor(current?.hbPoints || 0))
   if (available <= 0) return 0
 
   const fallback: any = await db.drizzle.execute(sql`
-    UPDATE "users" SET "purity_points" = "purity_points" - ${available}
-    WHERE "id" = ${userId} AND "purity_points" >= ${available}
-    RETURNING "purity_points"`)
+    UPDATE "users" SET "hb_points" = "hb_points" - ${available}
+    WHERE "id" = ${userId} AND "hb_points" >= ${available}
+    RETURNING "hb_points"`)
   const fallbackRows = fallback.rows || fallback
   return fallbackRows && fallbackRows.length > 0 ? available : 0
 }
@@ -133,6 +133,6 @@ export async function releasePoints(payload: Payload, userId: number, amount: nu
   if (amount <= 0) return
   const db = payload.db as any
   await db.drizzle.execute(sql`
-    UPDATE "users" SET "purity_points" = "purity_points" + ${amount}
+    UPDATE "users" SET "hb_points" = "hb_points" + ${amount}
     WHERE "id" = ${userId}`)
 }

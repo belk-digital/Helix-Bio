@@ -3,7 +3,7 @@
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import Stripe from 'stripe'
-import { verifyCoupon, getUserPurityPoints } from '../actions'
+import { verifyCoupon, getUserHBPoints } from '../actions'
 import { cookies } from 'next/headers'
 
 import { reserveStock, releaseStock, reserveCouponUsage, releaseCouponUsage, reservePoints, releasePoints } from '@/lib/orders/reserve'
@@ -152,7 +152,7 @@ export async function createPaymentIntent(
 
   let pointsToRedeem = 0;
   if (isRedeemingPoints) {
-    const availablePoints = await getUserPurityPoints()
+    const availablePoints = await getUserHBPoints()
     pointsToRedeem = Math.min(availablePoints, totalBeforePoints)
   }
 
@@ -223,9 +223,14 @@ export async function createPayloadOrder(
        pricesChanged = true
      }
 
-     const productRes = await payload.findByID({ collection: 'products', id: (!isNaN(Number(item.productId)) ? Number(item.productId) : item.productId) as any, depth: 0 })
+     let productRes;
+     try {
+       productRes = await payload.findByID({ collection: 'products', id: (!isNaN(Number(item.productId)) ? Number(item.productId) : item.productId) as any, depth: 0 })
+     } catch (err) {
+       return { error: `One or more items in your cart (${item.product?.name || 'Unknown item'}) are no longer available on our site. Please remove them to proceed.` }
+     }
      if (!productRes) {
-        return { error: `Product not found: ${item.productId}` }
+        return { error: `One or more items in your cart (${item.product?.name || 'Unknown item'}) are no longer available on our site. Please remove them to proceed.` }
      }
      productsCache.set(item.productId, productRes)
      if ((productRes.stock || 0) < item.quantity) {
@@ -300,7 +305,7 @@ export async function createPayloadOrder(
 
   let pointsToRedeem = 0;
   if (isRedeemingPoints) {
-    const availablePoints = await getUserPurityPoints()
+    const availablePoints = await getUserHBPoints()
     pointsToRedeem = Math.min(availablePoints, totalBeforePoints)
   }
 

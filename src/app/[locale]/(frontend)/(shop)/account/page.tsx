@@ -114,7 +114,7 @@ export default async function AccountOverviewPage() {
   const stats = {
     ordersPlaced,
     wishlistCount,
-    purityPoints: user.purityPoints || 0,
+    hbPoints: user.hbPoints || 0,
     memberSince: user.createdAt ? new Date(user.createdAt).getFullYear().toString() : new Date().getFullYear().toString()
   }
 

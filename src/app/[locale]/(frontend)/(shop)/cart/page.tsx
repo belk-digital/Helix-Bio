@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function CartPage() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-[#fafafa] min-h-screen">
       <div className="pt-20">
         <CartClient />
       </div>

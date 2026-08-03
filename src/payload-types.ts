@@ -239,9 +239,9 @@ export interface User {
     | boolean
     | null;
   /**
-   * Purity Points ($1 per point). Can be used by users at checkout.
+   * HB Points ($1 per point). Can be used by users at checkout.
    */
-  purityPoints?: number | null;
+  hbPoints?: number | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -728,7 +728,7 @@ export interface Order {
   subtotal?: number | null;
   discountTotal?: number | null;
   /**
-   * Purity Points used in this order ($1 per point)
+   * HB Points used in this order ($1 per point)
    */
   redeemedPoints?: number | null;
   shippingTotal?: number | null;
@@ -1524,7 +1524,7 @@ export interface UsersSelect<T extends boolean = true> {
   defaultBillingAddress?: T;
   lastLoginAt?: T;
   metadata?: T;
-  purityPoints?: T;
+  hbPoints?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;

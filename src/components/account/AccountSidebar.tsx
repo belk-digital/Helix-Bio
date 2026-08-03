@@ -19,11 +19,11 @@ const NAV_ITEMS = [
 
 export function AccountSidebar({ 
   userName = 'User', 
-  purityPoints = 0,
+  hbPoints = 0,
   affiliateStatus = 'none' 
 }: { 
   userName?: string
-  purityPoints?: number
+  hbPoints?: number
   affiliateStatus?: 'none' | 'pending' | 'approved' | 'rejected' | 'suspended'
 }) {
   const t = useTranslations('account.sidebar')
@@ -142,13 +142,14 @@ export function AccountSidebar({
 
       <div className="mt-auto pt-6 flex flex-col gap-4">
         
-        {/* Purity Points Mini Card */}
-        <div className="bg-gradient-to-br from-white to-gray-50/50 rounded-2xl p-4 border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] relative overflow-hidden group hover:border-[#84d0d9]/30 transition-colors">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#84d0d9]/20 to-transparent rounded-bl-full opacity-50 group-hover:opacity-100 transition-opacity" />
-          <div className="relative z-10 flex flex-col gap-1">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 font-heading">Purity Points</span>
-            <div className="flex items-baseline gap-1">
-              <span className="text-2xl font-bold text-black font-heading tracking-tight">{Number(purityPoints).toFixed(2)}</span>
+        {/* HB Points Mini Card */}
+        <div className="mt-6 mx-2 mb-4">
+          <div className="bg-[#fbfcff] rounded-xl p-4 border border-gray-100 flex items-center justify-between group">
+            <div className="flex flex-col">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 font-heading">HB Points</span>
+              <div className="flex items-center gap-1 mt-1">
+                <span className="text-2xl font-bold text-black font-heading tracking-tight">{Number(hbPoints).toFixed(2)}</span>
+              </div>
             </div>
           </div>
         </div>

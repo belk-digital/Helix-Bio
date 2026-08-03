@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Check, ChevronDown, ChevronUp, Lock, Loader2, ArrowRight, ShieldCheck, Tag, ShoppingCart, Sparkles } from 'lucide-react'
+import { Check, ChevronDown, ChevronUp, Lock, Loader2, ArrowRight, ArrowLeft, ShieldCheck, Tag, ShoppingCart, Sparkles, Truck, Zap, CreditCard, Wallet, Smartphone } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -14,7 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { CheckoutPageSkeleton } from '@/components/ui/skeleton'
 import { COUNTRIES } from '@/lib/countries'
 import { useCartStore } from '@/lib/cart/store'
-import { verifyCoupon, getUserDefaultAddress, getUserPurityPoints, getUserAddresses } from '../actions'
+import { verifyCoupon, getUserDefaultAddress, getUserHBPoints, getUserAddresses } from '../actions'
 import { toast } from 'sonner'
 import { useSession } from 'next-auth/react'
 import { loadStripe } from '@stripe/stripe-js'
@@ -105,7 +105,7 @@ export function CheckoutClient() {
         console.error('Failed to load user addresses:', err)
       }
 
-      const points = await getUserPurityPoints()
+      const points = await getUserHBPoints()
       setAvailablePoints(points)
     }
     
@@ -487,110 +487,112 @@ export function CheckoutClient() {
   }
 
   return (
-    <div className="pt-32 pb-16 md:pt-36 md:pb-24 bg-white min-h-screen">
+    <div className="bg-[#fafafa] min-h-screen pt-32 pb-16 md:pt-36 md:pb-24">
       <Container size="wide">
 
-        {/* Massive Header mirroring Cart */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 border-b border-gray-200 pb-12">
-          <div className="flex flex-col gap-2">
-            <h1 className="text-5xl md:text-7xl font-light text-black tracking-tight leading-none">
-              {t('secureCheckout')}
-            </h1>
-            <p className="text-gray-500 mt-2 max-w-lg text-sm md:text-base leading-relaxed font-light">
-              Provide your information securely below to complete your order.
-            </p>
-          </div>
+        {/* Top Header: < Back and YOUR CHECKOUT */}
+        <div className="mb-12">
+          <Link href="/cart" className="text-[11px] font-bold uppercase tracking-widest text-black hover:text-gray-500 transition-colors flex items-center gap-2 w-fit mb-6">
+            <ArrowLeft size={14} />
+            {t('backToCart', { fallback: 'BACK' })}
+          </Link>
+          <h1 className="text-4xl md:text-5xl font-light text-black tracking-tight leading-none uppercase">
+            {t('secureCheckout')}
+          </h1>
         </div>
 
         {/* Mobile Summary Accordion */}
-        <div className="lg:hidden mb-8 bg-[#F5F5F7]/40 rounded-[24px] p-1 shadow-sm border border-slate-100">
-          <button
-            onClick={() => setMobileSummaryOpen(!mobileSummaryOpen)}
-            className="w-full p-4 flex items-center justify-between text-ink"
-          >
-            <div className="flex items-center gap-3">
-              <ShoppingCart size={20} className="text-ink/60" />
-              <span className="text-sm font-bold uppercase tracking-widest">{t('orderSummary')}</span>
-              <motion.div animate={{ rotate: mobileSummaryOpen ? 180 : 0 }}>
-                <ChevronDown size={16} />
-              </motion.div>
-            </div>
-            <span className="text-lg font-bold">${total.toFixed(2)}</span>
-          </button>
-          
-          <AnimatePresence>
-            {mobileSummaryOpen && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                className="overflow-hidden"
+        <div className="lg:hidden mb-12">
+              <button
+                onClick={() => setMobileSummaryOpen(!mobileSummaryOpen)}
+                className="w-full flex items-center justify-between text-black border-b border-black pb-4 transition-all"
               >
-                <div className="p-4 border-t border-ink/5 flex flex-col gap-6 bg-[#fafafa]/50">
-                  
-                  {/* Items */}
-                  <div className="flex flex-col gap-4 max-h-[40vh] overflow-y-auto custom-scrollbar pr-2 pt-2" data-lenis-prevent="true">
-                    {items.map((item) => (
-                      <div key={item.lineId} className="flex gap-4 group">
-                        <div className="relative w-16 h-16 shrink-0">
-                          <div className="w-full h-full bg-cream rounded-xl overflow-hidden border border-ink/5 relative">
-                            <Image src={item.product?.imageUrl || '/placeholder.png'} alt={item.product?.name || 'Product'} fill className="object-cover" />
+                <div className="flex items-center gap-2">
+                  <ShoppingCart size={18} />
+                  <span className="text-[11px] font-bold uppercase tracking-widest">
+                    {mobileSummaryOpen ? t('hideOrderSummary') : t('showOrderSummary')}
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-base font-bold text-black">${total.toFixed(2)}</span>
+                  <ChevronDown size={16} className={`transition-transform duration-300 ${mobileSummaryOpen ? 'rotate-180' : ''}`} />
+                </div>
+              </button>
+            
+              <AnimatePresence>
+                {mobileSummaryOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="pt-6 flex flex-col gap-6">
+                      
+                      {/* Items */}
+                      <div className="flex flex-col border-b border-gray-200 pb-2">
+                        {items.map((item) => (
+                          <div key={item.lineId} className="flex gap-4 py-4 w-full">
+                            <div className="relative w-16 h-16 shrink-0 rounded-[12px] bg-[#f0f0f0]">
+                              <div className="w-full h-full rounded-[12px] overflow-hidden">
+                                <Image 
+                                  src={item.product?.imageUrl || '/placeholder.png'} 
+                                  alt={item.product?.name || 'Product'} 
+                                  width={300}
+                                  height={300}
+                                  quality={100}
+                                  className="object-cover w-full h-full mix-blend-multiply" 
+                                />
+                              </div>
+                              <div className="absolute -top-2 -right-2 w-5 h-5 bg-black text-white rounded-full flex items-center justify-center text-[9px] font-bold z-10 shadow-sm border border-white">
+                                {item.quantity}
+                              </div>
+                            </div>
+                            <div className="flex flex-col flex-1 justify-center min-w-0 pr-2">
+                              <span className="text-sm font-bold text-black leading-tight truncate">{item.product?.name}</span>
+                              {(item.variantTitle || item.variantSku) && !['DEFAULT', 'DEFAULT TITLE'].includes((item.variantTitle || item.variantSku || '').toUpperCase()) && (
+                                <span className="text-[10px] uppercase tracking-widest text-gray-500 mt-1 truncate">{item.variantTitle || item.variantSku}</span>
+                              )}
+                            </div>
+                            <span className="text-sm text-black font-bold self-center shrink-0">
+                              ${(item.priceSnapshot * item.quantity).toFixed(2)}
+                            </span>
                           </div>
-                          <div className="absolute -top-2 -right-2 w-auto min-w-[20px] h-5 px-1 bg-ink text-cream rounded-full flex items-center justify-center text-[10px] font-bold z-10">
-                            x{item.quantity}
-                          </div>
-                        </div>
-                        <div className="flex flex-col flex-1 justify-center py-1">
-                          <span className="text-sm font-bold text-ink leading-tight">{item.product?.name}</span>
-                          {(item.variantTitle || item.variantSku) && !['DEFAULT', 'DEFAULT TITLE'].includes((item.variantTitle || item.variantSku || '').toUpperCase()) && (
-                            <span className="text-[10px] uppercase tracking-widest text-ink/40 mt-1">{item.variantTitle || item.variantSku}</span>
-                          )}
-                        </div>
-                        <span className="text-sm text-ink font-bold self-center">
-                          ${(item.priceSnapshot * item.quantity).toFixed(2)}
-                        </span>
+                        ))}
                       </div>
-                    ))}
-                  </div>
 
-                  {/* Promo Code */}
-                  <div className="flex flex-col gap-3">
-                    {appliedCoupon ? (
-                      <div className="flex items-center justify-between p-4 bg-green-50 border border-green-500/20 rounded-[16px]">
-                        <div className="flex items-center gap-3">
-                          <Tag size={16} className="text-green-600" />
-                          <div className="flex flex-col">
-                            <span className="text-sm font-bold text-green-700">{appliedCoupon.code}</span>
-                            <span className="text-xs font-medium text-green-600/70">{appliedCoupon.description}</span>
+                      {/* Promo Code */}
+                      <div className="flex flex-col gap-3">
+                        {appliedCoupon ? (
+                          <div className="flex items-center justify-between py-3 border-b border-gray-200">
+                            <div className="flex items-center gap-3 text-emerald-600">
+                              <Tag size={14} />
+                              <span className="text-[11px] font-bold uppercase tracking-widest">{appliedCoupon.code}</span>
+                            </div>
+                            <button onClick={handleRemoveCoupon} className="text-[10px] font-bold text-red-500 hover:text-red-700 uppercase tracking-widest transition-colors">
+                              {t('remove')}
+                            </button>
                           </div>
-                        </div>
-                        <button onClick={handleRemoveCoupon} className="text-xs font-bold text-green-700 hover:text-green-800 uppercase tracking-widest transition-colors">
-                          {t('remove')}
-                        </button>
+                        ) : (
+                          <form onSubmit={handleApplyCoupon} className="relative w-full flex items-center gap-4">
+                            <div className="relative w-full">
+                              <input
+                                value={couponCode}
+                                onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+                                placeholder={t('discountCodePlaceholder', { fallback: 'Coupon code' })}
+                                className="w-full bg-transparent border-b border-gray-300 focus:border-black h-10 px-0 text-[11px] tracking-widest text-black placeholder:text-gray-300 transition-all outline-none"
+                              />
+                            </div>
+                            <button
+                              type="submit"
+                              disabled={!couponCode.trim() || isVerifyingCoupon}
+                              className="h-10 px-6 border border-gray-300 rounded-[12px] text-[10px] font-bold uppercase tracking-widest text-black hover:border-black transition-colors disabled:opacity-50 shrink-0"
+                            >
+                              {isVerifyingCoupon ? <Loader2 size={12} className="animate-spin" /> : t('apply')}
+                            </button>
+                          </form>
+                        )}
                       </div>
-                    ) : (
-                      <form onSubmit={handleApplyCoupon} className="relative w-full">
-                        <Input
-                          value={couponCode}
-                          onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
-                          placeholder={t('discountCodePlaceholder')}
-                          className="w-full bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] rounded-[16px] h-12 px-6 pr-28 text-[11px] font-bold uppercase tracking-[0.1em] text-black font-heading placeholder:text-gray-400 transition-all shadow-none"
-                        />
-                        <button
-                          type="submit"
-                          disabled={!couponCode.trim() || isVerifyingCoupon}
-                          className={`absolute right-1 top-1 bottom-1 px-5 rounded-[12px] text-[10px] font-bold uppercase tracking-widest font-heading transition-all flex items-center justify-center min-w-[80px] ${
-                            (!couponCode.trim() || isVerifyingCoupon)
-                              ? 'bg-ink/5 text-ink/40 cursor-not-allowed'
-                              : 'bg-white shadow-sm border border-gray-100 text-black hover:border-gray-300'
-                          }`}
-                        >
-                          {isVerifyingCoupon ? <Loader2 size={14} className="animate-spin text-ink/40" /> : t('apply')}
-                        </button>
-                      </form>
-                    )}
-                  </div>
-
                   {/* Maxx Points */}
                   {availablePoints > 0 && (
                     <div className={`flex flex-col gap-3 p-4 rounded-[16px] border transition-all ${isRedeemingPoints ? 'bg-amber-50 border-amber-200/60 shadow-inner-sm' : 'bg-white border-ink/10 shadow-sm'}`}>
@@ -600,7 +602,7 @@ export function CheckoutClient() {
                             <Sparkles size={14} />
                           </div>
                           <div className="flex flex-col">
-                            <span className={`text-sm font-bold ${isRedeemingPoints ? 'text-amber-700' : 'text-ink'}`}>{t('purityPoints')}</span>
+                            <span className={`text-sm font-bold ${isRedeemingPoints ? 'text-amber-700' : 'text-ink'}`}>HB Points</span>
                             <span className="text-xs font-medium text-ink/50">{t('youHavePoints', { points: Number(availablePoints.toFixed(2)) })}</span>
                           </div>
                         </div>
@@ -691,14 +693,14 @@ export function CheckoutClient() {
               
               {/* Contact */}
               <section className="flex flex-col gap-4">
-                <h2 className="text-2xl font-light tracking-tight text-black mb-2">{t('contactInformation')}</h2>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-black mb-2">{t('contactInformation')}</h2>
                 <Input
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder={t('emailAddress')}
                   type="email"
-                  className={`h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 transition-all shadow-none ${attemptedSubmit && !formData.email ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`}
+                  className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && !formData.email ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`}
                   required
                 />
                 <div className="flex items-start gap-3 mt-1 px-1">
@@ -717,12 +719,12 @@ export function CheckoutClient() {
 
               {/* Delivery */}
               <section className="flex flex-col gap-4">
-                <h2 className="text-2xl font-light tracking-tight text-black mb-2">{t('deliveryAddress')}</h2>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-black mb-2 mt-6">{t('deliveryAddress')}</h2>
                 
                 {user && addresses.length > 0 && (
                   <div className="flex flex-col gap-3 mb-4">
                     {addresses.map((addr) => (
-                      <label key={addr.id} className={`flex items-start gap-4 p-5 rounded-[16px] border transition-colors cursor-pointer shadow-sm ${selectedAddressId === String(addr.id) ? 'border-ink bg-ink/5' : 'border-slate-100 bg-white hover:border-ink/30'}`}>
+                      <label key={addr.id} className={`flex items-start gap-4 p-5 rounded-[16px] border transition-colors cursor-pointer ${selectedAddressId === String(addr.id) ? 'border-black bg-gray-50' : 'border-gray-200 bg-transparent hover:border-gray-400'}`}>
                         <input 
                           type="radio" 
                           name="addressSelection" 
@@ -762,7 +764,7 @@ export function CheckoutClient() {
                       </label>
                     ))}
 
-                    <label className={`flex items-center gap-4 p-5 rounded-[16px] border transition-colors cursor-pointer shadow-sm ${selectedAddressId === 'new' ? 'border-ink bg-ink/5' : 'border-slate-100 bg-white hover:border-ink/30'}`}>
+                    <label className={`flex items-center gap-4 p-5 rounded-[16px] border transition-colors cursor-pointer ${selectedAddressId === 'new' ? 'border-black bg-gray-50' : 'border-gray-200 bg-transparent hover:border-gray-400'}`}>
                       <input 
                         type="radio" 
                         name="addressSelection" 
@@ -784,27 +786,27 @@ export function CheckoutClient() {
                 {(!user || selectedAddressId === 'new') && (
                   <div className="flex flex-col gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
                     <div className="grid grid-cols-2 gap-4">
-                      <Input name="firstName" value={formData.firstName} onChange={handleInputChange} placeholder={t('firstName')} className={`h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 transition-all shadow-none ${attemptedSubmit && selectedAddressId === 'new' && !formData.firstName ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
-                      <Input name="lastName" value={formData.lastName} onChange={handleInputChange} placeholder={t('lastName')} className={`h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 transition-all shadow-none ${attemptedSubmit && selectedAddressId === 'new' && !formData.lastName ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
+                      <Input name="firstName" value={formData.firstName} onChange={handleInputChange} placeholder={t('firstName')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && selectedAddressId === 'new' && !formData.firstName ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new'} />
+                      <Input name="lastName" value={formData.lastName} onChange={handleInputChange} placeholder={t('lastName')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && selectedAddressId === 'new' && !formData.lastName ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new'} />
                     </div>
-                    <Input name="address" value={formData.address} onChange={handleInputChange} placeholder={t('address')} className={`h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 transition-all shadow-none ${attemptedSubmit && selectedAddressId === 'new' && !formData.address ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
-                    <Input name="apartment" value={formData.apartment} onChange={handleInputChange} placeholder={t('apartmentOptional')} className="h-14 rounded-[16px] border-slate-100 bg-white shadow-sm focus-visible:ring-ink" />
+                    <Input name="address" value={formData.address} onChange={handleInputChange} placeholder={t('address')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && selectedAddressId === 'new' && !formData.address ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new'} />
+                    <Input name="apartment" value={formData.apartment} onChange={handleInputChange} placeholder={t('apartmentOptional')} className="h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm" />
                     <div className="grid grid-cols-6 gap-4">
                       <div className="col-span-3 sm:col-span-2">
-                        <Input name="city" value={formData.city} onChange={handleInputChange} placeholder={t('city')} className={`h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 transition-all shadow-none ${attemptedSubmit && selectedAddressId === 'new' && !formData.city ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
+                        <Input name="city" value={formData.city} onChange={handleInputChange} placeholder={t('city')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && selectedAddressId === 'new' && !formData.city ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new'} />
                       </div>
                       <div className="col-span-3 sm:col-span-2">
-                        <Input name="state" value={formData.state} onChange={handleInputChange} placeholder={t('state')} className={`h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 transition-all shadow-none ${attemptedSubmit && selectedAddressId === 'new' && !formData.state ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
+                        <Input name="state" value={formData.state} onChange={handleInputChange} placeholder={t('state')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && selectedAddressId === 'new' && !formData.state ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new'} />
                       </div>
                       <div className="col-span-6 sm:col-span-2">
-                        <Input name="zip" value={formData.zip} onChange={handleInputChange} placeholder={t('zipCode')} className={`h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 transition-all shadow-none ${attemptedSubmit && selectedAddressId === 'new' && !formData.zip ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required={selectedAddressId === 'new'} />
+                        <Input name="zip" value={formData.zip} onChange={handleInputChange} placeholder={t('zipCode')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && selectedAddressId === 'new' && !formData.zip ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new'} />
                       </div>
                     </div>
                     <Select
                       value={formData.country}
                       onValueChange={(value) => setFormData(prev => ({ ...prev, country: value }))}
                     >
-                      <SelectTrigger className="h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 w-full transition-all shadow-none">
+                      <SelectTrigger className="h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 w-full transition-all shadow-sm">
                         <SelectValue placeholder={t('country')} />
                       </SelectTrigger>
                       <SelectContent
@@ -831,32 +833,38 @@ export function CheckoutClient() {
 
                 {/* Phone is always shown and required, even when a saved address is selected —
                     older addresses saved before this field existed may not have one on file. */}
-                <Input name="phone" value={formData.phone} onChange={handleInputChange} placeholder={t('phoneForDelivery')} type="tel" className={`h-14 rounded-[16px] bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] text-sm text-black placeholder:text-gray-400 transition-all shadow-none ${attemptedSubmit && !formData.phone ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : 'border-slate-100'}`} required />
+                <Input name="phone" value={formData.phone} onChange={handleInputChange} placeholder={t('phoneForDelivery')} type="tel" className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && !formData.phone ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required />
               </section>
 
               {/* Shipping Method */}
               <section className="flex flex-col gap-4">
-                <h2 className="text-2xl font-light tracking-tight text-black mb-2">{t('shippingMethod')}</h2>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-black mb-2 mt-6">{t('shippingMethod')}</h2>
                 <div className="flex flex-col gap-3">
                   {visibleShippingMethods.map((method: any) => (
-                    <label key={method.method} className={`flex items-center justify-between p-5 rounded-[16px] border transition-colors cursor-pointer shadow-sm ${shippingMethod === method.method ? 'border-ink bg-ink/5' : 'border-slate-100 bg-white hover:border-ink/30'}`}>
-                      <div className="flex items-center gap-4">
+                    <label key={method.method} className={`relative flex items-center justify-between p-5 rounded-[12px] border transition-all duration-200 ease-in-out cursor-pointer overflow-hidden ${shippingMethod === method.method ? 'border-black bg-[#fafafa] shadow-md ring-1 ring-black' : 'border-gray-200 bg-white hover:border-gray-300 shadow-sm'}`}>
+                      <div className="flex items-center gap-4 relative z-10">
                         <input
                           type="radio"
                           name="shipping"
                           value={method.method}
                           checked={shippingMethod === method.method}
                           onChange={() => setShippingMethod(method.method)}
-                          className="w-4 h-4 accent-black text-ink border-ink/20 focus:ring-ink focus:ring-offset-0"
+                          className="sr-only"
                         />
+                        <div className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-colors duration-200 ${shippingMethod === method.method ? 'border-black bg-black' : 'border-gray-300 bg-white'}`}>
+                          {shippingMethod === method.method && <div className="w-2 h-2 bg-white rounded-full shadow-sm animate-in zoom-in duration-200" />}
+                        </div>
                         <div className="flex flex-col">
-                          <span className="text-sm font-bold text-ink">{method.method}</span>
+                          <span className={`text-sm font-bold transition-colors flex items-center gap-2 ${shippingMethod === method.method ? 'text-black' : 'text-gray-700'}`}>
+                            {method.method.toLowerCase().includes('express') ? <Zap size={14} className="text-amber-500" /> : <Truck size={14} className="text-gray-400" />}
+                            {method.method}
+                          </span>
                           {method.estimatedDays && (
-                            <span className="text-xs text-ink/60 mt-0.5">{t('businessDays', { days: method.estimatedDays })}</span>
+                            <span className="text-xs text-gray-500 mt-0.5">{t('businessDays', { days: method.estimatedDays })}</span>
                           )}
                         </div>
                       </div>
-                      <span className="text-sm font-bold text-ink">
+                      <span className={`text-sm font-bold relative z-10 transition-colors ${shippingMethod === method.method ? 'text-black' : 'text-gray-700'}`}>
                         {(() => {
                           const isExpress = method.method.toLowerCase().includes('express')
                           const isFreeShipping = qualifiesForFreeShipping && !isExpress
@@ -871,7 +879,7 @@ export function CheckoutClient() {
 
               {/* Payment */}
               <section className="flex flex-col gap-4">
-                <h2 className="text-2xl font-light tracking-tight text-black mb-2">{t('payment')}</h2>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-black mb-2 mt-6">{t('payment')}</h2>
                 <p className="text-xs font-medium text-ink/50 mb-2 flex items-center gap-1.5"><Lock size={12} /> {t('encryptionNotice')}</p>
 
                 {total <= 0 ? (
@@ -880,7 +888,7 @@ export function CheckoutClient() {
                        <Check size={24} />
                     </div>
                     <span className="text-sm font-bold text-green-800">{t('orderFullyCovered')}</span>
-                    <Button onClick={handleZeroTotalCheckout} disabled={isProcessing} size="lg" className="w-full h-14 rounded-[16px] bg-primary font-extrabold text-[11px] tracking-widest uppercase text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                    <Button onClick={handleZeroTotalCheckout} disabled={isProcessing} size="lg" className="w-full h-14 rounded-[12px] bg-black font-bold text-[11px] tracking-[0.2em] uppercase text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
                       {isProcessing ? <Loader2 className="animate-spin" /> : t('completeFreeOrder')}
                     </Button>
                   </div>
@@ -901,69 +909,93 @@ export function CheckoutClient() {
                   <div className="flex flex-col gap-4">
                     <div className="flex flex-col gap-3">
                       {ENABLE_CIRCOFLOWS && (
-                        <label className={`flex items-center justify-between p-5 rounded-[16px] border transition-colors cursor-pointer shadow-sm ${
-                          selectedPaymentMethod === 'circoflows' ? 'border-ink bg-ink/5' : 'border-slate-100 bg-white hover:border-ink/30'
+                        <label className={`relative flex items-center justify-between p-5 rounded-[12px] border transition-all duration-200 ease-in-out cursor-pointer overflow-hidden ${
+                          selectedPaymentMethod === 'circoflows' ? 'border-black bg-[#fafafa] shadow-md ring-1 ring-black' : 'border-gray-200 bg-white hover:border-gray-300 shadow-sm'
                         }`}>
-                          <div className="flex items-center gap-4">
+                          <div className="flex items-center gap-4 relative z-10">
                             <input
                               type="radio"
                               name="paymentMethod"
                               value="circoflows"
-                              className="w-4 h-4 accent-black text-ink border-ink/20 focus:ring-ink focus:ring-offset-0"
+                              className="sr-only"
                               checked={selectedPaymentMethod === 'circoflows'}
                               onChange={() => setSelectedPaymentMethod('circoflows')}
                             />
+                            <div className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-colors duration-200 ${selectedPaymentMethod === 'circoflows' ? 'border-black bg-black' : 'border-gray-300 bg-white'}`}>
+                              {selectedPaymentMethod === 'circoflows' && <div className="w-2 h-2 bg-white rounded-full shadow-sm animate-in zoom-in duration-200" />}
+                            </div>
                             <div className="flex flex-col">
-                              <span className="text-sm font-bold text-ink">{t('payWithCard')}</span>
-                              <span className="text-xs text-ink/60 mt-0.5">{t('circoflowsCheckoutNote')}</span>
+                              <span className={`text-sm font-bold transition-colors flex items-center gap-2 ${selectedPaymentMethod === 'circoflows' ? 'text-black' : 'text-gray-700'}`}>
+                                <CreditCard size={14} className="text-gray-400" />
+                                {t('payWithCard')}
+                                <div className="flex gap-1.5 ml-2">
+                                  <span className="px-1.5 py-0.5 border border-gray-200 bg-white rounded shadow-sm text-[8px] font-black italic text-blue-900 tracking-wider">VISA</span>
+                                  <span className="px-1.5 py-0.5 border border-gray-200 bg-white rounded shadow-sm text-[8px] font-bold text-red-600 tracking-wider">MC</span>
+                                </div>
+                              </span>
+                              <span className="text-xs text-gray-500 mt-0.5">{t('circoflowsCheckoutNote')}</span>
                             </div>
                           </div>
                         </label>
                       )}
-                      <label className={`flex items-center justify-between p-5 rounded-[16px] border transition-colors cursor-pointer shadow-sm ${
-                        selectedPaymentMethod === 'zelle' ? 'border-ink bg-ink/5' : 'border-slate-100 bg-white hover:border-ink/30'
+                      <label className={`relative flex items-center justify-between p-5 rounded-[12px] border transition-all duration-200 ease-in-out cursor-pointer overflow-hidden ${
+                        selectedPaymentMethod === 'zelle' ? 'border-black bg-[#fafafa] shadow-md ring-1 ring-black' : 'border-gray-200 bg-white hover:border-gray-300 shadow-sm'
                       }`}>
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-4 relative z-10">
                           <input 
                             type="radio" 
                             name="paymentMethod" 
                             value="zelle" 
-                            className="w-4 h-4 accent-black text-ink border-ink/20 focus:ring-ink focus:ring-offset-0" 
+                            className="sr-only" 
                             checked={selectedPaymentMethod === 'zelle'} 
                             onChange={() => setSelectedPaymentMethod('zelle')} 
                           />
+                          <div className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-colors duration-200 ${selectedPaymentMethod === 'zelle' ? 'border-black bg-black' : 'border-gray-300 bg-white'}`}>
+                            {selectedPaymentMethod === 'zelle' && <div className="w-2 h-2 bg-white rounded-full shadow-sm animate-in zoom-in duration-200" />}
+                          </div>
                           <div className="flex flex-col">
-                            <span className="text-sm font-bold text-ink">Zelle</span>
-                            <span className="text-xs text-ink/60 mt-0.5">{t('zelleCheckoutNote')}</span>
+                            <span className={`text-sm font-bold transition-colors flex items-center gap-2 ${selectedPaymentMethod === 'zelle' ? 'text-black' : 'text-gray-700'}`}>
+                              <Wallet size={14} className="text-purple-600" />
+                              Zelle
+                              <span className="px-1.5 py-0.5 border border-gray-200 bg-[#741acb] rounded shadow-sm text-[8px] font-black text-white tracking-widest ml-2">Z</span>
+                            </span>
+                            <span className="text-xs text-gray-500 mt-0.5">{t('zelleCheckoutNote')}</span>
                           </div>
                         </div>
                       </label>
 
-                      <label className={`flex items-center justify-between p-5 rounded-[16px] border transition-colors cursor-pointer shadow-sm ${
-                        selectedPaymentMethod === 'amex' ? 'border-ink bg-ink/5' : 'border-slate-100 bg-white hover:border-ink/30'
+                      <label className={`relative flex items-center justify-between p-5 rounded-[12px] border transition-all duration-200 ease-in-out cursor-pointer overflow-hidden ${
+                        selectedPaymentMethod === 'amex' ? 'border-black bg-[#fafafa] shadow-md ring-1 ring-black' : 'border-gray-200 bg-white hover:border-gray-300 shadow-sm'
                       }`}>
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-4 relative z-10">
                           <input 
                             type="radio" 
                             name="paymentMethod" 
                             value="amex" 
-                            className="w-4 h-4 accent-black text-ink border-ink/20 focus:ring-ink focus:ring-offset-0" 
+                            className="sr-only" 
                             checked={selectedPaymentMethod === 'amex'} 
                             onChange={() => setSelectedPaymentMethod('amex')} 
                           />
+                          <div className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-colors duration-200 ${selectedPaymentMethod === 'amex' ? 'border-black bg-black' : 'border-gray-300 bg-white'}`}>
+                            {selectedPaymentMethod === 'amex' && <div className="w-2 h-2 bg-white rounded-full shadow-sm animate-in zoom-in duration-200" />}
+                          </div>
                           <div className="flex flex-col">
-                            <span className="text-sm font-bold text-ink">American Express</span>
-                            <span className="text-xs text-ink/60 mt-0.5">{t('amexCheckoutNote')}</span>
+                            <span className={`text-sm font-bold transition-colors flex items-center gap-2 ${selectedPaymentMethod === 'amex' ? 'text-black' : 'text-gray-700'}`}>
+                              <Smartphone size={14} className="text-gray-400" />
+                              American Express
+                              <span className="px-1.5 py-0.5 border border-blue-600 bg-blue-500 rounded shadow-sm text-[8px] font-black text-white tracking-wider ml-2">AMEX</span>
+                            </span>
+                            <span className="text-xs text-gray-500 mt-0.5">{t('amexCheckoutNote')}</span>
                           </div>
                         </div>
                       </label>
                     </div>
 
-                    <div className="w-full p-6 sm:p-8 bg-white border border-ink/10 rounded-[24px] shadow-sm flex flex-col items-center gap-6 text-center mt-2">
+                    <div className="w-full mt-6">
                       <Button onClick={
                         selectedPaymentMethod === 'circoflows' ? handleCircoFlowsPlaceOrder :
                         selectedPaymentMethod === 'zelle' ? handleZellePlaceOrder : handleAmexPlaceOrder
-                      } disabled={isProcessing} size="lg" className="w-full h-14 rounded-[16px] bg-primary font-extrabold text-[11px] tracking-widest uppercase text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all group">
+                      } disabled={isProcessing} size="lg" className="w-full h-14 rounded-[12px] bg-black font-bold text-[11px] tracking-[0.2em] uppercase text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all group">
                         {isProcessing ? <Loader2 className="animate-spin" /> : t('placeOrder')}
                       </Button>
                     </div>
@@ -975,32 +1007,41 @@ export function CheckoutClient() {
           </div>
 
           {/* Right Column: Order Summary (Desktop) */}
-          <div className="hidden lg:block relative">
-            <div className="sticky top-32 bg-white rounded-[24px] p-8 border border-gray-100 shadow-xl shadow-black/[0.03] flex flex-col gap-8">
+          <div className="hidden lg:block lg:pl-12 lg:border-l border-gray-300">
+            <div className="sticky top-32">
               
-              <h2 className="text-3xl font-light text-black tracking-tight">
-                {t('orderSummary')}
-              </h2>
+              <div className="mb-10">
+                <h2 className="text-xl font-light text-black tracking-wide uppercase">
+                  {t('orderSummary')}
+                </h2>
+              </div>
               
               {/* Items List */}
-              <div className="flex flex-col gap-6 max-h-[40vh] overflow-y-auto pt-4 pr-4 pb-2 custom-scrollbar" data-lenis-prevent="true">
+              <div className="flex flex-col gap-4 max-h-[40vh] overflow-y-auto pb-6 custom-scrollbar mb-6 border-b-[2px] border-black" data-lenis-prevent="true">
                 {items.map((item) => (
-                  <div key={item.lineId} className="flex gap-4 group">
-                    <div className="relative w-20 h-20 shrink-0 transition-transform group-hover:scale-105">
-                      <div className="w-full h-full bg-cream border border-ink/5 rounded-[16px] overflow-hidden relative">
-                        <Image src={item.product?.imageUrl || '/placeholder.png'} alt={item.product?.name || 'Product'} fill className="object-cover" />
+                  <div key={item.lineId} className="flex gap-4 group py-2">
+                    <div className="relative w-16 h-16 shrink-0 rounded-[12px] bg-[#f0f0f0]">
+                      <div className="w-full h-full rounded-[12px] overflow-hidden">
+                        <Image 
+                          src={item.product?.imageUrl || '/placeholder.png'} 
+                          alt={item.product?.name || 'Product'} 
+                          width={300}
+                          height={300}
+                          quality={100}
+                          className="object-cover w-full h-full mix-blend-multiply" 
+                        />
                       </div>
-                      <div className="absolute -top-2 -right-2 w-auto min-w-[24px] h-6 px-1 bg-ink text-cream rounded-full flex items-center justify-center text-[11px] font-bold z-10 shadow-sm border-2 border-white">
-                        x{item.quantity}
+                      <div className="absolute -top-2 -right-2 w-5 h-5 bg-black text-white rounded-full flex items-center justify-center text-[9px] font-bold z-10 shadow-sm border border-white">
+                        {item.quantity}
                       </div>
                     </div>
-                    <div className="flex flex-col flex-1 justify-center py-1">
-                      <span className="text-sm font-bold text-ink leading-tight">{item.product?.name}</span>
+                    <div className="flex flex-col flex-1 justify-center min-w-0 pr-2">
+                      <span className="text-sm font-bold text-black leading-tight truncate">{item.product?.name}</span>
                       {(item.variantTitle || item.variantSku) && !['DEFAULT', 'DEFAULT TITLE'].includes((item.variantTitle || item.variantSku || '').toUpperCase()) && (
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-ink/40 mt-1">{item.variantTitle || item.variantSku}</span>
+                        <span className="text-[10px] uppercase tracking-widest text-gray-500 mt-1 truncate">{item.variantTitle || item.variantSku}</span>
                       )}
                     </div>
-                    <span className="text-sm text-ink font-bold self-center">
+                    <span className="text-sm text-black font-bold self-center shrink-0">
                       ${(item.priceSnapshot * item.quantity).toFixed(2)}
                     </span>
                   </div>
@@ -1008,38 +1049,33 @@ export function CheckoutClient() {
               </div>
 
               {/* Promo Code */}
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-3 mb-6">
                 {appliedCoupon ? (
-                  <div className="flex items-center justify-between p-4 bg-green-50 border border-green-500/20 rounded-[16px]">
-                    <div className="flex items-center gap-3">
-                      <Tag size={16} className="text-green-600" />
-                      <div className="flex flex-col">
-                        <span className="text-sm font-bold text-green-700">{appliedCoupon.code}</span>
-                        <span className="text-xs font-medium text-green-600/70">{appliedCoupon.description}</span>
-                      </div>
+                  <div className="flex items-center justify-between py-3 border-b border-gray-200">
+                    <div className="flex items-center gap-3 text-emerald-600">
+                      <Tag size={14} />
+                      <span className="text-[11px] font-bold uppercase tracking-widest">{appliedCoupon.code}</span>
                     </div>
-                    <button onClick={handleRemoveCoupon} className="text-xs font-bold text-green-700 hover:text-green-800 uppercase tracking-widest transition-colors">
+                    <button onClick={handleRemoveCoupon} className="text-[10px] font-bold text-red-500 hover:text-red-700 uppercase tracking-widest transition-colors">
                       {t('remove')}
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleApplyCoupon} className="relative w-full">
-                    <Input
-                      value={couponCode}
-                      onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
-                      placeholder={t('discountCodePlaceholder')}
-                      className="w-full bg-gray-50 border-none focus-visible:ring-1 focus-visible:ring-[#1e5661] rounded-[16px] h-12 px-6 pr-28 text-[11px] font-bold uppercase tracking-[0.1em] text-black font-heading placeholder:text-gray-400 transition-all shadow-none"
-                    />
+                  <form onSubmit={handleApplyCoupon} className="relative w-full flex items-center gap-4">
+                    <div className="relative w-full">
+                      <input
+                        value={couponCode}
+                        onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+                        placeholder={t('discountCodePlaceholder', { fallback: 'Coupons code' })}
+                        className="w-full bg-transparent border-b border-gray-300 focus:border-black h-10 px-0 text-[11px] tracking-widest text-black placeholder:text-gray-300 transition-all outline-none"
+                      />
+                    </div>
                     <button
                       type="submit"
                       disabled={!couponCode.trim() || isVerifyingCoupon}
-                      className={`absolute right-1 top-1 bottom-1 px-5 rounded-[12px] text-[10px] font-bold uppercase tracking-widest font-heading transition-all flex items-center justify-center min-w-[80px] ${
-                        (!couponCode.trim() || isVerifyingCoupon)
-                          ? 'bg-ink/5 text-ink/40 cursor-not-allowed'
-                          : 'bg-white shadow-sm border border-gray-100 text-black hover:border-gray-300'
-                      }`}
+                      className="h-10 px-6 border border-gray-300 rounded-[12px] text-[10px] font-bold uppercase tracking-widest text-black hover:border-black transition-colors disabled:opacity-50 shrink-0"
                     >
-                      {isVerifyingCoupon ? <Loader2 size={14} className="animate-spin text-ink/40" /> : t('apply')}
+                      {isVerifyingCoupon ? <Loader2 size={12} className="animate-spin" /> : t('apply')}
                     </button>
                   </form>
                 )}
@@ -1047,15 +1083,15 @@ export function CheckoutClient() {
 
               {/* Maxx Points */}
               {availablePoints > 0 && (
-                <div className={`flex flex-col gap-3 p-5 rounded-[16px] border transition-all ${isRedeemingPoints ? 'bg-amber-50 border-amber-200/60 shadow-inner-sm' : 'bg-white border-ink/10 shadow-sm'}`}>
+                <div className="flex flex-col gap-3 py-3 border-b border-gray-200 mb-6">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isRedeemingPoints ? 'bg-amber-100 text-amber-600' : 'bg-cream text-ink/40'}`}>
-                        <Sparkles size={18} />
+                      <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isRedeemingPoints ? 'bg-amber-100 text-amber-600' : 'bg-gray-100 text-gray-400'}`}>
+                        <Sparkles size={14} />
                       </div>
                       <div className="flex flex-col">
-                        <span className={`text-sm font-bold ${isRedeemingPoints ? 'text-amber-700' : 'text-ink'}`}>{t('purityPoints')}</span>
-                        <span className="text-xs font-medium text-ink/50">{t('youHavePointsWithValue', { points: Number(availablePoints.toFixed(2)), value: availablePoints.toFixed(2) })}</span>
+                        <span className={`text-[11px] font-bold uppercase tracking-widest ${isRedeemingPoints ? 'text-amber-700' : 'text-black'}`}>HB Points</span>
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 mt-1">{t('youHavePointsWithValue', { points: Number(availablePoints.toFixed(2)), value: availablePoints.toFixed(2) })}</span>
                       </div>
                     </div>
                     <label className="relative inline-flex items-center cursor-pointer">
@@ -1065,19 +1101,28 @@ export function CheckoutClient() {
                         checked={isRedeemingPoints}
                         onChange={() => setIsRedeemingPoints(!isRedeemingPoints)}
                       />
-                      <div className="w-11 h-6 bg-ink/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-500"></div>
+                      <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-amber-500"></div>
                     </label>
                   </div>
                 </div>
               )}
 
-              <div className="w-full h-px bg-ink/5" />
-
               {/* Totals */}
-              <div className="flex flex-col gap-4">
-                <div className="flex justify-between items-center text-sm font-medium text-ink/70">
+              <div className="flex flex-col gap-4 text-xs pb-6 border-b border-gray-200 mb-6">
+                
+                <div className="flex justify-between items-center text-gray-500">
                   <span>{t('subtotal')}</span>
-                  <span className="text-ink font-bold">${subtotal.toFixed(2)}</span>
+                  <span className="text-black font-medium">${subtotal.toFixed(2)}</span>
+                </div>
+
+                <div className="flex justify-between items-center text-gray-500">
+                  <span>{t('estimatedShipping', { fallback: 'Shipping' })}</span>
+                  <span className="text-black font-medium">{finalShipping === 0 ? t('free') : `$${finalShipping.toFixed(2)}`}</span>
+                </div>
+
+                <div className="flex justify-between items-center text-gray-500">
+                  <span>{t('processingFee')}{activeFeePercentage ? ` (${activeFeePercentage}%)` : ''}</span>
+                  <span className="text-black font-medium">${processingFeeAmount.toFixed(2)}</span>
                 </div>
 
                 <AnimatePresence>
@@ -1086,10 +1131,10 @@ export function CheckoutClient() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      className="flex justify-between items-center text-sm font-medium text-green-600 overflow-hidden"
+                      className="flex justify-between items-center text-emerald-600 overflow-hidden"
                     >
-                      <span className="py-1">{t('discountWithCode', { code: appliedCoupon.code })}</span>
-                      <span className="py-1 font-bold">-${appliedCoupon.discount.toFixed(2)}</span>
+                      <span>{t('discountWithCode', { code: appliedCoupon.code })}</span>
+                      <span className="font-medium">-${appliedCoupon.discount.toFixed(2)}</span>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -1100,29 +1145,18 @@ export function CheckoutClient() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      className="flex justify-between items-center text-sm font-medium text-green-600 overflow-hidden"
+                      className="flex justify-between items-center text-emerald-600 overflow-hidden"
                     >
-                      <span className="py-1 flex items-center gap-1.5"><Sparkles size={14} /> {t('pointsApplied')}</span>
-                      <span className="py-1 font-bold">-${pointsToRedeem.toFixed(2)}</span>
+                      <span className="flex items-center gap-1.5"><Sparkles size={12} /> {t('pointsApplied')}</span>
+                      <span className="font-medium">-${pointsToRedeem.toFixed(2)}</span>
                     </motion.div>
                   )}
                 </AnimatePresence>
-
-                <div className="flex justify-between items-center text-sm font-medium text-ink/70">
-                  <span>{t('shippingWithMethod', { method: selectedMethodObj?.method ? `(${selectedMethodObj.method})` : '' })}</span>
-                  <span className="text-ink font-bold">{finalShipping === 0 ? t('free') : `$${finalShipping.toFixed(2)}`}</span>
-                </div>
-                <div className="flex justify-between items-center text-sm font-medium text-ink/70">
-                  <span>{t('processingFee')}{activeFeePercentage ? ` (${activeFeePercentage}%)` : ''}</span>
-                  <span className="text-ink font-bold">${processingFeeAmount.toFixed(2)}</span>
-                </div>
               </div>
 
-              <div className="w-full h-px bg-ink/5" />
-
-              <div className="flex justify-between items-end mt-4">
-                <span className="text-sm font-bold uppercase tracking-widest text-ink/60">{t('total')}</span>
-                <span className="text-4xl font-bold text-ink font-heading">
+              <div className="flex justify-between items-end mb-4">
+                <span className="text-[11px] font-bold uppercase tracking-widest text-black">{t('total')}</span>
+                <span className="text-2xl font-bold text-black font-heading leading-none">
                   ${total.toFixed(2)}
                 </span>
               </div>

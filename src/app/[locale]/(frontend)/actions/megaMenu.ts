@@ -16,6 +16,8 @@ export async function getMegaMenuData() {
   const categoriesWithProducts = [];
   
   for (const doc of categoriesRes.docs) {
+    if (!doc || !doc.id) continue;
+
     const productsRes = await payload.find({
       collection: 'products',
       where: {

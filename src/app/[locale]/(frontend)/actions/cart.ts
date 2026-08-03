@@ -84,11 +84,17 @@ export async function revalidateCartPrices(items: CartLine[]): Promise<CartLine[
     const payload = await getPayload({ config: configPromise })
     const updatedItems = await Promise.all(items.map(async (item) => {
       try {
-        const product = await payload.findByID({
-          collection: 'products',
-          id: (!isNaN(Number(item.productId)) ? Number(item.productId) : item.productId) as any,
-          depth: 0,
-        })
+        let product;
+        try {
+          product = await payload.findByID({
+            collection: 'products',
+            id: (!isNaN(Number(item.productId)) ? Number(item.productId) : item.productId) as any,
+            depth: 0,
+          })
+        } catch (findErr) {
+          console.warn(`Product not found during revalidation for ID: ${item.productId}`)
+          return item;
+        }
         if (!product) return item
 
         let livePrice = item.priceSnapshot

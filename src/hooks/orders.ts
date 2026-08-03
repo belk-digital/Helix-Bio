@@ -139,14 +139,14 @@ export const afterOrderChange: CollectionAfterChangeHook = async ({ doc, previou
         }
       }
 
-      // Refund the used Purity Points back to the user
+      // Refund the used HB Points back to the user
       if (doc.redeemedPoints && doc.redeemedPoints > 0 && doc.owner) {
         try {
           const userId = typeof doc.owner === 'object' ? doc.owner.id : doc.owner
           await releasePoints(req.payload, userId, doc.redeemedPoints)
-          req.payload.logger.info(`Refunded ${doc.redeemedPoints} purity points to user ${userId} for voided order ${doc.id}`)
+          req.payload.logger.info(`Refunded ${doc.redeemedPoints} HB points to user ${userId} for voided order ${doc.id}`)
         } catch (err) {
-          req.payload.logger.error({ err }, `Failed to refund purity points for order ${doc.id}`)
+          req.payload.logger.error({ err }, `Failed to refund HB points for order ${doc.id}`)
         }
       }
 

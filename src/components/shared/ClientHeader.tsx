@@ -546,7 +546,7 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
                   <div key={i} className="w-full aspect-video bg-black/5 rounded-[20px] animate-pulse" />
                 ))
               ) : categoriesData.map((cat: any, index: number) => (
-                <div key={cat.id || index} className="group relative w-full aspect-[4/3] sm:aspect-video rounded-[20px] overflow-hidden bg-black/5 flex flex-col justify-end">
+                <div key={`cat-${cat.name || index}-${index}`} className="group relative w-full aspect-[4/3] sm:aspect-video rounded-[20px] overflow-hidden bg-black/5 flex flex-col justify-end">
                   {/* Background Image */}
                   <div className="absolute inset-0">
                     <Image 
@@ -576,7 +576,7 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
                         {cat.products.slice(0, 3).map((prod: any, i: number) => (
                           <Link 
                             href={`/product/${prod.slug}`} 
-                            key={prod.id || prod.slug || i} 
+                            key={`prod-${cat.name}-${prod.id || prod.slug || i}-${i}`} 
                             onClick={() => setIsMegaMenuOpen(false)}
                             className="text-[10px] sm:text-xs text-white/70 hover:text-white flex items-center justify-between group/link transition-colors"
                           >

@@ -16,14 +16,14 @@ export async function generateForgotPasswordEmail(url: string, user?: any): Prom
               <table width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td align="center" style="padding-bottom: 24px;">
-                    <a href="${url}" style="display: inline-block; background-color: #1e5661; color: #ffffff; text-decoration: none; padding: 16px 32px; border-radius: 8px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; font-size: 14px; width: 100%; max-width: 250px; text-align: center;">Reset Password</a>
+                    <a href="${url}" style="display: inline-block; background-color: #0A0A0A; color: #ffffff; text-decoration: none; padding: 16px 32px; border-radius: 8px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; font-size: 13px; width: 100%; max-width: 250px; text-align: center;">Reset Password</a>
                   </td>
                 </tr>
               </table>
 
               <p style="margin: 0 0 12px 0; font-size: 14px; color: #4A4A4A; line-height: 1.6;">If the button above does not work, copy and paste the following link into your browser:</p>
-              <p style="margin: 0 0 32px 0; font-size: 14px; color: #1e5661; line-height: 1.6; word-break: break-all;">
-                <a href="${url}" style="color: #1e5661;">${url}</a>
+              <p style="margin: 0 0 32px 0; font-size: 14px; color: #0A0A0A; font-weight: 500; line-height: 1.6; word-break: break-all;">
+                <a href="${url}" style="color: #0A0A0A;">${url}</a>
               </p>
               
               <p style="margin: 0; font-size: 14px; color: #8A8A8A; line-height: 1.6;">This link expires in 1 hour. If you didn't request a password reset, you can safely ignore this email and your account will remain secure.</p>

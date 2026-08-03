@@ -165,14 +165,14 @@ export const Users: CollectionConfig = {
       access: { update: staffOnly },
     },
     {
-      name: 'purityPoints',
-      label: 'Purity Points',
+      name: 'hbPoints',
+      label: 'HB Points',
       type: 'number',
       defaultValue: 0,
       admin: {
-        description: 'Purity Points ($1 per point). Can be used by users at checkout.',
-      },
-      // Only server-side code (checkout, refund hooks) using overrideAccess may change this —
+        description: 'HB Points ($1 per point). Can be used by users at checkout.',
+        readOnly: false,
+      },// Only server-side code (checkout, refund hooks) using overrideAccess may change this —
       // never a customer's own PATCH request, or they could mint free store credit for themselves.
       access: { update: staffOnly },
     },

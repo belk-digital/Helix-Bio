@@ -18,11 +18,11 @@ const NAV_ITEMS = [
 
 export function AccountTopNav({ 
   userName = 'User', 
-  purityPoints = 0,
+  hbPoints = 0,
   affiliateStatus = 'none' 
 }: { 
   userName?: string
-  purityPoints?: number
+  hbPoints?: number
   affiliateStatus?: 'none' | 'pending' | 'approved' | 'rejected' | 'suspended'
 }) {
   const t = useTranslations('account.sidebar')
@@ -56,11 +56,12 @@ export function AccountTopNav({
             </Link>
           </div>
 
-          {/* Center: Purity Points */}
-          <div className="hidden sm:flex items-center gap-2 absolute left-1/2 -translate-x-1/2 bg-gray-50/80 px-4 py-2 rounded-full border border-gray-100">
-            <Hexagon size={14} className="text-[#84d0d9]" />
-            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 font-heading">Purity Points:</span>
-            <span className="text-sm font-bold text-black font-heading">{Number(purityPoints).toFixed(2)}</span>
+          {/* Center: HB Points */}
+          <div className="hidden md:flex flex-col items-center justify-center -mt-1 group cursor-default">
+            <div className="flex items-center gap-1.5 opacity-60 group-hover:opacity-100 transition-opacity">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 font-heading">HB Points:</span>
+              <span className="text-sm font-bold text-black font-heading">{Number(hbPoints).toFixed(2)}</span>
+            </div>
           </div>
 
           {/* Right: Profile */}

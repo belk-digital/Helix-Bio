@@ -17,7 +17,7 @@ export default async function AccountLayout({ children }: { children: React.Reac
   const t = await getTranslations('account.layout')
   const user = await getPayloadUser()
   const userName = user?.firstName || user?.email?.split('@')[0] || 'User'
-  const purityPoints = user?.purityPoints || 0
+  const hbPoints = user?.hbPoints || 0
 
   let affiliateStatus: 'none' | 'pending' | 'approved' | 'rejected' | 'suspended' = 'none'
   if (user) {
@@ -37,7 +37,7 @@ export default async function AccountLayout({ children }: { children: React.Reac
     <div className="bg-[#fbfcff] min-h-screen selection:bg-black/10 flex flex-col relative overflow-hidden">
       
       {/* Top Navigation (Replaces Sidebar) */}
-      <AccountTopNav userName={userName} purityPoints={purityPoints} affiliateStatus={affiliateStatus} />
+      <AccountTopNav userName={userName} hbPoints={hbPoints} affiliateStatus={affiliateStatus} />
 
       {/* Main Content Area (Full Width) */}
       <div className="flex-1 w-full min-w-0 px-4 py-8 md:py-12 lg:py-16 relative z-10">

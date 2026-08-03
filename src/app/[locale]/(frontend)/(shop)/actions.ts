@@ -602,7 +602,7 @@ export async function getUserDefaultAddress() {
   }
 }
 
-export async function getUserPurityPoints() {
+export async function getUserHBPoints() {
   try {
     const { getServerSession } = await import('next-auth')
     const { authOptions } = await import('@/lib/auth/authOptions')
@@ -616,9 +616,9 @@ export async function getUserPurityPoints() {
       depth: 0,
     })
 
-    return typeof payloadUser?.purityPoints === 'number' ? payloadUser.purityPoints : 0
+    return typeof payloadUser?.hbPoints === 'number' ? payloadUser.hbPoints : 0
   } catch (error) {
-    console.error('Error fetching purity points:', error)
+    console.error('Error fetching HB points:', error)
     return 0
   }
 }

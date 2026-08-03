@@ -11,7 +11,7 @@ export interface AccountOverviewProps {
   stats: {
     ordersPlaced: number;
     wishlistCount: number;
-    purityPoints: number;
+    hbPoints: number;
     memberSince: string;
   };
   recentOrders: {
@@ -87,10 +87,10 @@ export function AccountOverviewClient({ stats, recentOrders, defaultAddress, aff
         <div className="flex flex-col items-start md:items-end gap-1">
           <div className="flex items-center gap-2">
             <Activity size={16} className="text-[#84d0d9]" />
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-400">Purity Status</span>
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-gray-400">HB Points</span>
           </div>
           <div className="flex items-baseline gap-2">
-            <span className="text-5xl md:text-6xl font-light text-black tracking-tighter">{Number(stats.purityPoints).toFixed(2)}</span>
+            <span className="text-5xl md:text-6xl font-light text-black tracking-tighter">{Number(stats.hbPoints).toFixed(2)}</span>
             <span className="text-sm font-medium text-gray-400">pts</span>
           </div>
         </div>
@@ -111,8 +111,8 @@ export function AccountOverviewClient({ stats, recentOrders, defaultAddress, aff
           <span className="text-4xl font-light text-black">{stats.memberSince || new Date().getFullYear()}</span>
         </div>
         <div className="flex flex-col border-l-2 border-[#1e5661]/20 pl-4">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Purity Value</span>
-          <span className="text-4xl font-light text-black">${stats.purityPoints.toFixed(2)}</span>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">HB Points Value</span>
+          <span className="text-4xl font-light text-black">${stats.hbPoints.toFixed(2)}</span>
         </div>
       </motion.div>
 

@@ -17,17 +17,18 @@ export function emailLayout({
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${title}</title>
 </head>
-<body style="margin: 0; padding: 0; background-color: #fdfbf7; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #fdfbf7; padding: 40px 20px;">
+<body style="margin: 0; padding: 0; background-color: #FAFAFA; font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #FAFAFA; padding: 60px 20px;">
     <tr>
       <td align="center">
-        <table width="100%" max-width="600" cellpadding="0" cellspacing="0" border="0" style="max-width: 600px; background-color: #ffffff; border: 1px solid #e2ddd3; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+        <!-- Main Card Container -->
+        <table width="100%" max-width="640" cellpadding="0" cellspacing="0" border="0" style="max-width: 640px; background-color: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.04);">
           
           <!-- Header -->
           <tr>
-            <td style="background-color: #000000; padding: 40px; text-align: center;">
-              <a href="${serverUrl}" target="_blank" style="text-decoration: none;">
-                <img src="https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/Logo/99pp-Logo.png" alt="Helix Bio" style="height: 50px; width: auto; max-width: 100%; display: block; margin: 0 auto;" />
+            <td style="background-color: #ffffff; padding: 48px 48px 24px 48px; text-align: center;">
+              <a href="${serverUrl}" target="_blank" style="text-decoration: none; display: inline-block;">
+                <img src="${serverUrl}/HelixBio%20Images/hb-logo.png" alt="Helix Bio" style="height: 44px; width: auto; max-width: 100%; display: block; margin: 0 auto;" />
               </a>
             </td>
           </tr>
@@ -35,28 +36,40 @@ export function emailLayout({
           ${heroImage ? `
           <!-- Hero Image -->
           <tr>
-            <td style="padding: 0; background-color: #000000;">
-              <img src="${serverUrl}${heroImage}" alt="${title}" style="width: 100%; height: auto; display: block; border-bottom: 4px solid #1e5661;" />
+            <td style="padding: 0 48px 24px 48px; background-color: #ffffff;">
+              <div style="border-radius: 12px; overflow: hidden;">
+                <img src="${serverUrl}${heroImage}" alt="${title}" style="width: 100%; height: auto; display: block;" />
+              </div>
             </td>
           </tr>
           ` : ''}
 
           <!-- Content -->
           <tr>
-            <td style="padding: 40px 30px;">
+            <td style="padding: 12px 48px 60px 48px; color: #0A0A0A; line-height: 1.6;">
               ${content}
             </td>
           </tr>
           
           <!-- Signature & Footer -->
           <tr>
-            <td style="background-color: #fdfbf7; padding: 32px 40px; text-align: center; border-top: 1px solid #E8E2D5;">
-              <p style="margin: 0 0 8px 0; color: #1e5661; font-weight: bold; font-size: 16px;">
-                <a href="${serverUrl}" target="_blank" style="color: #1e5661; text-decoration: none;">Helix Bio</a>
+            <td style="background-color: #FAFAFA; padding: 48px; text-align: center;">
+              <p style="margin: 0 0 16px 0; color: #0A0A0A; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.15em;">
+                <a href="${serverUrl}" target="_blank" style="color: #0A0A0A; text-decoration: none;">Helix Bio</a>
               </p>
-              <p style="margin: 0 0 20px 0; color: #8A8A8A; font-size: 13px;">Research-grade excellence. Dedicated to purity.</p>
-              <p style="margin: 0 0 12px 0; color: #8A8A8A; font-size: 12px;">Need help? Reply to this email or contact support.</p>
-              <p style="margin: 0; color: #A0A0A0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;">&copy; ${new Date().getFullYear()} <a href="${serverUrl}" target="_blank" style="color: inherit; text-decoration: none;">Helix Bio</a>. All rights reserved.</p>
+              <p style="margin: 0 0 24px 0; color: #6B7280; font-size: 13px; line-height: 1.6;">Research-grade excellence.<br/>Dedicated to purity.</p>
+              
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 24px;">
+                <tr>
+                  <td align="center">
+                    <a href="${serverUrl}/shop" style="color: #0A0A0A; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 12px;">Shop</a>
+                    <a href="${serverUrl}/account" style="color: #0A0A0A; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 12px;">Account</a>
+                    <a href="${serverUrl}/contact" style="color: #0A0A0A; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 12px;">Support</a>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin: 0; color: #9CA3AF; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;">&copy; ${new Date().getFullYear()} <a href="${serverUrl}" target="_blank" style="color: inherit; text-decoration: none;">Helix Bio</a>. All rights reserved.</p>
             </td>
           </tr>
         </table>
