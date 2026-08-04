@@ -4,10 +4,17 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { FadeUp } from '@/components/motion/FadeUp'
+import { SharedFaqSection } from '@/components/shared/SharedFaqSection'
+
+const FAQ_KEYS = ['humanUseApproved', 'cancelOrder', 'shipsInternationally', 'damagedOrDelayed', 'ageRequirement', 'currency', 'orderQuestionsContact', 'termsChangeNotice']
 
 export default function TermsAndConditionsPage() {
   const t = useTranslations('legal.termsAndConditions')
   const [activeSection, setActiveSection] = useState('intro')
+  const faqs = FAQ_KEYS.map((key) => ({
+    question: t(`faqs.${key}.question`),
+    answer: t(`faqs.${key}.answer`),
+  }))
 
   const sections = [
     { id: 'intro', label: 'Introduction' },
@@ -25,6 +32,7 @@ export default function TermsAndConditionsPage() {
     { id: 'section12', label: t('section12Title') },
     { id: 'section13', label: t('section13Title') },
     { id: 'contact', label: t('contactTitle') },
+    { id: 'faq', label: t('faqTitle') },
   ]
 
   useEffect(() => {
@@ -308,7 +316,7 @@ export default function TermsAndConditionsPage() {
                     </div>
                     <div>
                       <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 block mb-1">{t('contactLabel')}</span>
-                      <a href="tel:+18433307365" className="text-base font-medium text-black hover:text-[#1e5661] transition-colors">+1 (843) 330-7365</a>
+                      <a href="tel:+10000000000" className="text-base font-medium text-black hover:text-[#1e5661] transition-colors">+1 (000) 000-0000</a>
                     </div>
                   </div>
                 </section>
@@ -316,6 +324,14 @@ export default function TermsAndConditionsPage() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div id="faq" className="scroll-mt-32">
+        <SharedFaqSection
+          title={t('faqTitle')}
+          description={t('faqDescription')}
+          faqs={faqs}
+        />
       </div>
     </main>
   )

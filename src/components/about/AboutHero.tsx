@@ -37,7 +37,7 @@ export function AboutHero() {
         >
           <Image
             src="/HelixBio Images/vial-on-sand.webp"
-            alt="About HelixBio"
+            alt="Vial of Helix Bio synthetic research peptide against a desert landscape backdrop"
             fill
             className="object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"
             priority
@@ -76,7 +76,7 @@ export function AboutHero() {
                 2018
               </span>
               <span className="text-[10px] sm:text-xs font-bold text-ink/50 uppercase tracking-widest mt-1">
-                ESTABLISHED
+                FOUNDED
               </span>
             </div>
             <button className="w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center mb-1 hover:bg-primary transition-colors">
@@ -95,7 +95,7 @@ export function AboutHero() {
                 50+
               </span>
               <span className="text-[10px] sm:text-xs font-bold text-ink/50 uppercase tracking-widest mt-1">
-                EXPERT TEAM MEMBERS
+                RESEARCH PEPTIDES IN CATALOGUE
               </span>
             </div>
             <span className="absolute top-6 right-6 border border-ink/10 text-ink/60 text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-ink/5">
@@ -114,7 +114,7 @@ export function AboutHero() {
                 100%
               </span>
               <span className="text-[10px] sm:text-xs font-bold text-white/50 uppercase tracking-widest mt-1">
-                US-BASED OPERATIONS
+                BATCH-TESTED BEFORE RELEASE
               </span>
             </div>
           </motion.div>

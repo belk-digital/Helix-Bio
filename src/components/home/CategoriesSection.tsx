@@ -30,7 +30,7 @@ const CATEGORY_IMAGES = [
 ]
 
 // Fallback generic descriptions (in case category doesn't have one)
-const DEFAULT_DESC = "Premium quality and purity for your specific needs."
+const DEFAULT_DESC = "Compounds selected for a specific research application, each independently tested and documented."
 
 export function CategoriesSection({ categories = [] }: CategoriesSectionProps) {
   const t = useTranslations('home.categories')

@@ -13,24 +13,24 @@ export const faqData: FaqCategoryType[] = [
     "category": "General Peptide Education",
     "items": [
       {
-        "question": "What are research peptides?",
-        "answer": "<p><span style=\"font-weight: 400;\">Research peptides are synthetic research peptides used in controlled laboratory environments for scientific and analytical study. They are short chains of amino acids designed to help researchers investigate biochemical interactions, receptor pathways, and molecular behavior.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">Laboratory grade peptides are produced through controlled synthesis processes and are intended strictly for research use only. They are not approved for human or veterinary use and are supplied solely for laboratory research applications.</span></p>"
+        "question": "What is a research peptide?",
+        "answer": "<p><span style=\"font-weight: 400;\">A research peptide is a short chain of amino acids manufactured for laboratory study rather than human or veterinary use.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">Helix Bio's catalog is synthesized and tested to a documented purity standard and sold exclusively for scientific research.</span></p>"
       },
       {
-        "question": "What are peptides used for in research?",
-        "answer": "<p><span style=\"font-weight: 400;\">Peptides are used in laboratory research to study cellular signaling, receptor binding, metabolic pathways, and molecular mechanisms. In scientific settings, synthetic research peptides assist researchers in exploring biological processes under controlled experimental conditions.</span></p>\r\n<p><span style=\"font-weight: 400;\">Research applications vary depending on the peptide’s structure and classification, but all materials supplied by Helix Bio are designated exclusively for laboratory research use.</span></p>"
+        "question": "What are research peptides used for in laboratory research?",
+        "answer": "<p><span style=\"font-weight: 400;\">Research peptides serve as standardized reagents in cellular, biochemical, and pharmacological studies.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">They give researchers a consistent, purity-verified compound to test against a defined protocol in an academic or institutional lab setting.</span></p>"
       },
       {
-        "question": "How are synthetic research peptides produced?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. All products are supplied for research use only. They are not intended for human or veterinary use, diagnosis or treatment.</span></p>"
+        "question": "How are research peptides classified for human use?",
+        "answer": "<p><span style=\"font-weight: 400;\">They are not classified for human use at all.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">Every compound in the Helix Bio catalog is labeled Research Use Only (RUO), meaning it is not evaluated, approved, or intended for human or veterinary consumption.</span></p>"
       },
       {
-        "question": "What distinguishes laboratory grade peptides from other classifications?",
-        "answer": "<p><span style=\"font-weight: 400;\">Laboratory grade peptides are specifically designated for research use only and are not intended for pharmaceutical, dietary, or therapeutic use.</span></p>\r\n<p><span style=\"font-weight: 400;\">The distinction lies in classification, documentation, and intended application. Research classification peptides are distributed for analytical and experimental study within laboratory environments and are labeled accordingly to prevent misuse outside of research settings.</span></p>"
+        "question": "What quality standards does Helix Bio apply to research peptides?",
+        "answer": "<p><span style=\"font-weight: 400;\">Every batch in the Helix Bio catalog is synthesized and analytically tested before it is offered for sale, with purity and identity confirmed through HPLC and mass spectrometry.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">Results are documented on a batch-specific certificate of analysis so researchers can verify specifications independently.</span></p>"
       },
       {
-        "question": "What is meant by high purity peptides?",
-        "answer": "<p><span style=\"font-weight: 400;\">High purity peptides refer to synthetic research peptides that meet defined analytical purity benchmarks after synthesis and purification.</span></p>\r\n<p><span style=\"font-weight: 400;\">Purity levels are typically verified using analytical testing methods. High purity is important in laboratory research because impurities may interfere with experimental consistency and reproducibility.</span></p>"
+        "question": "Who typically purchases research peptides from Helix Bio?",
+        "answer": "<p><span style=\"font-weight: 400;\">Academic labs, private research organizations, and institutional researchers use Helix Bio's catalog to source purity-verified compounds for laboratory study.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">All purchases are made on the understanding that materials are supplied strictly for research use only.</span></p>"
       }
     ]
   },
@@ -38,24 +38,24 @@ export const faqData: FaqCategoryType[] = [
     "category": "LEGALITY & COMPLIANCE",
     "items": [
       {
-        "question": "Are research peptides legal in the United States?",
-        "answer": "<p><span style=\"font-weight: 400;\">Research peptides may be legally purchased in the United States when intended strictly for laboratory research purposes. However, regulatory status can vary depending on the compound and its classification.</span></p>\r\n<p><span style=\"font-weight: 400;\">Buyers are responsible for understanding and complying with applicable federal, state, and local regulations before purchase. Helix Bio supplies synthetic research peptides under research-use-only designation.</span></p>"
+        "question": "Are research peptides legal to purchase in the USA?",
+        "answer": "<p><span style=\"font-weight: 400;\">Yes, research peptides sold and labeled strictly for laboratory research are legal to purchase in the USA.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">Legality depends on the RUO labeling and intended use being accurately maintained by both supplier and buyer.</span></p>"
       },
       {
-        "question": "What does “For Research Use Only” mean?",
-        "answer": "<p><span style=\"font-weight: 400;\">“For Research Use Only” indicates that a product is intended strictly for laboratory and analytical research applications.</span></p>\r\n<p><span style=\"font-weight: 400;\">It means the product is not approved for human consumption, veterinary use, diagnosis, treatment, ingestion, injection, or therapeutic application. Research use only designation clarifies that materials are supplied exclusively for controlled scientific study.</span></p>"
+        "question": "What makes a peptide “research use only”?",
+        "answer": "<p><span style=\"font-weight: 400;\">A peptide is designated research use only when it is manufactured, labeled, and sold exclusively for scientific study.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">It is not intended for diagnostic, therapeutic, or human-consumption purposes, and it has not been evaluated by the FDA for those other uses.</span></p>"
+      },
+      {
+        "question": "How are research peptides regulated?",
+        "answer": "<p><span style=\"font-weight: 400;\">Research peptides are not regulated as drugs or supplements.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">They fall under general chemical and research-reagent handling rather than pharmaceutical approval pathways, which is why accurate RUO labeling and documentation matter so much.</span></p>"
       },
       {
         "question": "Are research peptides evaluated or approved by the FDA?",
-        "answer": "<p><span style=\"font-weight: 400;\">Research peptides sold for laboratory use have not been evaluated or approved by the U.S. Food and Drug Administration (FDA).</span></p>\r\n<p><span style=\"font-weight: 400;\">They are classified as research materials and are not authorized as pharmaceutical drugs, dietary supplements, or medical treatments. FDA approval applies to drugs and medical products, not to research-use-only materials.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">No. Compounds sold as research use only have not been evaluated or approved by the FDA for any human or veterinary use.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">FDA evaluation applies to approved drugs and medical products, not to research-only laboratory materials.</span></p>"
       },
       {
-        "question": "Can research peptides be used outside laboratory environments?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. Synthetic research peptides designated for research use only are intended exclusively for controlled laboratory environments.</span></p>\r\n<p><span style=\"font-weight: 400;\">They are not approved for human use, veterinary use, or any application outside of scientific research settings.</span></p>"
-      },
-      {
-        "question": "Are research peptides regulated?",
-        "answer": "<p><span style=\"font-weight: 400;\">Research peptides may fall under regulatory oversight depending on their classification and intended use.</span></p>\r\n<p><span style=\"font-weight: 400;\">Compliance responsibility ultimately rests with the purchaser to ensure materials are used in accordance with applicable regulations and research guidelines.</span></p>"
+        "question": "Can research peptides be used outside a laboratory research setting?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Research peptides sold research use only are intended exclusively for controlled laboratory environments.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">They are not approved for human use, veterinary use, or any application outside of scientific research.</span></p>"
       }
     ]
   },
@@ -63,24 +63,24 @@ export const faqData: FaqCategoryType[] = [
     "category": "QUALITY & ANALYTICAL TESTING",
     "items": [
       {
-        "question": "What is a Certificate of Analysis (COA)?",
-        "answer": "<p><span style=\"font-weight: 400;\">A Certificate of Analysis (COA) is a document that provides analytical testing results for a specific product batch.</span></p>\r\n<p><span style=\"font-weight: 400;\">For peptides with COA documentation, the certificate typically includes purity percentages, batch numbers, and analytical method summaries. COA documentation supports transparency and helps researchers verify peptide purity prior to use.</span></p>"
+        "question": "What is a certificate of analysis (COA)?",
+        "answer": "<p><span style=\"font-weight: 400;\">A COA is a batch-specific document reporting a peptide's measured purity (via HPLC), confirmed molecular weight (via mass spectrometry), and testing date.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">It lets a researcher verify a vial's specifications independently rather than take a label on faith.</span></p>"
       },
       {
-        "question": "How does Helix Bio verify analytical purity?",
-        "answer": "<p><span style=\"font-weight: 400;\">As a lab tested peptide supplier, Helix Bio relies on structured analytical verification processes to confirm identity and purity benchmarks.</span></p>\r\n<p><span style=\"font-weight: 400;\">Analytical testing peptides may be evaluated using techniques such as HPLC or mass spectrometry to ensure consistency and structural integrity prior to release.</span></p>"
+        "question": "How do I verify peptide purity through analytical testing?",
+        "answer": "<p><span style=\"font-weight: 400;\">Purity is verified by high-performance liquid chromatography (HPLC), which separates the target compound from related impurities and reports a purity percentage.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">Mass spectrometry is used alongside it to confirm the compound's identity and molecular weight.</span></p>"
       },
       {
-        "question": "Are your peptides third-party tested?",
-        "answer": "<p><span style=\"font-weight: 400;\">Where applicable, third party tested peptides may undergo external analytical confirmation in addition to internal quality procedures.</span></p>\r\n<p><span style=\"font-weight: 400;\">Third-party testing provides an additional layer of verification for purity and identity standards.</span></p>"
+        "question": "What purity level should a research peptide meet?",
+        "answer": "<p><span style=\"font-weight: 400;\">Reputable suppliers report purity of 98% or higher, with many premium research compounds tested at 99% or above.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">The figure should come from an independent batch test, not an unverified marketing claim.</span></p>"
       },
       {
-        "question": "How is peptide identity confirmed?",
-        "answer": "<p><span style=\"font-weight: 400;\">Peptide identity is typically confirmed through analytical testing procedures that verify molecular mass and structural composition.</span></p>\r\n<p><span style=\"font-weight: 400;\">Techniques such as mass spectrometry help confirm that the synthesized peptide matches its intended sequence.</span></p>"
+        "question": "How can I verify a peptide's purity independently?",
+        "answer": "<p><span style=\"font-weight: 400;\">Request the batch-specific certificate of analysis and match its lot number to the vial received.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">Researchers with in-house or third-party lab access can also run their own HPLC or mass spectrometry confirmation.</span></p>"
       },
       {
-        "question": "How can I verify peptide purity?",
-        "answer": "<p><span style=\"font-weight: 400;\">To verify peptide purity, researchers should review available analytical documentation such as a Certificate of Analysis (COA).</span></p>\r\n<p><span style=\"font-weight: 400;\">Purity verification typically involves reviewing HPLC chromatograms and purity percentage results provided for the specific batch.</span></p>"
+        "question": "Is third-party testing available for Helix Bio peptides?",
+        "answer": "<p><span style=\"font-weight: 400;\">Where applicable, Helix Bio batches may undergo independent third-party analytical confirmation in addition to internal testing.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">Third-party verification adds an additional layer of assurance for purity and identity standards beyond the in-house certificate of analysis.</span></p>"
       }
     ]
   },
@@ -89,23 +89,23 @@ export const faqData: FaqCategoryType[] = [
     "items": [
       {
         "question": "How do I choose a reliable peptide supplier?",
-        "answer": "<p><span style=\"font-weight: 400;\">When evaluating how to choose a peptide supplier, researchers should look for:</span></p>\r\n<p><span style=\"font-size: 16px;\">• Clear research classification<br /></span><span style=\"font-size: 16px;\">• Transparent documentation practices<br /></span><span style=\"font-size: 16px;\">• Peptides with COA availability<br /></span><span style=\"font-size: 16px;\">• Third-party testing standards<br /></span><span style=\"font-weight: 400;\">• Defined research use only positioning</span></p>\r\n<p><span style=\"font-weight: 400;\">A trusted peptide supplier emphasises analytical verification and compliance clarity.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">Look for a supplier that tests every batch independently, publishes the COA before purchase, states a clear purity threshold, and keeps research-use labeling visible rather than downplaying it near checkout.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">A trusted peptide supplier emphasizes analytical verification and compliance clarity.</span></p>"
       },
       {
-        "question": "Is Helix Bio a USA peptide supplier?",
-        "answer": "<p><span style=\"font-weight: 400;\">Yes. Helix Bio operates as a peptide supplier USA researchers source from for laboratory-grade materials.</span></p>\r\n<p><span style=\"font-weight: 400;\">We ship research peptides across the United States in accordance with research-use-only designation standards.</span></p>"
+        "question": "What questions should I ask a peptide supplier?",
+        "answer": "<p><span style=\"font-weight: 400;\">Ask whether every batch is independently tested, whether a COA is available before you order, and what purity threshold is guaranteed.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">You should also ask how orders are shipped and stored in transit.</span></p>"
       },
       {
-        "question": "Do you ship research peptides nationwide in the USA?",
-        "answer": "<p><span style=\"font-weight: 400;\">Yes. We provide nationwide shipping across the United States for research peptide orders.</span></p>\r\n<p><span style=\"font-weight: 400;\">All shipments are handled in accordance with controlled handling practices to support material stability during transit.</span></p>"
+        "question": "What documentation should be included with a peptide order?",
+        "answer": "<p><span style=\"font-weight: 400;\">At minimum, an order should include an invoice and access to the batch-specific certificate of analysis.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">Institutional buyers can request additional documentation, such as consolidated invoicing, through a wholesale account.</span></p>"
       },
       {
-        "question": "What documentation is included with each order?",
-        "answer": "<p><span style=\"font-weight: 400;\">Where applicable, orders may include batch information and documentation related to analytical testing and purity verification.</span></p>\r\n<p><span style=\"font-weight: 400;\">Peptides with COA documentation can be requested when available for transparency and verification purposes.</span></p>"
+        "question": "Do you offer any product bundles or discounts?",
+        "answer": "<p><span style=\"font-weight: 400;\">Current promotions, bundles, and discount programs are listed on the shop page rather than duplicated in the FAQ, since availability changes with inventory.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">Check the shop or subscribe to the mailing list for updates.</span></p>"
       },
       {
-        "question": "Do you offer an affiliate or partnership program?",
-        "answer": "<p><span style=\"font-weight: 400;\">Yes. Helix Bio offers an affiliate program for partners interested in promoting research peptide products through compliant marketing channels.</span></p>\r\n<p><span style=\"font-weight: 400;\">Affiliate participation is subject to approval and must align with research-use-only positioning and regulatory standards.</span></p>"
+        "question": "Does Helix Bio ship research peptide orders nationwide in the USA?",
+        "answer": "<p><span style=\"font-weight: 400;\">Yes. Helix Bio ships research peptide orders across the United States.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">All shipments are handled using controlled packaging practices to help preserve compound stability in transit.</span></p>"
       }
     ]
   },
@@ -113,20 +113,20 @@ export const faqData: FaqCategoryType[] = [
     "category": "STORAGE & HANDLING",
     "items": [
       {
-        "question": "How should synthetic peptides be stored?",
-        "answer": "<p><span style=\"font-weight: 400;\">Peptide stability and storage conditions depend on the compound’s chemical characteristics.</span></p>\r\n<p><span style=\"font-weight: 400;\">In general, laboratory grade peptides should be stored according to recommended temperature guidelines to preserve structural integrity. Researchers should consult storage documentation for specific handling instructions.</span><span style=\"font-weight: 400;\"></span></p>"
+        "question": "How should I store lyophilized peptides?",
+        "answer": "<p><span style=\"font-weight: 400;\">Unreconstituted, lyophilized peptides are generally stored frozen or refrigerated, protected from light and moisture, until needed for a study.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">Storage guidance specific to a compound is included on its product page.</span></p>"
       },
       {
         "question": "Why is temperature control important for peptide stability?",
-        "answer": "<p><span style=\"font-weight: 400;\">Temperature control supports peptide stability by reducing the risk of degradation.</span></p>\r\n<p><span style=\"font-weight: 400;\">Controlled storage conditions help preserve purity levels and maintain molecular structure, especially for synthetic research peptides intended for extended laboratory use.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">Heat exposure and repeated freeze-thaw cycles can degrade a peptide's structure and reduce its usable purity over time.</span></p>\r\n<p><span style=\"font-weight: 400;\"></span></p>\r\n<p><span style=\"font-weight: 400;\">Consistent, appropriate temperature control preserves the integrity confirmed on the certificate of analysis.</span></p>"
       },
       {
-        "question": "What is cold chain handling?",
-        "answer": "<p><span style=\"font-weight: 400;\">Cold chain handling refers to temperature-managed storage and transport procedures used to maintain material stability.</span></p>\r\n<p><span style=\"font-weight: 400;\">In research supply, controlled handling protocols are implemented to minimize environmental exposure and support product integrity during shipment.</span></p>"
+        "question": "What is cold-chain handling?",
+        "answer": "<p><span style=\"font-weight: 400;\">Cold-chain handling means a compound is kept within a controlled temperature range from shipment through delivery, using insulated packaging and, where needed, cold packs, so stability isn't compromised in transit.</span></p>"
       },
       {
-        "question": "How much bacteriostatic water do I use to reconstitute a peptide?",
-        "answer": "<p><span style=\"font-weight: 400;\">It depends on the concentration you want: concentration (mg/mL) = peptide mass (mg) ÷ water added (mL). A 10mg vial in 2mL gives 5mg/mL, and on a U-100 syringe 1mL always equals 100 units.</span></p>\r\n<p><span style=\"font-weight: 400;\">See our complete <a href=\"/how-much-bacteriostatic-water-reconstitute-peptides\">bacteriostatic water reconstitution chart</a> for the full mL-to-units and mg/mL tables by vial size, plus a free calculator.</span></p>"
+        "question": "What amount of bacteriostatic water should I add when reconstituting a peptide?",
+        "answer": "<p><span style=\"font-weight: 400;\">The right amount comes down to your target concentration, calculated as: concentration (mg/mL) = peptide mass (mg) ÷ volume of water added (mL). For example, adding 2mL to a 10mg vial yields 5mg/mL, and remember that on a U-100 syringe, 1mL is always equivalent to 100 units.</span></p>\r\n<p><span style=\"font-weight: 400;\">Check out our <a href=\"/how-much-bacteriostatic-water-reconstitute-peptides\">bacteriostatic water reconstitution chart</a> for detailed mg/mL and mL-to-units breakdowns across vial sizes, along with a free calculator tool.</span></p>"
       }
     ]
   },
@@ -134,24 +134,24 @@ export const faqData: FaqCategoryType[] = [
     "category": "Tirzepatide",
     "items": [
       {
-        "question": "What type of compound is Tirzepatide?",
-        "answer": "<p><span style=\"font-weight: 400;\">A synthetic research peptide acting as a dual GIP and GLP-1 receptor agonist.</span></p>"
+        "question": "What is Tirzepatide?",
+        "answer": "<p><span style=\"font-weight: 400;\">Tirzepatide is a synthetic peptide studied as a dual GIP/GLP-1 receptor agonist in metabolic and incretin-pathway research. Helix Bio's Tirzepatide is sold strictly as a research compound.</span></p>"
       },
       {
-        "question": "What research areas are commonly studied by Tirzepatide?",
-        "answer": "<span style=\"font-weight: 400;\">Incretin signaling, metabolic pathway modeling and insulin pathway interaction studies.<br />\r\n</span>"
+        "question": "What research models is Tirzepatide commonly studied in?",
+        "answer": "<p><span style=\"font-weight: 400;\">Tirzepatide is referenced in preclinical and in vitro research literature examining incretin receptor signaling and metabolic pathways, consistent with its classification as a research-use-only compound in this catalog.</span></p>"
       },
       {
-        "question": "Is Tirzepatide intended for human or animal use?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. It is supplied strictly for laboratory research purposes only.<br /></span></p>"
+        "question": "Is Tirzepatide intended for human use or sale for consumption?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Tirzepatide is sold exclusively for laboratory research and is not intended, labeled, or approved for human or veterinary consumption in any form.</span></p>"
       },
       {
-        "question": "Are dosing or administration instructions provided?",
-        "answer": "<span style=\"font-weight: 400;\">No. No usage, dosing or administration guidance is offered."
+        "question": "Are dosing or administration instructions provided for Tirzepatide?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio does not provide dosing, administration, or usage guidance for Tirzepatide or any other compound in the catalog.</span></p>"
       },
       {
-        "question": "Has Tirzepatide been FDA-approved?",
-        "answer": "<span style=\"font-weight: 400;\">No. It has not been evaluated or approved by the FDA."
+        "question": "Has Tirzepatide been evaluated by the FDA?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Tirzepatide has not been evaluated or approved by the FDA for any human or veterinary use.</span></p>"
       }
     ]
   },
@@ -160,23 +160,23 @@ export const faqData: FaqCategoryType[] = [
     "items": [
       {
         "question": "What is Survodutide studied for in research?",
-        "answer": "<span style=\"font-weight: 400;\">Dual GLP-1 and glucagon receptor signaling in metabolic research models.</span>"
+        "answer": "<p><span style=\"font-weight: 400;\">Survodutide is a synthetic peptide studied as a dual glucagon/GLP-1 receptor agonist, primarily in metabolic-pathway research examining energy balance and receptor signaling.</span></p>"
       },
       {
         "question": "Is Survodutide a therapeutic product?",
-        "answer": "<span style=\"font-weight: 400;\">No. It is a synthetic research peptide only.</span>"
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio positions Survodutide exclusively as a research compound, not as a medical treatment or consumer health product.</span></p>"
       },
       {
-        "question": "Can it be used for diagnosis or treatment?",
-        "answer": "<span style=\"font-weight: 400;\">No. It is not intended for diagnostic or therapeutic use.</span>"
+        "question": "How is Survodutide classified for research purposes?",
+        "answer": "<p><span style=\"font-weight: 400;\">It is classified and sold as a research-use-only peptide, intended for laboratory study of dual-receptor agonist activity rather than any clinical or consumer application.</span></p>"
       },
       {
-        "question": "Is research documentation provided?",
-        "answer": "<span style=\"font-weight: 400;\">Analytical and identification documentation may be available upon request."
+        "question": "Are purity levels specified for Survodutide?",
+        "answer": "<p><span style=\"font-weight: 400;\">Yes. Each batch is tested and its purity percentage is published on the corresponding certificate of analysis, available before ordering.</span></p>"
       },
       {
-        "question": "Are purity levels fixed?",
-        "answer": "<span style=\"font-weight: 400;\">Purity may vary by product and lot."
+        "question": "Is Survodutide intended for diagnostic or treatment purposes?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Survodutide is not intended, labeled, or approved for diagnostic or therapeutic use in humans or animals.</span></p>"
       }
     ]
   },
@@ -185,19 +185,19 @@ export const faqData: FaqCategoryType[] = [
     "items": [
       {
         "question": "What type of compound is SLU-PP-332?",
-        "answer": "<span style=\"font-weight: 400;\">A small-molecule research compound.</span>"
+        "answer": "<p><span style=\"font-weight: 400;\">SLU-PP-332 is a synthetic small-molecule compound studied as a pan-agonist of the estrogen-related receptors (ERRs), an area of interest in exercise-mimetic and metabolic research.</span></p>"
       },
       {
-        "question": "What pathways are examined using SLU-PP-332?",
-        "answer": "<span style=\"font-weight: 400;\">ERR activation, mitochondrial metabolism and oxidative energy pathways.</span>"
+        "question": "What research models have examined SLU-PP-332?",
+        "answer": "<p><span style=\"font-weight: 400;\">Published research on SLU-PP-332 has largely been preclinical, examining its effect on ERR-pathway signaling in cellular and animal models rather than human clinical trials.</span></p>"
       },
       {
-        "question": "Is SLU-PP-332 intended for ingestion?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. It is not intended for any form of administration.</span></p>"
+        "question": "Is SLU-PP-332 cleared for any use outside research?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. SLU-PP-332 is not evaluated or approved for any use outside of laboratory research, and Helix Bio sells it strictly on that basis.</span></p>"
       },
       {
-        "question": "Is regulatory approval claimed?",
-        "answer": "<p><span style=\"font-weight: 400;\">No regulatory or medical approvals are claimed.</span></p>"
+        "question": "Is regulatory approval claimed for SLU-PP-332?",
+        "answer": "<p><span style=\"font-weight: 400;\">No regulatory approval is claimed. It has not been evaluated by the FDA for safety or efficacy in any human-use context.</span></p>"
       }
     ]
   },
@@ -206,23 +206,23 @@ export const faqData: FaqCategoryType[] = [
     "items": [
       {
         "question": "Why is Semaglutide used in research?",
-        "answer": "<span style=\"font-weight: 400;\">It serves as a reference GLP-1 receptor agonist in metabolic studies.</span>"
+        "answer": "<p><span style=\"font-weight: 400;\">Semaglutide is a well-characterized GLP-1 receptor agonist, making it a frequent reference compound in metabolic and incretin-pathway research literature.</span></p>"
       },
       {
-        "question": "What makes it a reference compound?",
-        "answer": "<span style=\"font-weight: 400;\">Its extensive use in comparative incretin pathway research.</span>"
+        "question": "Is Semaglutide a widely referenced compound in research literature?",
+        "answer": "<p><span style=\"font-weight: 400;\">Yes. Semaglutide is one of the most extensively studied GLP-1 receptor agonists in published research, which is part of why it remains a common research-peptide request.</span></p>"
       },
       {
-        "question": "Is Semaglutide supplied for medical use?",
-        "answer": "<span style=\"font-weight: 400;\">No. It is for research use only.<br />\r\n</span>"
+        "question": "Is Semaglutide sold research use only?",
+        "answer": "<p><span style=\"font-weight: 400;\">Yes. Helix Bio's Semaglutide is labeled and sold strictly research use only, and is not intended for human or veterinary consumption.</span></p>"
       },
       {
-        "question": "Do Helix Bio provide clinical guidance?",
-        "answer": "<p><span style=\"font-weight: 400;\">No clinical or experimental guidance is provided.</span></p>"
+        "question": "Is clinical or dosing guidance provided?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio does not provide dosing, administration, or clinical guidance for Semaglutide or any other compound in the catalog.</span></p>"
       },
       {
-        "question": "Is Semaglutide FDA-approved in this context?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. The research material itself is not FDA-evaluated.<br /></span></p>"
+        "question": "Has Semaglutide been evaluated by the FDA in this research context?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. The Semaglutide sold in Helix Bio's research catalog has not been evaluated or approved by the FDA for any human or veterinary use.</span></p>"
       }
     ]
   },
@@ -230,24 +230,24 @@ export const faqData: FaqCategoryType[] = [
     "category": "Retatrutide",
     "items": [
       {
-        "question": "What is Retatrutide studied for?",
-        "answer": "<span style=\"font-weight: 400;\">Triple-pathway signaling involving GLP-1, GIP and glucagon receptors.</span>"
+        "question": "What is Retatrutide studied for in research?",
+        "answer": "<p><span style=\"font-weight: 400;\">Retatrutide is a synthetic peptide studied as a triple hormone receptor agonist (GIP, GLP-1, and glucagon), an area of active interest in metabolic research.</span></p>"
       },
       {
-        "question": "Is Retatrutide a treatment product?",
-        "answer": "<span style=\"font-weight: 400;\">No. It is a synthetic research peptide.</span>"
+        "question": "Is Retatrutide used in human clinical research by Helix Bio?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio's Retatrutide is a research-use-only compound unrelated to any clinical trial supply chain, and is not distributed for clinical or human-use research.</span></p>"
       },
       {
-        "question": "Can it be used in animals?",
-        "answer": "<span style=\"font-weight: 400;\">No. It is not intended for animal use.<br />\r\n</span>"
+        "question": "Are dosing protocols provided?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Consistent with its research-use-only labeling, Retatrutide is sold without dosing or administration instructions intended for human use.</span></p>"
       },
       {
-        "question": "Are experimental protocols provided?",
-        "answer": "<p><span style=\"font-weight: 400;\">No experimental protocols or recommendations are offered.</span></p>"
+        "question": "Is a specific purity percentage guaranteed?",
+        "answer": "<p><span style=\"font-weight: 400;\">Each batch is tested and its purity is reported on the certificate of analysis; the current standard for this compound is disclosed there rather than restated as a fixed marketing number.</span></p>"
       },
       {
-        "question": "Is purity guaranteed at 99%?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. Purity may vary by batch and product.<br /></span></p>"
+        "question": "Is Retatrutide intended for animal use?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Retatrutide is sold strictly for laboratory research and is not intended, labeled, or approved for animal or veterinary use.</span></p>"
       }
     ]
   },
@@ -256,23 +256,23 @@ export const faqData: FaqCategoryType[] = [
     "items": [
       {
         "question": "What type of peptide is MOTS-C?",
-        "answer": "<span style=\"font-weight: 400;\">A mitochondria-derived synthetic research peptide.</span>"
+        "answer": "<p><span style=\"font-weight: 400;\">MOTS-C is a mitochondrial-derived peptide studied for its role in metabolic signaling and cellular energy regulation in preclinical research.</span></p>"
       },
       {
-        "question": "What research areas involve MOTS-C?",
-        "answer": "<p><span style=\"font-weight: 400;\">Cellular metabolism and mitochondrial signaling studies.<br /></span></p>"
+        "question": "What research areas include MOTS-C?",
+        "answer": "<p><span style=\"font-weight: 400;\">MOTS-C appears in research literature spanning metabolic regulation, exercise physiology, and mitochondrial function studies, primarily in cellular and animal models.</span></p>"
       },
       {
-        "question": "Is MOTS-C a supplement?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. It is not a supplement or consumable product.</span></p>"
+        "question": "Can research outcomes be predicted from MOTS-C studies?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Individual study outcomes cannot be predicted or guaranteed from existing literature; each research use requires its own protocol and analysis.</span></p>"
       },
       {
-        "question": "Can research outcomes be predicted?",
-        "answer": "<p><span style=\"font-weight: 400;\">No outcomes or results are implied or guaranteed.</span></p>"
+        "question": "Is MOTS-C a dietary supplement?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. MOTS-C is not a supplement or consumable product; it is sold strictly for laboratory research.</span></p>"
       },
       {
-        "question": "Is MOTS-C tested analytically?",
-        "answer": "<p><span style=\"font-weight: 400;\">Analytical characterization may be performed.<br /></span></p>"
+        "question": "Is analytical testing performed on MOTS-C?",
+        "answer": "<p><span style=\"font-weight: 400;\">Yes. Each batch is tested for purity and identity, with results available on the certificate of analysis.</span></p>"
       }
     ]
   },
@@ -280,24 +280,24 @@ export const faqData: FaqCategoryType[] = [
     "category": "Epitalon",
     "items": [
       {
-        "question": "What is Epitalon used for in research?",
-        "answer": "<p><span style=\"font-weight: 400;\">Telomere biology, aging models and circadian rhythm studies.</span></p>"
+        "question": "What is Epitalon's research focus?",
+        "answer": "<p><span style=\"font-weight: 400;\">Epitalon is a synthetic tetrapeptide studied primarily in longevity and cellular-aging research, including work related to telomerase activity.</span></p>"
       },
       {
         "question": "Is Epitalon a pharmaceutical product?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. It is a synthetic research peptide.<br /></span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">No. Epitalon is offered for research purposes only and does not carry any medical, therapeutic, or treatment claim.</span></p>"
       },
       {
-        "question": "Is it intended for longevity treatment?",
-        "answer": "<span style=\"font-weight: 400;\">No. It is not intended for treatment or prevention.</span>"
+        "question": "Is Epitalon intended for longevity treatment in humans?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Epitalon is not intended, labeled, or approved as a human longevity treatment; it is sold strictly for laboratory research into aging-related biology.</span></p>"
       },
       {
-        "question": "Are medical claims made?",
-        "answer": "<p><span style=\"font-weight: 400;\">No medical or health claims are made.</span></p>"
+        "question": "Is a specific purity guaranteed?",
+        "answer": "<p><span style=\"font-weight: 400;\">Purity is confirmed per batch and published on the certificate of analysis rather than fixed as a blanket guarantee across all lots.</span></p>"
       },
       {
-        "question": "Is the FDA evaluation applicable?",
-        "answer": "<span style=\"font-weight: 400;\">No. It has not been FDA evaluated.</span>"
+        "question": "Are medical or anti-aging claims made for Epitalon?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio does not make medical, therapeutic, or anti-aging claims for Epitalon; it is referenced in research literature only.</span></p>"
       }
     ]
   },
@@ -305,24 +305,24 @@ export const faqData: FaqCategoryType[] = [
     "category": "AOD-9604",
     "items": [
       {
-        "question": "What is AOD-9604 derived from?",
-        "answer": "<span style=\"font-weight: 400;\">A fragment of human growth hormone.</span>"
+        "question": "What is AOD-9604 studied for in research?",
+        "answer": "<p><span style=\"font-weight: 400;\">AOD-9604 is a modified fragment of human growth hormone (residues 176–191) studied in metabolic research, particularly around lipid metabolism pathways.</span></p>"
       },
       {
-        "question": "What research pathways involve AOD-9604?",
-        "answer": "<span style=\"font-weight: 400;\">Adipocyte signaling and lipid metabolism studies.<br />\r\n</span>"
+        "question": "What research frameworks or models include AOD-9604?",
+        "answer": "<p><span style=\"font-weight: 400;\">AOD-9604 appears in preclinical literature examining fat-metabolism signaling, typically in cellular and animal-model research rather than human clinical studies.</span></p>"
       },
       {
-        "question": "Does it function as a full GH?",
-        "answer": "<span style=\"font-weight: 400;\">No. It lacks full endocrine GH activity.</span>"
+        "question": "Is AOD-9604 intended for human or veterinary use?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. AOD-9604 is sold strictly for laboratory research and is not intended for human or veterinary use.</span></p>"
       },
       {
-        "question": "Is it used clinically?",
-        "answer": "<span style=\"font-weight: 400;\">No. It is for research use only.<br />\r\n</span>"
+        "question": "Is dosing guidance provided for AOD-9604?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio does not provide dosing or administration guidance for AOD-9604.</span></p>"
       },
       {
-        "question": "Is administration guidance included?",
-        "answer": "<span style=\"font-weight: 400;\">No administration guidance is provided.<br />\r\n</span>"
+        "question": "Has AOD-9604 been evaluated by the FDA?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. It has not been evaluated or approved by the FDA.</span></p>"
       }
     ]
   },
@@ -331,23 +331,23 @@ export const faqData: FaqCategoryType[] = [
     "items": [
       {
         "question": "What type of compound is 5-Amino-1MQ?",
-        "answer": "<span style=\"font-weight: 400;\">A small-molecule NNMT inhibitor.</span>"
+        "answer": "<p><span style=\"font-weight: 400;\">5-Amino-1MQ is a small-molecule compound, studied as an NNMT (nicotinamide N-methyltransferase) inhibitor in metabolic research — technically distinct from a peptide, though often listed alongside them in this category.</span></p>"
       },
       {
-        "question": "What research uses involve this compound?",
-        "answer": "<span style=\"font-weight: 400;\">NAD⁺ metabolism and energy regulation studies.<br />\r\n</span>"
+        "question": "Is 5-Amino-1MQ a synthesized research compound?",
+        "answer": "<p><span style=\"font-weight: 400;\">Yes. It is a synthesized small molecule manufactured and tested for laboratory research use, not derived from or intended as a dietary ingredient.</span></p>"
       },
       {
-        "question": "Is it a therapeutic inhibitor?",
-        "answer": "<span style=\"font-weight: 400;\">No. It is a research compound only.</span>"
+        "question": "Is 5-Amino-1MQ intended for ingestion or dietary use?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. It is not derived from or intended as a dietary ingredient, and it is not intended for ingestion or consumption.</span></p>"
       },
       {
-        "question": "Is ingestion permitted?",
-        "answer": "<span style=\"font-weight: 400;\">No. It is not intended for consumption.<br />\r\n</span>"
+        "question": "Are purity levels consistent across batches of 5-Amino-1MQ?",
+        "answer": "<p><span style=\"font-weight: 400;\">Purity is verified per batch and may vary slightly from lot to lot; current figures are published on the certificate of analysis.</span></p>"
       },
       {
-        "question": "Are purity levels consistent?",
-        "answer": "<span style=\"font-weight: 400;\">Purity may vary by batch.<br />\r\n</span>"
+        "question": "Is 5-Amino-1MQ evaluated by the FDA?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. It has not been evaluated or approved by the FDA for any use.</span></p>"
       }
     ]
   },
@@ -355,24 +355,24 @@ export const faqData: FaqCategoryType[] = [
     "category": "Semax / Selank Blend",
     "items": [
       {
-        "question": "Why are Semax and Selank combined?",
-        "answer": "<span style=\"font-weight: 400;\">To study combined cognitive and neuroimmune signaling pathways.</span>"
+        "question": "Why are Semax and Selank combined in one product?",
+        "answer": "<p><span style=\"font-weight: 400;\">Semax and Selank are both synthetic neuropeptides frequently studied together in neuropeptide research, so the blend is offered as a convenience for researchers examining both compounds in the same protocol.</span></p>"
       },
       {
-        "question": "Is this a medical formulation?",
-        "answer": "<span style=\"font-weight: 400;\">No. It is a research formulation.<br />\r\n</span>"
+        "question": "Is this blend a clinical formulation?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. The Semax/Selank blend is a research-use-only combination product, not a clinical formulation intended for human administration.</span></p>"
       },
       {
-        "question": "Are behavioral outcomes guaranteed?",
-        "answer": "<p><span style=\"font-weight: 400;\">No outcomes are implied or guaranteed.</span></p>"
+        "question": "Is clinical testing provided for the blend?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio does not conduct or reference clinical testing for this blend; documentation is limited to batch purity and identity testing appropriate to a research compound.</span></p>"
       },
       {
-        "question": "Is clinical dosing provided?",
-        "answer": "<p><span style=\"font-weight: 400;\">No dosing or application instructions are given.</span></p>\r\n<p><span style=\"font-weight: 400;\"> </span></p>"
+        "question": "Is regulatory approval claimed?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. No regulatory approval is claimed for this blend, and it has not been evaluated by the FDA for any human-use context.</span></p>"
       },
       {
-        "question": "Is it FDA-approved?",
-        "answer": "<p><span style=\"font-weight: 400;\">No FDA evaluation or approval exists.</span></p>"
+        "question": "Is the Semax/Selank blend intended for human use?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. This blend is sold strictly for laboratory research and is not intended, labeled, or approved for human administration.</span></p>"
       }
     ]
   },
@@ -380,24 +380,24 @@ export const faqData: FaqCategoryType[] = [
     "category": "Semax",
     "items": [
       {
-        "question": "What research areas does Semax study?",
-        "answer": "<p><span style=\"font-weight: 400;\">Neuroplasticity and cerebral signaling pathways.</span></p>"
+        "question": "What research focus does Semax have?",
+        "answer": "<p><span style=\"font-weight: 400;\">Semax is a synthetic peptide derived from an ACTH fragment, studied in neuropeptide research related to cognitive and neurological signaling pathways.</span></p>"
       },
       {
-        "question": "Is Semax a drug?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. It is a synthetic research peptide.</span></p>"
+        "question": "Is Semax sold for research use only?",
+        "answer": "<p><span style=\"font-weight: 400;\">Yes. Semax is labeled and sold research use only, with purity confirmed per batch on its certificate of analysis.</span></p>"
       },
       {
-        "question": "Is it intended for nasal or injectable use?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. No administration methods are intended.</span></p>"
+        "question": "Is dosing guidance or a clinical framework claimed?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio does not provide dosing guidance or reference any clinical framework for Semax; it is sold strictly as a research reagent.</span></p>"
       },
       {
-        "question": "Are human trials supported?",
-        "answer": "<p><span style=\"font-weight: 400;\">No human use is supported or allowed.</span></p>"
+        "question": "Is Semax approved for any route of human administration?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Semax is not approved for nasal, injectable, or any other route of human administration.</span></p>"
       },
       {
-        "question": "Is regulatory approval claimed?",
-        "answer": "<p><span style=\"font-weight: 400;\">No regulatory approval is claimed.</span></p>"
+        "question": "Is Semax evaluated by the FDA?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Semax has not been evaluated or approved by the FDA.</span></p>"
       }
     ]
   },
@@ -405,24 +405,24 @@ export const faqData: FaqCategoryType[] = [
     "category": "Selank",
     "items": [
       {
-        "question": "What pathways are studied using Selank?",
-        "answer": "<p><span style=\"font-weight: 400;\">GABAergic modulation and stress-response pathways.</span></p>"
+        "question": "What is Selank used for in research?",
+        "answer": "<p><span style=\"font-weight: 400;\">Selank is a synthetic peptide analog studied in neuropeptide research, with published literature examining its interaction with stress- and anxiety-related signaling pathways in animal models.</span></p>"
       },
       {
-        "question": "Is Selank a therapeutic agent?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. It is a research peptide only.</span></p>\r\n<p><span style=\"font-weight: 400;\"> </span></p>"
+        "question": "Is a specific effect claimed for Selank?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio does not make effect or outcome claims for Selank; findings referenced in research literature are not a guarantee of any particular result.</span></p>"
       },
       {
-        "question": "Can it be used to manage stress?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. It is not intended for any use application.</span></p>"
+        "question": "Is guidance provided for experimental use?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio does not provide experimental-use or dosing guidance for Selank; researchers are expected to design their own protocols appropriate to their institution.</span></p>"
       },
       {
-        "question": "Is guidance on experiments provided?",
-        "answer": "<p><span style=\"font-weight: 400;\">No research guidance is offered.</span></p>"
+        "question": "Is Selank a therapeutic or consumer product?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Selank is sold strictly as a research peptide and is not a therapeutic or consumer product.</span></p>"
       },
       {
-        "question": "Is Selank FDA-approved?",
-        "answer": "<p><span style=\"font-weight: 400;\">No.</span></p>"
+        "question": "Is Selank evaluated by the FDA?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. It has not been evaluated or approved by the FDA.</span></p>"
       }
     ]
   },
@@ -430,24 +430,24 @@ export const faqData: FaqCategoryType[] = [
     "category": "DSIP",
     "items": [
       {
-        "question": "What is DSIP researched for?",
-        "answer": "<p><span style=\"font-weight: 400;\">Sleep architecture and circadian rhythm studies.</span></p>"
+        "question": "What research does DSIP support?",
+        "answer": "<p><span style=\"font-weight: 400;\">DSIP (delta sleep-inducing peptide) is studied in sleep-cycle and neuropeptide research examining its association with sleep-related signaling in preclinical models.</span></p>"
       },
       {
-        "question": "Is DSIP a sleep aid?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. It is not a consumer or therapeutic product.</span></p>"
+        "question": "Is DSIP marketed as a sleep aid?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. DSIP is sold strictly as a research compound and is not marketed, labeled, or intended as a consumer sleep aid.</span></p>"
       },
       {
-        "question": "Are sleep benefits claimed?",
-        "answer": "<p><span style=\"font-weight: 400;\">No benefits or outcomes are claimed.</span></p>"
+        "question": "Is DSIP approved for clinical use?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. DSIP is not evaluated or approved by the FDA for clinical use in humans.</span></p>"
       },
       {
-        "question": "Is it approved for medical use?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. It is not FDA-approved.</span></p>"
+        "question": "Are sleep benefits guaranteed for DSIP research?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio does not claim or guarantee any sleep-related benefit for DSIP.</span></p>"
       },
       {
-        "question": "Is the administration information included?",
-        "answer": "<p><span style=\"font-weight: 400;\">No.</span></p>"
+        "question": "Is administration guidance included with DSIP?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio does not provide administration or dosing guidance for DSIP.</span></p>"
       }
     ]
   },
@@ -455,24 +455,24 @@ export const faqData: FaqCategoryType[] = [
     "category": "TB-500",
     "items": [
       {
-        "question": "What is TB-500 modeled on?",
-        "answer": "<p><span style=\"font-weight: 400;\">Thymosin β4 protein.</span></p>"
+        "question": "What is TB-500 associated with in research?",
+        "answer": "<p><span style=\"font-weight: 400;\">TB-500 is a synthetic fragment of Thymosin Beta-4, associated in research literature with tissue-repair and cellular-migration studies.</span></p>"
       },
       {
-        "question": "What research focuses use TB-500?",
-        "answer": "<p><span style=\"font-weight: 400;\">Actin regulation and tissue remodeling studies.</span></p>"
+        "question": "What research models use TB-500?",
+        "answer": "<p><span style=\"font-weight: 400;\">TB-500 appears in preclinical and in vitro research examining tissue-repair mechanisms, typically in cellular and animal-model studies rather than human trials.</span></p>"
       },
       {
-        "question": "Is it intended for injury treatment?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. It is for laboratory research only.</span></p>"
+        "question": "Is TB-500 provided for treatment purposes?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. TB-500 is sold strictly for laboratory research and is not provided, labeled, or intended for treatment of any condition in humans or animals.</span></p>"
       },
       {
-        "question": "Is veterinary use allowed?",
-        "answer": "<p><span style=\"font-weight: 400;\">No.</span></p>"
+        "question": "Is TB-500 approved for veterinary use?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. TB-500 is not evaluated or approved for veterinary or human use of any kind.</span></p>"
       },
       {
-        "question": "Are purity claims absolute?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. Purity may vary.</span></p>"
+        "question": "Are purity claims fixed across every TB-500 batch?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Purity is verified per batch and reported on the corresponding certificate of analysis rather than fixed across all lots.</span></p>"
       }
     ]
   },
@@ -481,23 +481,23 @@ export const faqData: FaqCategoryType[] = [
     "items": [
       {
         "question": "What type of peptide is BPC-157?",
-        "answer": "<p><span style=\"font-weight: 400;\">A synthetic pentadecapeptide.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">BPC-157 is a synthetic pentadecapeptide derived from a naturally occurring protective compound, studied in tissue-repair and gastroprotective research contexts.</span></p>"
       },
       {
-        "question": "What pathways are studied using BPC-157?",
-        "answer": "<p><span style=\"font-weight: 400;\">Cytoprotection and angiogenic signaling.</span></p>"
+        "question": "What research models study BPC-157?",
+        "answer": "<p><span style=\"font-weight: 400;\">BPC-157 is referenced across preclinical literature covering tissue-repair and gastrointestinal research, primarily in cellular and animal-model studies.</span></p>"
       },
       {
-        "question": "Is it intended for healing use?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. It is not intended for treatment.</span></p>"
+        "question": "Is BPC-157 intended for healing or injury treatment?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. BPC-157 is sold strictly for laboratory research and is not intended for the treatment of any injury or condition.</span></p>"
       },
       {
-        "question": "Is clinical data provided?",
-        "answer": "<p><span style=\"font-weight: 400;\">No clinical data is provided.</span></p>"
+        "question": "Is clinical data provided for BPC-157?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio does not provide or reference clinical data for BPC-157; documentation is limited to batch purity and identity testing.</span></p>"
       },
       {
-        "question": "Is FDA approval claimed?",
-        "answer": "<p><span style=\"font-weight: 400;\">No.</span></p>"
+        "question": "Is FDA approval claimed for BPC-157?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. No regulatory approval is claimed for BPC-157.</span></p>"
       }
     ]
   },
@@ -505,24 +505,24 @@ export const faqData: FaqCategoryType[] = [
     "category": "TB-500 / BPC-157",
     "items": [
       {
-        "question": "Why are these peptides combined?",
-        "answer": "<p><span style=\"font-weight: 400;\">To study combined tissue signaling pathways.</span></p>"
+        "question": "Why are TB-500 and BPC-157 offered together?",
+        "answer": "<p><span style=\"font-weight: 400;\">Both compounds are frequently studied together in tissue-repair research literature, so the combination is offered as a convenience for researchers examining both in a single protocol.</span></p>"
       },
       {
-        "question": "Is this a therapeutic blend?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. It is a research formulation.</span></p>"
+        "question": "Is this a combination product with claimed effects?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio does not make combined-effect claims for this product; it is sold strictly as two research-use-only compounds packaged together.</span></p>"
       },
       {
-        "question": "Are synergistic effects guaranteed?",
-        "answer": "<p><span style=\"font-weight: 400;\">No effects are guaranteed or implied.</span></p>"
+        "question": "Is a specific research use claimed for the combination?",
+        "answer": "<p><span style=\"font-weight: 400;\">No specific outcome is claimed. The combination is offered for laboratory research consistent with the individual research use of each compound.</span></p>"
       },
       {
-        "question": "Is human use permitted?",
-        "answer": "<p><span style=\"font-weight: 400;\">No.</span></p>"
+        "question": "Is human use permitted for the TB-500/BPC-157 combination?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. This combination is sold strictly for laboratory research, and human use is not permitted.</span></p>"
       },
       {
-        "question": "Are protocols supplied?",
-        "answer": "<p><span style=\"font-weight: 400;\">No experimental protocols are supplied.</span></p>"
+        "question": "Are experimental protocols supplied with this combination?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio does not supply experimental protocols; researchers design their own studies appropriate to their institution.</span></p>"
       }
     ]
   },
@@ -531,23 +531,23 @@ export const faqData: FaqCategoryType[] = [
     "items": [
       {
         "question": "What is KLOW?",
-        "answer": "<p><span style=\"font-weight: 400;\">A multi-peptide research blend.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">KLOW is a multi-compound research blend offered for laboratory study. Exact composition and ratios should be confirmed against the current product page and certificate of analysis rather than assumed.</span></p>"
       },
       {
-        "question": "What research models use KLOW?",
-        "answer": "<p><span style=\"font-weight: 400;\">Joint and connective tissue stress models.</span></p>"
+        "question": "What research models is KLOW used for?",
+        "answer": "<p><span style=\"font-weight: 400;\">KLOW is positioned for researchers studying multiple compounds together in skin-biology and recovery-adjacent research contexts, consistent with the individual compounds it combines.</span></p>"
       },
       {
-        "question": "Is the composition disclosed?",
-        "answer": "<p><span style=\"font-weight: 400;\">Composition may be documented internally.</span></p>"
+        "question": "Is the composition of KLOW disclosed?",
+        "answer": "<p><span style=\"font-weight: 400;\">Yes. Composition and per-compound content are disclosed on the product page and supporting documentation, and should be reviewed before ordering.</span></p>"
       },
       {
-        "question": "Is it a medical product?",
-        "answer": "<p><span style=\"font-weight: 400;\">No.</span></p>"
+        "question": "Is KLOW a medical product?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. KLOW is sold strictly for laboratory research and is not a medical or pharmaceutical product for human use.</span></p>"
       },
       {
         "question": "Is usage guidance provided?",
-        "answer": "<p><span style=\"font-weight: 400;\">No.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio does not provide dosing, administration, or human-use guidance for KLOW or any other compound in the catalog.</span></p>"
       }
     ]
   },
@@ -555,24 +555,24 @@ export const faqData: FaqCategoryType[] = [
     "category": "GLOW",
     "items": [
       {
-        "question": "What research focus uses GLOW?",
-        "answer": "<p><span style=\"font-weight: 400;\">Dermal remodeling and connective tissue signaling.</span></p>"
+        "question": "What research focus does GLOW have?",
+        "answer": "<p><span style=\"font-weight: 400;\">GLOW is a multi-compound research blend positioned around skin-biology research, combining compounds already covered individually elsewhere in this FAQ (such as GHK-Cu).</span></p>"
       },
       {
         "question": "Is GLOW a cosmetic product?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. It is a research blend only.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">No. GLOW is sold strictly for laboratory research and is not marketed, labeled, or intended as a cosmetic or consumer skincare product.</span></p>"
       },
       {
         "question": "Are aesthetic outcomes implied?",
-        "answer": "<p><span style=\"font-weight: 400;\">No outcomes are implied.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio does not make aesthetic or outcome claims for GLOW; any research findings referenced in literature are not a guarantee of a particular result.</span></p>"
       },
       {
         "question": "Is it FDA-approved?",
-        "answer": "<p><span style=\"font-weight: 400;\">No.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">No. GLOW is not evaluated or approved by the FDA, and no regulatory-approval claim is made for it.</span></p>"
       },
       {
-        "question": "Is it for topical or personal use?",
-        "answer": "<p><span style=\"font-weight: 400;\">No.</span></p>"
+        "question": "Is usage or application guidance provided for GLOW?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio does not provide dosing, application, or human-use guidance for GLOW.</span></p>"
       }
     ]
   },
@@ -581,23 +581,23 @@ export const faqData: FaqCategoryType[] = [
     "items": [
       {
         "question": "What is Glutathione studied for?",
-        "answer": "<p><span style=\"font-weight: 400;\">Oxidative stress and cellular defense research.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">Glutathione is a naturally occurring antioxidant tripeptide, widely studied in research on oxidative stress and cellular defense mechanisms.</span></p>"
       },
       {
-        "question": "Is this product a supplement?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. It is for research use only.</span></p>"
+        "question": "Is this product a dietary supplement?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Although glutathione is available in some consumer supplement forms elsewhere, Helix Bio's glutathione is sold strictly for laboratory research and is not offered as a dietary supplement.</span></p>"
       },
       {
-        "question": "Is antioxidant benefit claimed?",
-        "answer": "<p><span style=\"font-weight: 400;\">No benefits are claimed.</span></p>"
+        "question": "Is an antioxidant benefit claimed?",
+        "answer": "<p><span style=\"font-weight: 400;\">Helix Bio references glutathione's documented role in antioxidant research literature but does not make a personal-benefit or outcome claim for its product.</span></p>"
       },
       {
         "question": "Is ingestion allowed?",
-        "answer": "<p><span style=\"font-weight: 400;\">No.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">No. Helix Bio's glutathione is not intended for ingestion or human consumption in any form; it is sold research use only.</span></p>"
       },
       {
         "question": "Is analytical testing performed?",
-        "answer": "<p><span style=\"font-weight: 400;\">Analytical characterization may be conducted.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">Yes. Each batch is tested for purity and identity, with results available on the certificate of analysis before ordering.</span></p>"
       }
     ]
   },
@@ -605,24 +605,24 @@ export const faqData: FaqCategoryType[] = [
     "category": "Metabolic & Incretin Research",
     "items": [
       {
-        "question": "What are metabolic research peptides used for?",
-        "answer": "<p><span style=\"font-weight: 400;\">They are used in laboratory studies examining incretin signaling, metabolic regulation, insulin pathways and energy balance.</span></p>"
+        "question": "What are these peptides researched for?",
+        "answer": "<p><span style=\"font-weight: 400;\">This category covers compounds studied in metabolic and incretin-pathway research, including receptor agonists examined for their role in energy balance and glucose regulation in preclinical models.</span></p>"
       },
       {
         "question": "Which signaling pathways are commonly studied in this category?",
-        "answer": "<p><span style=\"font-weight: 400;\">GLP-1, GIP, glucagon, ERR activation, mitochondrial metabolism and NAD-related pathways.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">Commonly studied pathways include GLP-1, GIP, and glucagon receptor signaling, along with downstream metabolic and energy-balance mechanisms.</span></p>"
       },
       {
         "question": "Are these compounds intended for clinical use?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. All metabolic research compounds are for laboratory research only.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">No. Every compound in this category is sold research use only and is not intended, labeled, or approved for clinical or human-use application.</span></p>"
       },
       {
-        "question": "Do these products support injectable and oral research models?",
-        "answer": "<p><span style=\"font-weight: 400;\">Yes. This category includes both peptide-based and non-peptide oral research compounds.</span></p>"
+        "question": "Do these products support in vitro and in vivo research models?",
+        "answer": "<p><span style=\"font-weight: 400;\">Yes. Published literature on this category spans both in vitro (cellular) and in vivo (animal-model) research, consistent with standard preclinical study design.</span></p>"
       },
       {
-        "question": "Who typically uses metabolic research peptides?",
-        "answer": "<p><span style=\"font-weight: 400;\">Academic, private and institutional researchers studying metabolic and cellular signaling systems.</span></p>"
+        "question": "Who typically researches compounds in this category?",
+        "answer": "<p><span style=\"font-weight: 400;\">Academic, private, and institutional researchers studying metabolic and incretin-pathway signaling use compounds in this category as standardized reference reagents.</span></p>"
       }
     ]
   },
@@ -631,23 +631,23 @@ export const faqData: FaqCategoryType[] = [
     "items": [
       {
         "question": "What is the focus of cognitive function research on peptides?",
-        "answer": "<p><span style=\"font-weight: 400;\">They are studied for neuroplasticity, stress-response signaling, cognitive pathways and neuroimmune interactions.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">This category focuses on neuropeptides studied for their interaction with cognitive and neurological signaling pathways in preclinical research.</span></p>"
       },
       {
-        "question": "What neurological systems are commonly researched?",
-        "answer": "<p><span style=\"font-weight: 400;\">GABAergic modulation, cerebral signaling, stress-response pathways and cognitive processing systems.</span></p>"
+        "question": "Which neurological systems are commonly studied in this category?",
+        "answer": "<p><span style=\"font-weight: 400;\">Research in this category commonly examines stress-response, neurotransmitter, and neuroprotective signaling systems, depending on the specific compound.</span></p>"
       },
       {
-        "question": "Are these compounds psychoactive or therapeutic?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. They are strictly intended for controlled laboratory research environments.</span></p>"
+        "question": "Are these compounds tested for cognitive-relevant endpoints?",
+        "answer": "<p><span style=\"font-weight: 400;\">Published research on these compounds includes cognitive- and behavior-relevant endpoints in animal models; Helix Bio does not conduct or claim its own cognitive testing.</span></p>"
       },
       {
-        "question": "Can these peptides be studied together?",
-        "answer": "<p><span style=\"font-weight: 400;\">Yes. Certain formulations are examined for combined pathway interaction research.</span></p>"
+        "question": "Which peptides are commonly used in cognitive research?",
+        "answer": "<p><span style=\"font-weight: 400;\">Semax and Selank are the two compounds most commonly referenced in this category, both covered individually earlier in this FAQ.</span></p>"
       },
       {
-        "question": "Who uses cognitive research peptides?",
-        "answer": "<p><span style=\"font-weight: 400;\">Researchers studying neuroscience, cognition, stress physiology and neurochemical signaling.</span></p>"
+        "question": "Are any of these compounds intended for therapeutic or psychoactive use?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Every compound in this category is sold research use only and is not intended for therapeutic, psychoactive, or human-use application.</span></p>"
       }
     ]
   },
@@ -655,24 +655,24 @@ export const faqData: FaqCategoryType[] = [
     "category": "Sleep Cycle Investigation",
     "items": [
       {
-        "question": "What are sleep research peptides used for?",
-        "answer": "<p><span style=\"font-weight: 400;\">They are examined in studies focused on sleep architecture, circadian rhythms and neuroendocrine regulation.</span></p>"
+        "question": "What role does sleep-cycle research play in peptide studies?",
+        "answer": "<p><span style=\"font-weight: 400;\">This category covers compounds studied for their association with sleep-related biological signaling, distinct from any consumer sleep-aid application.</span></p>"
       },
       {
-        "question": "What biological processes are commonly studied?",
-        "answer": "<p><span style=\"font-weight: 400;\">Delta-wave sleep patterns, circadian timing systems and sleep-related signaling pathways.</span></p>"
-      },
-      {
-        "question": "Are these products designed for sleep treatment?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. They are for experimental sleep-cycle research only.</span></p>"
+        "question": "Which biological processes are commonly researched for sleep?",
+        "answer": "<p><span style=\"font-weight: 400;\">Research in this category commonly examines neuropeptide signaling tied to sleep-wake regulation in preclinical, primarily animal-model, studies.</span></p>"
       },
       {
         "question": "Are these compounds endogenous or synthetic?",
-        "answer": "<p><span style=\"font-weight: 400;\">They may be naturally occurring peptides or synthetic analogs used in laboratory research.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">DSIP, the primary compound in this category, is modeled on an endogenously occurring peptide but is manufactured synthetically for research use.</span></p>"
       },
       {
-        "question": "Who typically conducts sleep peptide research?",
-        "answer": "<p><span style=\"font-weight: 400;\">Neuroscience and chronobiology researchers work in controlled laboratory settings.</span></p>"
+        "question": "Which peptides are typically used in sleep-cycle peptide research?",
+        "answer": "<p><span style=\"font-weight: 400;\">DSIP is the compound most closely associated with sleep-cycle research in this catalog, covered individually earlier in this FAQ.</span></p>"
+      },
+      {
+        "question": "Are these compounds marketed as consumer sleep aids?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Compounds in this category are sold strictly for laboratory research and are not marketed or labeled as consumer sleep aids.</span></p>"
       }
     ]
   },
@@ -681,23 +681,23 @@ export const faqData: FaqCategoryType[] = [
     "items": [
       {
         "question": "What is the focus of recovery research peptides?",
-        "answer": "<p><span style=\"font-weight: 400;\">They are studied for tissue signaling, actin regulation, angiogenic pathways and cellular repair mechanisms.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">This category covers compounds studied in tissue-repair and cellular-recovery research, including peptides examined for their role in wound-healing and regenerative signaling pathways.</span></p>"
       },
       {
-        "question": "What types of tissues are commonly researched?",
-        "answer": "<p><span style=\"font-weight: 400;\">Muscle, connective tissue, joints, dermal structures and vascular-related systems.</span></p>"
+        "question": "What types of tissue are commonly studied in this category?",
+        "answer": "<p><span style=\"font-weight: 400;\">Published research spans soft-tissue, tendon, and gastrointestinal tissue models, depending on the specific compound and study design.</span></p>"
       },
       {
         "question": "Why are peptide combinations used in this category?",
-        "answer": "<p><span style=\"font-weight: 400;\">To examine coordinated signaling pathways across multiple tissue systems.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">Some compounds in this category, such as TB-500 and BPC-157, are frequently studied together because their research literature covers overlapping tissue-repair mechanisms.</span></p>"
       },
       {
         "question": "Are these products regenerative treatments?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. They are intended solely for laboratory and experimental research.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">No. These are research-use-only compounds studied in regenerative biology, not regenerative treatments approved or intended for human or veterinary use.</span></p>"
       },
       {
-        "question": "Who uses recovery research peptides?",
-        "answer": "<p><span style=\"font-weight: 400;\">Researchers studying tissue response, cellular repair signaling and connective tissue biology.</span></p>"
+        "question": "Who typically studies recovery research peptides?",
+        "answer": "<p><span style=\"font-weight: 400;\">Researchers examining tissue-repair biology, cellular signaling, and regenerative mechanisms use compounds in this category as standardized research reagents.</span></p>"
       }
     ]
   },
@@ -706,189 +706,188 @@ export const faqData: FaqCategoryType[] = [
     "items": [
       {
         "question": "What is the goal of cellular defense research compounds?",
-        "answer": "<p><span style=\"font-weight: 400;\">To study oxidative stress response, redox balance and cellular protection mechanisms.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">This category covers compounds studied for their role in oxidative-stress response and cellular-defense signaling, such as glutathione and GHK-Cu.</span></p>"
       },
       {
-        "question": "What pathways are commonly examined?",
-        "answer": "<p><span style=\"font-weight: 400;\">Antioxidant signaling, mitochondrial defense and intracellular stress-response systems.</span></p>"
+        "question": "Which pathways are commonly researched in this category?",
+        "answer": "<p><span style=\"font-weight: 400;\">Commonly studied pathways include antioxidant enzyme signaling and cellular-repair mechanisms tied to oxidative stress.</span></p>"
       },
       {
-        "question": "Are these compounds supplements or therapies?",
-        "answer": "<p><span style=\"font-weight: 400;\">No. They are research materials only and not intended for human use.</span></p>"
+        "question": "Are these compounds tested for antioxidant capacity?",
+        "answer": "<p><span style=\"font-weight: 400;\">Published literature on these compounds includes antioxidant-capacity testing in laboratory settings; Helix Bio references that literature without making its own outcome claims.</span></p>"
       },
       {
-        "question": "Are these compounds naturally occurring in the body?",
-        "answer": "<p><span style=\"font-weight: 400;\">Some are endogenous molecules studied in controlled laboratory environments.</span></p>"
+        "question": "Are these compounds typically studied in combination with other research compounds?",
+        "answer": "<p><span style=\"font-weight: 400;\">Yes. Compounds in this category, such as GHK-Cu, are sometimes studied alongside other research peptides, including within blends like GLOW covered earlier in this FAQ.</span></p>"
       },
       {
-        "question": "Who typically uses these research compounds?",
-        "answer": "<p><span style=\"font-weight: 400;\">Researchers focused on cellular biology, oxidative stress and metabolic defense mechanisms.</span></p>"
+        "question": "Are these compounds intended for human antioxidant supplementation?",
+        "answer": "<p><span style=\"font-weight: 400;\">No. Compounds in this category are sold research use only and are not intended for human dietary or supplemental use.</span></p>"
       }
     ]
-  }
-,
+  },
   {
     "category": "GHK-Cu Peptide Research",
     "items": [
       {
         "question": "What is GHK-Cu peptide?",
-        "answer": "<p><span style=\"font-weight: 400;\">GHK-Cu is the copper(II) complex of the tripeptide glycyl-L-histidyl-L-lysine, naturally present in human plasma at declining concentrations with age. In research, it functions as a signal peptide associated with collagen synthesis, fibroblast activation, antioxidant signaling, and broad gene modulation. It is supplied as a lyophilized powder for in-vitro and pre-clinical study, not for human use.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">GHK-Cu is a naturally occurring copper-binding tripeptide (glycyl-L-histidyl-L-lysine) studied extensively in dermal and cellular-repair research.</span></p>"
       },
       {
         "question": "What is the chemical structure of GHK-Cu?",
-        "answer": "<p><span style=\"font-weight: 400;\">GHK-Cu consists of glycine, histidine, and lysine arranged in sequence (Gly-His-Lys), with a Cu²⁺ ion coordinated by the histidine imidazole, the N-terminal amine, and additional ligand contributions. The parent complex has a molecular weight near 403–404 g/mol, and the acetate-salt form near 462 g/mol. The deep cobalt-blue color confirms copper binding.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">GHK-Cu is a tripeptide of glycine, histidine, and lysine bound to a copper ion, which is central to its role in the research literature on copper-peptide biology.</span></p>"
       },
       {
-        "question": "How does GHK-Cu work at the cellular level?",
-        "answer": "<p><span style=\"font-weight: 400;\">Investigators describe GHK-Cu as a signal peptide that engages multiple cellular pathways rather than a single receptor. Reported activities include fibroblast stimulation, controlled intracellular copper delivery, modulation of collagen and glycosaminoglycan synthesis, and broad changes in gene expression across stress-response and tissue-repair networks.</span></p>"
+        "question": "How does GHK-Cu contribute to cellular research on skin repair?",
+        "answer": "<p><span style=\"font-weight: 400;\">GHK-Cu is studied for its association with cellular signaling involved in skin-tissue repair processes, an active area of dermal-biology research.</span></p>"
       },
       {
-        "question": "What is the mechanism of GHK-Cu in wound healing?",
-        "answer": "<p><span style=\"font-weight: 400;\">Pre-clinical wound-healing models report that GHK-Cu accelerates closure and improves tensile strength through a combination of fibroblast activation, angiogenic signaling, macrophage recruitment, and matrix-protein synthesis. The copper component supports enzymes including lysyl oxidase that are critical to collagen cross-linking.</span></p>"
+        "question": "By what mechanism does GHK-Cu support wound-healing research?",
+        "answer": "<p><span style=\"font-weight: 400;\">In pre-clinical wound-healing models, faster closure and greater tensile strength have been linked to GHK-Cu through several combined actions: fibroblast activation, angiogenic signaling, macrophage recruitment, and synthesis of matrix proteins. Its copper component also serves as a cofactor for enzymes such as lysyl oxidase, which plays a key part in cross-linking collagen.</span></p>"
       },
       {
         "question": "What pathways does GHK-Cu modulate in skin cells?",
-        "answer": "<p><span style=\"font-weight: 400;\">Reported pathways include TGF-β signaling, antioxidant defense (superoxide dismutase, glutathione peroxidase), extracellular-matrix gene expression (collagen types I and III, decorin, perlecan), and inflammatory cytokine modulation. The Broad Institute gene-expression dataset documents changes across 4,192 human genes following GHK exposure.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">Research literature associates GHK-Cu with signaling related to tissue remodeling and cellular repair in skin-cell models, studied at the cellular level.</span></p>"
       },
       {
-        "question": "How does GHK-Cu stimulate collagen and elastin?",
-        "answer": "<p><span style=\"font-weight: 400;\">In-vitro fibroblast studies indicate that GHK-Cu upregulates transcription of collagen and elastin genes and supplies copper as a cofactor for lysyl oxidase, the enzyme that cross-links these matrix proteins. The net effect in cell culture is increased deposition of structurally mature extracellular matrix.</span></p>"
+        "question": "How does GHK-Cu relate to collagen and elastin research?",
+        "answer": "<p><span style=\"font-weight: 400;\">Published studies examine GHK-Cu's association with collagen and elastin synthesis pathways in skin-cell research models.</span></p>"
       },
       {
-        "question": "What is GHK-Cu used for in research?",
-        "answer": "<p><span style=\"font-weight: 400;\">Common research applications include in-vitro fibroblast and keratinocyte studies, animal wound-healing models, hair-follicle and dermal-papilla research, post-procedure skin-recovery models, antioxidant-pathway investigations, and gene-expression profiling. All such work is conducted under research-use-only conditions.</span></p>"
+        "question": "What are the typical research applications of GHK-Cu?",
+        "answer": "<p><span style=\"font-weight: 400;\">Investigators apply GHK-Cu across a range of settings: in-vitro fibroblast and keratinocyte assays, animal wound-healing models, studies of hair follicles and dermal papilla cells, post-procedure skin-recovery research, antioxidant-pathway work, and gene-expression profiling. Every one of these applications is carried out strictly under research-use-only conditions.</span></p>"
       },
       {
-        "question": "How does GHK-Cu support skin regeneration in research models?",
-        "answer": "<p><span style=\"font-weight: 400;\">Pre-clinical and cosmetic-research data describe increased collagen and elastin synthesis, fibroblast proliferation, improved barrier-protein expression, and reduced markers of oxidative stress following GHK-Cu exposure. Human evidence remains limited to small panels and cosmetic-grade applications.</span></p>"
+        "question": "How does GHK-Cu relate to skin regeneration research?",
+        "answer": "<p><span style=\"font-weight: 400;\">GHK-Cu is one of the more established compounds in dermal-regeneration research literature, frequently referenced in studies on cellular turnover and tissue remodeling.</span></p>"
       },
       {
-        "question": "Can GHK-Cu be used in anti-wrinkle research?",
-        "answer": "<p><span style=\"font-weight: 400;\">Yes — GHK-Cu is one of the more frequently studied compounds in dermatological wrinkle-reduction research. Pre-clinical and small human-panel studies report improvements in wrinkle depth and skin density, attributed to upregulated collagen and elastin pathways.</span></p>"
+        "question": "Can GHK-Cu be studied in anti-wrinkle research contexts?",
+        "answer": "<p><span style=\"font-weight: 400;\">Yes, GHK-Cu appears in published research examining skin-aging-related endpoints, though Helix Bio does not sell it as, or claim it functions as, a cosmetic anti-wrinkle product.</span></p>"
       },
       {
         "question": "What research exists on GHK-Cu and skin elasticity?",
-        "answer": "<p><span style=\"font-weight: 400;\">Multiple in-vitro fibroblast studies and a smaller number of clinical-cosmetic studies report improvements in skin elasticity associated with GHK-Cu exposure, linked to increased elastin synthesis and improved lysyl-oxidase-dependent cross-linking. The bulk of this evidence is pre-clinical.</span></p>"
+        "answer": "<p><span style=\"font-weight: 400;\">A body of preclinical literature examines GHK-Cu's association with skin-elasticity markers; findings are specific to individual studies and not a guaranteed outcome.</span></p>"
       },
       {
-        "question": "How does GHK-Cu affect skin texture and firmness?",
-        "answer": "<p><span style=\"font-weight: 400;\">Reported effects on texture and firmness derive from upregulated extracellular matrix production, improved barrier protein expression, and increased fibroblast activity. These outcomes are described in cosmetic-research panels and pre-clinical models; therapeutic claims are not supported by FDA approval.</span></p>"
+        "question": "What changes in skin texture and firmness has GHK-Cu research reported?",
+        "answer": "<p><span style=\"font-weight: 400;\">Cosmetic-research panels and pre-clinical models attribute observed changes in texture and firmness to increased fibroblast activity, greater extracellular matrix production, and improved expression of barrier proteins. These are research findings only — the FDA has not approved any therapeutic claim tied to these outcomes.</span></p>"
       },
       {
-        "question": "What is GHK-Cu's role in skin barrier repair?",
-        "answer": "<p><span style=\"font-weight: 400;\">In barrier-disruption models, GHK-Cu has been reported to support recovery of stratum-corneum lipids, tight-junction proteins, and ceramide synthesis. Investigators describe these effects as part of the compound's broader regenerative signaling profile.</span></p>"
+        "question": "How is GHK-Cu studied in relation to skin barrier recovery?",
+        "answer": "<p><span style=\"font-weight: 400;\">Models simulating barrier disruption have reported that GHK-Cu assists recovery of stratum-corneum lipids, tight-junction proteins, and ceramide synthesis. Researchers place these findings within the compound's wider regenerative signaling profile.</span></p>"
       },
       {
-        "question": "What are GHK-Cu's effects on post-procedure skin in research?",
-        "answer": "<p><span style=\"font-weight: 400;\">Dermatology-research models simulating microneedling, laser, and chemical-peel injuries have reported shorter erythema duration and accelerated barrier recovery with GHK-Cu application. These findings are pre-clinical and cosmetic-research in nature, not validated therapeutic claims.</span></p>"
+        "question": "What does research show about GHK-Cu on post-procedure skin?",
+        "answer": "<p><span style=\"font-weight: 400;\">In dermatology-research models simulating injuries such as microneedling, laser treatment, and chemical peels, GHK-Cu application has been associated with reduced erythema duration and quicker barrier recovery. These results remain pre-clinical, cosmetic-research findings rather than validated therapeutic claims.</span></p>"
       },
       {
-        "question": "Can GHK-Cu support hair growth research?",
-        "answer": "<p><span style=\"font-weight: 400;\">GHK-Cu interacts with dermal papilla cells and has been examined in animal-model and ex-vivo follicle studies of androgenic alopecia. Reported outcomes include increased follicle size and prolonged anagen phase. Human evidence is limited and largely cosmetic.</span></p>"
+        "question": "Is GHK-Cu studied in connection with hair-growth research?",
+        "answer": "<p><span style=\"font-weight: 400;\">Yes — GHK-Cu is known to interact with dermal papilla cells and has been investigated in animal models and ex-vivo follicle studies related to androgenic alopecia. Findings reported include larger follicle size and an extended anagen phase, though human data remain sparse and mostly cosmetic in scope.</span></p>"
       },
       {
-        "question": "What is GHK-Cu's effect on hair follicles in models?",
-        "answer": "<p><span style=\"font-weight: 400;\">In ex-vivo follicle culture and rodent models, GHK-Cu has been reported to stimulate dermal papilla proliferation, increase follicle diameter, and improve scalp vascularization. Mechanistic explanations include copper-dependent enzyme cofactor support and signaling-pathway activation.</span></p>"
+        "question": "How does GHK-Cu behave in hair-follicle research models?",
+        "answer": "<p><span style=\"font-weight: 400;\">Rodent studies and ex-vivo follicle cultures have reported that GHK-Cu stimulates proliferation of dermal papilla cells, increases follicle diameter, and enhances scalp vascularization. The proposed mechanisms involve copper acting as an enzyme cofactor along with activation of relevant signaling pathways.</span></p>"
       },
       {
-        "question": "How does GHK-Cu help in tissue repair and regeneration?",
-        "answer": "<p><span style=\"font-weight: 400;\">Pre-clinical work across skin, lung, liver, and bone models has reported tissue-repair activity, attributed to fibroblast restoration, antioxidant signaling, anti-inflammatory effects, and matrix-protein synthesis. The breadth of reported activity reflects the compound's broad gene-expression effects.</span></p>"
+        "question": "What role does GHK-Cu play in tissue-repair and regeneration research?",
+        "answer": "<p><span style=\"font-weight: 400;\">Across pre-clinical models spanning skin, lung, liver, and bone tissue, GHK-Cu has demonstrated repair-related activity credited to restored fibroblast function, antioxidant signaling, anti-inflammatory action, and matrix-protein synthesis. This wide-ranging activity is consistent with the compound's broad effects on gene expression.</span></p>"
       },
       {
-        "question": "What is GHK-Cu's role in nerve and blood-vessel regrowth research?",
-        "answer": "<p><span style=\"font-weight: 400;\">Pre-clinical data points to upregulation of nerve growth factor and vascular endothelial growth factor in injury models, supporting interest in nerve regeneration and angiogenesis applications. This work remains early-stage and confined to animal and in-vitro studies.</span></p>"
+        "question": "How is GHK-Cu connected to nerve and vascular regrowth research?",
+        "answer": "<p><span style=\"font-weight: 400;\">Injury models in pre-clinical data have shown upregulation of nerve growth factor and vascular endothelial growth factor after GHK-Cu exposure, fueling interest in its potential for nerve regeneration and angiogenesis. This area of study is still early-stage, limited so far to animal and in-vitro work.</span></p>"
       },
       {
-        "question": "How does GHK-Cu affect scars and wound healing?",
-        "answer": "<p><span style=\"font-weight: 400;\">Animal-model studies report improved tensile strength of healed wounds, reduced scar volume, and accelerated closure with GHK-Cu treatment. The mechanism is multifactorial: fibroblast activation, matrix-protein modulation, and inflammatory damping.</span></p>"
+        "question": "What outcomes has GHK-Cu shown in scar and wound-healing studies?",
+        "answer": "<p><span style=\"font-weight: 400;\">Studies using animal models have linked GHK-Cu treatment to greater tensile strength in healed wounds, smaller scar volume, and faster wound closure. Multiple mechanisms appear to contribute — fibroblast activation, changes in matrix-protein levels, and reduced inflammation.</span></p>"
       },
       {
-        "question": "Is GHK-Cu safe for pre-clinical research?",
-        "answer": "<p><span style=\"font-weight: 400;\">GHK-Cu is generally well-tolerated in published in-vitro and animal-model work at standard research concentrations. Safety in human therapeutic contexts is not established, and the compound is not FDA-approved. Standard laboratory handling and personal protective equipment apply.</span></p>"
+        "question": "What is known about GHK-Cu's safety profile in pre-clinical settings?",
+        "answer": "<p><span style=\"font-weight: 400;\">At standard research concentrations, published in-vitro and animal-model work generally describes GHK-Cu as well-tolerated. That said, its safety for human therapeutic use has not been established, and it carries no FDA approval. Handling it calls for standard laboratory practices and personal protective equipment, as with any research compound.</span></p>"
       },
       {
-        "question": "What is the typical GHK-Cu concentration used in studies?",
-        "answer": "<p><span style=\"font-weight: 400;\">Published in-vitro work commonly uses GHK-Cu in the range of 10 nM to 10 μM, with 1 μM as a frequently reported working concentration. Animal-model topical studies have used 0.05–0.2% (w/v) formulations. These figures describe research literature, not clinical guidance.</span></p>"
+        "question": "What concentrations of GHK-Cu appear in published studies?",
+        "answer": "<p><span style=\"font-weight: 400;\">In-vitro research typically works within a 10 nM to 10 μM range for GHK-Cu, with 1 μM showing up frequently as the reported working concentration. Topical animal-model studies, by contrast, have used 0.05–0.2% (w/v) formulations. These numbers reflect what's found in the literature and are not intended as clinical guidance.</span></p>"
       },
       {
-        "question": "What solvent is used to dissolve GHK-Cu peptide powder?",
-        "answer": "<p><span style=\"font-weight: 400;\">GHK-Cu is water-soluble. Common research solvents include sterile water, bacteriostatic water (0.9% benzyl alcohol), and buffered saline at neutral pH. Stock solutions of 1–10 mg/mL are typical and are then diluted into culture medium for working concentrations.</span></p>"
+        "question": "Which solvents dissolve GHK-Cu peptide powder in research settings?",
+        "answer": "<p><span style=\"font-weight: 400;\">Being water-soluble, GHK-Cu can be dissolved in sterile water, bacteriostatic water (0.9% benzyl alcohol), or neutral-pH buffered saline — all common choices in research labs. A typical approach is preparing a 1–10 mg/mL stock solution, then diluting it into culture medium to reach the desired working concentration.</span></p>"
       },
       {
-        "question": "How should GHK-Cu be stored for research purposes?",
-        "answer": "<p><span style=\"font-weight: 400;\">Lyophilized GHK-Cu is stored at −20 °C in sealed vials with desiccant, protected from light. Reconstituted solutions are typically kept at 2–8 °C and used within weeks, with long-term storage as frozen aliquots to minimize freeze-thaw degradation.</span></p>"
+        "question": "What is the recommended storage approach for research-grade GHK-Cu?",
+        "answer": "<p><span style=\"font-weight: 400;\">In its lyophilized form, GHK-Cu is kept at −20 °C inside sealed, light-protected vials with desiccant. Once reconstituted, solutions are generally held at 2–8 °C and used within a matter of weeks; for longer-term storage, freezing the material into aliquots helps avoid degradation from repeated freeze-thaw cycles.</span></p>"
       },
       {
-        "question": "What is the shelf life of GHK-Cu peptide in lab settings?",
-        "answer": "<p><span style=\"font-weight: 400;\">Lyophilized GHK-Cu at −20 °C retains stability for 24 months or longer under typical research-storage conditions. Reconstituted aqueous solutions stored at 2–8 °C are generally used within 14–28 days for sensitive applications.</span></p>"
+        "question": "How long does GHK-Cu remain stable under lab storage conditions?",
+        "answer": "<p><span style=\"font-weight: 400;\">Under typical research-storage conditions, lyophilized GHK-Cu kept at −20 °C stays stable for roughly 24 months or more. Once reconstituted and stored at 2–8 °C, the solution is best used within about 14 to 28 days for applications sensitive to degradation.</span></p>"
       },
       {
-        "question": "What analytical methods are used to test GHK-Cu purity?",
-        "answer": "<p><span style=\"font-weight: 400;\">Reversed-phase HPLC quantifies purity (the ≥99% threshold for research grade), and liquid-chromatography mass spectrometry (LC-MS) confirms identity by measuring molecular weight. Both analyses appear on a complete certificate of analysis.</span></p>"
+        "question": "Which analytical techniques verify GHK-Cu purity?",
+        "answer": "<p><span style=\"font-weight: 400;\">Purity is quantified through reversed-phase HPLC, which confirms the ≥99% threshold expected of research-grade material, while liquid-chromatography mass spectrometry (LC-MS) verifies identity by measuring molecular weight. A complete certificate of analysis will include results from both methods.</span></p>"
       },
       {
-        "question": "What impurities should be checked in GHK-Cu peptide?",
-        "answer": "<p><span style=\"font-weight: 400;\">Common impurities to check include truncated peptide sequences (Gly-His or His-Lys fragments), residual coupling reagents and protecting groups, counterion residues, free (uncomplexed) GHK, and excess copper salts. A complete COA quantifies these as part of the impurity profile.</span></p>"
+        "question": "What impurity checks matter most for GHK-Cu peptide?",
+        "answer": "<p><span style=\"font-weight: 400;\">Key impurities to screen for include truncated sequences such as Gly-His or His-Lys fragments, leftover coupling reagents and protecting groups, counterion residues, uncomplexed free GHK, and excess copper salts. A thorough COA will quantify each of these within its impurity profile.</span></p>"
       },
       {
-        "question": "What is the difference between lab-grade GHK-Cu and cosmetic-grade copper peptide?",
-        "answer": "<p><span style=\"font-weight: 400;\">Lab-grade GHK-Cu is supplied as lyophilized powder with verified ≥99% HPLC purity, LC-MS identity confirmation, and a full COA — designated for research use only. Cosmetic-grade copper tripeptide-1 is a formulated topical product subject to cosmetic regulation, with no comparable analytical disclosure.</span></p>"
+        "question": "How does lab-grade GHK-Cu differ from cosmetic-grade copper peptide?",
+        "answer": "<p><span style=\"font-weight: 400;\">Lab-grade GHK-Cu comes as a lyophilized powder backed by verified ≥99% HPLC purity, LC-MS identity confirmation, and a full COA, and it is designated strictly for research use. Cosmetic-grade copper tripeptide-1, by contrast, is a finished topical formulation governed by cosmetic regulations, without the same level of analytical disclosure.</span></p>"
       },
       {
-        "question": "Where can I buy GHK-Cu peptide for research in the US?",
-        "answer": "<p><span style=\"font-weight: 400;\">Research-grade GHK-Cu is available from suppliers that publish complete certificates of analysis and operate under research-use-only labeling. Verification of HPLC and LC-MS documentation, batch-level transparency, and RUO designation are standard procurement criteria.</span></p>"
+        "question": "Where can research-grade GHK-Cu be purchased within the US?",
+        "answer": "<p><span style=\"font-weight: 400;\">Suppliers who publish full certificates of analysis and operate under research-use-only labeling are the standard source for research-grade GHK-Cu in the US. When evaluating a supplier, buyers typically confirm HPLC and LC-MS documentation, batch-level transparency, and clear RUO designation.</span></p>"
       },
       {
-        "question": "Which suppliers sell 99% purity GHK-Cu for research?",
-        "answer": "<p><span style=\"font-weight: 400;\">Research-grade suppliers providing 99% purity GHK-Cu typically share batch-level HPLC chromatograms, mass spectrometry traces, and COAs on request. Procurement teams generally evaluate suppliers on documentation depth, RUO compliance, and analytical transparency.</span></p>"
+        "question": "How can I find suppliers offering 99% purity GHK-Cu?",
+        "answer": "<p><span style=\"font-weight: 400;\">Suppliers offering 99% purity, research-grade GHK-Cu will generally provide batch-level HPLC chromatograms, mass spectrometry traces, and a COA upon request. Buyers typically judge these suppliers by how thorough their documentation is, how well they comply with RUO requirements, and how transparent their analytical reporting is.</span></p>"
       },
       {
-        "question": "How do I choose a reputable GHK-Cu peptide supplier?",
-        "answer": "<p><span style=\"font-weight: 400;\">Look for ≥99% HPLC purity standards, full LC-MS identity confirmation, transparent certificate-of-analysis documentation, clear RUO labeling, and responsive technical support. Avoid suppliers that decline to share analytical documentation or that lack batch-level traceability.</span></p>"
+        "question": "What should I look for in a trustworthy GHK-Cu supplier?",
+        "answer": "<p><span style=\"font-weight: 400;\">A reputable supplier maintains ≥99% HPLC purity standards, offers full LC-MS identity confirmation, discloses transparent certificate-of-analysis documentation, labels product clearly as RUO, and provides responsive technical support. Steer clear of any supplier unwilling to share analytical documentation or unable to trace product back to a specific batch.</span></p>"
       },
       {
-        "question": "What is the price range for GHK-Cu peptide for research?",
-        "answer": "<p><span style=\"font-weight: 400;\">Research-grade GHK-Cu pricing varies by vial size, purity certification depth, and supplier overhead. Procurement teams should evaluate cost per milligram against the completeness of analytical documentation rather than headline price alone.</span></p>"
+        "question": "How much does research-grade GHK-Cu typically cost?",
+        "answer": "<p><span style=\"font-weight: 400;\">Pricing for research-grade GHK-Cu fluctuates based on vial size, how thorough the purity certification is, and each supplier's operating costs. Rather than comparing headline prices alone, procurement teams are better served weighing cost per milligram against the depth of analytical documentation provided.</span></p>"
       },
       {
-        "question": "What documentation should a GHK-Cu supplier provide?",
-        "answer": "<p><span style=\"font-weight: 400;\">A reputable supplier provides a complete COA with HPLC chromatogram, LC-MS identity data, batch and lot number, manufacture date, purity percentage, impurity profile, storage recommendations, and reconstitution guidance.</span></p>"
+        "question": "What paperwork should accompany a GHK-Cu order from a supplier?",
+        "answer": "<p><span style=\"font-weight: 400;\">A trustworthy supplier furnishes a complete COA that includes an HPLC chromatogram, LC-MS identity data, batch and lot number, manufacture date, purity percentage, impurity profile, storage recommendations, and guidance on reconstitution.</span></p>"
       },
       {
-        "question": "Can GHK-Cu be used in cell culture studies?",
-        "answer": "<p><span style=\"font-weight: 400;\">Yes — cell culture is one of the most common GHK-Cu research contexts. Investigators commonly use 10 nM to 10 μM concentrations in fibroblast, keratinocyte, and dermal-papilla cultures. Stock solutions are typically prepared in sterile water and diluted into culture medium.</span></p>"
+        "question": "Is GHK-Cu suitable for use in cell culture research?",
+        "answer": "<p><span style=\"font-weight: 400;\">Yes — cell culture ranks among the most frequent contexts for GHK-Cu research. Fibroblast, keratinocyte, and dermal-papilla cultures are commonly dosed at 10 nM to 10 μM, with stock solutions usually prepared in sterile water before being diluted into culture medium.</span></p>"
       },
       {
-        "question": "What are the limitations of GHK-Cu peptide research?",
-        "answer": "<p><span style=\"font-weight: 400;\">Limitations include limited large-scale human clinical evidence, challenges in extrapolating in-vitro concentrations to in-vivo contexts, stability sensitivities (light, heat, alkaline pH), and variability in supplier purity. Most current evidence is pre-clinical.</span></p>"
+        "question": "What are the current limitations of GHK-Cu peptide research?",
+        "answer": "<p><span style=\"font-weight: 400;\">Several limitations shape the current state of GHK-Cu research: large-scale human clinical evidence remains scarce, translating in-vitro concentrations to in-vivo contexts is difficult, the compound is sensitive to light, heat, and alkaline pH, and purity can vary between suppliers. Most of what's known today comes from pre-clinical work.</span></p>"
       },
       {
-        "question": "How does GHK-Cu compare to other signal peptides?",
-        "answer": "<p><span style=\"font-weight: 400;\">GHK-Cu differs from other signal peptides (Matrixyl, acetyl hexapeptide-8, palmitoyl tripeptides) in its copper-coordinated mechanism and broad gene-expression effects. Comparative research on combinations is an active investigative area.</span></p>"
+        "question": "How does GHK-Cu stack up against other signal peptides?",
+        "answer": "<p><span style=\"font-weight: 400;\">What sets GHK-Cu apart from other signal peptides — Matrixyl, acetyl hexapeptide-8, and palmitoyl tripeptides among them — is its copper-coordinated mechanism and the breadth of its gene-expression effects. Researchers continue to actively investigate how it performs in combination with these other compounds.</span></p>"
       },
       {
-        "question": "Why is GHK-Cu sold as research-only peptide?",
-        "answer": "<p><span style=\"font-weight: 400;\">GHK-Cu is sold as research-use-only because it has not been evaluated by the FDA for human therapeutic use. Research-grade material is intended for in-vitro studies, assay development, and pre-clinical animal-model work conducted in qualified laboratory settings.</span></p>"
+        "question": "Why does GHK-Cu carry a research-use-only designation?",
+        "answer": "<p><span style=\"font-weight: 400;\">The FDA has not evaluated GHK-Cu for human therapeutic use, which is why it's sold under a research-use-only designation. Material at this grade is meant for in-vitro studies, assay development, and pre-clinical animal-model work carried out in qualified laboratory settings.</span></p>"
       },
       {
-        "question": "How does GHK-Cu compare to copper tripeptide-1?",
-        "answer": "<p><span style=\"font-weight: 400;\">GHK-Cu and copper tripeptide-1 refer to the same Gly-His-Lys-Cu(II) molecule. The distinction is regulatory and contextual: \"GHK-Cu\" is used in scientific literature and research supply, while \"copper tripeptide-1\" is the INCI cosmetic-ingredient name.</span></p>"
+        "question": "Is GHK-Cu the same compound as copper tripeptide-1?",
+        "answer": "<p><span style=\"font-weight: 400;\">They are — GHK-Cu and copper tripeptide-1 both describe the identical Gly-His-Lys-Cu(II) molecule. What differs is naming context: \"GHK-Cu\" is the term used in scientific literature and research supply, whereas \"copper tripeptide-1\" is its INCI designation within the cosmetics industry.</span></p>"
       },
       {
-        "question": "Can GHK-Cu be combined with other peptides in research?",
-        "answer": "<p><span style=\"font-weight: 400;\">Combination research with other signal peptides (e.g., Matrixyl, palmitoyl tripeptides) is an active area in dermatological and regenerative-research literature. Whether combinations produce additive or synergistic effects remains an open question requiring further mechanistic study.</span></p>"
+        "question": "Is GHK-Cu studied alongside other peptides in combination research?",
+        "answer": "<p><span style=\"font-weight: 400;\">It is — pairing GHK-Cu with other signal peptides, such as Matrixyl or palmitoyl tripeptides, is a subject of ongoing interest within dermatological and regenerative-research literature. Whether such pairings produce additive or synergistic effects is still unresolved and awaits further mechanistic study.</span></p>"
       },
       {
-        "question": "What is the current state of GHK-Cu clinical trials?",
-        "answer": "<p><span style=\"font-weight: 400;\">Large-scale human clinical trials on GHK-Cu remain limited. Most published evidence sits in in-vitro studies, animal models, and small cosmetic-research panels. The compound has not progressed through standard pharmaceutical-development trials for any therapeutic indication.</span></p>"
+        "question": "Where does GHK-Cu clinical trial research currently stand?",
+        "answer": "<p><span style=\"font-weight: 400;\">Large-scale human clinical trials involving GHK-Cu are still relatively scarce. The bulk of published evidence instead comes from in-vitro studies, animal models, and smaller cosmetic-research panels, and the compound has yet to move through standard pharmaceutical-development trials for any therapeutic indication.</span></p>"
       },
       {
-        "question": "What analytical tests should be run on GHK-Cu before experiments?",
-        "answer": "<p><span style=\"font-weight: 400;\">Standard pre-experiment verification includes reviewing the supplier COA for HPLC purity (≥99%), LC-MS identity confirmation, and impurity profile. Some laboratories conduct in-house identity verification on receipt for sensitive applications.</span></p>"
+        "question": "What testing should precede use of GHK-Cu in an experiment?",
+        "answer": "<p><span style=\"font-weight: 400;\">Before experiments begin, standard practice is to review the supplier's COA for HPLC purity of ≥99%, LC-MS identity confirmation, and a documented impurity profile. For particularly sensitive applications, some laboratories additionally run their own identity verification once the material arrives.</span></p>"
       },
       {
-        "question": "Is GHK-Cu peptide for research available in the USA?",
-        "answer": "<p><span style=\"font-weight: 400;\">Research-grade GHK-Cu is supplied in the United States by RUO-compliant suppliers operating under research-reagent designation. Procurement is straightforward for academic and private research laboratories with appropriate institutional procurement procedures.</span></p>"
+        "question": "Can researchers in the USA access GHK-Cu peptide?",
+        "answer": "<p><span style=\"font-weight: 400;\">Yes — RUO-compliant suppliers operating under research-reagent designation supply research-grade GHK-Cu throughout the United States. Academic and private research laboratories with proper institutional procurement procedures in place typically find the process straightforward.</span></p>"
       }
     ]
   }

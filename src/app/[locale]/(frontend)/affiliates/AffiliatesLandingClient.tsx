@@ -218,7 +218,7 @@ export function AffiliatesLandingClient({ userStatus }: Props) {
                   PARTNER WITH US
                 </span>
                 <p className="text-white text-xs sm:text-base md:text-lg font-medium tracking-wide mb-4 leading-relaxed">
-                  Earn industry-leading commissions by promoting the highest purity research peptides on the market. We provide lifetime tracking, bi-weekly payouts, and dedicated affiliate support.
+                  Earn industry-leading commissions by promoting the highest purity research peptides on the market. We provide 7-day cookie tracking, monthly payouts, and dedicated affiliate support.
                 </p>
                 <div onClick={scrollToApply} className="inline-block cursor-pointer">
                   <FluidButton
@@ -257,7 +257,7 @@ export function AffiliatesLandingClient({ userStatus }: Props) {
             <div className="bg-white rounded-[1.5rem] p-6 sm:p-8 flex items-end justify-between hover:shadow-lg transition-all duration-300 cursor-default border border-black/5 shadow-[0_4px_20px_rgb(0,0,0,0.03)] h-full relative">
               <div className="flex flex-col">
                 <span className="text-4xl sm:text-5xl font-black text-ink font-heading tracking-tighter">
-                  LIFE
+                  7-DAY
                 </span>
                 <span className="text-[10px] sm:text-xs font-bold text-ink/50 uppercase tracking-widest mt-1">
                   COOKIE DURATION
@@ -273,7 +273,7 @@ export function AffiliatesLandingClient({ userStatus }: Props) {
             <div className="bg-ink rounded-[1.5rem] p-6 sm:p-8 flex items-end relative hover:bg-black transition-all duration-300 cursor-default shadow-[0_8px_30px_rgb(0,0,0,0.12)] h-full">
               <div className="flex flex-col">
                 <span className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tighter">
-                  2WKS
+                  MONTHLY
                 </span>
                 <span className="text-[10px] sm:text-xs font-bold text-white/50 uppercase tracking-widest mt-1">
                   PAYOUT SCHEDULE

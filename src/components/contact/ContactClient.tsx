@@ -18,7 +18,7 @@ export function ContactClient() {
       answer: (
         <>
           {t.rich('faqs.contactInfo.answer', {
-            phone: (chunks) => <a href="tel:+18433307365" className="text-primary font-bold underline underline-offset-4 hover:text-ink transition-colors !cursor-pointer pointer-events-auto" data-hide-cursor="true">{chunks}</a>,
+            phone: (chunks) => <a href="tel:+10000000000" className="text-primary font-bold underline underline-offset-4 hover:text-ink transition-colors !cursor-pointer pointer-events-auto" data-hide-cursor="true">{chunks}</a>,
             email: (chunks) => <a href="mailto:support@helixbio.com" className="text-primary font-bold underline underline-offset-4 hover:text-ink transition-colors !cursor-pointer pointer-events-auto" data-hide-cursor="true">{chunks}</a>,
           })}
         </>
@@ -49,43 +49,43 @@ export function ContactClient() {
         {/* Contact Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 mb-24 relative">
           
-          <motion.a 
-            href="mailto:Support@helixbio.com"
+          <motion.a
+            href="mailto:support@helixbio.com"
             className="block w-full h-full cursor-pointer hover:-translate-y-2 transition-transform duration-500 ease-out"
           >
             <PinterestGlassCard
               title={t('supportEmailTitle')}
               description={t('supportEmailDescription')}
               icon={<Mail className="w-5 h-5" />}
-              tag="Support@99"
+              tag="support@helixbio.com"
               microcopy={t('supportEmailMicrocopy')}
               scrollFanning={true}
             />
           </motion.a>
 
-          <motion.a 
-            href="mailto:Orders@helixbio.com"
+          <motion.a
+            href="mailto:orders@helixbio.com"
             className="block w-full h-full cursor-pointer hover:-translate-y-2 transition-transform duration-500 ease-out"
           >
             <PinterestGlassCard
               title={t('ordersEmailTitle')}
               description={t('ordersEmailDescription')}
               icon={<ShoppingCart className="w-5 h-5" />}
-              tag="Orders@99"
+              tag="orders@helixbio.com"
               microcopy={t('ordersEmailMicrocopy')}
               scrollFanning={true}
             />
           </motion.a>
 
           <motion.a 
-            href="tel:+18433307365"
+            href="tel:+10000000000"
             className="block w-full h-full cursor-pointer hover:-translate-y-2 transition-transform duration-500 ease-out"
           >
             <PinterestGlassCard
               title={t('supportPhoneTitle')}
               description={t('supportPhoneDescription')}
               icon={<Phone className="w-5 h-5" />}
-              tag="+1 (843) 330-7365"
+              tag="+1 (000) 000-0000"
               microcopy={t('supportPhoneMicrocopy')}
               scrollFanning={true}
             />

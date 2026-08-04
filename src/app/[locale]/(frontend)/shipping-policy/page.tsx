@@ -253,7 +253,7 @@ export default function ShippingPolicyPage() {
                     </div>
                     <div>
                       <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 block mb-1">{t('contactLabel')}</span>
-                      <a href="tel:+18433307365" className="text-base font-medium text-black hover:text-[#1e5661] transition-colors">+1 (843) 330-7365</a>
+                      <a href="tel:+10000000000" className="text-base font-medium text-black hover:text-[#1e5661] transition-colors">+1 (000) 000-0000</a>
                     </div>
                   </div>
                   

@@ -8,13 +8,13 @@ import { motion } from 'framer-motion'
 const STATS = [
   {
     value: "10,000+",
-    label: "Orders Fulfilled",
-    description: "Successfully delivered to research institutions and individual researchers globally."
+    label: "Vials Fulfilled",
+    description: "Vials fulfilled to research labs and institutions across the USA."
   },
   {
     value: "99%+",
     label: "Guaranteed Purity",
-    description: "Every batch is verified by third-party reversed-phase HPLC testing."
+    description: "Guaranteed purity, confirmed by third-party testing on every batch."
   },
   {
     value: "10+",
@@ -34,24 +34,33 @@ export function DifferenceSection() {
   return (
     <section className="bg-[#FAFAFA] py-16 md:py-24 relative font-sans overflow-hidden">
       <div className="container mx-auto px-4 md:px-10 max-w-[120rem]">
-        
+
+        <div className="mb-10 md:mb-16 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-ink leading-[1.05] tracking-tighter uppercase mb-4">
+            {t('titleLine1')} {t('titleLine2')}
+          </h2>
+          <p className="text-slate-500 text-sm sm:text-base md:text-lg leading-relaxed font-medium">
+            {t('description')}
+          </p>
+        </div>
+
         <div className="flex flex-col lg:flex-row gap-4 md:gap-6">
-          
+
           {/* Left Column: Image with Badge */}
           <div className="w-full lg:w-[45%] relative rounded-[24px] md:rounded-[32px] overflow-hidden min-h-[400px] lg:min-h-[600px] shadow-sm group">
-            
+
             {/* The Floating Badge */}
             <div className="absolute top-6 left-6 md:top-8 md:left-8 z-20 bg-white/95 backdrop-blur-md px-6 py-3 rounded-2xl shadow-sm border border-white/60">
               <span className="text-ink font-bold text-sm tracking-tight">
-                Why choose HelixBio?
+                Why choose Helix Bio?
               </span>
             </div>
 
             {/* The Image */}
-            <Image 
-              src="/HelixBio Images/helixbio-as-routine.webp" 
-              alt="HelixBio Facility" 
-              fill 
+            <Image
+              src="/HelixBio Images/helixbio-as-routine.webp"
+              alt={t('vialAlt')}
+              fill
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             {/* Soft gradient overlay just in case */}

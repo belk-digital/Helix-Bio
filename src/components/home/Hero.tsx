@@ -25,10 +25,10 @@ export function Hero() {
       {/* Hero Image Container */}
       <div className="relative w-full flex-1 min-h-[400px] md:min-h-[450px] rounded-[32px] overflow-visible bg-zinc-200">
         <AnimatePresence>
-          <motion.img 
+          <motion.img
             key={currentImageIndex}
             src={images[currentImageIndex]}
-            alt="Premium Research Peptides"
+            alt="Researcher handling a Helix Bio research peptide vial in a laboratory setting."
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -45,7 +45,7 @@ export function Hero() {
             Discover Premium<br/>Research Peptides
           </h1>
           <p className="text-white/80 text-sm md:text-base font-medium max-w-sm text-left">
-            USA-made, 99%+ purity, third-party tested peptides for advanced scientific research.
+            Research-grade peptides, synthesized for precision and verified for purity. Every batch ships with third-party HPLC and mass spectrometry testing, so you know exactly what you're studying before it reaches your bench.
           </p>
         </div>
 
@@ -108,14 +108,14 @@ export function Hero() {
         {/* Card 1 */}
         <div className="bg-white rounded-3xl p-6 flex flex-col justify-center gap-4">
           <div className="flex items-center gap-2">
-            <h2 className="text-4xl font-bold text-black tracking-tight">10 k+</h2>
+            <h2 className="text-4xl font-bold text-black tracking-tight">10K+</h2>
             <div className="flex -space-x-3 ml-auto">
               <img src="https://i.pravatar.cc/100?img=33" className="w-10 h-10 rounded-full border-2 border-white object-cover" alt="avatar" />
               <img src="https://i.pravatar.cc/100?img=47" className="w-10 h-10 rounded-full border-2 border-white object-cover" alt="avatar" />
               <img src="https://i.pravatar.cc/100?img=12" className="w-10 h-10 rounded-full border-2 border-white object-cover" alt="avatar" />
             </div>
           </div>
-          <p className="text-gray-500 font-medium text-sm">Satisfied Researchers</p>
+          <p className="text-gray-500 font-medium text-sm">Research orders fulfilled in the USA</p>
         </div>
 
         {/* Card 2 */}
@@ -124,8 +124,8 @@ export function Hero() {
           <div className="absolute inset-0 bg-black/40" />
           <div className="relative z-10 flex justify-between items-end">
             <div>
-              <h2 className="text-3xl font-bold text-white tracking-tight mb-1">99.9%</h2>
-              <p className="text-white/80 font-medium text-sm">Verified Purity</p>
+              <h2 className="text-3xl font-bold text-white tracking-tight mb-1">COA</h2>
+              <p className="text-white/80 font-medium text-sm">Certificate of analysis included with every batch</p>
             </div>
             <button className="w-12 h-8 bg-white/20 backdrop-blur-md border border-white/30 rounded-[14px] flex items-center justify-center">
               <div className="w-4 h-0.5 bg-white rounded-full" />
@@ -137,7 +137,7 @@ export function Hero() {
         <div className="bg-[#121212] rounded-3xl p-6 flex items-center gap-4 relative overflow-hidden">
           <div className="relative z-10">
             <h2 className="text-4xl font-bold text-white tracking-tight mb-1">3rd Party</h2>
-            <p className="text-white/70 font-medium text-sm">Independent Lab Tested</p>
+            <p className="text-white/70 font-medium text-sm">Independently tested for purity and identity</p>
           </div>
           <div className="absolute -right-4 -bottom-4 text-white/5 font-black text-6xl md:text-7xl select-none pointer-events-none">
             Tested

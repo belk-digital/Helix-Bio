@@ -6,28 +6,28 @@ import { FlaskConical, Microscope, ShieldCheck, Package } from 'lucide-react'
 
 const PROCESS_STEPS = [
   {
+    id: 'sourcing',
+    icon: Package,
+    title: 'Sourcing',
+    description: 'Production starts with raw materials from vetted sources, screened against our specifications before they\'re accepted into the production line.'
+  },
+  {
     id: 'synthesis',
     icon: FlaskConical,
-    title: 'Synthesis & Purification',
-    description: 'We source only the highest grade raw materials, utilizing advanced solid-phase peptide synthesis (SPPS) and rigorous HPLC purification to achieve maximum yield and integrity.'
+    title: 'Synthesis',
+    description: 'Compounds are assembled amino acid by amino acid using solid-phase peptide synthesis under controlled reaction conditions.'
   },
   {
-    id: 'testing',
-    icon: Microscope,
-    title: 'Independent Analytical Testing',
-    description: 'Every batch undergoes exhaustive third-party laboratory analysis including Mass Spectrometry (MS) and High-Performance Liquid Chromatography (HPLC) to verify molecular weight and purity.'
-  },
-  {
-    id: 'certification',
+    id: 'purification',
     icon: ShieldCheck,
-    title: 'Quality Certification',
-    description: 'We require a minimum of 99% purity before any batch is approved. A comprehensive Certificate of Analysis (COA) is generated and made publicly accessible for complete operational transparency.'
+    title: 'Purification',
+    description: 'We source the highest-grade raw materials and apply advanced purification techniques to isolate each target peptide from synthesis byproducts before a batch ever reaches analytical testing.'
   },
   {
-    id: 'fulfillment',
-    icon: Package,
-    title: 'Controlled Fulfillment',
-    description: 'Approved batches are stored in climate-controlled environments and securely packaged to prevent degradation during transit, ensuring the compound arrives at your facility exactly as tested.'
+    id: 'verification',
+    icon: Microscope,
+    title: 'Verification',
+    description: 'Purified batches are tested using HPLC and mass spectrometry to confirm identity and purity before a certificate of analysis is issued for that lot.'
   }
 ];
 
@@ -139,7 +139,7 @@ export function ResearchProcessTimeline() {
           <div className="flex items-center justify-center gap-2 md:gap-4 mb-2 md:mb-4">
             <div className="h-[1px] w-6 md:w-12 bg-primary/40" />
             <h2 className="font-mono text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.3em] text-primary font-bold">
-              THE HELIXBIO STANDARD
+              HOW WE WORK
             </h2>
             <div className="h-[1px] w-6 md:w-12 bg-primary/40" />
           </div>

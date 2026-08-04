@@ -12,9 +12,9 @@ const FAQ_KEYS = [
   'lyophilizedStorage',
   'assayDevelopment',
   'commonImpurities',
-  'batchConsistency',
   'receptorBindingStudies',
   'vendorQuestions',
+  'supplierLegitimacy',
 ];
 
 export function FaqSection() {

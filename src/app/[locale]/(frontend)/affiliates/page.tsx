@@ -8,6 +8,10 @@ import { getOgImageUrl } from '@/lib/utils'
 
 const slug = 'affiliates'
 
+const FAQ_KEYS = [
+  'faq1', 'faq2', 'faq3', 'faq4', 'faq5', 'faq6', 'faq7', 'faq8', 'faq9', 'faq10', 'faq11', 'faq12', 'faq13',
+] as const
+
 export async function generateMetadata({
   params,
 }: {
@@ -58,6 +62,15 @@ export default async function AffiliatesLandingPage({
   const path = locale === 'en' ? `/${slug}` : `/${locale}/${slug}`
   const url = `${baseUrl}${path}`
 
+  const faqEntities = FAQ_KEYS.map((key) => ({
+    '@type': 'Question',
+    name: t(`${key}Question`),
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: t(`${key}Answer`),
+    },
+  }))
+
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -74,8 +87,13 @@ export default async function AffiliatesLandingPage({
         '@id': `${url}#breadcrumb`,
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
-          { '@type': 'ListItem', position: 2, name: 'Affiliate Program' },
+          { '@type': 'ListItem', position: 2, name: 'Affiliates', item: url },
         ],
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${url}#faq`,
+        mainEntity: faqEntities,
       },
     ],
   }

@@ -55,6 +55,8 @@ export default async function MedicalDisclaimerLayout({
   const path = locale === 'en' ? `/${slug}` : `/${locale}/${slug}`
   const url = `${baseUrl}${path}`
 
+  const faqKeys = ['researchUseOnlyMeaning', 'intendedForHumanConsumption', 'isMedicalAdvice', 'whoCanPurchase', 'fdaRegulated', 'selfAdministration', 'misuseResponsibility', 'contactAboutDisclaimer']
+
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -73,6 +75,18 @@ export default async function MedicalDisclaimerLayout({
           { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
           { '@type': 'ListItem', position: 2, name: breadcrumbName },
         ],
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${url}#faq`,
+        mainEntity: faqKeys.map((key) => ({
+          '@type': 'Question',
+          name: t(`faqs.${key}.question`),
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: t(`faqs.${key}.answer`),
+          },
+        })),
       },
     ],
   }

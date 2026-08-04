@@ -180,7 +180,7 @@ export default function RefundPolicyPage() {
                   </h2>
                   <p className="text-[15px] leading-relaxed">{t('section4Intro')}</p>
                   <ul className="list-disc pl-5 space-y-2 mt-4 text-[15px] marker:text-[#1e5661]">
-                    <li>{t.rich('section4Item1', { email: (chunks) => <a href="mailto:support@helixbio.com" className="hover:text-[#1e5661] transition-colors break-all">{chunks}</a>, phone: (chunks) => <a href="tel:+18433307365" className="hover:text-[#1e5661] transition-colors break-all">{chunks}</a> })}</li>
+                    <li>{t.rich('section4Item1', { email: (chunks) => <a href="mailto:support@helixbio.com" className="hover:text-[#1e5661] transition-colors break-all">{chunks}</a>, phone: (chunks) => <a href="tel:+10000000000" className="hover:text-[#1e5661] transition-colors break-all">{chunks}</a> })}</li>
                     <li>{t('section4Item2')}</li>
                     <li>{t('section4Item3')}</li>
                     <li>{t('section4Item4')}</li>
@@ -247,7 +247,7 @@ export default function RefundPolicyPage() {
                     </div>
                     <div>
                       <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 block mb-1">{t('contactLabel')}</span>
-                      <a href="tel:+18433307365" className="text-base font-medium text-black hover:text-[#1e5661] transition-colors">+1 (843) 330-7365</a>
+                      <a href="tel:+10000000000" className="text-base font-medium text-black hover:text-[#1e5661] transition-colors">+1 (000) 000-0000</a>
                     </div>
                   </div>
                   

@@ -3,11 +3,35 @@ import { ShopClient } from '@/components/shop/ShopClient'
 import { Metadata } from 'next'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
+import { getTranslations } from 'next-intl/server'
 import { getShopProducts } from '../(shop)/actions'
 import { getOgImageUrl } from '@/lib/utils'
 
-const title = 'Shop High-Quality Synthetic Research Peptides | HelixBioPeptides'
-const description = 'Shop high-quality synthetic research peptides at HelixBioPeptides. Wide selection of lab-grade peptides crafted for research and analytical studies.'
+const SHOP_FAQ_KEYS = [
+  'availablePeptides',
+  'purityQualityTested',
+  'standardPurityLevels',
+  'interpretCoa',
+  'customSynthesis',
+  'storageInstructions',
+  'reconstitution',
+  'shelfLife',
+  'shippingDamage',
+  'aliquotAfterReconstitution',
+  'orderDocumentation',
+  'orderQuantities',
+  'coaBeforeOrdering',
+  'findSpecificPeptides',
+  'productPageInfo',
+  'manufacturedInUsa',
+  'researchUseOnlyMeaning',
+  'specialHandling',
+  'nonResearchUse',
+  'fdaApproval',
+]
+
+const title = 'Research Peptides Shop | Lab-Verified Purity | Helix Bio'
+const description = 'Shop research peptides online with verified COA on every batch, 99% purity, and fast USA shipping. Browse the Helix Bio catalog and order today.'
 
 export async function generateMetadata({
   params,
@@ -88,6 +112,12 @@ export default async function ShopPage() {
 
   const siteUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
 
+  const t = await getTranslations('shop.shopClient')
+  const shopFaqs = SHOP_FAQ_KEYS.map((key) => ({
+    question: t(`faqs.${key}.question`),
+    answer: t(`faqs.${key}.answer`),
+  }))
+
   return (
     <>
       <ShopClient
@@ -122,6 +152,7 @@ export default async function ShopPage() {
                 itemListElement: [
                   { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
                   { '@type': 'ListItem', position: 2, name: 'Shop', item: `${siteUrl}/shop` },
+                  { '@type': 'ListItem', position: 3, name: 'All Research Peptides', item: `${siteUrl}/shop` },
                 ],
               },
               {
@@ -135,6 +166,19 @@ export default async function ShopPage() {
                 '@id': `${siteUrl}/#organization`,
                 name: 'Helix Bio',
                 url: siteUrl,
+                description: 'USA-based supplier of research-use-only synthetic peptides for laboratory research.',
+              },
+              {
+                '@type': 'FAQPage',
+                '@id': `${siteUrl}/shop#faq`,
+                mainEntity: shopFaqs.map((faq) => ({
+                  '@type': 'Question',
+                  name: faq.question,
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: faq.answer,
+                  },
+                })),
               },
             ],
           }),

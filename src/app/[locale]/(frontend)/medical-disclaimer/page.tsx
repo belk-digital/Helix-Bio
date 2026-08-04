@@ -4,10 +4,17 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { FadeUp } from '@/components/motion/FadeUp'
+import { SharedFaqSection } from '@/components/shared/SharedFaqSection'
+
+const FAQ_KEYS = ['researchUseOnlyMeaning', 'intendedForHumanConsumption', 'isMedicalAdvice', 'whoCanPurchase', 'fdaRegulated', 'selfAdministration', 'misuseResponsibility', 'contactAboutDisclaimer']
 
 export default function MedicalDisclaimerPage() {
   const t = useTranslations('legal.medicalDisclaimer')
   const [activeSection, setActiveSection] = useState('intro')
+  const faqs = FAQ_KEYS.map((key) => ({
+    question: t(`faqs.${key}.question`),
+    answer: t(`faqs.${key}.answer`),
+  }))
 
   const sections = [
     { id: 'intro', label: 'Introduction' },
@@ -15,7 +22,11 @@ export default function MedicalDisclaimerPage() {
     { id: 'section2', label: t('section2Title') },
     { id: 'section3', label: t('section3Title') },
     { id: 'section4', label: t('section4Title') },
+    { id: 'section5', label: t('section5Title') },
+    { id: 'section6', label: t('section6Title') },
+    { id: 'section7', label: t('section7Title') },
     { id: 'contact', label: t('contactTitle') },
+    { id: 'faq', label: t('faqTitle') },
   ]
 
   useEffect(() => {
@@ -170,6 +181,30 @@ export default function MedicalDisclaimerPage() {
                   </ul>
                 </section>
 
+                <section id="section5" className="scroll-mt-32">
+                  <h2 className="text-xl md:text-2xl uppercase mb-6 flex items-center gap-4">
+                    <span className="text-black/20 font-mono text-lg font-bold">05.</span>
+                    {t('section5Title')}
+                  </h2>
+                  <p className="text-[15px] leading-relaxed">{t('section5Text')}</p>
+                </section>
+
+                <section id="section6" className="scroll-mt-32">
+                  <h2 className="text-xl md:text-2xl uppercase mb-6 flex items-center gap-4">
+                    <span className="text-black/20 font-mono text-lg font-bold">06.</span>
+                    {t('section6Title')}
+                  </h2>
+                  <p className="text-[15px] leading-relaxed">{t('section6Text')}</p>
+                </section>
+
+                <section id="section7" className="scroll-mt-32">
+                  <h2 className="text-xl md:text-2xl uppercase mb-6 flex items-center gap-4">
+                    <span className="text-black/20 font-mono text-lg font-bold">07.</span>
+                    {t('section7Title')}
+                  </h2>
+                  <p className="text-[15px] leading-relaxed">{t('section7Text')}</p>
+                </section>
+
                 {/* Contact Section */}
                 <section id="contact" className="scroll-mt-32 mt-12 pt-12 border-t border-black/10">
                   <h2 className="text-xl md:text-2xl uppercase mb-4 font-black font-heading tracking-tighter text-black">
@@ -190,7 +225,7 @@ export default function MedicalDisclaimerPage() {
                     </div>
                     <div>
                       <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 block mb-1">{t('contactLabel')}</span>
-                      <a href="tel:+18433307365" className="text-base font-medium text-black hover:text-[#1e5661] transition-colors">+1 (843) 330-7365</a>
+                      <a href="tel:+10000000000" className="text-base font-medium text-black hover:text-[#1e5661] transition-colors">+1 (000) 000-0000</a>
                     </div>
                   </div>
                   
@@ -204,6 +239,14 @@ export default function MedicalDisclaimerPage() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div id="faq" className="scroll-mt-32">
+        <SharedFaqSection
+          title={t('faqTitle')}
+          description={t('faqDescription')}
+          faqs={faqs}
+        />
       </div>
     </main>
   )

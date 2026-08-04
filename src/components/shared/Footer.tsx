@@ -324,8 +324,8 @@ const FooterContent = () => {
                     <a href="mailto:support@helixbio.com" className="text-black/90 font-medium hover:text-black transition-colors tracking-wide text-base w-fit">
                       support@helixbio.com
                     </a>
-                    <a href="tel:+18433307365" className="text-black/50 text-[14px] hover:text-black/70 transition-colors tracking-wide w-fit">
-                      +1 (843) 330-7365
+                    <a href="tel:+10000000000" className="text-black/50 text-[14px] hover:text-black/70 transition-colors tracking-wide w-fit">
+                      +1 (000) 000-0000
                     </a>
                   </div>
                   <div className="text-black/40 text-[12px] font-medium leading-relaxed tracking-wide mt-2">

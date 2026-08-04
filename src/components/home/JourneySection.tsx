@@ -9,7 +9,7 @@ const STEPS = [
   {
     id: 1,
     title: "Step 1.",
-    heading: "Selection & Synthesis — The foundation of purity",
+    heading: "Sourcing & Synthesis — Where purity starts",
     image: "/HelixBio Images/ChatGPT Image Jul 20, 2026, 05_50_41 AM.webp",
     type: "image" 
   },
@@ -30,7 +30,7 @@ const STEPS = [
   {
     id: 4,
     title: "Step 4.",
-    heading: "Accelerated Global Delivery direct to your lab",
+    heading: "Fast, tracked shipping straight to your lab",
     image: "/HelixBio Images/package-box.webp",
     type: "image"
   }
@@ -78,17 +78,17 @@ export function JourneySection() {
         {/* Text Annotations */}
         <div className="absolute top-[320px] left-[400px] w-[200px] z-10 backdrop-blur-md bg-white/70 border border-black/5 rounded-2xl p-4 shadow-sm">
           <p className="text-center text-slate-700 text-[13px] font-semibold leading-relaxed">
-            Every peptide begins its journey with meticulous raw material selection.
+            Sourcing starts with careful screening of every raw material batch.
           </p>
         </div>
         <div className="absolute top-[560px] left-[730px] w-[220px] z-10 backdrop-blur-md bg-white/70 border border-black/5 rounded-2xl p-4 shadow-sm">
           <p className="text-left text-slate-700 text-[13px] font-semibold leading-relaxed">
-            Rigorous third-party verification secures absolute confidence in your research.
+            Independent lab verification is what makes the resulting data trustworthy.
           </p>
         </div>
         <div className="absolute top-[980px] left-[400px] w-[200px] z-10 backdrop-blur-md bg-white/70 border border-black/5 rounded-2xl p-4 shadow-sm">
           <p className="text-right text-slate-700 text-[13px] font-semibold leading-relaxed">
-            Preserved in perfect condition upon arrival, no matter where you are.
+            Cold-chain handling keeps every vial stable, wherever it's headed.
           </p>
         </div>
 

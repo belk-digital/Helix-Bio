@@ -89,6 +89,18 @@ export default async function AboutPage({
           { '@type': 'ListItem', position: 2, name: locale === 'es' ? 'Sobre Nosotros' : 'About Us' },
         ],
       },
+      {
+        '@type': 'FAQPage',
+        '@id': `${url}#faq`,
+        mainEntity: aboutFaqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
     ],
   }
 

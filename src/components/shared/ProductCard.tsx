@@ -17,7 +17,7 @@ export interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   // Helpers to safely pull data
-  const getImageUrl = (prod: any) => prod.imageUrl || prod.image || prod.images?.[0]?.image?.url || '/99 Images/product-image.webp';
+  const getImageUrl = (prod: any) => prod.imageUrl || prod.image || prod.images?.[0]?.image?.url || '/HelixBio Images/featured-research-2.webp';
   const getCategory = (prod: any) => prod.category || prod.categories?.[0]?.title || 'RESEARCH PEPTIDE';
   const getDescription = (prod: any) => prod.shortDescription || prod.meta?.description || 'Highly purified synthetic peptide prepared for rigorous laboratory research.';
   const getPrice = (prod: any) => prod.isFrom ? `From $${prod.price}` : (prod.priceRange ?? prod.price);

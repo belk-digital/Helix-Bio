@@ -32,7 +32,7 @@ const SHOP_FAQ_KEYS = [
   'shelfLife',
   'shippingDamage',
   'aliquotAfterReconstitution',
-  'bulkDiscounts',
+  'orderDocumentation',
   'orderQuantities',
   'coaBeforeOrdering',
   'findSpecificPeptides',
@@ -204,10 +204,10 @@ function ShopClientInner({ initialProducts, totalPages, categories }: ShopClient
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 md:mb-10">
           <div>
             <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-ink uppercase tracking-tighter leading-[0.9] mb-2 sm:mb-4">
-              SHOP NOW
+              Shop Research Peptides
             </h1>
             <p className="text-ink/50 text-sm md:text-base tracking-wide font-medium">
-              Exceeding Standards In Pure Synthetic Peptides
+              Browse Helix Bio&apos;s full catalog of research-use-only peptides. Every batch is third-party tested for purity, shipped from the USA, and backed by a certificate of analysis you can review before you order.
             </p>
           </div>
         </div>
@@ -216,7 +216,7 @@ function ShopClientInner({ initialProducts, totalPages, categories }: ShopClient
         <div className="relative w-full h-[350px] sm:h-[450px] md:h-[550px] rounded-[2rem] md:rounded-[3rem] overflow-hidden mb-4 sm:mb-6 shadow-2xl group cursor-pointer bg-zinc-900">
           <Image
             src="/HelixBio Images/mutiple-vial-1.webp"
-            alt="Research Facility"
+            alt="Helix Bio research peptide vials with certificate of analysis, USA laboratory supply"
             fill
             className="object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"
           />
@@ -262,7 +262,7 @@ function ShopClientInner({ initialProducts, totalPages, categories }: ShopClient
                 30K+
               </span>
               <span className="text-[10px] sm:text-xs font-bold text-ink/50 uppercase tracking-widest mt-1">
-                BATCHES TESTED
+                VIALS SHIPPED TO U.S. LABS
               </span>
             </div>
             <span className="absolute top-6 right-6 border border-ink/10 text-ink/60 text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-ink/5">
@@ -273,10 +273,10 @@ function ShopClientInner({ initialProducts, totalPages, categories }: ShopClient
           <div className="bg-ink rounded-[1.5rem] p-6 sm:p-8 flex items-end relative hover:bg-black transition-all duration-300 cursor-default shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
             <div className="flex flex-col">
               <span className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tighter">
-                503A/B
+                100%
               </span>
               <span className="text-[10px] sm:text-xs font-bold text-white/50 uppercase tracking-widest mt-1">
-                COMPLIANT FACILITIES
+                BATCHES COA-VERIFIED
               </span>
             </div>
           </div>
