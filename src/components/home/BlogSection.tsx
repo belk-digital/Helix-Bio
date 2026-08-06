@@ -11,7 +11,7 @@ import { BLOG_POSTS as BLOG_POSTS_ES } from '@/data/blog-posts.es'
 export function BlogSection() {
   const t = useTranslations('home.blogSection')
   const locale = useLocale()
-  const BLOG_POSTS = locale === 'es' ? BLOG_POSTS_ES : BLOG_POSTS_EN
+  const BLOG_POSTS = false ? BLOG_POSTS_ES : BLOG_POSTS_EN
 
   const featuredPost = BLOG_POSTS[0]
   const recentPosts = BLOG_POSTS.slice(1, 4)
@@ -56,7 +56,7 @@ export function BlogSection() {
                 <div className="flex items-center justify-between mt-auto pt-6 border-t border-gray-100">
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-full bg-gray-200 overflow-hidden relative">
-                      <Image src="/HelixBio Images/hero-1.png" alt="Author" fill className="object-cover" />
+                      <Image src="/HelixBio Images/hero-1.png" alt="HelixBio Research team author avatar" fill className="object-cover" />
                     </div>
                     <span className="text-sm font-semibold text-gray-700">HelixBio Research</span>
                   </div>

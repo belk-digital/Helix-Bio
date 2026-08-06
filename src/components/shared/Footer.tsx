@@ -7,7 +7,7 @@ import { ArrowRight, Mail } from 'lucide-react'
 import { useLenis } from 'lenis/react'
 import { useTranslations } from 'next-intl'
 import { FluidButton } from '@/components/ui/fluid-button'
-import { LanguageSwitcher } from './LanguageSwitcher'
+
 
 const FooterContent = () => {
   const t = useTranslations('footer')
@@ -185,7 +185,7 @@ const FooterContent = () => {
                          backfaceVisibility: 'hidden'
                        }}
                      >
-                       <img src={src} alt="Gallery showcase" className="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-110" />
+                       <img src={src} alt="Helix Bio research laboratory and peptide vial photo gallery" className="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-110" />
                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 pointer-events-none" />
                      </div>
                    );
@@ -356,7 +356,7 @@ const FooterContent = () => {
                {t('disclaimerText')}
              </p>
              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 shrink-0">
-                <LanguageSwitcher variant="light" />
+
                 <span className="text-black/40 text-[11px] md:text-xs font-medium tracking-wide">{t('designedBy')} <a href="https://belkdigital.com" target="_blank" className="text-black/70 hover:text-black transition-colors font-semibold">Belk Digital</a></span>
              </div>
           </div>

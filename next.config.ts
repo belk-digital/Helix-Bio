@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
   // Next 16 no longer runs ESLint as part of `next build` (the old `eslint.ignoreDuringBuilds`
   // option was removed from NextConfig) — lint separately with `pnpm lint`.
   images: {
+    // Kept off deliberately: Vercel's Hobby plan caps Image Optimization at 1,000 unique
+    // source images/month, then requests start failing. This catalog has 100+ products with
+    // multiple images each, so re-enabling this on the free plan would break images sitewide
+    // once traffic/catalog size grows past the quota. Revisit if/when on a paid Vercel plan
+    // (or self-hosting where sharp runs uncapped — see Dockerfile, which already supports it).
     unoptimized: true,
     localPatterns: [
       {

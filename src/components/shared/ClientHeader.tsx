@@ -14,7 +14,7 @@ import { SearchOverlay } from './SearchOverlay'
 import { BLOG_POSTS } from '@/data/blog-posts'
 import { toast } from 'sonner'
 import { useTranslations } from 'next-intl'
-import { LanguageSwitcher } from './LanguageSwitcher'
+
 import { getCategoryDisplayName } from '@/lib/categoryDisplay'
 
 const CartDrawer = dynamic(() => import('@/components/cart/CartDrawer').then(mod => mod.CartDrawer), { ssr: false })
@@ -159,7 +159,7 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
 
   useEffect(() => {
     if (initialCategories.length === 0) {
-      import('@/app/[locale]/(frontend)/actions/megaMenu').then(module => {
+      import('@/app/(frontend)/actions/megaMenu').then(module => {
         module.getMegaMenuData().then(data => {
           setCategoriesData(data)
           setIsLoadingMenu(false)
@@ -178,7 +178,7 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
       if (initialCartItems.length > 0) {
         setCartItems(initialCartItems)
       } else if (localItems.length > 0) {
-        import('@/app/[locale]/(frontend)/actions/cart').then(m => m.syncCartToPayload(localItems))
+        import('@/app/(frontend)/actions/cart').then(m => m.syncCartToPayload(localItems))
       }
       cartHydrated.current = true
     }
@@ -191,7 +191,7 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
       if (initialWishlistItems.length > 0) {
         setWishlistItems(initialWishlistItems)
       } else if (localItems.length > 0) {
-        import('@/app/[locale]/(frontend)/actions/wishlist').then(m => {
+        import('@/app/(frontend)/actions/wishlist').then(m => {
           localItems.forEach(item => m.toggleWishlistInPayload(item.id, true))
         })
       }
@@ -368,7 +368,7 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
           </AnimatePresence>
         </button>
         
-        <LanguageSwitcher className={`${textColor} hidden sm:flex px-2 hover:bg-black/5 rounded-full transition-colors`} />
+
 
         <div className="flex items-center justify-center ml-1">
           {mounted ? (

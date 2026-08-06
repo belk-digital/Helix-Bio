@@ -58,7 +58,7 @@ export function AboutTeaser() {
         >
           <Image 
             src="/Featured%20Images/vial-no-bg.webp"
-            alt="Foreground Blur Vial"
+            alt="Blurred research peptide vial, decorative background accent"
             fill
             className="object-contain blur-xl opacity-20 transform-gpu"
           />
@@ -92,7 +92,7 @@ export function AboutTeaser() {
         >
           <Image 
             src="/Featured%20Images/vial-no-bg.webp"
-            alt="Foreground Vial"
+            alt="Helix Bio research peptide vial, front view"
             fill
             className="object-contain drop-shadow-xl transform-gpu"
           />

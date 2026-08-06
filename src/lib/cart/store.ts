@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { toast } from 'sonner'
-import { syncCartToPayload, getAutoAddAccessoryItems } from '@/app/[locale]/(frontend)/actions/cart'
+import { syncCartToPayload, getAutoAddAccessoryItems } from '@/app/(frontend)/actions/cart'
 
 // Slugs excluded from the "peptide" auto-add-accessories trigger — these ARE the
 // accessories, so adding one shouldn't add another copy of itself alongside it.

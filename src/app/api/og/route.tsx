@@ -21,13 +21,12 @@ export async function GET(req: NextRequest) {
       ? searchParams.get('description')?.slice(0, 120) // Shorter limit for description
       : 'Research-grade excellence. Dedicated to purity.'
 
-    // Always use the public R2 bucket so it 100% renders in local and production
-    const logoUrl = 'https://pub-82f90d490a8048aa9629f0ae3ea6f567.r2.dev/Logo/99pp-Logo.png'
-    
-    // We must use a PNG or JPG because OG image generator does not support WebP.
-    // I converted the requested og-image.webp to og-image.png so it works natively here!
     const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
-    const bgUrl = `${serverUrl}/99%20Images/og-image.png`
+    const logoUrl = `${serverUrl}/HelixBio%20Images/hb-logo.png`
+
+    // We must use a PNG or JPG because OG image generator does not support WebP —
+    // og-background.png is a pre-converted copy of HelixBio Images/multiple-vial.webp.
+    const bgUrl = `${serverUrl}/HelixBio%20Images/og-background.png`
 
     return new ImageResponse(
       (

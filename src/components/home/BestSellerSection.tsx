@@ -20,7 +20,7 @@ const FALLBACK_PRODUCTS = [
     categories: [{ title: "Muscle Repair" }],
     meta: { description: "Potent synthetic peptide researched for its role in cellular migration, actin regulation, and wound healing." },
     price: "55",
-    images: [{ image: { url: "/Helix Bio product images/NAD+ 500MG.png" } }],
+    images: [{ image: { url: "https://pub-0b0f2f98407442588d161ae09cb84207.r2.dev/Product Images/TB500 5MG-2.webp" } }],
     slug: "tb-500",
   },
   {
@@ -29,7 +29,7 @@ const FALLBACK_PRODUCTS = [
     categories: [{ title: "Recovery & Healing" }],
     meta: { description: "A highly purified synthetic peptide widely studied for its profound effects on tissue regeneration and angiogenesis." },
     price: "45",
-    images: [{ image: { url: "/Helix Bio product images/NAD+ 500MG.png" } }],
+    images: [{ image: { url: "https://pub-0b0f2f98407442588d161ae09cb84207.r2.dev/Product Images/BPC 157 5MG-3.webp" } }],
     slug: "bpc-157",
   },
   {
@@ -38,7 +38,7 @@ const FALLBACK_PRODUCTS = [
     categories: [{ title: "Metabolic Research" }],
     meta: { description: "A GLP-1 receptor agonist actively researched for its mechanisms in glycemic control and metabolic regulation." },
     price: "85",
-    images: [{ image: { url: "/Helix Bio product images/NAD+ 500MG.png" } }],
+    images: [{ image: { url: "https://pub-0b0f2f98407442588d161ae09cb84207.r2.dev/Product Images/SEMAGLUTIDE 5MG-2.webp" } }],
     slug: "semaglutide",
   },
   {
@@ -47,7 +47,7 @@ const FALLBACK_PRODUCTS = [
     categories: [{ title: "Cellular Aging" }],
     meta: { description: "A naturally occurring copper complex peptide frequently studied for its role in collagen synthesis and anti-aging." },
     price: "35",
-    images: [{ image: { url: "/Helix Bio product images/NAD+ 500MG.png" } }],
+    images: [{ image: { url: "https://pub-0b0f2f98407442588d161ae09cb84207.r2.dev/Product Images/GHK-CU 50MG-1.webp" } }],
     slug: "ghk-cu",
   }
 ]

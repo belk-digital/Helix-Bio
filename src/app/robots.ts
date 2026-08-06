@@ -1,8 +1,6 @@
 import type { MetadataRoute } from 'next'
-import { routing } from '@/i18n/routing'
 
-// Paths that exist under the [locale] segment — each needs both the unprefixed (default
-// locale) form and a /es/ prefixed form disallowed.
+// Paths that exist under the application.
 const LOCALIZED_PRIVATE_PATHS = [
   '/account',
   '/cart',
@@ -16,7 +14,7 @@ const LOCALIZED_PRIVATE_PATHS = [
   '/reset-password',
 ]
 
-// Paths outside the [locale] segment — no locale-prefixed variant exists.
+// Global paths
 const GLOBAL_PRIVATE_PATHS = [
   '/admin',
   '/api',
@@ -30,9 +28,6 @@ export default function robots(): MetadataRoute.Robots {
   const disallow = [
     ...GLOBAL_PRIVATE_PATHS,
     ...LOCALIZED_PRIVATE_PATHS,
-    ...routing.locales
-      .filter((locale) => locale !== routing.defaultLocale)
-      .flatMap((locale) => LOCALIZED_PRIVATE_PATHS.map((path) => `/${locale}${path}`)),
   ]
 
   return {

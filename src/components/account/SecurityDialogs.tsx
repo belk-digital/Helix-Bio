@@ -12,7 +12,7 @@ import {
   updatePasswordAction,
   requestEmailChangeAction,
   verifyEmailChangeAction,
-} from '@/app/[locale]/(frontend)/(shop)/account/settings/actions'
+} from '@/app/(frontend)/(shop)/account/settings/actions'
 
 interface DialogProps {
   open: boolean

@@ -119,7 +119,7 @@ export function SearchOverlay({ isOpen, onClose, categories = [] }: SearchOverla
             <div className="max-w-[1440px] mx-auto w-full flex flex-col lg:flex-row h-full max-h-[100dvh] lg:max-h-[75vh]">
               
               {/* Left Column: Search & Results */}
-              <div className="flex-1 flex flex-col p-4 sm:p-12 lg:p-16 lg:pr-12 h-full overflow-y-auto overflow-x-hidden w-full">
+              <div data-lenis-prevent className="flex-1 flex flex-col p-4 sm:p-12 lg:p-16 lg:pr-12 h-full overflow-y-auto overflow-x-hidden w-full">
                 {/* Search Input */}
                 <div className="flex items-center gap-3 sm:gap-6 border-b border-black/10 pb-4 sm:pb-6 w-full">
                   {isLoading ? (
@@ -144,7 +144,7 @@ export function SearchOverlay({ isOpen, onClose, categories = [] }: SearchOverla
                 </div>
 
                 {/* Content Area */}
-                <div className="flex-1 pt-8 overflow-y-auto min-h-[40vh]">
+                <div data-lenis-prevent className="flex-1 pt-8 overflow-y-auto min-h-[40vh]">
                   {/* Quick Categories (Empty State) */}
                   {!query && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col gap-6">
@@ -236,7 +236,7 @@ export function SearchOverlay({ isOpen, onClose, categories = [] }: SearchOverla
                     <Image
                       key={src}
                       src={src}
-                      alt={`Featured Compound ${idx + 1}`}
+                      alt={`Featured Helix Bio research peptide, image ${idx + 1}`}
                       fill
                       className={`object-cover scale-105 transition-opacity duration-1000 ${
                         idx === activeImageIndex ? 'opacity-90' : 'opacity-0 z-[-1]'

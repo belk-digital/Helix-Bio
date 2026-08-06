@@ -105,7 +105,7 @@ export function JourneySection() {
             hover: { y: -8, transition: { duration: 0.3 } }
           }}
         >
-          <Image src={STEPS[0].image} alt="Step 1" fill className="object-cover transition-transform duration-1000 group-hover:scale-110" />
+          <Image src={STEPS[0].image} alt={STEPS[0].heading} fill className="object-cover transition-transform duration-1000 group-hover:scale-110" />
           <div className="absolute inset-0 bg-black/30 mix-blend-overlay pointer-events-none transition-opacity group-hover:opacity-50" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
           <div className="absolute inset-0 px-8 pt-8 pb-4 flex flex-col justify-end gap-6 z-10">
@@ -149,7 +149,7 @@ export function JourneySection() {
               }
             }}
           >
-             <Image src={STEPS[1].image} alt="Step 2 bg" fill className="object-cover" />
+             <Image src={STEPS[1].image} alt={STEPS[1].heading} fill className="object-cover" />
           </motion.div>
           {/* Solid Card */}
           <div className="absolute inset-0 bg-[#0B1221] rounded-[24px] border border-white/10 px-8 pt-8 pb-4 flex flex-col justify-end gap-6 shadow-[0_30px_60px_rgba(0,0,0,0.25)] z-10 overflow-hidden">
@@ -195,7 +195,7 @@ export function JourneySection() {
               }
             }}
           >
-             <Image src={STEPS[2].image} alt="Step 3 bg" fill className="object-cover" />
+             <Image src={STEPS[2].image} alt={STEPS[2].heading} fill className="object-cover" />
           </motion.div>
           {/* Solid Card */}
           <div className="absolute inset-0 bg-[#0B1221] rounded-[24px] border border-white/10 px-8 pt-8 pb-4 flex flex-col justify-end gap-6 shadow-[0_30px_60px_rgba(0,0,0,0.25)] z-10 overflow-hidden">
@@ -226,7 +226,7 @@ export function JourneySection() {
             hover: { y: -8, transition: { duration: 0.3 } }
           }}
         >
-          <Image src={STEPS[3].image} alt="Step 4" fill className="object-cover transition-transform duration-1000 group-hover:scale-110" />
+          <Image src={STEPS[3].image} alt={STEPS[3].heading} fill className="object-cover transition-transform duration-1000 group-hover:scale-110" />
           <div className="absolute inset-0 bg-black/30 mix-blend-overlay pointer-events-none transition-opacity group-hover:opacity-50" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
           <div className="absolute inset-0 px-8 pt-8 pb-4 flex flex-col justify-end gap-6 z-10">
@@ -250,7 +250,7 @@ export function JourneySection() {
           <div key={i} className="relative w-full h-[300px] rounded-[24px] border border-black/5 overflow-hidden shadow-lg group">
             {step.type === 'image' ? (
               <>
-                <Image src={step.image} alt={step.title} fill className="object-cover transition-transform duration-1000 group-hover:scale-110" />
+                <Image src={step.image} alt={step.heading} fill className="object-cover transition-transform duration-1000 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-black/30 mix-blend-overlay" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="absolute inset-0 px-6 pt-6 pb-4 flex flex-col justify-end gap-6 z-10">

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
-import { ArrowRight, Lock } from 'lucide-react'
+import { Lock } from 'lucide-react'
 import { useLenis } from 'lenis/react'
 import { useTranslations } from 'next-intl'
 import { Link, usePathname } from '@/i18n/navigation'
@@ -92,84 +92,91 @@ export function AgeGate() {
     <AnimatePresence>
       {isVisible && (
         <div className="fixed inset-0 z-[999999] pointer-events-auto">
-          
-          {/* Blurred Backdrop */}
+          {/* Inner wrapper - Full Screen Editorial Split */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6 }}
-            className={`fixed inset-0 z-0 transition-colors duration-700 ${isDenied ? 'bg-red-950/80' : 'bg-black/70'}`}
-          />
-
-          {/* Outer wrapper handles the entry/exit intro animations */}
-          <motion.div
-            initial={{ y: "100%" }}
-            animate={{ y: "0%" }}
-            exit={{ y: exitDirection === 'up' ? "-100vh" : "100%" }}
-            transition={{ type: 'spring', damping: 25, stiffness: 120 }}
-            className="fixed inset-0 pointer-events-none z-10 transform-gpu will-change-transform"
+            exit={{ y: exitDirection === 'up' ? "-100vh" : "100%", opacity: 0 }}
+            className="fixed inset-0 flex flex-col lg:flex-row bg-cream overflow-y-auto lg:overflow-hidden z-[999999]"
           >
-            {/* Inner wrapper */}
-            <motion.div
-              className={`absolute bottom-0 left-0 right-0 bg-cream flex flex-col md:flex-row overflow-hidden pointer-events-auto border-t border-white/50 transition-[border-radius,opacity,transform] duration-700 ease-in-out h-auto min-h-[85vh] md:min-h-[70vh] max-h-[95vh] rounded-t-[2rem] md:rounded-t-[3rem] opacity-100 translate-y-0`}
-            >
+            {/* Left Side: Image Pane */}
+            <div className="relative w-full lg:w-1/2 h-64 md:h-80 lg:h-screen shrink-0 order-first overflow-hidden bg-black">
+              <Image 
+                src="/HelixBio Images/age-gate-bg.webp" 
+                alt="HelixBio Science" 
+                fill
+                priority
+                className={`object-cover transition-[transform,opacity,filter] duration-1000 will-change-[transform,opacity,filter] ${isDenied ? 'opacity-30 scale-110 grayscale blur-md' : 'opacity-90 hover:scale-105'}`}
+              />
+              <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+              
+              {/* Red Denied Gradient */}
+              <div className={`absolute inset-0 bg-red-950/80 pointer-events-none transition-opacity duration-1000 will-change-opacity ${isDenied ? 'opacity-100' : 'opacity-0'}`} />
+              
+              {/* Logo */}
+              <div className={`absolute top-6 left-6 md:top-12 md:left-12 w-28 md:w-48 h-12 md:h-24 pointer-events-none transition-opacity duration-500 will-change-opacity ${isDenied ? 'opacity-20' : 'opacity-100'}`}>
+                <Image 
+                  src="/HelixBio Images/hb-logo.png" 
+                  alt="HelixBio Logo" 
+                  fill
+                  priority
+                  className="object-contain drop-shadow-2xl brightness-0 invert"
+                />
+              </div>
+            </div>
+
+            {/* Right Side: Content Pane */}
+            <div className="relative w-full lg:w-1/2 flex-1 lg:h-screen flex flex-col bg-white order-last lg:overflow-y-auto overflow-x-hidden">
               <AnimatePresence mode="wait">
                 {!isDenied ? (
                   <motion.div 
                     key="verify"
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.4 }}
-                    className="relative w-full md:w-[55%] lg:w-[60%] px-5 py-6 sm:p-10 md:p-16 flex flex-col bg-transparent shrink-0 flex-1 overflow-y-auto min-h-0 order-last md:order-first"
+                    exit={{ opacity: 0, x: 20 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="w-full max-w-2xl px-6 py-8 md:py-10 md:px-16 lg:px-24 flex flex-col lg:justify-center min-h-full mx-auto"
                   >
-                    
-                    <div className="flex-auto min-h-[1rem]"></div>
-
-                    <div className="max-w-xl w-full flex flex-col items-center sm:items-start text-center sm:text-left shrink-0 mx-auto">
-                      <p className="font-bold tracking-[0.2em] uppercase text-primary-dark text-[10px] md:text-xs mb-3">
+                    <div className="flex-shrink-0">
+                      <p className="font-bold tracking-[0.3em] uppercase text-primary-dark text-[10px] md:text-sm mb-3">
                         {t('restrictedAccess')}
                       </p>
-                      <h2 className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-black text-ink mb-6 tracking-tighter font-heading uppercase leading-none break-words w-full">
-                        {t('titleLine1')}<br className="hidden sm:block" /> {t('titleLine2')}
+                      <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-ink mb-6 tracking-tighter font-heading uppercase leading-none">
+                        {t('titleLine1')}<br /> {t('titleLine2')}
                       </h2>
 
-                      <div className="w-12 h-[3px] bg-primary mb-6 mx-auto sm:mx-0" />
+                      <div className="w-12 h-[4px] bg-primary mb-8" />
 
-                      <div className="text-ink/80 text-xs sm:text-sm md:text-base leading-relaxed mb-8 space-y-4 font-medium max-w-md">
-                        <p>
-                          <strong className="text-ink block mb-1 text-sm md:text-lg">{t('disclaimerLabel')}</strong>
-                          {t.rich('disclaimerText', { strong: (chunks) => <strong>{chunks}</strong> })}
-                        </p>
-                        <p className="font-bold text-ink">
-                          {t('consentText')}
-                        </p>
-                      </div>
-
-                      {/* Dual Buttons */}
-                      <div className="flex flex-col sm:flex-row w-full gap-4 mt-2 max-w-sm mx-auto sm:mx-0">
-                        <div className="flex-1">
-                          <FluidButton
-                            onClick={handleVerify}
-                            text={t('confirmButton')}
-                            variant="dark"
-                            className="w-full min-w-full"
-                          />
-                        </div>
-                        <button
-                          onClick={handleDeny}
-                          className="flex-1 bg-transparent text-ink border border-ink/20 px-6 py-4 rounded-full font-bold uppercase tracking-widest text-xs md:text-sm hover:bg-black/5 hover:border-black/30 transition-colors active:scale-95 duration-200"
-                        >
-                          {t('denyButton')}
-                        </button>
-                      </div>
+                      <div className="text-ink/80 text-sm md:text-lg leading-relaxed mb-10 space-y-4 md:space-y-6 font-medium">
+                      <p>
+                        <strong className="text-ink block mb-2 text-base md:text-xl uppercase tracking-widest">{t('disclaimerLabel')}</strong>
+                        {t.rich('disclaimerText', { strong: (chunks) => <strong>{chunks}</strong> })}
+                      </p>
+                      <p className="font-bold text-ink text-base md:text-xl">
+                        {t('consentText')}
+                      </p>
                     </div>
 
-                    <div className="flex-auto min-h-[1rem]"></div>
+                    <div className="flex flex-col sm:flex-row w-full gap-4 max-w-lg">
+                      <div className="flex-1">
+                        <FluidButton
+                          onClick={handleVerify}
+                          text={t('confirmButton')}
+                          variant="dark"
+                          className="w-full min-w-full"
+                        />
+                      </div>
+                      <button
+                        onClick={handleDeny}
+                        className="flex-1 bg-transparent text-ink border-2 border-ink/20 px-6 py-4 rounded-full font-bold uppercase tracking-[0.2em] text-xs md:text-sm hover:bg-black/5 hover:border-black/50 transition-all active:scale-95 duration-200"
+                      >
+                        {t('denyButton')}
+                      </button>
+                    </div>
 
-                    <div className="mt-8 text-ink-muted text-[9px] uppercase tracking-[0.2em] text-center sm:text-left shrink-0 max-w-xl w-full mx-auto pb-4 md:pb-0">
-                      {t('agreementPrefix')} <Link href="/terms-and-conditions" className="hover:text-primary transition-colors underline underline-offset-2 opacity-80 hover:opacity-100">{t('termsLink')}</Link>
+                    <div className="mt-8 text-ink/40 text-[9px] md:text-[10px] uppercase tracking-[0.2em] pb-10 lg:pb-0">
+                      {t('agreementPrefix')} <Link href="/terms-and-conditions" className="hover:text-primary transition-colors underline underline-offset-4 font-bold">{t('termsLink')}</Link>
+                    </div>
                     </div>
                   </motion.div>
                 ) : (
@@ -178,25 +185,25 @@ export function AgeGate() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="relative w-full md:w-[55%] lg:w-[60%] px-5 py-6 sm:p-10 md:p-16 flex flex-col items-center justify-center bg-red-50/50 shrink-0 flex-1 overflow-y-auto min-h-0 order-last md:order-first text-center"
+                    className="w-full max-w-xl px-6 py-10 md:px-16 flex flex-col items-center justify-start lg:justify-center text-center min-h-full mx-auto"
                   >
-                    <motion.div 
+                    <div className="flex flex-col items-center flex-shrink-0 pb-10 lg:pb-0">
+                      <motion.div 
                       initial={{ scale: 0, rotate: -180 }}
                       animate={{ scale: 1, rotate: 0 }}
                       transition={{ type: "spring", damping: 15, delay: 0.2 }}
-                      className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(220,38,38,0.4)] mb-8"
+                      className="w-24 h-24 bg-red-600 rounded-full flex items-center justify-center shadow-[0_0_60px_rgba(220,38,38,0.3)] mb-10"
                     >
-                      <Lock className="w-10 h-10 text-white" />
+                      <Lock className="w-12 h-12 text-white" />
                     </motion.div>
 
-                    <h2 className="text-4xl md:text-6xl font-black text-red-600 mb-4 tracking-tighter font-heading uppercase leading-none">
+                    <h2 className="text-5xl md:text-7xl font-black text-red-600 mb-6 tracking-tighter font-heading uppercase leading-none">
                       {t('deniedTitle')}
                     </h2>
 
-                    <div className="w-12 h-[3px] bg-red-600 mb-6" />
+                    <div className="w-16 h-[4px] bg-red-600 mb-8 mx-auto" />
 
-                    <div className="text-ink/80 text-sm md:text-base leading-relaxed mb-10 max-w-md font-medium">
+                    <div className="text-ink/80 text-base md:text-xl leading-relaxed mb-12 max-w-md font-medium mx-auto">
                       <p>
                         {t('deniedText')}
                       </p>
@@ -204,47 +211,15 @@ export function AgeGate() {
 
                     <button
                       onClick={handleGoBack}
-                      className="text-xs uppercase tracking-widest font-bold text-ink/60 hover:text-ink transition-colors border-b border-ink/20 pb-1 hover:border-ink"
+                      className="text-sm uppercase tracking-[0.2em] font-bold text-ink/40 hover:text-ink transition-colors border-b-2 border-ink/20 pb-1 hover:border-ink"
                     >
                       {t('goBack')}
                     </button>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-
-              {/* Image Pane */}
-              <div className="relative w-full md:w-[45%] lg:w-[40%] h-[20vh] sm:h-[30vh] md:h-auto bg-black shrink-0 order-first md:order-last overflow-hidden">
-                <Image 
-                  src="/99 Images/vial-closeup.webp" 
-                  alt="Peptide Vial" 
-                  fill
-                  priority
-                  className={`object-cover transition-[transform,opacity,filter] duration-1000 will-change-[transform,opacity,filter] ${isDenied ? 'opacity-30 scale-110 grayscale blur-sm' : 'opacity-70 hover:scale-105'}`}
-                />
-                {/* Default Black Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40 pointer-events-none" />
-                
-                {/* Red Denied Gradient (Fades in) */}
-                <div className={`absolute inset-0 bg-gradient-to-t from-red-950/90 via-red-950/40 to-black/80 pointer-events-none transition-opacity duration-1000 will-change-opacity ${isDenied ? 'opacity-100' : 'opacity-0'}`} />
-                
-                {/* Logo Overlay */}
-                <div className={`absolute top-6 right-6 md:top-10 md:right-10 w-24 md:w-48 h-12 md:h-24 pointer-events-none transition-opacity duration-500 will-change-opacity ${isDenied ? 'opacity-20' : 'opacity-100'}`}>
-                  <Image 
-                    src="/HelixBio Images/hb-logo.png" 
-                    alt="HelixBio Logo" 
-                    fill
-                    priority
-                    className="object-contain drop-shadow-2xl"
-                  />
-                </div>
-
-                <div className={`absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white pointer-events-none transition-[opacity,transform] duration-700 will-change-[opacity,transform] ${isDenied ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
-                  <p className="font-bold tracking-widest uppercase text-[9px] md:text-[10px] opacity-80 mb-1 md:mb-2">{t('purityGuaranteed')}</p>
-                  <p className="font-heading text-xl md:text-3xl drop-shadow-lg leading-none">{t('hplcVerifiedLine1')}<br/>{t('hplcVerifiedLine2')}</p>
-                </div>
-              </div>
-
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       )}

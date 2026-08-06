@@ -3794,6 +3794,2510 @@ const productsToSeed: ProductSeed[] = [
     ]
   },
 
+{
+    name: 'AHK-CU',
+    slug: 'ahk-cu',
+    imageFile: 'AHK-CU 50MG.png',
+    categoryName: 'Cellular Health & Longevity',
+    description: 'AHK-CU is a synthetic copper-binding peptide widely studied in laboratory settings for its biochemical properties and interactions with cellular pathways. As a member of the copper peptide family, AHK-CU has attracted interest in peptide science, molecular biology, tissue engineering, and regenerative research. Although it shares similarities with other copper peptides, including GHK-CU, AHK-CU possesses a distinct amino acid sequence that makes it a separate subject of scientific investigation. Helix Bio supplies research-grade AHK-CU exclusively for laboratory and educational research, manufactured to a high-purity standard. It is not intended for human or veterinary use.',
+    seoTitle: 'AHK-CU Peptide | Research Grade Copper Peptide | Helix Bio',
+    seoDescription: 'Shop AHK-CU research peptide from Helix Bio. High-purity research-grade copper peptide intended exclusively for laboratory and scientific research applications.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>AHK-CU is a copper-complexed peptide that has become an area of interest within peptide science due to its unique structural characteristics and its role in experimental biological research. Scientists have investigated copper peptides for decades to better understand their interactions with proteins, enzymes, extracellular matrices, and cellular signaling pathways. While AHK-CU shares the copper-binding properties common to this peptide family, it remains a distinct research compound with its own biochemical profile, differing from GHK-CU in its amino acid sequence and downstream experimental behavior.</p>
+<h4>Composition</h4>
+<p>AHK-CU is a copper peptide consisting of a short amino acid sequence complexed with copper ions. Copper peptides have been studied extensively because copper is an essential trace element involved in numerous biological processes. Helix Bio's AHK-CU is supplied as a lyophilized (freeze-dried) powder in a sealed laboratory vial to support stability prior to reconstitution.</p>
+<h4>Purpose &amp; Intended Use</h4>
+<p>This product exists to support in vitro and laboratory research only. It is manufactured, labeled, and sold for research use only (RUO) — not for human or veterinary use, not for diagnostic procedures, and not for compounding. It is intended for researchers studying copper peptide chemistry, metal ion binding mechanisms, tissue engineering models, and extracellular matrix biology.</p>
+<h4>Product Highlights</h4>
+<ul>
+<li>Research-grade peptide suitable for laboratory investigations</li>
+<li>High-purity manufacturing standards</li>
+<li>Consistent batch-to-batch quality</li>
+<li>Designed for analytical and experimental research</li>
+<li>Manufactured under strict quality control procedures</li>
+<li>Secure packaging to help maintain product integrity during shipment</li>
+</ul>
+<h4>Key Features</h4>
+<ul>
+<li>Synthetic copper-binding peptide distinct from GHK-CU</li>
+<li>Supplied as a lyophilized powder for extended stability before reconstitution</li>
+<li>Purity supported by batch-specific documentation where applicable</li>
+<li>Packaged in a sealed laboratory vial</li>
+<li>Labeled strictly for research use only — not for human consumption</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>Copper peptides remain an important area of peptide science because they offer opportunities to study the interaction between peptide sequences and biologically relevant metal ions. Helix Bio manufactures AHK-CU with careful attention to purity, consistency, and secure packaging, giving researchers a dependable material for comparing copper peptide structures, evaluating experimental models, and generating reproducible laboratory data.</p>
+<h4>Who This Product Is For</h4>
+<ul>
+<li>Research laboratories studying peptide chemistry and metal ion coordination</li>
+<li>Universities and academic institutions</li>
+<li>Biotechnology and pharmaceutical research organizations</li>
+<li>Tissue engineering and biomaterials researchers</li>
+</ul>
+<p>This product is not intended for individual consumers seeking to use it outside a research setting.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Field</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>AHK-CU</td></tr>
+<tr><td>Category</td><td>Research Peptide — Copper Peptide</td></tr>
+<tr><td>Form</td><td>Lyophilized powder</td></tr>
+<tr><td>Purity</td><td>High-purity research grade — see current lot's Certificate of Analysis where available</td></tr>
+<tr><td>Appearance</td><td>Lyophilized powder</td></tr>
+<tr><td>Packaging</td><td>Sealed laboratory vial</td></tr>
+<tr><td>Storage</td><td>Store refrigerated before reconstitution; freezer temperatures recommended for long-term storage</td></tr>
+<tr><td>Research Use</td><td>Laboratory and scientific research only — not for human or animal use</td></tr>
+<tr><td>Manufacturer</td><td>Helix Bio</td></tr>
+</tbody>
+</table>
+<h4>Research / Applications</h4>
+<p>AHK-CU has been referenced in scientific literature exploring:</p>
+<ul>
+<li>Copper peptide chemistry and metal ion binding mechanisms</li>
+<li>Peptide structure and stability</li>
+<li>Molecular biology and cell signaling investigations</li>
+<li>Tissue engineering and biomaterials research</li>
+<li>Extracellular matrix studies</li>
+<li>Analytical peptide characterization and laboratory development</li>
+</ul>
+<p>Researchers may compare AHK-CU with GHK-CU to evaluate differences in copper binding, peptide stability, and molecular interactions. The current body of evidence primarily consists of laboratory and preclinical research and should not be interpreted as evidence of clinical effectiveness. Everything sold by Helix Bio is intended for laboratory research only, not for administration to humans or animals outside a licensed research setting.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Peptide purity is an important consideration in laboratory research because impurities can interfere with analytical results and experimental reproducibility. Helix Bio's AHK-CU is manufactured in a controlled environment with careful raw material selection, batch consistency checks, and quality inspections throughout production. Researchers should refer to any batch-specific documentation provided with the product for analytical information when available.</p>
+<h4>Storage &amp; Handling</h4>
+<ul>
+<li>Store refrigerated upon receipt for short-term storage; keep frozen for long-term storage</li>
+<li>Protect from direct sunlight, excessive heat, and moisture</li>
+<li>Keep the vial tightly sealed until use</li>
+<li>Avoid repeated freeze-thaw cycles after reconstitution where possible</li>
+<li>Handle only in a suitable laboratory environment using appropriate protective equipment</li>
+</ul>
+<h4>Shipping &amp; Packaging</h4>
+<p>AHK-CU is packaged in a securely sealed laboratory vial with protective packaging designed to minimize environmental exposure during transit. Researchers should inspect the package for visible damage before use. Shipping methods, delivery times, and regional availability may vary — refer to Helix Bio's shipping and support pages for current information.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>AHK-CU sold by Helix Bio is intended strictly for laboratory, analytical, and scientific research use. It is not a drug, dietary supplement, cosmetic, or food product, and it is not approved by the FDA or any regulatory body for human or veterinary use, diagnosis, treatment, cure, or prevention of any disease or condition. This product must not be administered to humans or animals outside of a properly licensed research facility. Nothing on this page constitutes medical advice, and no statement here should be interpreted as a therapeutic or health claim. By purchasing this product, the buyer confirms they are a qualified researcher, laboratory, or institution acquiring it for lawful research purposes only, and accepts full responsibility for compliance with all applicable local, state, and federal regulations governing research chemicals.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is AHK-CU?', answer: 'AHK-CU is a research-grade copper peptide studied in laboratory settings for its biochemical properties and molecular interactions. It is supplied exclusively for scientific research and is not approved for human or veterinary use.' },
+      { question: 'What is AHK-CU used for in research?', answer: 'Researchers study AHK-CU in areas such as peptide chemistry, molecular biology, copper-peptide interactions, biomaterials research, analytical testing, and cell-based laboratory investigations.' },
+      { question: 'Is AHK-CU the same as GHK-CU?', answer: 'No. Although both are copper peptides, AHK-CU and GHK-CU have different amino acid sequences and molecular structures, which may influence their behavior under experimental conditions.' },
+      { question: 'Is AHK-CU intended for human consumption?', answer: 'No. AHK-CU sold by Helix Bio is intended strictly for laboratory research and is not approved for human consumption, veterinary use, or diagnostic applications.' },
+      { question: 'What does "research grade" mean?', answer: 'Research grade indicates that the peptide is manufactured and supplied for laboratory and scientific investigations, intended to meet the quality expectations of researchers conducting analytical and experimental studies.' },
+      { question: 'How should AHK-CU be stored?', answer: 'The lyophilized peptide should be stored in a cool, dry environment. Refrigeration is recommended for short-term storage, while freezing is generally preferred for long-term storage.' },
+      { question: 'What form is AHK-CU supplied in?', answer: 'AHK-CU is typically supplied as a lyophilized (freeze-dried) powder in a sealed laboratory vial, reconstituted using an appropriate laboratory-grade solvent according to the research protocol.' },
+      { question: 'Who can purchase AHK-CU?', answer: 'AHK-CU is intended for qualified professionals, including research laboratories, universities, biotechnology companies, and pharmaceutical research organizations.' },
+      { question: 'Does Helix Bio test its research peptides?', answer: 'Helix Bio emphasizes quality control and batch consistency throughout manufacturing. Where applicable, batch-specific analytical documentation may be available to support laboratory research.' },
+      { question: 'Why choose Helix Bio for research peptides?', answer: 'Helix Bio focuses on supplying high-quality research peptides with an emphasis on product consistency, reliable manufacturing practices, secure packaging, and research-focused support.' },
+    ],
+    variants: [
+      { sku: 'AHKCU-50MG', strength: '50mg', price: 15 },
+      { sku: 'AHKCU-100MG', strength: '100mg', price: 18 },
+    ],
+  },
+{
+    name: 'BAC Water',
+    slug: 'bac-water',
+    imageFile: 'BAC water 3ml.png',
+    categoryName: 'Research Supplies',
+    description: 'BAC Water, also known as Bacteriostatic Water, is a sterile, non-pyrogenic solution commonly used in laboratory environments for the reconstitution and dilution of research peptides and other compatible research compounds. It contains Water for Injection with 0.9% benzyl alcohol as a preservative to help inhibit bacterial growth after the vial has been opened. Helix Bio supplies research-grade BAC Water exclusively for laboratory, analytical, and educational research applications. This product is intended for research use only and is not intended for human or veterinary use.',
+    seoTitle: 'BAC Water | Bacteriostatic Water for Research | Helix Bio',
+    seoDescription: 'Purchase research-grade BAC Water from Helix Bio. Sterile bacteriostatic water designed for laboratory peptide reconstitution and scientific research use only.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>BAC Water is one of the most commonly used laboratory solutions for reconstituting lyophilized research peptides. Because many peptides are supplied in a freeze-dried form to maximize stability during storage and shipping, researchers often require a sterile diluent before beginning laboratory experiments. Unlike sterile water without preservatives, BAC Water contains 0.9% benzyl alcohol, which helps inhibit the growth of bacteria after the vial has been opened, making it a preferred option for laboratory protocols involving repeated withdrawals under proper aseptic conditions.</p>
+<h4>Composition</h4>
+<p>BAC Water is sterile Water for Injection containing 0.9% benzyl alcohol as a bacteriostatic preservative. It is important to understand that BAC Water itself is not an active research compound — it serves as a laboratory preparation solution that helps researchers dissolve compatible materials according to their experimental protocols.</p>
+<h4>Purpose &amp; Intended Use</h4>
+<p>This product exists to support laboratory reconstitution workflows only. It is manufactured, labeled, and sold for research use only (RUO) — not for human or veterinary use. Researchers frequently use BAC Water when preparing lyophilized research peptides, research proteins, laboratory reference compounds, and other compatible research reagents.</p>
+<h4>Product Highlights</h4>
+<ul>
+<li>Sterile research-grade bacteriostatic water</li>
+<li>Contains 0.9% benzyl alcohol preservative</li>
+<li>Suitable for peptide reconstitution in laboratory settings</li>
+<li>Packaged in a sealed laboratory vial</li>
+<li>Supports repeated withdrawals under proper aseptic technique</li>
+<li>Clearly labeled for research use only</li>
+</ul>
+<h4>Key Features</h4>
+<ul>
+<li>Sterile, non-pyrogenic solution suitable for laboratory preparation</li>
+<li>Compatible with numerous lyophilized research peptides</li>
+<li>Reliable batch-to-batch consistency</li>
+<li>Companion product for research peptides sold by Helix Bio</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>Choosing the right reconstitution solution is just as important as selecting high-quality research peptides. Helix Bio's BAC Water is selected by researchers because it offers dependable quality, consistent manufacturing, and suitability for scientific research, with a bacteriostatic formulation that makes it a practical choice for laboratory environments where multiple withdrawals may be required.</p>
+<h4>Who This Product Is For</h4>
+<ul>
+<li>Research laboratories reconstituting lyophilized peptides</li>
+<li>Universities and academic institutions</li>
+<li>Biotechnology and pharmaceutical research organizations</li>
+<li>Analytical and molecular biology laboratories</li>
+</ul>
+<p>This product is not intended for individual consumers seeking to use it outside a research setting.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Field</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>BAC Water (Bacteriostatic Water)</td></tr>
+<tr><td>Category</td><td>Laboratory Supply — Research Reconstitution Solution</td></tr>
+<tr><td>Composition</td><td>Sterile Water for Injection with 0.9% Benzyl Alcohol</td></tr>
+<tr><td>Appearance</td><td>Clear, colorless sterile solution</td></tr>
+<tr><td>Sterility</td><td>Sterile, non-pyrogenic</td></tr>
+<tr><td>Packaging</td><td>Sealed sterile laboratory vial</td></tr>
+<tr><td>Storage</td><td>Store at controlled room temperature, protected from heat, freezing, and direct sunlight</td></tr>
+<tr><td>Research Use</td><td>Laboratory peptide reconstitution and scientific research only</td></tr>
+<tr><td>Manufacturer</td><td>Helix Bio</td></tr>
+</tbody>
+</table>
+<h4>Research / Applications</h4>
+<p>BAC Water is used as a laboratory preparation solution rather than an active research compound. Common applications include:</p>
+<ul>
+<li>Reconstitution of lyophilized research peptides prior to experiments</li>
+<li>Method development and sample preparation in analytical laboratories</li>
+<li>Preparation steps for molecular biology research involving peptide-based models</li>
+<li>Biotechnology and academic research facility workflows</li>
+<li>Teaching aseptic handling and peptide preparation technique in educational laboratories</li>
+</ul>
+<p>BAC Water should always be used according to established laboratory protocols and only with compatible research materials. Everything sold by Helix Bio is intended for laboratory research only, not for administration to humans or animals.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Helix Bio supplies BAC Water as a sterile, non-pyrogenic solution containing Water for Injection and 0.9% benzyl alcohol. Maintaining sterility is essential for laboratory preparation procedures involving lyophilized peptides. Each production batch is handled with attention to sterile manufacturing procedures, product consistency, batch traceability, and secure packaging.</p>
+<h4>Storage &amp; Handling</h4>
+<ul>
+<li>Store at controlled room temperature unless laboratory protocols specify otherwise</li>
+<li>Protect from direct sunlight, excessive heat, and freezing</li>
+<li>Keep the vial tightly sealed until needed</li>
+<li>Use aseptic laboratory techniques and sterile equipment for each withdrawal</li>
+<li>Do not use the product if contamination or damage is suspected</li>
+</ul>
+<h4>Shipping &amp; Packaging</h4>
+<p>BAC Water ships in a sterile, sealed laboratory vial with protective packaging designed to minimize handling damage during transit. Upon receipt, researchers should inspect the packaging and vial before use; if any damage, leakage, or compromised seal is observed, the product should not be used. Refer to Helix Bio's shipping policy page for current carrier and processing information.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>BAC Water sold by Helix Bio is intended exclusively for laboratory, analytical, and scientific research applications. It is not a drug, dietary supplement, cosmetic, or food product, and it is not approved by the FDA or any regulatory body for human or veterinary use, diagnosis, treatment, cure, or prevention of any disease or condition. This product should only be handled by qualified professionals using appropriate laboratory techniques and in accordance with applicable regulations, institutional policies, and safety guidelines. By purchasing this product, the buyer confirms they are a qualified researcher, laboratory, or institution acquiring it for lawful research purposes only.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is BAC Water?', answer: 'BAC Water, or Bacteriostatic Water, is a sterile, non-pyrogenic solution containing Water for Injection and 0.9% benzyl alcohol, commonly used in research laboratories to reconstitute compatible lyophilized research peptides.' },
+      { question: 'What is BAC Water used for?', answer: 'BAC Water is primarily used as a sterile diluent for reconstituting research peptides and compatible laboratory materials, intended for scientific, analytical, and educational research applications only.' },
+      { question: 'What is the difference between BAC Water and Sterile Water?', answer: 'BAC Water contains 0.9% benzyl alcohol, which acts as a bacteriostatic preservative allowing multiple withdrawals. Sterile Water does not contain a preservative and is generally intended for single-use applications after opening.' },
+      { question: 'Can BAC Water be used with all research peptides?', answer: 'Many lyophilized research peptides are compatible with BAC Water, but compatibility depends on the specific peptide and research protocol. Researchers should review handling recommendations before reconstitution.' },
+      { question: 'How should BAC Water be stored?', answer: 'Store BAC Water at controlled room temperature in a clean, dry location away from direct sunlight and excessive heat, keeping the vial sealed until use.' },
+      { question: 'Is BAC Water sterile?', answer: 'Yes. BAC Water is supplied as a sterile, non-pyrogenic solution for laboratory use. Researchers should use aseptic techniques during handling to maintain sterility.' },
+      { question: 'Is BAC Water intended for human consumption?', answer: 'No. Helix Bio BAC Water is supplied exclusively for laboratory research and is not intended for human use, veterinary use, or therapeutic applications.' },
+      { question: 'Why does BAC Water contain benzyl alcohol?', answer: 'BAC Water contains 0.9% benzyl alcohol as a bacteriostatic preservative, which helps inhibit bacterial growth after the vial has been opened when handled using proper aseptic technique.' },
+      { question: 'Who can purchase BAC Water?', answer: 'BAC Water is intended for qualified researchers, universities, biotechnology companies, pharmaceutical research organizations, and other institutions conducting scientific research.' },
+      { question: 'How long can BAC Water be used after opening?', answer: 'Researchers should follow their institution\'s laboratory guidelines and aseptic handling procedures after opening; product integrity depends on proper storage and sterile technique.' },
+    ],
+    variants: [
+      { sku: 'BACWAT-3ML', strength: '3mL', price: 6.5 },
+      { sku: 'BACWAT-10ML', strength: '10mL', price: 7.5 },
+      { sku: 'BACWAT-30ML', strength: '30mL', price: 16 },
+    ],
+  },
+{
+    name: 'DHEA',
+    slug: 'dhea',
+    imageFile: 'DHEA 10MG.png',
+    categoryName: 'Specialty & Hormonal Peptides',
+    description: 'DHEA (Dehydroepiandrosterone) is an endogenous steroid hormone precursor that has been extensively studied in endocrinology, metabolism, cellular biology, and hormone research. Produced naturally by the adrenal glands, DHEA serves as a precursor to both androgenic and estrogenic hormones, making it an important subject of scientific investigation. Helix Bio supplies research-grade DHEA exclusively for laboratory, analytical, and educational research, manufactured with an emphasis on quality, purity, and consistency. This product is supplied strictly for research use only and is not intended for human consumption, veterinary use, or therapeutic applications.',
+    seoTitle: 'DHEA for Research | Research Grade DHEA | Helix Bio',
+    seoDescription: 'Shop research-grade DHEA from Helix Bio. High-quality dehydroepiandrosterone supplied exclusively for laboratory and scientific research applications.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>Dehydroepiandrosterone (DHEA) is one of the most widely researched endogenous steroid hormones in the field of endocrinology. Synthesized primarily by the adrenal cortex and, to a lesser extent, by the gonads and brain, DHEA functions as a biochemical precursor in the biosynthesis of several steroid hormones. Because of its central role in steroidogenesis, DHEA continues to be studied across hormone biology, metabolism, aging research, neuroscience, and molecular endocrinology.</p>
+<h4>Composition</h4>
+<p>DHEA is a naturally occurring steroid hormone precursor synthesized from cholesterol through a series of enzymatic reactions. It represents one of the most abundant circulating steroid hormones in the human body and serves as an intermediate compound in the production of testosterone, estrogen, and other steroid hormones. Helix Bio's DHEA is supplied as a research-grade powder in a sealed laboratory vial.</p>
+<h4>Purpose &amp; Intended Use</h4>
+<p>This product exists to support in vitro and laboratory research only. It is manufactured, labeled, and sold for research use only (RUO) — not for human or veterinary use, not for diagnostic procedures, and not for compounding. It is intended for researchers studying hormone synthesis pathways, enzyme activity, receptor interactions, and cellular signaling mechanisms.</p>
+<h4>Product Highlights</h4>
+<ul>
+<li>Research-grade DHEA suitable for scientific investigation</li>
+<li>High-quality manufacturing standards</li>
+<li>Consistent batch production</li>
+<li>Suitable for endocrinology and molecular biology studies</li>
+<li>Securely packaged to maintain product integrity</li>
+<li>Clearly labeled for research use only</li>
+</ul>
+<h4>Key Features</h4>
+<ul>
+<li>Endogenous steroid hormone precursor supplied in research-grade form</li>
+<li>Central intermediate in androgen and estrogen biosynthesis pathways</li>
+<li>Batch-tested for consistency during manufacturing</li>
+<li>Packaged in a sealed laboratory vial</li>
+<li>Labeled strictly for research use only — not for human consumption</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>Hormone precursors occupy a unique position in biomedical research because they provide insight into complex biochemical pathways that regulate endocrine function. DHEA is particularly valuable because it sits near the beginning of several steroid hormone synthesis pathways, allowing researchers to investigate how enzymes convert precursor molecules into downstream hormones. Helix Bio emphasizes careful manufacturing, quality-focused handling, and secure packaging to provide researchers with dependable DHEA suitable for scientific applications.</p>
+<h4>Who This Product Is For</h4>
+<ul>
+<li>Endocrinology and hormone research laboratories</li>
+<li>Universities and academic institutions</li>
+<li>Biotechnology and pharmaceutical research organizations</li>
+<li>Molecular biology and biochemistry laboratories</li>
+</ul>
+<p>This product is not intended for individual consumers seeking to use it outside a research setting.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Field</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>DHEA (Dehydroepiandrosterone)</td></tr>
+<tr><td>Category</td><td>Research Compound — Hormone Research Compound</td></tr>
+<tr><td>Compound Type</td><td>Endogenous Steroid Hormone Precursor</td></tr>
+<tr><td>Appearance</td><td>White to off-white powder</td></tr>
+<tr><td>Purity</td><td>High-purity research grade — see current lot's Certificate of Analysis where available</td></tr>
+<tr><td>Storage</td><td>Store in a cool, dry environment away from heat, moisture, and direct light</td></tr>
+<tr><td>Packaging</td><td>Sealed laboratory vial</td></tr>
+<tr><td>Research Use</td><td>Laboratory, analytical, and scientific research only</td></tr>
+<tr><td>Manufacturer</td><td>Helix Bio</td></tr>
+</tbody>
+</table>
+<h4>Research / Applications</h4>
+<p>DHEA is widely studied as a naturally occurring steroid hormone precursor across several disciplines:</p>
+<ul>
+<li>Endocrinology research and steroid hormone synthesis</li>
+<li>Steroid biosynthesis — enzymatic pathways producing androgenic and estrogenic hormones</li>
+<li>Molecular biology — cellular signaling, gene expression, and receptor-mediated processes</li>
+<li>Biochemistry — enzyme activity and metabolic conversion pathways</li>
+<li>Neurobiology research involving endogenous steroid compounds</li>
+<li>Aging and metabolism research examining endocrine function over time</li>
+</ul>
+<p>Research involving DHEA focuses on understanding endocrine biology and steroid metabolism rather than evaluating therapeutic outcomes. Everything sold by Helix Bio is intended for laboratory research only, not for administration to humans or animals.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>The quality of research compounds plays a significant role in laboratory investigations. High-purity materials help researchers reduce unwanted variables that could influence analytical measurements or experimental observations. Helix Bio's DHEA is produced with careful raw material selection, controlled manufacturing procedures, and routine quality inspections to support studies involving endocrinology, molecular biology, and steroid biochemistry.</p>
+<h4>Storage &amp; Handling</h4>
+<ul>
+<li>Store in a cool, dry location, protected from excessive heat and direct sunlight</li>
+<li>Minimize exposure to humidity and keep the container tightly sealed when not in use</li>
+<li>Handle only in an appropriate laboratory environment with suitable protective equipment</li>
+<li>Use clean laboratory instruments to prevent contamination</li>
+<li>Dispose of unused material according to institutional and regulatory requirements</li>
+</ul>
+<h4>Shipping &amp; Packaging</h4>
+<p>DHEA is packaged in a securely sealed laboratory vial with protective packaging designed to help maintain product integrity during shipping. Upon delivery, researchers should inspect the product for any signs of damage before use. Shipping methods, processing times, and delivery availability vary by destination — refer to Helix Bio's Shipping and Support pages for current information.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>DHEA sold by Helix Bio is intended exclusively for laboratory, analytical, and scientific research. This product is not a drug, dietary supplement, cosmetic, or food product, and it is not approved by the FDA or any regulatory body for human or veterinary use, diagnosis, treatment, cure, or prevention of any disease or condition. This product must not be administered to humans or animals outside of a properly licensed research facility. Nothing on this page constitutes medical advice, and no statement here should be interpreted as a therapeutic or health claim. By purchasing this product, the buyer confirms they are a qualified researcher, laboratory, or institution acquiring it for lawful research purposes only, and accepts full responsibility for compliance with all applicable local, state, and federal regulations governing research chemicals.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is DHEA?', answer: 'DHEA (Dehydroepiandrosterone) is a naturally occurring steroid hormone precursor produced primarily by the adrenal glands. In scientific research, it is studied for its role in steroid hormone biosynthesis, endocrine regulation, and cellular metabolism.' },
+      { question: 'What is DHEA used for in research?', answer: 'DHEA is commonly used in laboratory studies involving endocrinology, steroid metabolism, molecular biology, biochemistry, neurobiology, and aging research to investigate hormone synthesis pathways and cellular signaling mechanisms.' },
+      { question: 'Is DHEA a peptide?', answer: 'No. DHEA is not a peptide — it is an endogenous steroid hormone precursor derived from cholesterol. While Helix Bio specializes in research peptides, it also supplies select research compounds such as DHEA.' },
+      { question: 'Is DHEA approved for human use?', answer: 'The DHEA offered by Helix Bio is supplied strictly for research use only. It is not intended for human consumption, therapeutic use, veterinary applications, or diagnostic purposes.' },
+      { question: 'How should DHEA be stored?', answer: 'DHEA should be stored in a cool, dry place away from moisture, heat, and direct sunlight. The container should remain tightly sealed until use.' },
+      { question: 'What makes research-grade DHEA important?', answer: 'Research-grade DHEA is manufactured with an emphasis on purity, consistency, and quality control, which helps reduce experimental variability and supports reproducible laboratory results.' },
+      { question: 'Who can purchase DHEA from Helix Bio?', answer: 'Helix Bio supplies DHEA to qualified researchers, universities, biotechnology companies, pharmaceutical research organizations, and other institutions conducting legitimate scientific research.' },
+      { question: 'How is DHEA different from testosterone?', answer: 'DHEA is a precursor steroid hormone, whereas testosterone is an active androgen hormone. DHEA can be converted through enzymatic pathways into several downstream steroid hormones, including testosterone and estrogens.' },
+      { question: 'Why choose Helix Bio DHEA?', answer: 'Helix Bio provides research-grade compounds manufactured with an emphasis on quality, consistency, and reliable laboratory performance, along with secure packaging and research-focused support.' },
+      { question: 'Can DHEA be used in educational research?', answer: 'Yes. DHEA is suitable for educational and academic laboratory environments studying steroid hormone biosynthesis, endocrine biology, or related disciplines, under appropriate supervision.' },
+    ],
+    variants: [
+      { sku: 'DHEA-10MG', strength: '10mg', price: 23 },
+    ],
+  },
+{
+    name: 'DSIP',
+    slug: 'dsip',
+    imageFile: 'DSIP 10MG.png',
+    categoryName: 'Cognitive & Neuro',
+    description: 'DSIP (Delta Sleep-Inducing Peptide) is a synthetic neuropeptide that has been studied for decades in neuroscience, neuroendocrinology, sleep biology, and peptide research. Although its precise physiological role remains under investigation, DSIP continues to be examined for its interactions with the central nervous system, neurochemical signaling pathways, and endocrine regulation in experimental models. Helix Bio supplies research-grade DSIP exclusively for laboratory, analytical, and educational research. This product is supplied strictly for research use only and is not intended for human consumption, veterinary use, or therapeutic applications.',
+    seoTitle: 'DSIP Peptide | Research Grade Delta Sleep Peptide | Helix Bio',
+    seoDescription: 'Shop research-grade DSIP peptide from Helix Bio. High-purity Delta Sleep-Inducing Peptide supplied exclusively for laboratory and scientific research.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>Delta Sleep-Inducing Peptide (DSIP) is a synthetic peptide that has attracted scientific interest since its initial identification due to its potential role in neurophysiology and peptide signaling. Although the exact biological function of DSIP remains an active area of research, numerous laboratory studies have explored its interactions with the nervous system, hormone regulation, circadian biology, and cellular communication. Researchers continue to investigate DSIP because it represents an interesting model for understanding peptide-mediated signaling within the brain and endocrine system.</p>
+<h4>Composition</h4>
+<p>DSIP is a short peptide composed of nine amino acids (a nonapeptide). It was originally isolated during investigations into sleep-related neurochemical activity and has since become the subject of extensive scientific research. Helix Bio's DSIP is supplied as a white to off-white lyophilized powder in a sealed laboratory vial.</p>
+<h4>Purpose &amp; Intended Use</h4>
+<p>This product exists to support in vitro and laboratory research only. It is manufactured, labeled, and sold for research use only (RUO) — not for human or veterinary use, not for diagnostic procedures, and not for compounding. It is intended for researchers studying neuropeptide signaling, neurochemical pathways, circadian rhythm research, and hormone regulation.</p>
+<h4>Product Highlights</h4>
+<ul>
+<li>Research-grade synthetic peptide manufactured to high-quality standards</li>
+<li>High-purity production for laboratory use</li>
+<li>Suitable for neuroscience and neuroendocrine research</li>
+<li>Batch consistency for reproducible experiments</li>
+<li>Secure laboratory packaging</li>
+<li>Clearly labeled for research use only</li>
+</ul>
+<h4>Key Features</h4>
+<ul>
+<li>Synthetic nonapeptide (9 amino acids) supplied as lyophilized powder</li>
+<li>Studied for interactions with neurochemical signaling and endocrine pathways</li>
+<li>Batch-tested during manufacturing for consistency</li>
+<li>Packaged in a sealed laboratory vial</li>
+<li>Labeled strictly for research use only — not for human consumption</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>Neuropeptides play an important role in scientific research because they help regulate communication between cells within the nervous and endocrine systems. DSIP offers researchers an opportunity to examine how small peptide molecules participate in complex biological processes. Helix Bio supplies research-grade DSIP produced with attention to manufacturing consistency, careful handling, and secure packaging.</p>
+<h4>Who This Product Is For</h4>
+<ul>
+<li>Neuroscience and neuroendocrinology research laboratories</li>
+<li>Universities and academic institutions</li>
+<li>Biotechnology and pharmaceutical research organizations</li>
+<li>Molecular biology and peptide chemistry laboratories</li>
+</ul>
+<p>This product is not intended for individual consumers seeking to use it outside a research setting.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Field</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>DSIP (Delta Sleep-Inducing Peptide)</td></tr>
+<tr><td>Category</td><td>Research Peptide — Synthetic Neuropeptide</td></tr>
+<tr><td>Molecular Class</td><td>Nonapeptide (9 amino acids)</td></tr>
+<tr><td>Appearance</td><td>White to off-white lyophilized powder</td></tr>
+<tr><td>Purity</td><td>High-purity research grade — see current lot's Certificate of Analysis where available</td></tr>
+<tr><td>Storage</td><td>Store refrigerated before reconstitution; freezer temperatures recommended for long-term storage</td></tr>
+<tr><td>Packaging</td><td>Sealed laboratory vial</td></tr>
+<tr><td>Research Use</td><td>Laboratory, analytical, and scientific research only</td></tr>
+<tr><td>Manufacturer</td><td>Helix Bio</td></tr>
+</tbody>
+</table>
+<h4>Research / Applications</h4>
+<p>DSIP continues to be investigated in multiple scientific disciplines because of its potential role in neurochemical communication and peptide-mediated biological processes:</p>
+<ul>
+<li>Neuroscience research — neuropeptide signaling and neuronal communication</li>
+<li>Neuroendocrinology — interactions between the nervous system and endocrine signaling pathways</li>
+<li>Circadian rhythm and sleep biology research</li>
+<li>Cellular communication and hormone regulation studies</li>
+<li>Molecular biology and biochemistry involving peptide-receptor interactions</li>
+</ul>
+<p>Research involving DSIP remains experimental and is primarily conducted in laboratory and preclinical settings. Everything sold by Helix Bio is intended for laboratory research only, not for administration to humans or animals.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>The purity of a peptide directly influences laboratory reproducibility and analytical accuracy. Helix Bio's DSIP is produced through controlled peptide synthesis with batch consistency verification, routine quality inspections, and secure laboratory packaging to support researchers working in neuroscience, neuroendocrinology, molecular biology, and peptide chemistry.</p>
+<h4>Storage &amp; Handling</h4>
+<ul>
+<li>Store refrigerated upon receipt for short-term storage; keep frozen for long-term storage</li>
+<li>Protect from heat, moisture, and direct light</li>
+<li>Keep the vial tightly sealed until use</li>
+<li>Avoid repeated freeze-thaw cycles after reconstitution where possible</li>
+<li>Handle only in a suitable laboratory environment using appropriate protective equipment</li>
+</ul>
+<h4>Shipping &amp; Packaging</h4>
+<p>DSIP is packaged in a securely sealed laboratory vial with protective shipping materials designed to minimize environmental exposure. Researchers should inspect each vial upon receipt and follow established laboratory handling procedures. Shipping methods, delivery times, and regional availability may vary — refer to Helix Bio's shipping and support pages for current information.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>DSIP sold by Helix Bio is intended strictly for laboratory, analytical, and scientific research use. It is not a drug, dietary supplement, cosmetic, or food product, and it is not approved by the FDA or any regulatory body for human or veterinary use, diagnosis, treatment, cure, or prevention of any disease or condition. This product must not be administered to humans or animals outside of a properly licensed research facility. Nothing on this page constitutes medical advice, and no statement here should be interpreted as a therapeutic or health claim. By purchasing this product, the buyer confirms they are a qualified researcher, laboratory, or institution acquiring it for lawful research purposes only, and accepts full responsibility for compliance with all applicable local, state, and federal regulations governing research chemicals.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is DSIP?', answer: 'DSIP (Delta Sleep-Inducing Peptide) is a synthetic nonapeptide studied in neuroscience, neuroendocrinology, and sleep biology research. It is supplied exclusively for laboratory research and is not approved for human or veterinary use.' },
+      { question: 'What is DSIP used for in research?', answer: 'Researchers study DSIP in areas such as neuropeptide signaling, neurochemical pathways, circadian rhythm research, cellular communication, and hormone regulation.' },
+      { question: 'Is DSIP\'s biological role fully understood?', answer: 'No. Although DSIP has been studied for decades, its precise physiological role remains an active area of research, and it continues to be investigated across multiple scientific disciplines.' },
+      { question: 'Is DSIP intended for human consumption?', answer: 'No. DSIP sold by Helix Bio is intended strictly for laboratory research and is not approved for human consumption, veterinary use, or diagnostic applications.' },
+      { question: 'What form is DSIP supplied in?', answer: 'DSIP is typically supplied as a white to off-white lyophilized powder in a sealed laboratory vial, reconstituted using an appropriate laboratory-grade solvent according to the research protocol.' },
+      { question: 'How should DSIP be stored?', answer: 'DSIP should be stored refrigerated before reconstitution, with freezer temperatures recommended for long-term storage, protected from heat, moisture, and direct light.' },
+      { question: 'How many amino acids does DSIP contain?', answer: 'DSIP is a nonapeptide composed of nine amino acids, originally isolated during investigations into sleep-related neurochemical activity.' },
+      { question: 'Who can purchase DSIP?', answer: 'DSIP is intended for qualified professionals, including research laboratories, universities, biotechnology companies, and pharmaceutical research organizations.' },
+      { question: 'Does Helix Bio test its research peptides?', answer: 'Helix Bio emphasizes quality control and batch consistency throughout manufacturing. Where applicable, batch-specific analytical documentation may be available to support laboratory research.' },
+      { question: 'Why choose Helix Bio for research peptides?', answer: 'Helix Bio focuses on supplying high-quality research peptides with an emphasis on product consistency, reliable manufacturing practices, secure packaging, and research-focused support.' },
+    ],
+    variants: [
+      { sku: 'DSIP-10MG', strength: '10mg', price: 23 },
+    ],
+  },
+{
+    name: 'Epitalon',
+    slug: 'epitalon',
+    imageFile: 'EPITALON 10MG.png',
+    categoryName: 'Cellular Health & Longevity',
+    description: 'Epitalon is a synthetic tetrapeptide that has been extensively studied in aging biology, cellular research, molecular biology, and peptide science. Derived from the naturally occurring peptide Epithalamin, Epitalon has attracted scientific interest for its role in laboratory studies involving telomere biology, cellular signaling, oxidative stress, and age-related biological processes. Helix Bio supplies research-grade Epitalon exclusively for laboratory, analytical, and educational research. This product is supplied strictly for research use only and is not intended for human consumption, veterinary use, therapeutic applications, or diagnostic procedures.',
+    seoTitle: 'Epitalon Peptide | Research Grade Epitalon | Helix Bio',
+    seoDescription: 'Buy research-grade Epitalon peptide from Helix Bio. High-purity Epitalon supplied exclusively for laboratory, analytical, and scientific research use.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>Epitalon, also known as Epithalone, is a synthetic tetrapeptide composed of four amino acids: Alanine, Glutamic Acid, Aspartic Acid, and Glycine. It is a synthetic analogue of Epithalamin, a naturally occurring peptide isolated from the pineal gland. Since its development, Epitalon has become a widely studied compound in longevity research, molecular biology, and cellular aging, with researchers investigating its potential interactions with cellular processes associated with chromosome maintenance, oxidative stress, and biological aging.</p>
+<h4>Composition</h4>
+<p>Epitalon is a laboratory-produced tetrapeptide (Ala-Glu-Asp-Gly) designed to mimic the biological activity of Epithalamin. Helix Bio's Epitalon is supplied as a lyophilized (freeze-dried) powder in a sealed laboratory vial to support stability prior to reconstitution.</p>
+<h4>Purpose &amp; Intended Use</h4>
+<p>This product exists to support in vitro and laboratory research only. It is manufactured, labeled, and sold for research use only (RUO) — not for human or veterinary use, not for diagnostic procedures, and not for compounding. It is intended for researchers studying telomere biology, DNA regulation, antioxidant pathways, and circadian and pineal gland physiology.</p>
+<h4>Product Highlights</h4>
+<ul>
+<li>Research-grade synthetic tetrapeptide</li>
+<li>High-purity manufacturing</li>
+<li>Batch-to-batch consistency</li>
+<li>Suitable for molecular biology and longevity research</li>
+<li>Secure laboratory packaging</li>
+<li>Clearly labeled for research use only</li>
+</ul>
+<h4>Key Features</h4>
+<ul>
+<li>Synthetic tetrapeptide analogue of Epithalamin</li>
+<li>Studied for interactions with telomere-related biology and oxidative stress responses</li>
+<li>Batch-tested for consistency during manufacturing</li>
+<li>Packaged in a sealed laboratory vial</li>
+<li>Labeled strictly for research use only — not for human consumption</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>Aging biology remains one of the fastest-growing areas of biomedical research. Epitalon has become a valuable research tool because laboratory studies have explored its interaction with cellular signaling pathways, chromosomal maintenance mechanisms, and circadian rhythm regulation. Helix Bio manufactures research-grade Epitalon with attention to consistency, product integrity, and quality-focused production standards.</p>
+<h4>Who This Product Is For</h4>
+<ul>
+<li>Cellular aging and longevity research laboratories</li>
+<li>Universities and academic institutions</li>
+<li>Biotechnology and pharmaceutical research organizations</li>
+<li>Molecular biology and gerontology researchers</li>
+</ul>
+<p>This product is not intended for individual consumers seeking to use it outside a research setting.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Field</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>Epitalon (Epithalone)</td></tr>
+<tr><td>Category</td><td>Research Peptide — Synthetic Tetrapeptide</td></tr>
+<tr><td>Molecular Class</td><td>Synthetic Peptide (Ala-Glu-Asp-Gly)</td></tr>
+<tr><td>Appearance</td><td>Lyophilized powder</td></tr>
+<tr><td>Purity</td><td>High-purity research grade — see current lot's Certificate of Analysis where available</td></tr>
+<tr><td>Storage</td><td>Store refrigerated before reconstitution; freezer temperatures recommended for long-term storage</td></tr>
+<tr><td>Packaging</td><td>Sealed laboratory vial</td></tr>
+<tr><td>Research Use</td><td>Laboratory, analytical, and scientific research only</td></tr>
+<tr><td>Manufacturer</td><td>Helix Bio</td></tr>
+</tbody>
+</table>
+<h4>Research / Applications</h4>
+<p>Epitalon has been investigated across multiple scientific disciplines because of its potential involvement in cellular and molecular processes:</p>
+<ul>
+<li>Cellular aging research, longevity science, and gerontology</li>
+<li>Telomere biology and DNA regulation</li>
+<li>Oxidative stress and antioxidant pathway studies</li>
+<li>Pineal gland research and circadian biology</li>
+<li>Endocrinology and experimental physiology</li>
+<li>Molecular biology, cell biology, and peptide chemistry</li>
+</ul>
+<p>Current evidence is primarily derived from laboratory and preclinical research, and additional scientific investigation is necessary to further characterize Epitalon's biological mechanisms. Everything sold by Helix Bio is intended for laboratory research only, not for administration to humans or animals.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Reliable scientific outcomes begin with dependable research materials. Helix Bio manufactures research-grade Epitalon with attention to consistency, product integrity, and quality-focused production standards, including carefully selected raw materials, controlled peptide synthesis, and batch consistency verification.</p>
+<h4>Storage &amp; Handling</h4>
+<ul>
+<li>Store refrigerated upon receipt for short-term storage; keep frozen for long-term storage</li>
+<li>Protect from heat, moisture, and direct light</li>
+<li>Keep the vial tightly sealed until use</li>
+<li>Avoid repeated freeze-thaw cycles after reconstitution where possible</li>
+<li>Handle only in a suitable laboratory environment using appropriate protective equipment</li>
+</ul>
+<h4>Shipping &amp; Packaging</h4>
+<p>Epitalon is packaged in a securely sealed laboratory vial with protective shipping materials designed to minimize environmental exposure. Researchers should inspect each vial upon receipt. Shipping methods, delivery times, and regional availability may vary — refer to Helix Bio's shipping and support pages for current information.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>Epitalon sold by Helix Bio is intended strictly for laboratory, analytical, and scientific research use. It is not a drug, dietary supplement, cosmetic, or food product, and it is not approved by the FDA or any regulatory body for human or veterinary use, diagnosis, treatment, cure, or prevention of any disease or condition. This product must not be administered to humans or animals outside of a properly licensed research facility. Nothing on this page constitutes medical advice, and no statement here should be interpreted as a therapeutic or health claim. By purchasing this product, the buyer confirms they are a qualified researcher, laboratory, or institution acquiring it for lawful research purposes only, and accepts full responsibility for compliance with all applicable local, state, and federal regulations governing research chemicals.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is Epitalon?', answer: 'Epitalon is a synthetic tetrapeptide analogue of Epithalamin, a naturally occurring peptide isolated from the pineal gland. It is studied in laboratory research involving telomere biology, cellular signaling, and aging processes.' },
+      { question: 'What is Epitalon used for in research?', answer: 'Researchers study Epitalon in areas such as cellular aging, longevity science, telomere biology, DNA regulation, oxidative stress, and pineal gland and circadian biology research.' },
+      { question: 'What amino acids make up Epitalon?', answer: 'Epitalon is composed of four amino acids: Alanine, Glutamic Acid, Aspartic Acid, and Glycine (Ala-Glu-Asp-Gly).' },
+      { question: 'Is Epitalon intended for human consumption?', answer: 'No. Epitalon sold by Helix Bio is intended strictly for laboratory research and is not approved for human consumption, veterinary use, or diagnostic applications.' },
+      { question: 'How should Epitalon be stored?', answer: 'Epitalon should be stored refrigerated before reconstitution, with freezer temperatures recommended for long-term storage, protected from heat, moisture, and direct light.' },
+      { question: 'What form is Epitalon supplied in?', answer: 'Epitalon is typically supplied as a lyophilized (freeze-dried) powder in a sealed laboratory vial, reconstituted according to the research protocol.' },
+      { question: 'Is Epitalon the same as Epithalamin?', answer: 'No. Epitalon is a synthetic analogue designed to mimic the biological activity of Epithalamin, a naturally occurring peptide isolated from the pineal gland.' },
+      { question: 'Who can purchase Epitalon?', answer: 'Epitalon is intended for qualified professionals, including research laboratories, universities, biotechnology companies, and pharmaceutical research organizations.' },
+      { question: 'Does Helix Bio test its research peptides?', answer: 'Helix Bio emphasizes quality control and batch consistency throughout manufacturing. Where applicable, batch-specific analytical documentation may be available to support laboratory research.' },
+      { question: 'Why choose Helix Bio for research peptides?', answer: 'Helix Bio focuses on supplying high-quality research peptides with an emphasis on product consistency, reliable manufacturing practices, secure packaging, and research-focused support.' },
+    ],
+    variants: [
+      { sku: 'EPITAL-10MG', strength: '10mg', price: 19 },
+      { sku: 'EPITAL-50MG', strength: '50mg', price: 33 },
+    ],
+  },
+{
+    name: 'GHK-CU',
+    slug: 'ghk-cu',
+    imageFile: 'GHK-CU 50MG.png',
+    categoryName: 'Cellular Health & Longevity',
+    description: 'GHK-CU (Glycyl-L-Histidyl-L-Lysine Copper) is a naturally occurring copper-binding tripeptide that has become one of the most extensively studied peptides in regenerative biology, extracellular matrix research, peptide chemistry, and cellular signaling. Researchers investigate GHK-CU in laboratory settings to better understand its interactions with biological pathways involved in tissue remodeling, cellular communication, protein regulation, and copper metabolism. Helix Bio supplies research-grade GHK-CU exclusively for laboratory, analytical, and educational research. This product is supplied strictly for research use only and is not intended for human consumption, veterinary use, therapeutic applications, or diagnostic procedures.',
+    seoTitle: 'GHK-CU Peptide | Research Grade Copper Peptide | Helix Bio',
+    seoDescription: 'Buy research-grade GHK-CU peptide from Helix Bio. High-purity copper peptide supplied exclusively for laboratory, analytical, and scientific research.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>GHK-CU, also known as Glycyl-L-Histidyl-L-Lysine Copper, is a naturally occurring tripeptide complex that binds copper ions. Since its identification in human plasma, it has attracted significant attention in peptide science because of its involvement in cellular signaling and extracellular matrix biology. Today, GHK-CU is widely investigated in molecular biology, regenerative science, tissue engineering, and peptide chemistry.</p>
+<h4>Composition</h4>
+<p>GHK-CU is a copper-binding tripeptide consisting of three amino acids — Glycine, Histidine, and Lysine — complexed with copper ions. Researchers have identified this peptide naturally in plasma, saliva, and urine, making it one of the most recognized endogenous copper peptides studied in modern molecular biology. Helix Bio's GHK-CU is supplied as a lyophilized powder in a sealed laboratory vial.</p>
+<h4>Purpose &amp; Intended Use</h4>
+<p>This product exists to support in vitro and laboratory research only. It is manufactured, labeled, and sold for research use only (RUO) — not for human or veterinary use, not for diagnostic procedures, and not for compounding. It is intended for researchers studying extracellular matrix biology, copper transport mechanisms, gene regulation, and tissue engineering models.</p>
+<h4>Product Highlights</h4>
+<ul>
+<li>High-purity copper peptide manufactured to research-grade standards</li>
+<li>Synthetic GHK-CU peptide with consistent batch quality</li>
+<li>Secure laboratory packaging</li>
+<li>Suitable for molecular biology and peptide research</li>
+<li>Designed for analytical laboratory applications</li>
+<li>Clearly labeled for research use only</li>
+</ul>
+<h4>Key Features</h4>
+<ul>
+<li>Copper-binding synthetic tripeptide identified naturally in human plasma</li>
+<li>Studied for interactions with extracellular matrix components and cell signaling pathways</li>
+<li>Batch-tested for consistency during manufacturing</li>
+<li>Packaged in a sealed laboratory vial</li>
+<li>Labeled strictly for research use only — not for human consumption</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>Reliable scientific research depends on consistent peptide quality. Helix Bio manufactures research-grade GHK-CU with careful attention to production quality, consistency, and product integrity, supporting controlled laboratory studies in biotechnology companies, pharmaceutical research organizations, universities, and analytical laboratories.</p>
+<h4>Who This Product Is For</h4>
+<ul>
+<li>Regenerative biology and tissue engineering research laboratories</li>
+<li>Universities and academic institutions</li>
+<li>Biotechnology and pharmaceutical research organizations</li>
+<li>Molecular biology and extracellular matrix researchers</li>
+</ul>
+<p>This product is not intended for individual consumers seeking to use it outside a research setting.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Field</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>GHK-CU (Glycyl-L-Histidyl-L-Lysine Copper)</td></tr>
+<tr><td>Category</td><td>Research Peptide — Copper-Binding Tripeptide</td></tr>
+<tr><td>Molecular Class</td><td>Synthetic Copper Peptide</td></tr>
+<tr><td>Appearance</td><td>Lyophilized powder</td></tr>
+<tr><td>Purity</td><td>High-purity research grade — see current lot's Certificate of Analysis where available</td></tr>
+<tr><td>Storage</td><td>Store refrigerated before reconstitution; freezer temperatures recommended for long-term storage</td></tr>
+<tr><td>Packaging</td><td>Sealed laboratory vial</td></tr>
+<tr><td>Research Use</td><td>Laboratory, analytical, and scientific research only</td></tr>
+<tr><td>Manufacturer</td><td>Helix Bio</td></tr>
+</tbody>
+</table>
+<h4>Research / Applications</h4>
+<p>GHK-CU has become a valuable research tool across multiple scientific disciplines, including studies involving:</p>
+<ul>
+<li>Cellular signaling, protein regulation, and gene expression</li>
+<li>Extracellular matrix biology and tissue engineering</li>
+<li>Copper metabolism and copper transport mechanisms</li>
+<li>Regenerative biology and biomaterials research</li>
+<li>Cell culture research and cell signaling pathways</li>
+<li>Peptide chemistry, molecular biology, and protein biochemistry</li>
+</ul>
+<p>Much of the available evidence remains within laboratory and preclinical research, and additional scientific investigation is necessary to further characterize GHK-CU's biological mechanisms. Everything sold by Helix Bio is intended for laboratory research only, not for administration to humans or animals.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Reliable scientific research depends on consistent peptide quality. Variations in synthesis, purity, storage, or handling can influence experimental reproducibility and analytical accuracy. Helix Bio manufactures research-grade GHK-CU with careful attention to production quality, consistency, and product integrity throughout manufacturing.</p>
+<h4>Storage &amp; Handling</h4>
+<ul>
+<li>Store refrigerated upon receipt for short-term storage; keep frozen for long-term storage</li>
+<li>Protect from heat, moisture, and direct light</li>
+<li>Keep the vial tightly sealed until use</li>
+<li>Avoid repeated freeze-thaw cycles after reconstitution where possible</li>
+<li>Handle only in a suitable laboratory environment using appropriate protective equipment</li>
+</ul>
+<h4>Shipping &amp; Packaging</h4>
+<p>GHK-CU is packaged in a securely sealed laboratory vial with protective shipping materials designed to minimize environmental exposure. Researchers should inspect each vial upon receipt. Shipping methods, delivery times, and regional availability may vary — refer to Helix Bio's shipping and support pages for current information.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>GHK-CU sold by Helix Bio is intended strictly for laboratory, analytical, and scientific research use. It is not a drug, dietary supplement, cosmetic, or food product, and it is not approved by the FDA or any regulatory body for human or veterinary use, diagnosis, treatment, cure, or prevention of any disease or condition. This product must not be administered to humans or animals outside of a properly licensed research facility. Nothing on this page constitutes medical advice, and no statement here should be interpreted as a therapeutic or health claim. By purchasing this product, the buyer confirms they are a qualified researcher, laboratory, or institution acquiring it for lawful research purposes only, and accepts full responsibility for compliance with all applicable local, state, and federal regulations governing research chemicals.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is GHK-CU?', answer: 'GHK-CU (Glycyl-L-Histidyl-L-Lysine Copper) is a naturally occurring copper-binding tripeptide studied in laboratory settings for its involvement in extracellular matrix biology and cellular signaling. It is supplied exclusively for scientific research.' },
+      { question: 'What is GHK-CU used for in research?', answer: 'Researchers study GHK-CU in areas such as cellular signaling, extracellular matrix biology, copper metabolism, regenerative biology, tissue engineering, and peptide chemistry.' },
+      { question: 'What amino acids make up GHK-CU?', answer: 'GHK-CU consists of three amino acids — Glycine, Histidine, and Lysine — complexed with copper ions.' },
+      { question: 'Is GHK-CU the same as AHK-CU?', answer: 'No. Although both are copper peptides, GHK-CU and AHK-CU have different amino acid sequences and molecular structures, which may influence their behavior under experimental conditions.' },
+      { question: 'Is GHK-CU intended for human consumption?', answer: 'No. GHK-CU sold by Helix Bio is intended strictly for laboratory research and is not approved for human consumption, veterinary use, or diagnostic applications.' },
+      { question: 'How should GHK-CU be stored?', answer: 'GHK-CU should be stored refrigerated before reconstitution, with freezer temperatures recommended for long-term storage, protected from heat, moisture, and direct light.' },
+      { question: 'What form is GHK-CU supplied in?', answer: 'GHK-CU is typically supplied as a lyophilized (freeze-dried) powder in a sealed laboratory vial, reconstituted according to the research protocol.' },
+      { question: 'Who can purchase GHK-CU?', answer: 'GHK-CU is intended for qualified professionals, including research laboratories, universities, biotechnology companies, and pharmaceutical research organizations.' },
+      { question: 'Does Helix Bio test its research peptides?', answer: 'Helix Bio emphasizes quality control and batch consistency throughout manufacturing. Where applicable, batch-specific analytical documentation may be available to support laboratory research.' },
+      { question: 'Why choose Helix Bio for research peptides?', answer: 'Helix Bio focuses on supplying high-quality research peptides with an emphasis on product consistency, reliable manufacturing practices, secure packaging, and research-focused support.' },
+    ],
+    variants: [
+      { sku: 'GHKCU-50MG', strength: '50mg', price: 15 },
+      { sku: 'GHKCU-100MG', strength: '100mg', price: 19 },
+    ],
+  },
+{
+    name: 'Glutathione',
+    slug: 'glutathione',
+    imageFile: 'GLUTATHIONE 600MG.png',
+    categoryName: 'Cellular Health & Longevity',
+    description: 'Glutathione is a naturally occurring tripeptide composed of glutamic acid, cysteine, and glycine. It plays an important role in cellular redox balance and is one of the most extensively studied endogenous antioxidants in biological research. Helix Bio supplies research-grade Glutathione exclusively for laboratory, analytical, and scientific investigations. It is intended for qualified researchers studying cellular biology, oxidative stress, molecular biology, metabolism, toxicology, and biochemical pathways. This product is for research use only and is not intended for human or veterinary use.',
+    seoTitle: 'Glutathione Research Grade | Laboratory Use | Helix Bio',
+    seoDescription: 'Research-grade Glutathione for laboratory and scientific research. High-quality material for biochemical, cellular, and oxidative stress studies at Helix Bio.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>Glutathione (γ-L-Glutamyl-L-Cysteinylglycine), often abbreviated as GSH, is a naturally occurring intracellular tripeptide found in virtually all mammalian cells. It functions as a major component of cellular antioxidant systems and participates in numerous biochemical pathways involving oxidation-reduction (redox) reactions, enzyme activity, detoxification mechanisms, and cellular homeostasis. Because of its broad biological significance, Glutathione has become one of the most researched molecules in life sciences.</p>
+<h4>Composition</h4>
+<p>Glutathione is composed of three naturally occurring amino acids: Glutamic Acid, Cysteine, and Glycine. This tripeptide structure gives Glutathione its unique biochemical properties and makes it an important subject in studies involving cellular defense systems and redox biology. Helix Bio's Glutathione is supplied as a research-grade powder in a sealed laboratory vial.</p>
+<h4>Purpose &amp; Intended Use</h4>
+<p>This product exists to support in vitro and laboratory research only. It is manufactured, labeled, and sold for research use only (RUO) — not for human or veterinary use, not for diagnostic procedures, and not for compounding. It is intended for researchers studying oxidative stress biology, cellular antioxidant systems, mitochondrial biology, and enzyme activity.</p>
+<h4>Product Highlights</h4>
+<ul>
+<li>Research-grade Glutathione (GSH)</li>
+<li>High-purity laboratory material</li>
+<li>Commonly studied in redox biology</li>
+<li>Manufactured for scientific laboratories</li>
+<li>Batch-controlled production and secure laboratory packaging</li>
+<li>Intended exclusively for research use</li>
+</ul>
+<h4>Key Features</h4>
+<ul>
+<li>Naturally occurring tripeptide composed of glutamic acid, cysteine, and glycine</li>
+<li>Studied for its role in cellular antioxidant defense and redox reactions</li>
+<li>Batch-tested for consistency during manufacturing</li>
+<li>Packaged in a sealed laboratory vial</li>
+<li>Labeled strictly for research use only — not for human consumption</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>Glutathione has become one of the most cited biomolecules in biomedical literature because of its involvement in numerous cellular processes, including cellular metabolism, oxidation-reduction reactions, mitochondrial activity, and biochemical regulation. Helix Bio manufactures research-grade Glutathione for laboratory professionals seeking consistent quality and reliable material for scientific investigations.</p>
+<h4>Who This Product Is For</h4>
+<ul>
+<li>Cellular biology and oxidative stress research laboratories</li>
+<li>Universities and academic institutions</li>
+<li>Biotechnology and pharmaceutical research organizations</li>
+<li>Toxicology and biochemistry researchers</li>
+</ul>
+<p>This product is not intended for individual consumers seeking to use it outside a research setting.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Field</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>Glutathione (GSH)</td></tr>
+<tr><td>Category</td><td>Research Peptide / Research Compound — Endogenous Tripeptide</td></tr>
+<tr><td>Composition</td><td>Glutamic Acid, Cysteine, Glycine</td></tr>
+<tr><td>Appearance</td><td>Lyophilized powder</td></tr>
+<tr><td>Purity</td><td>High-purity research grade — see current lot's Certificate of Analysis where available</td></tr>
+<tr><td>Storage</td><td>Store refrigerated before reconstitution; freezer temperatures recommended for long-term storage</td></tr>
+<tr><td>Packaging</td><td>Sealed laboratory vial</td></tr>
+<tr><td>Research Use</td><td>Laboratory, analytical, and scientific research only</td></tr>
+<tr><td>Manufacturer</td><td>Helix Bio</td></tr>
+</tbody>
+</table>
+<h4>Research / Applications</h4>
+<p>Research-grade Glutathione is commonly utilized in laboratory investigations involving:</p>
+<ul>
+<li>Oxidative stress biology and cellular antioxidant systems</li>
+<li>Mitochondrial biology and cell signaling pathways</li>
+<li>Biochemistry, molecular biology, and toxicology</li>
+<li>Enzyme activity and metabolic research</li>
+<li>Cellular homeostasis and protein function studies</li>
+</ul>
+<p>Helix Bio supplies this compound exclusively for laboratory research. It is not intended for therapeutic, diagnostic, cosmetic, or dietary applications, and everything sold is intended for laboratory research only, not for administration to humans or animals.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Because Glutathione is one of the most cited biomolecules in biomedical literature, consistent quality is essential for reproducible experimental results. Helix Bio manufactures research-grade Glutathione with careful raw material selection, batch-controlled production, and routine quality inspections to support cellular biology, toxicology, and biochemical research.</p>
+<h4>Storage &amp; Handling</h4>
+<ul>
+<li>Store refrigerated upon receipt for short-term storage; keep frozen for long-term storage</li>
+<li>Protect from heat, moisture, and direct light</li>
+<li>Keep the vial tightly sealed until use</li>
+<li>Avoid repeated freeze-thaw cycles after reconstitution where possible</li>
+<li>Handle only in a suitable laboratory environment using appropriate protective equipment</li>
+</ul>
+<h4>Shipping &amp; Packaging</h4>
+<p>Glutathione is packaged in a securely sealed laboratory vial with protective shipping materials designed to minimize environmental exposure. Researchers should inspect each vial upon receipt. Shipping methods, delivery times, and regional availability may vary — refer to Helix Bio's shipping and support pages for current information.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>Glutathione sold by Helix Bio is intended strictly for laboratory, analytical, and scientific research use. It is not a drug, dietary supplement, cosmetic, or food product, and it is not approved by the FDA or any regulatory body for human or veterinary use, diagnosis, treatment, cure, or prevention of any disease or condition. This product must not be administered to humans or animals outside of a properly licensed research facility. Nothing on this page constitutes medical advice, and no statement here should be interpreted as a therapeutic or health claim. By purchasing this product, the buyer confirms they are a qualified researcher, laboratory, or institution acquiring it for lawful research purposes only, and accepts full responsibility for compliance with all applicable local, state, and federal regulations governing research chemicals.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is Glutathione?', answer: 'Glutathione (GSH) is a naturally occurring tripeptide composed of glutamic acid, cysteine, and glycine that plays a central role in cellular redox balance. It is one of the most extensively studied endogenous antioxidants in biological research.' },
+      { question: 'What is Glutathione used for in research?', answer: 'Researchers study Glutathione in areas such as oxidative stress biology, cellular antioxidant systems, mitochondrial biology, enzyme activity, toxicology, and metabolic research.' },
+      { question: 'What amino acids make up Glutathione?', answer: 'Glutathione is composed of three amino acids: Glutamic Acid, Cysteine, and Glycine.' },
+      { question: 'Is Glutathione intended for human consumption?', answer: 'No. Glutathione sold by Helix Bio is intended strictly for laboratory research and is not approved for human consumption, veterinary use, or diagnostic applications.' },
+      { question: 'How should Glutathione be stored?', answer: 'Glutathione should be stored refrigerated before reconstitution, with freezer temperatures recommended for long-term storage, protected from heat, moisture, and direct light.' },
+      { question: 'What form is Glutathione supplied in?', answer: 'Glutathione is typically supplied as a lyophilized (freeze-dried) powder in a sealed laboratory vial, reconstituted according to the research protocol.' },
+      { question: 'Why is Glutathione important in redox biology research?', answer: 'Glutathione functions as a major component of cellular antioxidant systems, participating in oxidation-reduction reactions, detoxification mechanisms, and cellular homeostasis — making it central to redox biology research.' },
+      { question: 'Who can purchase Glutathione?', answer: 'Glutathione is intended for qualified professionals, including research laboratories, universities, biotechnology companies, and pharmaceutical research organizations.' },
+      { question: 'Does Helix Bio test its research compounds?', answer: 'Helix Bio emphasizes quality control and batch consistency throughout manufacturing. Where applicable, batch-specific analytical documentation may be available to support laboratory research.' },
+      { question: 'Why choose Helix Bio for research compounds?', answer: 'Helix Bio focuses on supplying high-quality research materials with an emphasis on product consistency, reliable manufacturing practices, secure packaging, and research-focused support.' },
+    ],
+    variants: [
+      { sku: 'GLUTAT-600MG', strength: '600mg', price: 19 },
+      { sku: 'GLUTAT-1500MG', strength: '1500mg', price: 20 },
+    ],
+  },
+{
+    name: 'HCG',
+    slug: 'hcg',
+    imageFile: 'HCG 5000 IU.png',
+    categoryName: 'Specialty & Hormonal Peptides',
+    description: 'HCG, or human chorionic gonadotropin, is a naturally occurring glycoprotein hormone composed of alpha and beta subunits. In laboratory research, hCG is studied in connection with luteinizing hormone/chorionic gonadotropin receptor (LHCGR) signaling, endocrine pathways, reproductive biology, and hormone-receptor interactions. Helix Bio supplies HCG as a research-use-only material for qualified laboratory and scientific applications. The product is intended for controlled research settings and is not offered as a medication, dietary supplement, or material for human or veterinary administration.',
+    seoTitle: 'HCG Research Peptide | Human Chorionic Gonadotropin | Helix Bio',
+    seoDescription: 'Explore HCG for laboratory research. Human chorionic gonadotropin research material with documented purity, analytical testing, and batch-specific COA.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>Human chorionic gonadotropin (hCG) is a glycoprotein hormone belonging to the same broader hormone family as luteinizing hormone (LH), follicle-stimulating hormone (FSH), and thyroid-stimulating hormone (TSH). Structurally, hCG consists of two noncovalently associated subunits: an alpha subunit and a beta subunit. HCG has a well-established place in biological research because it interacts with the luteinizing hormone/chorionic gonadotropin receptor (LHCGR), allowing researchers to examine downstream intracellular signaling, receptor pharmacology, and endocrine communication.</p>
+<h4>Composition</h4>
+<p>HCG is a glycoprotein hormone composed of alpha and beta subunits. Helix Bio's HCG is supplied as a research-use laboratory material; researchers should verify the current product listing and lot-specific Certificate of Analysis for exact configuration, formulation, and appearance details rather than assuming specifications from another supplier apply.</p>
+<h4>Purpose &amp; Intended Use</h4>
+<p>This product exists to support in vitro and laboratory research only. It is manufactured, labeled, and sold for research use only (RUO) — not for human or veterinary administration. It is intended for researchers studying LHCGR receptor biology, gonadotropin signaling, and hormone-receptor pharmacology.</p>
+<h4>Product Highlights</h4>
+<ul>
+<li>Human chorionic gonadotropin research material with documented analytical testing</li>
+<li>Glycoprotein hormone relevant to LHCGR receptor research</li>
+<li>Batch-specific analytical documentation according to Helix Bio's stated quality process</li>
+<li>HPLC purity testing and mass spectrometry-based identity confirmation per Helix Bio's published testing process</li>
+<li>Research-use-only positioning</li>
+</ul>
+<h4>Key Features</h4>
+<ul>
+<li>Glycoprotein hormone with alpha and beta subunits</li>
+<li>Studied in connection with gonadotropin signaling and reproductive biology research</li>
+<li>Batch-specific Certificate of Analysis available according to Helix Bio</li>
+<li>Not intended for human or veterinary administration</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>Researchers evaluating HCG need more than the compound name on a vial. Identity, purity, lot documentation, storage requirements, and analytical information can all affect how a research material fits into an experimental workflow. Helix Bio's published quality process emphasizes independent HPLC testing for purity, mass spectrometry for molecular identity, and batch-specific certificates of analysis.</p>
+<h4>Who This Product Is For</h4>
+<ul>
+<li>Endocrinology and reproductive biology research laboratories</li>
+<li>Universities and academic institutions</li>
+<li>Biotechnology and pharmaceutical research organizations</li>
+<li>Receptor pharmacology and assay development researchers</li>
+</ul>
+<p>This product is not intended for individual consumers seeking to use it outside a research setting.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Field</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>HCG (Human Chorionic Gonadotropin)</td></tr>
+<tr><td>Category</td><td>Hormonal & Research Peptide — Glycoprotein Hormone</td></tr>
+<tr><td>Composition</td><td>Alpha and beta glycoprotein subunits</td></tr>
+<tr><td>Primary Research Context</td><td>LHCGR and endocrine signaling research</td></tr>
+<tr><td>Identity Testing</td><td>Mass spectrometry, per Helix Bio's published testing process</td></tr>
+<tr><td>Purity Testing</td><td>HPLC, per Helix Bio's published testing process</td></tr>
+<tr><td>Packaging</td><td>Research-use laboratory packaging — verify current product listing</td></tr>
+<tr><td>Storage</td><td>Follow the product label, COA, and laboratory handling protocol</td></tr>
+<tr><td>Research Use</td><td>Laboratory and scientific research only</td></tr>
+<tr><td>Manufacturer</td><td>Helix Bio</td></tr>
+</tbody>
+</table>
+<h4>Research / Applications</h4>
+<p>HCG can serve as a research reagent in studies involving:</p>
+<ul>
+<li>LHCGR receptor biology and gonadotropin signaling</li>
+<li>Endocrine and reproductive biology</li>
+<li>Peptide and glycoprotein hormone structure-function relationships</li>
+<li>Receptor-binding research and intracellular signaling pathways</li>
+<li>Comparative studies involving LH and hCG</li>
+<li>Analytical and biochemical assay development</li>
+</ul>
+<p>The exact suitability of HCG depends on the experimental model, assay design, analytical requirements, and institutional research protocol. Everything sold by Helix Bio is intended for laboratory research only, not for administration to humans or animals.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Quality control is particularly important when a peptide or hormone is being used as a research reagent, since a compound's analytical profile can influence experimental reproducibility and interpretation. Helix Bio states that its catalog compounds are independently tested using HPLC for purity and mass spectrometry for molecular identity, with batch-specific certificates of analysis available so researchers can review lot-level documentation.</p>
+<h4>Storage &amp; Handling</h4>
+<ul>
+<li>Follow the product label, COA, and laboratory handling protocol for the specific lot received</li>
+<li>Store away from heat, moisture, and direct light unless otherwise specified</li>
+<li>Keep the vial tightly sealed until use</li>
+<li>Handle only in a suitable laboratory environment using appropriate protective equipment</li>
+<li>Record storage conditions as part of good laboratory documentation practices</li>
+</ul>
+<h4>Shipping &amp; Packaging</h4>
+<p>HCG is packaged in research-use laboratory packaging designed to help maintain product integrity during transit. Researchers should inspect the package for any visible damage before use and verify current product listing details. Shipping methods, delivery times, and regional availability may vary — refer to Helix Bio's shipping and support pages for current information.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>HCG sold by Helix Bio is intended strictly for laboratory, analytical, and scientific research use. It is not a drug, dietary supplement, cosmetic, or food product, and it is not approved by the FDA or any regulatory body for human or veterinary use, diagnosis, treatment, cure, or prevention of any disease or condition. This product must not be administered to humans or animals outside of a properly licensed research facility. Nothing on this page constitutes medical advice, and no statement here should be interpreted as a therapeutic or health claim. By purchasing this product, the buyer confirms they are a qualified researcher, laboratory, or institution acquiring it for lawful research purposes only, and accepts full responsibility for compliance with all applicable local, state, and federal regulations governing research chemicals.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is HCG?', answer: 'HCG (human chorionic gonadotropin) is a naturally occurring glycoprotein hormone composed of alpha and beta subunits, studied in laboratory research in connection with LHCGR signaling and reproductive biology.' },
+      { question: 'What is HCG used for in research?', answer: 'Researchers use HCG as a reagent in studies involving LHCGR receptor biology, gonadotropin signaling, endocrine and reproductive biology, and receptor-binding research.' },
+      { question: 'Is HCG intended for human or veterinary use?', answer: 'No. HCG sold by Helix Bio is a research-use-only material and is not offered as a medication, dietary supplement, or material for human or veterinary administration.' },
+      { question: 'How is HCG structured?', answer: 'HCG consists of two noncovalently associated subunits — an alpha subunit and a beta subunit — placing it in the same broader glycoprotein hormone family as LH, FSH, and TSH.' },
+      { question: 'How is HCG purity tested?', answer: 'Helix Bio states that HCG is tested using HPLC for purity and mass spectrometry for molecular identity confirmation, with batch-specific certificates of analysis available.' },
+      { question: 'How should HCG be stored?', answer: 'Storage should follow the product label, COA, and laboratory handling protocol for the specific lot received. Do not assume specifications from another supplier apply to this material.' },
+      { question: 'What receptor is HCG relevant to in research?', answer: 'HCG interacts with the luteinizing hormone/chorionic gonadotropin receptor (LHCGR), making it relevant to receptor pharmacology and endocrine signaling research.' },
+      { question: 'Who can purchase HCG?', answer: 'HCG is intended for qualified professionals, including research laboratories, universities, biotechnology companies, and pharmaceutical research organizations.' },
+      { question: 'Does Helix Bio provide a Certificate of Analysis for HCG?', answer: 'Yes. According to Helix Bio, batch-specific documentation is available so researchers can review the identity and purity of the specific lot they receive.' },
+      { question: 'Why choose Helix Bio for research hormones?', answer: 'Helix Bio\'s published quality process emphasizes independent HPLC testing, mass spectrometry identity confirmation, and batch-specific certificates of analysis to help researchers evaluate materials before use.' },
+    ],
+    variants: [
+      { sku: 'HCG-5000IU', strength: '5000 IU', price: 19 },
+      { sku: 'HCG-10000IU', strength: '10000 IU', price: 22 },
+    ],
+  },
+{
+    name: 'Kisspeptin',
+    slug: 'kisspeptin',
+    imageFile: 'KISSPEPTIN 10MG.png',
+    categoryName: 'Specialty & Hormonal Peptides',
+    description: 'Kisspeptin is a naturally occurring peptide that plays an important role in scientific research related to reproductive endocrinology, neuroendocrine signaling, and hormonal regulation. Researchers have studied kisspeptin for its interaction with the GPR54 (KISS1R) receptor and its involvement in signaling pathways that regulate gonadotropin-releasing hormone (GnRH). Helix Bio supplies Kisspeptin exclusively for laboratory and research purposes. It is not intended for human or veterinary use, diagnostic procedures, or therapeutic applications.',
+    seoTitle: 'Kisspeptin Peptide for Research Use | Helix Bio USA',
+    seoDescription: 'Explore Kisspeptin research peptide from Helix Bio. High-quality research material intended for laboratory and scientific research use only. Not for human consumption.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>Kisspeptin is a family of peptide fragments encoded by the KISS1 gene and recognized for its role in cellular signaling associated with reproductive biology. Since its discovery, it has become an important subject in endocrinology, neurobiology, developmental biology, and molecular signaling research. In laboratory settings, researchers investigate Kisspeptin to better understand hormone regulation, receptor interactions, reproductive physiology, and hypothalamic-pituitary-gonadal (HPG) axis signaling.</p>
+<h4>Composition</h4>
+<p>Kisspeptin is a synthetic research peptide designed to reflect the amino acid sequence used in laboratory investigations. Depending on the research protocol, scientists may study different peptide fragments such as Kisspeptin-10, Kisspeptin-13, Kisspeptin-14, or Kisspeptin-54. Product specifications should always be verified before experimental use. Helix Bio's Kisspeptin is supplied as a lyophilized powder in a sealed laboratory vial where applicable.</p>
+<h4>Purpose &amp; Intended Use</h4>
+<p>This product exists to support in vitro and laboratory research only. It is manufactured, labeled, and sold for research use only (RUO) — not for human or veterinary use, not for diagnostic procedures, and not for compounding. It is intended for researchers studying neuroendocrine signaling, GPR54 (KISS1R) receptor interactions, and reproductive biology.</p>
+<h4>Product Highlights</h4>
+<ul>
+<li>Research-grade synthetic peptide intended exclusively for laboratory research</li>
+<li>Suitable for molecular and biochemical investigations</li>
+<li>Supports endocrinology and reproductive biology studies</li>
+<li>Manufactured with attention to batch consistency</li>
+<li>Packaged to help maintain product integrity during transport</li>
+<li>Designed for professional research environments</li>
+</ul>
+<h4>Key Features</h4>
+<ul>
+<li>Peptide family encoded by the KISS1 gene, studied for GPR54 (KISS1R) receptor interactions</li>
+<li>Relevant to GnRH signaling and HPG axis research</li>
+<li>Produced using established peptide synthesis methods with strict batch consistency practices</li>
+<li>Not intended for human consumption, therapeutic use, or diagnostic use</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>Kisspeptin has become an important peptide in modern endocrine research because of its interaction with the KISS1 receptor (GPR54). Its well-documented biological pathway makes it valuable for experimental models exploring receptor activation, peptide-receptor binding, intracellular signaling, and physiological regulation. Rather than making unsupported performance claims, Helix Bio prioritizes transparency, product quality, and responsible scientific use.</p>
+<h4>Who This Product Is For</h4>
+<ul>
+<li>Endocrinology and reproductive biology research laboratories</li>
+<li>Universities and academic institutions</li>
+<li>Biotechnology and pharmaceutical research organizations</li>
+<li>Neuroendocrinology researchers</li>
+</ul>
+<p>This product is not intended for individual consumers seeking to use it outside a research setting.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Field</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>Kisspeptin</td></tr>
+<tr><td>Category</td><td>Research Peptide — Synthetic Peptide</td></tr>
+<tr><td>Research Fields</td><td>Endocrinology, Reproductive Biology, Molecular Biology, Neuroendocrinology</td></tr>
+<tr><td>Appearance</td><td>Lyophilized powder (where applicable)</td></tr>
+<tr><td>Purity</td><td>High-purity research grade — see current lot's Certificate of Analysis where available</td></tr>
+<tr><td>Storage</td><td>Store refrigerated before reconstitution; freezer temperatures recommended for long-term storage</td></tr>
+<tr><td>Packaging</td><td>Sealed laboratory vial</td></tr>
+<tr><td>Research Use</td><td>Laboratory research only</td></tr>
+<tr><td>Manufacturer</td><td>Helix Bio</td></tr>
+</tbody>
+</table>
+<h4>Research / Applications</h4>
+<p>Kisspeptin is supplied exclusively for research applications and is commonly used in studies involving:</p>
+<ul>
+<li>Neuroendocrine signaling and hormone regulation pathways</li>
+<li>Reproductive biology and cell receptor interactions</li>
+<li>Molecular biology and peptide signaling mechanisms</li>
+<li>Endocrine physiology and hypothalamic-pituitary-gonadal (HPG) axis research</li>
+<li>Laboratory assay development</li>
+</ul>
+<p>This product is intended only for qualified researchers working within regulated laboratory environments. Everything sold by Helix Bio is intended for laboratory research only, not for administration to humans or animals.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Researchers depend on consistent materials to produce reliable experimental results. Helix Bio manufactures research-grade Kisspeptin using established peptide synthesis methods with strict batch consistency practices, careful manufacturing, and laboratory-oriented packaging.</p>
+<h4>Storage &amp; Handling</h4>
+<ul>
+<li>Store refrigerated upon receipt for short-term storage; keep frozen for long-term storage where applicable</li>
+<li>Protect from heat, moisture, and direct light</li>
+<li>Keep the vial tightly sealed until use</li>
+<li>Handle only in a suitable laboratory environment using appropriate protective equipment</li>
+<li>Verify current product specification before experimental use, as fragment length may vary by lot</li>
+</ul>
+<h4>Shipping &amp; Packaging</h4>
+<p>Kisspeptin is packaged to help maintain product integrity during transport. Researchers should inspect each vial upon receipt. Shipping methods, delivery times, and regional availability may vary — refer to Helix Bio's shipping and support pages for current information.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>Kisspeptin sold by Helix Bio is intended strictly for laboratory, analytical, and scientific research use. It is not a drug, dietary supplement, cosmetic, or food product, and it is not approved by the FDA or any regulatory body for human or veterinary use, diagnosis, treatment, cure, or prevention of any disease or condition. This product must not be administered to humans or animals outside of a properly licensed research facility. Nothing on this page constitutes medical advice, and no statement here should be interpreted as a therapeutic or health claim. By purchasing this product, the buyer confirms they are a qualified researcher, laboratory, or institution acquiring it for lawful research purposes only, and accepts full responsibility for compliance with all applicable local, state, and federal regulations governing research chemicals.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is Kisspeptin?', answer: 'Kisspeptin is a family of peptide fragments encoded by the KISS1 gene, studied for its role in reproductive endocrinology and neuroendocrine signaling through interaction with the GPR54 (KISS1R) receptor.' },
+      { question: 'What is Kisspeptin used for in research?', answer: 'Researchers study Kisspeptin in areas such as neuroendocrine signaling, hormone regulation, reproductive biology, receptor interactions, and hypothalamic-pituitary-gonadal (HPG) axis research.' },
+      { question: 'What Kisspeptin fragments are studied in research?', answer: 'Depending on the research protocol, scientists may study different peptide fragments such as Kisspeptin-10, Kisspeptin-13, Kisspeptin-14, or Kisspeptin-54. Product specifications should always be verified before use.' },
+      { question: 'Is Kisspeptin intended for human consumption?', answer: 'No. Kisspeptin sold by Helix Bio is intended strictly for laboratory research and is not approved for human consumption, veterinary use, or diagnostic applications.' },
+      { question: 'What receptor does Kisspeptin interact with?', answer: 'Kisspeptin is studied for its interaction with the GPR54 (KISS1R) receptor and its involvement in signaling pathways that regulate gonadotropin-releasing hormone (GnRH).' },
+      { question: 'How should Kisspeptin be stored?', answer: 'Kisspeptin should generally be stored refrigerated before reconstitution, with freezer temperatures recommended for long-term storage, protected from heat, moisture, and direct light.' },
+      { question: 'What form is Kisspeptin supplied in?', answer: 'Kisspeptin is typically supplied as a lyophilized powder in a sealed laboratory vial where applicable, reconstituted according to the research protocol.' },
+      { question: 'Who can purchase Kisspeptin?', answer: 'Kisspeptin is intended for qualified professionals, including research laboratories, universities, biotechnology companies, and pharmaceutical research organizations.' },
+      { question: 'Does Helix Bio test its research peptides?', answer: 'Helix Bio emphasizes quality control and batch consistency throughout manufacturing. Where applicable, batch-specific analytical documentation may be available to support laboratory research.' },
+      { question: 'Why choose Helix Bio for research peptides?', answer: 'Helix Bio focuses on supplying high-quality research peptides with an emphasis on product consistency, reliable manufacturing practices, secure packaging, and research-focused support.' },
+    ],
+    variants: [
+      { sku: 'KISSPE-10MG', strength: '10mg', price: 25 },
+    ],
+  },
+{
+    name: 'Melanotan-1',
+    slug: 'melanotan-1',
+    imageFile: null,
+    categoryName: 'Specialty & Hormonal Peptides',
+    description: 'Melanotan-1 is a synthetic analog of alpha-melanocyte-stimulating hormone (α-MSH) used in laboratory research involving melanocortin biology, melanocortin receptors, and cellular pigmentation pathways. It is commonly associated with the research compound [Nle4-D-Phe7]-α-MSH and is also known in scientific literature as Melanotan I or MT-I. Helix Bio offers research-use-only peptide materials intended for controlled laboratory investigation. Product-specific analytical specifications should always be confirmed using the applicable lot documentation before experimental use.',
+    seoTitle: 'Melanotan-1 Research Peptide | High-Purity | Helix Bio',
+    seoDescription: 'Melanotan-1 research peptide for laboratory studies of melanocortin signaling and MC1R. Review research-use-only specifications, quality data, and handling.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>Melanotan-1 is a synthetic melanocortin peptide developed from the structure of α-MSH. Scientific research has focused on its interaction with melanocortin receptors, particularly melanocortin 1 receptor (MC1R), a G-protein-coupled receptor strongly associated with melanocyte biology and pigmentation signaling.</p>
+<p>In research literature, Melanotan I is commonly identified as [Nle4-D-Phe7]-α-MSH, also written as NDP-MSH. Structural modifications to the natural α-MSH sequence were investigated to alter receptor activity and peptide stability. Research has demonstrated activity across several melanocortin receptor subtypes, including MC1R, MC3R, MC4R, and MC5R, making the compound relevant to broader melanocortin receptor studies.</p>
+<p>Melanotan-1 should be distinguished from Melanotan II. Although both compounds are synthetic α-MSH analogs, they have different structures and receptor activity profiles. Melanotan I is generally associated with the NDP-MSH structure, while Melanotan II contains additional structural modifications and is a separate research compound.</p>
+<p>For laboratories studying receptor-ligand interactions, peptide structure-function relationships, melanocortin signaling, or cellular pigmentation mechanisms, Melanotan-1 provides a defined synthetic peptide model for controlled experimental work.</p>
+<h4>Composition and Scientific Context</h4>
+<p>Melanotan-1 is a modified α-MSH analog containing the substitutions norleucine (Nle) at position 4 and D-phenylalanine (D-Phe) at position 7. The resulting structure is commonly represented as [Nle4-D-Phe7]-α-MSH.</p>
+<p>The biological relevance of this peptide is closely connected to melanocortin receptor research. MC1R is expressed predominantly in melanocytes and participates in signaling pathways associated with melanogenesis. Experimental studies of MC1R have helped researchers investigate how endogenous and synthetic melanocortin ligands interact with receptor systems.</p>
+<h4>Intended Research Use</h4>
+<p>Melanotan-1 is intended for laboratory and scientific research only. Potential research contexts include:</p>
+<ul>
+<li>Melanocortin receptor research</li>
+<li>MC1R ligand-binding studies</li>
+<li>Peptide-receptor interaction experiments</li>
+<li>Structure-activity relationship (SAR) research</li>
+<li>α-MSH analog comparison studies</li>
+<li>Melanocyte and pigmentation pathway research</li>
+<li>Cellular signaling investigations</li>
+<li>Peptide stability and analytical characterization</li>
+<li>Receptor pharmacology research</li>
+<li>Non-clinical biochemical and molecular studies</li>
+</ul>
+<p>The compound should be evaluated according to the requirements of the specific experimental model rather than assumed to produce a particular biological outcome.</p>
+<h4>Key Characteristics</h4>
+<p>Melanotan-1 is of particular interest to researchers because its structure has been extensively studied within the melanocortin field. Published research provides a substantial scientific background for investigating modified α-MSH peptides and their interactions with melanocortin receptor systems.</p>
+<h4>Key Features</h4>
+<ul>
+<li>Synthetic α-MSH analog for laboratory research</li>
+<li>Commonly identified as Melanotan I or MT-I</li>
+<li>Also known in research literature as NDP-MSH</li>
+<li>Associated with the [Nle4-D-Phe7]-α-MSH structure</li>
+<li>Relevant to melanocortin receptor research</li>
+<li>Particularly relevant to MC1R studies</li>
+<li>Suitable for receptor-ligand and structure-activity investigations</li>
+<li>Useful for comparative studies of melanocortin peptides</li>
+<li>Intended exclusively for research and laboratory applications</li>
+<li>Product-specific quality should be evaluated using current lot documentation</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>Melanotan-1 has a well-established presence in melanocortin research, making it useful when a laboratory needs a defined synthetic α-MSH analog for controlled experimental investigation.</p>
+<p>Its research value comes from several characteristics:</p>
+<p><strong>Defined Molecular Framework</strong></p>
+<p>The Nle4 and D-Phe7 modifications distinguish Melanotan-1 from native α-MSH and make it useful for studying how structural changes influence melanocortin receptor activity.</p>
+<p><strong>Receptor Research Relevance</strong></p>
+<p>Published studies have examined Melanotan-1 and related melanocortin analogs across multiple receptor subtypes. This makes the compound relevant to receptor pharmacology and ligand-comparison experiments.</p>
+<p><strong>Established Scientific Literature</strong></p>
+<p>Melanotan-1 has been investigated in peer-reviewed research for decades, providing researchers with background literature when designing experiments involving α-MSH analogs and melanocortin signaling.</p>
+<p><strong>Research-Only Positioning</strong></p>
+<p>A clearly defined research-use-only product is appropriate for laboratories that require peptide reagents for non-clinical research rather than materials marketed for human use.</p>
+<h4>Who This Product Is For</h4>
+<p>Melanotan-1 is intended for qualified users conducting legitimate scientific or laboratory research, including:</p>
+<ul>
+<li>Academic researchers</li>
+<li>Biotechnology researchers</li>
+<li>Pharmaceutical research teams</li>
+<li>Laboratory scientists</li>
+<li>Analytical laboratories</li>
+<li>Molecular biology laboratories</li>
+<li>Research institutions</li>
+<li>Educational and scientific institutions with appropriate laboratory facilities</li>
+</ul>
+<p>The product is not intended for consumers seeking tanning, cosmetic, therapeutic, or other personal-use effects.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Melanotan-1</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>Melanotan-1</td></tr>
+<tr><td>Common Names</td><td>Melanotan I, MT-I, NDP-MSH</td></tr>
+<tr><td>Scientific Description</td><td>Synthetic α-MSH analog</td></tr>
+<tr><td>Structural Description</td><td>[Nle4-D-Phe7]-α-MSH</td></tr>
+<tr><td>Research Category</td><td>Melanocortin / Cosmetic &amp; Skin Research</td></tr>
+<tr><td>Primary Research Target</td><td>Melanocortin receptors, including MC1R</td></tr>
+<tr><td>Physical Form</td><td>Refer to current product listing and lot documentation</td></tr>
+<tr><td>Purity</td><td>Verify current lot-specific COA</td></tr>
+<tr><td>Packaging</td><td>Refer to current product listing</td></tr>
+<tr><td>Storage</td><td>Follow product-specific COA and supplier documentation</td></tr>
+<tr><td>Quality Documentation</td><td>Refer to applicable lot documentation</td></tr>
+<tr><td>Research Use</td><td>Laboratory research only</td></tr>
+<tr><td>Human Use</td><td>Not intended for human use</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended for veterinary use</td></tr>
+</tbody>
+</table>
+<p>Product-specific attributes such as package size, purity percentage, physical appearance, storage requirements, and lot information should be confirmed against the current product listing and Certificate of Analysis rather than assumed from general peptide specifications.</p>
+<h4>Research / Applications</h4>
+<p><strong>MC1R Research</strong></p>
+<p>Melanotan-1 is particularly relevant to studies involving MC1R, a melanocortin receptor expressed prominently in melanocytes. Research into MC1R has contributed to understanding melanocortin signaling and its relationship to pigmentation biology.</p>
+<p><strong>Melanocortin Receptor Binding Studies</strong></p>
+<p>Synthetic α-MSH analogs can be used as ligands in receptor-binding experiments designed to examine receptor affinity, ligand selectivity, receptor activation, or competitive interactions.</p>
+<p><strong>Structure-Activity Relationship Research</strong></p>
+<p>The modified structure of Melanotan-1 provides a useful model for studying how amino-acid substitutions can alter peptide-receptor interactions. Researchers can compare modified α-MSH analogs to investigate relationships between molecular structure and receptor behavior.</p>
+<p><strong>Melanocyte and Pigmentation Research</strong></p>
+<p>MC1R signaling is closely associated with melanocyte biology and melanin synthesis. Melanotan-1 can therefore serve as a research reagent in controlled cellular models investigating melanocortin-mediated pigmentation pathways.</p>
+<p><strong>Comparative Peptide Research</strong></p>
+<p>Researchers can compare Melanotan-1 with native α-MSH and other synthetic melanocortin analogs to evaluate differences in receptor interactions, structure, and experimental behavior.</p>
+<p><strong>Analytical Research</strong></p>
+<p>Melanotan-1 may also be relevant to analytical workflows involving peptide identity, purity, stability, chromatographic characterization, and mass-spectrometric analysis.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>For research peptides, analytical documentation is an important part of evaluating material before it is incorporated into an experimental workflow.</p>
+<p>The Helix Bio website describes quality controls involving reversed-phase HPLC for purity assessment and LC-MS for peptide identity and molecular-weight confirmation. It also states that analytical documentation can include batch-specific information such as purity and identity data.</p>
+<p>For Melanotan-1, researchers should review the current lot-specific documentation for:</p>
+<ul>
+<li>HPLC purity results</li>
+<li>LC-MS or mass spectrometry identity confirmation</li>
+<li>Lot or batch number</li>
+<li>Reported molecular weight</li>
+<li>Analytical test methods</li>
+<li>Product-specific storage information</li>
+<li>Any available impurity or characterization data</li>
+</ul>
+<p>Do not treat a general supplier specification as a substitute for the COA associated with the actual research material being evaluated.</p>
+<h4>Storage &amp; Handling</h4>
+<p>Storage conditions should be determined from the current product-specific documentation and COA because peptide stability can depend on sequence, formulation, container, moisture exposure, temperature, and storage duration.</p>
+<p>General laboratory considerations include:</p>
+<ul>
+<li>Keep the material in its original, appropriately sealed container.</li>
+<li>Protect peptide material from unnecessary exposure to moisture, heat, and light.</li>
+<li>Follow the storage temperature specified by the supplier or lot-specific COA.</li>
+<li>Minimize unnecessary temperature fluctuations.</li>
+<li>Avoid repeated freeze-thaw exposure where applicable.</li>
+<li>Use appropriate laboratory PPE and established chemical hygiene procedures.</li>
+<li>Consult the applicable SDS and institutional safety procedures before handling.</li>
+<li>Do not use research-use-only material for human or veterinary administration.</li>
+</ul>
+<p>Do not substitute a generic peptide storage protocol for the product-specific instructions supplied with the material.</p>
+<h4>Shipping &amp; Packaging</h4>
+<p>Helix Bio's website describes research-peptide shipping processes that include protective and temperature-controlled packaging. Current shipping availability, packaging configuration, delivery timelines, and applicable restrictions should be confirmed through the site's current Shipping Policy before placing or publishing an order.</p>
+<p>For laboratory materials, researchers should inspect packaging upon arrival and follow the applicable product-specific storage instructions promptly after receipt.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>Melanotan-1 offered by Helix Bio is intended strictly for research and laboratory use. It is not intended for human consumption, ingestion, injection, administration, veterinary use, diagnosis, treatment, cure, prevention of disease, or cosmetic use.</p>
+<p>This material is provided for controlled scientific investigation only. It has not been presented as a human-use medicine by Helix Bio, and research-use-only materials should not be represented as FDA-approved treatments or as substitutes for approved medical products.</p>
+<p>The FDA distinguishes legitimate cosmetic tanning products from other products marketed with tanning-related claims and maintains consumer resources concerning tanning products and health-fraud concerns.</p>
+<p>Researchers are responsible for complying with applicable federal, state, local, institutional, laboratory, biosafety, and chemical-handling requirements.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is Melanotan-1?', answer: 'Melanotan-1 is a synthetic analog of α-MSH commonly identified in scientific literature as Melanotan I, MT-I, or NDP-MSH. It is studied in connection with melanocortin receptors and related cellular signaling pathways.' },
+      { question: 'Is Melanotan-1 the same as Melanotan I?', answer: 'Yes. Melanotan-1 and Melanotan I are commonly used names for the NDP-MSH compound [Nle4-D-Phe7]-α-MSH.' },
+      { question: 'What receptor is most closely associated with Melanotan-1 research?', answer: 'MC1R is a major receptor of interest in Melanotan-1 research. MC1R is a melanocortin receptor involved in melanocyte signaling and pigmentation biology.' },
+      { question: 'Is Melanotan-1 the same as Melanotan II?', answer: 'No. Melanotan-1 and Melanotan II are different synthetic melanocortin analogs with different molecular structures and receptor activity profiles.' },
+      { question: 'What is Melanotan-1 used for in research?', answer: 'Research applications can include MC1R studies, melanocortin receptor binding experiments, peptide structure-activity research, melanocyte models, ligand comparisons, and analytical characterization.' },
+      { question: 'Is Melanotan-1 approved for human use?', answer: 'A research-use-only Melanotan-1 product should not be treated as a human-use medicine. The material described on this page is intended exclusively for laboratory research and is not intended for human administration.' },
+      { question: 'Can Melanotan-1 be used for tanning?', answer: 'This product page is for research use only and does not provide directions for tanning or personal cosmetic use. Researchers studying melanocortin biology may investigate pigmentation-related cellular pathways under controlled laboratory conditions.' },
+      { question: 'Is Melanotan-1 the same as afamelanotide?', answer: 'The terminology requires care. Scientific literature identifies afamelanotide as the international nonproprietary name associated with Melanotan I/NDP-MSH, while pharmaceutical afamelanotide is a regulated drug product with its own formulation, manufacturing, quality, and clinical context. A research peptide should not be represented as equivalent to an approved pharmaceutical product merely because the underlying compound name is related.' },
+      { question: 'How should Melanotan-1 be stored?', answer: 'Storage should follow the current product-specific COA and supplier documentation. Researchers should protect peptide material from inappropriate temperature, moisture, light, and unnecessary handling and should follow their laboratory\'s chemical-storage procedures.' },
+      { question: 'What quality documentation should researchers request?', answer: 'Researchers should review the applicable lot-specific COA and, where available, examine HPLC purity data, mass-spectrometry identity confirmation, molecular-weight information, lot number, analytical methods, and storage recommendations.' },
+      { question: 'Is Melanotan-1 suitable for laboratory receptor studies?', answer: 'Melanotan-1 is relevant to research involving melanocortin receptors, including MC1R, and has been investigated in receptor pharmacology and structure-activity studies. Suitability for a particular experiment should be determined from the study design and applicable analytical documentation.' },
+    ],
+    variants: [
+      { sku: 'MELANO1-10MG', strength: '10mg', price: 17 },
+    ],
+  },
+{
+    name: 'Melanotan-2',
+    slug: 'melanotan-2',
+    imageFile: 'MELANTON 10MG.png',
+    categoryName: 'Specialty & Hormonal Peptides',
+    description: 'Melanotan-2 is a synthetic cyclic analog of alpha-melanocyte-stimulating hormone (α-MSH) that has been studied in laboratory research involving melanocortin receptors, peptide structure, receptor signaling, and related cellular pathways. It is structurally distinct from Melanotan-1 and is frequently used as a research ligand when investigators are examining melanocortin receptor pharmacology. Helix Bio provides Melanotan-2 as a research-use-only peptide for qualified laboratory and scientific applications. Researchers should consult the applicable lot-specific Certificate of Analysis (COA) and product documentation before incorporating the material into an experimental workflow.',
+    seoTitle: 'Melanotan-2 Research Peptide | Helix Bio',
+    seoDescription: 'Melanotan-2 research peptide for laboratory studies of melanocortin receptors, peptide structure, and receptor signaling. Research-use-only material.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>Melanotan-2 is a synthetic peptide analog derived from the α-MSH framework. Unlike native α-MSH, Melanotan-2 incorporates structural modifications that produce a cyclic peptide configuration. This makes it a useful research model for investigating how peptide structure influences receptor interactions and biological signaling.</p>
+<p>Melanotan-2 has been studied across the melanocortin receptor family, including MC1R, MC3R, MC4R, and MC5R. Its activity across these receptor systems has made it relevant to experimental pharmacology, receptor-ligand studies, and structure-activity relationship research.</p>
+<p>The compound is commonly abbreviated as MT-2 or Melanotan II. It should not be confused with Melanotan-1, also known as Melanotan I or NDP-MSH. The two peptides have different molecular structures and research profiles.</p>
+<h4>Composition and Molecular Context</h4>
+<p>Melanotan-2 is a cyclic heptapeptide analog of α-MSH. Its molecular design incorporates a lactam bridge that creates a constrained peptide structure. This cyclic configuration is an important feature when investigating the relationship between peptide conformation and melanocortin receptor activity.</p>
+<p>The peptide is associated with the sequence Ac-Nle-c[Asp-His-D-Phe-Arg-Trp-Lys]-NH2. The structural constraint introduced through cyclization is relevant to studies examining ligand-receptor interactions and melanocortin pharmacology.</p>
+<p>Researchers comparing α-MSH analogs can use Melanotan-2 as a defined structural model alongside other melanocortin peptides.</p>
+<h4>Intended Research Use</h4>
+<p>Melanotan-2 is intended solely for laboratory research. Potential research applications include:</p>
+<ul>
+<li>Melanocortin receptor pharmacology</li>
+<li>MC1R ligand studies</li>
+<li>MC3R and MC4R receptor research</li>
+<li>Peptide-receptor interaction experiments</li>
+<li>Structure-activity relationship studies</li>
+<li>Synthetic peptide characterization</li>
+<li>Ligand binding investigations</li>
+<li>Cellular signaling research</li>
+<li>Comparative studies of α-MSH analogs</li>
+<li>Analytical peptide research</li>
+</ul>
+<p>The appropriate application depends on the experimental system, research objectives, analytical methods, and laboratory protocols.</p>
+<h4>Melanotan-2 vs. Melanotan-1</h4>
+<p>Although their names are similar, Melanotan-1 and Melanotan-2 are different synthetic melanocortin analogs.</p>
+<table>
+<thead><tr><th>Characteristic</th><th>Melanotan-1</th><th>Melanotan-2</th></tr></thead>
+<tbody>
+<tr><td>Common abbreviation</td><td>MT-I</td><td>MT-II / MT-2</td></tr>
+<tr><td>General class</td><td>α-MSH analog</td><td>Cyclic α-MSH analog</td></tr>
+<tr><td>Structural form</td><td>Modified linear peptide</td><td>Cyclic peptide</td></tr>
+<tr><td>Research focus</td><td>Melanocortin receptor and pigmentation biology</td><td>Melanocortin receptor pharmacology and ligand activity</td></tr>
+<tr><td>Molecular design</td><td>Nle4-D-Phe7 substitution</td><td>Cyclic heptapeptide analog with D-Phe substitution</td></tr>
+<tr><td>Research use</td><td>Laboratory research</td><td>Laboratory research</td></tr>
+</tbody>
+</table>
+<p>This distinction matters when selecting a peptide for comparative receptor or structure-function experiments.</p>
+<h4>Key Features</h4>
+<ul>
+<li>Synthetic cyclic α-MSH analog</li>
+<li>Commonly referred to as Melanotan II or MT-2</li>
+<li>Structurally distinct from Melanotan-1</li>
+<li>Relevant to melanocortin receptor research</li>
+<li>Investigated across multiple melanocortin receptor subtypes</li>
+<li>Useful for peptide structure-activity research</li>
+<li>Suitable for receptor-ligand studies</li>
+<li>Relevant to synthetic peptide characterization</li>
+<li>Intended for laboratory research only</li>
+<li>Lot-specific quality information should be reviewed before use</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>Melanotan-2 is particularly useful for researchers studying how structural changes in melanocortin peptides affect receptor interactions.</p>
+<p><strong>Defined Cyclic Structure</strong></p>
+<p>The cyclic configuration of Melanotan-2 provides researchers with a useful model for examining how conformational restriction influences peptide-receptor interactions.</p>
+<p><strong>Broad Melanocortin Research Relevance</strong></p>
+<p>Published research has investigated Melanotan-2 and related analogs across melanocortin receptor subtypes. This makes the compound relevant to comparative receptor pharmacology and ligand studies.</p>
+<p><strong>Useful for Structure-Activity Research</strong></p>
+<p>Synthetic analogs such as Melanotan-2 allow researchers to compare molecular modifications and examine how sequence and conformation relate to receptor activity.</p>
+<p><strong>Established Research History</strong></p>
+<p>Melanotan-2 has appeared in scientific research investigating melanocortin receptors, peptide pharmacology, and related signaling systems, giving researchers an established literature base for experimental planning.</p>
+<p><strong>Research-Only Positioning</strong></p>
+<p>Helix Bio positions its peptide materials for research use. This is appropriate for qualified laboratories requiring peptide reagents for non-clinical experimental work.</p>
+<h4>Who This Product Is For</h4>
+<p>Melanotan-2 is intended for qualified researchers and organizations conducting legitimate laboratory investigations, including:</p>
+<ul>
+<li>Academic research laboratories</li>
+<li>Biotechnology companies</li>
+<li>Pharmaceutical research teams</li>
+<li>Peptide research laboratories</li>
+<li>Analytical laboratories</li>
+<li>Molecular biology laboratories</li>
+<li>Educational research institutions</li>
+<li>Qualified scientific professionals</li>
+</ul>
+<p>It is not intended for consumers seeking tanning, cosmetic, therapeutic, or personal-use effects.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Melanotan-2</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>Melanotan-2</td></tr>
+<tr><td>Common Names</td><td>Melanotan II, Melanotan 2, MT-2</td></tr>
+<tr><td>Scientific Classification</td><td>Synthetic cyclic α-MSH analog</td></tr>
+<tr><td>Peptide Type</td><td>Cyclic peptide</td></tr>
+<tr><td>Research Category</td><td>Melanocortin / Cosmetic &amp; Skin Research</td></tr>
+<tr><td>Research Targets</td><td>Melanocortin receptor systems</td></tr>
+<tr><td>Molecular Form</td><td>Cyclic peptide analog</td></tr>
+<tr><td>Purity</td><td>Verify current lot-specific COA</td></tr>
+<tr><td>Appearance</td><td>Refer to current product documentation</td></tr>
+<tr><td>Packaging</td><td>Refer to current product listing</td></tr>
+<tr><td>Storage</td><td>Follow current lot-specific documentation</td></tr>
+<tr><td>Quality Documentation</td><td>Refer to applicable COA</td></tr>
+<tr><td>Lot Testing</td><td>Verify current lot documentation</td></tr>
+<tr><td>Research Use</td><td>Laboratory research only</td></tr>
+<tr><td>Human Use</td><td>Not intended for human use</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended for veterinary use</td></tr>
+<tr><td>Manufacturer / Supplier</td><td>Helix Bio</td></tr>
+</tbody>
+</table>
+<p>Product-specific specifications such as purity, package size, appearance, storage conditions, lot number, and analytical results should always be confirmed against the current product listing and applicable COA.</p>
+<h4>Research / Applications</h4>
+<p><strong>Melanocortin Receptor Research</strong></p>
+<p>Melanotan-2 is relevant to research involving melanocortin receptors, a family of G-protein-coupled receptors involved in several biological signaling pathways.</p>
+<p>Researchers may use melanocortin analogs to compare receptor binding, ligand selectivity, receptor activation, and structure-function relationships.</p>
+<p><strong>MC1R Research</strong></p>
+<p>MC1R is strongly associated with melanocyte signaling and pigmentation biology. Synthetic α-MSH analogs can provide researchers with defined ligands for investigating receptor interactions in controlled experimental systems.</p>
+<p>Melanotan-2 research should be interpreted in the context of the experimental model rather than as evidence of a clinical or cosmetic effect.</p>
+<p><strong>MC3R and MC4R Research</strong></p>
+<p>Melanotan-2 has also been studied in connection with other melanocortin receptor subtypes, including MC3R and MC4R. This makes it relevant to experiments comparing receptor subtype activity and ligand selectivity.</p>
+<p><strong>Structure-Activity Relationship Studies</strong></p>
+<p>The constrained cyclic structure of Melanotan-2 makes it useful in studies examining how peptide conformation and amino-acid substitutions influence receptor interactions.</p>
+<p><strong>Peptide-Receptor Interaction Studies</strong></p>
+<p>Researchers can investigate how Melanotan-2 interacts with melanocortin receptors using appropriate experimental models such as receptor-binding assays or cellular systems.</p>
+<p><strong>Analytical Characterization</strong></p>
+<p>Melanotan-2 can also be evaluated using analytical techniques designed to assess peptide identity, purity, molecular mass, and stability.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Research peptides should be evaluated using appropriate analytical documentation rather than relying solely on a product name or general specification.</p>
+<p>Helix Bio describes analytical quality controls that include reversed-phase HPLC for purity assessment and LC-MS for peptide identity and molecular-weight confirmation. Researchers should consult the applicable lot documentation for the actual Melanotan-2 material being evaluated.</p>
+<p>Before beginning an experiment, researchers should review available:</p>
+<ul>
+<li>HPLC purity information</li>
+<li>LC-MS or mass-spectrometry data</li>
+<li>Molecular-weight confirmation</li>
+<li>Lot or batch identification</li>
+<li>Analytical test methodology</li>
+<li>Product-specific storage instructions</li>
+<li>Available characterization information</li>
+<li>Certificate of Analysis</li>
+</ul>
+<p>Third-party testing should not be assumed unless specifically documented for the applicable lot.</p>
+<p>No certification, accreditation, or regulatory approval should be inferred from general product descriptions unless it is explicitly documented by Helix Bio.</p>
+<h4>Storage &amp; Handling</h4>
+<p>Follow the storage requirements provided with the specific Melanotan-2 product and lot documentation.</p>
+<p>General laboratory handling considerations include:</p>
+<ul>
+<li>Keep the container appropriately sealed when not in use.</li>
+<li>Protect the material from excessive heat, moisture, and unnecessary light exposure.</li>
+<li>Follow the temperature specified by the current COA or product documentation.</li>
+<li>Minimize unnecessary temperature changes.</li>
+<li>Avoid repeated freeze-thaw cycles where appropriate.</li>
+<li>Use suitable laboratory PPE and chemical hygiene procedures.</li>
+<li>Consult the relevant SDS before handling.</li>
+<li>Keep research materials appropriately labeled and separated from materials intended for human use.</li>
+<li>Do not use research-use-only material for human or veterinary administration.</li>
+</ul>
+<p>Because peptide stability varies by sequence, formulation, concentration, container, and environmental conditions, generic storage advice should not replace product-specific instructions.</p>
+<h4>Shipping &amp; Packaging</h4>
+<p>Helix Bio provides research-use-only peptide products for laboratory applications. Shipping availability, delivery timelines, packaging configuration, temperature-control practices, and destination restrictions can vary and should be confirmed using the current Helix Bio shipping information before ordering.</p>
+<p>Researchers should inspect the package after delivery and follow the product-specific storage instructions promptly.</p>
+<p>Do not assume shipping or temperature-control conditions beyond those explicitly stated by the supplier.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>Melanotan-2 supplied by Helix Bio is intended strictly for research and laboratory use. It is not intended for human consumption, ingestion, injection, administration, veterinary use, diagnosis, treatment, cure, prevention of disease, tanning, or cosmetic use.</p>
+<p>This product should not be represented as an FDA-approved medicine, treatment, or cosmetic product. Research-use-only material is intended for controlled scientific investigation and must be handled in accordance with applicable laboratory, institutional, federal, state, and local requirements.</p>
+<p>No information on this page should be interpreted as medical advice, dosing instructions, treatment guidance, or a recommendation for human use.</p>
+<p>Researchers are responsible for determining whether a material is suitable for their experimental system and for following applicable safety, regulatory, and institutional requirements.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is Melanotan-2?', answer: 'Melanotan-2 is a synthetic cyclic analog of α-MSH that has been studied in research involving melanocortin receptors, peptide structure, receptor pharmacology, and related cellular signaling pathways.' },
+      { question: 'Is Melanotan-2 the same as Melanotan II?', answer: 'Yes. Melanotan-2, Melanotan II, and MT-2 are commonly used names for the same synthetic melanocortin research peptide.' },
+      { question: 'Is Melanotan-2 the same as Melanotan-1?', answer: 'No. Melanotan-1 and Melanotan-2 are distinct synthetic α-MSH analogs with different molecular structures. Melanotan-2 is characterized by a cyclic peptide structure.' },
+      { question: 'What is Melanotan-2 used for in research?', answer: 'Potential research applications include melanocortin receptor studies, receptor-ligand experiments, structure-activity research, peptide characterization, and comparative studies of α-MSH analogs.' },
+      { question: 'Which receptors are studied with Melanotan-2?', answer: 'Research has examined Melanotan-2 in relation to several melanocortin receptor subtypes, including MC1R, MC3R, MC4R, and MC5R. The receptor investigated depends on the experimental design.' },
+      { question: 'Why is Melanotan-2 considered a cyclic peptide?', answer: 'Melanotan-2 contains a structural constraint that forms a cyclic peptide configuration. This feature is relevant to studies examining how peptide conformation influences receptor interactions.' },
+      { question: 'Is Melanotan-2 intended for human use?', answer: 'No. The Melanotan-2 material described on this page is intended for laboratory research only and is not intended for human or veterinary administration.' },
+      { question: 'Does Helix Bio provide a Certificate of Analysis for Melanotan-2?', answer: 'Researchers should consult the applicable lot documentation and current product information for available analytical documentation. Where provided, the COA should be evaluated for lot-specific purity and identity information.' },
+      { question: 'What should researchers check on a Melanotan-2 COA?', answer: 'Researchers should look for lot identification, HPLC purity information, mass-spectrometry or LC-MS identity confirmation, molecular-weight information, analytical methods, and relevant storage information.' },
+      { question: 'How should Melanotan-2 be stored?', answer: 'Storage should follow the specific instructions provided with the product and applicable COA. Researchers should protect peptide material from inappropriate temperature, moisture, light exposure, and unnecessary temperature fluctuations.' },
+      { question: 'Can Melanotan-2 be compared with other α-MSH analogs?', answer: 'Yes. Its defined cyclic structure makes Melanotan-2 relevant to comparative studies examining how peptide sequence and conformation influence melanocortin receptor interactions.' },
+    ],
+    variants: [
+      { sku: 'MELANO2-10MG', strength: '10mg', price: 18 },
+    ],
+  },
+{
+    name: 'Oxytocin',
+    slug: 'oxytocin',
+    imageFile: 'OXYTOCIN 10MG.png',
+    categoryName: 'Specialty & Hormonal Peptides',
+    description: 'Oxytocin is a naturally occurring nonapeptide hormone and neuropeptide that has been extensively studied for its role in cellular signaling, receptor biology, and neuroendocrine research. In laboratory settings, oxytocin can be used as a defined peptide reagent for investigating oxytocin receptor (OXTR) signaling and related biological pathways. Helix Bio offers oxytocin as a research-use-only peptide intended for qualified laboratory and scientific research. Researchers should review the current lot-specific Certificate of Analysis (COA), analytical documentation, and storage requirements before using the material in an experimental workflow.',
+    seoTitle: 'Oxytocin Research Peptide | High-Purity Laboratory Grade',
+    seoDescription: 'Oxytocin research peptide for laboratory studies of peptide signaling, receptor biology, and oxytocin pathways. Research-use-only material from Helix Bio.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>Oxytocin is a nine-amino-acid peptide belonging to the neurohypophyseal peptide hormone family. It is synthesized as a larger precursor protein and processed into the mature peptide used in physiological signaling.</p>
+<p>The mature oxytocin peptide contains a cyclic portion formed by a disulfide bond between two cysteine residues and a C-terminal glycinamide group. This structural arrangement is characteristic of oxytocin and is important when studying peptide conformation, receptor recognition, and molecular signaling.</p>
+<p>Oxytocin research spans several areas of biology, including receptor pharmacology, neuroendocrine signaling, cellular communication, peptide-receptor interactions, and reproductive biology.</p>
+<p>The primary receptor associated with oxytocin is the oxytocin receptor (OXTR), a G-protein-coupled receptor. Experimental research can examine how oxytocin interacts with OXTR and how receptor activation is connected to downstream intracellular signaling.</p>
+<h4>Composition and Molecular Characteristics</h4>
+<p>Oxytocin is a nonapeptide with the amino-acid sequence:</p>
+<p><strong>Cys-Tyr-Ile-Gln-Asn-Cys-Pro-Leu-Gly-NH₂</strong></p>
+<p>Its molecular structure includes:</p>
+<ul>
+<li>Nine amino-acid residues</li>
+<li>A disulfide bridge between Cys1 and Cys6</li>
+<li>A cyclic hexapeptide portion</li>
+<li>A C-terminal amide group</li>
+<li>A defined molecular framework suitable for peptide research</li>
+</ul>
+<p>Oxytocin is structurally related to vasopressin, another neurohypophyseal peptide. Although the two peptides share substantial sequence similarity, they differ at several residues and interact with receptor systems differently.</p>
+<p>This structural relationship makes oxytocin useful in comparative peptide and receptor research.</p>
+<h4>Intended Research Use</h4>
+<p>Helix Bio's oxytocin is intended for laboratory research only.</p>
+<p>Potential research applications include:</p>
+<ul>
+<li>Oxytocin receptor (OXTR) studies</li>
+<li>Peptide-receptor binding research</li>
+<li>GPCR signaling research</li>
+<li>Neuroendocrine research</li>
+<li>Cellular signaling studies</li>
+<li>Peptide structure-function research</li>
+<li>Receptor pharmacology</li>
+<li>Comparative studies involving oxytocin and vasopressin</li>
+<li>Analytical peptide characterization</li>
+<li>In-vitro research involving oxytocin pathways</li>
+</ul>
+<p>The appropriate use depends on the research model and experimental objectives. The product should not be interpreted as a treatment, therapeutic product, or material intended for human administration.</p>
+<h4>Important Characteristics</h4>
+<p>Oxytocin is particularly relevant to research because its molecular structure and receptor system have been extensively characterized. OXTR belongs to the G-protein-coupled receptor family, allowing researchers to investigate receptor activation, intracellular signaling, ligand selectivity, and downstream cellular responses.</p>
+<p>Its close structural relationship with vasopressin also makes oxytocin valuable for comparative studies involving neurohypophyseal peptide receptors.</p>
+<h4>Key Features</h4>
+<ul>
+<li>Naturally occurring nine-amino-acid peptide hormone and neuropeptide</li>
+<li>Defined synthetic peptide for laboratory research</li>
+<li>Associated primarily with the oxytocin receptor (OXTR)</li>
+<li>Relevant to GPCR and cellular signaling studies</li>
+<li>Useful for peptide-receptor interaction research</li>
+<li>Suitable for comparative oxytocin and vasopressin investigations</li>
+<li>Relevant to neuroendocrine and peptide pharmacology research</li>
+<li>Defined molecular structure for analytical characterization</li>
+<li>Intended for research and laboratory use only</li>
+<li>Lot-specific analytical documentation should be reviewed before experimental use</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p><strong>Well-Characterized Peptide Structure</strong></p>
+<p>Oxytocin has a clearly defined nine-residue structure, including its characteristic disulfide bridge and C-terminal amide. This makes it suitable for studies where peptide identity and molecular structure are important experimental variables.</p>
+<p><strong>Direct Relevance to OXTR Research</strong></p>
+<p>Oxytocin is the principal endogenous ligand associated with the oxytocin receptor. Researchers studying OXTR can therefore use oxytocin as a defined peptide ligand in appropriate experimental models.</p>
+<p><strong>Established Scientific Literature</strong></p>
+<p>Oxytocin has been investigated extensively across molecular, cellular, neuroendocrine, and receptor pharmacology research. This established scientific background can help researchers place experimental findings within the broader literature.</p>
+<p><strong>Useful for Comparative Research</strong></p>
+<p>Oxytocin shares structural similarities with vasopressin. Comparing these related peptides can help researchers investigate ligand selectivity, receptor interactions, and structure-function relationships.</p>
+<p><strong>Research-Only Supply</strong></p>
+<p>Helix Bio positions its peptide products for scientific and laboratory research. Oxytocin supplied for research purposes should be handled according to applicable laboratory procedures and should not be used for human or veterinary administration.</p>
+<h4>Who This Product Is For</h4>
+<p>Oxytocin research peptide is intended for qualified users conducting legitimate laboratory research, including:</p>
+<ul>
+<li>Academic researchers</li>
+<li>Biotechnology laboratories</li>
+<li>Pharmaceutical research teams</li>
+<li>Molecular biology laboratories</li>
+<li>Peptide research groups</li>
+<li>Analytical laboratories</li>
+<li>Educational research institutions</li>
+<li>Qualified scientific professionals</li>
+</ul>
+<p>It is not intended for consumers seeking personal, reproductive, cosmetic, wellness, or therapeutic applications.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Oxytocin</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>Oxytocin</td></tr>
+<tr><td>Product Type</td><td>Synthetic peptide</td></tr>
+<tr><td>Peptide Class</td><td>Neurohypophyseal nonapeptide</td></tr>
+<tr><td>Primary Research Receptor</td><td>Oxytocin receptor (OXTR)</td></tr>
+<tr><td>Related Research System</td><td>GPCR / peptide signaling</td></tr>
+<tr><td>Molecular Structure</td><td>Cyclic nonapeptide with disulfide bridge</td></tr>
+<tr><td>Amino-Acid Sequence</td><td>Cys-Tyr-Ile-Gln-Asn-Cys-Pro-Leu-Gly-NH₂</td></tr>
+<tr><td>Purity</td><td>Verify current lot-specific COA</td></tr>
+<tr><td>Appearance</td><td>Refer to current product documentation</td></tr>
+<tr><td>Packaging</td><td>Refer to current product listing</td></tr>
+<tr><td>Storage</td><td>Follow current product-specific documentation</td></tr>
+<tr><td>Lot Testing</td><td>Verify applicable COA</td></tr>
+<tr><td>Quality Documentation</td><td>Current lot-specific documentation where provided</td></tr>
+<tr><td>Research Use</td><td>Laboratory research only</td></tr>
+<tr><td>Human Use</td><td>Not intended for human use</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended for veterinary use</td></tr>
+<tr><td>Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Country of Origin</td><td>Not specified; verify current product documentation</td></tr>
+</tbody>
+</table>
+<p>Product-specific information such as purity, packaging size, appearance, storage conditions, and lot testing should always be confirmed against the current product listing and applicable COA.</p>
+<h4>Research / Applications</h4>
+<p><strong>Oxytocin Receptor Research</strong></p>
+<p>The oxytocin receptor, or OXTR, is a G-protein-coupled receptor that serves as a central research target for studies involving oxytocin signaling.</p>
+<p>Laboratory investigations may examine receptor binding, receptor activation, signaling pathways, ligand selectivity, or receptor expression in controlled experimental systems.</p>
+<p><strong>GPCR Signaling Research</strong></p>
+<p>Because OXTR is a GPCR, oxytocin is relevant to studies of receptor-mediated intracellular signaling.</p>
+<p>Researchers may use appropriate cellular models to investigate signaling events downstream of receptor-ligand interactions.</p>
+<p><strong>Peptide-Receptor Interaction Studies</strong></p>
+<p>Oxytocin provides a defined peptide ligand for experiments examining interactions between a neuropeptide and its receptor.</p>
+<p>Such research can involve binding assays, receptor-expression models, or other validated experimental platforms.</p>
+<p><strong>Oxytocin and Vasopressin Comparison</strong></p>
+<p>Oxytocin and vasopressin are structurally related neurohypophyseal peptides. Their similarities and differences make them useful subjects for comparative studies of peptide structure, receptor selectivity, and receptor pharmacology.</p>
+<p><strong>Neuroendocrine Research</strong></p>
+<p>Oxytocin has a long history of investigation within neuroendocrine biology. Research models may examine peptide signaling between neural, endocrine, and cellular systems without implying a clinical application.</p>
+<p><strong>Analytical Peptide Research</strong></p>
+<p>Oxytocin can be characterized using analytical techniques such as chromatography and mass spectrometry. These methods can help researchers evaluate peptide identity, purity, molecular mass, and stability.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Research peptides should be evaluated using appropriate analytical documentation before they are incorporated into laboratory experiments.</p>
+<p>Helix Bio describes the use of reversed-phase HPLC for peptide purity assessment and LC-MS for peptide identity and molecular-weight confirmation. Researchers should review the documentation associated with the specific oxytocin lot being evaluated.</p>
+<p>Where available, researchers should examine:</p>
+<ul>
+<li>HPLC purity results</li>
+<li>LC-MS or mass-spectrometry identity confirmation</li>
+<li>Molecular-weight data</li>
+<li>Lot or batch number</li>
+<li>Analytical methodology</li>
+<li>Product-specific storage conditions</li>
+<li>Available peptide characterization data</li>
+<li>Certificate of Analysis</li>
+</ul>
+<p>Third-party testing should only be claimed where it is explicitly documented for the relevant lot.</p>
+<p>Likewise, certifications, regulatory approvals, manufacturing accreditations, or quality claims should not be inferred unless they are specifically documented by the supplier.</p>
+<h4>Storage &amp; Handling</h4>
+<p>Follow the current storage instructions supplied with the specific oxytocin product and lot documentation.</p>
+<p>General laboratory considerations include:</p>
+<ul>
+<li>Keep the peptide container appropriately sealed when not in use.</li>
+<li>Protect the material from excessive heat, moisture, and unnecessary light exposure.</li>
+<li>Follow the temperature specified by the supplier or applicable COA.</li>
+<li>Minimize repeated temperature changes.</li>
+<li>Avoid unnecessary freeze-thaw exposure where appropriate.</li>
+<li>Use suitable laboratory PPE and established chemical hygiene procedures.</li>
+<li>Consult the applicable SDS before handling.</li>
+<li>Maintain clear labeling and appropriate laboratory segregation.</li>
+<li>Do not use research-use-only material for human or veterinary administration.</li>
+</ul>
+<p>Peptide stability can vary based on formulation, concentration, temperature, moisture, container, and storage duration. Product-specific instructions should therefore take precedence over generic peptide-handling recommendations.</p>
+<h4>Shipping &amp; Packaging</h4>
+<p>Helix Bio supplies research-use-only peptide products for laboratory applications. Shipping availability, delivery times, packaging configuration, temperature-control procedures, and destination restrictions may vary.</p>
+<p>Researchers should review the current Helix Bio shipping information before ordering and inspect the package after delivery.</p>
+<p>Once received, the material should be stored according to the applicable product documentation and laboratory procedures.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>Oxytocin supplied by Helix Bio is intended strictly for research and laboratory use. It is not intended for human consumption, ingestion, injection, administration, veterinary use, diagnosis, treatment, cure, or prevention of disease.</p>
+<p>This research-use-only material should not be represented as an FDA-approved medicine or as a substitute for an approved pharmaceutical product. Information on this page is provided for scientific and educational purposes and should not be interpreted as medical advice, dosing guidance, treatment instructions, or a recommendation for human use.</p>
+<p>Researchers are responsible for determining whether oxytocin is appropriate for their experimental model and for complying with all applicable federal, state, local, institutional, laboratory, biosafety, and chemical-handling requirements.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is oxytocin?', answer: 'Oxytocin is a naturally occurring nine-amino-acid peptide hormone and neuropeptide. It is widely studied in laboratory research involving peptide signaling, receptor biology, neuroendocrine systems, and cellular communication.' },
+      { question: 'What receptor does oxytocin interact with?', answer: 'Oxytocin primarily interacts with the oxytocin receptor (OXTR), a G-protein-coupled receptor. OXTR is a major subject of research into peptide-receptor binding and intracellular signaling.' },
+      { question: 'What is oxytocin used for in research?', answer: 'Oxytocin can be studied in research involving OXTR signaling, receptor pharmacology, peptide-receptor interactions, neuroendocrine biology, cellular signaling, and comparisons between related neurohypophyseal peptides.' },
+      { question: 'Is oxytocin a peptide?', answer: 'Yes. Oxytocin is a nonapeptide, meaning it consists of nine amino-acid residues. Its mature structure includes a disulfide bond and a C-terminal amide group.' },
+      { question: 'What is the amino-acid sequence of oxytocin?', answer: 'The mature oxytocin peptide is commonly represented as Cys-Tyr-Ile-Gln-Asn-Cys-Pro-Leu-Gly-NH₂. Its two cysteine residues form a disulfide bridge that creates the characteristic cyclic portion of the molecule.' },
+      { question: 'Is oxytocin the same as vasopressin?', answer: 'No. Oxytocin and vasopressin are different but structurally related neurohypophyseal peptides. Their sequence similarities and receptor differences make them useful subjects for comparative research.' },
+      { question: 'Is research-use-only oxytocin approved for human use?', answer: 'Research-use-only oxytocin should not be treated as an approved human-use medicine. The Helix Bio product described on this page is intended exclusively for laboratory research.' },
+      { question: 'What should researchers look for on an oxytocin COA?', answer: 'Researchers should review the applicable lot number, HPLC purity data, LC-MS or mass-spectrometry identity confirmation, molecular-weight information, analytical methods, and storage instructions when available.' },
+      { question: 'How should oxytocin research peptide be stored?', answer: 'Storage should follow the current product-specific documentation and COA. Researchers should protect the material from inappropriate temperature, moisture, excessive light, and unnecessary temperature fluctuations.' },
+      { question: 'Can oxytocin be used in receptor-binding experiments?', answer: 'Oxytocin is relevant to receptor-binding and receptor-pharmacology research involving OXTR. The appropriate assay system, concentration range, controls, and experimental conditions must be determined by the researcher according to the study design.' },
+      { question: 'Is oxytocin suitable for peptide structure research?', answer: 'Yes. Its defined nonapeptide sequence, disulfide bridge, and C-terminal amide make oxytocin a useful subject for research into peptide structure, conformation, receptor recognition, and structure-function relationships.' },
+    ],
+    variants: [
+      { sku: 'OXYTOC-10MG', strength: '10mg', price: 25 },
+    ],
+  },
+{
+    name: 'PT-141',
+    slug: 'pt-141',
+    imageFile: 'PT141 10MG.png',
+    categoryName: 'Specialty & Hormonal Peptides',
+    description: 'PT-141, also known as bremelanotide, is a synthetic cyclic peptide analog of alpha-melanocyte-stimulating hormone (α-MSH) used in research involving melanocortin receptor biology, peptide-receptor interactions, and cellular signaling. The compound has been investigated across melanocortin receptor subtypes, including MC1R, MC3R, MC4R, and MC5R. Helix Bio supplies PT-141 as a research-use-only peptide for qualified laboratory and scientific applications. Researchers should review the current lot-specific Certificate of Analysis (COA), analytical documentation, and product specifications before incorporating the material into an experimental workflow.',
+    seoTitle: 'PT-141 Research Peptide | Bremelanotide | Helix Bio',
+    seoDescription: 'PT-141 research peptide, also known as bremelanotide, for laboratory studies of melanocortin receptors and peptide signaling. Research use only.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>PT-141 is the research designation commonly associated with bremelanotide, a synthetic melanocortin peptide analog derived from the α-MSH framework. The U.S. Food and Drug Administration identifies PT-141 as a synonym for bremelanotide and lists the compound's molecular identity in its Substance Registration System.</p>
+<p>Structurally, bremelanotide is a cyclic peptide containing a lactam bridge. This constrained molecular architecture makes PT-141 relevant to studies examining peptide conformation, receptor recognition, ligand selectivity, and melanocortin signaling.</p>
+<p>Research has examined bremelanotide as a melanocortin receptor agonist, with particular attention to MC3R and MC4R. FDA documentation also describes activity involving MC1, MC3, MC4, and MC5 receptor subtypes.</p>
+<p>PT-141 should not be confused with Melanotan-1 or Melanotan-2. Although all are synthetic melanocortin-related peptides, they have distinct structures and research profiles.</p>
+<h4>Composition and Molecular Characteristics</h4>
+<p>PT-141 is a synthetic cyclic peptide analog of α-MSH. FDA records identify bremelanotide as the active substance associated with PT-141 and provide its molecular formula as C₅₀H₆₈N₁₄O₁₀ for the free-base form.</p>
+<p>The bremelanotide structure includes:</p>
+<ul>
+<li>A synthetic α-MSH-derived peptide framework</li>
+<li>A cyclic lactam structure</li>
+<li>Modified amino-acid residues</li>
+<li>A defined molecular architecture suitable for receptor research</li>
+<li>Structural characteristics relevant to melanocortin ligand studies</li>
+</ul>
+<p>The FDA Substance Registration System distinguishes bremelanotide from bremelanotide acetate and lists PT-141 as a synonym for the compound.</p>
+<h4>Intended Research Use</h4>
+<p>Helix Bio's PT-141 is intended for laboratory and scientific research only.</p>
+<p>Potential research applications include:</p>
+<ul>
+<li>Melanocortin receptor research</li>
+<li>MC3R and MC4R studies</li>
+<li>MC1R and MC5R comparative research</li>
+<li>Peptide-receptor binding investigations</li>
+<li>Ligand selectivity research</li>
+<li>GPCR signaling studies</li>
+<li>Peptide structure-activity relationship research</li>
+<li>Synthetic peptide characterization</li>
+<li>Cellular signaling experiments</li>
+<li>Comparative melanocortin analog research</li>
+<li>Analytical peptide research</li>
+</ul>
+<p>The suitability of PT-141 for any particular experiment depends on the research model, assay design, controls, analytical requirements, and laboratory protocols.</p>
+<h4>PT-141 and Bremelanotide</h4>
+<p>PT-141 and bremelanotide refer to the same underlying research compound in scientific and regulatory references. The FDA's Substance Registration System lists PT-141 among the synonyms for bremelanotide.</p>
+<p>Bremelanotide is also the active ingredient in an FDA-approved prescription product. That regulated pharmaceutical product is a separate product from research-use-only PT-141 supplied by Helix Bio. The FDA approval package identifies Vyleesi as bremelanotide injection and describes its specific approved indication and formulation.</p>
+<p>Therefore, the existence of an approved pharmaceutical containing bremelanotide should not be interpreted as approval of a research-use-only PT-141 product for human administration.</p>
+<h4>Key Features</h4>
+<ul>
+<li>PT-141 is a commonly used research name for bremelanotide</li>
+<li>Synthetic cyclic α-MSH analog</li>
+<li>Relevant to melanocortin receptor research</li>
+<li>Investigated across MC1R, MC3R, MC4R, and MC5R</li>
+<li>Useful for peptide-receptor interaction studies</li>
+<li>Suitable for structure-activity relationship research</li>
+<li>Relevant to GPCR and cellular signaling studies</li>
+<li>Defined molecular structure for analytical characterization</li>
+<li>Available as a research-use-only peptide from Helix Bio</li>
+<li>Current lot-specific analytical documentation should be reviewed before use</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p><strong>Defined Melanocortin Peptide Structure</strong></p>
+<p>PT-141 has a defined cyclic molecular structure that makes it useful for investigating relationships between peptide conformation and receptor interaction.</p>
+<p><strong>Relevant to Multiple Receptor Studies</strong></p>
+<p>Scientific and regulatory literature describes bremelanotide as a melanocortin receptor agonist with activity across several melanocortin receptor subtypes. This provides a basis for comparative research involving receptor pharmacology and ligand behavior.</p>
+<p><strong>Established Research Literature</strong></p>
+<p>PT-141/bremelanotide has been investigated in peer-reviewed research, including studies examining melanocortin receptor activity and physiological signaling.</p>
+<p><strong>Useful for Structure-Activity Research</strong></p>
+<p>The cyclic structure and modified α-MSH framework provide a defined molecular model for comparing synthetic melanocortin ligands.</p>
+<p><strong>Clear Research-Only Positioning</strong></p>
+<p>Helix Bio identifies its products as research and laboratory materials rather than human-use products. The site's published information states that its peptide catalog is intended for research purposes and not for ingestion, injection, or other administration.</p>
+<h4>Who This Product Is For</h4>
+<p>PT-141 research peptide is intended for qualified users conducting legitimate scientific research, including:</p>
+<ul>
+<li>Academic research laboratories</li>
+<li>Biotechnology laboratories</li>
+<li>Pharmaceutical research teams</li>
+<li>Peptide research groups</li>
+<li>Molecular biology laboratories</li>
+<li>Analytical laboratories</li>
+<li>Educational research institutions</li>
+<li>Qualified scientific professionals</li>
+</ul>
+<p>It is not intended for consumers seeking sexual, cosmetic, tanning, therapeutic, or performance-related effects.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>PT-141</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>PT-141</td></tr>
+<tr><td>Common Name</td><td>Bremelanotide</td></tr>
+<tr><td>Other Name</td><td>Bremelanotide / PT-141</td></tr>
+<tr><td>Product Type</td><td>Synthetic peptide</td></tr>
+<tr><td>Peptide Class</td><td>Cyclic α-MSH analog</td></tr>
+<tr><td>Research Category</td><td>Sexual &amp; Hormonal Research</td></tr>
+<tr><td>Primary Research System</td><td>Melanocortin receptor signaling</td></tr>
+<tr><td>Receptor Targets Studied</td><td>MC1R, MC3R, MC4R, MC5R</td></tr>
+<tr><td>Molecular Formula</td><td>C₅₀H₆₈N₁₄O₁₀ for bremelanotide free base</td></tr>
+<tr><td>Purity</td><td>Verify current lot-specific COA</td></tr>
+<tr><td>Appearance</td><td>Refer to current product documentation</td></tr>
+<tr><td>Packaging</td><td>Refer to current product listing</td></tr>
+<tr><td>Storage</td><td>Follow current product-specific documentation</td></tr>
+<tr><td>Lot Testing</td><td>Verify applicable COA</td></tr>
+<tr><td>Quality Documentation</td><td>Lot-specific COA where provided</td></tr>
+<tr><td>Research Use</td><td>Laboratory research only</td></tr>
+<tr><td>Human Use</td><td>Not intended for human use</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended for veterinary use</td></tr>
+<tr><td>Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Country of Origin</td><td>Verify current product documentation</td></tr>
+</tbody>
+</table>
+<p>Molecular identity information is based on FDA substance records. Product-specific attributes such as purity, package size, physical appearance, storage conditions, and analytical results should be confirmed against the current Helix Bio listing and applicable COA.</p>
+<h4>Research / Applications</h4>
+<p><strong>Melanocortin Receptor Research</strong></p>
+<p>PT-141 is relevant to research involving melanocortin receptors, a group of G-protein-coupled receptors involved in diverse cellular signaling processes.</p>
+<p>Experimental work can examine receptor-ligand interactions, receptor activation, ligand selectivity, or downstream signaling under controlled laboratory conditions.</p>
+<p><strong>MC3R and MC4R Research</strong></p>
+<p>Published research has identified bremelanotide as an agonist at MC3R and MC4R. These receptors are therefore relevant targets for laboratory studies investigating melanocortin ligand activity and receptor pharmacology.</p>
+<p><strong>MC1R and MC5R Research</strong></p>
+<p>FDA regulatory documentation describes bremelanotide as a non-selective agonist of melanocortin receptor subtypes including MC1, MC3, MC4, and MC5. This makes PT-141 relevant to broader comparative melanocortin receptor investigations.</p>
+<p><strong>Peptide-Receptor Interaction Studies</strong></p>
+<p>PT-141 provides a defined synthetic ligand for studies examining how cyclic melanocortin peptides interact with receptor systems.</p>
+<p>Depending on the research question, appropriate experiments may evaluate binding, receptor activation, ligand selectivity, or downstream cellular signaling.</p>
+<p><strong>Structure-Activity Relationship Research</strong></p>
+<p>The cyclic structure of PT-141 can be considered when studying how conformational restriction and sequence modifications influence melanocortin receptor interactions.</p>
+<p>Researchers may compare PT-141 with other α-MSH analogs to investigate relationships between peptide structure and receptor behavior.</p>
+<p><strong>Analytical Characterization</strong></p>
+<p>PT-141 can be evaluated using analytical methods such as HPLC and mass spectrometry to investigate purity, identity, molecular mass, and other relevant quality attributes.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Research peptides should be assessed using appropriate analytical documentation before they are incorporated into experimental workflows.</p>
+<p>Helix Bio states that its research peptide batches undergo independent testing, including HPLC purity assessment and mass-spectrometry verification, with batch-specific Certificates of Analysis. The site's published quality information also describes freeze-dried materials and batch-level analytical documentation.</p>
+<p>For PT-141, researchers should review the documentation associated with the specific lot and, where available, verify:</p>
+<ul>
+<li>HPLC purity</li>
+<li>Mass-spectrometry identity</li>
+<li>Molecular-weight confirmation</li>
+<li>Lot or batch number</li>
+<li>Analytical methodology</li>
+<li>Product formulation</li>
+<li>Storage requirements</li>
+<li>Certificate of Analysis</li>
+<li>Any available stability or characterization data</li>
+</ul>
+<p>Third-party testing should only be represented as applicable when it is documented for the relevant batch.</p>
+<p>Helix Bio's website states a 99.1%+ verified purity standard for its catalog, but its general site disclaimer also notes that purity may vary by product and lot. Therefore, the lot-specific COA should take precedence over a general website statement when evaluating a particular PT-141 batch.</p>
+<h4>Storage &amp; Handling</h4>
+<p>Follow the current storage requirements provided with the specific PT-141 product and lot documentation.</p>
+<p>General laboratory considerations include:</p>
+<ul>
+<li>Keep the peptide container appropriately sealed.</li>
+<li>Protect the material from excessive heat, moisture, and unnecessary light.</li>
+<li>Follow the temperature specified by the supplier or applicable COA.</li>
+<li>Minimize unnecessary temperature fluctuations.</li>
+<li>Avoid repeated freeze-thaw exposure where appropriate.</li>
+<li>Use appropriate laboratory PPE.</li>
+<li>Follow established laboratory chemical-hygiene procedures.</li>
+<li>Consult the applicable SDS before handling.</li>
+<li>Maintain clear product and lot identification.</li>
+<li>Do not use research-use-only material for human or veterinary administration.</li>
+</ul>
+<p>Peptide stability can depend on formulation, concentration, container, temperature, moisture, and storage duration. Product-specific instructions should therefore take precedence over generic peptide-storage recommendations.</p>
+<h4>Shipping &amp; Packaging</h4>
+<p>Helix Bio provides research-use-only peptide products for laboratory applications. The website describes its products as research materials and states that its catalog is supported by batch-specific quality documentation.</p>
+<p>Current shipping availability, delivery timelines, packaging configuration, temperature-control practices, and destination restrictions should be confirmed using the current Helix Bio shipping information before ordering.</p>
+<p>Researchers should inspect packages after receipt and promptly follow the applicable product-specific storage instructions.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>PT-141 supplied by Helix Bio is intended strictly for research and laboratory use. It is not intended for human consumption, ingestion, injection, administration, veterinary use, diagnosis, treatment, cure, prevention of disease, sexual enhancement, or cosmetic use.</p>
+<p>PT-141 is also known as bremelanotide, and bremelanotide is the active ingredient in an FDA-approved prescription drug product. That regulatory status applies to the specific approved pharmaceutical product and does not mean that research-use-only PT-141 supplied by Helix Bio is FDA-approved for human use. The FDA approval package identifies Vyleesi as a specific bremelanotide injection product approved for a defined clinical indication.</p>
+<p>Helix Bio's own website states that its products are offered for research and laboratory purposes only and are not intended for ingestion, injection, or any form of administration.</p>
+<p>Nothing on this page should be interpreted as medical advice, dosage guidance, treatment instructions, or a recommendation for human use.</p>
+<p>Researchers are responsible for determining whether a material is appropriate for their experimental model and for complying with applicable federal, state, local, institutional, laboratory, biosafety, and chemical-handling requirements.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is PT-141?', answer: 'PT-141 is a commonly used name for bremelanotide, a synthetic cyclic peptide analog of α-MSH studied in research involving melanocortin receptors and peptide signaling. The FDA\'s substance database lists PT-141 as a synonym for bremelanotide.' },
+      { question: 'Is PT-141 the same as bremelanotide?', answer: 'Yes. PT-141 is listed as a synonym for bremelanotide in FDA substance records.' },
+      { question: 'What receptors are studied with PT-141?', answer: 'Research has examined bremelanotide in relation to melanocortin receptors including MC1R, MC3R, MC4R, and MC5R. Studies can focus on receptor pharmacology, ligand interactions, and signaling.' },
+      { question: 'Is PT-141 the same as Melanotan-1 or Melanotan-2?', answer: 'No. PT-141, Melanotan-1, and Melanotan-2 are different synthetic melanocortin-related peptides with distinct molecular structures and research profiles.' },
+      { question: 'What is PT-141 used for in research?', answer: 'PT-141 can be investigated in melanocortin receptor research, peptide-receptor interaction studies, GPCR signaling experiments, structure-activity research, ligand comparison studies, and analytical peptide characterization.' },
+      { question: 'Is PT-141 a cyclic peptide?', answer: 'Yes. Bremelanotide/PT-141 has a cyclic molecular structure containing a lactam bridge. This structural feature is relevant to research examining peptide conformation and receptor interactions.' },
+      { question: 'Is PT-141 FDA approved?', answer: 'Bremelanotide, the compound also known as PT-141, is the active ingredient in an FDA-approved prescription product. That approval applies to the specific pharmaceutical product and its approved clinical use; it does not make research-use-only PT-141 from a peptide supplier an FDA-approved medicine.' },
+      { question: 'Is Helix Bio PT-141 intended for human use?', answer: 'No. Helix Bio identifies its PT-141 and other peptide products as research-use-only materials. Its website specifically states that products are not intended for ingestion, injection, or other forms of administration.' },
+      { question: 'What should researchers look for on a PT-141 COA?', answer: 'Researchers should review the applicable lot number, HPLC purity results, mass-spectrometry identity confirmation, molecular-weight information, analytical methods, and storage requirements where provided.' },
+      { question: 'How should PT-141 research peptide be stored?', answer: 'Storage should follow the current product-specific instructions and applicable COA. Researchers should protect the material from inappropriate temperature, moisture, excessive light, and unnecessary temperature changes.' },
+      { question: 'Can PT-141 be used in melanocortin receptor experiments?', answer: 'PT-141 is relevant to melanocortin receptor research, including studies involving MC3R and MC4R. Experimental suitability depends on the research question, assay model, controls, and laboratory protocol.' },
+    ],
+    variants: [
+      { sku: 'PT141-10MG', strength: '10mg', price: 25 },
+    ],
+  },
+{
+    name: 'Snap-8',
+    slug: 'snap-8',
+    imageFile: 'SNAP-8  10MG.png',
+    categoryName: 'Specialty & Hormonal Peptides',
+    description: 'SNAP-8, also known as Acetyl Octapeptide-3, is a synthetic octapeptide studied in research involving the SNAP-25 protein, SNARE complex biology, vesicle fusion, and peptide-based cosmetic science. As an extended peptide related to Argireline, SNAP-8 is of interest to researchers investigating peptide structure, protein-peptide interactions, neurotransmitter-release pathways, and topical cosmetic formulations. Published analytical research has also established LC-MS/MS methods for identifying and quantifying Acetyl Octapeptide-3. Helix Bio supplies SNAP-8 as a research-use-only material for qualified laboratory and scientific applications. The company states that its research peptides are supported by batch-specific COA documentation and third-party HPLC and mass-spectrometry testing.',
+    seoTitle: 'SNAP-8 Research Peptide | Acetyl Octapeptide-3',
+    seoDescription: 'SNAP-8 research peptide, also called acetyl octapeptide-3, for laboratory studies of SNARE biology, peptide signaling, and cosmetic peptide research.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>SNAP-8 is the common research and cosmetic name for Acetyl Octapeptide-3, a synthetic eight-amino-acid peptide associated with research into the SNAP-25 portion of the SNARE complex.</p>
+<p>The SNARE complex is a group of proteins involved in membrane fusion and vesicle-release processes. SNAP-25 is one of the proteins participating in this molecular machinery. Research on SNAP-8 examines how a short synthetic peptide corresponding to part of the SNAP-25 sequence can interact with this system.</p>
+<p>SNAP-8 is often discussed alongside Argireline because both peptides are related to the SNAP-25 region and have been studied in cosmetic peptide research. SNAP-8 is an extended analog containing eight amino-acid residues rather than the shorter six-residue sequence associated with Argireline.</p>
+<p>For laboratory researchers, this makes SNAP-8 relevant to studies involving peptide-protein interactions, SNARE-related signaling, vesicle fusion models, and cosmetic formulation science.</p>
+<h4>Composition and Molecular Characteristics</h4>
+<p>SNAP-8 is classified as a synthetic octapeptide. Its commonly reported sequence is:</p>
+<p><strong>Ac-Glu-Glu-Met-Gln-Arg-Arg-Ala-Asp-NH₂</strong></p>
+<p>The peptide contains eight amino-acid residues and an N-terminal acetyl modification. Its structure is related to a region of SNAP-25 that participates in SNARE-complex assembly.</p>
+<p>Important research characteristics include:</p>
+<ul>
+<li>Synthetic octapeptide structure</li>
+<li>N-terminal acetyl modification</li>
+<li>Relationship to the SNAP-25 sequence</li>
+<li>Extended structure compared with Argireline</li>
+<li>Relevance to SNARE-complex research</li>
+<li>Interest in cosmetic peptide formulation research</li>
+<li>Suitability for analytical characterization using chromatographic and mass-spectrometric methods</li>
+</ul>
+<h4>SNAP-8 and Argireline</h4>
+<p>SNAP-8 and Argireline are closely related but are not identical peptides.</p>
+<p>Argireline is associated with Acetyl Hexapeptide-3/Acetyl Hexapeptide-8 nomenclature, while SNAP-8 is Acetyl Octapeptide-3. SNAP-8 extends the related sequence with two additional residues.</p>
+<table>
+<thead><tr><th>Characteristic</th><th>SNAP-8</th><th>Argireline</th></tr></thead>
+<tbody>
+<tr><td>Common Name</td><td>SNAP-8</td><td>Argireline</td></tr>
+<tr><td>Peptide Type</td><td>Synthetic octapeptide</td><td>Synthetic hexapeptide</td></tr>
+<tr><td>Common Scientific Name</td><td>Acetyl Octapeptide-3</td><td>Acetyl Hexapeptide-3 / Acetyl Hexapeptide-8</td></tr>
+<tr><td>Sequence Length</td><td>8 residues</td><td>6 residues</td></tr>
+<tr><td>Research Relationship</td><td>Extended SNAP-25-related peptide</td><td>Shorter SNAP-25-related peptide</td></tr>
+<tr><td>Research Focus</td><td>SNARE/SNAP-25 interactions and cosmetic peptide science</td><td>SNARE/SNAP-25-related research and cosmetic formulations</td></tr>
+</tbody>
+</table>
+<p>The two compounds should not be treated as interchangeable. Researchers should identify the exact peptide, sequence, formulation, purity, and lot documentation required for a given experiment.</p>
+<h4>Intended Research Use</h4>
+<p>Helix Bio's SNAP-8 is intended exclusively for laboratory and scientific research.</p>
+<p>Potential research areas include:</p>
+<ul>
+<li>SNAP-25 research</li>
+<li>SNARE-complex biology</li>
+<li>Vesicle fusion research</li>
+<li>Protein-peptide interaction studies</li>
+<li>Peptide structure-function research</li>
+<li>Cosmetic peptide formulation research</li>
+<li>Skin-aging model research</li>
+<li>Analytical peptide characterization</li>
+<li>LC-MS/MS method development</li>
+<li>Comparative research involving SNAP-8 and related peptides</li>
+</ul>
+<p>The appropriate application depends on the research model, experimental objective, analytical methodology, and laboratory protocol.</p>
+<h4>Key Features</h4>
+<ul>
+<li>Synthetic octapeptide</li>
+<li>Also known as Acetyl Octapeptide-3</li>
+<li>Related to the SNAP-25 protein sequence</li>
+<li>Studied in SNARE-complex research</li>
+<li>Relevant to vesicle-fusion and peptide-protein interaction studies</li>
+<li>Frequently investigated in cosmetic peptide research</li>
+<li>Distinct from Argireline despite their structural relationship</li>
+<li>Suitable for analytical characterization</li>
+<li>LC-MS/MS analytical methods have been published for SNAP-8.</li>
+<li>Helix Bio identifies its peptide catalog as research-use-only</li>
+<li>Batch-specific COA documentation is provided according to Helix Bio's published quality information.</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p><strong>Defined Peptide Identity</strong></p>
+<p>Research involving synthetic peptides benefits from clearly defined molecular identity. SNAP-8 has a recognized sequence and chemical identity, allowing researchers to distinguish it from related peptides such as Argireline.</p>
+<p><strong>Relevant to SNARE Biology</strong></p>
+<p>SNAP-8 is associated with the SNAP-25 portion of the SNARE complex, giving researchers a defined peptide model for investigating protein interactions and membrane-fusion biology.</p>
+<p><strong>Established Analytical Methods</strong></p>
+<p>Published research has described LC-MS/MS methodology for the identification and quantification of Acetyl Octapeptide-3, demonstrating that the compound can be analytically characterized using modern mass-spectrometric methods.</p>
+<p><strong>Useful for Cosmetic Peptide Research</strong></p>
+<p>SNAP-8 has been studied in cosmetic science, including research concerning topical formulations and peptide-based approaches to expression-line models. The available evidence should be interpreted according to the specific formulation, experimental model, and study design rather than generalized to every SNAP-8 preparation.</p>
+<p><strong>Documented Quality Approach</strong></p>
+<p>Helix Bio states that its peptide catalog uses third-party HPLC and mass-spectrometry testing, with batch-specific certificates of analysis. Researchers can use this documentation to evaluate the identity and purity of the material associated with a specific lot.</p>
+<h4>Who This Product Is For</h4>
+<p>SNAP-8 is intended for qualified scientific and laboratory users, including:</p>
+<ul>
+<li>Academic research laboratories</li>
+<li>Cosmetic science laboratories</li>
+<li>Biotechnology researchers</li>
+<li>Pharmaceutical research teams</li>
+<li>Analytical laboratories</li>
+<li>Molecular biology laboratories</li>
+<li>Peptide research groups</li>
+<li>Educational research institutions</li>
+<li>Qualified scientific professionals</li>
+</ul>
+<p>It is not intended for consumers seeking cosmetic treatment, anti-aging treatment, medical treatment, or self-administration.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>SNAP-8</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>SNAP-8</td></tr>
+<tr><td>Scientific Name</td><td>Acetyl Octapeptide-3</td></tr>
+<tr><td>Product Type</td><td>Synthetic peptide</td></tr>
+<tr><td>Peptide Class</td><td>Octapeptide</td></tr>
+<tr><td>Research Category</td><td>Cosmetic &amp; Skin Compounds</td></tr>
+<tr><td>Research Focus</td><td>SNAP-25 / SNARE-complex biology</td></tr>
+<tr><td>Sequence</td><td>Ac-Glu-Glu-Met-Gln-Arg-Arg-Ala-Asp-NH₂</td></tr>
+<tr><td>Purity</td><td>Verify current lot-specific COA</td></tr>
+<tr><td>Appearance</td><td>Refer to current product listing and COA</td></tr>
+<tr><td>Form</td><td>Refer to current product documentation</td></tr>
+<tr><td>Packaging</td><td>Refer to current product listing</td></tr>
+<tr><td>Storage</td><td>Follow current product-specific documentation</td></tr>
+<tr><td>Lot Testing</td><td>Verify applicable COA</td></tr>
+<tr><td>Identity Testing</td><td>Mass spectrometry where documented</td></tr>
+<tr><td>Purity Testing</td><td>HPLC where documented</td></tr>
+<tr><td>Research Use</td><td>Laboratory research only</td></tr>
+<tr><td>Human Use</td><td>Not intended for human use</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended for veterinary use</td></tr>
+<tr><td>Manufacturer/Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Country of Origin</td><td>Verify current product documentation</td></tr>
+</tbody>
+</table>
+<p>Product-specific specifications such as purity percentage, vial size, appearance, lot number, and analytical results should always be confirmed using the current product listing and applicable COA.</p>
+<h4>Research / Applications</h4>
+<p><strong>SNAP-25 Research</strong></p>
+<p>SNAP-8 is closely associated with the SNAP-25 region of the SNARE complex. Researchers can use this relationship when designing experiments focused on protein-peptide interactions and SNARE-related molecular biology.</p>
+<p><strong>SNARE-Complex Research</strong></p>
+<p>SNARE proteins are central to membrane-fusion processes involved in vesicular transport. SNAP-8 provides a defined synthetic peptide model for research into aspects of this protein machinery.</p>
+<p><strong>Vesicle Fusion Studies</strong></p>
+<p>SNARE-complex assembly is closely connected to vesicle fusion and neurotransmitter-release mechanisms. SNAP-8 is therefore relevant to experimental work examining molecular interactions within this pathway.</p>
+<p>This should be understood as a research context rather than a claim that SNAP-8 produces a particular physiological outcome in humans.</p>
+<p><strong>Peptide-Protein Interaction Research</strong></p>
+<p>Short synthetic peptides are useful experimental tools for examining binding, molecular recognition, structure-function relationships, and protein-complex assembly.</p>
+<p>SNAP-8's relationship to the SNAP-25 sequence makes it particularly relevant to this type of research.</p>
+<p><strong>Cosmetic Peptide Research</strong></p>
+<p>SNAP-8 has been investigated in cosmetic science and topical formulation research. Published literature has described studies involving SNAP-8-containing formulations, including analytical work and experimental topical formulations.</p>
+<p>Research results should not automatically be transferred from a particular formulation to a different peptide preparation. Vehicle composition, concentration, peptide stability, delivery system, experimental design, and skin model can all influence observed outcomes.</p>
+<p><strong>Analytical Research</strong></p>
+<p>SNAP-8 can be examined using chromatographic and mass-spectrometric techniques. A published LC-MS/MS method specifically addresses the analysis of Acetyl Octapeptide-3 and demonstrates its application to a SNAP-8-containing microneedle formulation.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Reliable peptide research depends on more than a name printed on a vial. Researchers should be able to identify the compound, confirm the batch, and review analytical data relevant to purity and molecular identity.</p>
+<p>Helix Bio states that its research peptide batches undergo third-party HPLC purity testing and mass-spectrometry identity confirmation. The company also states that a batch-specific Certificate of Analysis is available for its products.</p>
+<p>For SNAP-8, researchers should review the applicable documentation for:</p>
+<ul>
+<li>Product name</li>
+<li>Lot or batch number</li>
+<li>HPLC purity result</li>
+<li>Mass-spectrometry identity or molecular-weight confirmation</li>
+<li>Testing date</li>
+<li>Analytical methodology where provided</li>
+<li>Product formulation</li>
+<li>Storage requirements</li>
+<li>Applicable handling information</li>
+</ul>
+<p>HPLC and mass spectrometry answer different analytical questions. HPLC can be used to evaluate chromatographic purity, while mass spectrometry provides information about molecular mass and identity. Using both approaches provides a stronger analytical picture than relying on a single measurement. Helix Bio describes this combined approach as part of its quality-control process.</p>
+<p>Third-party testing claims should always be evaluated against the documentation for the specific lot being purchased.</p>
+<h4>Storage &amp; Handling</h4>
+<p>Storage should follow the product-specific instructions supplied by Helix Bio and the applicable lot documentation.</p>
+<p>For laboratory handling:</p>
+<ul>
+<li>Keep the container appropriately sealed when not in use.</li>
+<li>Protect the material from unnecessary exposure to moisture.</li>
+<li>Minimize exposure to excessive heat and light.</li>
+<li>Follow the temperature specified by the supplier or COA.</li>
+<li>Avoid unnecessary temperature cycling.</li>
+<li>Maintain clear lot and product identification.</li>
+<li>Use appropriate laboratory PPE and handling procedures.</li>
+<li>Review applicable safety documentation before laboratory use.</li>
+<li>Follow institutional chemical-hygiene and laboratory protocols.</li>
+</ul>
+<p>For lyophilized research peptides, Helix Bio's general FAQ recommends frozen or refrigerated storage with protection from light and moisture until needed, while noting that reconstituted peptide storage should follow the product-specific guidance.</p>
+<p>Because peptide stability varies with formulation and conditions, the product's current COA and storage instructions should take precedence over generalized recommendations.</p>
+<h4>Shipping &amp; Packaging</h4>
+<p>Helix Bio describes its products as research-use-only materials and states that its peptide batches are supported by analytical documentation. The company also describes cold-chain packaging and tracked shipping as part of its fulfillment process.</p>
+<p>Current shipping availability, delivery timeframes, packaging configuration, temperature-control practices, and destination restrictions can change. Researchers should confirm the current Helix Bio shipping policy before placing an order.</p>
+<p>Upon delivery, researchers should inspect the package and verify that the product name and lot information correspond with the accompanying documentation.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>SNAP-8 supplied by Helix Bio is intended strictly for laboratory and research purposes. It is not intended for human consumption, ingestion, injection, self-administration, veterinary use, diagnosis, treatment, cure, or prevention of any disease or medical condition.</p>
+<p>SNAP-8 is a research compound associated with Acetyl Octapeptide-3. Scientific literature concerning SNAP-8, cosmetic formulations, or related peptide mechanisms should not be interpreted as evidence that a particular research-use-only preparation is safe or effective for human use.</p>
+<p>Helix Bio states that its products are not evaluated or approved by the U.S. Food and Drug Administration for safety or efficacy and are not intended for human or veterinary use or for ingestion, injection, or other administration.</p>
+<p>Nothing on this page constitutes medical advice, dosage guidance, treatment instructions, or a recommendation for personal use.</p>
+<p>Researchers are responsible for determining the suitability of SNAP-8 for their experimental system and for complying with applicable federal, state, local, institutional, laboratory, safety, and research requirements.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is SNAP-8?', answer: 'SNAP-8 is a synthetic octapeptide also known as Acetyl Octapeptide-3. It is studied in research involving SNAP-25, SNARE-complex biology, peptide-protein interactions, and cosmetic peptide science.' },
+      { question: 'What is Acetyl Octapeptide-3?', answer: 'Acetyl Octapeptide-3 is the scientific name commonly associated with SNAP-8. It is an eight-residue synthetic peptide related to the SNAP-25 sequence.' },
+      { question: 'Is SNAP-8 the same as Argireline?', answer: 'No. SNAP-8 and Argireline are related peptides but have different structures. SNAP-8 is an octapeptide, while Argireline is associated with a shorter hexapeptide sequence.' },
+      { question: 'What does SNAP-8 research focus on?', answer: 'Research can focus on SNAP-25 interactions, SNARE-complex assembly, vesicle-fusion biology, peptide structure-function relationships, analytical characterization, and cosmetic formulation science.' },
+      { question: 'Is SNAP-8 a peptide?', answer: 'Yes. SNAP-8 is a synthetic octapeptide, meaning its structure contains eight amino-acid residues.' },
+      { question: 'What is the relationship between SNAP-8 and SNAP-25?', answer: 'SNAP-8 is structurally related to a segment of the SNAP-25 protein and has therefore been investigated in research concerning SNARE-complex interactions and vesicle-fusion mechanisms.' },
+      { question: 'Can SNAP-8 be used for cosmetic research?', answer: 'Yes. SNAP-8 has been studied in cosmetic science and topical formulation research. However, results depend on the specific formulation, delivery system, experimental conditions, and research model.' },
+      { question: 'Is SNAP-8 FDA approved?', answer: 'SNAP-8 research material should not be represented as an FDA-approved drug. Helix Bio states that its products are research-use-only materials and are not evaluated or approved by the FDA for safety or efficacy.' },
+      { question: 'What testing should researchers look for when purchasing SNAP-8?', answer: 'Researchers should look for batch-specific analytical documentation, including HPLC purity data, mass-spectrometry identity confirmation, lot number, testing date, and applicable product specifications.' },
+      { question: 'Does SNAP-8 have an analytical testing method?', answer: 'Yes. A peer-reviewed publication describes an LC-MS/MS method developed specifically for the analysis of Acetyl Octapeptide-3 and reports its application to a SNAP-8-containing formulation.' },
+      { question: 'How should SNAP-8 research peptide be stored?', answer: 'Storage should follow the current product-specific instructions and COA. Helix Bio\'s general peptide guidance recommends protecting lyophilized peptides from light and moisture and storing them frozen or refrigerated until required for research.' },
+      { question: 'Is Helix Bio SNAP-8 intended for human use?', answer: 'No. Helix Bio identifies its catalog as research-use-only and states that its products are not intended for human or veterinary use, ingestion, injection, or other administration.' },
+    ],
+    variants: [
+      { sku: 'SNAP8-10MG', strength: '10mg', price: 14 },
+      { sku: 'SNAP8-20MG', strength: '20mg', price: 23 },
+    ],
+  },
+{
+    name: 'SS-31',
+    slug: 'ss-31',
+    imageFile: 'SS-31 10MG.png',
+    categoryName: 'Cellular Health & Longevity',
+    description: 'SS-31, also known as elamipretide, MTP-131, or Bendavia, is a synthetic mitochondria-targeted tetrapeptide studied extensively in laboratory research involving mitochondrial membranes, cardiolipin interactions, cellular bioenergetics, oxidative stress models, and mitochondrial protein interactions. SS-31 is particularly relevant to researchers investigating how small cationic-aromatic peptides interact with mitochondrial membranes and influence molecular processes associated with mitochondrial structure and function. Research has identified interactions between SS-31 and cardiolipin-containing membranes, as well as several mitochondrial proteins associated with energy metabolism. Helix Bio supplies research peptides for laboratory and scientific applications. The company\'s website states that its products are research and laboratory materials rather than products intended for human or veterinary use.',
+    seoTitle: 'SS-31 Research Peptide | Elamipretide | Helix Bio',
+    seoDescription: 'SS-31 research peptide, also known as elamipretide, for laboratory studies of mitochondrial membranes, cardiolipin interactions, and bioenergetics.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>SS-31 is a synthetic tetrapeptide belonging to the Szeto-Schiller family of mitochondria-targeted peptides. Its commonly used scientific name is <strong>elamipretide</strong>, and it is also referred to in research literature as <strong>MTP-131</strong> and <strong>Bendavia</strong>.</p>
+<p>Unlike conventional peptides that are designed primarily around a particular receptor or extracellular target, SS-31 has been investigated for its interaction with mitochondrial membranes. Research has focused particularly on cardiolipin, a distinctive phospholipid associated with the inner mitochondrial membrane.</p>
+<p>Experimental work indicates that SS-31 can associate with cardiolipin-containing membranes and alter membrane-surface electrostatics without destabilizing the lipid bilayer under the tested conditions. These properties have made SS-31 a useful research tool for investigating mitochondrial membrane biophysics and peptide-membrane interactions.</p>
+<h4>Composition and Molecular Characteristics</h4>
+<p>SS-31 is a short, synthetic tetrapeptide with alternating aromatic and positively charged residues. The peptide belongs to the Szeto-Schiller class of mitochondria-targeted peptides.</p>
+<p>Its research relevance comes from several structural characteristics:</p>
+<ul>
+<li>Short tetrapeptide architecture</li>
+<li>Cationic character</li>
+<li>Aromatic amino-acid residues</li>
+<li>Amphipathic properties</li>
+<li>Affinity for negatively charged membrane environments</li>
+<li>Research association with cardiolipin-containing mitochondrial membranes</li>
+<li>Strong relevance to mitochondrial membrane biophysics</li>
+</ul>
+<p>Studies comparing SS-31 with related tetrapeptide analogs have examined sequence-dependent differences in membrane binding, conformation, and interactions with cardiolipin-containing membranes.</p>
+<h4>What Is SS-31 Also Called?</h4>
+<p>Researchers may encounter several names for the same compound in scientific literature and databases:</p>
+<table>
+<thead><tr><th>Name</th><th>Context</th></tr></thead>
+<tbody>
+<tr><td>SS-31</td><td>Common research designation</td></tr>
+<tr><td>Elamipretide</td><td>Scientific/development name</td></tr>
+<tr><td>MTP-131</td><td>Alternative development designation</td></tr>
+<tr><td>Bendavia</td><td>Developmental name used in research literature</td></tr>
+<tr><td>Szeto-Schiller peptide</td><td>Peptide family classification</td></tr>
+<tr><td>Mitochondria-targeted tetrapeptide</td><td>Functional structural description</td></tr>
+</tbody>
+</table>
+<p>Researchers should verify the exact molecular identity and lot documentation rather than relying solely on a product name.</p>
+<h4>SS-31 and Mitochondria</h4>
+<p>Mitochondria contain a specialized inner membrane that supports several processes involved in cellular energy metabolism. Cardiolipin is an important phospholipid within this membrane and has attracted considerable interest in mitochondrial research.</p>
+<p>SS-31 has been investigated because of its interaction with cardiolipin and other components of the mitochondrial inner membrane. Research using biochemical, biophysical, and mass-spectrometry approaches has examined how the peptide associates with mitochondrial structures and proteins.</p>
+<p>This makes SS-31 relevant to research models examining:</p>
+<ul>
+<li>Mitochondrial membrane structure</li>
+<li>Cardiolipin biology</li>
+<li>Membrane electrostatics</li>
+<li>Oxidative phosphorylation</li>
+<li>Cellular bioenergetics</li>
+<li>Mitochondrial protein interactions</li>
+<li>Mitochondrial stress models</li>
+<li>Peptide-membrane interactions</li>
+</ul>
+<h4>Key Features</h4>
+<ul>
+<li>Synthetic mitochondria-targeted tetrapeptide</li>
+<li>Also known as elamipretide, MTP-131, and Bendavia</li>
+<li>Member of the Szeto-Schiller peptide family</li>
+<li>Research interest centered on mitochondrial membranes</li>
+<li>Associated with cardiolipin-binding studies</li>
+<li>Suitable for mitochondrial membrane research</li>
+<li>Relevant to cellular bioenergetics and oxidative phosphorylation research</li>
+<li>Used in studies of peptide-membrane interactions</li>
+<li>Investigated using biochemical, biophysical, and mass-spectrometry techniques</li>
+<li>Relevant to mitochondrial protein-interaction research</li>
+<li>Available from Helix Bio as a research-use-only material</li>
+<li>Helix Bio states that its research peptides undergo HPLC and mass-spectrometry verification and are supplied with batch-specific COA documentation.</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p><strong>A Well-Characterized Research Target</strong></p>
+<p>SS-31 has been investigated across multiple areas of mitochondrial biology, giving researchers a substantial scientific literature base for understanding its molecular characteristics and experimental context.</p>
+<p><strong>Relevant to Mitochondrial Membrane Research</strong></p>
+<p>The relationship between SS-31 and cardiolipin-containing membranes is one of the most distinctive aspects of the compound. Research has examined how the peptide partitions into membrane interfaces and changes local surface electrostatics.</p>
+<p><strong>Suitable for Mechanistic Research</strong></p>
+<p>SS-31 has been investigated using approaches ranging from membrane biophysics to cross-linking mass spectrometry. Research has identified mitochondrial protein interactors associated with oxidative phosphorylation and metabolic pathways, providing useful context for mechanistic laboratory studies.</p>
+<p><strong>Useful for Comparative Peptide Studies</strong></p>
+<p>Because SS-31 belongs to the Szeto-Schiller peptide family, it can also be relevant to structure-activity research comparing peptide sequence, aromatic residues, charge distribution, membrane binding, and molecular conformation.</p>
+<p><strong>Documentation-Focused Supply</strong></p>
+<p>Helix Bio states that it provides third-party HPLC and mass-spectrometry testing and batch-specific certificates of analysis for its research peptide products. Researchers should review the COA associated with the specific SS-31 lot being considered.</p>
+<h4>Who This Product Is For</h4>
+<p>SS-31 research material may be appropriate for qualified users working in:</p>
+<ul>
+<li>Mitochondrial biology laboratories</li>
+<li>Cell biology laboratories</li>
+<li>Molecular biology research</li>
+<li>Biochemistry laboratories</li>
+<li>Pharmaceutical research</li>
+<li>Biotechnology research</li>
+<li>Proteomics and mass-spectrometry research</li>
+<li>Membrane biophysics</li>
+<li>Academic research institutions</li>
+<li>Peptide structure-function research</li>
+</ul>
+<p>It is not intended for consumers seeking treatment, supplementation, anti-aging intervention, disease management, or self-administration.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>SS-31</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>SS-31</td></tr>
+<tr><td>Scientific Name</td><td>Elamipretide</td></tr>
+<tr><td>Alternative Names</td><td>MTP-131, Bendavia</td></tr>
+<tr><td>Peptide Class</td><td>Synthetic tetrapeptide</td></tr>
+<tr><td>Research Family</td><td>Szeto-Schiller peptide</td></tr>
+<tr><td>Research Category</td><td>Cellular Health &amp; Longevity</td></tr>
+<tr><td>Primary Research Area</td><td>Mitochondrial biology</td></tr>
+<tr><td>Molecular Focus</td><td>Mitochondrial membranes and cardiolipin</td></tr>
+<tr><td>Purity</td><td>Verify current lot-specific COA</td></tr>
+<tr><td>Appearance</td><td>Verify current product documentation</td></tr>
+<tr><td>Form</td><td>Verify current product listing</td></tr>
+<tr><td>Packaging</td><td>Verify current product listing</td></tr>
+<tr><td>Storage</td><td>Follow product-specific storage documentation</td></tr>
+<tr><td>Lot Testing</td><td>Verify current COA</td></tr>
+<tr><td>Identity Testing</td><td>Mass spectrometry where documented</td></tr>
+<tr><td>Purity Testing</td><td>HPLC where documented</td></tr>
+<tr><td>Manufacturer/Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Research Use</td><td>Laboratory research only</td></tr>
+<tr><td>Human Use</td><td>Not intended for human use</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended for veterinary use</td></tr>
+<tr><td>Country of Origin</td><td>Verify current product documentation</td></tr>
+</tbody>
+</table>
+<p><strong>Important:</strong> Product-specific information such as vial size, stated purity, appearance, lot number, and analytical results should be taken from the current SS-31 listing and its corresponding COA. Helix Bio's website states that purity can vary by product and lot, so a generic purity figure should not replace lot-specific documentation.</p>
+<h4>Research / Applications</h4>
+<p><strong>Mitochondrial Membrane Research</strong></p>
+<p>SS-31 is particularly relevant to research involving mitochondrial membranes. Studies have examined its interactions with lipid bilayers and its association with negatively charged membrane components.</p>
+<p>Research has reported that SS-31 interacts with cardiolipin-containing membranes and can modify membrane-surface electrostatics without causing membrane destabilization under experimental conditions.</p>
+<p><strong>Cardiolipin Research</strong></p>
+<p>Cardiolipin is a distinctive phospholipid associated with the mitochondrial inner membrane. Its interaction with proteins and peptides is an important area of mitochondrial biochemistry.</p>
+<p>SS-31 research provides a model for investigating how a small cationic-aromatic peptide interacts with cardiolipin-rich membrane environments.</p>
+<p><strong>Mitochondrial Bioenergetics</strong></p>
+<p>Mitochondrial bioenergetics concerns the processes by which mitochondria generate and manage cellular energy.</p>
+<p>Experimental studies have investigated SS-31 in relation to mitochondrial respiration, ATP production, oxidative phosphorylation, and mitochondrial function in different experimental systems. For example, research in aged mitochondria examined SS-31 interactions involving the adenine nucleotide translocator and ATP synthase and reported changes in ADP sensitivity and ATP production under the study conditions.</p>
+<p>These findings are experimental observations and should not be interpreted as evidence of a particular effect in humans.</p>
+<p><strong>Mitochondrial Protein Interaction Studies</strong></p>
+<p>Cross-linking mass spectrometry has been used to investigate the mitochondrial protein interaction landscape of SS-31. One study identified protein interactors associated with cardiolipin and pathways involved in ATP production and metabolic processes.</p>
+<p>This makes SS-31 relevant to proteomics, interactomics, mitochondrial protein research, and mechanistic studies.</p>
+<p><strong>Oxidative Stress Research</strong></p>
+<p>SS-31 has been investigated in experimental models involving mitochondrial stress and oxidative processes. Research has examined endpoints including mitochondrial membrane potential, oxidative stress markers, cellular metabolism, and related molecular pathways.</p>
+<p>Results from cell and animal studies should remain within the experimental context in which they were generated and should not be presented as evidence of a human therapeutic outcome.</p>
+<p><strong>Structure-Activity Research</strong></p>
+<p>SS-31 is also useful as a reference compound for research into mitochondria-targeted peptide structure and function.</p>
+<p>Studies of SS-31 and related peptide analogs have examined:</p>
+<ul>
+<li>Aromatic residue placement</li>
+<li>Cationic charge</li>
+<li>Peptide conformation</li>
+<li>Membrane affinity</li>
+<li>Cardiolipin interactions</li>
+<li>Membrane electrostatics</li>
+<li>Sequence-dependent behavior</li>
+</ul>
+<p>Such studies can help researchers investigate how small structural changes influence peptide-membrane interactions.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Research involving peptides requires reliable identification and appropriate analytical documentation. A product's name alone does not establish molecular identity or purity.</p>
+<p>Helix Bio states that its research peptides are independently tested using <strong>HPLC and mass spectrometry</strong>, with a certificate of analysis supplied for each batch. The website describes HPLC as a method used to verify purity and mass spectrometry as a method used to confirm molecular identity.</p>
+<p>For an SS-31 research lot, researchers should review available documentation for:</p>
+<ul>
+<li>Product identity</li>
+<li>Lot or batch number</li>
+<li>HPLC purity result</li>
+<li>Mass-spectrometry data or identity confirmation</li>
+<li>Testing date</li>
+<li>Applicable analytical methodology</li>
+<li>Product quantity</li>
+<li>Storage requirements</li>
+<li>Any additional lot-specific observations</li>
+</ul>
+<p><strong>Why HPLC and Mass Spectrometry Matter</strong></p>
+<p>HPLC and mass spectrometry provide different types of analytical information.</p>
+<p><strong>HPLC</strong> can help assess chromatographic purity by separating components in a sample.</p>
+<p><strong>Mass spectrometry</strong> can provide molecular-mass information useful for confirming the identity of the target peptide.</p>
+<p>Using complementary analytical techniques gives researchers a more informative quality-control picture than relying on a product label alone.</p>
+<p>Helix Bio specifically describes third-party HPLC and mass-spectrometry verification as part of its research-peptide quality process.</p>
+<h4>Storage &amp; Handling</h4>
+<p>Storage and handling should follow the current product-specific instructions supplied with the SS-31 research material and its COA.</p>
+<p>General laboratory practices include:</p>
+<ul>
+<li>Keep the original container appropriately sealed when not in use.</li>
+<li>Protect the material from unnecessary exposure to moisture.</li>
+<li>Minimize exposure to heat and direct light.</li>
+<li>Avoid repeated temperature cycling where possible.</li>
+<li>Maintain the original product and lot identification.</li>
+<li>Follow the supplier's current storage temperature requirements.</li>
+<li>Handle the material using appropriate laboratory PPE.</li>
+<li>Follow institutional chemical-hygiene and laboratory procedures.</li>
+<li>Consult applicable safety documentation before use.</li>
+</ul>
+<p>For any reconstituted or prepared research solution, researchers should establish stability and storage conditions appropriate to their own experimental system rather than assuming that the conditions for the dry material also apply after preparation.</p>
+<h4>Shipping &amp; Packaging</h4>
+<p>Helix Bio states that its research peptide products are supplied for laboratory and research purposes and that batches are accompanied by analytical documentation, including certificates of analysis. The website also states that its research peptides are shipped to research laboratories and institutions in the USA.</p>
+<p>Current shipping methods, packaging configuration, delivery timeframes, availability, and destination restrictions should be confirmed using the current Helix Bio shipping information before ordering.</p>
+<p>Researchers should inspect received materials and verify:</p>
+<ul>
+<li>Product name</li>
+<li>Lot number</li>
+<li>Packaging integrity</li>
+<li>Label information</li>
+<li>Quantity</li>
+<li>COA documentation</li>
+<li>Any applicable storage requirements</li>
+</ul>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>SS-31 supplied by Helix Bio is intended strictly for laboratory and research purposes. It is not intended for human consumption, ingestion, injection, self-administration, veterinary use, diagnosis, treatment, cure, or prevention of any disease or medical condition.</p>
+<p>SS-31 (elamipretide) has been investigated in cellular, biochemical, animal, and clinical research contexts. The existence of published research does not mean that a research-use-only SS-31 preparation is approved, safe, effective, or appropriate for human use.</p>
+<p>Helix Bio's website states that its products have not been evaluated or approved by the U.S. Food and Drug Administration (FDA), are offered for research and laboratory purposes only, and are not intended to diagnose, treat, cure, or prevent disease. The site also states that its products are not intended for human or veterinary use or for ingestion, injection, or other forms of administration.</p>
+<p>Nothing on this page constitutes medical advice, dosing guidance, treatment instructions, or a recommendation for personal use.</p>
+<p>Researchers are responsible for determining whether SS-31 is appropriate for their experimental model and for complying with applicable federal, state, local, institutional, laboratory, biosafety, and research requirements.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is SS-31?', answer: 'SS-31 is a synthetic mitochondria-targeted tetrapeptide also known as elamipretide, MTP-131, and Bendavia. It has been studied extensively in research involving mitochondrial membranes, cardiolipin, bioenergetics, and mitochondrial protein interactions.' },
+      { question: 'What is SS-31 also called?', answer: 'Common names and designations include elamipretide, MTP-131, and Bendavia. SS-31 is also classified as a Szeto-Schiller peptide.' },
+      { question: 'Is SS-31 a peptide?', answer: 'Yes. SS-31 is a synthetic tetrapeptide belonging to the Szeto-Schiller family of mitochondria-targeted peptides.' },
+      { question: 'What does SS-31 research focus on?', answer: 'Research commonly focuses on mitochondrial membranes, cardiolipin interactions, membrane biophysics, oxidative phosphorylation, cellular bioenergetics, mitochondrial protein interactions, and peptide structure-function relationships.' },
+      { question: 'What is the relationship between SS-31 and cardiolipin?', answer: 'SS-31 has been investigated for its affinity for cardiolipin-containing membranes. Research suggests that interactions with cardiolipin-rich membrane environments are important to understanding the peptide\'s mitochondrial targeting and molecular behavior.' },
+      { question: 'Is SS-31 the same as elamipretide?', answer: 'Yes. Elamipretide is a commonly used name for SS-31. Researchers may also encounter MTP-131 and Bendavia in scientific literature.' },
+      { question: 'Has SS-31 been studied in mitochondrial research?', answer: 'Yes. SS-31 has been investigated in studies involving mitochondrial membranes, bioenergetics, oxidative stress, protein interactions, membrane potential, and related cellular processes.' },
+      { question: 'Can SS-31 be used for laboratory research?', answer: 'Helix Bio offers SS-31 as a research-use-only material. Appropriate use depends on the researcher\'s experimental model, institutional protocols, applicable regulations, and the product\'s lot-specific documentation.' },
+      { question: 'What testing should researchers look for when purchasing SS-31?', answer: 'Researchers should review the lot-specific COA and look for information such as HPLC purity, mass-spectrometry identity confirmation, lot number, testing date, and applicable product specifications.' },
+      { question: 'Why are HPLC and mass spectrometry useful for SS-31 research?', answer: 'HPLC can help evaluate chromatographic purity, while mass spectrometry can provide molecular-mass information useful for peptide identity confirmation. Together, these methods provide complementary analytical information.' },
+      { question: 'Is SS-31 FDA approved?', answer: 'Research-use-only SS-31 from Helix Bio should not be represented as an FDA-approved product. Helix Bio explicitly states that its products have not been evaluated or approved by the FDA and are not intended for human or veterinary use.' },
+      { question: 'Is SS-31 intended for human use?', answer: 'No. The SS-31 material offered by Helix Bio is identified as research-use-only and is not intended for ingestion, injection, self-administration, or other human or veterinary use.' },
+    ],
+    variants: [
+      { sku: 'SS31-10MG', strength: '10mg', price: 29 },
+      { sku: 'SS31-50MG', strength: '50mg', price: 65 },
+    ],
+  },
+{
+    name: 'Tesamorelin + Ipamorelin Blend',
+    slug: 'tesamorelin-ipamorelin-blend',
+    imageFile: 'TESA IPA 6.3MG.png',
+    categoryName: 'Anti-Aging & Growth',
+    description: 'TesaIpa is a research peptide blend combining tesamorelin and ipamorelin for laboratory investigation of growth hormone–related signaling pathways. Tesamorelin is a synthetic analog of growth hormone-releasing hormone (GHRH), while ipamorelin is a growth hormone secretagogue associated with ghrelin receptor (GHSR) signaling. The combination provides researchers with a defined research material for studying two distinct signaling inputs involved in the regulation of growth hormone release. TesaIpa is supplied by Helix Bio strictly for research and laboratory use and is not intended for human or veterinary administration.',
+    seoTitle: 'TesaIpa Research Peptide | Tesamorelin + Ipamorelin',
+    seoDescription: 'TesaIpa research peptide combining tesamorelin and ipamorelin for laboratory study of GHRH, GHSR, growth hormone signaling, and peptide pathways.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p><strong>What Is TesaIpa?</strong></p>
+<p>TesaIpa refers to a peptide combination containing <strong>tesamorelin and ipamorelin</strong>. The two compounds are associated with different components of growth hormone signaling:</p>
+<ul>
+<li><strong>Tesamorelin</strong> is a synthetic 44-amino-acid analog of human growth hormone-releasing hormone (GHRH).</li>
+<li><strong>Ipamorelin</strong> is a synthetic pentapeptide classified as a growth hormone secretagogue and studied in connection with ghrelin receptor signaling.</li>
+</ul>
+<p>Tesamorelin has been investigated for its ability to influence endogenous growth hormone pulsatility, while ipamorelin has been studied as a selective growth hormone secretagogue. Research involving the two compounds can therefore examine complementary mechanisms within the growth hormone axis.</p>
+<p>Importantly, the presence of tesamorelin in this research blend should not be confused with FDA-approved prescription tesamorelin products. FDA records identify tesamorelin as the active substance in Egrifta products, but a research-use-only material from Helix Bio is a separate product and is not an FDA-approved drug.</p>
+<h4>Composition</h4>
+<p>TesaIpa contains two research peptides:</p>
+<p><strong>Tesamorelin:</strong> A GHRH analog used in research involving GHRH receptor activity, pituitary signaling, growth hormone secretion, and related endocrine pathways.</p>
+<p><strong>Ipamorelin:</strong> A growth hormone secretagogue studied in connection with the ghrelin receptor, also known as the growth hormone secretagogue receptor (GHSR).</p>
+<p>The exact blend ratio and total quantity should always be confirmed from the specific product label and batch documentation supplied with the material.</p>
+<h4>Purpose &amp; Intended Use</h4>
+<p>TesaIpa is intended for laboratory research where investigators need to examine the interaction between different growth hormone secretagogue pathways.</p>
+<p>Research may focus on:</p>
+<ul>
+<li>GHRH receptor signaling</li>
+<li>Ghrelin receptor and GHSR signaling</li>
+<li>Growth hormone release mechanisms</li>
+<li>Endocrine signaling models</li>
+<li>Peptide-receptor interactions</li>
+<li>Growth hormone axis research</li>
+<li>Comparative studies of secretagogue activity</li>
+<li>Cellular and molecular signaling experiments</li>
+</ul>
+<p>Published research has shown that tesamorelin can influence endogenous GH pulsatility and IGF-I levels in controlled experimental settings, making the compound relevant to research on the regulation of the growth hormone axis.</p>
+<p><strong>Important Product Distinction</strong></p>
+<p>TesaIpa is a <strong>research-use-only peptide blend</strong>. It should not be represented as a finished pharmaceutical, dietary supplement, or approved therapeutic combination.</p>
+<p>Helix Bio states that its products are intended exclusively for research and laboratory purposes and are not intended for ingestion, injection, diagnosis, treatment, cure, or prevention of disease.</p>
+<h4>Key Features</h4>
+<ul>
+<li>Tesamorelin + ipamorelin research peptide blend</li>
+<li>Designed for laboratory and non-clinical research</li>
+<li>Relevant to growth hormone axis research</li>
+<li>Supports investigation of GHRH and GHSR-related signaling</li>
+<li>Useful for peptide-receptor interaction studies</li>
+<li>Research-use-only positioning</li>
+<li>Lyophilized research materials where specified by product documentation</li>
+<li>Batch-specific documentation available from Helix Bio</li>
+<li>HPLC and mass spectrometry testing used within Helix Bio's stated quality program</li>
+<li>Not intended for human or veterinary use</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>Researchers studying peptide signaling often need materials with clearly defined identities and supporting analytical documentation. TesaIpa provides a way to investigate two different signaling inputs associated with growth hormone regulation within a single research material.</p>
+<p>Helix Bio's catalog describes a quality-control process involving HPLC purity analysis, mass spectrometry identity confirmation, and batch-specific Certificates of Analysis. These records can help researchers evaluate the identity and stated purity of the material before incorporating it into a laboratory workflow.</p>
+<p>The combination is particularly relevant when the research question involves comparing or examining the relationship between GHRH-mediated and GHSR-mediated signaling.</p>
+<h4>Who This Product Is For</h4>
+<p>TesaIpa is intended for qualified users conducting legitimate scientific or laboratory research, including:</p>
+<ul>
+<li>Academic researchers</li>
+<li>Pharmaceutical and biotechnology laboratories</li>
+<li>Research institutions</li>
+<li>Contract research organizations</li>
+<li>Qualified laboratory professionals</li>
+<li>Scientific research teams</li>
+<li>Educational and laboratory facilities with appropriate research protocols</li>
+</ul>
+<p>It is not intended for consumers seeking personal health, cosmetic, performance, weight-management, or therapeutic applications.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>TesaIpa</td></tr>
+<tr><td>Product Type</td><td>Peptide blend</td></tr>
+<tr><td>Components</td><td>Tesamorelin + Ipamorelin</td></tr>
+<tr><td>Research Category</td><td>Growth Hormone Secretagogue / Peptide Blend</td></tr>
+<tr><td>Primary Research Area</td><td>Growth hormone axis and peptide signaling</td></tr>
+<tr><td>Physical Form</td><td>Lyophilized research material, where specified</td></tr>
+<tr><td>Purity</td><td>Verify current batch-specific COA</td></tr>
+<tr><td>Identity Testing</td><td>Mass spectrometry, according to Helix Bio's stated testing program</td></tr>
+<tr><td>Purity Testing</td><td>HPLC, according to Helix Bio's stated testing program</td></tr>
+<tr><td>Documentation</td><td>Batch-specific Certificate of Analysis</td></tr>
+<tr><td>Intended Use</td><td>Laboratory and scientific research only</td></tr>
+<tr><td>Human Use</td><td>Not intended for human use</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended for veterinary use</td></tr>
+<tr><td>Manufacturer / Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Country of Origin</td><td>Not specified; verify current product documentation</td></tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> Product-specific quantity, blend ratio, purity result, and other analytical specifications should be taken from the current lot's Certificate of Analysis rather than assumed from general catalog information.</p>
+<h4>Research / Applications</h4>
+<p>TesaIpa can be relevant to laboratory research involving the growth hormone axis and peptide signaling.</p>
+<p><strong>GHRH Receptor Research</strong></p>
+<p>Tesamorelin is a synthetic GHRH analog. Research involving this component can examine GHRH receptor activation and downstream effects associated with pituitary growth hormone signaling.</p>
+<p><strong>GHSR Research</strong></p>
+<p>Ipamorelin is studied in relation to the growth hormone secretagogue receptor, also called GHSR or the ghrelin receptor. This makes it relevant to laboratory investigation of receptor-mediated signaling.</p>
+<p><strong>Growth Hormone Signaling Studies</strong></p>
+<p>The combination can be used as a research material for examining different regulatory inputs associated with growth hormone release and related endocrine signaling.</p>
+<p><strong>Peptide-Receptor Interaction Research</strong></p>
+<p>TesaIpa can be relevant to studies investigating how structurally different peptide ligands interact with receptors and influence downstream signaling pathways.</p>
+<p><strong>Comparative Research</strong></p>
+<p>Researchers may use separate peptide materials or combination materials when comparing signaling pathways, experimental responses, or receptor-specific mechanisms. The appropriate experimental design depends on the research question and validated laboratory protocol.</p>
+<p>Published human research on tesamorelin has examined changes in endogenous growth hormone pulsatility and IGF-I in controlled study settings. Those findings provide scientific context for the compound but should not be interpreted as evidence for the safety or efficacy of this research-use-only TesaIpa product.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Quality documentation is particularly important when working with peptide research materials because identity and purity can directly affect experimental interpretation.</p>
+<p>Helix Bio states that its research peptide catalog uses:</p>
+<p><strong>HPLC Purity Analysis</strong></p>
+<p>High-performance liquid chromatography (HPLC) is used to evaluate peptide purity. HPLC can help researchers identify the relative proportion of the target compound and potential impurities within a sample.</p>
+<p><strong>Mass Spectrometry</strong></p>
+<p>Mass spectrometry is used for molecular identity and mass confirmation. This provides an additional analytical check alongside chromatographic purity testing.</p>
+<p><strong>Batch-Specific COA</strong></p>
+<p>Helix Bio states that every product is supported by a batch-specific Certificate of Analysis. Researchers should review the applicable COA for the exact TesaIpa lot being evaluated, including reported purity, identity, testing methods, and other available analytical information.</p>
+<p><strong>No Unsupported Certification Claims</strong></p>
+<p>A Certificate of Analysis should not be interpreted as FDA approval, clinical certification, or evidence that a research material is suitable for administration to people or animals.</p>
+<h4>Storage &amp; Handling</h4>
+<p>Follow the storage conditions supplied with the specific product and lot documentation.</p>
+<p>General laboratory handling considerations include:</p>
+<ul>
+<li>Keep the material in its original, appropriately labeled container.</li>
+<li>Store under the temperature conditions specified by the manufacturer.</li>
+<li>Minimize unnecessary exposure to heat, moisture, and direct light.</li>
+<li>Protect lyophilized material from environmental contamination.</li>
+<li>Avoid repeated temperature cycling where product documentation advises against it.</li>
+<li>Use appropriate laboratory personal protective equipment and containment procedures.</li>
+<li>Handle according to the laboratory's applicable chemical and biological safety procedures.</li>
+<li>Do not use research-use-only material for human or veterinary administration.</li>
+</ul>
+<p>Specific stability after opening, reconstitution, or other preparation should not be assumed unless supported by product-specific stability data.</p>
+<h4>Shipping &amp; Packaging</h4>
+<p>Helix Bio's website describes its research materials as being packaged for laboratory research and states that its fulfillment process includes cold-chain handling and tracked shipping. Product-specific packaging and shipping conditions should be confirmed against the current order information and applicable shipping policy.</p>
+<p>Research materials should remain appropriately labeled throughout transportation, receipt, storage, and laboratory handling.</p>
+<p>Shipping does not change the product's research-use-only status.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>TesaIpa is offered strictly as a <strong>research-use-only laboratory material</strong>.</p>
+<p>It is not a prescription drug, dietary supplement, food product, or finished pharmaceutical. It is not intended for human or veterinary consumption, ingestion, injection, self-administration, diagnosis, treatment, cure, mitigation, or prevention of any disease or medical condition.</p>
+<p>The product has not been evaluated by the U.S. Food and Drug Administration for use as a human or veterinary product in this research-use-only form. The existence of FDA-approved prescription products containing tesamorelin does not mean that a research-use-only TesaIpa blend is FDA-approved or equivalent to those products.</p>
+<p>Researchers are responsible for complying with applicable federal, state, local, institutional, laboratory, and regulatory requirements. All experimental work should be performed by appropriately qualified personnel under established laboratory protocols.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is TesaIpa?', answer: 'TesaIpa is a research peptide blend containing tesamorelin and ipamorelin. It is intended for laboratory investigation of growth hormone–related signaling pathways and peptide-receptor interactions.' },
+      { question: 'What does TesaIpa contain?', answer: 'TesaIpa contains tesamorelin, a GHRH analog, and ipamorelin, a growth hormone secretagogue associated with GHSR signaling. The exact blend ratio should be verified from the product label and current batch COA.' },
+      { question: 'Is TesaIpa FDA approved?', answer: 'No. TesaIpa as a research-use-only blend is not an FDA-approved drug. Tesamorelin itself is an active ingredient in FDA-approved prescription products, but those pharmaceutical products are distinct from Helix Bio\'s research material.' },
+      { question: 'What is TesaIpa used for?', answer: 'TesaIpa is supplied for laboratory research involving GHRH signaling, GHSR signaling, growth hormone pathways, peptide-receptor interactions, and related endocrine research.' },
+      { question: 'Is TesaIpa intended for human use?', answer: 'No. TesaIpa from Helix Bio is intended strictly for research and laboratory use and is not intended for human administration.' },
+      { question: 'What is the difference between tesamorelin and ipamorelin?', answer: 'Tesamorelin is a synthetic analog associated with the GHRH receptor pathway, while ipamorelin is a growth hormone secretagogue studied in relation to the ghrelin receptor/GHSR pathway. They therefore represent different signaling mechanisms within growth hormone research.' },
+      { question: 'Does TesaIpa come with a Certificate of Analysis?', answer: 'Helix Bio states that its products are supported by batch-specific Certificates of Analysis. Researchers should review the COA corresponding to the exact TesaIpa lot before laboratory use.' },
+      { question: 'How is TesaIpa tested?', answer: 'Helix Bio states that its quality program uses HPLC for purity analysis and mass spectrometry for molecular identity confirmation. The exact analytical results should be confirmed using the current lot-specific COA.' },
+      { question: 'How should TesaIpa be stored?', answer: 'Storage should follow the conditions provided with the specific product and lot. Lyophilized peptide materials should generally be protected from inappropriate temperature, moisture, light, and unnecessary environmental exposure.' },
+      { question: 'Can TesaIpa be used for medical treatment?', answer: 'No. TesaIpa is a research-use-only material and should not be used as a treatment or administered to humans or animals.' },
+      { question: 'Is TesaIpa the same as prescription tesamorelin?', answer: 'No. Prescription tesamorelin products are regulated pharmaceutical products with specific approved labeling. A TesaIpa research blend containing tesamorelin and ipamorelin is a separate research material and should not be treated as equivalent.' },
+      { question: 'Who should purchase TesaIpa?', answer: 'TesaIpa is intended for qualified researchers, laboratories, academic institutions, biotechnology organizations, and other legitimate scientific research settings that can handle research materials appropriately.' },
+    ],
+    variants: [
+      { sku: 'TESALP-63MG', strength: '6.3mg', price: 35 },
+      { sku: 'TESALP-13MG', strength: '13mg', price: 65 },
+    ],
+  },
+{
+    name: 'VIP',
+    slug: 'vip',
+    imageFile: 'VIP 10MG.png',
+    categoryName: 'Specialty & Hormonal Peptides',
+    description: 'VIP, short for vasoactive intestinal peptide, is a naturally occurring 28-amino-acid neuropeptide belonging to the glucagon/secretin peptide family. It is widely studied in molecular biology, neurobiology, gastrointestinal research, vascular signaling, and receptor pharmacology. VIP research commonly focuses on its interactions with the VPAC1 (VIPR1) and VPAC2 (VIPR2) G protein-coupled receptors and the downstream signaling pathways associated with these receptors. Research literature also examines VIP in relation to smooth muscle, neural signaling, immune-cell biology, and gastrointestinal physiology. Helix Bio supplies VIP as a research-use-only peptide for qualified laboratory and scientific research. It is not intended for human or veterinary administration.',
+    seoTitle: 'VIP Research Peptide | Vasoactive Intestinal Peptide',
+    seoDescription: 'VIP research peptide for laboratory studies of VPAC1, VPAC2, GPCR signaling, neuropeptide biology, and related cellular pathways. Research use only.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p><strong>What Is VIP?</strong></p>
+<p>Vasoactive intestinal peptide, commonly abbreviated <strong>VIP</strong>, is an endogenous neuropeptide consisting of 28 amino acids. It was first identified in the context of intestinal tissue but has since been studied across numerous biological systems.</p>
+<p>VIP belongs to the glucagon/secretin superfamily of peptides. Its molecular structure and signaling characteristics are closely related to pituitary adenylate cyclase-activating peptide (PACAP).</p>
+<p>The biological activity of VIP is primarily associated with two receptors:</p>
+<ul>
+<li><strong>VPAC1</strong>, encoded by the VIPR1 gene</li>
+<li><strong>VPAC2</strong>, encoded by the VIPR2 gene</li>
+</ul>
+<p>Both receptors are G protein-coupled receptors and have been extensively investigated in receptor pharmacology and cellular signaling research.</p>
+<h4>Composition</h4>
+<p>VIP is a <strong>28-amino-acid peptide</strong> derived from the larger prepro-VIP precursor. Cellular processing produces the mature peptide used in physiological signaling.</p>
+<p>For research purposes, VIP provides a defined peptide ligand for studying receptor activation, signal transduction, and peptide-mediated cellular responses.</p>
+<h4>Purpose &amp; Intended Use</h4>
+<p>VIP is relevant to laboratory research involving:</p>
+<ul>
+<li>VPAC1 receptor signaling</li>
+<li>VPAC2 receptor signaling</li>
+<li>G protein-coupled receptor pharmacology</li>
+<li>cAMP-related signaling</li>
+<li>Neuropeptide biology</li>
+<li>Gastrointestinal signaling</li>
+<li>Neurobiology</li>
+<li>Smooth-muscle signaling</li>
+<li>Vascular biology</li>
+<li>Immune-cell signaling</li>
+<li>Peptide-receptor interactions</li>
+<li>Structure-function research</li>
+</ul>
+<p>Research has demonstrated that VIP interacts with both VPAC1 and VPAC2 receptors, making it useful for comparative studies of receptor selectivity and ligand-receptor interactions.</p>
+<h4>VIP and Receptor Biology</h4>
+<p>A major area of VIP research is the relationship between the peptide and its two principal receptor subtypes.</p>
+<p><strong>VPAC1:</strong> VPAC1 is a G protein-coupled receptor expressed across multiple tissues and cell types. Research has examined its role in VIP-mediated signaling and receptor pharmacology.</p>
+<p><strong>VPAC2:</strong> VPAC2 is another major VIP receptor and has distinct expression patterns and signaling characteristics. Comparative VPAC1/VPAC2 experiments can help researchers investigate receptor subtype selectivity.</p>
+<p>The two receptors are sufficiently distinct that researchers can use selective ligands and receptor models to investigate how peptide structure influences receptor recognition and downstream signaling.</p>
+<h4>VIP and Cellular Signaling</h4>
+<p>VIP receptor activation is associated with G protein-mediated intracellular signaling. Research models commonly investigate downstream second-messenger systems such as adenylate cyclase and cyclic AMP (cAMP).</p>
+<p>This makes VIP relevant to experiments examining:</p>
+<ul>
+<li>Ligand-receptor binding</li>
+<li>GPCR activation</li>
+<li>Second-messenger signaling</li>
+<li>Receptor subtype selectivity</li>
+<li>Cellular response profiles</li>
+<li>Peptide structure-function relationships</li>
+</ul>
+<p>VIP receptor signaling has also been investigated in human immune-cell models, including studies examining VPAC1 and VPAC2 receptor expression in T cells and monocytes.</p>
+<h4>VIP in Gastrointestinal Research</h4>
+<p>VIP has an established place in gastrointestinal research because of its distribution in the enteric nervous system and its relationship with intestinal signaling pathways.</p>
+<p>Research literature describes VIP as a broadly distributed neuropeptide involved in numerous physiological processes, with particular interest in gastrointestinal and neural signaling.</p>
+<p>For laboratory researchers, this makes VIP useful as a molecular tool for studying peptide-mediated communication in gastrointestinal and enteric models.</p>
+<h4>Key Features</h4>
+<ul>
+<li>Vasoactive intestinal peptide (VIP)</li>
+<li>28-amino-acid neuropeptide</li>
+<li>Member of the glucagon/secretin peptide family</li>
+<li>Research relevance to VPAC1 and VPAC2 receptors</li>
+<li>Suitable for peptide-receptor interaction studies</li>
+<li>Relevant to GPCR signaling research</li>
+<li>Useful for neuropeptide and cellular signaling research</li>
+<li>Relevant to gastrointestinal and vascular research models</li>
+<li>Suitable for qualified laboratory and non-clinical research</li>
+<li>Research-use-only material</li>
+<li>Batch-specific analytical documentation should be reviewed before experimental use</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>VIP is particularly useful when a research project requires a well-characterized endogenous neuropeptide ligand for investigating receptor-mediated signaling.</p>
+<p>Its established relationship with <strong>VPAC1 and VPAC2</strong> makes it relevant to receptor pharmacology, ligand selectivity, and structure-function experiments. Researchers can also study VIP in different cellular contexts to examine how receptor expression and downstream signaling vary between biological models.</p>
+<p>Helix Bio's website describes a quality program involving independent HPLC purity testing, mass spectrometry identity confirmation, and batch-specific Certificates of Analysis. The company's site also states that its research materials are supplied for laboratory use rather than human or veterinary administration.</p>
+<p>For researchers, the most important consideration is the documentation associated with the <strong>specific lot</strong> being evaluated. Purity, identity, quantity, storage conditions, and other analytical characteristics should be confirmed against the current product documentation.</p>
+<h4>Who This Product Is For</h4>
+<p>VIP is intended for qualified scientific and laboratory users, including:</p>
+<ul>
+<li>Academic research laboratories</li>
+<li>Biotechnology companies</li>
+<li>Pharmaceutical research teams</li>
+<li>Contract research organizations</li>
+<li>Molecular biology laboratories</li>
+<li>Neurobiology researchers</li>
+<li>Receptor pharmacology researchers</li>
+<li>Gastrointestinal research laboratories</li>
+<li>Qualified laboratory professionals</li>
+<li>Educational institutions conducting appropriate scientific research</li>
+</ul>
+<p>It is not intended for consumers seeking personal health, cosmetic, wellness, or therapeutic applications.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>VIP</td></tr>
+<tr><td>Full Name</td><td>Vasoactive Intestinal Peptide</td></tr>
+<tr><td>Category</td><td>Research Peptide / Neuropeptide</td></tr>
+<tr><td>Peptide Length</td><td>28 amino acids</td></tr>
+<tr><td>Peptide Family</td><td>Glucagon/Secretin Superfamily</td></tr>
+<tr><td>Primary Receptors</td><td>VPAC1 and VPAC2</td></tr>
+<tr><td>Receptor Type</td><td>G protein-coupled receptors (GPCRs)</td></tr>
+<tr><td>Research Areas</td><td>Neurobiology, receptor pharmacology, gastrointestinal research, cellular signaling</td></tr>
+<tr><td>Physical Form</td><td>Verify current product listing and lot documentation</td></tr>
+<tr><td>Purity</td><td>Verify current batch-specific COA</td></tr>
+<tr><td>Identity Testing</td><td>Mass spectrometry, according to Helix Bio's stated quality program</td></tr>
+<tr><td>Purity Testing</td><td>HPLC, according to Helix Bio's stated quality program</td></tr>
+<tr><td>Documentation</td><td>Batch-specific Certificate of Analysis</td></tr>
+<tr><td>Intended Use</td><td>Laboratory and scientific research only</td></tr>
+<tr><td>Human Use</td><td>Not intended for human use</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended for veterinary use</td></tr>
+<tr><td>Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Country of Origin</td><td>Verify current product documentation</td></tr>
+</tbody>
+</table>
+<p><strong>Important:</strong> Do not infer a specific purity percentage, vial quantity, formulation, or stability period without checking the current VIP product listing and corresponding lot documentation.</p>
+<h4>Research / Applications</h4>
+<p><strong>VPAC1 and VPAC2 Receptor Research</strong></p>
+<p>VIP is a useful ligand for investigating the two primary VIP receptor subtypes, VPAC1 and VPAC2.</p>
+<p>Researchers can use VIP in receptor models to examine:</p>
+<ul>
+<li>Receptor activation</li>
+<li>Ligand binding</li>
+<li>Receptor selectivity</li>
+<li>Receptor expression</li>
+<li>Signaling differences</li>
+<li>Structure-function relationships</li>
+</ul>
+<p>Studies have specifically investigated the amino-acid residues involved in VIP interaction with human VPAC1 and VPAC2, illustrating the value of VIP in molecular receptor research.</p>
+<p><strong>GPCR Signaling Research</strong></p>
+<p>VPAC1 and VPAC2 are GPCRs. VIP can therefore be used in experimental systems designed to examine peptide-mediated GPCR activation and downstream intracellular signaling.</p>
+<p>Research may include measurements of second messengers, receptor-dependent cellular responses, or changes in signaling following ligand exposure.</p>
+<p><strong>Neurobiology Research</strong></p>
+<p>VIP is classified as a neuropeptide and is distributed throughout multiple neural and peripheral tissues. This makes it relevant to laboratory studies of neuropeptide signaling, neuronal communication, and peptide-mediated cellular regulation.</p>
+<p><strong>Gastrointestinal Research</strong></p>
+<p>VIP has been extensively studied in gastrointestinal biology. Research applications may involve enteric signaling, gastrointestinal smooth-muscle models, intestinal cell systems, and peptide-mediated regulation of gastrointestinal pathways.</p>
+<p><strong>Immune-Cell Research</strong></p>
+<p>VIP receptor biology has also been studied in immune-cell models. Research has examined the expression and regulation of VPAC1 and VPAC2 in human T cells and monocytes.</p>
+<p>This provides a scientific basis for using VIP as a research reagent in studies examining neuroimmune signaling and receptor expression.</p>
+<p><strong>Receptor Structure-Function Studies</strong></p>
+<p>Because VIP interacts with more than one receptor subtype, it can be useful in experiments investigating how changes in peptide structure affect receptor recognition and signaling.</p>
+<p>Researchers may compare native VIP with receptor-selective analogs or antagonists to investigate molecular determinants of receptor specificity.</p>
+<p><strong>Important Research Boundary</strong></p>
+<p>These applications describe areas of scientific investigation. They do not establish therapeutic effectiveness, clinical utility, or safety for human use.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Reliable analytical information is important when using peptides in laboratory research. A researcher's experimental results can be affected by peptide identity, purity, degradation, concentration, and storage history.</p>
+<p>Helix Bio states that its research peptide catalog uses independent analytical testing and provides a Certificate of Analysis for each batch.</p>
+<p><strong>HPLC Purity Testing</strong></p>
+<p>High-performance liquid chromatography (HPLC) is commonly used for peptide purity analysis. Chromatographic profiles can help identify the principal peptide component and distinguish it from detectable impurities.</p>
+<p>For VIP, the applicable purity result should be taken from the <strong>current lot-specific COA</strong> rather than assumed from a general catalog statement.</p>
+<p><strong>Mass Spectrometry</strong></p>
+<p>Mass spectrometry provides molecular-mass information that can be used as part of peptide identity verification.</p>
+<p>Using chromatographic and mass-spectrometric information together provides stronger analytical context than relying on a single measurement.</p>
+<p><strong>Certificate of Analysis</strong></p>
+<p>The applicable Certificate of Analysis should be reviewed before laboratory use. Depending on the batch, documentation may provide information concerning:</p>
+<ul>
+<li>Reported purity</li>
+<li>Molecular identity</li>
+<li>Testing methodology</li>
+<li>Batch or lot number</li>
+<li>Product quantity</li>
+<li>Analytical results</li>
+<li>Additional quality information</li>
+</ul>
+<p>A COA is analytical documentation; it should not be interpreted as FDA approval or evidence that a research peptide is suitable for administration to humans or animals.</p>
+<h4>Storage &amp; Handling</h4>
+<p>Storage requirements should always be confirmed using the current Helix Bio product documentation and lot-specific information.</p>
+<p>General laboratory handling principles include:</p>
+<ul>
+<li>Keep VIP in its original labeled container.</li>
+<li>Follow the manufacturer's stated storage temperature.</li>
+<li>Minimize exposure to heat, moisture, and direct light.</li>
+<li>Protect lyophilized peptide material from unnecessary environmental exposure.</li>
+<li>Avoid repeated temperature cycling when the product documentation recommends minimizing it.</li>
+<li>Use appropriate laboratory personal protective equipment.</li>
+<li>Handle the material according to institutional laboratory safety procedures.</li>
+<li>Maintain accurate lot and sample identification throughout experimental handling.</li>
+<li>Do not use research-use-only VIP for human or veterinary administration.</li>
+</ul>
+<p>Researchers should not assume stability after reconstitution, repeated freeze-thaw cycles, or prolonged storage unless appropriate stability data are available.</p>
+<h4>Shipping &amp; Packaging</h4>
+<p>Helix Bio's website presents its catalog as research-use-only materials and states that products are independently tested and accompanied by batch-specific analytical documentation. The site also describes research orders being fulfilled in the USA.</p>
+<p>Product-specific packaging, shipping conditions, availability, and handling instructions should be confirmed against the current order and shipping information.</p>
+<p>The research-use-only status of VIP remains unchanged during shipping, storage, or receipt.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>VIP is supplied by Helix Bio <strong>strictly for research and laboratory purposes</strong>.</p>
+<p>It is not a prescription drug, dietary supplement, food product, or finished pharmaceutical. It is not intended for human or veterinary consumption, ingestion, injection, self-administration, diagnosis, treatment, cure, mitigation, or prevention of any disease or medical condition.</p>
+<p>The Helix Bio website states that its products have not been evaluated or approved by the U.S. Food and Drug Administration and are not intended for human or veterinary use.</p>
+<p>Scientific literature describing VIP's biological activity should not be interpreted as evidence that this research-use-only product is safe or effective for clinical use.</p>
+<p>Researchers are responsible for complying with all applicable federal, state, local, institutional, and laboratory requirements. Experimental work should be performed only by appropriately qualified personnel using established research protocols.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is VIP peptide?', answer: 'VIP stands for vasoactive intestinal peptide. It is a naturally occurring 28-amino-acid neuropeptide belonging to the glucagon/secretin peptide family and is widely studied in receptor pharmacology, neurobiology, gastrointestinal biology, and cellular signaling.' },
+      { question: 'What receptors does VIP interact with?', answer: 'VIP primarily interacts with two receptor subtypes known as VPAC1 and VPAC2. Both belong to the G protein-coupled receptor family and have been studied extensively in molecular and cellular research.' },
+      { question: 'What is VIP used for in research?', answer: 'VIP is used as a research ligand in studies involving VPAC1/VPAC2 receptor signaling, GPCR pharmacology, neuropeptide biology, gastrointestinal signaling, immune-cell research, and peptide-receptor interactions.' },
+      { question: 'Is VIP a 28-amino-acid peptide?', answer: 'Yes. Mature vasoactive intestinal peptide consists of 28 amino acids. It is produced through processing of a larger prepro-VIP precursor.' },
+      { question: 'Is VIP a growth hormone peptide?', answer: 'No. VIP is a neuropeptide with its own receptor system, primarily involving VPAC1 and VPAC2. It should not be classified as a growth hormone secretagogue such as GHRP-6 or ipamorelin.' },
+      { question: 'Is Helix Bio VIP intended for human use?', answer: 'No. Helix Bio supplies VIP as a research-use-only material. It is not intended for human or veterinary administration.' },
+      { question: 'Does VIP come with a Certificate of Analysis?', answer: 'Helix Bio states that its research products are supplied with batch-specific Certificates of Analysis. Researchers should verify the current VIP lot documentation for the applicable analytical results.' },
+      { question: 'How is research VIP tested?', answer: 'Helix Bio states that its quality program includes HPLC purity testing and mass spectrometry identity confirmation. Researchers should use the current lot-specific COA to confirm the exact results for the VIP material being evaluated.' },
+      { question: 'What is the difference between VIP and PACAP?', answer: 'VIP and PACAP are related peptides within the glucagon/secretin superfamily, but they are distinct molecules with different receptor pharmacology. VIP is primarily associated with VPAC1 and VPAC2, while PACAP has strong activity at PAC1 as well as VPAC receptors.' },
+      { question: 'Can VIP be used for medical treatment?', answer: 'The VIP product described on this page is a research-use-only material and should not be used for medical treatment or self-administration.' },
+      { question: 'Is VIP relevant to gastrointestinal research?', answer: 'Yes. VIP has been extensively investigated in gastrointestinal biology and enteric signaling, making it relevant to laboratory research involving gastrointestinal peptide signaling and related cellular pathways.' },
+      { question: 'Who can purchase VIP research peptide?', answer: 'VIP is intended for qualified researchers, laboratories, biotechnology organizations, academic institutions, and other legitimate scientific research environments capable of handling research materials under appropriate protocols.' },
+    ],
+    variants: [
+      { sku: 'VIP-10MG', strength: '10mg', price: 32 },
+    ],
+  },
+
 ]
 
 async function runSeed() {

@@ -105,10 +105,10 @@ export function AuthSplitLayout({ children, mode }: AuthSplitLayoutProps) {
         {/* About Us Card (Bottom Left) */}
         <div className="hidden lg:flex shrink-0 pb-4 lg:pb-0">
           <div className="bg-[#111] rounded-3xl p-6 xl:p-8 w-full max-w-[420px] relative overflow-hidden flex flex-col justify-end min-h-[180px] xl:min-h-[220px]">
-            <Image 
-              src="/HelixBio Images/vial-on-sand.webp" 
-              alt="Lab" 
-              fill 
+            <Image
+              src="/HelixBio Images/vial-on-sand.webp"
+              alt="Helix Bio research peptide vial resting on sand, representing precision laboratory synthesis"
+              fill
               className="object-cover opacity-20"
             />
             <div className="relative z-10 flex gap-4 xl:gap-6 items-end">
@@ -134,9 +134,9 @@ export function AuthSplitLayout({ children, mode }: AuthSplitLayoutProps) {
             transition={{ duration: 1.5, ease: "easeInOut" }}
             className="absolute inset-0 z-0"
           >
-            <Image 
+            <Image
               src={SLIDES[currentSlide].image}
-              alt="Background"
+              alt={`${SLIDES[currentSlide].title} — ${SLIDES[currentSlide].subtitle}`}
               fill
               className="object-cover opacity-60"
             />

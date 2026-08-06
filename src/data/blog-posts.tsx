@@ -3,11 +3,6 @@ import React from 'react';
 
 export const CATEGORIES = ['View all', 'Metabolic research', 'Recovery protocols', 'Growth research']
 
-export const MOCK_IMAGES = [
-  "/99 Images/category-1.webp",
-  "/99 Images/category-4.webp"
-]
-
 export const BLOG_POSTS: {
     slug: string;
     title: string;
@@ -25,7 +20,7 @@ export const BLOG_POSTS: {
     date: 'August 4, 2026',
     readTime: '12 min read',
     excerpt: 'An in-depth, systematic comparison of Semaglutide, Tirzepatide, and Retatrutide. Explore the mechanisms of action, receptor affinities, and research applications of modern metabolic peptides.',
-    imageSrc: '/99 Images/category-1.webp',
+    imageSrc: '/HelixBio Images/blog-metabolic-research-hero.webp',
     content: (
       <>
         <p className="first-letter:text-7xl first-letter:font-serif first-letter:float-left first-letter:mr-4 first-letter:text-ink first-letter:mt-2">
@@ -170,7 +165,7 @@ export const BLOG_POSTS: {
     date: 'August 4, 2026',
     readTime: '14 min read',
     excerpt: 'Discover the profound synergistic effects of BPC-157, TB-500, and GHK-Cu. This comprehensive guide outlines the molecular mechanisms behind advanced tissue repair, angiogenesis, and collagen synthesis.',
-    imageSrc: '/99 Images/category-4.webp',
+    imageSrc: '/HelixBio Images/blog-tissue-repair-hero.webp',
     content: (
       <>
         <p className="first-letter:text-7xl first-letter:font-serif first-letter:float-left first-letter:mr-4 first-letter:text-ink first-letter:mt-2">

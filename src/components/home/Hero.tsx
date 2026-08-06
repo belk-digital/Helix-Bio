@@ -21,9 +21,9 @@ export function Hero() {
     return () => clearInterval(timer)
   }, [])
   return (
-    <section className="bg-[#FAFAFA] w-full px-4 sm:px-6 md:px-12 pb-6 md:pb-12 pt-[140px] font-sans min-h-screen flex flex-col">
+    <section className="bg-[#FAFAFA] w-full px-4 sm:px-6 md:px-12 pb-6 md:pb-8 min-[1600px]:pb-12 pt-[140px] font-sans min-h-screen flex flex-col">
       {/* Hero Image Container */}
-      <div className="relative w-full flex-1 min-h-[400px] md:min-h-[450px] rounded-[32px] overflow-visible bg-zinc-200">
+      <div className="relative w-full flex-1 min-h-[400px] md:min-h-[380px] min-[1600px]:min-h-[450px] rounded-[32px] overflow-visible bg-zinc-200">
         <AnimatePresence>
           <motion.img
             key={currentImageIndex}
@@ -33,24 +33,33 @@ export function Hero() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="absolute top-0 left-0 w-full h-full object-cover rounded-[32px]"
+            className="absolute top-0 left-0 w-full h-full object-cover object-[75%_center] sm:object-center rounded-[32px]"
           />
         </AnimatePresence>
         
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent rounded-[32px] pointer-events-none" />
 
         {/* Hero Content */}
-        <div className="absolute top-8 sm:top-12 md:top-1/4 left-6 sm:left-8 md:left-16 flex flex-col items-start text-white max-w-xl pr-4">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-4 text-left">
-            Discover Premium<br/>Research Peptides
+        <div className="absolute top-8 sm:top-12 md:top-[15%] min-[1600px]:top-1/4 left-6 sm:left-8 md:left-16 flex flex-col items-start text-white max-w-3xl lg:max-w-[800px] pr-4 md:pr-12 z-10">
+          <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] min-[1600px]:text-[4rem] font-bold leading-[1.1] tracking-tight mb-4 text-left drop-shadow-sm">
+            Discover Premium<br className="hidden sm:block" /> Research Peptides
           </h1>
-          <p className="text-white/80 text-sm md:text-base font-medium max-w-sm text-left">
+          <p className="hidden md:block text-white/90 text-sm md:text-base min-[1600px]:text-lg font-medium max-w-xl lg:max-w-2xl text-left leading-relaxed drop-shadow-md">
             Research-grade peptides, synthesized for precision and verified for purity. Every batch ships with third-party HPLC and mass spectrometry testing, so you know exactly what you're studying before it reaches your bench.
           </p>
+          <div className="mt-4 min-[1600px]:mt-8 flex flex-wrap gap-4">
+            <Link 
+              href="/shop" 
+              className="px-6 py-3 min-[1600px]:px-8 min-[1600px]:py-3.5 bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 text-white text-sm md:text-base font-semibold rounded-[16px] transition-all duration-300 shadow-[0_4px_14px_0_rgba(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] flex items-center gap-2"
+            >
+              Shop All Peptides
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </Link>
+          </div>
         </div>
 
         {/* Floating Action Bar */}
-        <div className="absolute -bottom-24 md:-bottom-10 left-1/2 -translate-x-1/2 w-[95%] md:w-[90%] lg:w-[80%] max-w-5xl bg-white rounded-[24px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] p-3 md:p-4 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-0 z-20">
+        <div className="absolute -bottom-24 sm:-bottom-28 md:-bottom-8 min-[1600px]:-bottom-10 left-1/2 -translate-x-1/2 w-[95%] md:w-[90%] lg:w-[80%] max-w-5xl bg-white rounded-[24px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] p-3 min-[1600px]:p-4 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-0 z-20">
           
           {/* Item 1: Calculator */}
           <div className="flex-1 flex justify-start md:justify-center w-full md:w-auto">
@@ -103,43 +112,43 @@ export function Hero() {
       </div>
 
       {/* Stats Cards */}
-      <div className="mt-32 md:mt-20 shrink-0 w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+      <div className="mt-32 sm:mt-36 md:mt-10 min-[1600px]:mt-20 shrink-0 w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
         
         {/* Card 1 */}
-        <div className="bg-white rounded-3xl p-6 flex flex-col justify-center gap-4">
+        <div className="bg-white rounded-3xl p-4 min-[1600px]:p-6 flex flex-col justify-center gap-4">
           <div className="flex items-center gap-2">
-            <h2 className="text-4xl font-bold text-black tracking-tight">10K+</h2>
+            <h2 className="text-3xl min-[1600px]:text-4xl font-bold text-black tracking-tight">10K+</h2>
             <div className="flex -space-x-3 ml-auto">
-              <img src="https://i.pravatar.cc/100?img=33" className="w-10 h-10 rounded-full border-2 border-white object-cover" alt="avatar" />
-              <img src="https://i.pravatar.cc/100?img=47" className="w-10 h-10 rounded-full border-2 border-white object-cover" alt="avatar" />
-              <img src="https://i.pravatar.cc/100?img=12" className="w-10 h-10 rounded-full border-2 border-white object-cover" alt="avatar" />
+              <img src="https://i.pravatar.cc/100?img=33" className="w-8 h-8 min-[1600px]:w-10 min-[1600px]:h-10 rounded-full border-2 border-white object-cover" alt="Portrait of a Helix Bio research customer" />
+              <img src="https://i.pravatar.cc/100?img=47" className="w-8 h-8 min-[1600px]:w-10 min-[1600px]:h-10 rounded-full border-2 border-white object-cover" alt="Portrait of a Helix Bio research customer" />
+              <img src="https://i.pravatar.cc/100?img=12" className="w-8 h-8 min-[1600px]:w-10 min-[1600px]:h-10 rounded-full border-2 border-white object-cover" alt="Portrait of a Helix Bio research customer" />
             </div>
           </div>
-          <p className="text-gray-500 font-medium text-sm">Research orders fulfilled in the USA</p>
+          <p className="text-gray-500 font-medium text-xs min-[1600px]:text-sm">Research orders fulfilled in the USA</p>
         </div>
 
         {/* Card 2 */}
-        <div className="relative rounded-3xl overflow-hidden p-6 flex flex-col justify-end bg-zinc-200 min-h-[140px]">
-          <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?auto=format&fit=crop&q=80&w=1000" className="absolute inset-0 w-full h-full object-cover" alt="Lab Test" />
+        <div className="relative rounded-3xl overflow-hidden p-4 min-[1600px]:p-6 flex flex-col justify-end bg-zinc-200 min-h-[110px] min-[1600px]:min-h-[140px]">
+          <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?auto=format&fit=crop&q=80&w=1000" className="absolute inset-0 w-full h-full object-cover object-[75%_center] sm:object-center" alt="Laboratory analyst reviewing a Certificate of Analysis for a research peptide batch" />
           <div className="absolute inset-0 bg-black/40" />
           <div className="relative z-10 flex justify-between items-end">
             <div>
-              <h2 className="text-3xl font-bold text-white tracking-tight mb-1">COA</h2>
-              <p className="text-white/80 font-medium text-sm">Certificate of analysis included with every batch</p>
+              <h2 className="text-2xl min-[1600px]:text-3xl font-bold text-white tracking-tight mb-1">COA</h2>
+              <p className="text-white/80 font-medium text-xs min-[1600px]:text-sm">Certificate of analysis included with every batch</p>
             </div>
-            <button className="w-12 h-8 bg-white/20 backdrop-blur-md border border-white/30 rounded-[14px] flex items-center justify-center">
-              <div className="w-4 h-0.5 bg-white rounded-full" />
+            <button className="w-10 h-6 min-[1600px]:w-12 min-[1600px]:h-8 bg-white/20 backdrop-blur-md border border-white/30 rounded-[12px] min-[1600px]:rounded-[14px] flex items-center justify-center">
+              <div className="w-3 min-[1600px]:w-4 h-0.5 bg-white rounded-full" />
             </button>
           </div>
         </div>
 
         {/* Card 3 */}
-        <div className="bg-[#121212] rounded-3xl p-6 flex items-center gap-4 relative overflow-hidden">
+        <div className="bg-[#121212] rounded-3xl p-4 min-[1600px]:p-6 flex items-center gap-4 relative overflow-hidden">
           <div className="relative z-10">
-            <h2 className="text-4xl font-bold text-white tracking-tight mb-1">3rd Party</h2>
-            <p className="text-white/70 font-medium text-sm">Independently tested for purity and identity</p>
+            <h2 className="text-3xl min-[1600px]:text-4xl font-bold text-white tracking-tight mb-1">3rd Party</h2>
+            <p className="text-white/70 font-medium text-xs min-[1600px]:text-sm">Independently tested for purity and identity</p>
           </div>
-          <div className="absolute -right-4 -bottom-4 text-white/5 font-black text-6xl md:text-7xl select-none pointer-events-none">
+          <div className="absolute -right-4 -bottom-4 text-white/5 font-black text-5xl min-[1600px]:text-7xl select-none pointer-events-none">
             Tested
           </div>
         </div>

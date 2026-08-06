@@ -32,7 +32,7 @@ export async function POST(req: Request) {
       return new Response('Ignored', { status: 200 })
     }
 
-    const { syncCircoFlowsPaymentStatus } = await import('@/app/[locale]/(frontend)/(shop)/checkout/circoflowsActions')
+    const { syncCircoFlowsPaymentStatus } = await import('@/app/(frontend)/(shop)/checkout/circoflowsActions')
     const result = await syncCircoFlowsPaymentStatus(String(orderId))
     if (result.error) {
       // Let CircoFlows retry — this failed for a reason other than "not paid yet".

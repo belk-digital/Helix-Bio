@@ -16,7 +16,7 @@ import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/dropdown-menu'
 import { FluidButton } from '@/components/ui/fluid-button'
 import { Category } from '@/components/shop/FilterSidebar'
-import { getShopProducts } from '@/app/[locale]/(frontend)/(shop)/actions'
+import { getShopProducts } from '@/app/(frontend)/(shop)/actions'
 import { useTranslations } from 'next-intl'
 
 import { SharedFaqSection } from '@/components/shared/SharedFaqSection'

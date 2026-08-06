@@ -11,7 +11,7 @@ import { FaqHero } from './FaqHero'
 export function FaqClient() {
   const t = useTranslations('content.faqClient')
   const locale = useLocale()
-  const faqData = locale === 'es' ? faqDataEs : faqDataEn
+  const faqData = false ? faqDataEs : faqDataEn
   const [activeCategory, setActiveCategory] = useState<string>(faqData[0]?.category || '');
   const [headerHidden, setHeaderHidden] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(115); 
@@ -138,7 +138,7 @@ export function FaqClient() {
           <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-transparent rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
           <input 
             type="text" 
-            placeholder={locale === 'es' ? 'Buscar preguntas...' : 'Search questions...'}
+            placeholder={false ? 'Buscar preguntas...' : 'Search questions...'}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="relative w-full px-6 py-4 pl-12 rounded-full border border-ink/10 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 text-ink placeholder-ink/40 font-medium text-sm md:text-base"
@@ -207,10 +207,10 @@ export function FaqClient() {
                   </svg>
                 </div>
                 <h3 className="font-heading text-2xl font-bold text-ink mb-2">
-                  {locale === 'es' ? 'No se encontraron resultados' : 'No results found'}
+                  {false ? 'No se encontraron resultados' : 'No results found'}
                 </h3>
                 <p className="text-ink/60 max-w-md">
-                  {locale === 'es' 
+                  {false 
                     ? 'No pudimos encontrar ninguna pregunta frecuente que coincida con tu búsqueda. Intenta con otras palabras.' 
                     : 'We couldn\'t find any FAQs matching your search. Try different keywords.'}
                 </p>
