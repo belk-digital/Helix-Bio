@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
       ? searchParams.get('description')?.slice(0, 120) // Shorter limit for description
       : 'Research-grade excellence. Dedicated to purity.'
 
-    const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
+    const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
     const logoUrl = `${serverUrl}/HelixBio%20Images/hb-logo.png`
 
     // We must use a PNG or JPG because OG image generator does not support WebP —
@@ -133,7 +133,7 @@ export async function GET(req: NextRequest) {
                   letterSpacing: '0.02em',
                 }}
               >
-                helixbio.com
+                helixbiochem.com
               </div>
             </div>
           </div>

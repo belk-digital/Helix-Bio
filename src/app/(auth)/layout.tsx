@@ -1,5 +1,5 @@
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'),
   title: 'Helix Bio',
   description: 'Premium Peptides for Peak Performance',
 }

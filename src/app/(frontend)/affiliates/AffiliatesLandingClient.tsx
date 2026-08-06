@@ -572,7 +572,7 @@ export function AffiliatesLandingClient({ userStatus }: Props) {
                 
                 <div className="mt-auto pt-8">
                   <div className="px-4 py-3 bg-zinc-50 rounded-xl border border-ink/5 flex items-center gap-2 group-hover:border-primary/20 transition-colors">
-                    <span className="text-xs text-ink/40 font-mono truncate">helixbio.com/ref/</span>
+                    <span className="text-xs text-ink/40 font-mono truncate">helixbiochem.com/ref/</span>
                     <span className="text-xs text-primary font-mono font-bold">your-name</span>
                   </div>
                 </div>
@@ -886,7 +886,7 @@ export function AffiliatesLandingClient({ userStatus }: Props) {
              </p>
              <p className="text-ink/70 text-sm font-bold mb-8 md:mb-10 flex flex-col sm:flex-row gap-1 sm:gap-2">
                <span>{t('finalCtaQuestions')}</span> 
-               <a href="mailto:affiliates@helixbio.com" className="text-ink hover:text-white transition-colors font-black underline underline-offset-4">affiliates@helixbio.com</a>
+               <a href="mailto:affiliates@helixbiochem.com" className="text-ink hover:text-white transition-colors font-black underline underline-offset-4">affiliates@helixbiochem.com</a>
              </p>
              <div className="flex w-full md:w-auto mt-2">
                <FluidButton

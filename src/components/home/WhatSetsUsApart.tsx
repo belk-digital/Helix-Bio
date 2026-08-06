@@ -88,6 +88,7 @@ export function WhatSetsUsApart() {
                 </p>
                 <Link
                   href="/about-us"
+                  aria-label={`Learn more about ${t(`items.${adv.key}.title`)}`}
                   className="inline-flex items-center gap-3 text-white uppercase tracking-[0.2em] text-[10px] md:text-[11px] font-bold border border-white/20 bg-white/5 rounded-[10px] px-6 py-3 hover:bg-white hover:text-black transition-all duration-300 mt-2 md:mt-0"
                 >
                   Learn More

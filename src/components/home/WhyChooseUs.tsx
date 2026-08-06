@@ -35,7 +35,7 @@ export function WhyChooseUs() {
         
         <div className="text-center mb-12 md:mb-16">
           <div className="inline-block border border-ink/10 rounded-full px-4 py-1.5 mb-6 bg-white shadow-sm">
-            <span className="text-primary text-xs font-bold tracking-[0.2em] uppercase">{t('eyebrow')}</span>
+            <span className="text-ink text-xs font-bold tracking-[0.2em] uppercase">{t('eyebrow')}</span>
           </div>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-[5rem] font-black text-ink leading-[1] tracking-tighter uppercase drop-shadow-sm break-words">
             {t('titleLine1')}<br />{t('titleLine2')}
@@ -65,7 +65,7 @@ export function WhyChooseUs() {
                   </div>
                   
                   <div className="flex justify-between items-end mt-4 xl:mt-8 w-full gap-4">
-                    <p className={`text-[10px] sm:text-xs uppercase tracking-[0.15em] max-w-[75%] leading-relaxed font-semibold transition-opacity duration-300 ${isActive ? 'opacity-100 text-white/60' : 'opacity-0 xl:opacity-100 text-ink/50 hidden xl:block'}`}>
+                    <p className={`text-[10px] sm:text-xs uppercase tracking-[0.15em] max-w-[75%] leading-relaxed font-semibold transition-opacity duration-300 ${isActive ? 'opacity-100 text-white/70' : 'opacity-0 xl:opacity-100 text-ink/70 hidden xl:block'}`}>
                       {item.description}
                     </p>
                     <ArrowUpRight className={`w-8 h-8 sm:w-10 sm:h-10 transition-all duration-300 ${isActive ? 'text-[#7dd3fc]' : 'text-[#7dd3fc] group-hover:scale-110 group-hover:translate-x-1 group-hover:-translate-y-1'}`} strokeWidth={1} />

@@ -7,9 +7,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 export function Hero() {
   const images = [
-    '/HelixBio Images/hero-1.png',
-    '/HelixBio Images/hero-2.png',
-    '/HelixBio Images/hero-3.png'
+    '/HelixBio Images/hero-1.webp',
+    '/HelixBio Images/hero-2.webp',
+    '/HelixBio Images/hero-3.webp'
   ]
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -34,6 +34,8 @@ export function Hero() {
             exit={{ opacity: 0 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
             className="absolute top-0 left-0 w-full h-full object-cover object-[75%_center] sm:object-center rounded-[32px]"
+            fetchPriority={currentImageIndex === 0 ? "high" : "auto"}
+            loading={currentImageIndex === 0 ? "eager" : "lazy"}
           />
         </AnimatePresence>
         
@@ -136,7 +138,8 @@ export function Hero() {
               <h2 className="text-2xl min-[1600px]:text-3xl font-bold text-white tracking-tight mb-1">COA</h2>
               <p className="text-white/80 font-medium text-xs min-[1600px]:text-sm">Certificate of analysis included with every batch</p>
             </div>
-            <button className="w-10 h-6 min-[1600px]:w-12 min-[1600px]:h-8 bg-white/20 backdrop-blur-md border border-white/30 rounded-[12px] min-[1600px]:rounded-[14px] flex items-center justify-center">
+            <button aria-label="View Certificates of Analysis" className="w-10 h-6 min-[1600px]:w-12 min-[1600px]:h-8 bg-white/20 backdrop-blur-md border border-white/30 rounded-[12px] min-[1600px]:rounded-[14px] flex items-center justify-center">
+              <span className="sr-only">View Certificates of Analysis</span>
               <div className="w-3 min-[1600px]:w-4 h-0.5 bg-white rounded-full" />
             </button>
           </div>
@@ -148,7 +151,7 @@ export function Hero() {
             <h2 className="text-3xl min-[1600px]:text-4xl font-bold text-white tracking-tight mb-1">3rd Party</h2>
             <p className="text-white/70 font-medium text-xs min-[1600px]:text-sm">Independently tested for purity and identity</p>
           </div>
-          <div className="absolute -right-4 -bottom-4 text-white/5 font-black text-5xl min-[1600px]:text-7xl select-none pointer-events-none">
+          <div aria-hidden="true" className="absolute -right-4 -bottom-4 text-white/5 font-black text-5xl min-[1600px]:text-7xl select-none pointer-events-none">
             Tested
           </div>
         </div>

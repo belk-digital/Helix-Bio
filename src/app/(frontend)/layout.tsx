@@ -15,7 +15,7 @@ import { getOgImageUrl } from '@/lib/utils'
 export async function generateMetadata() {
   const t = await getTranslations('common')
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'),
     title: 'Helix Bio',
     description: t('siteTagline'),
     openGraph: {

@@ -69,7 +69,7 @@ export function CategoriesSection({ categories = [] }: CategoriesSectionProps) {
                 <h3 className="font-heading text-xl md:text-3xl font-bold uppercase text-ink mb-2 md:mb-3 leading-tight tracking-tighter">
                   {getCategoryDisplayName(category.name)}
                 </h3>
-                <p className="text-[10px] md:text-xs text-ink/50 uppercase font-bold tracking-[0.1em] leading-relaxed mb-6 md:mb-8 line-clamp-3">
+                <p className="text-[10px] md:text-xs text-ink/70 uppercase font-bold tracking-[0.1em] leading-relaxed mb-6 md:mb-8 line-clamp-3">
                   {DEFAULT_DESC}
                 </p>
                 <div className="flex items-center gap-2 text-[11px] md:text-xs font-bold uppercase tracking-widest text-ink/70 group-hover:text-primary transition-colors mt-auto">

@@ -107,7 +107,7 @@ export default async function ShopPage() {
     )
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
+  const siteUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
 
   const t = await getTranslations('shop.shopClient')
   const shopFaqs = SHOP_FAQ_KEYS.map((key) => ({

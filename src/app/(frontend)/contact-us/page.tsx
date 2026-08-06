@@ -50,7 +50,7 @@ export default async function ContactPage({
   const tClient = await getTranslations({ locale, namespace: 'content.contactClient' })
   const title = t('metaTitle')
   const description = t('metaDescription')
-  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
   const path = true ? `/${slug}` : `/${locale}/${slug}`
   const url = `${baseUrl}${path}`
 
@@ -61,7 +61,7 @@ export default async function ContactPage({
   const contactInfoFaq = {
     question: tClient('faqs.contactInfo.question'),
     answer:
-      'Reach us at 5768 Wyncliff Drive, North Charleston, South Carolina 29418, US Phone: +1 (000) 000-0000, and email: support@helixbio.com for lab inquiries.',
+      'Reach us at 5768 Wyncliff Drive, North Charleston, South Carolina 29418, US Phone: +1 (000) 000-0000, and email: support@helixbiochem.com for lab inquiries.',
   }
 
   const schema = {
@@ -88,7 +88,7 @@ export default async function ContactPage({
         '@id': `${baseUrl}/#organization`,
         name: 'Helix Bio',
         url: baseUrl,
-        email: 'support@helixbio.com',
+        email: 'support@helixbiochem.com',
         telephone: '+1-000-000-0000',
         address: {
           '@type': 'PostalAddress',
@@ -102,7 +102,7 @@ export default async function ContactPage({
           {
             '@type': 'ContactPoint',
             contactType: 'customer support',
-            email: 'support@helixbio.com',
+            email: 'support@helixbiochem.com',
             telephone: '+1-000-000-0000',
             areaServed: 'US',
             availableLanguage: ['English', 'Spanish'],
@@ -111,7 +111,7 @@ export default async function ContactPage({
           {
             '@type': 'ContactPoint',
             contactType: 'order support',
-            email: 'orders@helixbio.com',
+            email: 'orders@helixbiochem.com',
             areaServed: 'US',
           },
         ],

@@ -2,7 +2,7 @@ import { emailLayout } from './emailLayout'
 
 export async function generateWelcomeEmail(user: any): Promise<string> {
   const name = user.firstName || 'there'
-  const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
+  const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
   
   const content = `
     <!-- Huge Header -->

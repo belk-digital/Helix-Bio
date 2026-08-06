@@ -14,9 +14,10 @@ interface FluidButtonProps {
   text: React.ReactNode;
   className?: string;
   variant?: "dark" | "cyan" | "white";
+  ariaLabel?: string;
 }
 
-export function FluidButton({ href, target, rel, onClick, type = "button", disabled = false, text, className = "", variant = "dark" }: FluidButtonProps) {
+export function FluidButton({ href, target, rel, onClick, type = "button", disabled = false, text, className = "", variant = "dark", ariaLabel }: FluidButtonProps) {
   
   // Map FluidButton legacy variants to our new unified global Button variants
   let buttonVariant: "primary" | "secondary" | "dark" | "outline" | "ghost" | "link" = "primary";
@@ -28,7 +29,7 @@ export function FluidButton({ href, target, rel, onClick, type = "button", disab
   if (href) {
     return (
       <Button asChild variant={buttonVariant} className={`${customClasses} ${className}`} disabled={disabled} onClick={onClick}>
-        <Link href={href} target={target} rel={rel}>
+        <Link href={href} target={target} rel={rel} aria-label={ariaLabel}>
           {text}
         </Link>
       </Button>
@@ -36,7 +37,7 @@ export function FluidButton({ href, target, rel, onClick, type = "button", disab
   }
 
   return (
-    <Button type={type} variant={buttonVariant} className={`${customClasses} ${className}`} disabled={disabled} onClick={onClick}>
+    <Button type={type} variant={buttonVariant} className={`${customClasses} ${className}`} disabled={disabled} onClick={onClick} aria-label={ariaLabel}>
       {text}
     </Button>
   );

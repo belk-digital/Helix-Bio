@@ -44,7 +44,7 @@ export async function generateMetadata({
   if (product.images && product.images.length > 0 && typeof product.images[0].image === 'object' && product.images[0].image?.url) {
     imageUrl = product.images[0].image.url
     if (imageUrl.startsWith('/')) {
-      imageUrl = `${process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'}${imageUrl}`
+      imageUrl = `${process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'}${imageUrl}`
     }
   }
 
@@ -386,7 +386,7 @@ export default async function ProductPage({
 
   productData.suggestedBlogs = mappedBlogs
 
-  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
   const productUrl = `${baseUrl}/product/${slug}`
   
   const productSchema = {

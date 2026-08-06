@@ -106,17 +106,17 @@ export default async function Homepage() {
             {
               "@context": "https://schema.org",
               "@type": "WebPage",
-              "@id": "https://helixbio.com/#webpage",
-              "url": "https://helixbio.com/",
+              "@id": "https://helixbiochem.com/#webpage",
+              "url": "https://helixbiochem.com/",
               "name": title,
               "description": description
             },
             {
               "@context": "https://schema.org",
               "@type": "BreadcrumbList",
-              "@id": "https://helixbio.com/#breadcrumb",
+              "@id": "https://helixbiochem.com/#breadcrumb",
               "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://helixbio.com/" }
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://helixbiochem.com/" }
               ]
             },
             {
@@ -209,19 +209,19 @@ export default async function Homepage() {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Helix Bio",
-              "url": "https://helixbio.com",
+              "url": "https://helixbiochem.com",
               "description": "USA-based supplier of research-use-only synthetic peptides for laboratory research.",
-              "email": "support@helixbio.com"
+              "email": "support@helixbiochem.com"
             },
             {
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "url": "https://helixbio.com",
+              "url": "https://helixbiochem.com",
               "potentialAction": {
                 "@type": "SearchAction",
                 "target": {
                   "@type": "EntryPoint",
-                  "urlTemplate": "https://helixbio.com/shop?q={search_term_string}"
+                  "urlTemplate": "https://helixbiochem.com/shop?q={search_term_string}"
                 },
                 "query-input": "required name=search_term_string"
               }

@@ -4,7 +4,7 @@ import configPromise from '@payload-config'
 import * as Sentry from '@sentry/nextjs'
 import { BLOG_POSTS } from '@/data/blog-posts'
 
-const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
+const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
 
 // Grouped by crawl priority rather than alphabetically, so the sitemap's own ordering
 // reflects which pages matter most (highest first) — homepage/shop first, then core

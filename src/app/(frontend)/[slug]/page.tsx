@@ -76,7 +76,7 @@ export async function generateMetadata({
   const title = seoData?.title ? seoData.title : `${post.title} | Helix Bio`
   const description = seoData?.description ? seoData.description : post.excerpt
   const path = true ? `/${slug}` : `/${locale}/${slug}`
-  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
   const imageUrl = post.imageSrc ? `${baseUrl}${post.imageSrc}` : undefined
 
   return {
@@ -119,7 +119,7 @@ export default async function BlogPostPage({
   // Get 3 related posts (just the first 3 that aren't the current one)
   const relatedPosts = localePosts.filter((p) => p.slug !== slug).slice(0, 3)
 
-  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
   const postPath = true ? `/${slug}` : `/${locale}/${slug}`
   const postUrl = `${baseUrl}${postPath}`
   const breadcrumbLabels = BREADCRUMB_LABELS[locale] || BREADCRUMB_LABELS.en

@@ -222,7 +222,7 @@ const FooterContent = () => {
               {/* Logo & Tagline */}
               <div className="flex flex-col gap-5">
                 <a href="/">
-                  <img src="/HelixBio Images/hb-logo.png" alt="HelixBio" className="h-14 md:h-20 lg:h-24 w-auto object-contain" />
+                  <img src="/HelixBio Images/hb-logo.webp" alt="HelixBio" className="h-14 md:h-20 lg:h-24 w-auto object-contain" />
                 </a>
                 <p className="text-black/50 text-base md:text-[17px] font-medium leading-relaxed max-w-[400px]">
                   Setting the gold standard in peptide synthesis with verified HPLC/MS testing for uncompromised results.
@@ -246,6 +246,7 @@ const FooterContent = () => {
                   <button
                     type="submit"
                     disabled={status === 'loading' || status === 'success'}
+                    aria-label="Subscribe to newsletter"
                     className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-black hover:bg-black/80 text-white rounded-xl flex items-center justify-center transition-colors disabled:opacity-50"
                   >
                     {status === 'loading' ? (
@@ -321,8 +322,8 @@ const FooterContent = () => {
                 {/* Contact & Copyright */}
                 <div className="flex flex-col gap-4 text-left">
                   <div className="flex flex-col gap-1">
-                    <a href="mailto:support@helixbio.com" className="text-black/90 font-medium hover:text-black transition-colors tracking-wide text-base w-fit">
-                      support@helixbio.com
+                    <a href="mailto:support@helixbiochem.com" className="text-black/90 font-medium hover:text-black transition-colors tracking-wide text-base w-fit">
+                      support@helixbiochem.com
                     </a>
                     <a href="tel:+10000000000" className="text-black/50 text-[14px] hover:text-black/70 transition-colors tracking-wide w-fit">
                       +1 (000) 000-0000

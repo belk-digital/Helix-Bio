@@ -140,7 +140,7 @@ export function BestSellerSection({ products = [] }: { products?: any[] }) {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 md:mb-16 gap-6">
           <div className="max-w-2xl">
             <div className="inline-block border border-ink/10 rounded-full px-4 py-1.5 mb-6 bg-white shadow-sm">
-              <span className="text-primary-dark text-xs font-bold tracking-[0.2em] uppercase">{t('eyebrow')}</span>
+              <span className="text-ink text-xs font-bold tracking-[0.2em] uppercase">{t('eyebrow')}</span>
             </div>
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-ink leading-[1.1] tracking-tighter uppercase">
               {t('title')}

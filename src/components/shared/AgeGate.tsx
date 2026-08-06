@@ -116,7 +116,7 @@ export function AgeGate() {
               {/* Logo */}
               <div className={`absolute top-6 left-6 md:top-12 md:left-12 w-28 md:w-48 h-12 md:h-24 pointer-events-none transition-opacity duration-500 will-change-opacity ${isDenied ? 'opacity-20' : 'opacity-100'}`}>
                 <Image 
-                  src="/HelixBio Images/hb-logo.png" 
+                  src="/HelixBio Images/hb-logo.webp" 
                   alt="HelixBio Logo" 
                   fill
                   priority
@@ -138,7 +138,7 @@ export function AgeGate() {
                     className="w-full max-w-2xl px-6 py-8 md:py-10 md:px-16 lg:px-24 flex flex-col lg:justify-center min-h-full mx-auto"
                   >
                     <div className="flex-shrink-0">
-                      <p className="font-bold tracking-[0.3em] uppercase text-primary-dark text-[10px] md:text-sm mb-3">
+                      <p className="font-bold tracking-[0.3em] uppercase text-ink text-[10px] md:text-sm mb-3">
                         {t('restrictedAccess')}
                       </p>
                       <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-ink mb-6 tracking-tighter font-heading uppercase leading-none">
@@ -174,7 +174,7 @@ export function AgeGate() {
                       </button>
                     </div>
 
-                    <div className="mt-8 text-ink/40 text-[9px] md:text-[10px] uppercase tracking-[0.2em] pb-10 lg:pb-0">
+                    <div className="mt-8 text-ink/60 text-[9px] md:text-[10px] uppercase tracking-[0.2em] pb-10 lg:pb-0">
                       {t('agreementPrefix')} <Link href="/terms-and-conditions" className="hover:text-primary transition-colors underline underline-offset-4 font-bold">{t('termsLink')}</Link>
                     </div>
                     </div>

@@ -19,7 +19,7 @@ export function ContactClient() {
         <>
           {t.rich('faqs.contactInfo.answer', {
             phone: (chunks) => <a href="tel:+10000000000" className="text-primary font-bold underline underline-offset-4 hover:text-ink transition-colors !cursor-pointer pointer-events-auto" data-hide-cursor="true">{chunks}</a>,
-            email: (chunks) => <a href="mailto:support@helixbio.com" className="text-primary font-bold underline underline-offset-4 hover:text-ink transition-colors !cursor-pointer pointer-events-auto" data-hide-cursor="true">{chunks}</a>,
+            email: (chunks) => <a href="mailto:support@helixbiochem.com" className="text-primary font-bold underline underline-offset-4 hover:text-ink transition-colors !cursor-pointer pointer-events-auto" data-hide-cursor="true">{chunks}</a>,
           })}
         </>
       )
@@ -50,28 +50,28 @@ export function ContactClient() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 mb-24 relative">
           
           <motion.a
-            href="mailto:support@helixbio.com"
+            href="mailto:support@helixbiochem.com"
             className="block w-full h-full cursor-pointer hover:-translate-y-2 transition-transform duration-500 ease-out"
           >
             <PinterestGlassCard
               title={t('supportEmailTitle')}
               description={t('supportEmailDescription')}
               icon={<Mail className="w-5 h-5" />}
-              tag="support@helixbio.com"
+              tag="support@helixbiochem.com"
               microcopy={t('supportEmailMicrocopy')}
               scrollFanning={true}
             />
           </motion.a>
 
           <motion.a
-            href="mailto:orders@helixbio.com"
+            href="mailto:orders@helixbiochem.com"
             className="block w-full h-full cursor-pointer hover:-translate-y-2 transition-transform duration-500 ease-out"
           >
             <PinterestGlassCard
               title={t('ordersEmailTitle')}
               description={t('ordersEmailDescription')}
               icon={<ShoppingCart className="w-5 h-5" />}
-              tag="orders@helixbio.com"
+              tag="orders@helixbiochem.com"
               microcopy={t('ordersEmailMicrocopy')}
               scrollFanning={true}
             />

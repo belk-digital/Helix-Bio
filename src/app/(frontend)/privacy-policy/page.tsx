@@ -202,7 +202,7 @@ export default function PrivacyPolicyPage() {
                   </ul>
                   <p className="text-[15px] leading-relaxed mt-4">
                     {t('section5ContactText')}<br/>
-                    {t('section5EmailLabel')} <a href="mailto:support@helixbio.com" className="hover:text-[#1e5661] transition-colors break-all">support@helixbio.com</a>
+                    {t('section5EmailLabel')} <a href="mailto:support@helixbiochem.com" className="hover:text-[#1e5661] transition-colors break-all">support@helixbiochem.com</a>
                   </p>
                 </section>
 
@@ -240,11 +240,11 @@ export default function PrivacyPolicyPage() {
                   <div className="flex flex-col gap-6">
                     <div>
                       <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 block mb-1">{t('orderQueriesLabel')}</span>
-                      <a href="mailto:orders@helixbio.com" className="text-base font-medium text-black hover:text-[#1e5661] transition-colors">orders@helixbio.com</a>
+                      <a href="mailto:orders@helixbiochem.com" className="text-base font-medium text-black hover:text-[#1e5661] transition-colors">orders@helixbiochem.com</a>
                     </div>
                     <div>
                       <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 block mb-1">{t('supportIssuesLabel')}</span>
-                      <a href="mailto:support@helixbio.com" className="text-base font-medium text-black hover:text-[#1e5661] transition-colors">support@helixbio.com</a>
+                      <a href="mailto:support@helixbiochem.com" className="text-base font-medium text-black hover:text-[#1e5661] transition-colors">support@helixbiochem.com</a>
                     </div>
                     <div>
                       <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 block mb-1">{t('contactLabel')}</span>

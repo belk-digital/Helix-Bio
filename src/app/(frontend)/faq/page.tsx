@@ -70,7 +70,7 @@ export default async function FaqPage({
     }))
   );
 
-  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
   const path = true ? `/${slug}` : `/${locale}/${slug}`
   const url = `${baseUrl}${path}`
 

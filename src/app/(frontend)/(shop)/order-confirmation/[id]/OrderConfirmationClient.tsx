@@ -53,7 +53,7 @@ type OrderData = {
   paymentMethod: 'stripe' | 'zelle' | 'amex' | 'circoflows'
 }
 
-const ZELLE_RECIPIENT_EMAIL = 'orders@helixbio.com'
+const ZELLE_RECIPIENT_EMAIL = 'orders@helixbiochem.com'
 
 const CONFETTI_PIECES = [
   { x: -80, y: -60, color: '#92DCE5', delay: 0.0, rotation: 45, scale: 1.2 },
@@ -192,7 +192,7 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
       <div className="mt-6 text-center print:hidden">
         <span className="text-[11px] text-gray-400 font-medium">
           {t.rich('questionsContactSupport', {
-            link: (chunks) => <a href="mailto:support@helixbio.com" className="text-gray-600 underline hover:text-black transition-colors">{chunks}</a>,
+            link: (chunks) => <a href="mailto:support@helixbiochem.com" className="text-gray-600 underline hover:text-black transition-colors">{chunks}</a>,
           })}
         </span>
       </div>

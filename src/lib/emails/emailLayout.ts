@@ -2,7 +2,7 @@ export function emailLayout({
   title, 
   content, 
   heroImage = null, 
-  serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com' 
+  serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com' 
 }: { 
   title: string, 
   content: string, 

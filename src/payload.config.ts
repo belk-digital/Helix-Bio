@@ -194,7 +194,7 @@ export default buildConfig({
       generateTitle: ({ doc }: any) => (doc?.title ? `${doc.title} | Helix Bio` : 'Helix Bio'),
       generateDescription: ({ doc }: any) => doc?.excerpt || doc?.seoDescription || '',
       generateURL: ({ doc }: any) => {
-        const base = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbio.com'
+        const base = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
         return `${base}/${doc?.slug || ''}`
       },
     }),

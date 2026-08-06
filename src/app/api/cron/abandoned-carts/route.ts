@@ -42,7 +42,7 @@ export async function GET(req: Request) {
           const firstName = user.firstName || 'there'
 
           await resend.emails.send({
-            from: process.env.RESEND_FROM_EMAIL || 'HelixBio <orders@helixbio.com>',
+            from: process.env.RESEND_FROM_EMAIL || 'HelixBio <orders@helixbiochem.com>',
             to: user.email,
             subject: 'Did you forget something in your cart?',
             html: `<!DOCTYPE html>
@@ -73,7 +73,7 @@ export async function GET(req: Request) {
     <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="container">
       <tr>
         <td class="header">
-          <a href="https://helixbio.com">
+          <a href="https://helixbiochem.com">
             <img src="https://pub-0b0f2f98407442588d161ae09cb84207.r2.dev/email-assets/hb-logo.png" alt="Helix Bio" class="logo-img" />
           </a>
         </td>
@@ -88,7 +88,7 @@ export async function GET(req: Request) {
           <p>
             Return to the lab to secure your order and resume your research.
           </p>
-          <a href="https://helixbio.com/cart" class="btn">Return to Cart</a>
+          <a href="https://helixbiochem.com/cart" class="btn">Return to Cart</a>
         </td>
       </tr>
       <tr>

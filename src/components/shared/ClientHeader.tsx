@@ -285,7 +285,7 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
           href="/" 
           className="flex items-center hover:opacity-80 transition-opacity gap-2"
         >
-          <img src="/HelixBio Images/hb-logo.png" alt="HelixBio" className="h-10 sm:h-12 w-auto object-contain" />
+          <img src="/HelixBio Images/hb-logo.webp" alt="HelixBio" className="h-10 sm:h-12 w-auto object-contain" />
         </a>
       </div>
 
@@ -528,7 +528,7 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
             <div className="w-full flex justify-between items-end mb-8 xl:mb-12 relative z-20 shrink-0">
               <div className="flex flex-col">
                 <span className="text-[10px] font-bold text-black/40 uppercase tracking-[0.3em] mb-2">{t('megaMenu.navigation')}</span>
-                <h4 className="text-3xl xl:text-4xl font-light text-black">Explore Categories</h4>
+                <h2 className="text-3xl xl:text-4xl font-light text-black">Explore Categories</h2>
               </div>
               <Link
                 href="/shop"

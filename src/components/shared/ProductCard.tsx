@@ -116,6 +116,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <button
             disabled={isPending}
             onClick={handleWishlistClick}
+            aria-label={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
             className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#2a2a2a] flex items-center justify-center transition-all duration-300 shadow-sm ${inWishlist ? 'text-red-500' : 'text-white hover:text-red-400 hover:scale-110'}`}
           >
             {isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Heart className="w-4 h-4 sm:w-5 sm:h-5" fill={inWishlist ? 'currentColor' : 'none'} />}
@@ -149,6 +150,7 @@ export function ProductCard({ product }: ProductCardProps) {
           {/* Action Button */}
           <button
             onClick={handleAddToCart}
+            aria-label="Add to cart"
             className="w-10 h-10 sm:w-14 sm:h-14 bg-white rounded-xl sm:rounded-2xl flex items-center justify-center transition-all duration-300 shadow-xl group-hover:scale-105 z-30 hover:bg-gray-100 pointer-events-auto"
           >
             <ShoppingCart className="w-4 h-4 sm:w-6 sm:h-6 text-black transition-colors" />

@@ -60,14 +60,18 @@ export function ImageSliderSection() {
             <button
               key={index}
               onClick={() => setSelectedIndex(index)}
-              className={cn(
-                "transition-all duration-500 rounded-full",
-                selectedIndex === index 
-                  ? "w-10 h-2 bg-neutral-800" 
-                  : "w-2 h-2 bg-neutral-300 hover:bg-neutral-400"
-              )}
+              className="p-3 -m-3 outline-none"
               aria-label={`Go to slide ${index + 1}`}
-            />
+            >
+              <div
+                className={cn(
+                  "transition-all duration-500 rounded-full",
+                  selectedIndex === index 
+                    ? "w-10 h-2 bg-neutral-800" 
+                    : "w-2 h-2 bg-neutral-300 hover:bg-neutral-400"
+                )}
+              />
+            </button>
           ))}
         </div>
       </div>
