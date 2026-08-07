@@ -11,18 +11,18 @@ interface ProductDetailTabsProps {
 }
 
 export function ProductDetailTabs({ tabs }: ProductDetailTabsProps) {
-  const [activeId, setActiveId] = useState<string | null>(tabs[0]?.id || null)
+  const [activeIds, setActiveIds] = useState<string[]>([tabs[0]?.id].filter(Boolean) as string[])
 
   if (!tabs || tabs.length === 0) return null
 
   const toggleTab = (id: string) => {
-    setActiveId(prev => prev === id ? null : id)
+    setActiveIds(prev => prev.includes(id) ? prev.filter(t => t !== id) : [...prev, id])
   }
 
   return (
     <div className="w-full max-w-[1440px] mx-auto border-t border-ink/10">
       {tabs.map((tab) => {
-        const isActive = activeId === tab.id
+        const isActive = activeIds.includes(tab.id)
         
         return (
           <div key={tab.id} className="border-b border-ink/10">

@@ -23,7 +23,7 @@ function ScrollToTop() {
 
 export function SmoothScroll({ children }: SmoothScrollProps) {
   return (
-    <ReactLenis root options={{ lerp: 0.08, duration: 1.5, smoothWheel: true }}>
+    <ReactLenis root options={{ lerp: 0.1, wheelMultiplier: 0.8, smoothWheel: true }}>
       <ScrollToTop />
       {children}
     </ReactLenis>

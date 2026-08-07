@@ -6298,6 +6298,2141 @@ const productsToSeed: ProductSeed[] = [
     ],
   },
 
+{
+    name: 'Semax Spray',
+    slug: 'semax-spray',
+    imageFile: 'SEMAX spray 5MG.png',
+    categoryName: 'Nasal & Topical Sprays',
+    description: 'Semax Spray is a research-use peptide formulation containing Semax, a synthetic heptapeptide associated with laboratory research into peptide signaling, neurobiology, receptor interactions, and molecular pathways. Semax is structurally related to the ACTH(4–10) peptide fragment and has been investigated in published scientific literature involving neuronal signaling and neurotrophin-related pathways.\n\nHelix Bio supplies research materials for qualified laboratory and scientific applications. Semax Spray is offered strictly for research use and is not intended for human or veterinary consumption, diagnosis, treatment, or prevention of disease.',
+    seoTitle: 'Semax Spray Research Peptide | Helix Bio',
+    seoDescription: 'Semax Spray research peptide for laboratory investigation. Review peptide identity, research context, quality documentation, and RUO specifications.',
+    productDetailsDescription: `
+<h4>What Is Semax?</h4>
+<p>Semax is a synthetic heptapeptide commonly identified by the sequence Met-Glu-His-Phe-Pro-Gly-Pro. Scientific literature describes it as an analogue of the N-terminal fragment of adrenocorticotropic hormone, ACTH(4–10).</p>
+<p>Research on Semax has examined its interaction with biological systems associated with neurobiology, including studies of peptide binding and neurotrophin-related signaling. Published experimental work has investigated Semax in cellular and animal models, including research involving brain-derived neurotrophic factor (BDNF) and related signaling pathways. These findings provide research context but should not be interpreted as evidence of clinical efficacy or as a medical recommendation.</p>
+<h4>Semax Spray for Laboratory Research</h4>
+<p>A spray format can be relevant when researchers are studying intranasal peptide administration or comparing delivery approaches in controlled experimental models. Published research has specifically examined Semax following intranasal administration, making the route an established subject of experimental investigation.</p>
+<p>For laboratory work, researchers should distinguish between the scientific literature surrounding Semax and the specifications of a particular commercial research material. Experimental results depend on factors such as peptide identity, purity, formulation, experimental model, analytical method, and study design.</p>
+<p>Helix Bio positions its peptide catalog for research and laboratory purposes only. Product documentation and lot-specific analytical information should be reviewed before a material is incorporated into an experimental workflow.</p>
+<h4>Research Context</h4>
+<p>Semax has been investigated in several areas of basic and translational research, including:</p>
+<ul>
+<li>Peptide-receptor interactions</li>
+<li>Neurobiology and neuronal signaling</li>
+<li>Neurotrophin-related pathways</li>
+<li>BDNF and TrkB-related molecular research</li>
+<li>Peptide structure and biochemical characterization</li>
+<li>Intranasal peptide research</li>
+<li>Cellular and animal-model studies</li>
+<li>Structure-function investigations of ACTH(4–10) analogues</li>
+</ul>
+<p>The existence of published research does not establish that Semax Spray is safe or effective for use in humans. Semax is not an FDA-approved drug in the United States, and regulatory status should be distinguished from scientific interest or experimental literature. FDA materials published in July 2026 also document regulatory consideration of Semax in the context of pharmacy compounding.</p>
+<h4>Key Features</h4>
+<ul>
+<li>Semax research peptide in spray format</li>
+<li>Synthetic heptapeptide research material</li>
+<li>Associated with ACTH(4–10) analogue research</li>
+<li>Relevant to peptide and neurobiology studies</li>
+<li>Suitable for controlled laboratory investigation</li>
+<li>Research-focused product positioning</li>
+<li>Lot-specific documentation should be reviewed before experimental use</li>
+<li>Intended exclusively for research and laboratory purposes</li>
+<li>Not intended for human or veterinary consumption</li>
+</ul>
+<h4>Why Choose Semax Spray from Helix Bio?</h4>
+<p>Researchers evaluating peptide materials generally need more than a product name. Identity, purity, analytical documentation, storage requirements, and traceability can all affect the interpretation of experimental results.</p>
+<p>Helix Bio states that its research peptide catalog uses independent HPLC testing for purity assessment and mass spectrometry for molecular identity confirmation. The company also states that batch-specific Certificates of Analysis are available for its products.</p>
+<p>For Semax Spray, researchers should verify the applicable product documentation and current lot information rather than relying solely on a general product description.</p>
+<h4>Who This Product Is For</h4>
+<p>Semax Spray is intended for qualified users working in legitimate laboratory or scientific research environments, including:</p>
+<ul>
+<li>Academic research laboratories</li>
+<li>Biotechnology laboratories</li>
+<li>Pharmaceutical research groups</li>
+<li>Contract research organizations</li>
+<li>Qualified scientific researchers</li>
+<li>Educational research institutions</li>
+<li>Laboratories conducting peptide or neurobiology research</li>
+</ul>
+<p>The product is not intended for personal experimentation, self-administration, human consumption, veterinary use, or medical treatment.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>Semax Spray</td></tr>
+<tr><td>Research Category</td><td>Cognitive & Neuro / Research Peptide</td></tr>
+<tr><td>Compound</td><td>Semax</td></tr>
+<tr><td>Chemical Class</td><td>Synthetic heptapeptide</td></tr>
+<tr><td>Related Peptide</td><td>ACTH(4–10) analogue</td></tr>
+<tr><td>Sequence</td><td>Met-Glu-His-Phe-Pro-Gly-Pro</td></tr>
+<tr><td>Format</td><td>Spray formulation</td></tr>
+<tr><td>Intended Use</td><td>Research and laboratory investigation only</td></tr>
+<tr><td>Human Use</td><td>Not intended for human consumption</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended for veterinary use</td></tr>
+<tr><td>Purity</td><td>Refer to current lot-specific product documentation</td></tr>
+<tr><td>Identity Testing</td><td>Refer to applicable Certificate of Analysis</td></tr>
+<tr><td>Packaging</td><td>Refer to current product listing</td></tr>
+<tr><td>Storage</td><td>Follow current product-specific documentation</td></tr>
+<tr><td>Manufacturer</td><td>Helix Bio</td></tr>
+<tr><td>Country of Origin</td><td>Not specified; verify current product documentation</td></tr>
+</tbody>
+</table>
+<h4>Research / Applications</h4>
+<p>Semax has a documented history of experimental investigation, particularly in neuroscience and peptide biology.</p>
+<h4>Neurobiology Research</h4>
+<p>Researchers have investigated Semax in relation to neuronal signaling and neurotrophin-associated pathways. Experimental work has examined changes involving BDNF and TrkB signaling in animal models.</p>
+<p>These studies can provide background for basic research into molecular signaling but should not be extrapolated directly into human therapeutic outcomes.</p>
+<h4>Peptide Structure Research</h4>
+<p>Semax is a synthetic heptapeptide related structurally to ACTH(4–10). Its defined amino-acid sequence makes it relevant to structure-function studies examining how peptide composition and molecular modifications influence biological interactions.</p>
+<h4>Intranasal Delivery Research</h4>
+<p>Semax has been investigated experimentally through intranasal administration, making the compound relevant to research examining peptide delivery routes and biological responses associated with intranasal experimental models.</p>
+<h4>Cell and Molecular Research</h4>
+<p>Published studies have also examined Semax in cellular and biochemical systems, including work involving peptide-metal interactions and cellular assays.</p>
+<p>Researchers should evaluate each publication according to its model, methodology, concentration, administration route, and endpoints rather than assuming that findings from one experimental system apply universally.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity & Quality Standards</h4>
+<p>Analytical quality is important when working with research peptides because impurities, degradation products, incorrect identity, or inconsistent concentration can introduce unwanted variables into an experiment.</p>
+<p>Helix Bio states that its peptide materials are subjected to independent HPLC testing for purity and mass spectrometry for molecular identity. It also states that batch-specific Certificates of Analysis are available for its products.</p>
+<p>For a specific Semax Spray lot, researchers should consult the applicable COA and product documentation for the actual analytical results. A general catalog statement should not be treated as a substitute for lot-specific documentation.</p>
+<p>Researchers should assess, where applicable:</p>
+<ul>
+<li>Peptide identity</li>
+<li>Reported purity</li>
+<li>Molecular mass</li>
+<li>Analytical testing method</li>
+<li>Lot or batch number</li>
+<li>Manufacturing documentation</li>
+<li>Storage requirements</li>
+<li>Product formulation</li>
+<li>Expiration or retest information, when provided</li>
+</ul>
+<p>No certification, regulatory approval, or quality claim should be inferred unless it is explicitly documented by the manufacturer or relevant regulatory authority.</p>
+<h4>Storage & Handling</h4>
+<p>Storage and handling requirements should be determined from the current Semax Spray product documentation and lot-specific instructions.</p>
+<p>General laboratory considerations include:</p>
+<ul>
+<li>Follow the storage conditions supplied with the product.</li>
+<li>Protect the material from inappropriate temperature, light, and environmental exposure.</li>
+<li>Keep the container properly closed when not being used in an approved research workflow.</li>
+<li>Avoid unnecessary temperature cycling.</li>
+<li>Maintain appropriate laboratory labeling and inventory records.</li>
+<li>Follow institutional procedures for handling research peptides.</li>
+<li>Do not use material beyond the stated storage period or applicable retest date without appropriate laboratory qualification.</li>
+<li>Consult the current COA and product documentation for product-specific requirements.</li>
+</ul>
+<p>Storage guidance should not be inferred from research protocols for other Semax preparations because formulation and packaging can affect stability.</p>
+<h4>Shipping & Packaging</h4>
+<p>Helix Bio's website describes research materials as being supplied to laboratories and institutions in the United States and describes tracked shipping and cold-chain handling within its fulfillment process.</p>
+<p>Because shipping conditions, packaging specifications, availability, and delivery requirements may change, researchers should review the current Helix Bio shipping information and product listing before ordering.</p>
+<p>Product packaging should remain appropriately labeled and handled as research material after delivery. Researchers are responsible for following applicable institutional, federal, state, and local requirements governing research materials.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>Semax Spray is sold by Helix Bio for research and laboratory purposes only. It is not intended for human or veterinary consumption, self-administration, diagnosis, treatment, cure, mitigation, or prevention of any disease or medical condition.</p>
+<p>Semax is not an FDA-approved drug in the United States. FDA approval status should not be inferred from published research, product availability, laboratory use, or any regulatory discussion concerning compounding. FDA explains that unapproved drugs have not undergone the agency's standard review for safety, effectiveness, and quality.</p>
+<p>This product is not a dietary supplement, consumer wellness product, or medical treatment. Researchers are responsible for determining whether a material is appropriate for their intended experimental application and for complying with applicable institutional and regulatory requirements.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is Semax Spray?', answer: 'Semax Spray is a research-format preparation containing Semax, a synthetic heptapeptide related to the ACTH(4–10) peptide fragment. It is intended for controlled laboratory and scientific research only.' },
+      { question: 'What is Semax used for in research?', answer: 'Semax has been investigated in experimental research involving peptide signaling, neurobiology, neurotrophin-related pathways, receptor interactions, and intranasal delivery models. Published findings vary by experimental system and should not be interpreted as clinical claims.' },
+      { question: 'Is Semax FDA approved in the United States?', answer: 'No. Semax is not an FDA-approved drug in the United States. Its scientific literature and regulatory status are separate issues, and research interest should not be interpreted as FDA approval.' },
+      { question: 'Is Semax Spray intended for human use?', answer: 'No. The Helix Bio product is positioned as research-use-only material and is not intended for human or veterinary consumption.' },
+      { question: 'What is the amino acid sequence of Semax?', answer: 'Semax is commonly described as the heptapeptide Met-Glu-His-Phe-Pro-Gly-Pro. Scientific literature identifies it as an analogue of the ACTH(4–10) fragment.' },
+      { question: 'Why is Semax studied in neuroscience research?', answer: 'Experimental studies have examined Semax in connection with neurobiological processes and neurotrophin-related signaling, including BDNF and TrkB pathways. Much of this evidence comes from experimental models, so it should not be presented as proof of human therapeutic effects.' },
+      { question: 'What testing should researchers review before using Semax Spray?', answer: 'Researchers should review the current lot-specific Certificate of Analysis and available analytical documentation, including information concerning identity and purity. Helix Bio states that its products undergo HPLC purity testing and mass spectrometry identity confirmation.' },
+      { question: 'How should Semax Spray be stored?', answer: 'Storage requirements should be taken from the current product documentation supplied for the specific formulation and lot. Researchers should not automatically apply storage conditions from another Semax preparation.' },
+      { question: 'Can Semax Spray be used as a treatment?', answer: 'No. Helix Bio supplies this material for research and laboratory purposes, not as a treatment or consumer medical product.' },
+      { question: 'What is the difference between Semax and Semax Spray?', answer: 'Semax refers to the peptide compound itself, while Semax Spray describes a spray-based formulation or delivery format containing Semax. Researchers should evaluate the formulation and analytical documentation for the specific material being studied.' },
+    ],
+    variants: [
+      { sku: 'SPR-SEMAX-5MG', strength: '5mg', price: 27 },
+    ],
+  },
+{
+    name: 'Selank Spray',
+    slug: 'selank-spray',
+    imageFile: 'SELANK spray 100MCG.png',
+    categoryName: 'Nasal & Topical Sprays',
+    description: 'Selank Spray is a research-use peptide preparation centered on Selank, a synthetic heptapeptide derived from the tuftsin peptide sequence. Selank has been investigated in preclinical research involving neurobiology, behavioral models, neurotransmitter-related pathways, gene expression, and brain signaling.\n\nHelix Bio supplies Selank Spray strictly as a research and laboratory material. It is intended for qualified researchers and controlled laboratory investigation, not for human or veterinary administration.\n\nResearchers evaluating this material should review the applicable lot-specific Certificate of Analysis (COA), product specifications, and analytical documentation before incorporating it into an experimental workflow.',
+    seoTitle: 'Selank Spray Research Peptide | Helix Bio',
+    seoDescription: 'Selank Spray for laboratory research, with batch-specific analytical documentation and research-use-only positioning from Helix Bio.',
+    productDetailsDescription: `
+<h4>What Is Selank?</h4>
+<p>Selank is a synthetic peptide commonly identified by the amino-acid sequence Thr-Lys-Pro-Arg-Pro-Gly-Pro. It is structurally related to tuftsin and has been investigated in experimental research involving the central nervous system, behavioral biology, neurotransmitter pathways, and molecular signaling.</p>
+<p>Published research has examined Selank in animal models and other experimental systems. For example, studies have investigated relationships between Selank and brain-derived neurotrophic factor (BDNF), serotonin and noradrenaline signaling, gene-expression patterns, and behavioral responses. These findings are useful for understanding areas of scientific interest but should not be interpreted as evidence of clinical efficacy or as a recommendation for human use.</p>
+<h4>Selank Spray for Research</h4>
+<p>The spray format provides researchers with a defined presentation of Selank for laboratory investigation where a spray-format research material is appropriate to the study design.</p>
+<p>Because formulation characteristics can vary between products, researchers should rely on the current product specification and lot-specific documentation for exact concentration, formulation, container configuration, and analytical results rather than assuming characteristics from another Selank preparation.</p>
+<p>Helix Bio positions its research peptides for laboratory and scientific use only. The company's website states that its catalog is supported by batch-specific COA documentation and analytical testing using HPLC and mass spectrometry.</p>
+<h4>Composition and Research Context</h4>
+<p>Selank is a short synthetic peptide consisting of seven amino acids:</p>
+<p>Thr-Lys-Pro-Arg-Pro-Gly-Pro</p>
+<p>Research interest surrounding Selank includes:</p>
+<ul>
+<li>Peptide-receptor and peptide-protein interactions</li>
+<li>Neurobiological signaling</li>
+<li>Neurotransmitter-associated pathways</li>
+<li>BDNF-related research</li>
+<li>Behavioral and cognitive research models</li>
+<li>Gene-expression studies</li>
+<li>Experimental stress-response models</li>
+<li>Structure-function relationships of synthetic peptides</li>
+</ul>
+<p>Existing literature includes animal studies examining Selank in relation to brain activity, neurotransmitter levels, behavioral responses, and molecular pathways. These studies are preclinical and should be evaluated according to their experimental design, model, dose, route, and endpoints.</p>
+<h4>Key Features</h4>
+<ul>
+<li>Research-use-only Selank peptide preparation</li>
+<li>Spray-format presentation</li>
+<li>Selank is a synthetic heptapeptide</li>
+<li>Sequence: Thr-Lys-Pro-Arg-Pro-Gly-Pro</li>
+<li>Relevant to neurobiology and molecular research</li>
+<li>Suitable for controlled laboratory investigation</li>
+<li>Batch-specific analytical documentation should be reviewed before research use</li>
+<li>HPLC and mass-spectrometry testing are part of Helix Bio's stated quality-control framework</li>
+<li>Research-only labeling clearly distinguishes the material from products intended for administration</li>
+<li>Product specifications should be confirmed against the current lot documentation</li>
+</ul>
+<h4>Why Choose Selank Spray for Research?</h4>
+<p>Selecting a peptide research material requires more than looking at a product name or advertised purity percentage. Researchers need a clearly identified compound, appropriate documentation, reliable analytical information, and handling instructions that support reproducible laboratory work.</p>
+<p>Selank Spray may be relevant to laboratories studying peptide biology and neurobiological signaling where Selank is part of the experimental design.</p>
+<p>Helix Bio's website identifies several quality-control practices, including HPLC purity testing, mass-spectrometry identity confirmation, and batch-specific Certificates of Analysis. These analytical methods provide complementary information: HPLC is used to assess chromatographic purity, while mass spectrometry can help confirm molecular identity and molecular mass.</p>
+<p>Before purchasing or using Selank Spray, researchers should verify:</p>
+<ul>
+<li>The exact product identity</li>
+<li>Current lot or batch number</li>
+<li>Applicable COA</li>
+<li>Reported purity</li>
+<li>Molecular-weight or identity confirmation</li>
+<li>Formulation and concentration</li>
+<li>Storage requirements</li>
+<li>Packaging specifications</li>
+<li>Intended research application</li>
+</ul>
+<h4>Who This Product Is For</h4>
+<p>Selank Spray is intended for qualified research environments, including:</p>
+<ul>
+<li>Academic research laboratories</li>
+<li>Biotechnology research teams</li>
+<li>Pharmaceutical research groups</li>
+<li>Molecular biology laboratories</li>
+<li>Neurobiology researchers</li>
+<li>Biochemical research facilities</li>
+<li>Pharmacology research laboratories</li>
+<li>Qualified scientific professionals</li>
+<li>Educational institutions conducting controlled laboratory research</li>
+</ul>
+<p>It is not intended for personal experimentation, self-administration, human consumption, or veterinary administration.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>Selank Spray</td></tr>
+<tr><td>Research Compound</td><td>Selank</td></tr>
+<tr><td>Peptide Type</td><td>Synthetic heptapeptide</td></tr>
+<tr><td>Amino-Acid Sequence</td><td>Thr-Lys-Pro-Arg-Pro-Gly-Pro</td></tr>
+<tr><td>Format</td><td>Spray</td></tr>
+<tr><td>Category</td><td>Cognitive & Nootropic / Research Peptide</td></tr>
+<tr><td>Intended Use</td><td>Research and laboratory use only</td></tr>
+<tr><td>Human Use</td><td>Not intended for human administration</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended for veterinary administration</td></tr>
+<tr><td>Purity</td><td>Verify current lot-specific COA</td></tr>
+<tr><td>Identity Testing</td><td>Refer to current lot documentation</td></tr>
+<tr><td>HPLC Testing</td><td>Helix Bio states that HPLC testing is used within its quality-control program</td></tr>
+<tr><td>Mass Spectrometry</td><td>Helix Bio states that mass spectrometry is used for identity confirmation</td></tr>
+<tr><td>Packaging</td><td>Verify current product specification</td></tr>
+<tr><td>Storage</td><td>Follow the current product label and COA</td></tr>
+<tr><td>Manufacturer / Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Country of Origin</td><td>Not specified; verify current product documentation</td></tr>
+<tr><td>Shelf Life</td><td>Verify current lot documentation</td></tr>
+</tbody>
+</table>
+<p><strong>Important:</strong> Exact concentration, formulation details, purity, storage conditions, and shelf life should be taken from the current Selank Spray product documentation and applicable lot-specific COA. Do not substitute specifications from another Selank product or supplier.</p>
+<h4>Research / Applications</h4>
+<p>Selank has been investigated primarily in experimental neurobiology and related research areas. The available literature includes preclinical work rather than a basis for making therapeutic claims.</p>
+<h4>Neurobiology Research</h4>
+<p>Researchers have examined Selank in relation to brain activity, behavioral responses, and neurotransmitter-associated pathways. Experimental studies have investigated serotonin and noradrenaline levels and behavioral measures in animal models.</p>
+<h4>BDNF and Molecular Signaling Research</h4>
+<p>Some experimental research has examined Selank in relation to brain-derived neurotrophic factor and associated molecular pathways. A 2019 animal study investigated Selank alongside BDNF measurements in the hippocampus and prefrontal cortex.</p>
+<h4>Gene-Expression Research</h4>
+<p>Selank has also been studied for changes in the expression of genes associated with immune and inflammatory signaling in experimental models. Such work can help researchers examine how peptide compounds interact with biological signaling networks.</p>
+<h4>Behavioral Research Models</h4>
+<p>Animal studies have investigated Selank in experimental models involving stress, learning, attention, and behavioral adaptation. Results from animal models cannot automatically be generalized to humans and should be interpreted within the limitations of each study.</p>
+<h4>Peptide Structure-Function Studies</h4>
+<p>As a defined synthetic heptapeptide, Selank can also be relevant to research examining the relationship between peptide sequence, molecular structure, biological interactions, and experimental activity.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity & Quality Standards</h4>
+<p>Quality control is particularly important when working with synthetic peptides because impurities, degradation products, truncated sequences, and incorrect identity can affect experimental interpretation.</p>
+<p>Helix Bio states that its research peptide catalog uses third-party HPLC and mass-spectrometry testing and provides batch-specific Certificates of Analysis. Its website describes HPLC as a method for verifying chromatographic purity and mass spectrometry as a complementary method for confirming molecular identity.</p>
+<p>For Selank Spray, researchers should review the applicable COA rather than relying only on a general catalog-level purity statement.</p>
+<p>A useful peptide COA should allow a researcher to associate the analytical results with the exact lot received. Relevant information may include:</p>
+<ul>
+<li>Lot or batch identification</li>
+<li>HPLC purity result</li>
+<li>Molecular mass or identity confirmation</li>
+<li>Testing date</li>
+<li>Product identification</li>
+<li>Applicable analytical method</li>
+<li>Additional specifications supplied by the manufacturer</li>
+</ul>
+<p>Helix Bio's public FAQ also emphasizes matching the lot number on the COA with the vial or product received.</p>
+<p>No certification, accreditation, or third-party result should be assumed unless it is explicitly documented for the applicable product or lot.</p>
+<h4>Storage & Handling</h4>
+<p>Proper peptide storage helps reduce avoidable degradation and supports analytical consistency.</p>
+<p>Researchers should always prioritize the storage instructions supplied with the specific product and lot. General peptide-handling literature notes that long-term storage of lyophilized peptides is commonly performed under frozen conditions and that repeated freeze-thaw cycles can contribute to degradation once a peptide has been placed into solution.</p>
+<p>General laboratory considerations include:</p>
+<ul>
+<li>Follow the storage temperature stated on the product documentation.</li>
+<li>Protect the material from unnecessary moisture and light exposure.</li>
+<li>Keep the original container appropriately sealed.</li>
+<li>Minimize unnecessary exposure to air.</li>
+<li>Avoid repeated freeze-thaw cycles where applicable.</li>
+<li>Clearly identify prepared research solutions with concentration, preparation date, and lot information.</li>
+<li>Follow laboratory SOPs for peptide handling.</li>
+<li>Refer to the COA and product documentation for compound-specific stability information.</li>
+</ul>
+<p>Do not assume that general peptide storage recommendations replace the manufacturer's instructions.</p>
+<h4>Shipping & Packaging</h4>
+<p>Helix Bio describes its research materials as products intended for laboratory and scientific research. The website also describes cold-chain handling and tracked shipping as part of its fulfillment process. Exact packaging configuration, shipping conditions, delivery timelines, and applicable restrictions should be confirmed against the current Helix Bio shipping policy and product documentation.</p>
+<p>For research procurement, customers should verify that the received product matches the order and that the lot information corresponds with the applicable Certificate of Analysis.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p><strong>Research Use Only.</strong></p>
+<p>Selank Spray is supplied strictly for laboratory and scientific research purposes. It is not intended for human or veterinary use, ingestion, injection, inhalation, diagnosis, treatment, cure, prevention, or mitigation of any disease or medical condition.</p>
+<p>This product is not represented as an FDA-approved drug or medical treatment. Research materials should be handled only by appropriately qualified personnel in accordance with applicable laws, institutional policies, laboratory safety procedures, and approved research protocols.</p>
+<p>Research findings involving Selank should not be interpreted as evidence of safety, efficacy, or therapeutic benefit in humans. Animal and preclinical findings may not translate to human outcomes.</p>
+<p>Helix Bio states that its products are research and laboratory materials and are not intended for human or veterinary administration.</p>
+<p>Researchers are responsible for determining whether a particular material is appropriate and lawful for their intended experimental application.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is Selank Spray?', answer: 'Selank Spray is a spray-format research preparation containing Selank, a synthetic heptapeptide with the sequence Thr-Lys-Pro-Arg-Pro-Gly-Pro. It is supplied for laboratory and scientific research rather than human or veterinary administration.' },
+      { question: 'What is Selank used for in research?', answer: 'Selank has been investigated in experimental research involving neurobiology, behavioral models, neurotransmitter-related pathways, BDNF-related signaling, and gene expression. Much of the available literature is preclinical or animal-based.' },
+      { question: 'Is Selank Spray FDA approved?', answer: 'Research-use-only Selank Spray should not be represented as an FDA-approved drug. Researchers should distinguish research materials from FDA-approved pharmaceutical products and review current regulatory information when evaluating any proposed use.' },
+      { question: 'Is Selank Spray intended for human use?', answer: 'No. The Helix Bio product is positioned as a research and laboratory material and is not intended for human or veterinary administration.' },
+      { question: 'What is the amino-acid sequence of Selank?', answer: 'Selank is commonly described as the heptapeptide Thr-Lys-Pro-Arg-Pro-Gly-Pro.' },
+      { question: 'What research areas are associated with Selank?', answer: 'Research areas include neurobiology, behavioral neuroscience, neurotransmitter signaling, BDNF-related pathways, molecular biology, gene-expression studies, and peptide structure-function research.' },
+      { question: 'Does Selank research involve BDNF?', answer: 'Yes. Experimental research has investigated Selank in relation to BDNF and related signaling, including studies measuring BDNF in brain regions such as the hippocampus and prefrontal cortex. These findings are research observations and do not establish a clinical effect in humans.' },
+      { question: 'What should I check before ordering Selank Spray?', answer: 'Researchers should confirm the exact formulation, concentration, lot information, current COA, analytical results, storage requirements, packaging, and intended research application before ordering.' },
+      { question: 'Does Helix Bio provide a Certificate of Analysis?', answer: 'Helix Bio states that its research peptide products are supported by batch-specific COA documentation. Researchers should match the lot or batch information on the received product with the applicable COA.' },
+      { question: 'How should Selank research material be stored?', answer: 'Storage should follow the current product label and lot-specific documentation. General peptide research literature emphasizes protection from inappropriate temperature, moisture, light, and repeated freeze-thaw cycles, with long-term storage conditions depending on the specific peptide.' },
+      { question: 'Can Selank Spray be used in a clinical study?', answer: 'Research-use-only material should not automatically be considered suitable for clinical administration. Any research involving human subjects requires appropriate regulatory, ethical, institutional, and product-quality considerations.' },
+      { question: 'How can researchers verify the identity and purity of Selank?', answer: 'Researchers can review the applicable COA and analytical documentation. HPLC can provide information about chromatographic purity, while mass spectrometry can support molecular identity and molecular-mass confirmation. Helix Bio states that both methods are part of its quality-control framework.' },
+    ],
+    variants: [
+      { sku: 'SPR-SELANK-100MCG', strength: '100mcg', price: 28 },
+      { sku: 'SPR-SELANK-300MCG', strength: '300mcg', price: 42 },
+    ],
+  },
+{
+    name: 'BPC-157 Spray',
+    slug: 'bpc-157-spray',
+    imageFile: 'BPC-157 spray 5MG.png',
+    categoryName: 'Nasal & Topical Sprays',
+    description: 'BPC-157 Spray is a research-use peptide preparation containing BPC-157, a synthetic pentadecapeptide that has been investigated extensively in preclinical research. Scientific literature has examined BPC-157 across areas including peptide biology, gastrointestinal research models, vascular signaling, tissue biology, and molecular pathways.\n\nHelix Bio supplies BPC-157 Spray for laboratory and scientific research only. It is not intended for human or veterinary administration, self-experimentation, diagnosis, treatment, or prevention of disease.\n\nResearchers evaluating BPC-157 should consider the compound\'s experimental status, the limitations of existing clinical evidence, and the exact specifications and analytical documentation associated with the product lot.',
+    seoTitle: 'BPC-157 Spray Research Peptide | Helix Bio',
+    seoDescription: 'BPC-157 Spray for laboratory research, with research-use-only positioning and product documentation for qualified scientific and research environments.',
+    productDetailsDescription: `
+<h4>What Is BPC-157?</h4>
+<p>BPC-157, commonly referred to as Body Protection Compound 157, is a synthetic pentadecapeptide consisting of 15 amino acids. The sequence commonly reported in scientific literature is:</p>
+<p>Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val</p>
+<p>BPC-157 has been studied extensively in animal and laboratory models. Research has examined biological activity involving gastrointestinal, vascular, inflammatory, neurological, and tissue-related experimental endpoints. Much of the literature remains preclinical, and the findings should not be treated as evidence that BPC-157 is an established human therapy.</p>
+<h4>BPC-157 Spray for Research</h4>
+<p>BPC-157 Spray provides a spray-format presentation of BPC-157 for research environments in which a spray formulation is relevant to the experimental design.</p>
+<p>The formulation and concentration of a spray product should not be inferred from the compound name alone. Researchers should verify the current product specification, lot information, concentration, formulation, storage requirements, and Certificate of Analysis before incorporating a product into a laboratory protocol.</p>
+<p>This distinction is particularly important for BPC-157 because recent scientific literature has highlighted unresolved formulation, pharmacokinetic, characterization, and translational-development questions. A 2026 review concluded that pharmaceutical development remains limited and that standardized formulations and validated pharmacokinetic information remain important gaps.</p>
+<h4>Composition and Peptide Identity</h4>
+<p>BPC-157 is classified as a short synthetic peptide and is generally described as a pentadecapeptide.</p>
+<p><strong>Commonly reported sequence:</strong><br>GEPPPGKPADDAGLV</p>
+<p><strong>Number of amino acids:</strong><br>15</p>
+<p><strong>Commonly reported molecular mass:</strong><br>Approximately 1,419 Da for the free peptide.</p>
+<p>The precise chemical form matters when comparing research materials. For example, FDA's 2026 briefing materials distinguish BPC-157 free base from BPC-157 acetate as different active pharmaceutical ingredients. Researchers should therefore confirm whether a particular material is supplied as a free base, acetate, or another specified form rather than assuming that all BPC-157 products are chemically identical.</p>
+<h4>Key Features</h4>
+<ul>
+<li>BPC-157 research peptide in spray format</li>
+<li>Synthetic pentadecapeptide</li>
+<li>Commonly reported sequence: GEPPPGKPADDAGLV</li>
+<li>Relevant to peptide and molecular biology research</li>
+<li>Studied extensively in preclinical models</li>
+<li>Suitable for controlled laboratory investigation where the formulation fits the research protocol</li>
+<li>Research-use-only positioning</li>
+<li>Product identity and formulation should be verified against current documentation</li>
+<li>Lot-specific analytical information should be reviewed before research use</li>
+<li>Not intended for human or veterinary administration</li>
+</ul>
+<h4>Why Choose BPC-157 Spray for Research?</h4>
+<p>Research peptide selection should be based on documented identity, formulation, analytical characterization, handling requirements, and suitability for the intended experimental model.</p>
+<p>BPC-157 has a substantial preclinical research history, which makes it a frequently discussed peptide in scientific literature. At the same time, its research status makes careful interpretation especially important. A 2025 review noted that BPC-157 has been studied in numerous preclinical models while also emphasizing that it has not received standard medical approval from the FDA and other major regulatory authorities.</p>
+<p>For researchers, the value of a properly documented research material is not simply the compound name. It is the ability to identify what was actually used in an experiment and connect the material to appropriate analytical documentation.</p>
+<p>Before purchasing BPC-157 Spray, researchers should verify:</p>
+<ul>
+<li>Exact product identity</li>
+<li>Chemical form</li>
+<li>Spray formulation</li>
+<li>Concentration</li>
+<li>Lot or batch number</li>
+<li>Certificate of Analysis</li>
+<li>Reported purity</li>
+<li>Identity testing</li>
+<li>Storage requirements</li>
+<li>Packaging information</li>
+<li>Research compatibility</li>
+</ul>
+<h4>Who This Product Is For</h4>
+<p>BPC-157 Spray is intended for qualified research environments such as:</p>
+<ul>
+<li>Academic research laboratories</li>
+<li>Biotechnology laboratories</li>
+<li>Pharmaceutical research organizations</li>
+<li>Biochemistry laboratories</li>
+<li>Molecular biology research groups</li>
+<li>Pharmacology research laboratories</li>
+<li>Preclinical research teams</li>
+<li>Scientific and educational institutions</li>
+<li>Qualified professionals conducting controlled laboratory research</li>
+</ul>
+<p>It is not intended for personal experimentation, self-administration, human consumption, veterinary use, diagnosis, treatment, or disease prevention.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>BPC-157 Spray</td></tr>
+<tr><td>Research Compound</td><td>BPC-157</td></tr>
+<tr><td>Peptide Type</td><td>Synthetic pentadecapeptide</td></tr>
+<tr><td>Amino-Acid Sequence</td><td>GEPPPGKPADDAGLV</td></tr>
+<tr><td>Number of Amino Acids</td><td>15</td></tr>
+<tr><td>Format</td><td>Spray</td></tr>
+<tr><td>Category</td><td>Research Peptide</td></tr>
+<tr><td>Intended Use</td><td>Laboratory and scientific research only</td></tr>
+<tr><td>Human Use</td><td>Not intended for human administration</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended for veterinary administration</td></tr>
+<tr><td>Purity</td><td>Verify current lot-specific COA</td></tr>
+<tr><td>Chemical Form</td><td>Verify current product documentation</td></tr>
+<tr><td>Concentration</td><td>Verify current product specification</td></tr>
+<tr><td>Identity Testing</td><td>Refer to current lot documentation</td></tr>
+<tr><td>Packaging</td><td>Verify current product specification</td></tr>
+<tr><td>Storage</td><td>Follow current product label and documentation</td></tr>
+<tr><td>Manufacturer / Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Country of Origin</td><td>Not specified; verify current documentation</td></tr>
+<tr><td>Shelf Life</td><td>Verify current lot documentation</td></tr>
+</tbody>
+</table>
+<p><strong>Specification note:</strong> Exact concentration, chemical form, purity, formulation, storage conditions, packaging, and shelf life should be taken from the current product documentation and applicable lot-specific Certificate of Analysis. Specifications from other BPC-157 suppliers should not be substituted.</p>
+<h4>Research / Applications</h4>
+<p>BPC-157 has been investigated across a wide range of experimental models. The majority of the literature is preclinical, so research findings should be interpreted according to the specific model, formulation, route, experimental conditions, and measured endpoints.</p>
+<h4>Gastrointestinal Research</h4>
+<p>BPC-157 has been studied in experimental models involving the gastrointestinal tract and gastric or intestinal lesions. Early research investigated its biological activity in animal models involving gastric and duodenal lesions.</p>
+<p>These studies provide a historical foundation for BPC-157 research but should not be interpreted as proof of a therapeutic effect in humans.</p>
+<h4>Vascular and Endothelial Research</h4>
+<p>Experimental literature has investigated BPC-157 in relation to vascular and endothelial signaling, including models examining vascular responses and blood-vessel-related mechanisms. These findings remain part of the preclinical research literature.</p>
+<h4>Molecular Signaling Research</h4>
+<p>BPC-157 research has examined several molecular pathways and signaling mechanisms. Published reviews discuss experimental findings involving pathways such as EGR-1, NAB2, FAK-paxillin, JAK-2, nitric oxide-related signaling, and other biological systems.</p>
+<p>These pathways are useful areas of investigation for researchers studying peptide-mediated biological signaling.</p>
+<h4>Tissue and Cellular Research</h4>
+<p>Preclinical studies have examined BPC-157 in experimental models involving different tissues and biological systems. Researchers may use such literature to develop hypotheses concerning cellular responses, peptide interactions, signaling pathways, and tissue-level biological processes.</p>
+<h4>Analytical and Detection Research</h4>
+<p>BPC-157 has also been studied from an analytical perspective. Published work has examined its detection and in-vitro metabolism using mass-spectrometric approaches, including characterization of BPC-157 and related metabolites.</p>
+<h4>Translational Research</h4>
+<p>BPC-157 remains an area of scientific interest, but there are important translational limitations. A 2026 review identified unresolved issues involving formulation, pharmacokinetics, permeability, excipient compatibility, and clinical development.</p>
+<p>For this reason, preclinical observations should not be presented as established human outcomes.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity & Quality Standards</h4>
+<p>Analytical characterization is an important part of research peptide procurement. Peptide-related impurities, degradation products, sequence variants, formulation differences, and incorrect compound identity can affect experimental reproducibility.</p>
+<p>Researchers should therefore evaluate the actual analytical documentation associated with the material rather than relying exclusively on a generic product description.</p>
+<p>For BPC-157 Spray, relevant documentation may include:</p>
+<ul>
+<li>Product and lot identification</li>
+<li>Purity measurement</li>
+<li>Chromatographic data where applicable</li>
+<li>Molecular-mass or identity confirmation</li>
+<li>Testing date</li>
+<li>Analytical method</li>
+<li>Formulation information</li>
+<li>Storage requirements</li>
+</ul>
+<p>HPLC is commonly used in peptide analysis to evaluate chromatographic purity, while mass spectrometry can provide information relevant to molecular identity and molecular mass.</p>
+<p>No certification, accreditation, third-party test, or purity result should be assumed unless it is explicitly provided for the relevant product or lot.</p>
+<h4>Why Lot-Specific Documentation Matters</h4>
+<p>A researcher's experimental record should be traceable to the actual material used. Recording the lot number and retaining the associated COA can help connect experimental observations with the material's analytical profile.</p>
+<p>This is particularly relevant for BPC-157 because FDA's current regulatory materials distinguish between BPC-157 free base and BPC-157 acetate and discuss unresolved issues involving substance characterization and peptide-related impurities in the context of compounded drugs.</p>
+<h4>Storage & Handling</h4>
+<p>BPC-157 Spray should be stored and handled according to the manufacturer's current product documentation and the requirements of the specific formulation.</p>
+<p>General laboratory considerations include:</p>
+<ul>
+<li>Follow the temperature requirements specified for the product.</li>
+<li>Keep the container appropriately closed when not being used for research.</li>
+<li>Protect the material from unnecessary exposure to heat, light, and moisture.</li>
+<li>Avoid conditions that could compromise formulation stability.</li>
+<li>Record lot number and relevant product information in laboratory records.</li>
+<li>Follow institutional laboratory SOPs.</li>
+<li>Do not assume that storage requirements for a lyophilized BPC-157 product apply to a spray formulation.</li>
+<li>Do not assume stability or shelf life without product-specific documentation.</li>
+</ul>
+<p>The spray format is particularly relevant here because formulation and delivery characteristics can influence peptide stability. Researchers should use product-specific storage instructions rather than relying on generalized peptide-storage assumptions.</p>
+<h4>Shipping & Packaging</h4>
+<p>BPC-157 Spray should be received, inspected, and documented according to the research organization's procurement procedures.</p>
+<p>Researchers should confirm that:</p>
+<ul>
+<li>The product name matches the order.</li>
+<li>The received packaging is intact.</li>
+<li>The lot or batch information is recorded.</li>
+<li>Product documentation corresponds to the received lot.</li>
+<li>Storage conditions are appropriate upon receipt.</li>
+<li>The product is handled according to the manufacturer's instructions.</li>
+</ul>
+<p>Shipping availability, packaging configuration, delivery timelines, temperature controls, and destination restrictions should be confirmed directly with Helix Bio because these details can change and should not be assumed from a general product description.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p><strong>Research Use Only.</strong></p>
+<p>BPC-157 Spray is supplied strictly as a laboratory and scientific research material. It is not intended for human or veterinary administration, ingestion, inhalation, injection, diagnosis, treatment, cure, mitigation, or prevention of any disease or medical condition.</p>
+<p>This product should not be represented as an FDA-approved drug or as an approved medical treatment. BPC-157 remains an investigational research compound, and existing evidence contains substantial preclinical research with important gaps in standardized formulation, pharmacokinetics, and clinical development.</p>
+<p>FDA's current materials also identify unresolved safety and characterization concerns surrounding BPC-157 in the context of compounded drug substances.</p>
+<p>Researchers are responsible for determining whether the material is appropriate and lawful for their specific research application and for complying with applicable federal, state, local, institutional, and laboratory requirements.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is BPC-157 Spray?', answer: 'BPC-157 Spray is a spray-format research preparation containing BPC-157, a synthetic pentadecapeptide commonly identified by the sequence GEPPPGKPADDAGLV. It is intended for laboratory research only.' },
+      { question: 'What is BPC-157 used for in research?', answer: 'BPC-157 has been investigated in preclinical research involving gastrointestinal biology, vascular and endothelial signaling, tissue models, molecular pathways, and other biological systems. These findings do not establish approved clinical uses.' },
+      { question: 'Is BPC-157 Spray FDA approved?', answer: 'No. BPC-157 should not be presented as an FDA-approved drug. FDA is currently evaluating BPC-157-related bulk drug substances in the context of its compounding framework, which is separate from FDA approval of a pharmaceutical product.' },
+      { question: 'Is BPC-157 Spray intended for human use?', answer: 'No. This product is positioned as a research-use-only laboratory material and is not intended for human or veterinary administration.' },
+      { question: 'What is the amino-acid sequence of BPC-157?', answer: 'The commonly reported sequence is GEPPPGKPADDAGLV, consisting of 15 amino acids.' },
+      { question: 'What research areas involve BPC-157?', answer: 'Research has investigated BPC-157 in gastrointestinal models, vascular biology, endothelial signaling, tissue-related models, molecular pathways, and analytical detection studies.' },
+      { question: 'Is BPC-157 a natural peptide?', answer: 'BPC-157 is commonly described in the scientific literature as a 15-amino-acid fragment associated with a gastric protein or gastric juice peptide. Commercial research materials may be synthetically produced, so researchers should distinguish the biological origin described in literature from the manufacturing source of a particular research product.' },
+      { question: 'What should researchers check before purchasing BPC-157 Spray?', answer: 'Researchers should verify the chemical form, concentration, formulation, lot number, COA, purity information, identity testing, packaging, storage requirements, and intended research application.' },
+      { question: 'Does BPC-157 Spray have the same properties as injectable or lyophilized BPC-157?', answer: 'Not necessarily. Formulation, route, concentration, excipients, stability, and delivery characteristics can differ. A 2026 review specifically identified formulation and pharmacokinetic characterization as important unresolved areas in BPC-157 development.' },
+      { question: 'What is the difference between BPC-157 free base and BPC-157 acetate?', answer: 'They are different chemical forms. FDA\'s 2026 briefing materials specifically distinguish BPC-157 free base from BPC-157 acetate as different active pharmaceutical ingredients. Researchers should verify the exact chemical form of the material they are evaluating.' },
+      { question: 'Can BPC-157 research findings be applied directly to humans?', answer: 'No. Preclinical findings, particularly those from animal models, cannot automatically be generalized to humans. Current literature identifies significant gaps in standardized pharmaceutical formulations, pharmacokinetics, and clinical development.' },
+      { question: 'How should BPC-157 Spray be stored?', answer: 'Follow the current product-specific storage instructions supplied with the material. Spray formulations should not automatically be stored according to instructions intended for a different BPC-157 formulation.' },
+    ],
+    variants: [
+      { sku: 'SPR-BPC157-5MG', strength: '5mg', price: 25 },
+      { sku: 'SPR-BPC157-10MG', strength: '10mg', price: 29 },
+    ],
+  },
+{
+    name: 'DSIP Spray',
+    slug: 'dsip-spray',
+    imageFile: 'DSIP spray 10MG.png',
+    categoryName: 'Nasal & Topical Sprays',
+    description: 'DSIP Spray is a research-use peptide preparation containing Delta Sleep-Inducing Peptide (DSIP), a synthetic nonapeptide that has been investigated in neurobiology, sleep-related research, electrophysiology, and peptide signaling studies.\n\nDSIP has a long history in scientific literature. Researchers have examined its relationship with sleep architecture, neurophysiological activity, neurotransmitter systems, circadian processes, and related biological pathways. NCBI\'s MeSH database identifies DSIP as a nonapeptide found in neural and peripheral tissues and classifies it within research areas including chemistry, synthesis, pharmacology, and sleep-related investigation.\n\nHelix Bio supplies DSIP Spray strictly as a research and laboratory material. It is not intended for human or veterinary use, ingestion, injection, or any other form of administration.',
+    seoTitle: 'DSIP Spray for Research | Delta Sleep-Inducing Peptide',
+    seoDescription: 'DSIP Spray for laboratory research into peptide signaling, sleep-related biology, and neurophysiology. Research use only with batch documentation.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>DSIP stands for Delta Sleep-Inducing Peptide. It is a synthetic nonapeptide associated with research into sleep regulation and neurophysiology. The peptide was characterized in early studies as a sequence consisting of nine amino acids: Trp-Ala-Gly-Gly-Asp-Ala-Ser-Gly-Glu.</p>
+<p>DSIP research has historically focused on biological processes connected with sleep and electrophysiological activity. Scientific literature has also examined relationships involving neurotransmitter levels, circadian and locomotor patterns, hormonal signaling, and neuropharmacological processes.</p>
+<p>The name "Delta Sleep-Inducing Peptide" describes the compound's history in sleep-related research, but it should not be interpreted as a clinical claim or indication. Research findings have varied across experimental models, and historical human studies do not establish the safety or efficacy of a modern DSIP spray product.</p>
+<h4>Composition</h4>
+<p>DSIP is a peptide consisting of nine amino acid residues. Its commonly reported sequence is:</p>
+<p>Trp-Ala-Gly-Gly-Asp-Ala-Ser-Gly-Glu</p>
+<p>The spray format is a product presentation rather than a different peptide sequence. Researchers should rely on the applicable product documentation and lot-specific Certificate of Analysis (COA) for the precise specifications of the material supplied.</p>
+<h4>Research Purpose</h4>
+<p>DSIP is relevant to laboratory investigations involving:</p>
+<ul>
+<li>Peptide structure and synthesis</li>
+<li>Neurophysiology</li>
+<li>Sleep-related biological processes</li>
+<li>Electrophysiological activity</li>
+<li>Neurotransmitter-related research</li>
+<li>Circadian biology</li>
+<li>Peptide signaling</li>
+<li>Neuroendocrine research</li>
+<li>Experimental pharmacology</li>
+<li>Receptor and pathway studies</li>
+</ul>
+<p>Historical publications have investigated DSIP in controlled experimental settings, including studies examining sleep behavior and polysomnographic measurements. Those studies should be treated as scientific literature rather than evidence for therapeutic use of a contemporary commercial spray formulation.</p>
+<h4>Product Highlights</h4>
+<p>DSIP Spray may be considered by laboratories looking for a defined DSIP research material in a spray presentation. For experimental planning, researchers should verify the current product specification, lot documentation, analytical results, and compatibility with their own validated research protocol.</p>
+<h4>Key Features</h4>
+<ul>
+<li>Contains Delta Sleep-Inducing Peptide (DSIP)</li>
+<li>Synthetic nonapeptide research material</li>
+<li>Spray-format presentation</li>
+<li>Intended for laboratory and scientific research only</li>
+<li>Relevant to neurobiology and sleep-related research</li>
+<li>Suitable for investigation of peptide signaling and biological pathways</li>
+<li>Research applications may include electrophysiology and neurophysiology</li>
+<li>Product documentation should be reviewed before experimental use</li>
+<li>Lot-specific analytical information should be matched with the received product</li>
+<li>Not intended for human or veterinary administration</li>
+</ul>
+<h4>Why Choose DSIP Spray from Helix Bio?</h4>
+<p>Selecting a research peptide is primarily a documentation and quality-control decision. Researchers need to know what compound they are studying, how the material was characterized, and which analytical results correspond to the specific batch.</p>
+<p>Helix Bio states that its research peptide catalog is supported by batch-specific Certificate of Analysis documentation and independent HPLC and mass spectrometry testing. HPLC can be used to assess chromatographic purity, while mass spectrometry provides molecular-weight and identity information. These analytical approaches address different quality attributes and are most useful when interpreted together.</p>
+<p>For DSIP Spray, researchers should review the applicable documentation rather than relying solely on a general product description. The lot number on the product should correspond with the analytical documentation supplied for that lot.</p>
+<h4>Who This Product Is For</h4>
+<p>DSIP Spray is intended for qualified users conducting legitimate laboratory or scientific research, including:</p>
+<ul>
+<li>Academic researchers</li>
+<li>Biotechnology laboratories</li>
+<li>Pharmaceutical research groups</li>
+<li>Contract research organizations</li>
+<li>Research institutions</li>
+<li>Qualified laboratory professionals</li>
+<li>Scientific investigators studying peptide biology</li>
+<li>Educational laboratories with appropriate research oversight</li>
+</ul>
+<p>It is not intended for consumers seeking a product for personal use.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>DSIP Spray</td></tr>
+<tr><td>Scientific Name</td><td>Delta Sleep-Inducing Peptide</td></tr>
+<tr><td>Abbreviation</td><td>DSIP</td></tr>
+<tr><td>Peptide Type</td><td>Synthetic nonapeptide</td></tr>
+<tr><td>Research Category</td><td>Specialty & Hormonal Peptides / Neurobiological Research</td></tr>
+<tr><td>Format</td><td>Spray</td></tr>
+<tr><td>Intended Use</td><td>Research and laboratory use only</td></tr>
+<tr><td>Human Use</td><td>Not intended for human use</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended for veterinary use</td></tr>
+<tr><td>Purity</td><td>Refer to current lot-specific COA</td></tr>
+<tr><td>Identity Testing</td><td>Refer to applicable analytical documentation</td></tr>
+<tr><td>HPLC Testing</td><td>Refer to current lot documentation</td></tr>
+<tr><td>Mass Spectrometry</td><td>Refer to current lot documentation</td></tr>
+<tr><td>Packaging</td><td>Research-use product packaging; verify current product listing</td></tr>
+<tr><td>Manufacturer / Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Country of Origin</td><td>Not specified; confirm with supplier documentation</td></tr>
+<tr><td>Shelf Life</td><td>Refer to product documentation and lot-specific information</td></tr>
+</tbody>
+</table>
+<p>Product specifications can vary by product and lot. Researchers should use the current COA and product documentation as the controlling source for analytical specifications.</p>
+<h4>Research / Applications</h4>
+<p>DSIP is primarily of interest in research examining biological mechanisms related to neurophysiology and sleep-associated signaling.</p>
+<h4>Sleep and Sleep-Architecture Research</h4>
+<p>Researchers have historically examined DSIP in relation to sleep behavior and sleep architecture. Early human studies investigated changes in sleep-related measurements following experimental administration, while later research assessed polysomnographic variables. Results across studies should be interpreted carefully because experimental designs, formulations, administration routes, populations, and analytical methods differ.</p>
+<h4>Neurophysiology</h4>
+<p>DSIP has been investigated in connection with electrophysiological activity. This makes it relevant to experimental research examining relationships between peptide signaling and measurable neural activity.</p>
+<h4>Neurotransmitter Research</h4>
+<p>NCBI's MeSH classification describes research involving DSIP in relation to neurotransmitter levels and neuropharmacological activity. This provides a useful framework for laboratory investigations of peptide-associated signaling pathways.</p>
+<h4>Circadian and Behavioral Research</h4>
+<p>Published scientific references have examined DSIP in relation to circadian and locomotor patterns. Such research may be relevant to experimental models investigating biological timing and behavioral physiology.</p>
+<h4>Peptide Chemistry and Analytical Research</h4>
+<p>Because DSIP is a defined nonapeptide, it can also be relevant to laboratory work involving peptide synthesis, characterization, analytical chemistry, stability assessment, and structure-related studies.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity & Quality Standards</h4>
+<h4>HPLC Purity Testing</h4>
+<p>High-performance liquid chromatography (HPLC) is commonly used to evaluate peptide purity by separating the target peptide from related compounds and impurities. The resulting chromatogram can provide information about the relative purity of the principal peptide component.</p>
+<p>Helix Bio states that its research peptide batches undergo independent HPLC testing and that batch-specific analytical documentation is available.</p>
+<h4>Mass Spectrometry</h4>
+<p>Mass spectrometry provides molecular-weight information that can be used to assess whether the measured material is consistent with the expected molecular identity.</p>
+<p>HPLC and mass spectrometry serve different analytical purposes. HPLC primarily addresses chromatographic purity, while mass spectrometry supports identity and molecular-weight confirmation.</p>
+<h4>Certificate of Analysis</h4>
+<p>A useful COA should identify the applicable batch or lot and provide relevant analytical information. Researchers should check that:</p>
+<ul>
+<li>The lot number matches the material received.</li>
+<li>The reported compound corresponds to the product purchased.</li>
+<li>The analytical results are clearly identified.</li>
+<li>Testing dates and laboratory information are available where applicable.</li>
+<li>The reported specifications are appropriate for the planned research.</li>
+</ul>
+<p>Helix Bio's website states that batch-specific COA documentation is provided for its research peptide products.</p>
+<p>No certification, accreditation, or third-party laboratory credential should be assumed unless it is explicitly documented for the relevant batch or supplier.</p>
+<h4>Storage & Handling</h4>
+<p>Researchers should follow the current storage requirements supplied with the product and any instructions listed on the applicable COA.</p>
+<p>General laboratory considerations include:</p>
+<ul>
+<li>Keep the product protected from excessive heat.</li>
+<li>Protect peptide materials from unnecessary light exposure.</li>
+<li>Minimize moisture exposure where appropriate.</li>
+<li>Follow the product-specific storage temperature.</li>
+<li>Keep the container appropriately sealed when not being evaluated.</li>
+<li>Avoid unnecessary temperature cycling.</li>
+<li>Record lot information and storage conditions as part of laboratory documentation.</li>
+<li>Follow the applicable laboratory's chemical and biological material handling procedures.</li>
+</ul>
+<p>For reconstituted or otherwise altered research materials, storage requirements can differ substantially from those of the original product. Researchers should not infer a reconstituted product's stability or shelf life without supporting data.</p>
+<h4>Shipping & Packaging</h4>
+<p>Helix Bio describes its research materials as products intended for laboratory and scientific research and states that its fulfillment process includes packaging and tracked shipping for research orders.</p>
+<p>Shipping availability, packaging configuration, carrier selection, delivery timelines, and applicable restrictions can change. Researchers should consult the current Helix Bio shipping information before placing an order.</p>
+<p>For research integrity, retain the original packaging, product identifier, lot number, and applicable COA with the laboratory's purchasing and experimental records.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>DSIP Spray is supplied by Helix Bio for research and laboratory purposes only.</p>
+<p>This product is not intended for human or veterinary use, ingestion, injection, inhalation, topical administration, or any other form of administration to humans or animals. It is not intended to diagnose, treat, cure, mitigate, or prevent any disease or medical condition.</p>
+<p>The information on this page is provided for scientific and educational reference and does not constitute medical advice, dosing instructions, treatment guidance, or a recommendation for human use.</p>
+<p>Helix Bio states that its products have not been evaluated or approved by the U.S. Food and Drug Administration (FDA) for the uses described above and that the company is not a compounding pharmacy. Researchers are responsible for determining whether their intended research activities comply with applicable federal, state, institutional, laboratory, and other requirements.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is DSIP?', answer: 'DSIP stands for Delta Sleep-Inducing Peptide. It is a synthetic nonapeptide that has been investigated in research involving sleep-related biology, neurophysiology, electrophysiological activity, and peptide signaling.' },
+      { question: 'What does DSIP Spray contain?', answer: 'DSIP Spray is a spray-format research preparation identified as containing Delta Sleep-Inducing Peptide. Researchers should consult the current product documentation and lot-specific COA for the exact specifications of the material supplied.' },
+      { question: 'What is DSIP used for in research?', answer: 'DSIP has been studied in areas including sleep-related physiology, neurophysiology, electrophysiology, neurotransmitter research, circadian biology, and experimental peptide signaling.' },
+      { question: 'Is DSIP Spray approved for human use?', answer: 'No human-use approval should be inferred from this research product listing. Helix Bio identifies its products as research and laboratory materials and states that they are not intended for human or veterinary administration.' },
+      { question: 'Does DSIP Spray have a therapeutic purpose?', answer: 'This product page does not make therapeutic claims. DSIP is supplied as a research material, and historical scientific studies should not be interpreted as evidence that this commercial spray is safe or effective for treating a medical condition.' },
+      { question: 'What is the amino acid sequence of DSIP?', answer: 'DSIP is commonly described as the nonapeptide Trp-Ala-Gly-Gly-Asp-Ala-Ser-Gly-Glu. The sequence was reported in early structural research on the compound.' },
+      { question: 'Has DSIP been studied in humans?', answer: 'Yes. Historical studies examined DSIP in small human research settings, including investigations of sleep behavior and polysomnographic measurements. These older studies used specific experimental formulations and administration methods and should not be generalized to a modern DSIP spray product.' },
+      { question: 'How should researchers verify DSIP quality?', answer: 'Researchers should review the batch-specific Certificate of Analysis and compare the lot number with the material received. HPLC results can provide information about chromatographic purity, while mass spectrometry can support molecular identity and molecular-weight confirmation.' },
+      { question: 'How should DSIP Spray be stored?', answer: 'Storage should follow the current product documentation and applicable COA. Researchers should protect peptide materials from inappropriate temperatures, excessive light, and moisture and avoid unnecessary temperature cycling.' },
+      { question: 'Is DSIP Spray the same as injectable DSIP?', answer: 'The peptide identity may be related, but a spray formulation and an injectable formulation are different product presentations. Formulation, concentration, route, excipients, stability, and analytical specifications should not be assumed to be interchangeable.' },
+      { question: 'Can DSIP Spray be used in a human sleep study?', answer: 'Any research involving human subjects requires appropriate institutional, ethical, regulatory, and scientific oversight. This product is sold as a research-use-only material and is not represented as approved or formulated for human administration.' },
+    ],
+    variants: [
+      { sku: 'SPR-DSIP-10MG', strength: '10mg', price: 21 },
+    ],
+  },
+{
+    name: 'KPV Spray',
+    slug: 'kpv-spray',
+    imageFile: 'KPV Spray 5MG.png',
+    categoryName: 'Nasal & Topical Sprays',
+    description: 'KPV Spray is a research-use formulation containing KPV, a short tripeptide composed of lysine, proline, and valine. KPV corresponds to the C-terminal tripeptide sequence of alpha-melanocyte-stimulating hormone (α-MSH) and has been investigated in laboratory research involving peptide signaling, cellular pathways, intestinal biology, and molecular interactions.\n\nHelix Bio supplies KPV Spray strictly as a research and laboratory material. It is intended for qualified researchers and controlled experimental environments and is not intended for human or veterinary use.',
+    seoTitle: 'KPV Spray Research Peptide | Helix Bio',
+    seoDescription: 'KPV Spray for research use only, with KPV peptide material for laboratory studies of peptide signaling, molecular biology, and cellular pathways.',
+    productDetailsDescription: `
+<h4>What Is KPV?</h4>
+<p>KPV, commonly written as Lys-Pro-Val, is a three-amino-acid peptide sequence derived from the C-terminal region of α-MSH. Its compact structure makes it useful for laboratory investigation of short-peptide interactions and biological signaling.</p>
+<p>Research has examined KPV in cellular and animal models, including studies of peptide transport and inflammatory signaling pathways. For example, published research has investigated the relationship between KPV and PepT1, an oligopeptide transporter expressed in intestinal epithelial and immune cells.</p>
+<p>These findings are experimental and should not be interpreted as evidence of clinical efficacy or as a basis for human use.</p>
+<h4>KPV Spray for Laboratory Research</h4>
+<p>KPV Spray provides researchers with a spray-format research material for experimental workflows where the supplied formulation is appropriate. The exact concentration, vehicle, formulation characteristics, and other lot-specific details should be confirmed using the current product documentation before inclusion in a study.</p>
+<p>KPV research is particularly relevant to investigators examining:</p>
+<ul>
+<li>Peptide structure and sequence-function relationships</li>
+<li>Cellular signaling pathways</li>
+<li>Peptide transporter biology</li>
+<li>PepT1-mediated peptide uptake</li>
+<li>Molecular interactions involving short bioactive peptides</li>
+<li>Cell-based experimental models</li>
+<li>Intestinal epithelial research</li>
+<li>Inflammatory signaling pathways in preclinical models</li>
+<li>α-MSH-derived peptide biology</li>
+</ul>
+<p>Published studies have reported experimental effects involving KPV and signaling pathways such as NF-κB and MAP kinase in cellular and animal research models. These observations remain research findings and should not be presented as established human therapeutic effects.</p>
+<h4>Key Features</h4>
+<ul>
+<li>KPV research peptide in spray format</li>
+<li>KPV consists of the amino-acid sequence Lys-Pro-Val</li>
+<li>Related to the C-terminal sequence of α-MSH</li>
+<li>Suitable for controlled laboratory and scientific research</li>
+<li>Relevant to peptide signaling and molecular biology research</li>
+<li>Applicable to experimental studies of peptide transport and cellular pathways</li>
+<li>Research-use-only positioning</li>
+<li>Product-specific specifications should be verified against the applicable lot documentation</li>
+<li>No human or veterinary administration intended</li>
+</ul>
+<h4>Why Choose KPV Spray for Research?</h4>
+<p>KPV is a particularly small peptide, which allows researchers to investigate the behavior of a defined three-residue sequence without the structural complexity of a larger peptide.</p>
+<p>Its connection to α-MSH-derived peptide biology also makes KPV relevant to studies examining how short peptide sequences interact with biological systems. Published research has explored KPV uptake through PepT1 and its effects in experimental cellular and animal models.</p>
+<p>For laboratory work, documentation matters as much as the compound itself. Researchers evaluating KPV Spray should review the applicable lot information, analytical documentation, formulation details, and storage requirements before beginning an experiment.</p>
+<h4>Who This Product Is For</h4>
+<p>KPV Spray is intended for qualified users conducting legitimate laboratory or scientific research, including:</p>
+<ul>
+<li>Academic researchers</li>
+<li>Pharmaceutical and biotechnology research teams</li>
+<li>Molecular biology laboratories</li>
+<li>Biochemistry laboratories</li>
+<li>Cellular biology researchers</li>
+<li>Preclinical research laboratories</li>
+<li>Qualified scientific professionals</li>
+<li>Educational or institutional laboratories with appropriate facilities</li>
+</ul>
+<p>It is not intended for consumers seeking a therapeutic, cosmetic, nutritional, or wellness product.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>KPV Spray</td></tr>
+<tr><td>Peptide</td><td>KPV (Lys-Pro-Val)</td></tr>
+<tr><td>Peptide Type</td><td>Short tripeptide</td></tr>
+<tr><td>Research Category</td><td>Specialty / Research Peptide</td></tr>
+<tr><td>Format</td><td>Spray</td></tr>
+<tr><td>Intended Use</td><td>Research and laboratory use only</td></tr>
+<tr><td>Human Use</td><td>Not intended</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended</td></tr>
+<tr><td>Concentration</td><td>Verify current product label and lot documentation</td></tr>
+<tr><td>Formulation / Vehicle</td><td>Verify current product documentation</td></tr>
+<tr><td>Purity</td><td>Verify current lot-specific COA</td></tr>
+<tr><td>Molecular Identity</td><td>Verify current lot-specific analytical documentation</td></tr>
+<tr><td>Storage</td><td>Follow the current product label and COA</td></tr>
+<tr><td>Packaging</td><td>Verify current product listing</td></tr>
+<tr><td>Manufacturer / Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Country of Origin</td><td>Not specified; verify current product documentation</td></tr>
+</tbody>
+</table>
+<h4>Research / Applications</h4>
+<h4>Peptide Signaling Research</h4>
+<p>KPV can be used as a defined peptide reagent in experimental studies examining how short peptide sequences participate in molecular signaling.</p>
+<h4>PepT1 and Peptide Transport Research</h4>
+<p>KPV has been investigated in connection with PepT1, a transporter involved in the uptake of small peptides. Research has used cellular and animal models to investigate how KPV interacts with this transport pathway.</p>
+<h4>Cellular Biology</h4>
+<p>Researchers may investigate KPV in controlled cell-based experiments examining peptide-cell interactions, signaling pathways, gene-expression responses, or molecular mechanisms.</p>
+<h4>α-MSH-Derived Peptide Research</h4>
+<p>Because KPV represents the C-terminal tripeptide sequence of α-MSH, it can serve as a research material for studying relationships between peptide sequence, receptor biology, and downstream molecular responses.</p>
+<h4>Preclinical Model Research</h4>
+<p>Published studies have investigated KPV in experimental models of intestinal inflammation. These studies are preclinical and should not be interpreted as evidence that KPV is an established treatment for any human condition.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity & Quality Standards</h4>
+<p>For research peptides, analytical documentation is important because impurities or incorrect molecular identity can affect experimental interpretation.</p>
+<p>Helix Bio states that its research catalog uses HPLC purity testing and mass spectrometry for identity confirmation and provides batch-specific certificate of analysis documentation. The company's general site also states that product purity can vary by product and lot, so researchers should rely on the current lot-specific documentation rather than assuming a universal purity value.</p>
+<p>Before using KPV Spray in a research workflow, researchers should check:</p>
+<ul>
+<li>Lot or batch number</li>
+<li>Reported purity</li>
+<li>Molecular-weight or identity confirmation</li>
+<li>Testing date</li>
+<li>Applicable formulation information</li>
+<li>Storage requirements</li>
+<li>Any available certificate of analysis</li>
+</ul>
+<p>HPLC and mass spectrometry provide different types of information. HPLC is commonly used to assess chromatographic purity, while mass spectrometry can help confirm molecular mass and identity. Using both approaches provides a more complete analytical picture than relying on a single measurement.</p>
+<p>No certification, regulatory approval, or third-party result should be assumed unless it is documented for the specific product or batch.</p>
+<h4>Storage & Handling</h4>
+<p>Storage requirements can depend on the specific formulation, container, concentration, and stability characteristics of the supplied material.</p>
+<p>Researchers should:</p>
+<ul>
+<li>Follow the storage conditions stated on the current product label and COA.</li>
+<li>Protect the product from unnecessary heat, moisture, and direct light.</li>
+<li>Keep the container properly closed when not in use.</li>
+<li>Avoid repeated temperature cycling where possible.</li>
+<li>Use appropriate laboratory handling procedures.</li>
+<li>Maintain lot identification throughout the research workflow.</li>
+<li>Follow institutional procedures for handling research chemicals and peptide reagents.</li>
+<li>Do not use the product for human or veterinary administration.</li>
+</ul>
+<p>If the product documentation specifies storage conditions that differ from general peptide-handling practices, the product-specific documentation should take priority.</p>
+<h4>Shipping & Packaging</h4>
+<p>KPV Spray should be handled as a research material and kept within the storage and handling conditions specified by its product documentation.</p>
+<p>Helix Bio's website describes research-oriented packaging and tracked shipping to laboratories, along with cold-chain handling as part of its stated research supply process. Researchers should confirm the current shipping method, packaging specifications, availability, and delivery conditions before placing an order.</p>
+<p>Do not assume that a shipping method or storage condition applies to every formulation or product unless it is stated in the current product documentation.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>KPV Spray is supplied by Helix Bio for research and laboratory purposes only. It is not intended for human or veterinary use, ingestion, injection, administration, diagnosis, treatment, cure, or prevention of any disease or medical condition.</p>
+<p>KPV is an experimental research compound, and findings from cellular, biochemical, or animal studies do not establish safety or efficacy in humans. Researchers are responsible for determining whether a material is appropriate for their specific experimental protocol and for complying with applicable institutional, federal, state, and local requirements.</p>
+<p>The information on this page is educational and research-focused and should not be interpreted as medical advice or a recommendation for human use.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is KPV Spray?', answer: 'KPV Spray is a spray-format research material containing KPV, a three-amino-acid peptide consisting of lysine, proline, and valine. It is supplied for laboratory research rather than human or veterinary use.' },
+      { question: 'What does KPV stand for?', answer: 'KPV refers to the amino-acid sequence Lys-Pro-Val. It represents the C-terminal tripeptide sequence of α-MSH and has been studied in several experimental research contexts.' },
+      { question: 'What is KPV studied for in research?', answer: 'KPV has been investigated in research involving peptide transport, cellular signaling, molecular biology, intestinal epithelial models, and experimental inflammatory pathways. Much of the available evidence is preclinical.' },
+      { question: 'Is KPV Spray intended for human use?', answer: 'No. KPV Spray from Helix Bio is positioned as a research-use-only material and is not intended for human or veterinary administration.' },
+      { question: 'Does KPV Spray have a specific concentration?', answer: 'The concentration and formulation should be confirmed from the current product label and applicable lot documentation. Researchers should not infer concentration from the product name alone.' },
+      { question: 'How should KPV Spray be stored?', answer: 'Researchers should follow the storage conditions provided on the current product label and COA. Temperature, light exposure, and formulation can affect appropriate storage requirements.' },
+      { question: 'Does Helix Bio provide a COA for research peptides?', answer: 'Helix Bio states that batch-specific certificate of analysis documentation is available for its research products. Researchers should match the COA\'s lot or batch number with the material received.' },
+      { question: 'What does HPLC testing tell a researcher?', answer: 'HPLC, or high-performance liquid chromatography, is commonly used to assess chromatographic purity and separate the target peptide from related substances and impurities.' },
+      { question: 'Why is mass spectrometry useful for KPV research?', answer: 'Mass spectrometry can help verify molecular mass and support molecular identity. When considered alongside HPLC data, it gives researchers additional information for evaluating a peptide material.' },
+      { question: 'Is KPV FDA approved?', answer: 'Researchers should not interpret KPV as an FDA-approved therapeutic product. Helix Bio states that its research products are not intended for human or veterinary use and that its website content has not been evaluated or approved by the FDA.' },
+      { question: 'Can KPV research findings be used to make medical claims?', answer: 'No. Results from cell culture or animal experiments cannot automatically be translated into established human safety or efficacy. KPV research findings should be presented within their appropriate experimental context.' },
+    ],
+    variants: [
+      { sku: 'SPR-KPV-5MG', strength: '5mg', price: 31 },
+    ],
+  },
+{
+    name: 'VIP Spray',
+    slug: 'vip-spray',
+    imageFile: 'VIP spray 10MG.png',
+    categoryName: 'Nasal & Topical Sprays',
+    description: 'VIP Spray is a research-use formulation associated with vasoactive intestinal peptide (VIP), a naturally occurring 28-amino-acid neuropeptide belonging to the secretin/glucagon peptide family. VIP has been studied extensively in receptor pharmacology, neurobiology, gastrointestinal physiology, vascular signaling, smooth-muscle biology, and cellular signaling.\n\nHelix Bio supplies VIP Spray strictly as a research and laboratory material. It is intended for qualified researchers investigating VIP-related molecular pathways and is not intended for human or veterinary administration.',
+    seoTitle: 'VIP Spray | Research-Use Vasoactive Intestinal Peptide',
+    seoDescription: 'VIP Spray for laboratory research involving vasoactive intestinal peptide, VPAC receptors, and peptide signaling. Research use only with batch documentation.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>Vasoactive intestinal peptide, commonly abbreviated as VIP, is an endogenous neuropeptide composed of 28 amino acids. It is widely distributed throughout the nervous system and peripheral tissues and has been investigated for its role in several biological signaling processes.</p>
+<p>A major area of VIP research involves the G-protein-coupled receptors VPAC1 and VPAC2, also known as VIPR1 and VIPR2. Research has characterized VIP interactions with these receptors and examined downstream signaling involving adenylate cyclase and cyclic AMP pathways.</p>
+<p>VIP Spray provides researchers with a spray-format research material for controlled laboratory investigation. Because formulation, concentration, stability, and analytical specifications can vary between products, researchers should review the current product documentation and applicable batch-specific Certificate of Analysis (COA) before incorporating the material into a study.</p>
+<h4>Composition and Research Context</h4>
+<p>VIP is a peptide ligand associated primarily with the VPAC receptor system. Published research has examined VIP in relation to:</p>
+<ul>
+<li>VPAC1 and VPAC2 receptor activation</li>
+<li>G-protein-coupled receptor signaling</li>
+<li>Cyclic AMP-related cellular pathways</li>
+<li>Neurobiology and neural signaling</li>
+<li>Gastrointestinal physiology</li>
+<li>Vascular and smooth-muscle signaling</li>
+<li>Peptide-receptor interactions</li>
+<li>Cellular and molecular pharmacology</li>
+</ul>
+<p>VIP receptor biology is particularly relevant to researchers studying how peptide ligands influence receptor-mediated signaling across different tissues and experimental models.</p>
+<h4>Intended Research Use</h4>
+<p>VIP Spray is intended solely for laboratory and scientific research. It may be relevant to controlled research programs examining peptide signaling, receptor pharmacology, neuropeptide biology, and related molecular mechanisms.</p>
+<p>It is not intended to diagnose, treat, cure, prevent, or mitigate any disease or medical condition.</p>
+<h4>Key Features</h4>
+<ul>
+<li>Contains VIP-associated research material in spray format</li>
+<li>Relevant to vasoactive intestinal peptide research</li>
+<li>Suitable for laboratory and scientific investigation</li>
+<li>Relevant to VPAC1 and VPAC2 receptor research</li>
+<li>Supports research into peptide-receptor interactions and signaling</li>
+<li>Appropriate for controlled experimental workflows</li>
+<li>Batch documentation should be reviewed before research use</li>
+<li>Research-use-only positioning</li>
+<li>Not intended for human or veterinary administration</li>
+</ul>
+<h4>Why Choose VIP Spray for Research?</h4>
+<p>Researchers studying neuropeptide biology often need clearly identified research materials with supporting analytical information. VIP is particularly useful as a research subject because its interactions with VPAC1 and VPAC2 receptors have been characterized in molecular and pharmacological studies.</p>
+<p>The spray format may also be relevant when researchers are specifically investigating formulation or delivery variables as part of an experimental design. However, the presence of a spray format should not be interpreted as evidence of suitability for human administration.</p>
+<p>Helix Bio states that its research materials are supported by batch-specific documentation and third-party HPLC and mass-spectrometry testing. Researchers should verify the applicable lot documentation rather than relying solely on general product specifications.</p>
+<h4>Who This Product Is For</h4>
+<p>VIP Spray is intended for qualified users conducting legitimate laboratory or scientific research, including:</p>
+<ul>
+<li>Academic researchers</li>
+<li>Biotechnology laboratories</li>
+<li>Pharmaceutical research teams</li>
+<li>Molecular biology laboratories</li>
+<li>Peptide and receptor pharmacology researchers</li>
+<li>Educational and scientific institutions</li>
+<li>Qualified laboratory professionals</li>
+</ul>
+<p>The material is not intended for consumers seeking products for personal use.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>VIP Spray</td></tr>
+<tr><td>Active Research Material</td><td>Vasoactive Intestinal Peptide (VIP)</td></tr>
+<tr><td>Category</td><td>Specialty & Hormonal Peptides</td></tr>
+<tr><td>Peptide Type</td><td>Neuropeptide</td></tr>
+<tr><td>Molecular Length</td><td>28 amino acids</td></tr>
+<tr><td>Primary Research Area</td><td>VIP/VPAC receptor and peptide-signaling research</td></tr>
+<tr><td>Format</td><td>Spray</td></tr>
+<tr><td>Research Use</td><td>Laboratory and scientific research only</td></tr>
+<tr><td>Human Use</td><td>Not intended for human use</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended for veterinary use</td></tr>
+<tr><td>Purity</td><td>Refer to the current lot-specific COA</td></tr>
+<tr><td>Identity Testing</td><td>Refer to current batch documentation</td></tr>
+<tr><td>Storage</td><td>Follow the current product label and COA</td></tr>
+<tr><td>Manufacturer/Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Country of Origin</td><td>Not specified; verify current product documentation</td></tr>
+</tbody>
+</table>
+<h4>Research / Applications</h4>
+<p>VIP has a broad scientific research history, making it relevant to several areas of peptide and receptor biology.</p>
+<h4>VPAC Receptor Research</h4>
+<p>VIP primarily interacts with two receptors, VPAC1 and VPAC2. Both are G-protein-coupled receptors and have been investigated in relation to VIP-mediated signaling.</p>
+<p>Researchers may therefore use VIP-related materials when studying:</p>
+<ul>
+<li>Receptor-ligand binding</li>
+<li>VPAC1 receptor biology</li>
+<li>VPAC2 receptor biology</li>
+<li>G-protein signaling</li>
+<li>Adenylate cyclase activity</li>
+<li>cAMP-associated signaling</li>
+<li>Receptor selectivity</li>
+<li>Peptide-receptor structure and interactions</li>
+</ul>
+<h4>Neurobiology Research</h4>
+<p>VIP is a neuropeptide with documented activity in neural signaling research. Experimental literature has investigated VIP-mediated effects on synaptic transmission and the involvement of VPAC receptors in neural systems.</p>
+<h4>Gastrointestinal and Smooth-Muscle Research</h4>
+<p>VIP has also been studied in gastrointestinal physiology and smooth-muscle signaling. Research into VIP receptor biology can help investigators characterize how peptide signaling relates to gastrointestinal and smooth-muscle systems.</p>
+<h4>Cellular Signaling Research</h4>
+<p>The VPAC receptor family is associated with G-protein-dependent signaling pathways involving adenylate cyclase and cyclic AMP. This makes VIP relevant to laboratory models examining receptor activation and intracellular signaling mechanisms.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity & Quality Standards</h4>
+<p>Analytical documentation is important when working with peptide research materials because impurities or incorrect molecular identity can affect experimental interpretation.</p>
+<p>Helix Bio states that its research peptide catalog uses HPLC testing for purity and mass spectrometry for molecular identity, with batch-specific Certificates of Analysis available for products.</p>
+<p>For VIP Spray, researchers should verify the current lot-specific documentation before beginning an experiment. The applicable COA should be matched to the product's lot or batch information.</p>
+<p>A useful research-quality review should consider:</p>
+<ul>
+<li>HPLC purity results</li>
+<li>Molecular-weight confirmation</li>
+<li>Batch or lot identification</li>
+<li>Testing date</li>
+<li>Available analytical documentation</li>
+<li>Product-specific storage requirements</li>
+<li>Formulation and handling information</li>
+</ul>
+<p>No certification, purity percentage, or testing result should be assumed unless it is supported by current product-specific documentation.</p>
+<h4>Storage & Handling</h4>
+<p>Storage conditions should always follow the product label, current COA, and supplier documentation for the specific formulation.</p>
+<p>General research-material handling principles include:</p>
+<ul>
+<li>Store according to the current product-specific instructions.</li>
+<li>Protect the material from excessive heat, light, and moisture when applicable.</li>
+<li>Avoid unnecessary temperature fluctuations.</li>
+<li>Keep the container appropriately sealed when not being used for a study.</li>
+<li>Maintain appropriate laboratory handling and documentation procedures.</li>
+<li>Do not use a product beyond its documented storage or stability window.</li>
+<li>Record lot information when introducing research material into an experimental workflow.</li>
+</ul>
+<p>Researchers should not assume that storage requirements for a conventional lyophilized peptide apply identically to a spray formulation.</p>
+<h4>Shipping & Packaging</h4>
+<p>Helix Bio states that its research products are shipped to research laboratories and institutions and that its processes include cold-chain handling and tracked shipping. Current shipping terms, packaging details, availability, and delivery conditions should be confirmed through the applicable company policy before ordering.</p>
+<p>Researchers should inspect the received package and product documentation before introducing any material into a laboratory workflow. Any discrepancy between the product label, lot number, packaging, or COA should be resolved before use.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>VIP Spray is supplied by Helix Bio for research and laboratory purposes only.</p>
+<p>This product is not intended for human or veterinary use, ingestion, injection, inhalation, or any other form of administration. It is not intended to diagnose, treat, cure, mitigate, or prevent any disease or medical condition.</p>
+<p>The product has not been evaluated or approved by the U.S. Food and Drug Administration (FDA) for human or veterinary use. It is not a dietary supplement, prescription medication, or over-the-counter drug.</p>
+<p>Research materials should be handled only by appropriately qualified personnel under suitable laboratory conditions and according to applicable institutional, federal, state, and local requirements.</p>
+<p>Researchers are responsible for reviewing the current product documentation, COA, applicable regulations, and institutional requirements before using any research material.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is VIP Spray?', answer: 'VIP Spray is a research-use formulation associated with vasoactive intestinal peptide (VIP), a 28-amino-acid neuropeptide studied in receptor pharmacology, neurobiology, gastrointestinal physiology, and cellular signaling.' },
+      { question: 'What does VIP stand for?', answer: 'VIP stands for vasoactive intestinal peptide. It is an endogenous neuropeptide that has been studied extensively in molecular and physiological research.' },
+      { question: 'What receptors does VIP interact with?', answer: 'VIP is primarily associated with the VPAC1 and VPAC2 receptors, which are G-protein-coupled receptors involved in VIP-related cellular signaling.' },
+      { question: 'What is VIP Spray used for in research?', answer: 'VIP Spray is intended for laboratory research involving VIP biology, peptide-receptor interactions, VPAC receptor signaling, neuropeptide research, and related cellular or molecular studies.' },
+      { question: 'Is VIP Spray intended for human use?', answer: 'No. Helix Bio identifies its research products as laboratory materials and states that they are not intended for human or veterinary administration.' },
+      { question: 'Is VIP a peptide?', answer: 'Yes. VIP is a naturally occurring 28-amino-acid neuropeptide belonging to the secretin/glucagon peptide family.' },
+      { question: 'Does VIP research involve cAMP signaling?', answer: 'Yes. Research on VPAC receptors has shown that these receptors are preferentially coupled to Gαs proteins, leading to activation of adenylate cyclase and increased cyclic AMP signaling.' },
+      { question: 'What should researchers check before purchasing VIP Spray?', answer: 'Researchers should review the product specifications, lot number, current Certificate of Analysis, purity results, identity confirmation, storage information, and applicable research-use restrictions.' },
+      { question: 'Does Helix Bio provide a Certificate of Analysis?', answer: 'Helix Bio states that batch-specific Certificates of Analysis are available for its research products and describes HPLC and mass spectrometry testing as part of its quality documentation. Researchers should verify the COA for the specific lot purchased.' },
+      { question: 'How should VIP Spray be stored?', answer: 'Storage should follow the current product label and lot-specific documentation. Researchers should not automatically apply storage instructions for another VIP formulation to a spray-format product.' },
+      { question: 'Can VIP Spray be used as a medication?', answer: 'No. VIP Spray is presented as a research-use-only material and is not marketed by Helix Bio for diagnosis, treatment, prevention, or human or veterinary administration.' },
+      { question: 'Why is batch-specific testing important for peptide research?', answer: 'Batch-specific testing helps researchers verify the identity and purity of the material used in an experiment. HPLC and mass spectrometry provide complementary analytical information that can improve confidence in experimental materials.' },
+    ],
+    variants: [
+      { sku: 'SPR-VIP-10MG', strength: '10mg', price: 32 },
+    ],
+  },
+{
+    name: 'GHK-CU Spray',
+    slug: 'ghk-cu-spray',
+    imageFile: 'GHK-CU spray 50MG.png',
+    categoryName: 'Nasal & Topical Sprays',
+    description: 'GHK-Cu Spray is a research-use formulation containing GHK-Cu, the copper complex of glycyl-L-histidyl-L-lysine (GHK). GHK is a naturally occurring tripeptide that has been investigated extensively for its copper-binding properties, cellular signaling, extracellular-matrix biology, and tissue-remodeling mechanisms.\n\nHelix Bio supplies GHK-Cu Spray strictly for laboratory and scientific research. It is intended for qualified researchers studying copper-peptide chemistry, cellular pathways, peptide biology, and related experimental models. It is not intended for human or veterinary administration.',
+    seoTitle: 'GHK-Cu Spray | Research Copper Peptide | Helix Bio',
+    seoDescription: 'GHK-Cu Spray for research involving copper-binding peptides, cellular signaling, and tissue biology. Research use only with product documentation.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>GHK-Cu refers to a complex formed between the tripeptide GHK and copper(II). GHK stands for glycyl-L-histidyl-L-lysine and consists of three amino acids: glycine, histidine, and lysine. The peptide has a strong affinity for copper ions and can form the GHK-Cu complex under appropriate conditions.</p>
+<p>GHK-Cu has attracted scientific interest because the peptide and its copper complex have been studied across several areas of molecular and cellular biology. Published research has examined its interactions with copper, extracellular-matrix processes, cellular signaling, oxidative biology, and tissue-remodeling pathways.</p>
+<p>GHK-Cu Spray provides the material in a spray-format presentation for research workflows where that formulation is relevant. Researchers should consult the current product documentation and lot-specific Certificate of Analysis (COA) before incorporating the product into an experiment.</p>
+<h4>Composition</h4>
+<p>GHK-Cu is a copper-peptide complex involving the naturally occurring tripeptide GHK and Cu(II). Structural research has investigated how copper coordinates with the peptide, including interactions involving nitrogen-containing groups within the GHK sequence.</p>
+<p>This distinction is important when discussing GHK-Cu research because GHK and GHK-Cu are related but are not identical materials. GHK-Cu specifically refers to the copper-associated complex.</p>
+<h4>Purpose &amp; Intended Use</h4>
+<p>GHK-Cu research can be relevant to investigations involving:</p>
+<ul>
+<li>Copper-peptide coordination chemistry</li>
+<li>Peptide structure and molecular interactions</li>
+<li>Cellular signaling</li>
+<li>Extracellular-matrix biology</li>
+<li>Fibroblast and connective-tissue research</li>
+<li>Oxidative-stress models</li>
+<li>Tissue-remodeling mechanisms</li>
+<li>Peptide formulation research</li>
+<li>Skin biology and topical peptide research</li>
+</ul>
+<p>The scientific literature includes both laboratory and preclinical work. Findings from these models should not automatically be interpreted as evidence of clinical efficacy or suitability for human use.</p>
+<h4>Product Highlights</h4>
+<ul>
+<li>GHK-Cu research material in spray format</li>
+<li>Contains the copper-associated GHK tripeptide complex</li>
+<li>Relevant to copper-peptide research</li>
+<li>Suitable for controlled laboratory investigation</li>
+<li>Relevant to cellular and molecular biology</li>
+<li>Useful for studying peptide-metal interactions</li>
+<li>Applicable to research involving extracellular-matrix biology</li>
+<li>Relevant to formulation and peptide-delivery research</li>
+<li>Research-use-only material</li>
+<li>Not intended for human or veterinary administration</li>
+<li>Product quality should be assessed using current lot-specific documentation</li>
+</ul>
+<h4>Key Features</h4>
+<ul>
+<li>GHK-Cu research material in spray format</li>
+<li>Contains the copper-associated GHK tripeptide complex</li>
+<li>Relevant to copper-peptide research</li>
+<li>Suitable for controlled laboratory investigation</li>
+<li>Relevant to cellular and molecular biology</li>
+<li>Useful for studying peptide-metal interactions</li>
+<li>Applicable to research involving extracellular-matrix biology</li>
+<li>Relevant to formulation and peptide-delivery research</li>
+<li>Research-use-only material</li>
+<li>Not intended for human or veterinary administration</li>
+<li>Product quality should be assessed using current lot-specific documentation</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>GHK-Cu has a well-established research history and remains an interesting model for studying how small peptides interact with metal ions and biological systems. Its copper-binding behavior is particularly relevant to researchers examining peptide-metal coordination and the biological consequences of copper-associated signaling.</p>
+<p>Researchers may also choose a spray-format formulation when their experimental design requires a specific delivery or formulation format. However, formulation should be treated as an experimental characteristic rather than an indication that a research product is suitable for clinical or personal use.</p>
+<p>For research purchasing, documentation is equally important. Investigators should evaluate the product identity, lot information, available analytical results, storage conditions, and current COA before use.</p>
+<h4>Who This Product Is For</h4>
+<p>GHK-Cu Spray is intended for qualified users conducting legitimate scientific or laboratory research, including:</p>
+<ul>
+<li>Academic researchers</li>
+<li>Biotechnology laboratories</li>
+<li>Pharmaceutical research teams</li>
+<li>Molecular biology laboratories</li>
+<li>Peptide chemistry researchers</li>
+<li>Cellular biology laboratories</li>
+<li>Formulation researchers</li>
+<li>Educational and scientific institutions</li>
+<li>Qualified laboratory professionals</li>
+</ul>
+<p>It is not intended for consumers seeking products for personal, cosmetic, or therapeutic use.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>GHK-Cu Spray</td></tr>
+<tr><td>Active Research Material</td><td>GHK-Cu (glycyl-L-histidyl-L-lysine copper complex)</td></tr>
+<tr><td>Category</td><td>Specialty & Hormonal Peptides</td></tr>
+<tr><td>Peptide Type</td><td>Copper-binding tripeptide complex</td></tr>
+<tr><td>Peptide Sequence</td><td>Gly-His-Lys (GHK)</td></tr>
+<tr><td>Copper Component</td><td>Cu(II) associated with GHK</td></tr>
+<tr><td>Format</td><td>Spray</td></tr>
+<tr><td>Primary Research Areas</td><td>Peptide-metal interactions, cellular signaling, tissue biology, formulation research</td></tr>
+<tr><td>Research Use</td><td>Laboratory and scientific research only</td></tr>
+<tr><td>Human Use</td><td>Not intended for human use</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended for veterinary use</td></tr>
+<tr><td>Purity</td><td>Refer to current lot-specific COA</td></tr>
+<tr><td>Identity Testing</td><td>Refer to current batch documentation</td></tr>
+<tr><td>Storage</td><td>Follow current product label and product-specific documentation</td></tr>
+<tr><td>Packaging</td><td>Product-specific; verify current listing</td></tr>
+<tr><td>Manufacturer/Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Country of Origin</td><td>Not specified; verify current product documentation</td></tr>
+</tbody>
+</table>
+<h4>Research / Applications</h4>
+<h4>Copper-Peptide Research</h4>
+<p>One of the defining characteristics of GHK-Cu is its strong interaction with copper ions. Research has investigated the molecular structure and coordination chemistry of the complex, making it relevant to studies involving peptide-metal interactions.</p>
+<p>Potential research topics include:</p>
+<ul>
+<li>Copper-peptide binding</li>
+<li>Metal coordination chemistry</li>
+<li>Peptide structure</li>
+<li>GHK-Cu molecular characterization</li>
+<li>Copper-dependent biochemical processes</li>
+</ul>
+<h4>Cellular Signaling Research</h4>
+<p>GHK and GHK-Cu have been investigated in cellular and molecular models involving gene expression and multiple biological pathways. Reviews have described experimental work examining changes in cellular signaling and gene-regulatory processes associated with GHK-Cu.</p>
+<p>Researchers may therefore use GHK-Cu as a model compound when investigating peptide-associated cellular responses.</p>
+<h4>Extracellular-Matrix and Tissue Biology</h4>
+<p>GHK-Cu has been studied in connection with extracellular-matrix biology, fibroblast activity, collagen-related processes, and tissue remodeling. Much of this literature consists of laboratory, animal, or mechanistic research, so experimental findings should be interpreted within the limits of each model.</p>
+<h4>Oxidative and Cellular Stress Research</h4>
+<p>Published research has examined GHK-Cu in experimental models involving oxidative stress and cellular protective pathways. These findings can provide research context for investigators studying peptide-mediated cellular responses, but they should not be presented as proof of therapeutic effects in humans.</p>
+<h4>Topical and Formulation Research</h4>
+<p>GHK-Cu has also been studied in the context of topical peptide formulations and skin permeation. Recent research has highlighted the importance of experimentally measuring how formulation affects peptide transport rather than assuming that a topical or spray formulation will provide a particular level of biological delivery.</p>
+<p>This makes GHK-Cu Spray potentially relevant to controlled formulation, delivery, and peptide-stability studies.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Research-grade peptide materials should be evaluated using objective analytical information rather than marketing descriptions alone.</p>
+<p>For GHK-Cu Spray, researchers should review the documentation applicable to the specific lot, including available information concerning:</p>
+<ul>
+<li>Product identity</li>
+<li>Lot or batch number</li>
+<li>Purity</li>
+<li>Analytical testing</li>
+<li>Molecular characterization</li>
+<li>Storage requirements</li>
+<li>Formulation information</li>
+<li>Certificate of Analysis</li>
+</ul>
+<p>GHK-Cu presents an additional analytical consideration because researchers may need to distinguish the peptide component from the copper-associated complex. Published structural studies have used techniques including spectroscopy and crystallographic approaches to investigate GHK-Cu coordination.</p>
+<p>Do not assume a purity percentage, certification, third-party test result, or manufacturing standard unless it is supported by current product-specific documentation.</p>
+<h4>Storage &amp; Handling</h4>
+<p>Storage requirements should be based on the current product label and product-specific documentation rather than generalized instructions for other GHK-Cu products.</p>
+<p>General laboratory handling practices include:</p>
+<ul>
+<li>Follow the manufacturer's current storage instructions.</li>
+<li>Protect the material from inappropriate heat, light, and moisture where applicable.</li>
+<li>Avoid unnecessary temperature fluctuations.</li>
+<li>Keep the container properly closed when not being used.</li>
+<li>Maintain lot and batch records during laboratory use.</li>
+<li>Follow applicable institutional laboratory procedures.</li>
+<li>Review the product's documented stability information before use.</li>
+<li>Do not assume storage conditions for lyophilized GHK-Cu apply to a spray formulation.</li>
+</ul>
+<p>Because spray products may contain formulation components beyond the peptide itself, researchers should rely on formulation-specific documentation.</p>
+<h4>Shipping &amp; Packaging</h4>
+<p>Shipping, packaging, availability, and fulfillment terms should be confirmed through Helix Bio's current policies and product listing before purchase.</p>
+<p>Researchers should inspect the package and accompanying documentation after delivery. Product identity, packaging condition, lot number, and available analytical documentation should be checked before the material is introduced into an experimental workflow.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>GHK-Cu Spray is supplied as a research-use-only material.</p>
+<p>This product is not intended for human or veterinary use, ingestion, injection, inhalation, or any other form of administration. It is not intended to diagnose, treat, cure, mitigate, or prevent any disease or medical condition.</p>
+<p>This research material has not been evaluated or approved by the U.S. Food and Drug Administration (FDA) for human or veterinary use. It is not a prescription medication, over-the-counter drug, dietary supplement, or approved therapeutic product.</p>
+<p>Research materials should be handled only by appropriately qualified personnel in suitable laboratory environments and in accordance with applicable institutional, federal, state, and local requirements.</p>
+<p>Researchers are responsible for reviewing the current product documentation, COA, safety information, applicable regulations, and institutional requirements before use.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is GHK-Cu Spray?', answer: 'GHK-Cu Spray is a research-use formulation associated with GHK-Cu, a copper complex of the naturally occurring tripeptide glycyl-L-histidyl-L-lysine. It is supplied for laboratory and scientific research.' },
+      { question: 'What does GHK-Cu stand for?', answer: 'GHK-Cu refers to the copper-associated complex of GHK, where GHK stands for glycyl-L-histidyl-L-lysine. GHK has a strong affinity for copper ions and can form a Cu(II)-associated complex.' },
+      { question: 'Is GHK-Cu a peptide?', answer: 'GHK is a tripeptide consisting of glycine, histidine, and lysine. GHK-Cu specifically describes the copper-associated form of this peptide.' },
+      { question: 'What is GHK-Cu used for in research?', answer: 'GHK-Cu is studied in areas including peptide-metal coordination, cellular signaling, extracellular-matrix biology, tissue-remodeling mechanisms, oxidative-stress research, and formulation science.' },
+      { question: 'Is GHK-Cu Spray intended for human use?', answer: 'No. GHK-Cu Spray is presented as a research-use-only material and should not be used for human or veterinary administration.' },
+      { question: 'What is the difference between GHK and GHK-Cu?', answer: 'GHK is the three-amino-acid peptide glycyl-L-histidyl-L-lysine. GHK-Cu refers to the copper-associated form of that peptide, involving coordination with Cu(II).' },
+      { question: 'Why is copper important when studying GHK-Cu?', answer: 'Copper is central to the molecular identity of GHK-Cu because GHK has a high affinity for copper ions. Researchers have characterized the coordination chemistry and molecular structure of the resulting copper-peptide complex.' },
+      { question: 'Can GHK-Cu Spray be used in formulation research?', answer: 'A spray-format GHK-Cu material may be relevant to controlled formulation and delivery studies. Researchers should evaluate the actual formulation and product documentation rather than assuming that results from another GHK-Cu preparation will apply to the spray.' },
+      { question: 'What should researchers check before purchasing GHK-Cu Spray?', answer: 'Researchers should verify the product identity, lot number, current COA, purity information, analytical testing, formulation details, storage requirements, and research-use restrictions.' },
+      { question: 'Does the research literature support GHK-Cu studies?', answer: 'Yes. GHK-Cu has been investigated in peer-reviewed literature covering its copper-binding chemistry, cellular pathways, tissue biology, and formulation-related research. The evidence varies by application and experimental model.' },
+      { question: 'Does GHK-Cu research prove a therapeutic effect?', answer: 'No. Findings from cell cultures, animal studies, mechanistic experiments, or reviews should not automatically be interpreted as proof of therapeutic efficacy in humans.' },
+      { question: 'How should GHK-Cu Spray be stored?', answer: 'Follow the current product-specific label and documentation. Storage conditions for a spray formulation should not be assumed to be identical to those used for other GHK-Cu preparations.' },
+    ],
+    variants: [
+      { sku: 'SPR-GHKCU-50MG', strength: '50mg', price: 24 },
+      { sku: 'SPR-GHKCU-100MG', strength: '100mg', price: 27 },
+    ],
+  },
+{
+    name: 'NAD+ Spray',
+    slug: 'nad-spray',
+    imageFile: 'NAD+ spray 50MG.png',
+    categoryName: 'Nasal & Topical Sprays',
+    description: 'NAD+ Spray is a research-use formulation containing nicotinamide adenine dinucleotide (NAD+), an essential cellular coenzyme involved in redox reactions and several biochemical signaling processes. NAD+ research spans cellular metabolism, mitochondrial biology, oxidative phosphorylation, DNA repair, and NAD-dependent enzyme activity.\n\nHelix Bio supplies NAD+ Spray strictly as a research and laboratory material. It is intended for qualified researchers investigating NAD+ biology and related biochemical pathways and is not intended for human or veterinary administration.',
+    seoTitle: 'NAD+ Spray for Research | Helix Bio',
+    seoDescription: 'NAD+ Spray for laboratory research, with documented identity and purity standards. Explore NAD+ research applications and batch-specific analytical documentation.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>Nicotinamide adenine dinucleotide, commonly abbreviated NAD+ or NAD, is a naturally occurring pyridine nucleotide found throughout biological systems. It exists in an oxidized form, NAD+, and a reduced form, NADH. The NAD+/NADH pair participates in cellular redox reactions and is closely connected to energy metabolism.</p>
+<p>NAD+ also serves as a substrate or cofactor in several enzyme systems. Research literature examines its involvement in processes associated with oxidative phosphorylation, DNA repair, gene regulation, protein modification, and cellular signaling.</p>
+<p>NAD+ Spray provides researchers with a defined NAD+-containing research material in a spray format. Because the exact formulation, concentration, excipients, and storage requirements can vary by product and lot, researchers should review the applicable product documentation and Certificate of Analysis before incorporating the material into an experimental workflow.</p>
+<h4>Composition</h4>
+<p>The primary research compound is nicotinamide adenine dinucleotide (NAD+). The complete formulation of a spray may include additional carrier or formulation components depending on the specific product configuration.</p>
+<p>Researchers should use the current product specification and lot-specific documentation to verify:</p>
+<ul>
+<li>NAD+ identity</li>
+<li>Concentration or strength</li>
+<li>Formulation components</li>
+<li>Lot number</li>
+<li>Analytical results</li>
+<li>Storage requirements</li>
+<li>Expiration or retest information, where provided</li>
+</ul>
+<h4>Purpose &amp; Intended Use</h4>
+<p>NAD+ is of interest in biochemical and molecular research because of its central role in cellular redox chemistry and its relationship to NAD-dependent enzymes. Researchers study NAD metabolism in contexts including mitochondrial function, cellular energy metabolism, redox balance, DNA repair, and signaling pathways.</p>
+<p>Research into NAD+ biology should distinguish between mechanistic or preclinical findings and established human outcomes. Published reviews continue to identify unanswered questions regarding NAD-related interventions and their translation into human applications.</p>
+<p>NAD+ Spray is intended solely for controlled laboratory and scientific research.</p>
+<p>It may be evaluated as a research reagent in appropriately designed experimental systems involving NAD metabolism, biochemical signaling, cellular models, or related analytical workflows.</p>
+<p>It is not intended for ingestion, inhalation, injection, topical administration, or any other form of human or veterinary use.</p>
+<h4>Product Highlights</h4>
+<ul>
+<li>Contains nicotinamide adenine dinucleotide (NAD+) for research applications</li>
+<li>Spray-format research material</li>
+<li>Relevant to cellular metabolism and biochemical research</li>
+<li>Suitable for qualified laboratory and scientific research environments</li>
+<li>Supports investigation of NAD+/NADH biology</li>
+<li>Relevant to research involving NAD-dependent enzymes and cellular signaling</li>
+<li>Product identity and quality should be assessed using applicable lot documentation</li>
+<li>Research-use-only positioning with clear laboratory restrictions</li>
+</ul>
+<h4>Key Features</h4>
+<ul>
+<li>Contains nicotinamide adenine dinucleotide (NAD+) for research applications</li>
+<li>Spray-format research material</li>
+<li>Relevant to cellular metabolism and biochemical research</li>
+<li>Suitable for qualified laboratory and scientific research environments</li>
+<li>Supports investigation of NAD+/NADH biology</li>
+<li>Relevant to research involving NAD-dependent enzymes and cellular signaling</li>
+<li>Product identity and quality should be assessed using applicable lot documentation</li>
+<li>Research-use-only positioning with clear laboratory restrictions</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>Researchers working with NAD+ biology need to know precisely what material is being incorporated into an experimental workflow. Identity, purity, formulation, storage conditions, and lot-specific documentation can all affect how a research reagent is evaluated.</p>
+<p>Helix Bio states that its research products are supported by batch-specific Certificates of Analysis and third-party HPLC and mass spectrometry testing. These analytical methods provide complementary information: HPLC is used to assess chromatographic purity, while mass spectrometry can help confirm molecular identity and molecular weight.</p>
+<p>For NAD+ research, this documentation can help investigators evaluate whether a particular lot is appropriate for their planned laboratory work.</p>
+<h4>Who This Product Is For</h4>
+<p>NAD+ Spray is intended for qualified users working in appropriate research environments, including:</p>
+<ul>
+<li>Academic research laboratories</li>
+<li>Biotechnology laboratories</li>
+<li>Biochemistry research groups</li>
+<li>Molecular biology laboratories</li>
+<li>Cellular and metabolic research teams</li>
+<li>Pharmaceutical research organizations</li>
+<li>Qualified scientific professionals</li>
+<li>Educational institutions conducting controlled laboratory research</li>
+</ul>
+<p>The material is not intended for personal wellness use, self-experimentation, or human or veterinary administration.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>NAD+ Spray</td></tr>
+<tr><td>Research Compound</td><td>Nicotinamide Adenine Dinucleotide (NAD+)</td></tr>
+<tr><td>Category</td><td>Research / Biochemical Compound</td></tr>
+<tr><td>Format</td><td>Spray</td></tr>
+<tr><td>Research Use</td><td>Laboratory and scientific research only</td></tr>
+<tr><td>Human Use</td><td>Not intended for human use</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended for veterinary use</td></tr>
+<tr><td>Purity</td><td>Verify current lot-specific COA and product documentation</td></tr>
+<tr><td>Identity Testing</td><td>Verify current lot-specific analytical documentation</td></tr>
+<tr><td>Packaging</td><td>Product-specific; confirm current listing</td></tr>
+<tr><td>Storage</td><td>Follow current product label and COA</td></tr>
+<tr><td>Manufacturer / Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Lot Testing</td><td>Review applicable batch-specific documentation</td></tr>
+<tr><td>Country of Origin</td><td>Not specified; verify current product documentation</td></tr>
+</tbody>
+</table>
+<p>Product-specific details such as concentration, formulation, packaging, and storage conditions should not be inferred from the product name alone. Researchers should confirm the current lot documentation before beginning an experiment.</p>
+<h4>Research / Applications</h4>
+<p>NAD+ is a broad research subject with applications across biochemistry, cell biology, molecular biology, and metabolic research.</p>
+<h4>NAD+ Metabolism Research</h4>
+<p>Researchers can investigate the relationship between NAD+ and NADH and how changes in their relative abundance relate to cellular redox chemistry and metabolism. NAD+ participates in multiple metabolic pathways, including reactions connected with glycolysis, beta-oxidation, and oxidative phosphorylation.</p>
+<h4>Cellular Energy Research</h4>
+<p>NAD+ is closely connected to mitochondrial and cellular energy metabolism. Laboratory models can be used to investigate biochemical pathways in which NAD+/NADH serves as an electron-transfer system.</p>
+<h4>NAD-Dependent Enzyme Research</h4>
+<p>NAD+ functions as a substrate or cofactor for several enzyme families, including enzymes involved in protein modification and cellular signaling. Research has examined NAD-dependent processes involving PARP enzymes, sirtuins, CD38, CD157, and related pathways.</p>
+<h4>DNA Repair and Cellular Signaling Research</h4>
+<p>NAD+ metabolism is relevant to research into DNA repair, post-translational modification, gene regulation, and cellular stress responses.</p>
+<h4>Mitochondrial Biology</h4>
+<p>Because NAD+/NADH chemistry is closely associated with oxidative phosphorylation and mitochondrial metabolism, NAD+ is frequently examined in experimental studies of mitochondrial function and cellular bioenergetics.</p>
+<h4>Analytical and Comparative Research</h4>
+<p>NAD+ research may also involve comparisons between NAD+, NAD+ precursors, and related metabolic pathways. Current scientific literature emphasizes that findings from different models, formulations, and delivery methods should not automatically be treated as equivalent.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Helix Bio describes a quality-control approach involving third-party analytical testing, including HPLC purity testing and mass spectrometry for identity confirmation. The company's website also states that batch-specific Certificates of Analysis are available for its research products.</p>
+<p>For a specific NAD+ Spray lot, researchers should review the corresponding COA rather than relying on a general catalog-level purity statement.</p>
+<p>A useful COA should allow the researcher to match the analytical documentation to the material received by checking information such as:</p>
+<ul>
+<li>Product or compound identity</li>
+<li>Lot or batch number</li>
+<li>HPLC purity result, where applicable</li>
+<li>Molecular-weight or mass-spectrometry result, where applicable</li>
+<li>Testing date</li>
+<li>Relevant specifications</li>
+<li>Storage or handling information, where provided</li>
+</ul>
+<p>Helix Bio's website notes that purity can vary by product and lot, making lot-specific documentation particularly important.</p>
+<p>No certification, regulatory approval, or therapeutic status should be inferred unless explicitly documented by the manufacturer or an appropriate regulatory authority.</p>
+<h4>Storage &amp; Handling</h4>
+<p>Storage requirements should always be confirmed against the current NAD+ Spray product documentation and lot-specific COA.</p>
+<p>General laboratory handling considerations include:</p>
+<ul>
+<li>Keep the product in its original container when practical.</li>
+<li>Protect the material from excessive heat, light, and moisture.</li>
+<li>Follow the manufacturer's stated temperature requirements.</li>
+<li>Keep the container securely closed when not being evaluated.</li>
+<li>Avoid unnecessary exposure to environmental conditions that could affect product stability.</li>
+<li>Maintain lot and batch identification throughout laboratory use.</li>
+<li>Do not use a product beyond the stated expiration or retest period without appropriate laboratory justification.</li>
+<li>Follow institutional chemical and laboratory safety procedures.</li>
+</ul>
+<p>Do not assume that storage requirements for a lyophilized peptide or NAD+ precursor automatically apply to a spray formulation. The formulation and packaging can affect stability.</p>
+<h4>Shipping &amp; Packaging</h4>
+<p>Helix Bio's website describes research products as laboratory materials and states that its fulfillment process includes tracked shipping and cold-chain handling for applicable compounds.</p>
+<p>Because packaging and temperature requirements can vary by formulation, researchers should verify the current product listing and shipping documentation before ordering.</p>
+<p>Upon receipt, researchers should check:</p>
+<ul>
+<li>Product name</li>
+<li>Lot or batch number</li>
+<li>Container integrity</li>
+<li>Label information</li>
+<li>Product condition</li>
+<li>Accompanying analytical documentation</li>
+<li>Storage instructions</li>
+</ul>
+<p>Any discrepancy should be addressed with the supplier before the material is incorporated into a research protocol.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>NAD+ Spray is supplied strictly for research and laboratory purposes.</p>
+<p>This product is not intended for human or veterinary use and is not intended for ingestion, inhalation, injection, topical administration, or any other form of administration. It is not intended to diagnose, treat, cure, mitigate, or prevent any disease or medical condition.</p>
+<p>The product has not been evaluated or approved by the U.S. Food and Drug Administration for human or veterinary use. It should not be represented as a dietary supplement, pharmaceutical, therapeutic product, or medical treatment.</p>
+<p>Researchers are responsible for determining whether a material is suitable for their experimental system and for complying with applicable institutional, federal, state, and local requirements. All research involving biological materials should be conducted by appropriately qualified personnel under suitable laboratory safety procedures.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is NAD+?', answer: 'NAD+ is the oxidized form of nicotinamide adenine dinucleotide, a naturally occurring cellular coenzyme involved in redox reactions, energy metabolism, and several NAD-dependent biochemical processes.' },
+      { question: 'What is NAD+ Spray used for?', answer: 'NAD+ Spray is offered by Helix Bio as a research-use material for laboratory investigation of NAD+ biology, cellular metabolism, biochemical signaling, and related research areas.' },
+      { question: 'Is NAD+ Spray intended for human use?', answer: 'No. Helix Bio\'s research products are designated for laboratory and scientific research and are not intended for human or veterinary administration.' },
+      { question: 'Is NAD+ a peptide?', answer: 'No. NAD+ is a pyridine nucleotide coenzyme rather than a peptide. It is chemically distinct from peptide-based research compounds.' },
+      { question: 'What is the difference between NAD+ and NADH?', answer: 'NAD+ is the oxidized form of nicotinamide adenine dinucleotide, while NADH is its reduced form. The NAD+/NADH pair participates in cellular electron-transfer and redox reactions.' },
+      { question: 'What research areas involve NAD+?', answer: 'NAD+ is studied in cellular metabolism, mitochondrial biology, oxidative phosphorylation, redox biology, DNA repair, enzyme activity, and cellular signaling.' },
+      { question: 'Does NAD+ Spray come with a Certificate of Analysis?', answer: 'Helix Bio states that its research products are supported by batch-specific COA documentation. Researchers should verify the documentation associated with the specific NAD+ Spray lot before use.' },
+      { question: 'How should NAD+ Spray be stored?', answer: 'Storage should follow the current product label and lot-specific documentation. Researchers should not assume that storage conditions for another NAD+ formulation or a different research compound are applicable.' },
+      { question: 'Is NAD+ Spray the same as an NAD+ precursor?', answer: 'No. NAD+ itself is a cellular coenzyme, whereas compounds such as nicotinamide riboside and nicotinamide mononucleotide are NAD+ precursors that participate in pathways used to produce NAD+.' },
+      { question: 'What should researchers check before purchasing NAD+ Spray?', answer: 'Researchers should verify the exact formulation, concentration, lot number, analytical documentation, storage requirements, packaging, and intended research use before placing an order.' },
+      { question: 'Can NAD+ Spray be used in a clinical setting?', answer: 'No. This product is supplied as a research-use-only material and is not intended as a clinical product or for administration to humans or animals.' },
+      { question: 'Why is lot-specific testing important?', answer: 'Lot-specific testing allows researchers to connect analytical results to the exact material received. HPLC and mass spectrometry can provide complementary information about purity and molecular identity.' },
+    ],
+    variants: [
+      { sku: 'SPR-NAD-50MG', strength: '50mg', price: 30 },
+      { sku: 'SPR-NAD-100MG', strength: '100mg', price: 42 },
+    ],
+  },
+{
+    name: 'Epitalon Spray',
+    slug: 'epitalon-spray',
+    imageFile: 'EPITALON spray10MG.png',
+    categoryName: 'Nasal & Topical Sprays',
+    description: 'Epitalon Spray is a research-use-only preparation featuring Epitalon, also known as AEDG (Ala-Glu-Asp-Gly), a synthetic tetrapeptide studied in cellular, molecular, neurobiology, and aging-related research. Published research has examined Epitalon in areas including gene expression, chromatin biology, neuronal activity, and pineal-related signaling.\n\nHelix Bio supplies research materials for laboratory and scientific applications. This product is intended exclusively for controlled research and laboratory work and is not intended for human or veterinary administration.',
+    seoTitle: 'Epitalon Spray for Research | Helix Bio',
+    seoDescription: 'Epitalon Spray for laboratory research from Helix Bio. Explore AEDG peptide research, analytical documentation, and research-use-only specifications.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>Epitalon is a short synthetic peptide consisting of four amino acids: alanine, glutamic acid, aspartic acid, and glycine. Its commonly cited sequence is Ala-Glu-Asp-Gly (AEDG). The compound has been investigated for decades in experimental peptide and aging research.</p>
+<p>The scientific literature includes studies examining Epitalon in cultured cells, animal models, and experimental neurobiology. Research has explored molecular processes involving chromatin, gene expression, cellular differentiation, and neuronal activity. These findings are experimental and should not be interpreted as evidence of established clinical benefits.</p>
+<h4>Composition</h4>
+<p>Epitalon is generally identified in scientific literature as the tetrapeptide:</p>
+<p><strong>Ala-Glu-Asp-Gly (AEDG)</strong></p>
+<p>For this spray-format product, researchers should rely on the current product specification, lot documentation, and Certificate of Analysis for exact concentration, volume, formulation components, and other analytical details.</p>
+<h4>Purpose &amp; Intended Use</h4>
+<p>Epitalon is relevant to research programs examining peptide biology, cellular signaling, gene expression, chromatin-associated processes, neurobiology, and aging-related molecular pathways.</p>
+<p>A 2003 study investigated Epitalon's effects on chromatin-related parameters in cultured lymphocytes from older adults, while later laboratory research examined gene-expression and protein-synthesis changes associated with neurogenic differentiation.</p>
+<p>An experimental animal study also examined intranasal administration of Epitalon and neuronal activity in the rat neocortex. This provides scientific context for research involving delivery-route questions, but it does not establish that the spray format is suitable for human administration.</p>
+<p>Epitalon is particularly useful as a research subject because it is a defined, short peptide with a relatively simple molecular structure. This makes it suitable for controlled laboratory investigations where researchers need to evaluate peptide identity, purity, molecular interactions, and biological activity under specified experimental conditions.</p>
+<h4>Product Highlights</h4>
+<ul>
+<li>Epitalon (AEDG) research material</li>
+<li>Synthetic tetrapeptide composition</li>
+<li>Research-focused spray format</li>
+<li>Suitable for laboratory and scientific investigation</li>
+<li>Relevant to peptide and molecular biology research</li>
+<li>Applicable to experimental studies of gene expression and cellular pathways</li>
+<li>Batch documentation should be reviewed before laboratory use</li>
+<li>Research-use-only positioning</li>
+<li>Not intended for human or veterinary administration</li>
+<li>Product specifications should be confirmed against the applicable lot documentation</li>
+</ul>
+<h4>Key Features</h4>
+<ul>
+<li>Epitalon (AEDG) research material</li>
+<li>Synthetic tetrapeptide composition</li>
+<li>Research-focused spray format</li>
+<li>Suitable for laboratory and scientific investigation</li>
+<li>Relevant to peptide and molecular biology research</li>
+<li>Applicable to experimental studies of gene expression and cellular pathways</li>
+<li>Batch documentation should be reviewed before laboratory use</li>
+<li>Research-use-only positioning</li>
+<li>Not intended for human or veterinary administration</li>
+<li>Product specifications should be confirmed against the applicable lot documentation</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>Researchers evaluating Epitalon need a clearly identified research material that can be incorporated into a defined laboratory workflow.</p>
+<p>Helix Bio's research catalog emphasizes analytical documentation and batch-level verification. The company states that its peptide materials are supported by HPLC purity testing, mass-spectrometry identity confirmation, and batch-specific Certificates of Analysis.</p>
+<p>For Epitalon Spray specifically, researchers should verify the current lot's documentation rather than relying on a general catalog specification. This is particularly important when experimental results depend on peptide identity, purity, concentration, or formulation.</p>
+<h4>Who This Product Is For</h4>
+<p>Epitalon Spray is intended for qualified users conducting legitimate laboratory or scientific research, including:</p>
+<ul>
+<li>Academic researchers</li>
+<li>Biotechnology laboratories</li>
+<li>Pharmaceutical research groups</li>
+<li>Molecular biology laboratories</li>
+<li>Biochemistry researchers</li>
+<li>Qualified scientific professionals</li>
+<li>Educational and institutional research programs</li>
+</ul>
+<p>The product is not intended for personal experimentation, self-administration, diagnosis, treatment, or veterinary use.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>Epitalon Spray</td></tr>
+<tr><td>Active Research Compound</td><td>Epitalon (AEDG)</td></tr>
+<tr><td>Peptide Sequence</td><td>Ala-Glu-Asp-Gly</td></tr>
+<tr><td>Category</td><td>Longevity & Anti-Aging / Peptide Research</td></tr>
+<tr><td>Product Format</td><td>Spray</td></tr>
+<tr><td>Intended Use</td><td>Research and laboratory use only</td></tr>
+<tr><td>Purity</td><td>Refer to current lot-specific COA</td></tr>
+<tr><td>Concentration</td><td>Refer to current product specification</td></tr>
+<tr><td>Volume</td><td>Refer to current product specification</td></tr>
+<tr><td>Appearance</td><td>Refer to current product specification</td></tr>
+<tr><td>Storage</td><td>Follow current product label and COA</td></tr>
+<tr><td>Packaging</td><td>Research-use product packaging</td></tr>
+<tr><td>Lot Testing</td><td>Refer to applicable batch documentation</td></tr>
+<tr><td>Manufacturer/Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Country of Origin</td><td>Not specified on the reviewed website information</td></tr>
+</tbody>
+</table>
+<p>Helix Bio's website states that its catalog products are supported by batch-specific COA documentation and third-party HPLC and mass-spectrometry testing. Product-specific results should always be checked against the documentation accompanying the relevant lot.</p>
+<h4>Research / Applications</h4>
+<p>Epitalon has appeared in experimental literature spanning several research areas.</p>
+<h4>Cellular and Molecular Biology</h4>
+<p>Laboratory research has examined Epitalon in relation to gene expression, chromatin organization, and cellular differentiation. A published study using human gingival mesenchymal stem cells reported changes in expression of several neurogenic differentiation markers following experimental exposure to AEDG peptide.</p>
+<h4>Chromatin and Gene-Expression Research</h4>
+<p>Research published in 2003 examined Epitalon's effects on chromatin-related parameters and ribosomal gene activity in cultured lymphocytes from older individuals. Such work provides a basis for investigating peptide-associated changes in chromatin and gene regulation.</p>
+<h4>Neurobiology Research</h4>
+<p>Epitalon has also been examined experimentally in neurobiological models. One animal study investigated changes in spontaneous cortical neuron activity following intranasal administration. This is relevant to experimental neuroscience and peptide-delivery research, rather than evidence of an established clinical application.</p>
+<h4>Aging-Related Research</h4>
+<p>Epitalon has a substantial history in experimental research related to aging biology. Reviews have discussed its reported biological and pharmacodynamic properties while also noting that important physicochemical and structural questions remain incompletely characterized.</p>
+<p>Researchers should distinguish between preclinical findings and validated human applications. Existing literature does not establish Epitalon Spray as an FDA-approved treatment or as a proven intervention for aging or any disease.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Analytical quality is important when a peptide is being used as a research reagent. Differences in purity, molecular identity, concentration, or degradation can affect experimental interpretation.</p>
+<p>Helix Bio states that its research peptide catalog uses HPLC to assess purity and mass spectrometry to confirm molecular identity and molecular weight. It also states that batch-specific Certificates of Analysis are available for its products.</p>
+<p>Researchers should review the actual COA associated with the Epitalon Spray lot they receive. Important information may include:</p>
+<ul>
+<li>Lot or batch identification</li>
+<li>HPLC purity result</li>
+<li>Molecular-weight or identity confirmation</li>
+<li>Testing date</li>
+<li>Product-specific specifications</li>
+<li>Relevant storage information</li>
+</ul>
+<p>No certification, testing result, or purity percentage should be assumed unless it is documented for the specific lot.</p>
+<h4>Storage &amp; Handling</h4>
+<p>Storage requirements can vary according to the formulation and product format. Researchers should follow the current product label, Certificate of Analysis, and supplier documentation for the specific Epitalon Spray lot.</p>
+<p>General laboratory handling principles include:</p>
+<ul>
+<li>Keep the product in its original container when practical.</li>
+<li>Protect the material from excessive heat, light, and environmental exposure.</li>
+<li>Follow the specified storage temperature on the current documentation.</li>
+<li>Avoid unnecessary temperature fluctuations.</li>
+<li>Maintain appropriate laboratory hygiene and contamination controls.</li>
+<li>Record lot numbers and relevant storage conditions for experimental traceability.</li>
+<li>Do not use a material beyond the supplier's stated shelf-life or stability period.</li>
+<li>Do not assume that storage guidance for a lyophilized peptide applies to a spray formulation.</li>
+</ul>
+<h4>Shipping &amp; Packaging</h4>
+<p>Helix Bio's website describes research products as laboratory materials and states that its fulfillment process includes cold-chain handling and tracked shipping.</p>
+<p>Specific shipping conditions, packaging configuration, delivery timelines, and availability can vary. Researchers should review the current Helix Bio shipping information and product documentation before placing an order.</p>
+<p>Because product stability can depend on formulation and temperature exposure, the receiving laboratory should inspect the shipment and follow the applicable storage instructions promptly after delivery.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p><strong>For Research Use Only. Not for Human or Veterinary Use.</strong></p>
+<p>Epitalon Spray is supplied solely as a research and laboratory material. It is not intended for human consumption, inhalation, administration, diagnosis, treatment, cure, mitigation, or prevention of any disease or medical condition.</p>
+<p>This product has not been presented as an FDA-approved drug or therapeutic product. Research-use-only status should not be interpreted as evidence of clinical safety or efficacy. FDA guidance distinguishes research-use materials from products intended for clinical diagnostic or therapeutic purposes.</p>
+<p>Researchers are responsible for determining whether a material is appropriate for their specific experimental protocol and for complying with applicable institutional, federal, state, and local requirements.</p>
+<p>Helix Bio's website states that its products are offered for research and laboratory purposes only and are not intended to diagnose, treat, cure, or prevent disease.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is Epitalon Spray?', answer: 'Epitalon Spray is a research-format preparation containing Epitalon, a synthetic tetrapeptide commonly identified as Ala-Glu-Asp-Gly (AEDG). It is intended for laboratory and scientific research rather than human or veterinary use.' },
+      { question: 'What is Epitalon also called?', answer: 'Epitalon is commonly referred to as AEDG peptide or Ala-Glu-Asp-Gly. The four-letter designation reflects its four amino acids: alanine, glutamic acid, aspartic acid, and glycine.' },
+      { question: 'What is Epitalon studied for in research?', answer: 'Research has investigated Epitalon in areas including chromatin biology, gene expression, cellular differentiation, neurobiology, and aging-related molecular processes. Most of this evidence is experimental and should not be treated as proof of clinical effectiveness.' },
+      { question: 'Is Epitalon Spray FDA approved?', answer: 'Epitalon Spray should not be represented as an FDA-approved therapeutic product. Helix Bio identifies its products as research and laboratory materials, and the product is not marketed for human or veterinary administration.' },
+      { question: 'Is Epitalon Spray intended for human use?', answer: 'No. This product is designated for research and laboratory use only and is not intended for human or veterinary administration.' },
+      { question: 'Does Epitalon Spray have a specific concentration?', answer: 'The concentration should be confirmed from the current product listing and lot-specific documentation. It should not be inferred from the product name alone.' },
+      { question: 'What should researchers check on an Epitalon COA?', answer: 'Researchers should look for the lot number, HPLC purity result, molecular identity or molecular-weight confirmation, testing date, and any other product-specific analytical information relevant to their study.' },
+      { question: 'How should Epitalon Spray be stored?', answer: 'Storage should follow the current product label and lot documentation. Researchers should not automatically apply storage instructions for a different Epitalon formulation to the spray format.' },
+      { question: 'Has Epitalon been studied experimentally?', answer: 'Yes. Published research has investigated Epitalon in cultured cells and animal models, including studies involving chromatin-related activity, gene expression, neuronal activity, and other biological processes.' },
+      { question: 'Is Epitalon the same as Epithalamin?', answer: 'No. Epitalon is a defined synthetic tetrapeptide, commonly represented as Ala-Glu-Asp-Gly. Epithalamin refers to a broader peptide preparation from pineal tissue discussed in earlier research literature.' },
+      { question: 'Can Epitalon research findings be considered proof of a treatment effect?', answer: 'No. Findings from cell and animal experiments do not by themselves establish safety or effectiveness in humans. Researchers should evaluate study design, model system, methodology, reproducibility, and the quality of available human evidence before drawing conclusions.' },
+      { question: 'Why is lot-specific documentation important for research peptides?', answer: 'A lot-specific COA connects analytical results to the exact material being studied. This can help researchers verify identity and purity and maintain better experimental traceability.' },
+    ],
+    variants: [
+      { sku: 'SPR-EPITAL-10MG', strength: '10mg', price: 27 },
+      { sku: 'SPR-EPITAL-50MG', strength: '50mg', price: 42 },
+    ],
+  },
+{
+    name: 'PT-141 Spray',
+    slug: 'pt-141-spray',
+    imageFile: 'PT-141 spray 10MG.png',
+    categoryName: 'Nasal & Topical Sprays',
+    description: 'PT-141 Spray is a research-use-only preparation featuring PT-141, also known as bremelanotide, a synthetic cyclic peptide analog related to alpha-melanocyte-stimulating hormone (α-MSH). PT-141 is studied extensively in melanocortin receptor biology, peptide-receptor interactions, neurobiology, and cellular signaling.\n\nHelix Bio provides research materials for controlled laboratory and scientific applications. This spray-format product is intended exclusively for research and laboratory use and is not intended for human or veterinary administration.',
+    seoTitle: 'PT-141 Spray for Research | Helix Bio',
+    seoDescription: 'PT-141 Spray research material featuring bremelanotide for laboratory studies of melanocortin receptors, peptide signaling, and molecular biology.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>PT-141, or bremelanotide, is a synthetic cyclic peptide belonging to the melanocortin family. Scientific literature describes bremelanotide as an agonist at multiple melanocortin receptor subtypes, including MC3R and MC4R. Research has examined its interactions with melanocortin receptors and downstream signaling pathways.</p>
+<p>The compound has been studied in both laboratory and clinical research settings. Researchers investigating PT-141 may therefore encounter literature covering receptor pharmacology, neurobiology, peptide signaling, pharmacokinetics, and experimental models of sexual behavior.</p>
+<p>PT-141 should not be confused with a general-purpose peptide reagent. Its activity is closely associated with melanocortin receptor biology, making receptor expression, ligand-receptor interactions, and downstream cellular signaling important areas for experimental investigation.</p>
+<h4>Composition</h4>
+<p>PT-141 is commonly identified as <strong>bremelanotide</strong>, a synthetic cyclic peptide analog of α-MSH. The compound has been investigated for activity at melanocortin receptor subtypes including MC3R and MC4R.</p>
+<p>The precise concentration, volume, formulation components, and other specifications of the spray should be confirmed using the current product listing and applicable lot-specific documentation.</p>
+<h4>Purpose &amp; Intended Use</h4>
+<p>PT-141 is relevant to research involving:</p>
+<ul>
+<li>Melanocortin receptor pharmacology</li>
+<li>MC3R and MC4R signaling</li>
+<li>Peptide-receptor interactions</li>
+<li>Neurobiology</li>
+<li>Cellular signaling</li>
+<li>Neuroendocrine research</li>
+<li>Experimental pharmacology</li>
+<li>Structure-activity relationships involving melanocortin peptides</li>
+</ul>
+<p>Research has also examined bremelanotide in relation to neural pathways associated with sexual behavior and motivation. These findings provide scientific context but should not be interpreted as evidence that a research-use PT-141 spray is safe or effective for human use.</p>
+<p>PT-141 and bremelanotide refer to the same research compound. Bremelanotide is the generic name used in scientific and regulatory literature, while PT-141 is a commonly used development designation.</p>
+<p>The distinction becomes important when searching scientific literature because studies may use either term. Researchers looking for primary literature should consider both "PT-141" and "bremelanotide" when conducting database searches.</p>
+<p>An important distinction exists between a research-use PT-141 spray and FDA-approved bremelanotide products.</p>
+<p>The FDA-approved product Vyleesi contains bremelanotide and is a prescription drug supplied as a subcutaneous injection for a specific clinical indication. The FDA labeling identifies its approved dosage form and route as a subcutaneous injection.</p>
+<p>A research-use PT-141 Spray from Helix Bio should not be represented as Vyleesi, as an equivalent pharmaceutical formulation, or as an FDA-approved product. The spray format described on this page is supplied for laboratory research only.</p>
+<h4>Product Highlights</h4>
+<ul>
+<li>PT-141 research material</li>
+<li>Also known as bremelanotide</li>
+<li>Synthetic cyclic melanocortin peptide</li>
+<li>Relevant to MC3R and MC4R receptor research</li>
+<li>Suitable for controlled laboratory investigations</li>
+<li>Spray-format research preparation</li>
+<li>Useful for peptide-receptor and signaling studies</li>
+<li>Relevant to neurobiology and experimental pharmacology</li>
+<li>Research-use-only positioning</li>
+<li>Not intended for human or veterinary administration</li>
+<li>Lot-specific documentation should be reviewed before experimental use</li>
+</ul>
+<h4>Key Features</h4>
+<ul>
+<li>PT-141 research material</li>
+<li>Also known as bremelanotide</li>
+<li>Synthetic cyclic melanocortin peptide</li>
+<li>Relevant to MC3R and MC4R receptor research</li>
+<li>Suitable for controlled laboratory investigations</li>
+<li>Spray-format research preparation</li>
+<li>Useful for peptide-receptor and signaling studies</li>
+<li>Relevant to neurobiology and experimental pharmacology</li>
+<li>Research-use-only positioning</li>
+<li>Not intended for human or veterinary administration</li>
+<li>Lot-specific documentation should be reviewed before experimental use</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>Researchers working with melanocortin signaling need clearly identified research materials that can be incorporated into controlled experimental protocols.</p>
+<p>PT-141 is a well-characterized research subject with a substantial scientific literature covering receptor pharmacology, neurobiology, and experimental human studies. This makes the compound particularly relevant for researchers investigating how melanocortin receptor agonists interact with biological signaling systems.</p>
+<p>Helix Bio states that its research catalog is supported by analytical verification, including HPLC purity assessment, mass-spectrometry identity confirmation, and batch-specific Certificates of Analysis. Researchers should review the actual documentation associated with the PT-141 Spray lot they receive rather than assuming a general catalog specification applies to every batch.</p>
+<h4>Who This Product Is For</h4>
+<p>PT-141 Spray is intended for qualified researchers and organizations conducting legitimate laboratory or scientific research, including:</p>
+<ul>
+<li>Academic research laboratories</li>
+<li>Biotechnology companies</li>
+<li>Pharmaceutical research groups</li>
+<li>Molecular biology laboratories</li>
+<li>Neurobiology researchers</li>
+<li>Pharmacology laboratories</li>
+<li>Peptide research programs</li>
+<li>Qualified scientific professionals</li>
+<li>Educational and institutional research facilities</li>
+</ul>
+<p>The product is not intended for personal use, self-administration, diagnosis, treatment, or veterinary applications.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>PT-141 Spray</td></tr>
+<tr><td>Active Research Compound</td><td>PT-141 (Bremelanotide)</td></tr>
+<tr><td>Compound Class</td><td>Synthetic cyclic melanocortin peptide</td></tr>
+<tr><td>Research Category</td><td>Specialty & Hormonal Peptides</td></tr>
+<tr><td>Product Format</td><td>Spray</td></tr>
+<tr><td>Intended Use</td><td>Research and laboratory use only</td></tr>
+<tr><td>Purity</td><td>Refer to current lot-specific COA</td></tr>
+<tr><td>Concentration</td><td>Refer to current product specification</td></tr>
+<tr><td>Volume</td><td>Refer to current product specification</td></tr>
+<tr><td>Appearance</td><td>Refer to current product specification</td></tr>
+<tr><td>Storage</td><td>Follow current product label and lot documentation</td></tr>
+<tr><td>Packaging</td><td>Research-use product packaging</td></tr>
+<tr><td>Lot Testing</td><td>Refer to applicable batch documentation</td></tr>
+<tr><td>Manufacturer/Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Country of Origin</td><td>Not independently specified on the reviewed product information</td></tr>
+</tbody>
+</table>
+<p>Helix Bio states that its catalog includes third-party HPLC and mass-spectrometry testing and batch-specific Certificates of Analysis. The exact analytical results for PT-141 Spray should be confirmed against the applicable lot documentation.</p>
+<h4>Research / Applications</h4>
+<h4>Melanocortin Receptor Research</h4>
+<p>PT-141 is particularly relevant to experimental studies involving melanocortin receptors. Published literature identifies bremelanotide as an agonist of multiple melanocortin receptor subtypes, with MC4R receiving particular attention in neurobiological research.</p>
+<p>Researchers may use PT-141 as a research ligand when investigating receptor activation, receptor distribution, downstream signaling, and ligand-receptor interactions.</p>
+<h4>Peptide-Receptor Interaction Studies</h4>
+<p>Because PT-141 is a defined synthetic peptide, it can be relevant to experiments examining how peptide structure relates to receptor activity.</p>
+<p>Potential research areas include:</p>
+<ul>
+<li>Ligand-receptor binding studies</li>
+<li>Receptor activation models</li>
+<li>Structure-activity investigations</li>
+<li>Signal-transduction experiments</li>
+<li>Comparative melanocortin research</li>
+</ul>
+<h4>Neurobiology</h4>
+<p>Research has examined bremelanotide in relation to melanocortin receptors expressed within the central nervous system. Experimental literature has proposed mechanisms involving MC4R signaling and dopaminergic pathways, although the precise neurobiological mechanisms remain an active area of research.</p>
+<h4>Experimental Pharmacology</h4>
+<p>PT-141 has been evaluated experimentally through different routes and study designs. Earlier research included intranasal administration studies, while the FDA-approved pharmaceutical form uses a subcutaneous injection.</p>
+<p>These studies should not be used to infer the safety, pharmacokinetics, bioavailability, or biological performance of a particular research-use spray formulation.</p>
+<h4>Receptor Signaling Research</h4>
+<p>PT-141 can serve as a research subject for examining signaling pathways associated with melanocortin receptors. This may include comparative investigations involving MC3R, MC4R, and related melanocortin receptor systems.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Reliable analytical information is important when a peptide is being used as a research reagent. Differences in peptide identity, purity, concentration, or formulation can influence experimental interpretation.</p>
+<p>Helix Bio states that its research materials undergo HPLC testing for purity and mass spectrometry for identity and molecular-weight confirmation. The company also states that Certificates of Analysis are supplied with batches.</p>
+<p>For PT-141 Spray, researchers should review the applicable documentation for:</p>
+<ul>
+<li>Lot or batch number</li>
+<li>HPLC purity result</li>
+<li>Molecular identity</li>
+<li>Molecular-weight confirmation</li>
+<li>Testing date</li>
+<li>Product concentration</li>
+<li>Formulation information where available</li>
+<li>Recommended storage conditions</li>
+</ul>
+<p>No purity percentage, certification, or testing result should be assumed unless it is documented for the specific lot.</p>
+<h4>Storage &amp; Handling</h4>
+<p>Storage requirements depend on the specific PT-141 Spray formulation and should be determined from the current product label and lot documentation.</p>
+<p>General laboratory handling practices include:</p>
+<ul>
+<li>Keep the material in its original container when practical.</li>
+<li>Follow the supplier's specified storage temperature.</li>
+<li>Minimize unnecessary exposure to heat, light, and environmental contaminants.</li>
+<li>Avoid repeated temperature fluctuations unless specifically permitted by the product documentation.</li>
+<li>Maintain appropriate laboratory contamination controls.</li>
+<li>Record lot numbers for experimental traceability.</li>
+<li>Follow applicable laboratory safety procedures and institutional requirements.</li>
+<li>Do not use material beyond its stated shelf life or stability period.</li>
+<li>Do not automatically apply storage instructions for lyophilized PT-141 to a spray formulation.</li>
+</ul>
+<h4>Shipping &amp; Packaging</h4>
+<p>Helix Bio's website presents its catalog as research and laboratory materials and describes third-party analytical testing and batch-specific documentation. Current shipping policies and product availability should be reviewed directly before ordering.</p>
+<p>Researchers should inspect received materials for appropriate labeling, packaging integrity, lot identification, and accompanying documentation.</p>
+<p>Specific delivery conditions, packaging configuration, and shipping timelines may vary and should not be assumed unless stated in the current Helix Bio policies.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p><strong>For Research Use Only. Not for Human or Veterinary Use.</strong></p>
+<p>PT-141 Spray is supplied solely as a research and laboratory material. It is not intended for human administration, veterinary administration, ingestion, inhalation, diagnosis, treatment, cure, mitigation, or prevention of any disease or medical condition.</p>
+<p>PT-141/bremelanotide should not be confused with an FDA-approved pharmaceutical product. The FDA-approved bremelanotide product Vyleesi is a specific prescription drug formulation administered by subcutaneous injection for a defined clinical indication. The existence of an approved pharmaceutical formulation does not establish that this research-use PT-141 Spray is equivalent, interchangeable, safe, or approved for human use.</p>
+<p>Helix Bio states that its products are offered for research and laboratory purposes only and are not intended to diagnose, treat, cure, or prevent disease.</p>
+<p>Researchers are responsible for determining whether the material is appropriate for their specific experimental protocol and for complying with applicable institutional, federal, state, and local requirements.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is PT-141 Spray?', answer: 'PT-141 Spray is a research-use-only preparation containing PT-141, also known as bremelanotide. PT-141 is a synthetic cyclic melanocortin peptide studied in receptor pharmacology, neurobiology, and cellular signaling research.' },
+      { question: 'Is PT-141 the same as bremelanotide?', answer: 'Yes. PT-141 is a commonly used designation for bremelanotide. Scientific and regulatory publications may use either name when referring to the compound.' },
+      { question: 'What does PT-141 research focus on?', answer: 'Research involving PT-141 commonly examines melanocortin receptor biology, particularly MC3R and MC4R, peptide-receptor interactions, neurobiology, signaling pathways, and experimental pharmacology.' },
+      { question: 'Is PT-141 Spray FDA approved?', answer: 'No. The FDA-approved bremelanotide product is Vyleesi, a specific prescription injectable formulation. A research-use PT-141 Spray should not be represented as an FDA-approved product or as equivalent to Vyleesi.' },
+      { question: 'Is PT-141 Spray the same as Vyleesi?', answer: 'No. Both involve the compound bremelanotide, but formulation, route of administration, manufacturing controls, labeling, and intended use are important distinctions. Vyleesi is an FDA-approved subcutaneous injection, while the product described here is a research-use spray.' },
+      { question: 'Is PT-141 Spray intended for human use?', answer: 'No. The Helix Bio product is positioned for research and laboratory use only and is not intended for human or veterinary administration.' },
+      { question: 'What receptors are associated with PT-141 research?', answer: 'Bremelanotide has been studied as an agonist at multiple melanocortin receptor subtypes, including MC3R and MC4R. Research has paid particular attention to MC4R in neurobiological models.' },
+      { question: 'What should researchers check on a PT-141 COA?', answer: 'Researchers should review the lot number, HPLC purity results, molecular identity or molecular-weight confirmation, testing date, concentration, and other product-specific analytical information available for the particular batch.' },
+      { question: 'Does research on injectable bremelanotide establish the performance of a PT-141 spray?', answer: 'No. Results from one formulation or route cannot automatically be transferred to another. Route, formulation, concentration, absorption, stability, and other experimental variables can affect research outcomes.' },
+      { question: 'Has PT-141 been studied through intranasal administration?', answer: 'Yes. Published research has investigated intranasal bremelanotide in experimental settings. However, those studies should not be interpreted as evidence that a specific research-use spray has the same pharmacokinetic or biological characteristics.' },
+      { question: 'Can PT-141 research be used to make claims about sexual health treatment?', answer: 'Research findings should not be presented as proof that a research-use PT-141 Spray treats or improves a medical condition. Clinical conclusions require appropriate human evidence and regulatory authorization.' },
+      { question: 'Why is lot-specific testing important for PT-141 research?', answer: 'Lot-specific documentation connects analytical results to the exact material used in an experiment. This improves traceability and helps researchers evaluate identity, purity, and other characteristics relevant to reproducible laboratory work.' },
+    ],
+    variants: [
+      { sku: 'SPR-PT141-10MG', strength: '10mg', price: 44 },
+    ],
+  },
+{
+    name: 'Oxytocin Spray',
+    slug: 'oxytocin-spray',
+    imageFile: 'OXYTOCIN spray 10MG.png',
+    categoryName: 'Nasal & Topical Sprays',
+    description: 'Oxytocin Spray is a spray-format research material intended for laboratory and scientific investigation of oxytocin biology, peptide signaling, and oxytocin receptor pathways. Oxytocin is a naturally occurring nonapeptide hormone and neuropeptide that has been extensively studied in neuroendocrine, reproductive, cellular, and receptor research.\n\nHelix Bio supplies this product strictly for research and laboratory purposes. It is not intended for human or veterinary use, ingestion, injection, nasal administration, or any other form of administration. Researchers should review the current product documentation and lot-specific Certificate of Analysis (COA) before incorporating the material into an experimental workflow.',
+    seoTitle: 'Oxytocin Spray for Research | Helix Bio',
+    seoDescription: 'Explore Oxytocin Spray from Helix Bio for laboratory research involving oxytocin receptor biology, peptide signaling, and neuroendocrine pathways.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>Oxytocin is a nine-amino-acid peptide hormone and neuropeptide produced naturally in the body. Scientific research has examined oxytocin and its receptor, OXTR, across several areas of biology, including neuroendocrine signaling, reproductive physiology, lactation, receptor pharmacology, cellular signaling, and behavioral research.</p>
+<p>At the molecular level, the oxytocin receptor belongs to the G protein-coupled receptor (GPCR) family. Research involving the oxytocin system commonly examines receptor activation, downstream signaling, receptor distribution, ligand-receptor interactions, and differences between peripheral and central biological systems.</p>
+<p>Oxytocin Spray provides researchers with a defined spray-format research material for laboratory workflows where the compound itself is being investigated. The spray presentation should not be interpreted as approval or recommendation for any route of administration.</p>
+<h4>Composition</h4>
+<p>The active research compound is oxytocin. The exact formulation, concentration, excipients, and other product-specific characteristics should be confirmed using the current product label, product documentation, and lot-specific COA.</p>
+<p>Because formulation details can vary by product and lot, researchers should not assume that the material is equivalent to a pharmaceutical oxytocin preparation or that it is suitable for clinical, veterinary, or personal use.</p>
+<h4>Purpose &amp; Intended Use</h4>
+<p>Oxytocin research can be relevant to investigations involving:</p>
+<ul>
+<li>Oxytocin receptor (OXTR) biology</li>
+<li>GPCR signaling</li>
+<li>Peptide-receptor interactions</li>
+<li>Neuroendocrine signaling</li>
+<li>Cellular signaling pathways</li>
+<li>Reproductive biology research</li>
+<li>Neurobiology and behavioral research</li>
+<li>Ligand-receptor pharmacology</li>
+<li>Structure-function relationships</li>
+<li>Experimental peptide biology</li>
+</ul>
+<p>The scientific literature describes oxytocin as a biologically active peptide involved in multiple physiological systems, making the oxytocin/OXTR signaling system an established area of laboratory investigation.</p>
+<p>Oxytocin Spray is positioned as a research-use-only material rather than a pharmaceutical product. The product should be evaluated based on analytical documentation, identity, purity, lot information, and compatibility with the researcher's validated protocol.</p>
+<p>Researchers should distinguish between the scientific study of oxytocin and the clinical use of approved oxytocin medicines. Pharmaceutical oxytocin has specific medical applications and regulatory requirements that do not apply to a research-use-only spray product.</p>
+<h4>Product Highlights</h4>
+<ul>
+<li>Research-use-only oxytocin spray format</li>
+<li>Intended for laboratory and scientific research</li>
+<li>Relevant to oxytocin receptor and peptide signaling studies</li>
+<li>Suitable for research into neuroendocrine and cellular signaling pathways</li>
+<li>Supports investigation of ligand-receptor interactions</li>
+<li>Batch documentation should be reviewed before experimental use</li>
+<li>Identity and purity should be evaluated using the applicable analytical documentation</li>
+<li>Not intended for human or veterinary administration</li>
+<li>Not intended for ingestion, injection, nasal administration, or other administration</li>
+<li>No therapeutic, diagnostic, or disease-treatment claims are made</li>
+</ul>
+<h4>Key Features</h4>
+<ul>
+<li>Research-use-only oxytocin spray format</li>
+<li>Intended for laboratory and scientific research</li>
+<li>Relevant to oxytocin receptor and peptide signaling studies</li>
+<li>Suitable for research into neuroendocrine and cellular signaling pathways</li>
+<li>Supports investigation of ligand-receptor interactions</li>
+<li>Batch documentation should be reviewed before experimental use</li>
+<li>Identity and purity should be evaluated using the applicable analytical documentation</li>
+<li>Not intended for human or veterinary administration</li>
+<li>Not intended for ingestion, injection, nasal administration, or other administration</li>
+<li>No therapeutic, diagnostic, or disease-treatment claims are made</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>Selecting a research peptide is about more than the compound name on a label. Analytical documentation, identity confirmation, purity data, lot traceability, and appropriate research-use labeling are important when the material will become part of a controlled laboratory workflow.</p>
+<p>Helix Bio states that its research materials are supported by batch-specific documentation, with HPLC purity testing and mass spectrometry used to assess purity and molecular identity. The company also states that a Certificate of Analysis is available for each batch. Researchers should always match the COA information to the specific lot received.</p>
+<p>For Oxytocin Spray, researchers can use the available product documentation to evaluate whether the material is appropriate for a particular experimental design before beginning laboratory work.</p>
+<p>Key considerations include:</p>
+<ul>
+<li>Compound identity</li>
+<li>Lot or batch number</li>
+<li>Reported purity</li>
+<li>Molecular-weight confirmation</li>
+<li>Analytical testing documentation</li>
+<li>Product formulation information</li>
+<li>Storage requirements</li>
+<li>Compatibility with the planned research method</li>
+<li>Research-use-only status</li>
+</ul>
+<h4>Who This Product Is For</h4>
+<p>Oxytocin Spray is intended for qualified users conducting legitimate laboratory or scientific research, including:</p>
+<ul>
+<li>Academic researchers</li>
+<li>Pharmaceutical and biotechnology laboratories</li>
+<li>Molecular biology laboratories</li>
+<li>Cellular biology researchers</li>
+<li>Neurobiology researchers</li>
+<li>Receptor pharmacology laboratories</li>
+<li>Research institutions</li>
+<li>Educational and scientific facilities with appropriate laboratory infrastructure</li>
+</ul>
+<p>It is not intended for consumers seeking a health, wellness, cosmetic, reproductive, behavioral, or therapeutic product.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>Oxytocin Spray</td></tr>
+<tr><td>Active Research Compound</td><td>Oxytocin</td></tr>
+<tr><td>Peptide Type</td><td>Nonapeptide hormone / neuropeptide</td></tr>
+<tr><td>Research Category</td><td>Specialty & Hormonal Peptides</td></tr>
+<tr><td>Format</td><td>Spray-format research material</td></tr>
+<tr><td>Intended Use</td><td>Laboratory and scientific research only</td></tr>
+<tr><td>Purity</td><td>Refer to the current lot-specific COA</td></tr>
+<tr><td>Appearance</td><td>Refer to current product specifications</td></tr>
+<tr><td>Concentration</td><td>Refer to current product label and COA</td></tr>
+<tr><td>Storage</td><td>Follow current product label and COA</td></tr>
+<tr><td>Packaging</td><td>Refer to current product listing</td></tr>
+<tr><td>Lot Testing</td><td>Review applicable batch-specific analytical documentation</td></tr>
+<tr><td>Manufacturer / Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Country of Origin</td><td>Not specified; verify current product documentation</td></tr>
+<tr><td>Human Use</td><td>Not intended</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended</td></tr>
+</tbody>
+</table>
+<h4>Research / Applications</h4>
+<p>Oxytocin and the oxytocin receptor system have a broad scientific literature, making oxytocin relevant to several types of laboratory investigation.</p>
+<h4>Oxytocin Receptor Research</h4>
+<p>OXTR is a GPCR that serves as a central target in oxytocin biology. Research can examine receptor activation, receptor distribution, ligand binding, downstream signaling, and receptor regulation.</p>
+<h4>Neuroendocrine Research</h4>
+<p>Oxytocin is closely associated with neuroendocrine signaling and has been studied in relation to hypothalamic and posterior-pituitary systems. Research models may investigate peptide release, receptor signaling, and communication between neural and peripheral systems.</p>
+<h4>Cellular Signaling Studies</h4>
+<p>Researchers may investigate oxytocin-related signaling in controlled cellular systems, including receptor-mediated pathways and intracellular signaling responses.</p>
+<h4>Reproductive Biology</h4>
+<p>Oxytocin has an established research history in reproductive physiology. Laboratory research can examine oxytocin receptor activity and signaling in models related to reproductive tissues and physiological processes.</p>
+<h4>Ligand-Receptor Pharmacology</h4>
+<p>Oxytocin can also serve as a research tool for studying peptide-receptor interactions, receptor pharmacology, ligand selectivity, and downstream signaling mechanisms.</p>
+<h4>Behavioral and Neurobiological Research</h4>
+<p>The oxytocin system has been extensively studied in neurobiology and behavioral science. Research reviews have examined oxytocin receptor distribution, central and peripheral signaling, and its relationship with social and emotional behaviors. These findings should be interpreted within the limitations of each experimental model rather than generalized as predictable human outcomes.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<h4>HPLC Testing</h4>
+<p>High-performance liquid chromatography (HPLC) is commonly used in peptide analysis to separate the target peptide from related substances and other components. HPLC purity data can therefore provide an important measure when evaluating a research peptide.</p>
+<p>Helix Bio states that HPLC testing is used to verify the purity reported for its research materials. Researchers should rely on the documentation supplied for the specific lot rather than a general catalog-level purity statement.</p>
+<h4>Mass Spectrometry</h4>
+<p>Mass spectrometry can be used to assess molecular mass and support compound identity confirmation. For peptide research, combining mass spectrometry with chromatographic purity analysis provides complementary information about the material being studied.</p>
+<p>Helix Bio states that mass spectrometry is used alongside HPLC testing to confirm molecular identity and evaluate purity.</p>
+<h4>Certificate of Analysis</h4>
+<p>A batch-specific Certificate of Analysis is valuable because it connects analytical results to a particular production lot. Researchers should check that the lot number on the received material corresponds with the lot number shown on the COA.</p>
+<p>Relevant information may include:</p>
+<ul>
+<li>Lot or batch number</li>
+<li>HPLC purity result</li>
+<li>Molecular-weight or mass-spectrometry result</li>
+<li>Testing date</li>
+<li>Product identification</li>
+<li>Applicable analytical information</li>
+</ul>
+<p>Helix Bio's published research-quality information states that batch-specific COA documentation is available and that identity and purity can be independently reviewed.</p>
+<h4>Storage &amp; Handling</h4>
+<p>Researchers should follow the storage and handling instructions supplied with the specific Oxytocin Spray product and its accompanying documentation.</p>
+<p>General research-material handling principles include:</p>
+<ul>
+<li>Review the product label and lot-specific COA upon receipt.</li>
+<li>Follow the manufacturer's stated storage conditions.</li>
+<li>Protect the material from conditions known to compromise peptide stability.</li>
+<li>Minimize unnecessary exposure to heat, light, moisture, or repeated environmental changes when applicable.</li>
+<li>Keep the product appropriately identified and separated from materials intended for human or veterinary use.</li>
+<li>Maintain lot and batch traceability throughout the study.</li>
+<li>Use appropriate laboratory PPE and established institutional handling procedures.</li>
+<li>Do not use the material outside the research purpose for which it is supplied.</li>
+</ul>
+<p>Because the formulation and stability characteristics of a spray product can differ from those of a lyophilized peptide, researchers should not automatically apply generic peptide storage instructions. The product-specific documentation should take precedence.</p>
+<h4>Shipping &amp; Packaging</h4>
+<p>Helix Bio's website describes its research materials as laboratory products and states that its shipping process includes tracked delivery and protective handling. The exact packaging configuration, shipping conditions, and availability can vary by product and order. Researchers should confirm current shipping information before purchasing.</p>
+<p>For laboratory receipt and inventory control, researchers should verify:</p>
+<ul>
+<li>Product name</li>
+<li>Lot or batch number</li>
+<li>Packaging integrity</li>
+<li>Product condition</li>
+<li>COA documentation</li>
+<li>Storage requirements</li>
+<li>Any shipping-related temperature or handling instructions</li>
+</ul>
+<p>Any damaged, mislabeled, or questionable material should be isolated and reviewed before use in an experiment.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>Oxytocin Spray is offered by Helix Bio strictly for research and laboratory purposes. It is not intended for human or veterinary use and is not intended for ingestion, injection, nasal administration, or any other form of administration.</p>
+<p>This product is not intended to diagnose, treat, cure, or prevent any disease or medical condition. It is not a substitute for an approved pharmaceutical product, prescription medication, medical advice, or professional healthcare.</p>
+<p>The scientific information presented on this page is provided for educational and research-context purposes only. Research findings involving oxytocin should not be interpreted as evidence that this research material is safe, effective, or appropriate for human use.</p>
+<p>The product has not been evaluated or approved by the U.S. Food and Drug Administration for the uses described on this page. Researchers are responsible for following applicable laws, institutional requirements, laboratory safety procedures, and research protocols.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is Oxytocin Spray?', answer: 'Oxytocin Spray is a spray-format research material containing oxytocin for laboratory and scientific investigation. It is intended strictly for research use and is not intended for human or veterinary administration.' },
+      { question: 'What is oxytocin?', answer: 'Oxytocin is a naturally occurring nine-amino-acid peptide hormone and neuropeptide. Scientific research has examined its role in oxytocin receptor signaling, neuroendocrine biology, reproductive physiology, and other biological systems.' },
+      { question: 'What is the oxytocin receptor?', answer: 'The oxytocin receptor, commonly abbreviated OXTR, is a G protein-coupled receptor that mediates cellular responses to oxytocin. OXTR signaling is an important subject in receptor pharmacology and neuroendocrine research.' },
+      { question: 'Is Oxytocin Spray intended for human use?', answer: 'No. Helix Bio supplies its research materials for laboratory and scientific research only. Oxytocin Spray is not intended for human or veterinary use, ingestion, injection, nasal administration, or any other form of administration.' },
+      { question: 'Can Oxytocin Spray be used as a nasal spray?', answer: 'The product\'s spray format should not be interpreted as authorization or instruction for nasal administration. This is a research-use-only material and is not intended for any form of human or veterinary administration.' },
+      { question: 'Does Oxytocin Spray have the same status as pharmaceutical oxytocin?', answer: 'No. Pharmaceutical oxytocin products and research-use-only oxytocin materials are different categories. Approved pharmaceutical oxytocin has specific regulated medical uses, while this product is supplied for laboratory research only.' },
+      { question: 'What research can be performed with oxytocin?', answer: 'Oxytocin can be investigated in studies involving OXTR signaling, peptide-receptor interactions, neuroendocrine pathways, cellular signaling, reproductive biology, receptor pharmacology, and neurobiological research.' },
+      { question: 'How should researchers verify the quality of Oxytocin Spray?', answer: 'Researchers should review the current lot-specific Certificate of Analysis and confirm the product identity, lot number, reported purity, molecular-weight data, and other available analytical information before using the material.' },
+      { question: 'Does Helix Bio provide a Certificate of Analysis?', answer: 'Helix Bio states that batch-specific COA documentation is available for its research materials. Researchers should verify that the COA corresponds to the exact lot received.' },
+      { question: 'How should Oxytocin Spray be stored?', answer: 'Storage should follow the product-specific instructions supplied by Helix Bio. Researchers should not assume that generic storage recommendations for lyophilized peptides apply to a spray-format formulation.' },
+      { question: 'Is Oxytocin Spray FDA approved?', answer: 'The research material described on this page should not be represented as FDA-approved. Helix Bio\'s website states that its research products have not been evaluated or approved by the FDA for human or veterinary use.' },
+      { question: 'Who should purchase Oxytocin Spray?', answer: 'It is intended for qualified researchers, laboratories, academic institutions, biotechnology organizations, and other appropriate scientific facilities conducting legitimate research.' },
+    ],
+    variants: [
+      { sku: 'SPR-OXYTOC-10MG', strength: '10mg', price: 34 },
+    ],
+  },
+{
+    name: 'Semax + Selank Blend Spray',
+    slug: 'semax-selank-blend-spray',
+    imageFile: 'SEMAX + SELANK BLEND spray 300MCG.png',
+    categoryName: 'Nasal & Topical Sprays',
+    description: 'Semax + Selank Blend Spray is a research-use-only peptide preparation combining two synthetic heptapeptides, Semax and Selank, for controlled laboratory and scientific investigation. Semax is structurally related to the ACTH(4–10) peptide fragment, while Selank is a synthetic analogue of the endogenous peptide tuftsin.\n\nThe combination is relevant to research involving peptide structure, molecular signaling, neurobiology, receptor interactions, enzymatic activity, and related biochemical pathways. Helix Bio supplies research materials for laboratory use only. This product is not intended for human or veterinary administration.',
+    seoTitle: 'Semax + Selank Blend Spray | Research Peptide',
+    seoDescription: 'Semax + Selank Blend Spray for laboratory research involving peptide signaling, neurobiology, receptor studies, and molecular research. RUO only.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>Semax and Selank are distinct synthetic peptides that have appeared in scientific literature examining molecular, biochemical, and neurobiological processes.</p>
+<p>Semax is a synthetic heptapeptide with the sequence Met-Glu-His-Phe-Pro-Gly-Pro and is structurally associated with the N-terminal fragment of adrenocorticotropic hormone (ACTH). Research has examined Semax in models involving neurobiology, peptide-receptor interactions, gene expression, and neurotrophic signaling.</p>
+<p>Selank is a synthetic heptapeptide with the sequence Thr-Lys-Pro-Arg-Pro-Gly-Pro and is an analogue of tuftsin. Published research has investigated Selank in relation to peptide metabolism, receptor-associated signaling, gene expression, and biochemical pathways.</p>
+<p>The Semax + Selank Blend Spray brings these two research compounds together in one prepared format. The blend is intended to provide researchers with a defined material for laboratory investigation where both peptide sequences are relevant to the experimental design.</p>
+<h4>Composition</h4>
+<p>The product contains two peptide components:</p>
+<ul>
+<li>Semax — synthetic heptapeptide, Met-Glu-His-Phe-Pro-Gly-Pro</li>
+<li>Selank — synthetic heptapeptide, Thr-Lys-Pro-Arg-Pro-Gly-Pro</li>
+</ul>
+<p>The exact concentration, formulation, and lot-specific analytical characteristics should be confirmed against the current product documentation and Certificate of Analysis before use in an experiment.</p>
+<h4>Purpose &amp; Intended Use</h4>
+<p>The Semax + Selank combination may be relevant to laboratory research examining:</p>
+<ul>
+<li>Peptide structure and sequence</li>
+<li>Peptide stability and degradation</li>
+<li>Molecular signaling</li>
+<li>Neurobiological research models</li>
+<li>Protein-peptide interactions</li>
+<li>Enzyme and substrate interactions</li>
+<li>Gene-expression studies</li>
+<li>Receptor and pathway research</li>
+<li>Comparative investigation of structurally distinct regulatory peptides</li>
+</ul>
+<p>The presence of two distinct peptide molecules makes the blend particularly relevant to studies designed to examine combined or comparative peptide behavior. Experimental interpretation should account for the individual properties of each component rather than treating the blend as a single molecular entity.</p>
+<h4>Product Highlights</h4>
+<ul>
+<li>Semax + Selank research peptide blend</li>
+<li>Contains two synthetic heptapeptide components</li>
+<li>Designed for laboratory and scientific research</li>
+<li>Relevant to molecular and neurobiological research</li>
+<li>Suitable for studies involving peptide signaling and biochemical pathways</li>
+<li>Research-use-only positioning</li>
+<li>Batch-specific documentation should be reviewed before experimental use</li>
+<li>HPLC and mass-spectrometry testing are part of Helix Bio's stated quality documentation approach</li>
+<li>Not intended for human or veterinary use</li>
+</ul>
+<h4>Key Features</h4>
+<ul>
+<li>Semax + Selank research peptide blend</li>
+<li>Contains two synthetic heptapeptide components</li>
+<li>Designed for laboratory and scientific research</li>
+<li>Relevant to molecular and neurobiological research</li>
+<li>Suitable for studies involving peptide signaling and biochemical pathways</li>
+<li>Research-use-only positioning</li>
+<li>Batch-specific documentation should be reviewed before experimental use</li>
+<li>HPLC and mass-spectrometry testing are part of Helix Bio's stated quality documentation approach</li>
+<li>Not intended for human or veterinary use</li>
+</ul>
+<h4>Why Choose This Product</h4>
+<p>A peptide blend can be useful when an experimental workflow calls for more than one defined peptide component in the same research material.</p>
+<p>Semax + Selank Blend Spray provides researchers with a prepared combination of two well-characterized synthetic heptapeptides that have been investigated independently in the scientific literature. This can support research designs focused on comparative peptide biology, molecular interactions, or pathways where both compounds are relevant.</p>
+<p>For analytical work, documentation is especially important. Researchers should verify the lot number, reported purity, molecular identity, formulation, and other product-specific information before incorporating a research material into an experimental protocol.</p>
+<p>Helix Bio states that its research products are supported by batch-specific Certificates of Analysis and independent HPLC and mass-spectrometry testing.</p>
+<h4>Who This Product Is For</h4>
+<p>Semax + Selank Blend Spray is intended for qualified users conducting legitimate laboratory or scientific research, including:</p>
+<ul>
+<li>Academic researchers</li>
+<li>Biotechnology laboratories</li>
+<li>Pharmaceutical research groups</li>
+<li>Molecular biology laboratories</li>
+<li>Biochemistry researchers</li>
+<li>Neurobiology research laboratories</li>
+<li>Research institutions</li>
+<li>Qualified scientific professionals</li>
+</ul>
+<p>It is not intended for consumers seeking products for personal use, self-experimentation, diagnosis, prevention, or treatment.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Specification</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>Semax + Selank Blend Spray</td></tr>
+<tr><td>Category</td><td>Peptide Blend / Research Peptide</td></tr>
+<tr><td>Components</td><td>Semax + Selank</td></tr>
+<tr><td>Semax Sequence</td><td>Met-Glu-His-Phe-Pro-Gly-Pro</td></tr>
+<tr><td>Selank Sequence</td><td>Thr-Lys-Pro-Arg-Pro-Gly-Pro</td></tr>
+<tr><td>Format</td><td>Spray</td></tr>
+<tr><td>Intended Use</td><td>Laboratory and scientific research only</td></tr>
+<tr><td>Human Use</td><td>Not intended for human use</td></tr>
+<tr><td>Veterinary Use</td><td>Not intended for veterinary use</td></tr>
+<tr><td>Purity</td><td>Verify current lot-specific COA</td></tr>
+<tr><td>Identity Testing</td><td>Verify current lot-specific analytical documentation</td></tr>
+<tr><td>Packaging</td><td>Product-specific packaging; confirm current specifications</td></tr>
+<tr><td>Storage</td><td>Follow product label and current lot documentation</td></tr>
+<tr><td>Manufacturer / Supplier</td><td>Helix Bio</td></tr>
+<tr><td>Lot Testing</td><td>Review applicable batch-specific COA</td></tr>
+<tr><td>Country of Origin</td><td>Not specified; confirm with supplier documentation</td></tr>
+</tbody>
+</table>
+<p>Product specifications can vary by formulation and lot. The applicable Certificate of Analysis and product documentation should take precedence over general catalog information.</p>
+<h4>Research / Applications</h4>
+<p>Semax + Selank Blend Spray is intended for research applications rather than therapeutic use.</p>
+<h4>Peptide Biology</h4>
+<p>Researchers can investigate how structurally distinct synthetic peptides behave under defined laboratory conditions, including degradation, stability, and molecular interactions.</p>
+<h4>Neurobiology Research</h4>
+<p>Semax and Selank have both been investigated in experimental neurobiological research. Published work has examined Semax in relation to BDNF and TrkB-associated signaling, while research on Selank has explored biochemical and neurobiological mechanisms.</p>
+<p>These findings provide scientific context for laboratory investigation but should not be interpreted as evidence that this research product is safe or effective for human use.</p>
+<h4>Molecular Signaling</h4>
+<p>The two peptide components may be studied in experiments involving cellular signaling, peptide-mediated molecular interactions, and downstream biochemical processes.</p>
+<h4>Enzymatic Research</h4>
+<p>Published research has investigated interactions between Semax, Selank, and enzymes involved in peptide degradation. Such literature may be relevant when designing in-vitro experiments involving peptide metabolism or enzymatic stability.</p>
+<h4>Comparative Studies</h4>
+<p>Because Semax and Selank are chemically distinct peptides, researchers may investigate differences in molecular behavior, stability, biological interactions, or experimental responses under controlled conditions.</p>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Purity &amp; Quality Standards</h4>
+<p>Quality control is particularly important when working with synthetic peptides because impurities, degradation products, truncated sequences, or incorrect molecular identity can affect experimental interpretation.</p>
+<p>Helix Bio states that its peptide catalog uses HPLC purity testing and mass spectrometry to verify purity and molecular identity. The company also states that batch-specific Certificates of Analysis are available for its products.</p>
+<p>Researchers evaluating a Semax + Selank research peptide blend should review:</p>
+<ul>
+<li>Batch or lot number</li>
+<li>HPLC purity result</li>
+<li>Mass-spectrometry identity or molecular-weight confirmation</li>
+<li>Testing date</li>
+<li>Product formulation</li>
+<li>Storage requirements</li>
+<li>Any available stability information</li>
+<li>Correspondence between the vial label and COA</li>
+</ul>
+<p>The current lot-specific documentation should be used when determining whether a particular batch is appropriate for an experimental workflow.</p>
+<h4>Storage &amp; Handling</h4>
+<p>Storage requirements should always follow the product label and lot-specific documentation supplied with the material.</p>
+<p>General laboratory handling considerations include:</p>
+<ul>
+<li>Keep the product in the storage conditions specified by the manufacturer.</li>
+<li>Protect peptide materials from unnecessary exposure to heat, light, and moisture.</li>
+<li>Minimize repeated temperature fluctuations.</li>
+<li>Keep the container properly sealed when not being examined.</li>
+<li>Use clean laboratory practices when handling research materials.</li>
+<li>Maintain lot and COA records for experimental traceability.</li>
+<li>Follow institutional laboratory safety procedures.</li>
+<li>Do not use the product outside its stated research purpose.</li>
+</ul>
+<p>Helix Bio's general research-peptide guidance notes that storage conditions can depend on whether a peptide is lyophilized or formulated, so researchers should follow the applicable product documentation rather than relying on a generic storage temperature.</p>
+<h4>Shipping &amp; Packaging</h4>
+<p>Helix Bio states that its research products are supplied for laboratory and scientific applications and uses documented handling and shipping practices for research materials. The company's website describes cold-chain handling and tracked shipping as part of its research-product logistics.</p>
+<p>Shipping availability, packaging configuration, transit conditions, and applicable restrictions can vary. Review the current Helix Bio shipping information and product documentation before placing an order.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>Semax + Selank Blend Spray is sold strictly for research and laboratory purposes.</p>
+<p>This product is not intended for human or veterinary use, ingestion, injection, inhalation, or any other form of administration. It is not intended to diagnose, treat, cure, mitigate, or prevent any disease or medical condition.</p>
+<p>The product has not been evaluated or approved by the U.S. Food and Drug Administration (FDA) for human or veterinary use. Research-use-only materials should be used only within appropriate laboratory environments and under applicable institutional, regulatory, and safety requirements.</p>
+<p>Helix Bio is not a compounding pharmacy and does not provide products for clinical administration. Researchers are responsible for determining whether a product is appropriate for their intended experimental application and for reviewing current lot-specific documentation before use.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is Semax + Selank Blend Spray?', answer: 'Semax + Selank Blend Spray is a research preparation containing the synthetic peptides Semax and Selank. It is intended for laboratory and scientific research only and is not intended for human or veterinary use.' },
+      { question: 'What are Semax and Selank?', answer: 'Semax is a synthetic heptapeptide structurally related to an ACTH-derived peptide fragment. Selank is a synthetic heptapeptide and analogue of tuftsin. Both have been investigated in scientific research involving peptide biology and molecular signaling.' },
+      { question: 'Why combine Semax and Selank in one research product?', answer: 'A blend allows researchers to investigate two distinct peptide components within a defined research material. The suitability of a blend depends on the specific experimental question, methodology, and analytical requirements.' },
+      { question: 'Is Semax + Selank Blend Spray for human use?', answer: 'No. This Helix Bio product is marketed for research and laboratory purposes only and is not intended for human administration.' },
+      { question: 'Can this peptide blend be used for medical treatment?', answer: 'No. The product is not marketed as a medicine or treatment and should not be used to diagnose, prevent, or treat any disease or medical condition.' },
+      { question: 'Does Helix Bio provide a Certificate of Analysis?', answer: 'Helix Bio states that batch-specific Certificates of Analysis are available for its research products. Researchers should verify that the COA corresponds to the exact lot received.' },
+      { question: 'How is peptide purity evaluated?', answer: 'HPLC can be used to assess chromatographic purity, while mass spectrometry can help confirm molecular identity or molecular weight. Using both analytical approaches provides different types of information about a peptide sample.' },
+      { question: 'What research areas involve Semax?', answer: 'Scientific literature has examined Semax in areas including peptide biology, neurobiology, gene expression, and BDNF-associated signaling. These publications provide research context and do not establish suitability for human use of a commercial research product.' },
+      { question: 'What research areas involve Selank?', answer: 'Research involving Selank has examined peptide metabolism, receptor-associated mechanisms, gene expression, and neurobiological models. Results from experimental studies should not be interpreted as clinical claims for this research material.' },
+      { question: 'How should Semax + Selank Blend Spray be stored?', answer: 'Storage should follow the current product label and lot-specific documentation. Researchers should protect peptide materials from unsuitable temperature, moisture, light, and repeated temperature fluctuations.' },
+      { question: 'What should researchers check before ordering a peptide blend?', answer: 'Researchers should review the product identity, formulation, lot number, available COA, purity data, analytical testing, storage requirements, and intended research application before purchasing.' },
+    ],
+    variants: [
+      { sku: 'SPR-SEMAXS-300MCG', strength: '300mcg', price: 66 },
+    ],
+  },
+{
+    name: '10-Needles',
+    slug: '10-needles',
+    imageFile: 'needle image.png',
+    categoryName: 'Research Supplies',
+    description: 'A pack of 10 sterile single-use needles for laboratory reconstitution and handling of research peptides. Supplied by Helix Bio as an ancillary item for research use only.',
+    seoTitle: '10-Needles | Sterile Lab Needles | Helix Bio',
+    seoDescription: 'Pack of 10 sterile single-use needles for laboratory peptide reconstitution and handling. Supplied by Helix Bio for research use only.',
+    productDetailsDescription: `
+<h4>Overview</h4>
+<p>This pack contains 10 sterile, single-use needles intended for laboratory reconstitution and handling of research compounds. Each needle is individually sealed to maintain sterility until use.</p>
+<h4>Product Highlights</h4>
+<ul>
+<li>Pack of 10 sterile, single-use needles</li>
+<li>Individually sealed for sterility until use</li>
+<li>Suitable for reconstitution and transfer of lyophilized research compounds</li>
+<li>Supplied for laboratory research use only</li>
+</ul>
+<h4>Who This Product Is For</h4>
+<p>Laboratories and qualified researchers who need sterile, single-use needles to support reconstitution and handling of research peptides purchased from Helix Bio.</p>
+`.trim(),
+    researchFocusDescription: `
+<h4>Product Specifications</h4>
+<table>
+<thead><tr><th>Field</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td>Product Name</td><td>10-Needles</td></tr>
+<tr><td>Contents</td><td>10 sterile, single-use needles</td></tr>
+<tr><td>Sterility</td><td>Individually sealed until use</td></tr>
+<tr><td>Intended Use</td><td>Laboratory reconstitution and handling of research compounds</td></tr>
+</tbody>
+</table>
+`.trim(),
+    qualityPurityDescription: `
+<h4>Storage &amp; Handling</h4>
+<ul>
+<li>Store in a clean, dry environment at room temperature</li>
+<li>Keep needles sealed until immediately before use</li>
+<li>Dispose of used needles in an approved sharps container per your institution's protocols</li>
+</ul>
+<h4>Shipping &amp; Packaging</h4>
+<p>Needles ship sealed in their original packaging to maintain sterility in transit.</p>
+`.trim(),
+    complianceNoticeDescription: `
+<h4>Important Disclaimer</h4>
+<p>This product is supplied strictly for laboratory research use in conjunction with research-use-only compounds. It is not intended for human or veterinary administration, medical, diagnostic, or therapeutic use.</p>
+`.trim(),
+    faqs: [
+      { question: 'What is included in the 10-Needles pack?', answer: 'The pack contains 10 individually sealed, sterile, single-use needles intended for laboratory reconstitution and handling of research compounds.' },
+      { question: 'Are these needles reusable?', answer: 'No. Each needle is intended for single use only and should be disposed of properly after use per your institution\'s protocols.' },
+      { question: 'What is the intended use of these needles?', answer: 'They are intended to support reconstitution and handling of research peptides in a laboratory research setting only.' },
+    ],
+    variants: [
+      { sku: '10-NEEDLES', strength: 'Standard', price: 8 },
+    ],
+  },
+
 ]
 
 async function runSeed() {

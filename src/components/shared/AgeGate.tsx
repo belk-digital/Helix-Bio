@@ -98,6 +98,7 @@ export function AgeGate() {
             animate={{ opacity: 1 }}
             exit={{ y: exitDirection === 'up' ? "-100vh" : "100%", opacity: 0 }}
             className="fixed inset-0 flex flex-col lg:flex-row bg-cream overflow-y-auto lg:overflow-hidden z-[999999]"
+            data-lenis-prevent="true"
           >
             {/* Left Side: Image Pane */}
             <div className="relative w-full lg:w-1/2 h-64 md:h-80 lg:h-screen shrink-0 order-first overflow-hidden bg-black">
@@ -126,7 +127,10 @@ export function AgeGate() {
             </div>
 
             {/* Right Side: Content Pane */}
-            <div className="relative w-full lg:w-1/2 flex-1 lg:h-screen flex flex-col bg-white order-last lg:overflow-y-auto overflow-x-hidden">
+            <div 
+              className="relative w-full lg:w-1/2 flex-1 lg:h-screen flex flex-col bg-white order-last lg:overflow-y-auto overflow-x-hidden"
+              data-lenis-prevent="true"
+            >
               <AnimatePresence mode="wait">
                 {!isDenied ? (
                   <motion.div 
