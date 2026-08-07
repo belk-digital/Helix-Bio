@@ -49,6 +49,27 @@ export async function getMegaMenuData() {
             imageUrl = rawUrl
           }
         }
+        
+        // Fallback to variant images if no global image exists
+        if (imageUrl === '/placeholder.jpg' && prod.hasVariants && prod.variants && prod.variants.length > 0) {
+          for (const variant of prod.variants) {
+            if (variant.images && variant.images.length > 0 && typeof variant.images[0].image === 'object' && variant.images[0].image?.url) {
+              const rawUrl = variant.images[0].image.url
+              try {
+                if (rawUrl.startsWith('http://') || rawUrl.startsWith('https://')) {
+                  const parsed = new URL(rawUrl)
+                  parsed.pathname = parsed.pathname.split('/').map((s: string) => encodeURIComponent(decodeURIComponent(s))).join('/')
+                  imageUrl = parsed.toString()
+                } else {
+                  imageUrl = rawUrl.split('/').map((s: string) => encodeURIComponent(decodeURIComponent(s))).join('/')
+                }
+              } catch (e) {
+                imageUrl = rawUrl
+              }
+              break
+            }
+          }
+        }
         return {
           name: prod.name,
           slug: prod.slug,

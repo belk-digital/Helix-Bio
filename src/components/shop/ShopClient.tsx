@@ -6,7 +6,7 @@ import { Container } from '@/components/ui/container'
 import { FilterSidebar } from '@/components/shop/FilterSidebar'
 import { ProductCard } from '@/components/shared/ProductCard'
 import { Product } from '@/components/shop/PrimaryProductCard' // Re-use interface for now
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useScroll, useMotionValueEvent } from 'framer-motion'
 import { X, Filter, Search, ShieldCheck, FlaskConical, Award, ArrowRight, Flag, ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
@@ -67,27 +67,19 @@ function ShopClientInner({ initialProducts, totalPages, categories }: ShopClient
   const [isScrollingDown, setIsScrollingDown] = useState(false)
   const lastScrollYRef = React.useRef(0)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (typeof window !== 'undefined') {
-        const currentScrollY = window.scrollY
-        if (currentScrollY > lastScrollYRef.current && currentScrollY > 100) {
-          setIsScrollingDown(prev => {
-             if (!prev) return true
-             return prev
-          })
-        } else if (currentScrollY < lastScrollYRef.current) {
-          setIsScrollingDown(prev => {
-             if (prev) return false
-             return prev
-          })
-        }
-        lastScrollYRef.current = currentScrollY
+  const { scrollY } = useScroll()
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (typeof window !== 'undefined') {
+      const currentScrollY = latest
+      if (currentScrollY > lastScrollYRef.current && currentScrollY > 100) {
+        if (!isScrollingDown) setIsScrollingDown(true)
+      } else if (currentScrollY < lastScrollYRef.current) {
+        if (isScrollingDown) setIsScrollingDown(false)
       }
+      lastScrollYRef.current = currentScrollY
     }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  })
   
   const loadMoreRef = React.useRef<HTMLDivElement>(null)
   const isInView = useInView(loadMoreRef, { margin: "400px" })

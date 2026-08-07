@@ -108,9 +108,22 @@ export default async function ProductPage({
     return ''
   }).filter(Boolean) || []
 
-  // If no images are uploaded, provide a fallback
+  // If no images are uploaded globally, check if variants have images
   if (mappedImages.length === 0) {
-    mappedImages.push('/HelixBio Images/featured-research-2.webp')
+    let hasVariantImages = false
+    if (rawProduct.hasVariants && rawProduct.variants?.length) {
+      for (const variant of rawProduct.variants) {
+        if (variant.images && variant.images.length > 0 && typeof variant.images[0].image === 'object' && variant.images[0].image?.url) {
+          hasVariantImages = true
+          break
+        }
+      }
+    }
+    
+    // Only push fallback if NO global images and NO variant images exist
+    if (!hasVariantImages) {
+      mappedImages.push('/HelixBio Images/featured-research-2.webp')
+    }
   }
 
   // Map categories
@@ -285,6 +298,19 @@ export default async function ProductPage({
           hoverImageUrl = encodeImageUrl(p.images[1].image.url)
         }
 
+        // Fallback to variant images if no global image exists
+        if (imageUrl === '/HelixBio Images/featured-research-2.webp' && p.hasVariants && p.variants && p.variants.length > 0) {
+          for (const variant of p.variants) {
+            if (variant.images && variant.images.length > 0 && typeof variant.images[0].image === 'object' && variant.images[0].image?.url) {
+              imageUrl = encodeImageUrl(variant.images[0].image.url)
+              if (variant.images.length > 1 && typeof variant.images[1].image === 'object' && variant.images[1].image?.url) {
+                hoverImageUrl = encodeImageUrl(variant.images[1].image.url)
+              }
+              break
+            }
+          }
+        }
+
         return {
           id: p.id,
           name: p.name,
@@ -326,6 +352,19 @@ export default async function ProductPage({
       }
       if (p.images && p.images.length > 1 && typeof p.images[1].image === 'object' && p.images[1].image?.url) {
         hoverImageUrl = encodeImageUrl(p.images[1].image.url)
+      }
+
+      // Fallback to variant images if no global image exists
+      if (imageUrl === '/HelixBio Images/featured-research-2.webp' && p.hasVariants && p.variants && p.variants.length > 0) {
+        for (const variant of p.variants) {
+          if (variant.images && variant.images.length > 0 && typeof variant.images[0].image === 'object' && variant.images[0].image?.url) {
+            imageUrl = encodeImageUrl(variant.images[0].image.url)
+            if (variant.images.length > 1 && typeof variant.images[1].image === 'object' && variant.images[1].image?.url) {
+              hoverImageUrl = encodeImageUrl(variant.images[1].image.url)
+            }
+            break
+          }
+        }
       }
 
       return {

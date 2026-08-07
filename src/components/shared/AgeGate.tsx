@@ -151,36 +151,36 @@ export function AgeGate() {
 
                       <div className="w-12 h-[4px] bg-primary mb-8" />
 
-                      <div className="text-ink/80 text-sm md:text-lg leading-relaxed mb-10 space-y-4 md:space-y-6 font-medium">
-                      <p>
-                        <strong className="text-ink block mb-2 text-base md:text-xl uppercase tracking-widest">{t('disclaimerLabel')}</strong>
-                        {t.rich('disclaimerText', { strong: (chunks) => <strong>{chunks}</strong> })}
-                      </p>
-                      <p className="font-bold text-ink text-base md:text-xl">
-                        {t('consentText')}
-                      </p>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row w-full gap-4 max-w-lg">
-                      <div className="flex-1">
-                        <FluidButton
-                          onClick={handleVerify}
-                          text={t('confirmButton')}
-                          variant="dark"
-                          className="w-full min-w-full"
-                        />
+                      <div className="flex flex-col sm:flex-row w-full gap-4 max-w-lg mb-10">
+                        <div className="flex-1">
+                          <FluidButton
+                            onClick={handleVerify}
+                            text={t('confirmButton')}
+                            variant="dark"
+                            className="w-full min-w-full"
+                          />
+                        </div>
+                        <button
+                          onClick={handleDeny}
+                          className="flex-1 bg-transparent text-ink border-2 border-ink/20 px-6 py-4 rounded-[10px] font-bold uppercase tracking-[0.2em] text-xs md:text-sm hover:bg-black/5 hover:border-black/50 transition-all active:scale-95 duration-200"
+                        >
+                          {t('denyButton')}
+                        </button>
                       </div>
-                      <button
-                        onClick={handleDeny}
-                        className="flex-1 bg-transparent text-ink border-2 border-ink/20 px-6 py-4 rounded-full font-bold uppercase tracking-[0.2em] text-xs md:text-sm hover:bg-black/5 hover:border-black/50 transition-all active:scale-95 duration-200"
-                      >
-                        {t('denyButton')}
-                      </button>
-                    </div>
 
-                    <div className="mt-8 text-ink/60 text-[9px] md:text-[10px] uppercase tracking-[0.2em] pb-10 lg:pb-0">
-                      {t('agreementPrefix')} <Link href="/terms-and-conditions" className="hover:text-primary transition-colors underline underline-offset-4 font-bold">{t('termsLink')}</Link>
-                    </div>
+                      <div className="text-ink/80 text-sm md:text-lg leading-relaxed mb-10 space-y-4 md:space-y-6 font-medium">
+                        <p>
+                          <strong className="text-ink block mb-2 text-base md:text-xl uppercase tracking-widest">{t('disclaimerLabel')}</strong>
+                          {t.rich('disclaimerText', { strong: (chunks) => <strong>{chunks}</strong> })}
+                        </p>
+                        <p className="font-bold text-ink text-base md:text-xl">
+                          {t('consentText')}
+                        </p>
+                      </div>
+
+                      <div className="mt-8 text-ink/60 text-[9px] md:text-[10px] uppercase tracking-[0.2em] pb-10 lg:pb-0">
+                        {t('agreementPrefix')} <Link href="/terms-and-conditions" className="hover:text-primary transition-colors underline underline-offset-4 font-bold">{t('termsLink')}</Link>
+                      </div>
                     </div>
                   </motion.div>
                 ) : (

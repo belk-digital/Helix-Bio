@@ -503,6 +503,34 @@ export async function getShopProducts(params: {
           hoverImageUrl = encodeUrl((doc.images[1].image as any).url)
         }
       }
+      
+      // Fallback to variant images if no global image exists
+      if (imageUrl === '/HelixBio Images/featured-research-2.webp' && doc.hasVariants && doc.variants && doc.variants.length > 0) {
+        for (const variant of doc.variants) {
+          if (variant.images && variant.images.length > 0 && typeof variant.images[0].image === 'object' && variant.images[0].image !== null) {
+            const encodeUrl = (url: string) => {
+              if (!url) return url
+              try {
+                if (url.startsWith('http://') || url.startsWith('https://')) {
+                  const parsed = new URL(url)
+                  parsed.pathname = parsed.pathname.split('/').map(s => encodeURIComponent(decodeURIComponent(s))).join('/')
+                  return parsed.toString()
+                }
+                return url.split('/').map(s => encodeURIComponent(decodeURIComponent(s))).join('/')
+              } catch (e) {
+                return url
+              }
+            }
+            imageUrl = encodeUrl((variant.images[0].image as any).url)
+            
+            // Try to find a hover image from the same or another variant
+            if (variant.images.length > 1 && typeof variant.images[1].image === 'object' && variant.images[1].image !== null) {
+              hoverImageUrl = encodeUrl((variant.images[1].image as any).url)
+            }
+            break
+          }
+        }
+      }
 
       let categoryName = 'Research'
       if (doc.categories && doc.categories.length > 0 && typeof doc.categories[0] === 'object') {
