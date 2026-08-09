@@ -131,36 +131,41 @@ function ShopClientInner({ initialProducts, totalPages, categories }: ShopClient
     fetchFiltered()
   }, [searchParams])
 
+  const handleLoadMore = async () => {
+    if (!hasMore || isLoadingMore) return;
+    setIsLoadingMore(true)
+    const nextPage = currentPage + 1
+    const categoriesParam = searchParams.getAll('category')
+    const minP = searchParams.get('minPrice')
+    const maxP = searchParams.get('maxPrice')
+
+    const res = await getShopProducts({
+      page: nextPage,
+      categories: categoriesParam.length > 0 ? categoriesParam : undefined,
+      inStock: searchParams.get('inStock') === 'true',
+      onSale: searchParams.get('onSale') === 'true',
+      minPrice: minP ? parseInt(minP) : undefined,
+      maxPrice: maxP ? parseInt(maxP) : undefined,
+      sort: searchParams.get('sort') || undefined,
+    })
+
+    if (res.success && res.products) {
+      setProducts(prev => {
+        const newProducts = (res.products as Product[]).filter(np => !prev.some(p => p.id === np.id))
+        return [...prev, ...newProducts]
+      })
+      setCurrentPage(nextPage)
+      setHasMore(res.hasNextPage || false)
+    } else {
+      setHasMore(false)
+    }
+    setIsLoadingMore(false)
+  }
+
   // Infinite scroll trigger
   useEffect(() => {
     if (isInView && hasMore && !isLoadingMore) {
-      setIsLoadingMore(true)
-      const fetchMore = async () => {
-        const nextPage = currentPage + 1
-        const categoriesParam = searchParams.getAll('category')
-        const minP = searchParams.get('minPrice')
-        const maxP = searchParams.get('maxPrice')
-
-        const res = await getShopProducts({
-          page: nextPage,
-          categories: categoriesParam.length > 0 ? categoriesParam : undefined,
-          inStock: searchParams.get('inStock') === 'true',
-          onSale: searchParams.get('onSale') === 'true',
-          minPrice: minP ? parseInt(minP) : undefined,
-          maxPrice: maxP ? parseInt(maxP) : undefined,
-          sort: searchParams.get('sort') || undefined,
-        })
-
-        if (res.success && res.products) {
-          setProducts(prev => [...prev, ...(res.products as Product[])])
-          setCurrentPage(nextPage)
-          setHasMore(res.hasNextPage || false)
-        } else {
-          setHasMore(false)
-        }
-        setIsLoadingMore(false)
-      }
-      fetchMore()
+      handleLoadMore()
     }
   }, [isInView, hasMore, isLoadingMore, currentPage, searchParams])
 
@@ -376,11 +381,19 @@ function ShopClientInner({ initialProducts, totalPages, categories }: ShopClient
             {/* Infinite Scroll Trigger & Loader */}
             {hasMore && (
               <div ref={loadMoreRef} className="w-full flex justify-center pt-24 pb-12">
-                {isLoadingMore && (
+                {isLoadingMore ? (
                   <div className="flex flex-col items-center gap-4">
                     <Spinner className="w-8 h-8 text-ink" />
                     <span className="text-[10px] sm:text-xs font-bold text-ink/50 uppercase tracking-widest">{t('loadingMore')}</span>
                   </div>
+                ) : (
+                  <Button 
+                    variant="outline" 
+                    onClick={handleLoadMore}
+                    className="border-gray-200 text-gray-500 hover:text-ink hover:border-ink px-8 py-6 rounded-full font-bold uppercase tracking-widest text-[10px] sm:text-xs"
+                  >
+                    Load More
+                  </Button>
                 )}
               </div>
             )}

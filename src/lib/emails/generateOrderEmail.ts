@@ -4,7 +4,7 @@ import { emailLayout } from './emailLayout'
 export async function generateOrderInvoiceHtml(order: any, payload?: any, customNote?: string, statusContext: 'success' | 'failed' | 'cancelled' | 'refunded' = 'success'): Promise<string> {
   const orderNumber = order.orderNumber || order.id;
   const orderDate = order.createdAt ? new Date(order.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-  const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com';
+  const serverUrl = 'https://helixbiochem.com';
   
   const formatMoney = (amount: number) => `$${(amount).toFixed(2)}`;
   
@@ -51,7 +51,29 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
       const variant = variantText && variantText !== 'DEFAULT' ? ` - ${variantText}` : '';
       
       let imageUrl = '';
-      if (product.images && product.images.length > 0) {
+      
+      // Try to get variant image first
+      if (product.variants?.length) {
+         const matchedVariant = product.variants.find((v: any) => v.sku === item.variant || (item.variant && item.variant.includes(v.sku)));
+         if (matchedVariant && matchedVariant.images?.length > 0) {
+            const vImgRef = matchedVariant.images[0].image;
+            if (typeof vImgRef === 'object' && vImgRef?.url) {
+               imageUrl = vImgRef.url.startsWith('http') ? vImgRef.url : `${serverUrl}${vImgRef.url.startsWith('/') ? '' : '/'}${vImgRef.url}`;
+            } else if ((typeof vImgRef === 'string' || typeof vImgRef === 'number') && payload) {
+               try {
+                  const mediaDoc = await payload.findByID({ collection: 'media', id: vImgRef, depth: 0 });
+                  if (mediaDoc && mediaDoc.url) {
+                     imageUrl = mediaDoc.url.startsWith('http') ? mediaDoc.url : `${serverUrl}${mediaDoc.url.startsWith('/') ? '' : '/'}${mediaDoc.url}`;
+                  }
+               } catch (e) {
+                  console.error('Failed to fetch media for email variant image', e);
+               }
+            }
+         }
+      }
+
+      // Fallback to main product image
+      if (!imageUrl && product.images && product.images.length > 0) {
         const imgRef = product.images[0].image;
         if (typeof imgRef === 'object' && imgRef?.url) {
           imageUrl = imgRef.url.startsWith('http') ? imgRef.url : `${serverUrl}${imgRef.url.startsWith('/') ? '' : '/'}${imgRef.url}`;
@@ -67,9 +89,9 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
         }
       }
       
-      // Fix spaces in URL for email clients (e.g. "Product Images" folder)
+      // Fix spaces in URL for email clients without double-encoding existing percent-encodings
       if (imageUrl) {
-         imageUrl = encodeURI(imageUrl);
+         imageUrl = imageUrl.replace(/ /g, '%20');
       }
 
       const imgHtml = imageUrl 
@@ -134,6 +156,7 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
     zelle: 'Zelle',
     amex: 'American Express',
     circoflows: 'Card',
+    stripe_link: 'Stripe (Custom Link)',
   }
   const paymentMethodLabel = paymentMethodLabels[order.paymentMethod] || 'Card'
 
@@ -183,14 +206,13 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
 
                 <div style="display: block; margin-bottom: 20px;">
                   <div style="background-color: #ffffff; border: 1px solid #E9D5FF; border-radius: 12px; padding: 8px; display: inline-block;">
-                    <img src="https://res.cloudinary.com/denskvdyt/image/upload/v1783110064/zelle-qr_h2xhvt.jpg" alt="Zelle QR Code" style="width: 150px; height: 150px; display: block;" />
                   </div>
                 </div>
                 
                 <div style="display: block; margin-bottom: 16px;">
                   <div style="background-color: #ffffff; border-radius: 8px; padding: 12px 24px; display: inline-block; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
                     <p style="margin: 0 0 4px 0; color: #A855F7; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Send To</p>
-                    <p style="margin: 0; color: #6B21A8; font-size: 16px; font-weight: 700;">orders@helixbiochem.com</p>
+                    <p style="margin: 0; color: #6B21A8; font-size: 16px; font-weight: 700;">support@helixbiochem.com</p>
                   </div>
                 </div>
                 

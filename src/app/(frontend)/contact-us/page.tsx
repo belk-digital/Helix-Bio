@@ -61,7 +61,7 @@ export default async function ContactPage({
   const contactInfoFaq = {
     question: tClient('faqs.contactInfo.question'),
     answer:
-      'Reach us at 5768 Wyncliff Drive, North Charleston, South Carolina 29418, US Phone: +1 (000) 000-0000, and email: support@helixbiochem.com for lab inquiries.',
+      'Reach us via email at support@helixbiochem.com for lab inquiries.',
   }
 
   const schema = {
@@ -89,31 +89,17 @@ export default async function ContactPage({
         name: 'Helix Bio',
         url: baseUrl,
         email: 'support@helixbiochem.com',
-        telephone: '+1-000-000-0000',
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: '5768 Wyncliff Drive',
-          addressLocality: 'North Charleston',
-          addressRegion: 'SC',
-          postalCode: '29418',
-          addressCountry: 'US',
-        },
+
         contactPoint: [
           {
             '@type': 'ContactPoint',
             contactType: 'customer support',
             email: 'support@helixbiochem.com',
-            telephone: '+1-000-000-0000',
             areaServed: 'US',
             availableLanguage: ['English', 'Spanish'],
             hoursAvailable: 'Mo-Fr 09:00-17:00',
           },
-          {
-            '@type': 'ContactPoint',
-            contactType: 'order support',
-            email: 'orders@helixbiochem.com',
-            areaServed: 'US',
-          },
+
         ],
       },
       {

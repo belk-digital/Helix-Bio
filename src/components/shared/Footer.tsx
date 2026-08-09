@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Link } from '@/i18n/navigation'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, Mail } from 'lucide-react'
+import { ArrowRight, Mail, Check } from 'lucide-react'
 import { useLenis } from 'lenis/react'
 import { useTranslations } from 'next-intl'
 import { FluidButton } from '@/components/ui/fluid-button'
@@ -47,14 +47,24 @@ const FooterContent = () => {
       }
       
       setStatus('success')
-      setMessage('Successfully subscribed!')
+      setMessage('Subscribed!')
       // Reset form
       const form = e.target as HTMLFormElement
       form.reset()
+
+      setTimeout(() => {
+        setStatus('idle')
+        setMessage('')
+      }, 3000)
     } catch (err: any) {
       console.error(err)
       setStatus('error')
-      setMessage(err.message || 'Something went wrong. Please try again.')
+      setMessage(err.message || 'Error')
+
+      setTimeout(() => {
+        setStatus('idle')
+        setMessage('')
+      }, 3000)
     }
   }
 
@@ -238,10 +248,14 @@ const FooterContent = () => {
                   <input
                     type="email"
                     name="email"
-                    placeholder="name@example.com"
+                    placeholder={message || "name@example.com"}
                     required
                     disabled={status === 'loading' || status === 'success'}
-                    className="w-full bg-black/5 text-black placeholder:text-black/40 rounded-[20px] px-7 py-4 md:py-5 outline-none text-base disabled:opacity-80 font-medium shadow-inner transition-all focus:ring-4 focus:ring-black/5"
+                    className={`w-full rounded-[20px] px-7 py-4 md:py-5 outline-none text-base disabled:opacity-80 font-medium shadow-inner transition-all focus:ring-4 focus:ring-black/5 ${
+                      status === 'success' ? 'text-green-600 placeholder:text-green-600 bg-green-50' : 
+                      status === 'error' ? 'text-red-600 placeholder:text-red-600 bg-red-50' : 
+                      'bg-black/5 text-black placeholder:text-black/40'
+                    }`}
                   />
                   <button
                     type="submit"
@@ -251,16 +265,13 @@ const FooterContent = () => {
                   >
                     {status === 'loading' ? (
                        <svg className="animate-spin h-5 w-5 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    ) : status === 'success' ? (
+                      <Check className="w-5 h-5" strokeWidth={2.5} />
                     ) : (
                       <ArrowRight className="w-5 h-5" strokeWidth={2.5} />
                     )}
                   </button>
                 </form>
-                {message && (
-                  <p className={`text-sm font-medium mt-4 px-4 ${status === 'success' ? 'text-green-600' : 'text-red-600'}`}>
-                    {message}
-                  </p>
-                )}
               </div>
             </div>
             
@@ -268,7 +279,7 @@ const FooterContent = () => {
             <div className="flex flex-col gap-12 lg:gap-16 lg:w-7/12 lg:pl-8 xl:pl-16 pt-4 lg:pt-0">
               
               {/* Links Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 w-full">
+              <div className="flex flex-wrap sm:flex-nowrap justify-between gap-8 w-full">
                 {/* Link Col 1 */}
                 <div className="flex flex-col gap-4">
                   <h4 className="text-black/30 text-[12px] font-bold uppercase tracking-widest mb-1 lg:mb-2">Menu</h4>
@@ -276,8 +287,8 @@ const FooterContent = () => {
                     { label: t('navHome'), href: '/' },
                     { label: t('navShop'), href: '/shop' },
                     { label: t('navAbout'), href: '/about-us' },
-                    { label: t('navBlog'), href: '/blog' },
-                    { label: t('navFaq'), href: '/faq' },
+                    { label: t('navAffiliates'), href: '/affiliates' },
+                    { label: 'Account', href: '/account' },
                   ].map(link => (
                     <Link key={link.label} href={link.href} className="text-black/60 hover:text-black text-sm md:text-base font-medium transition-colors tracking-wide w-fit">
                       {link.label}
@@ -287,20 +298,31 @@ const FooterContent = () => {
 
                 {/* Link Col 2 */}
                 <div className="flex flex-col gap-4">
-                  <h4 className="text-black/30 text-[12px] font-bold uppercase tracking-widest mb-1 lg:mb-2">Social & More</h4>
+                  <h4 className="text-black/30 text-[12px] font-bold uppercase tracking-widest mb-1 lg:mb-2">Resources</h4>
                   {[
                     { label: t('navCalculator'), href: '/peptide-calculator' },
-                    { label: t('navAffiliates'), href: '/affiliates' },
-                    { label: 'X (Twitter)', href: 'https://x.com/helixbiopeptide' },
+                    { label: t('navFaq'), href: '/faq' },
+                    { label: t('navBlog'), href: '/blog' },
                   ].map(link => (
-                     <Link key={link.label} href={link.href} target={link.href.startsWith('http') ? "_blank" : undefined} className="text-black/60 hover:text-black text-sm md:text-base font-medium transition-colors tracking-wide w-fit">
+                     <Link key={link.label} href={link.href} className="text-black/60 hover:text-black text-sm md:text-base font-medium transition-colors tracking-wide w-fit">
                        {link.label}
                      </Link>
                   ))}
                 </div>
 
                 {/* Link Col 3 */}
-                <div className="flex flex-col gap-4 col-span-2 md:col-span-1">
+                <div className="flex flex-col gap-4">
+                  <h4 className="text-black/30 text-[12px] font-bold uppercase tracking-widest mb-1 lg:mb-2">Contact</h4>
+                  <Link href="/contact-us" className="text-black/60 hover:text-black text-sm md:text-base font-medium transition-colors tracking-wide w-fit">
+                    Contact Us
+                  </Link>
+                  <a href="mailto:support@helixbiochem.com" className="text-black/60 hover:text-black text-sm md:text-base font-medium transition-colors tracking-wide break-words">
+                    support@helixbiochem.com
+                  </a>
+                </div>
+
+                {/* Link Col 4 */}
+                <div className="flex flex-col gap-4">
                   <h4 className="text-black/30 text-[12px] font-bold uppercase tracking-widest mb-1 lg:mb-2">Legal</h4>
                   {[
                     { label: t('termsOfService'), href: '/terms-and-conditions' },
@@ -319,18 +341,10 @@ const FooterContent = () => {
               {/* Bottom Right (Contact & Back to top) */}
               <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 lg:mt-auto pt-8 border-t border-black/5 lg:border-none lg:pt-0 items-start sm:items-end justify-between">
                 
-                {/* Contact & Copyright */}
+                {/* Copyright */}
                 <div className="flex flex-col gap-4 text-left">
-                  <div className="flex flex-col gap-1">
-                    <a href="mailto:support@helixbiochem.com" className="text-black/90 font-medium hover:text-black transition-colors tracking-wide text-base w-fit">
-                      support@helixbiochem.com
-                    </a>
-                    <a href="tel:+10000000000" className="text-black/50 text-[14px] hover:text-black/70 transition-colors tracking-wide w-fit">
-                      +1 (000) 000-0000
-                    </a>
-                  </div>
                   <div className="text-black/40 text-[12px] font-medium leading-relaxed tracking-wide mt-2">
-                    HelixBio — {new Date().getFullYear()} © All rights reserved
+                    HelixBio - {new Date().getFullYear()} © All rights reserved
                   </div>
                 </div>
 

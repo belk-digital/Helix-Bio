@@ -42,7 +42,7 @@ export async function GET(req: Request) {
           const firstName = user.firstName || 'there'
 
           await resend.emails.send({
-            from: process.env.RESEND_FROM_EMAIL || 'HelixBio <orders@helixbiochem.com>',
+            from: process.env.RESEND_FROM_EMAIL || 'HelixBio <support@helixbiochem.com>',
             to: user.email,
             subject: 'Did you forget something in your cart?',
             html: `<!DOCTYPE html>

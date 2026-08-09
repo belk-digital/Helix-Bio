@@ -196,7 +196,7 @@ export async function createPayloadOrder(
   formData: any,
   paymentIntentId: string,
   userId?: string,
-  paymentMethod: 'stripe' | 'zelle' | 'amex' | 'circoflows' = 'stripe',
+  paymentMethod: 'stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link' = 'stripe',
   isNewAddress = false
 ) {
   const payload = await getPayload({ config: configPromise })
@@ -496,8 +496,8 @@ export async function createPayloadOrder(
           affiliateId: (await cookies()).get('affiliate_ref')?.value,
           clickId: (await cookies()).get('affiliate_click_id')?.value,
        })
-    } else if (paymentMethod === 'zelle' || paymentMethod === 'amex') {
-       // Send initial order invoice immediately for Zelle/AMEX manual orders
+    } else if (paymentMethod === 'zelle' || paymentMethod === 'amex' || paymentMethod === 'stripe_link') {
+       // Send initial order invoice immediately for Zelle/AMEX/Stripe Link manual orders
        try {
            const customerEmail = order.guestEmail;
            if (customerEmail) {
@@ -505,9 +505,9 @@ export async function createPayloadOrder(
                const invoiceHtml = await generateOrderInvoiceHtml(order, payload);
 
                await sendTrackedEmail(payload, {
-                   from: 'Orders | Helix Bio <orders@helixbiochem.com>',
+                   from: 'Orders | Helix Bio <support@helixbiochem.com>',
                    to: customerEmail,
-                   bcc: 'orders@helixbiochem.com',
+                   bcc: 'support@helixbiochem.com',
                    subject: `Order Invoice #${order.orderNumber || order.id}`,
                    html: invoiceHtml,
                })
@@ -633,6 +633,7 @@ export async function notifyAdminFailedPayment(orderId: string, errorMessage: st
       zelle: 'Zelle',
       amex: 'American Express',
       circoflows: 'Card',
+      stripe_link: 'Stripe Link'
     }
     const paymentMethod = (order.paymentMethod && paymentMethodLabels[order.paymentMethod]) || order.paymentMethod || 'N/A'
 
@@ -677,7 +678,7 @@ export async function notifyAdminFailedPayment(orderId: string, errorMessage: st
     })
 
     await sendTrackedEmail(payload, {
-      from: 'Orders | Helix Bio <orders@helixbiochem.com>',
+      from: 'Support | Helix Bio <support@helixbiochem.com>',
       to: 'support@helixbiochem.com',
       subject: `⚠️ Payment Failed - Order #${orderNumber}`,
       html: html,

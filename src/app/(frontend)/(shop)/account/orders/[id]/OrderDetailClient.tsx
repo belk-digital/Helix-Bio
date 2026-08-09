@@ -46,7 +46,7 @@ export function OrderDetailClient({ order }: OrderDetailProps) {
       const product = item.product || item.productSnapshot || {}
       if (product.id) {
         const title = product.title || product.name || t('unknownProduct')
-        const imageUrl = product.images?.[0]?.image?.url || product.images?.[0]?.url || '/HelixBio Images/featured-research-2.webp'
+        const imageUrl = (product.images?.[0]?.image?.url || product.images?.[0]?.url || '/HelixBio Images/featured-research-2.webp').replace(/ /g, '%20')
         const price = typeof item.price === 'number' ? item.price : (product.basePrice || product.price || 0)
         addItem(
           { id: product.id, name: title, imageUrl, slug: product.slug },
@@ -190,22 +190,39 @@ export function OrderDetailClient({ order }: OrderDetailProps) {
                 const product = item.product || item.productSnapshot || {}
                 const title = product.title || product.name || t('unknownProduct')
                 const price = (typeof item.price === 'number' ? item.price : (product.basePrice || product.price || 0))
-                const imageUrl = product.images?.[0]?.image?.url || product.images?.[0]?.url || '/HelixBio Images/featured-research-2.webp'
-
                 let displayVariant = item.variant || t('standardVariant');
+                let imageUrl = product.images?.[0]?.image?.url || product.images?.[0]?.url || '/HelixBio Images/featured-research-2.webp'
+
                 if (product?.variants?.length) {
-                  for (const v of product.variants) {
-                    const vTitle = v.options?.map((o:any) => o.value).join(' ') || `Variant`;
-                    if (displayVariant === v.sku) {
-                       displayVariant = vTitle;
-                       break;
-                    }
-                    if (displayVariant.startsWith(`${v.sku} - `)) {
-                       displayVariant = displayVariant.replace(`${v.sku} - `, `${vTitle} - `);
-                       break;
-                    }
+                  const matchedVariant = product.variants.find((v: any) => v.sku === item.variant || (item.variant && item.variant.includes(v.sku)))
+                  
+                  if (matchedVariant) {
+                     const vImg = matchedVariant.images?.[0]?.image?.url || matchedVariant.images?.[0]?.url
+                     if (vImg) imageUrl = vImg
+                     
+                     const vTitle = matchedVariant.title || matchedVariant.options?.map((o:any) => o.value).join(' ') || `Variant`
+                     if (displayVariant === matchedVariant.sku) {
+                        displayVariant = vTitle;
+                     } else if (displayVariant.startsWith(`${matchedVariant.sku} - `)) {
+                        displayVariant = displayVariant.replace(`${matchedVariant.sku} - `, `${vTitle} - `);
+                     }
+                  } else {
+                     // fallback to original loop just for title
+                     for (const v of product.variants) {
+                       const vTitle = v.title || v.options?.map((o:any) => o.value).join(' ') || `Variant`;
+                       if (displayVariant === v.sku) {
+                          displayVariant = vTitle;
+                          break;
+                       }
+                       if (displayVariant.startsWith(`${v.sku} - `)) {
+                          displayVariant = displayVariant.replace(`${v.sku} - `, `${vTitle} - `);
+                          break;
+                       }
+                     }
                   }
                 }
+                
+                imageUrl = imageUrl.replace(/ /g, '%20')
                 
                 return (
                   <div key={item.id || Math.random()} className="flex items-center gap-3 sm:gap-6 group">

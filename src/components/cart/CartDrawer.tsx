@@ -212,7 +212,7 @@ export function CartDrawer() {
                               </button>
                             </div>
                             <div className="flex items-end justify-between mt-2">
-                              <div className="bg-white/10 rounded-full p-1 backdrop-blur-sm border border-white/10 shadow-sm">
+                              <div>
                                 <QuantityStepper 
                                   value={item.quantity} 
                                   onChange={(val) => updateQuantity(item.lineId, val)} 

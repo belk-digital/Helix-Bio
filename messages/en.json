@@ -1352,7 +1352,7 @@
       "section3Item4": "Bulk or custom orders explicitly marked as final sale.",
       "section4Title": "How to Request a Refund",
       "section4Intro": "Follow these steps to start a refund request:",
-      "section4Item1": "Reach our support team at <email>support@helixbio.com</email> or <phone>+1 (000) 000-0000</phone>, including your order number and the reason for the request.",
+      "section4Item1": "Reach our support team at <email>support@helixbiochem.com</email>, including your order number and the reason for the request.",
       "section4Item2": "Send photos of the item and its packaging if we ask for them.",
       "section4Item3": "We'll review the request and get back to you with a decision within 3–5 business days.",
       "section4Item4": "Approved refunds go back to your original payment method, or to store credit, whichever you prefer.",
@@ -2173,7 +2173,7 @@
       "faqs": {
         "contactInfo": {
           "question": "What is the contact information for Helix Bio in the United States?",
-          "answer": "Reach us at 5768 Wyncliff Drive, North Charleston, South Carolina 29418, US Phone: <phone>+1 (000) 000-0000</phone>, and email: <email>support@helixbio.com</email> for lab inquiries."
+          "answer": "Reach us via email at <email>support@helixbiochem.com</email> for lab inquiries."
         },
         "usLabsContact": {
           "question": "How can US laboratories contact Helix Bio for research peptide orders?",

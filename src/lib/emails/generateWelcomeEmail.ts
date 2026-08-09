@@ -56,7 +56,7 @@ export async function generateWelcomeEmail(user: any): Promise<string> {
   return emailLayout({
     title: 'Welcome to Helix Bio',
     content,
-    heroImage: '/Logo/vial-ice-closeup.webp',
+    heroImage: 'https://pub-0b0f2f98407442588d161ae09cb84207.r2.dev/email-assets/ChatGPT%20Image%20Jul%2020%2C%202026%2C%2005_23_31%20AM.webp',
     serverUrl
   })
 }

@@ -13,7 +13,50 @@ export function Hero() {
   ]
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [emailStatus, setEmailStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [emailMessage, setEmailMessage] = useState('')
 
+  const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setEmailStatus('loading')
+    setEmailMessage('')
+    
+    const formData = new FormData(e.currentTarget)
+    const email = formData.get('email') as string
+    
+    try {
+      const res = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      })
+      
+      const data = await res.json()
+      
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to subscribe')
+      }
+      
+      setEmailStatus('success')
+      setEmailMessage('Subscribed!')
+      const form = e.target as HTMLFormElement
+      form.reset()
+      
+      setTimeout(() => {
+        setEmailStatus('idle')
+        setEmailMessage('')
+      }, 3000)
+    } catch (err: any) {
+      console.error(err)
+      setEmailStatus('error')
+      setEmailMessage(err.message || 'Error')
+      
+      setTimeout(() => {
+        setEmailStatus('idle')
+        setEmailMessage('')
+      }, 3000)
+    }
+  }
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length)
@@ -81,19 +124,34 @@ export function Hero() {
 
           {/* Item 2: Newsletter Input */}
           <div className="flex-[1.5] flex justify-center w-full md:w-auto px-1 md:px-0">
-            <div className="relative w-full max-w-sm">
+            <form onSubmit={handleSubscribe} className="relative w-full max-w-sm">
               <input 
                 type="email" 
-                placeholder="Subscribe to newsletter..." 
-                className="w-full bg-gray-50 border border-transparent focus:border-black/10 focus:bg-white rounded-[16px] px-4 py-3.5 pr-10 text-sm text-black outline-none transition-all placeholder:text-gray-400"
+                name="email"
+                required
+                disabled={emailStatus === 'loading' || emailStatus === 'success'}
+                placeholder={emailMessage || "Subscribe to newsletter..."} 
+                className={`w-full bg-gray-50 border border-transparent focus:border-black/10 focus:bg-white rounded-[16px] px-4 py-3.5 pr-10 text-sm outline-none transition-all ${
+                  emailStatus === 'success' ? 'text-green-600 placeholder:text-green-600 bg-green-50' : 
+                  emailStatus === 'error' ? 'text-red-600 placeholder:text-red-600 bg-red-50' : 
+                  'text-black placeholder:text-gray-400'
+                }`}
               />
               <button 
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black text-white p-2 rounded-[10px] hover:bg-gray-800 transition-colors"
+                type="submit"
+                disabled={emailStatus === 'loading' || emailStatus === 'success'}
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black text-white p-2 rounded-[10px] hover:bg-gray-800 transition-colors disabled:opacity-50"
                 aria-label="Subscribe"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                {emailStatus === 'loading' ? (
+                  <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                ) : emailStatus === 'success' ? (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                ) : (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                )}
               </button>
-            </div>
+            </form>
           </div>
 
           {/* Divider 2 */}

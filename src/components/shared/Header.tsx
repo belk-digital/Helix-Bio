@@ -29,12 +29,21 @@ export async function Header() {
           collection: 'carts',
           where: { user: { equals: payloadUser.id } },
           limit: 1,
+          depth: 2,
           overrideAccess: true,
         })
         if (carts.docs[0]?.items) {
           cartItemCount = carts.docs[0].items.reduce((sum: any, item: any) => sum + (item.quantity || 1), 0)
           initialCartItems = carts.docs[0].items.map((item: any) => {
             const prod = item.product || {}
+            let imageUrl = prod.images?.[0]?.image?.url || null;
+            if (prod.variants && item.variantSku) {
+              const variant = prod.variants.find((v: any) => v.sku === item.variantSku || (v.options?.map((o:any)=>o.value).join(' ') === item.variantSku));
+              if (variant?.images?.[0]?.image?.url) {
+                imageUrl = variant.images[0].image.url;
+              }
+            }
+
             return {
               lineId: item.id || Math.random().toString(36).substring(2, 15),
               productId: String(prod.id || item.product),
@@ -45,7 +54,8 @@ export async function Header() {
               product: {
                 id: String(prod.id || item.product),
                 name: prod.name || '',
-                imageUrl: prod.images?.[0]?.image?.url || null,
+                slug: prod.slug || '',
+                imageUrl: imageUrl || '/placeholder.png',
               }
             }
           })
@@ -55,6 +65,7 @@ export async function Header() {
           collection: 'wishlists',
           where: { user: { equals: payloadUser.id } },
           limit: 1,
+          depth: 2,
           overrideAccess: true,
         })
         if (wishlists.docs[0]?.items) {

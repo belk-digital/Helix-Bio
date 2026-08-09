@@ -215,18 +215,12 @@ export default function MedicalDisclaimerPage() {
                   </p>
                   
                   <div className="flex flex-col gap-6">
-                    <div>
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 block mb-1">{t('orderQueriesLabel')}</span>
-                      <a href="mailto:orders@helixbiochem.com" className="text-base font-medium text-black hover:text-[#1e5661] transition-colors">orders@helixbiochem.com</a>
-                    </div>
+
                     <div>
                       <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 block mb-1">{t('supportIssuesLabel')}</span>
                       <a href="mailto:support@helixbiochem.com" className="text-base font-medium text-black hover:text-[#1e5661] transition-colors">support@helixbiochem.com</a>
                     </div>
-                    <div>
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-black/40 block mb-1">{t('contactLabel')}</span>
-                      <a href="tel:+10000000000" className="text-base font-medium text-black hover:text-[#1e5661] transition-colors">+1 (000) 000-0000</a>
-                    </div>
+
                   </div>
                   
                   <div className="mt-12 pt-8 border-t border-black/5">

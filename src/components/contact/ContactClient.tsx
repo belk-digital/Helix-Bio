@@ -18,7 +18,6 @@ export function ContactClient() {
       answer: (
         <>
           {t.rich('faqs.contactInfo.answer', {
-            phone: (chunks) => <a href="tel:+10000000000" className="text-primary font-bold underline underline-offset-4 hover:text-ink transition-colors !cursor-pointer pointer-events-auto" data-hide-cursor="true">{chunks}</a>,
             email: (chunks) => <a href="mailto:support@helixbiochem.com" className="text-primary font-bold underline underline-offset-4 hover:text-ink transition-colors !cursor-pointer pointer-events-auto" data-hide-cursor="true">{chunks}</a>,
           })}
         </>
@@ -47,7 +46,7 @@ export function ContactClient() {
       <main className="max-w-[1400px] mx-auto px-4 sm:px-8 md:px-10 py-20 md:py-32 relative z-10">
         
         {/* Contact Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 mb-24 relative">
+        <div className="flex flex-col gap-8 mb-24 relative max-w-md mx-auto">
           
           <motion.a
             href="mailto:support@helixbiochem.com"
@@ -63,33 +62,9 @@ export function ContactClient() {
             />
           </motion.a>
 
-          <motion.a
-            href="mailto:orders@helixbiochem.com"
-            className="block w-full h-full cursor-pointer hover:-translate-y-2 transition-transform duration-500 ease-out"
-          >
-            <PinterestGlassCard
-              title={t('ordersEmailTitle')}
-              description={t('ordersEmailDescription')}
-              icon={<ShoppingCart className="w-5 h-5" />}
-              tag="orders@helixbiochem.com"
-              microcopy={t('ordersEmailMicrocopy')}
-              scrollFanning={true}
-            />
-          </motion.a>
 
-          <motion.a 
-            href="tel:+10000000000"
-            className="block w-full h-full cursor-pointer hover:-translate-y-2 transition-transform duration-500 ease-out"
-          >
-            <PinterestGlassCard
-              title={t('supportPhoneTitle')}
-              description={t('supportPhoneDescription')}
-              icon={<Phone className="w-5 h-5" />}
-              tag="+1 (000) 000-0000"
-              microcopy={t('supportPhoneMicrocopy')}
-              scrollFanning={true}
-            />
-          </motion.a>
+
+
 
         </div>
 

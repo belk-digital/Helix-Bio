@@ -5,7 +5,7 @@ import { syncCartToPayload, getAutoAddAccessoryItems } from '@/app/(frontend)/ac
 
 // Slugs excluded from the "peptide" auto-add-accessories trigger — these ARE the
 // accessories, so adding one shouldn't add another copy of itself alongside it.
-const ACCESSORY_PRODUCT_SLUGS = ['bac-water-bacteriostatic-water', '10-needles'] as const
+const ACCESSORY_PRODUCT_SLUGS = ['bac-water', '10-needles'] as const
 
 function generateLineId() {
   return typeof crypto !== 'undefined' && crypto.randomUUID
@@ -57,7 +57,7 @@ export const useCartStore = create<CartState>()(
     (set, get) => {
       const maybeAutoAddAccessories = async () => {
         const state = get()
-        const hasBacWater = state.items.some((i) => i.product?.slug === 'bac-water-bacteriostatic-water')
+        const hasBacWater = state.items.some((i) => i.product?.slug === 'bac-water')
         const hasNeedles = state.items.some((i) => i.product?.slug === '10-needles')
         if (hasBacWater && hasNeedles) return
 

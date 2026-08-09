@@ -28,7 +28,7 @@ import { createPaymentIntent, getShippingMethods } from './actions'
 const ENABLE_STRIPE = false
 
 // Toggle to enable/disable the CircoFlows hosted-card option without touching Stripe/Zelle/Amex.
-const ENABLE_CIRCOFLOWS = true
+const ENABLE_CIRCOFLOWS = false
 
 const stripePromise = typeof window !== 'undefined' ? loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '') : null
 
@@ -56,7 +56,7 @@ export function CheckoutClient() {
   // Form State
   const [attemptedSubmit, setAttemptedSubmit] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'zelle' | 'amex' | 'circoflows'>(ENABLE_CIRCOFLOWS ? 'circoflows' : 'zelle')
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'zelle' | 'amex' | 'circoflows' | 'stripe_link'>('zelle')
   const [formData, setFormData] = useState({
     email: '',
     firstName: '',
@@ -118,6 +118,56 @@ export function CheckoutClient() {
   const [activeFees, setActiveFees] = useState<any[]>([])
   
   const [dataLoaded, setDataLoaded] = useState(false)
+  const [isEditingAddress, setIsEditingAddress] = useState(false)
+  const [isSavingAddress, setIsSavingAddress] = useState(false)
+
+  const handleSaveAddressEdit = async () => {
+    if (!formData.firstName || !formData.lastName || !formData.address || !formData.city || !formData.state || !formData.zip || !formData.phone) {
+      toast.error(t('errorRequiredFields', { fallback: 'Please fill out all required fields' }))
+      return
+    }
+
+    setIsSavingAddress(true)
+    try {
+      const { updateAddress } = await import('../account/addresses/actions')
+      const fd = new FormData()
+      fd.append('firstName', formData.firstName)
+      fd.append('lastName', formData.lastName)
+      fd.append('line1', formData.address)
+      if (formData.apartment) fd.append('line2', formData.apartment)
+      fd.append('city', formData.city)
+      fd.append('state', formData.state)
+      fd.append('zip', formData.zip)
+      fd.append('country', formData.country || 'US')
+      fd.append('phone', formData.phone)
+      
+      const res = await updateAddress(selectedAddressId, fd)
+      if (res.success) {
+        toast.success(t('addressUpdated', { fallback: 'Address updated successfully' }))
+        setIsEditingAddress(false)
+        setAddresses(prev => prev.map(a => 
+          String(a.id) === selectedAddressId ? {
+            ...a,
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            line1: formData.address,
+            line2: formData.apartment,
+            city: formData.city,
+            state: formData.state,
+            postalCode: formData.zip,
+            country: formData.country || 'US',
+            phone: formData.phone
+          } : a
+        ))
+      } else {
+        toast.error(res.error || 'Failed to update address')
+      }
+    } catch (e: any) {
+      toast.error(e.message || 'An error occurred')
+    } finally {
+      setIsSavingAddress(false)
+    }
+  }
 
   // Fetch data
   useEffect(() => {
@@ -385,7 +435,7 @@ export function CheckoutClient() {
     }
   }
 
-  const handleAmexPlaceOrder = async () => {
+  const handleStripeLinkPlaceOrder = async () => {
     setAttemptedSubmit(true)
     if (!formData.email || !formData.firstName || !formData.address || !formData.city || !formData.state || !formData.zip || !formData.phone) {
       toast.error(t('fillRequiredFieldsOrder'))
@@ -399,9 +449,9 @@ export function CheckoutClient() {
       const orderRes = await createPayloadOrder(
         items, shippingMethod, appliedCoupon?.code, isRedeemingPoints,
         { ...formData, email: user?.email || formData.email },
-        'amex_pending',
+        'stripe_link_pending',
         user?.id as string,
-        'amex',
+        'stripe_link',
         selectedAddressId === 'new'
       )
 
@@ -732,6 +782,7 @@ export function CheckoutClient() {
                           checked={selectedAddressId === String(addr.id)}
                           onChange={() => {
                             setSelectedAddressId(String(addr.id))
+                            setIsEditingAddress(false)
                             setFormData(prev => ({
                               ...prev,
                               firstName: addr.firstName || prev.firstName,
@@ -752,11 +803,37 @@ export function CheckoutClient() {
                             <span className="text-sm font-bold text-ink leading-tight">
                               {addr.firstName} {addr.lastName}
                             </span>
-                            {addr.isDefaultShipping && (
-                              <span className="text-[10px] font-bold uppercase tracking-widest text-ink/60 bg-white border border-slate-100 shadow-sm px-2 py-0.5 rounded-md shrink-0">
-                                {t('defaultAddressBadge')}
-                              </span>
-                            )}
+                            <div className="flex items-center gap-2 shrink-0">
+                              {addr.isDefaultShipping && (
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-ink/60 bg-white border border-slate-100 shadow-sm px-2 py-0.5 rounded-md">
+                                  {t('defaultAddressBadge')}
+                                </span>
+                              )}
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.preventDefault()
+                                  e.stopPropagation()
+                                  setSelectedAddressId(String(addr.id))
+                                  setFormData(prev => ({
+                                    ...prev,
+                                    firstName: addr.firstName || prev.firstName,
+                                    lastName: addr.lastName || prev.lastName,
+                                    address: addr.line1,
+                                    apartment: addr.line2 || '',
+                                    city: addr.city,
+                                    state: addr.state,
+                                    zip: addr.postalCode,
+                                    country: addr.country || 'US',
+                                    phone: addr.phone || ''
+                                  }))
+                                  setIsEditingAddress(true)
+                                }}
+                                className="p-1.5 text-gray-400 hover:text-black hover:bg-gray-100 rounded-md transition-colors"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+                              </button>
+                            </div>
                           </div>
                           <span className="text-xs text-ink/70 mt-1.5">{addr.line1}{addr.line2 ? `, ${addr.line2}` : ''}</span>
                           <span className="text-xs text-ink/70 mt-0.5">{addr.city}, {addr.state} {addr.postalCode}</span>
@@ -772,6 +849,7 @@ export function CheckoutClient() {
                         checked={selectedAddressId === 'new'}
                         onChange={() => {
                           setSelectedAddressId('new')
+                          setIsEditingAddress(false)
                           setFormData(prev => ({ ...prev, address: '', apartment: '', city: '', state: '', zip: '', country: 'US', phone: '' }))
                         }}
                         className="w-4 h-4 accent-black text-ink border-ink/20 focus:ring-ink focus:ring-offset-0" 
@@ -783,23 +861,23 @@ export function CheckoutClient() {
 
                 <input type="hidden" name="addressId" value={selectedAddressId} />
 
-                {(!user || selectedAddressId === 'new') && (
+                {(!user || selectedAddressId === 'new' || isEditingAddress) && (
                   <div className="flex flex-col gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
                     <div className="grid grid-cols-2 gap-4">
-                      <Input name="firstName" value={formData.firstName} onChange={handleInputChange} placeholder={t('firstName')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && selectedAddressId === 'new' && !formData.firstName ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new'} />
-                      <Input name="lastName" value={formData.lastName} onChange={handleInputChange} placeholder={t('lastName')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && selectedAddressId === 'new' && !formData.lastName ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new'} />
+                      <Input name="firstName" value={formData.firstName} onChange={handleInputChange} placeholder={t('firstName')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && (selectedAddressId === 'new' || isEditingAddress) && !formData.firstName ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new' || isEditingAddress} />
+                      <Input name="lastName" value={formData.lastName} onChange={handleInputChange} placeholder={t('lastName')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && (selectedAddressId === 'new' || isEditingAddress) && !formData.lastName ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new' || isEditingAddress} />
                     </div>
-                    <Input name="address" value={formData.address} onChange={handleInputChange} placeholder={t('address')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && selectedAddressId === 'new' && !formData.address ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new'} />
+                    <Input name="address" value={formData.address} onChange={handleInputChange} placeholder={t('address')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && (selectedAddressId === 'new' || isEditingAddress) && !formData.address ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new' || isEditingAddress} />
                     <Input name="apartment" value={formData.apartment} onChange={handleInputChange} placeholder={t('apartmentOptional')} className="h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm" />
                     <div className="grid grid-cols-6 gap-4">
                       <div className="col-span-3 sm:col-span-2">
-                        <Input name="city" value={formData.city} onChange={handleInputChange} placeholder={t('city')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && selectedAddressId === 'new' && !formData.city ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new'} />
+                        <Input name="city" value={formData.city} onChange={handleInputChange} placeholder={t('city')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && (selectedAddressId === 'new' || isEditingAddress) && !formData.city ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new' || isEditingAddress} />
                       </div>
                       <div className="col-span-3 sm:col-span-2">
-                        <Input name="state" value={formData.state} onChange={handleInputChange} placeholder={t('state')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && selectedAddressId === 'new' && !formData.state ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new'} />
+                        <Input name="state" value={formData.state} onChange={handleInputChange} placeholder={t('state')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && (selectedAddressId === 'new' || isEditingAddress) && !formData.state ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new' || isEditingAddress} />
                       </div>
                       <div className="col-span-6 sm:col-span-2">
-                        <Input name="zip" value={formData.zip} onChange={handleInputChange} placeholder={t('zipCode')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && selectedAddressId === 'new' && !formData.zip ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new'} />
+                        <Input name="zip" value={formData.zip} onChange={handleInputChange} placeholder={t('zipCode')} className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && (selectedAddressId === 'new' || isEditingAddress) && !formData.zip ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required={selectedAddressId === 'new' || isEditingAddress} />
                       </div>
                     </div>
                     <Select
@@ -828,12 +906,54 @@ export function CheckoutClient() {
                     {isInternational && (
                       <p className="text-xs text-ink/50 px-1 -mt-1">{t('internationalShippingNotice')}</p>
                     )}
+
+                    {/* Render Phone field inside the expanded block so it appears above Cancel/Save */}
+                    <Input name="phone" value={formData.phone} onChange={handleInputChange} placeholder={t('phoneForDelivery')} type="tel" className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && !formData.phone ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required />
+
+                    {isEditingAddress && selectedAddressId !== 'new' && (
+                      <div className="flex gap-3 pt-2">
+                        <Button
+                          type="button"
+                          variant="outline"
+                          onClick={() => {
+                            setIsEditingAddress(false)
+                            const addr = addresses.find(a => String(a.id) === selectedAddressId)
+                            if (addr) {
+                              setFormData(prev => ({
+                                ...prev,
+                                firstName: addr.firstName || prev.firstName,
+                                lastName: addr.lastName || prev.lastName,
+                                address: addr.line1,
+                                apartment: addr.line2 || '',
+                                city: addr.city,
+                                state: addr.state,
+                                zip: addr.postalCode,
+                                country: addr.country || 'US',
+                                phone: addr.phone || ''
+                              }))
+                            }
+                          }}
+                          className="h-12 flex-1 rounded-[12px] border-gray-200 text-black font-bold uppercase tracking-widest text-[10px]"
+                        >
+                          Cancel
+                        </Button>
+                        <Button
+                          type="button"
+                          disabled={isSavingAddress}
+                          onClick={handleSaveAddressEdit}
+                          className="h-12 flex-1 rounded-[12px] bg-black text-white font-bold uppercase tracking-widest text-[10px]"
+                        >
+                          {isSavingAddress ? <Loader2 className="animate-spin" /> : "Save Changes"}
+                        </Button>
+                      </div>
+                    )}
                   </div>
                 )}
 
-                {/* Phone is always shown and required, even when a saved address is selected —
-                    older addresses saved before this field existed may not have one on file. */}
-                <Input name="phone" value={formData.phone} onChange={handleInputChange} placeholder={t('phoneForDelivery')} type="tel" className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && !formData.phone ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required />
+                {/* Render Phone field outside when the address form is collapsed (saved address selected) */}
+                {user && selectedAddressId !== 'new' && !isEditingAddress && (
+                  <Input name="phone" value={formData.phone} onChange={handleInputChange} placeholder={t('phoneForDelivery')} type="tel" className={`h-14 rounded-[12px] bg-white border border-gray-200 focus-visible:ring-1 focus-visible:ring-black focus-visible:border-black text-sm text-black placeholder:text-gray-400 transition-all shadow-sm ${attemptedSubmit && !formData.phone ? 'border-red-500 ring-1 ring-red-500 bg-red-50/30' : ''}`} required />
+                )}
               </section>
 
               {/* Shipping Method */}
@@ -965,27 +1085,26 @@ export function CheckoutClient() {
                       </label>
 
                       <label className={`relative flex items-center justify-between p-5 rounded-[12px] border transition-all duration-200 ease-in-out cursor-pointer overflow-hidden ${
-                        selectedPaymentMethod === 'amex' ? 'border-black bg-[#fafafa] shadow-md ring-1 ring-black' : 'border-gray-200 bg-white hover:border-gray-300 shadow-sm'
+                        selectedPaymentMethod === 'stripe_link' ? 'border-black bg-[#fafafa] shadow-md ring-1 ring-black' : 'border-gray-200 bg-white hover:border-gray-300 shadow-sm'
                       }`}>
                         <div className="flex items-center gap-4 relative z-10">
                           <input 
                             type="radio" 
                             name="paymentMethod" 
-                            value="amex" 
+                            value="stripe_link" 
                             className="sr-only" 
-                            checked={selectedPaymentMethod === 'amex'} 
-                            onChange={() => setSelectedPaymentMethod('amex')} 
+                            checked={selectedPaymentMethod === 'stripe_link'} 
+                            onChange={() => setSelectedPaymentMethod('stripe_link')} 
                           />
-                          <div className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-colors duration-200 ${selectedPaymentMethod === 'amex' ? 'border-black bg-black' : 'border-gray-300 bg-white'}`}>
-                            {selectedPaymentMethod === 'amex' && <div className="w-2 h-2 bg-white rounded-full shadow-sm animate-in zoom-in duration-200" />}
+                          <div className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-colors duration-200 ${selectedPaymentMethod === 'stripe_link' ? 'border-black bg-black' : 'border-gray-300 bg-white'}`}>
+                            {selectedPaymentMethod === 'stripe_link' && <div className="w-2 h-2 bg-white rounded-full shadow-sm animate-in zoom-in duration-200" />}
                           </div>
                           <div className="flex flex-col">
-                            <span className={`text-sm font-bold transition-colors flex items-center gap-2 ${selectedPaymentMethod === 'amex' ? 'text-black' : 'text-gray-700'}`}>
-                              <Smartphone size={14} className="text-gray-400" />
-                              American Express
-                              <span className="px-1.5 py-0.5 border border-blue-600 bg-blue-500 rounded shadow-sm text-[8px] font-black text-white tracking-wider ml-2">AMEX</span>
+                            <span className={`text-sm font-bold transition-colors flex items-center gap-2 ${selectedPaymentMethod === 'stripe_link' ? 'text-black' : 'text-gray-700'}`}>
+                              <CreditCard size={14} className="text-gray-400" />
+                              Stripe (Custom Payment Link)
                             </span>
-                            <span className="text-xs text-gray-500 mt-0.5">{t('amexCheckoutNote')}</span>
+                            <span className="text-xs text-gray-500 mt-0.5">Secure payment via an emailed Stripe link.</span>
                           </div>
                         </div>
                       </label>
@@ -994,7 +1113,7 @@ export function CheckoutClient() {
                     <div className="w-full mt-6">
                       <Button onClick={
                         selectedPaymentMethod === 'circoflows' ? handleCircoFlowsPlaceOrder :
-                        selectedPaymentMethod === 'zelle' ? handleZellePlaceOrder : handleAmexPlaceOrder
+                        selectedPaymentMethod === 'zelle' ? handleZellePlaceOrder : handleStripeLinkPlaceOrder
                       } disabled={isProcessing} size="lg" className="w-full h-14 rounded-[12px] bg-black font-bold text-[11px] tracking-[0.2em] uppercase text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all group">
                         {isProcessing ? <Loader2 className="animate-spin" /> : t('placeOrder')}
                       </Button>

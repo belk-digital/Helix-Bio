@@ -50,10 +50,10 @@ type OrderData = {
   discountTotal?: number
   redeemedPoints?: number
   couponCode?: string
-  paymentMethod: 'stripe' | 'zelle' | 'amex' | 'circoflows'
+  paymentMethod: 'stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link'
 }
 
-const ZELLE_RECIPIENT_EMAIL = 'orders@helixbiochem.com'
+const ZELLE_RECIPIENT_EMAIL = 'support@helixbiochem.com'
 
 const CONFETTI_PIECES = [
   { x: -80, y: -60, color: '#92DCE5', delay: 0.0, rotation: 45, scale: 1.2 },
@@ -100,7 +100,7 @@ const ConfettiBurst = () => {
 export function OrderConfirmationClient({ order }: { order: OrderData }) {
   const t = useTranslations('orderConfirmation')
   const isZelle = order.paymentMethod === 'zelle'
-  const isAmex = order.paymentMethod === 'amex'
+  const isStripeLink = order.paymentMethod === 'stripe_link' || order.paymentMethod === 'amex'
 
   React.useEffect(() => {
     useCartStore.getState().clear()
@@ -122,6 +122,7 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
     zelle: t('paymentMethodZelle'),
     amex: 'American Express',
     circoflows: t('paymentMethodCard'),
+    stripe_link: 'Stripe (Custom Link)',
   }
 
   const renderOrderSummary = () => (
@@ -251,13 +252,13 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
                 <FadeUp delay={0.1}>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">{t('confirmationEmailSent')} {order.email}</p>
                   <h1 className="text-3xl md:text-5xl font-bold text-black mb-4 tracking-tight">
-                    {isZelle || isAmex ? t('orderPlaced') : t('paymentSuccessful')}
+                    {isZelle || isStripeLink ? t('orderPlaced') : t('paymentSuccessful')}
                   </h1>
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-lg">
                     {isZelle
                       ? t('thankYouZelle', { name: order.customerName })
-                      : isAmex
-                      ? t('thankYouAmex', { name: order.customerName })
+                      : isStripeLink
+                      ? "Thank you for your order! Your items have been successfully reserved."
                       : t('thankYouConfirmed', { name: order.customerName })}
                   </p>
                 </FadeUp>
@@ -312,16 +313,16 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
                 </FadeUp>
               )}
 
-              {isAmex && (
+              {isStripeLink && (
                 <FadeUp delay={0.15} className="print:hidden">
                   <div className="bg-[#fafafa] border-2 border-blue-100 rounded-[12px] p-6 md:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left relative overflow-hidden">
                     <div className="w-12 h-12 rounded-[12px] bg-blue-100 flex items-center justify-center text-blue-700 shrink-0">
-                      <Smartphone size={24} />
+                      <CreditCard size={24} />
                     </div>
                     <div>
-                      <h2 className="text-lg font-bold text-black mb-2">{t('completeAmexPayment')}</h2>
+                      <h2 className="text-lg font-bold text-black mb-2">Secure Stripe Payment Link</h2>
                       <p className="text-sm text-gray-600 leading-relaxed">
-                        One of our team members will reach out to you shortly via <strong>SMS</strong> with a secure invoice link to finalize your American Express payment. Keep an eye on your phone!
+                        One of our team members will reach out to you shortly via <strong>Email</strong> with a secure, custom Stripe payment link to finalize your order. Rest assured, your items are safely reserved for you in the meantime!
                       </p>
                     </div>
                   </div>
@@ -366,7 +367,7 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
                       <div>
                         <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1">{t('paymentMethod')}</p>
                         <p className="text-sm font-bold text-black flex items-center gap-2">
-                           {isZelle ? <Wallet size={14} className="text-purple-600"/> : isAmex ? <Smartphone size={14} className="text-blue-600" /> : <CreditCard size={14} className="text-gray-500" />}
+                           {isZelle ? <Wallet size={14} className="text-purple-600"/> : isStripeLink ? <CreditCard size={14} className="text-blue-600" /> : <CreditCard size={14} className="text-gray-500" />}
                            {PAYMENT_METHOD_LABELS[order.paymentMethod]}
                         </p>
                       </div>

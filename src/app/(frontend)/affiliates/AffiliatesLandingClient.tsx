@@ -761,7 +761,7 @@ export function AffiliatesLandingClient({ userStatus }: Props) {
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="websiteUrl" className="text-xs font-bold tracking-widest uppercase text-ink/70 ml-1">{t('websiteUrlLabel')}</Label>
-                        <Input id="websiteUrl" name="websiteUrl" type="url" placeholder="https://example.com" className="h-14 rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary px-4 text-ink placeholder:text-ink/30" />
+                        <Input id="websiteUrl" name="websiteUrl" type="text" placeholder="https://example.com" className="h-14 rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary px-4 text-ink placeholder:text-ink/30" />
                       </div>
                     </div>
                   </div>
@@ -886,7 +886,7 @@ export function AffiliatesLandingClient({ userStatus }: Props) {
              </p>
              <p className="text-ink/70 text-sm font-bold mb-8 md:mb-10 flex flex-col sm:flex-row gap-1 sm:gap-2">
                <span>{t('finalCtaQuestions')}</span> 
-               <a href="mailto:affiliates@helixbiochem.com" className="text-ink hover:text-white transition-colors font-black underline underline-offset-4">affiliates@helixbiochem.com</a>
+               <a href="mailto:support@helixbiochem.com" className="text-ink hover:text-white transition-colors font-black underline underline-offset-4">support@helixbiochem.com</a>
              </p>
              <div className="flex w-full md:w-auto mt-2">
                <FluidButton

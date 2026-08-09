@@ -772,7 +772,7 @@ export interface Order {
   /**
    * Zelle orders require manual payment confirmation before fulfillment.
    */
-  paymentMethod?: ('stripe' | 'zelle' | 'amex' | 'circoflows') | null;
+  paymentMethod?: ('stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link') | null;
   /**
    * CircoFlows transaction_id, for support/reconciliation lookups.
    */

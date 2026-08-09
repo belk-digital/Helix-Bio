@@ -11,7 +11,7 @@ export const beforeOrderChange: CollectionBeforeChangeHook = async ({ operation,
   if (operation === 'create') {
     if (!data.orderNumber) {
       const db = req.payload.db as any
-      const counterRes: any = await db.drizzle.execute(sql`INSERT INTO "order_counters" ("id", "counter", "created_at", "updated_at") VALUES (0, 7000, now(), now())
+      const counterRes: any = await db.drizzle.execute(sql`INSERT INTO "order_counters" ("id", "counter", "created_at", "updated_at") VALUES (1, 1000, now(), now())
                   ON CONFLICT ("id") DO UPDATE SET "counter" = "order_counters"."counter" + 1, "updated_at" = now()
                   RETURNING "counter"`)
       const counter = (counterRes.rows ? counterRes.rows[0].counter : counterRes[0].counter)
@@ -204,7 +204,7 @@ export const afterOrderChange: CollectionAfterChangeHook = async ({ doc, previou
           const { generateOrderInvoiceHtml } = await import('@/lib/emails/generateOrderEmail')
           const html = await generateOrderInvoiceHtml(doc, req.payload, undefined, label as 'failed' | 'cancelled' | 'refunded')
           await sendTrackedEmail(req.payload, {
-            from: 'Orders | Helix Bio <orders@helixbiochem.com>',
+            from: 'Orders | Helix Bio <support@helixbiochem.com>',
             to: customerEmail,
             // On payment failure, admin gets the identical invoice email (same cart/totals)
             // the customer receives, rather than a separate summary-only alert.
@@ -252,7 +252,7 @@ export const afterOrderChange: CollectionAfterChangeHook = async ({ doc, previou
           const invoiceHtml = await generateOrderInvoiceHtml(doc, req.payload, customNote)
           
           await sendTrackedEmail(req.payload, {
-            from: 'Orders | Helix Bio <orders@helixbiochem.com>',
+            from: 'Orders | Helix Bio <support@helixbiochem.com>',
             to: customerEmail,
             subject: `Update regarding your Order #${doc.orderNumber || doc.id}`,
             html: invoiceHtml,
@@ -288,7 +288,7 @@ export const afterOrderChange: CollectionAfterChangeHook = async ({ doc, previou
         const invoiceHtml = await generateOrderInvoiceHtml(doc, req.payload, "Great news! Your order has been shipped. You can track your package using the tracking link below.")
         
         await sendTrackedEmail(req.payload, {
-          from: 'Orders | Helix Bio <orders@helixbiochem.com>',
+          from: 'Orders | Helix Bio <support@helixbiochem.com>',
           to: customerEmail,
           subject: `Your Order #${doc.orderNumber || doc.id} has shipped!`,
           html: invoiceHtml,

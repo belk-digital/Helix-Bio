@@ -198,14 +198,21 @@ export async function getAutoAddAccessoryItems(): Promise<{
     // with a usable `.url` — depth: 0 would leave them as bare numeric IDs, which is why
     // the cart line images broke.
     const [bacWaterRes, needlesRes] = await Promise.all([
-      payload.find({ collection: 'products', where: { slug: { equals: 'bac-water-bacteriostatic-water' } }, limit: 1, depth: 1 }),
+      payload.find({ collection: 'products', where: { slug: { equals: 'bac-water' } }, limit: 1, depth: 1 }),
       payload.find({ collection: 'products', where: { slug: { equals: '10-needles' } }, limit: 1, depth: 1 }),
     ])
 
     let bacWater: Omit<CartLine, 'lineId' | 'quantity'> | null = null
     const bacProduct = bacWaterRes.docs[0]
+    console.log('BAC AUTO-ADD DEBUG: bacWaterRes docs length:', bacWaterRes.docs.length)
     if (bacProduct) {
-      const variant = bacProduct.variants?.find((v: any) => v.sku === 'BACK-WATER-30ML')
+      console.log('BAC AUTO-ADD DEBUG: Found BAC product, variants length:', bacProduct.variants?.length)
+      const variant = bacProduct.variants?.find((v: any) => {
+        const sku = (v.sku || '').toUpperCase()
+        return sku === 'BACK-WATER-30ML' || sku === 'BAC-WATER-30ML' || sku === 'BACWAT-30ML'
+      }) || (bacProduct.variants && bacProduct.variants.length > 0 ? bacProduct.variants[bacProduct.variants.length - 1] : null)
+      
+      console.log('BAC AUTO-ADD DEBUG: Selected variant:', variant ? variant.sku : 'none')
       if (variant) {
         const vPrice = typeof variant.price === 'number' ? variant.price : parseFloat(String(variant.price).replace(/[^0-9.]/g, ''))
         const vSale = variant.salePrice ? (typeof variant.salePrice === 'number' ? variant.salePrice : parseFloat(String(variant.salePrice).replace(/[^0-9.]/g, ''))) : null
@@ -222,7 +229,10 @@ export async function getAutoAddAccessoryItems(): Promise<{
             imageUrl: (variant.images?.[0]?.image as any)?.url || (bacProduct.images?.[0]?.image as any)?.url || '/placeholder.png',
           },
         }
+        console.log('BAC AUTO-ADD DEBUG: Built bacWater object:', bacWater.variantSku)
       }
+    } else {
+      console.log('BAC AUTO-ADD DEBUG: bacProduct is undefined!')
     }
 
     let needles: Omit<CartLine, 'lineId' | 'quantity'> | null = null

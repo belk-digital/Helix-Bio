@@ -227,6 +227,7 @@ export const Orders: CollectionConfig = {
         { label: 'Zelle', value: 'zelle' },
         { label: 'American Express', value: 'amex' },
         { label: 'Card (CircoFlows)', value: 'circoflows' },
+        { label: 'Stripe (Custom Payment Link)', value: 'stripe_link' },
       ],
       admin: {
         position: 'sidebar',

@@ -2,13 +2,16 @@ export function emailLayout({
   title, 
   content, 
   heroImage = null, 
-  serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com' 
+  serverUrl = 'https://helixbiochem.com' 
 }: { 
   title: string, 
   content: string, 
   heroImage?: string | null,
   serverUrl?: string 
 }): string {
+  // Enforce production domain for emails
+  serverUrl = 'https://helixbiochem.com';
+  
   return `
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +31,7 @@ export function emailLayout({
           <tr>
             <td style="background-color: #ffffff; padding: 48px 48px 24px 48px; text-align: center;">
               <a href="${serverUrl}" target="_blank" style="text-decoration: none; display: inline-block;">
-                <img src="${serverUrl}/HelixBio%20Images/hb-logo.png" alt="Helix Bio" style="height: 44px; width: auto; max-width: 100%; display: block; margin: 0 auto;" />
+                <img src="https://pub-0b0f2f98407442588d161ae09cb84207.r2.dev/email-assets/hb-logo.png" alt="Helix Bio" style="height: 44px; width: auto; max-width: 100%; display: block; margin: 0 auto;" />
               </a>
             </td>
           </tr>
@@ -38,7 +41,7 @@ export function emailLayout({
           <tr>
             <td style="padding: 0 48px 24px 48px; background-color: #ffffff;">
               <div style="border-radius: 12px; overflow: hidden;">
-                <img src="${serverUrl}${heroImage}" alt="${title}" style="width: 100%; height: auto; display: block;" />
+                <img src="${heroImage.startsWith('http') ? heroImage : serverUrl + heroImage}" alt="${title}" style="width: 100%; max-height: 180px; object-fit: cover; object-position: center; display: block;" />
               </div>
             </td>
           </tr>
@@ -64,7 +67,7 @@ export function emailLayout({
                   <td align="center">
                     <a href="${serverUrl}/shop" style="color: #0A0A0A; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 12px;">Shop</a>
                     <a href="${serverUrl}/account" style="color: #0A0A0A; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 12px;">Account</a>
-                    <a href="${serverUrl}/contact" style="color: #0A0A0A; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 12px;">Support</a>
+                    <a href="${serverUrl}/contact-us" style="color: #0A0A0A; text-decoration: none; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 12px;">Support</a>
                   </td>
                 </tr>
               </table>

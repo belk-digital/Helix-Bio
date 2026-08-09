@@ -73,17 +73,35 @@ export default async function OrderConfirmationPage({ params }: { params: Promis
      const productData = typeof item.product === 'object' ? item.product : item.productSnapshot
      
      let displayVariant = item.variantTitle || item.variant || t('defaultVariant');
-     if (productData?.variants?.length && !item.variantTitle) {
-        for (const v of productData.variants) {
-           const vTitle = v.title || v.options?.map((o:any) => o.value).join(' ') || `Variant`;
+     let variantImageUrl = '';
+     
+     if (productData?.variants?.length) {
+        // try to find the matching variant by SKU
+        const matchedVariant = productData.variants.find((v: any) => v.sku === item.variant || (item.variant && item.variant.includes(v.sku)));
+        
+        if (matchedVariant) {
+           variantImageUrl = matchedVariant.images?.[0]?.image?.url || matchedVariant.images?.[0]?.url || '';
            
-           if (displayVariant === v.sku) {
-              displayVariant = vTitle;
-              break;
+           if (!item.variantTitle) {
+              const vTitle = matchedVariant.title || matchedVariant.options?.map((o:any) => o.value).join(' ') || `Variant`;
+              if (displayVariant === matchedVariant.sku) {
+                 displayVariant = vTitle;
+              } else if (displayVariant.startsWith(`${matchedVariant.sku} - `)) {
+                 displayVariant = displayVariant.replace(`${matchedVariant.sku} - `, `${vTitle} - `);
+              }
            }
-           if (displayVariant.startsWith(`${v.sku} - `)) {
-              displayVariant = displayVariant.replace(`${v.sku} - `, `${vTitle} - `);
-              break;
+        } else if (!item.variantTitle) {
+           // fallback to original loop if no match found just to fix titles
+           for (const v of productData.variants) {
+              const vTitle = v.title || v.options?.map((o:any) => o.value).join(' ') || `Variant`;
+              if (displayVariant === v.sku) {
+                 displayVariant = vTitle;
+                 break;
+              }
+              if (displayVariant.startsWith(`${v.sku} - `)) {
+                 displayVariant = displayVariant.replace(`${v.sku} - `, `${vTitle} - `);
+                 break;
+              }
            }
         }
      }
@@ -94,7 +112,7 @@ export default async function OrderConfirmationPage({ params }: { params: Promis
         variant: displayVariant, 
         quantity: item.quantity,
         price: typeof item.price === 'number' ? item.price : (productData?.price || productData?.basePrice || 0),
-        image: productData?.images?.[0]?.image?.url || productData?.images?.[0]?.url || '/HelixBio Images/featured-research-2.webp'
+        image: (variantImageUrl || productData?.images?.[0]?.image?.url || productData?.images?.[0]?.url || '/HelixBio Images/featured-research-2.webp').replace(/ /g, '%20')
      }
   })
 

@@ -1,0 +1,23 @@
+import { getPayload } from 'payload'
+import configPromise from '@payload-config'
+
+async function checkBacWater() {
+  const payload = await getPayload({ config: configPromise })
+  const docs = await payload.find({
+    collection: 'products',
+    where: { slug: { equals: 'bac-water-bacteriostatic-water' } },
+    depth: 1,
+  })
+
+  const prod = docs.docs[0]
+  if (!prod) {
+    console.log('BAC Water product not found!')
+    process.exit(0)
+  }
+
+  console.log('BAC Water variants:')
+  console.dir(prod.variants, { depth: null })
+  process.exit(0)
+}
+
+checkBacWater()
