@@ -178,6 +178,16 @@ export default buildConfig({
               return prefix ? `${base}/${prefix}/${filename}` : `${base}/${filename}`
             },
           },
+          'blog-media': {
+            disableLocalStorage: true,
+            disablePayloadAccessControl: true,
+            prefix: 'Blog Images',
+            generateFileURL: ({ filename, prefix }) => {
+              const publicUrl = process.env.R2_PUBLIC_URL || ''
+              const base = publicUrl.replace(/\/$/, '')
+              return prefix ? `${base}/${prefix}/${filename}` : `${base}/${filename}`
+            },
+          },
         },
         bucket: process.env.R2_BUCKET,
         config: {

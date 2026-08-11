@@ -19,7 +19,7 @@ import { RelatedProductsSlider } from '@/components/blog/RelatedProductsSlider'
 import { estimateReadingTime } from '@/lib/blog/readingTime'
 import { splitFirstParagraph } from '@/lib/blog/splitContent'
 import { getFeaturedImageUrl, formatPostDate, FALLBACK_BLOG_IMAGE as FALLBACK_IMAGE } from '@/lib/blog/postDisplay'
-import { encodeImageUrl, getOgImageUrl } from '@/lib/utils'
+import { encodeImageUrl, getOgImageUrl, toAbsoluteUrl } from '@/lib/utils'
 
 async function getPost(slug: string) {
   const payload = await getPayload({ config: configPromise })
@@ -61,7 +61,7 @@ export async function generateMetadata({
   const description = post.excerpt || ''
   const path = `/${slug}`
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
-  const imageUrl = `${baseUrl}${getFeaturedImageUrl(post)}`
+  const imageUrl = toAbsoluteUrl(baseUrl, getFeaturedImageUrl(post))
   const payload = await getPayload({ config: configPromise })
   const authorProfile = await payload.findGlobal({ slug: 'blog-author-profile' })
   const authorName = authorProfile?.name || 'Helix Bio Team'
@@ -159,12 +159,6 @@ export default async function BlogPostPage({
     return image?.url ? encodeImageUrl(image.url) : FALLBACK_IMAGE
   }
 
-  // Product images are stored on R2 (absolute URLs); blog images are stored locally
-  // (relative URLs) — only prefix baseUrl onto relative ones, or R2 URLs get doubled up.
-  function toAbsoluteUrl(baseUrl: string, url: string): string {
-    return /^https?:\/\//.test(url) ? url : `${baseUrl}${url}`
-  }
-
   const sliderProducts = relatedProducts.slice(0, 6).map((product: any) => ({
     id: product.id,
     name: product.name,
@@ -183,7 +177,9 @@ export default async function BlogPostPage({
   const productSchemas = relatedProducts.map((product: any) => {
     const productUrl = `${baseUrl}/product/${product.slug}`
     const price = Number(product.salePrice || product.price || 0)
-    const productImage = encodeURI(toAbsoluteUrl(baseUrl, getProductImageUrl(product)))
+    // getProductImageUrl already returns a fully-encoded URL (via encodeImageUrl) —
+    // wrapping it in encodeURI again would double-encode already-escaped characters.
+    const productImage = toAbsoluteUrl(baseUrl, getProductImageUrl(product))
 
     return {
       '@type': 'Product',
@@ -214,7 +210,9 @@ export default async function BlogPostPage({
         '@id': `${postUrl}#article`,
         headline: post.title,
         description: post.excerpt,
-        image: encodeURI(`${baseUrl}${featuredImageUrl}`),
+        // featuredImageUrl is already fully encoded (via encodeImageUrl) and may already
+        // be an absolute R2 URL — only prefix baseUrl if it's relative, never re-encode.
+        image: toAbsoluteUrl(baseUrl, featuredImageUrl),
         datePublished: isoDate,
         dateModified: post.updatedAt ? new Date(post.updatedAt).toISOString() : isoDate,
         articleSection: post.category || undefined,

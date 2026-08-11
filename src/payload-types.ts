@@ -327,6 +327,7 @@ export interface BlogMedia {
   id: number;
   alt: string;
   caption?: string | null;
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -1667,6 +1668,7 @@ export interface MediaSelect<T extends boolean = true> {
 export interface BlogMediaSelect<T extends boolean = true> {
   alt?: T;
   caption?: T;
+  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;

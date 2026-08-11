@@ -133,23 +133,31 @@ async function run() {
   const warnings: string[] = []
   const payload = await getPayload({ config: configPromise })
 
-  // 1. Featured image
+  const slug = draft.slug || draft.title.toLowerCase().replace(/\s+/g, '-')
+  const { docs: existingPostDocs } = await payload.find({ collection: 'blog-posts', where: { slug: { equals: slug } }, limit: 1 })
+  const existingPost = existingPostDocs[0]
+  const existingImageId = existingPost?.featuredImage
+    ? (typeof existingPost.featuredImage === 'object' ? existingPost.featuredImage.id : existingPost.featuredImage)
+    : null
+
+  // 1. Featured image — replace the existing upload in place on re-import instead of
+  // creating a new blog-media doc each time (which would otherwise pile up as
+  // filename-1, filename-2, ... on every re-run of the same post).
   const imagePath = findImageFile(jsonPath, imageArg ? path.resolve(process.cwd(), imageArg) : undefined)
   if (!imagePath) {
     console.error(`No featured image found next to ${jsonPath} (expected same basename with .webp/.jpg/.jpeg/.png/.avif) and none passed as second argument.`)
     process.exit(1)
   }
   const imageData = fs.readFileSync(imagePath)
-  const featuredImage = await payload.create({
-    collection: 'blog-media',
-    data: { alt: draft.featuredImageAlt },
-    file: {
-      data: imageData,
-      mimetype: MIME_BY_EXT[path.extname(imagePath).toLowerCase()] || 'image/webp',
-      name: path.basename(imagePath),
-      size: imageData.length,
-    },
-  })
+  const imageFile = {
+    data: imageData,
+    mimetype: MIME_BY_EXT[path.extname(imagePath).toLowerCase()] || 'image/webp',
+    name: path.basename(imagePath),
+    size: imageData.length,
+  }
+  const featuredImage = existingImageId
+    ? await payload.update({ collection: 'blog-media', id: existingImageId, data: { alt: draft.featuredImageAlt }, file: imageFile })
+    : await payload.create({ collection: 'blog-media', data: { alt: draft.featuredImageAlt }, file: imageFile })
 
   // 2. Internal link verification (content stays as authored; broken links are reported, not guessed)
   await verifyInternalLinks(payload, draft.content, warnings)
@@ -169,8 +177,6 @@ async function run() {
     process.exit(1)
   }
   const authorUser = admins[0]
-
-  const slug = draft.slug || draft.title.toLowerCase().replace(/\s+/g, '-')
 
   const postData: any = {
     title: draft.title,
@@ -198,10 +204,8 @@ async function run() {
     }
   }
 
-  const { docs: existing } = await payload.find({ collection: 'blog-posts', where: { slug: { equals: slug } }, limit: 1 })
-
-  if (existing.length > 0) {
-    await payload.update({ collection: 'blog-posts', id: existing[0].id, data: postData })
+  if (existingPost) {
+    await payload.update({ collection: 'blog-posts', id: existingPost.id, data: postData })
     console.log(`Updated existing blog post: ${slug}`)
   } else {
     await payload.create({ collection: 'blog-posts', data: postData })
