@@ -229,6 +229,15 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
               </div>
           ` : ''}
 
+          ${statusContext === 'success' && order.paymentMethod === 'stripe_link' && order.paymentStatus === 'unpaid' ? `
+          <!-- Stripe Link Payment Instructions -->
+              <div style="background-color: #EEF2FF; border: 1px solid #C7D2FE; padding: 30px 20px; border-radius: 12px; text-align: center; margin-bottom: 32px;">
+                <div style="display: inline-block; width: 48px; height: 48px; background-color: #C7D2FE; border-radius: 50%; color: #4338CA; font-weight: bold; font-size: 24px; line-height: 48px; margin-bottom: 16px;">S</div>
+                <h3 style="margin: 0 0 8px 0; color: #3730A3; font-size: 18px; font-weight: 700;">Complete Your Payment</h3>
+                <p style="margin: 0; color: #4338CA; font-size: 14px; line-height: 1.5;">Our team will get back to you shortly with a custom Stripe payment link to finalize your order.</p>
+              </div>
+          ` : ''}
+
           ${statusContext === 'success' && safeTrackingLink ? `
           <!-- Tracking Link -->
               <div style="background-color: #FAFAFA; border-left: 4px solid #10B981; padding: 24px; border-radius: 0 12px 12px 0; margin-bottom: 32px;">

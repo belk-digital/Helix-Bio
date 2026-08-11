@@ -29,8 +29,8 @@ export async function getShippingMethods() {
   // Fallback if none exist (no ShippingZones doc currently exists in this project's DB,
   // so this fallback is what's actually active in production right now)
   return [
-    { method: 'Standard Shipping', price: 20, estimatedDays: 5 },
-    { method: 'Express Shipping', price: 30, estimatedDays: 2 },
+    { method: 'Standard Shipping', price: 25, estimatedDays: 5 },
+    { method: 'Express Shipping', price: 50, estimatedDays: 2 },
     { method: 'International Shipping', price: 50, estimatedDays: null, isInternational: true },
   ]
 }

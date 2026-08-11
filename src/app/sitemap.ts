@@ -2,7 +2,6 @@ import type { MetadataRoute } from 'next'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import * as Sentry from '@sentry/nextjs'
-import { BLOG_POSTS } from '@/data/blog-posts'
 
 const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
 
@@ -64,9 +63,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     Sentry.captureException(error, { tags: { route: 'sitemap.xml' } })
   }
 
-  for (const post of BLOG_POSTS) {
-    const path = `/${post.slug}`
-    entries.push(entry(path, { priority: 0.6, changeFrequency: 'monthly' }))
+  try {
+    const payload = await getPayload({ config: configPromise })
+    const { docs: posts } = await payload.find({
+      collection: 'blog-posts',
+      where: { status: { equals: 'published' } },
+      limit: 1000,
+      depth: 0,
+    })
+
+    for (const post of posts) {
+      const path = `/${post.slug}`
+      const lastModified = post.updatedAt ? new Date(post.updatedAt) : undefined
+      entries.push(entry(path, { lastModified, priority: 0.6, changeFrequency: 'monthly' }))
+    }
+  } catch (error) {
+    console.error('sitemap: failed to fetch blog posts', error)
+    Sentry.captureException(error, { tags: { route: 'sitemap.xml' } })
   }
 
   return entries

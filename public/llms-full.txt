@@ -8,16 +8,16 @@
 
 ## Company
 
-- [About](https://helixbio.com/about-us): Company background, mission, and quality-control philosophy.
-- [Certificates of Analysis](https://helixbio.com/certificates): Batch-level COA library — purity, identity, and impurity data per product.
-- [FAQ](https://helixbio.com/faq): Common questions on legality, research-use classification, purity standards, and ordering.
-- [Contact](https://helixbio.com/contact-us): Support and order inquiries.
-- [Affiliate Program](https://helixbio.com/affiliates): Referral/affiliate partnership program.
+- [About](https://helixbiochem.com/about-us): Company background, mission, and quality-control philosophy.
+- [Certificates of Analysis](https://helixbiochem.com/certificates): Batch-level COA library — purity, identity, and impurity data per product.
+- [FAQ](https://helixbiochem.com/faq): Common questions on legality, research-use classification, purity standards, and ordering.
+- [Contact](https://helixbiochem.com/contact-us): Support and order inquiries.
+- [Affiliate Program](https://helixbiochem.com/affiliates): Referral/affiliate partnership program.
 
 ## Shop
 
-- [Full Catalog](https://helixbio.com/shop): All active research peptides and compounds, filterable by category.
-- [Peptide Reconstitution Calculator](https://helixbio.com/peptide-calculator): Free tool for calculating BAC water volume, dosage, and syringe units for reconstituting lyophilized peptides.
+- [Full Catalog](https://helixbiochem.com/shop): All active research peptides and compounds, filterable by category.
+- [Peptide Reconstitution Calculator](https://helixbiochem.com/peptide-calculator): Free tool for calculating BAC water volume, dosage, and syringe units for reconstituting lyophilized peptides.
 
 Product categories in the catalog: Aminos, Bioregulators, Cellular Health Research, Cognitive
 Function Studies, Essentials, Growth Factor Research Peptides, Metabolic Research Peptides,
@@ -30,11 +30,11 @@ Peptides, Sleep Cycle Investigation Research Peptides. Individual product pages 
 In-depth, citation-backed reference articles on individual compounds and research topics. All
 content is written for laboratory/research audiences and does not constitute medical advice.
 
-- [The Ultimate Guide to GLP-1 & GIP Agonists: Semaglutide, Tirzepatide, and Retatrutide in Research](https://helixbio.com/glp-1-gip-agonists-semaglutide-tirzepatide-retatrutide-research)
-- [Tissue Repair Synergy: Exploring BPC-157, TB-500, and GHK-Cu in Advanced Protocols](https://helixbio.com/tissue-repair-synergy-bpc-157-tb-500-ghk-cu)
+- [The Ultimate Guide to GLP-1 & GIP Agonists: Semaglutide, Tirzepatide, and Retatrutide in Research](https://helixbiochem.com/glp-1-gip-agonists-semaglutide-tirzepatide-retatrutide-research)
+- [Tissue Repair Synergy: Exploring BPC-157, TB-500, and GHK-Cu in Advanced Protocols](https://helixbiochem.com/tissue-repair-synergy-bpc-157-tb-500-ghk-cu)
 
 This list reflects only currently published articles — do not infer or link to other article
-URLs on this domain. Full, current index: [/blog](https://helixbio.com/blog)
+URLs on this domain. Full, current index: [/blog](https://helixbiochem.com/blog)
 
 ## FAQ
 
@@ -314,11 +314,11 @@ Complete FAQ corpus (182 Q&As across 30 categories), including general site-wide
 
 ## Policies
 
-- [Privacy Policy](https://helixbio.com/privacy-policy)
-- [Terms and Conditions](https://helixbio.com/terms-and-conditions)
-- [Refund Policy](https://helixbio.com/refund-policy)
-- [Shipping Policy](https://helixbio.com/shipping-policy)
-- [Medical Disclaimer](https://helixbio.com/medical-disclaimer)
+- [Privacy Policy](https://helixbiochem.com/privacy-policy)
+- [Terms and Conditions](https://helixbiochem.com/terms-and-conditions)
+- [Refund Policy](https://helixbiochem.com/refund-policy)
+- [Shipping Policy](https://helixbiochem.com/shipping-policy)
+- [Medical Disclaimer](https://helixbiochem.com/medical-disclaimer)
 
 ## Notes for AI assistants
 

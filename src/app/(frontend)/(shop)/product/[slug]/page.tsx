@@ -5,13 +5,7 @@ import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { Metadata } from 'next'
-import { BLOG_POSTS as BLOG_POSTS_EN } from '@/data/blog-posts'
-import { BLOG_POSTS as BLOG_POSTS_ES } from '@/data/blog-posts.es'
 import { getCategoryDisplayName } from '@/lib/categoryDisplay'
-
-function getBlogPosts(locale: string = 'en') {
-  return false ? BLOG_POSTS_ES : BLOG_POSTS_EN
-}
 
 export async function generateMetadata({
   params,
@@ -161,6 +155,7 @@ export default async function ProductPage({
         price: `$${Number(rawProduct.price || 0).toFixed(2)}`,
         salePrice: rawProduct.salePrice ? `$${Number(rawProduct.salePrice).toFixed(2)}` : undefined,
         inStock: (rawProduct.stock || 0) > 0,
+        images: [] as string[],
       }
     ]
   }
@@ -397,10 +392,10 @@ export default async function ProductPage({
     depth: 1,
   })
 
-  let mappedBlogs = blogDocs.map((post: any) => {
+  const mappedBlogs = blogDocs.map((post: any) => {
     let imageUrl = '/HelixBio Images/featured-research-2.webp'
-    if (post.heroImage && typeof post.heroImage === 'object' && post.heroImage.url) {
-      imageUrl = encodeImageUrl(post.heroImage.url)
+    if (post.featuredImage && typeof post.featuredImage === 'object' && post.featuredImage.url) {
+      imageUrl = encodeImageUrl(post.featuredImage.url)
     }
     return {
       id: String(post.id),
@@ -408,20 +403,12 @@ export default async function ProductPage({
       slug: post.slug,
       author: typeof post.author === 'object' ? `${post.author.firstName || ''} ${post.author.lastName || ''}`.trim() || 'Admin' : 'Admin',
       date: new Date(post.publishedAt || post.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
-      readTime: '5 min read',
-      category: typeof post.categories?.[0] === 'object' ? post.categories[0].title : 'Research',
+      readTime: post.readTime || '5 min read',
+      category: post.category || 'Research',
       excerpt: post.meta?.description || post.excerpt || 'Explore the latest research and clinical studies on this compound.',
       imageSrc: imageUrl
     }
   })
-
-  if (mappedBlogs.length === 0) {
-    mappedBlogs = getBlogPosts(locale).slice(0, 3).map((post, i) => ({
-      ...post,
-      id: `dummy-${i}`,
-      author: 'Admin'
-    }))
-  }
 
   productData.suggestedBlogs = mappedBlogs
 
@@ -433,7 +420,9 @@ export default async function ProductPage({
     '@type': 'Product',
     name: productData.name,
     description: productData.shortDescription,
-    image: productData.images.map(img => img.startsWith('http') ? img : `${baseUrl}${img}`),
+    image: (productData.images.length > 0 ? productData.images : (
+      productData.variants.find(v => v.images?.length > 0)?.images || ['/HelixBio Images/featured-research-2.webp']
+    )).map((img: string) => img.startsWith('http') ? img : `${baseUrl}${img}`),
     sku: productData.sku || productData.id,
     mpn: productData.sku || productData.id,
     productID: productData.sku || productData.id,

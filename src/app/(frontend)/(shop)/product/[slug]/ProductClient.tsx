@@ -297,16 +297,63 @@ export function ProductClient({ product }: ProductClientProps) {
     }
   }
 
+  // GA4 view_item tracking
+  React.useEffect(() => {
+    if (typeof window !== 'undefined' && selectedVariant && !sessionStorage.getItem(`ga_view_${product.id}_${selectedVariant.id}`)) {
+      const w = window as any;
+      w.dataLayer = w.dataLayer || [];
+      w.dataLayer.push({ ecommerce: null });
+      w.dataLayer.push({
+        event: 'view_item',
+        ecommerce: {
+          currency: 'USD',
+          value: parseFloat((selectedVariant.salePrice || selectedVariant.price).replace(/[^0-9.]/g, '')),
+          items: [{
+            item_id: product.id,
+            item_name: product.name,
+            item_category: product.categories?.[0] || '',
+            item_variant: selectedVariant.title,
+            price: parseFloat((selectedVariant.salePrice || selectedVariant.price).replace(/[^0-9.]/g, ''))
+          }]
+        }
+      });
+      sessionStorage.setItem(`ga_view_${product.id}_${selectedVariant.id}`, 'true');
+    }
+  }, [product, selectedVariant]);
+
   const handleAddToCart = () => {
     if (!selectedVariant?.inStock) return
+
+    const priceNum = parseFloat((selectedVariant.salePrice || selectedVariant.price).replace(/[^0-9.]/g, ''))
 
     cartStore.addItem(
       { id: product.id, name: product.name, imageUrl: selectedVariant.images?.[0] || product.images[0], slug: product.slug },
       selectedVariant.sku || selectedVariant.title,
       quantity,
-      parseFloat((selectedVariant.salePrice || selectedVariant.price).replace(/[^0-9.]/g, '')),
+      priceNum,
       selectedVariant.title
     )
+
+    // GA4 add_to_cart tracking
+    if (typeof window !== 'undefined') {
+      const w = window as any;
+      w.dataLayer = w.dataLayer || [];
+      w.dataLayer.push({ ecommerce: null });
+      w.dataLayer.push({
+        event: 'add_to_cart',
+        ecommerce: {
+          currency: 'USD',
+          value: priceNum * quantity,
+          items: [{
+            item_id: product.id,
+            item_name: product.name,
+            item_variant: selectedVariant.title,
+            price: priceNum,
+            quantity: quantity
+          }]
+        }
+      });
+    }
 
     setJustAdded(true)
     toast.success(t('addedToCart'), {

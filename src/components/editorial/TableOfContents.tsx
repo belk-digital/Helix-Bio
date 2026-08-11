@@ -79,26 +79,35 @@ export function TableOfContents() {
   if (headings.length === 0) return null;
 
   return (
-    <div className="hidden lg:block sticky top-32 w-full pr-6 max-h-[calc(100vh-8rem)] overflow-y-auto hide-scrollbar">
-      <h4 className="text-label-md text-gold uppercase tracking-wider mb-6">In This Article</h4>
-      <nav className="space-y-4 border-l border-ink/10 pl-4">
-        {headings.map((heading) => (
-          <a
-            key={heading.id}
-            href={`#${heading.id}`}
-            onClick={(e) => handleClick(e, heading.id)}
-            className={`block text-sm transition-all duration-300 relative ${
-              heading.level === 3 ? 'ml-4' : ''
-            } ${
-              activeId === heading.id 
-                ? 'text-ink font-medium before:content-[""] before:absolute before:-left-[17px] before:top-0 before:bottom-0 before:w-[2px] before:bg-gold' 
-                : 'text-ink-muted hover:text-ink'
-            }`}
-          >
-            {heading.text}
-          </a>
-        ))}
-      </nav>
+    <div className="hidden lg:block sticky top-40 w-full">
+      <div className="relative">
+        <div
+          data-lenis-prevent
+          className="max-h-[calc(100vh-220px)] overflow-y-auto toc-scrollbar pr-4 pb-6"
+        >
+          <h4 className="text-label-md text-gold uppercase tracking-wider mb-6">In This Article</h4>
+          <nav className="space-y-4 border-l border-ink/10 pl-4">
+            {headings.map((heading) => (
+              <a
+                key={heading.id}
+                href={`#${heading.id}`}
+                onClick={(e) => handleClick(e, heading.id)}
+                className={`block text-sm transition-all duration-300 relative ${
+                  heading.level === 3 ? 'ml-4' : ''
+                } ${
+                  activeId === heading.id
+                    ? 'text-ink font-medium before:content-[""] before:absolute before:-left-[17px] before:top-0 before:bottom-0 before:w-[2px] before:bg-gold'
+                    : 'text-ink-muted hover:text-ink'
+                }`}
+              >
+                {heading.text}
+              </a>
+            ))}
+          </nav>
+        </div>
+        {/* Purely decorative veil over the scroll edge — sits on top of the box, doesn't consume its scrollable height */}
+        <div className="absolute bottom-0 left-0 right-4 h-10 bg-gradient-to-t from-[#FAFAFA] to-transparent pointer-events-none" />
+      </div>
     </div>
   )
 }

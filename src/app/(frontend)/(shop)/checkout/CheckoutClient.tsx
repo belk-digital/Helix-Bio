@@ -309,6 +309,31 @@ export function CheckoutClient() {
     }
   }, [items, shippingMethod, appliedCoupon, isRedeemingPoints, formData.country])
 
+  // GA4 begin_checkout tracking
+  useEffect(() => {
+    if (typeof window !== 'undefined' && items.length > 0 && !sessionStorage.getItem('ga_begin_checkout')) {
+      const w = window as any;
+      w.dataLayer = w.dataLayer || [];
+      w.dataLayer.push({ ecommerce: null });
+      w.dataLayer.push({
+        event: 'begin_checkout',
+        ecommerce: {
+          currency: 'USD',
+          value: subtotal,
+          items: items.map((item, index) => ({
+            item_id: item.productId,
+            item_name: item.product.name,
+            item_variant: item.variantTitle,
+            price: item.priceSnapshot,
+            quantity: item.quantity,
+            index: index
+          }))
+        }
+      });
+      sessionStorage.setItem('ga_begin_checkout', 'true');
+    }
+  }, [items, subtotal])
+
   // Handlers
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target

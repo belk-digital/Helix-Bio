@@ -11,7 +11,6 @@ import { useUiStore } from '@/lib/ui/store'
 import { useWishlistStore } from '@/lib/wishlist/store'
 import dynamic from 'next/dynamic'
 import { SearchOverlay } from './SearchOverlay'
-import { BLOG_POSTS } from '@/data/blog-posts'
 import { toast } from 'sonner'
 import { useTranslations } from 'next-intl'
 
@@ -123,6 +122,7 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
   const setCartItems = useCartStore((state) => state.setItems)
   const setWishlistItems = useWishlistStore((state) => state.setItems)
   const activeCartCount = cartStore.items.reduce((acc: any, i: any) => acc + i.quantity, 0)
+  const [blogSlugs, setBlogSlugs] = useState<string[]>([])
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const setUiMobileMenuOpen = useUiStore((state) => state.setMobileMenuOpen)
 
@@ -218,8 +218,15 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
     }
   }, [])
 
+  useEffect(() => {
+    fetch('/api/blog-posts?where[status][equals]=published&limit=200&depth=0&select[slug]=true')
+      .then((res) => res.json())
+      .then((data) => setBlogSlugs((data?.docs || []).map((d: any) => d.slug).filter(Boolean)))
+      .catch(() => {})
+  }, [])
+
   const pathname = usePathname()
-  const isBlogPost = BLOG_POSTS.some(post => pathname === `/${post.slug}`)
+  const isBlogPost = blogSlugs.some(slug => pathname === `/${slug}`)
   const isTransparentHeader = pathname === '/' || pathname === '/en' || pathname === '/shop' || pathname === '/about-us' || pathname === '/faq' || pathname === '/contact-us' || pathname === '/affiliates' || pathname === '/blog' || isBlogPost
 
   useEffect(() => {
@@ -285,7 +292,7 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
           href="/" 
           className="flex items-center hover:opacity-80 transition-opacity gap-2"
         >
-          <img src="/HelixBio Images/hb-logo.webp" alt="HelixBio" className="h-10 sm:h-12 w-auto object-contain" />
+          <img src="/HelixBio Images/hb-logo.webp" alt="HelixBio" width={400} height={100} className="h-10 sm:h-12 w-auto object-contain" />
         </a>
       </div>
 

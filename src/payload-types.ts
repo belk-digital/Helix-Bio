@@ -71,6 +71,7 @@ export interface Config {
     order_counters: OrderCounter;
     users: User;
     media: Media;
+    'blog-media': BlogMedia;
     documents: Document;
     addresses: Address;
     categories: Category;
@@ -104,6 +105,7 @@ export interface Config {
     order_counters: OrderCountersSelect<false> | OrderCountersSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    'blog-media': BlogMediaSelect<false> | BlogMediaSelect<true>;
     documents: DocumentsSelect<false> | DocumentsSelect<true>;
     addresses: AddressesSelect<false> | AddressesSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
@@ -137,9 +139,11 @@ export interface Config {
   fallbackLocale: ('false' | 'none' | 'null') | false | null | ('en' | 'es') | ('en' | 'es')[];
   globals: {
     'affiliate-settings': AffiliateSetting;
+    'blog-author-profile': BlogAuthorProfile;
   };
   globalsSelect: {
     'affiliate-settings': AffiliateSettingsSelect<false> | AffiliateSettingsSelect<true>;
+    'blog-author-profile': BlogAuthorProfileSelect<false> | BlogAuthorProfileSelect<true>;
   };
   locale: 'en' | 'es';
   widgets: {
@@ -293,6 +297,36 @@ export interface Media {
   alt: string;
   caption?: string | null;
   prefix?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-media".
+ */
+export interface BlogMedia {
+  id: number;
+  alt: string;
+  caption?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -907,7 +941,7 @@ export interface BlogPost {
   title: string;
   slug?: string | null;
   author: number | User;
-  featuredImage?: (number | null) | Media;
+  featuredImage?: (number | null) | BlogMedia;
   /**
    * Short summary shown on blog listing cards and used as the default SEO/social description.
    */
@@ -929,6 +963,52 @@ export interface BlogPost {
   } | null;
   publishedAt?: string | null;
   status?: ('draft' | 'published') | null;
+  category?: ('Metabolic research' | 'Recovery protocols' | 'Growth research' | 'Muscle studies') | null;
+  relatedProducts?: (number | Product)[] | null;
+  /**
+   * e.g. '12 min read'. Leave blank to auto-calculate from content length when rendered.
+   */
+  readTime?: string | null;
+  /**
+   * Short factual bullet points summarizing the post. Used for AI answer-engine (AEO/GEO) extraction and on-page "Key Takeaways" callouts.
+   */
+  keyTakeaways?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Populates FAQPage schema.org markup and on-page FAQ accordion.
+   */
+  faqs?:
+    | {
+        question: string;
+        answer: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Peer-reviewed sources cited in this post (PubMed, DOI, journal links). Strengthens E-E-A-T trust signals and AI answer-engine citation likelihood.
+   */
+  references?:
+    | {
+        /**
+         * e.g. "Smith et al., 2023, Journal of Peptide Science"
+         */
+        citationText: string;
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Primary target keyword/phrase for this post (editorial SEO guidance).
+   */
+  focusKeyphrase?: string | null;
+  /**
+   * Comma-separated secondary keywords for meta keywords / internal search relevance.
+   */
+  keywords?: string | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -1349,6 +1429,10 @@ export interface PayloadLockedDocument {
         value: number | Media;
       } | null)
     | ({
+        relationTo: 'blog-media';
+        value: number | BlogMedia;
+      } | null)
+    | ({
         relationTo: 'documents';
         value: number | Document;
       } | null)
@@ -1550,6 +1634,39 @@ export interface MediaSelect<T extends boolean = true> {
   alt?: T;
   caption?: T;
   prefix?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+  sizes?:
+    | T
+    | {
+        thumbnail?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-media_select".
+ */
+export interface BlogMediaSelect<T extends boolean = true> {
+  alt?: T;
+  caption?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -1956,6 +2073,31 @@ export interface BlogPostsSelect<T extends boolean = true> {
   content?: T;
   publishedAt?: T;
   status?: T;
+  category?: T;
+  relatedProducts?: T;
+  readTime?: T;
+  keyTakeaways?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  faqs?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
+  references?:
+    | T
+    | {
+        citationText?: T;
+        url?: T;
+        id?: T;
+      };
+  focusKeyphrase?: T;
+  keywords?: T;
   meta?:
     | T
     | {
@@ -2296,6 +2438,38 @@ export interface AffiliateSetting {
   createdAt?: string | null;
 }
 /**
+ * The single byline used across every blog post (the Helix Bio Team account is the only author). Feeds Author/Person schema.org markup for E-E-A-T.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-author-profile".
+ */
+export interface BlogAuthorProfile {
+  id: number;
+  name: string;
+  /**
+   * e.g. "Research & Product Team"
+   */
+  title?: string | null;
+  /**
+   * Short author bio shown on post pages and used in Author/Person schema.
+   */
+  bio?: string | null;
+  /**
+   * e.g. "Reviewed by in-house research chemists"
+   */
+  credentials?: string | null;
+  photo?: (number | null) | BlogMedia;
+  socialLinks?:
+    | {
+        platform: 'X' | 'LinkedIn' | 'Instagram' | 'Facebook' | 'YouTube';
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "affiliate-settings_select".
  */
@@ -2306,6 +2480,27 @@ export interface AffiliateSettingsSelect<T extends boolean = true> {
   defaultCookieDurationDays?: T;
   defaultPendingPeriodDays?: T;
   defaultMinimumPayoutThreshold?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-author-profile_select".
+ */
+export interface BlogAuthorProfileSelect<T extends boolean = true> {
+  name?: T;
+  title?: T;
+  bio?: T;
+  credentials?: T;
+  photo?: T;
+  socialLinks?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

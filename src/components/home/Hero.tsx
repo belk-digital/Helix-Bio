@@ -89,7 +89,7 @@ export function Hero() {
           <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] min-[1600px]:text-[4rem] font-bold leading-[1.1] tracking-tight mb-4 text-left drop-shadow-sm">
             Discover Premium<br className="hidden sm:block" /> Research Peptides
           </h1>
-          <p className="hidden md:block text-white/90 text-sm md:text-base min-[1600px]:text-lg font-medium max-w-xl lg:max-w-2xl text-left leading-relaxed drop-shadow-md">
+          <p className="hidden md:block text-white text-sm md:text-base min-[1600px]:text-lg font-medium max-w-xl lg:max-w-2xl text-left leading-relaxed drop-shadow-md">
             Research-grade peptides, synthesized for precision and verified for purity. Every batch ships with third-party HPLC and mass spectrometry testing, so you know exactly what you're studying before it reaches your bench.
           </p>
           <div className="mt-4 min-[1600px]:mt-8 flex flex-wrap gap-4">
@@ -113,7 +113,7 @@ export function Hero() {
                 <Calculator size={18} strokeWidth={2} />
               </div>
               <div className="flex flex-col text-left">
-                <span className="text-[9px] text-gray-400 font-bold uppercase tracking-widest mb-0.5">Tools</span>
+                <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">Tools</span>
                 <span className="text-sm font-semibold text-gray-800">Calculator</span>
               </div>
             </Link>
@@ -209,7 +209,7 @@ export function Hero() {
             <h2 className="text-3xl min-[1600px]:text-4xl font-bold text-white tracking-tight mb-1">3rd Party</h2>
             <p className="text-white/70 font-medium text-xs min-[1600px]:text-sm">Independently tested for purity and identity</p>
           </div>
-          <div aria-hidden="true" className="absolute -right-4 -bottom-4 text-white/5 font-black text-5xl min-[1600px]:text-7xl select-none pointer-events-none">
+          <div aria-hidden="true" className="absolute -right-4 -bottom-4 text-white/20 font-black text-5xl min-[1600px]:text-7xl select-none pointer-events-none">
             Tested
           </div>
         </div>

@@ -3,18 +3,25 @@
 import React from 'react'
 import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
-import { useTranslations, useLocale } from 'next-intl'
+import { useTranslations } from 'next-intl'
 
-import { BLOG_POSTS as BLOG_POSTS_EN } from '@/data/blog-posts'
-import { BLOG_POSTS as BLOG_POSTS_ES } from '@/data/blog-posts.es'
+export type BlogSectionPost = {
+  slug: string
+  title: string
+  category: string
+  excerpt: string
+  imageSrc: string
+  readTime: string
+  date: string
+}
 
-export function BlogSection() {
+export function BlogSection({ posts }: { posts: BlogSectionPost[] }) {
   const t = useTranslations('home.blogSection')
-  const locale = useLocale()
-  const BLOG_POSTS = false ? BLOG_POSTS_ES : BLOG_POSTS_EN
 
-  const featuredPost = BLOG_POSTS[0]
-  const recentPosts = BLOG_POSTS.slice(1, 4)
+  if (!posts || posts.length === 0) return null
+
+  const featuredPost = posts[0]
+  const recentPosts = posts.slice(1, 4)
 
   return (
     <section className="bg-[#FAFAFA] py-20 md:py-32 font-sans relative overflow-hidden">

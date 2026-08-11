@@ -232,9 +232,9 @@ const FooterContent = () => {
               {/* Logo & Tagline */}
               <div className="flex flex-col gap-5">
                 <a href="/">
-                  <img src="/HelixBio Images/hb-logo.webp" alt="HelixBio" className="h-14 md:h-20 lg:h-24 w-auto object-contain" />
+                  <img src="/HelixBio Images/hb-logo.webp" alt="HelixBio" width={400} height={100} className="h-14 md:h-20 lg:h-24 w-auto object-contain" />
                 </a>
-                <p className="text-black/50 text-base md:text-[17px] font-medium leading-relaxed max-w-[400px]">
+                <p className="text-black/60 text-base md:text-[17px] font-medium leading-relaxed max-w-[400px]">
                   Setting the gold standard in peptide synthesis with verified HPLC/MS testing for uncompromised results.
                 </p>
               </div>
@@ -242,7 +242,7 @@ const FooterContent = () => {
               {/* Newsletter */}
               <div className="w-full max-w-[420px] flex flex-col items-start text-left mt-2 lg:mt-auto">
                 <h3 className="text-black text-3xl md:text-[40px] font-medium mb-1 tracking-tight">HelixBio</h3>
-                <p className="text-black/50 text-xl md:text-3xl font-light mb-6 tracking-wide">in your mailbox</p>
+                <p className="text-black/60 text-xl md:text-3xl font-light mb-6 tracking-wide">in your mailbox</p>
                 
                 <form onSubmit={handleNewsletterSubmit} className="w-full relative group">
                   <input
@@ -254,7 +254,7 @@ const FooterContent = () => {
                     className={`w-full rounded-[20px] px-7 py-4 md:py-5 outline-none text-base disabled:opacity-80 font-medium shadow-inner transition-all focus:ring-4 focus:ring-black/5 ${
                       status === 'success' ? 'text-green-600 placeholder:text-green-600 bg-green-50' : 
                       status === 'error' ? 'text-red-600 placeholder:text-red-600 bg-red-50' : 
-                      'bg-black/5 text-black placeholder:text-black/40'
+                      'bg-black/5 text-black placeholder:text-black/60'
                     }`}
                   />
                   <button
@@ -282,7 +282,7 @@ const FooterContent = () => {
               <div className="flex flex-wrap sm:flex-nowrap justify-between gap-8 w-full">
                 {/* Link Col 1 */}
                 <div className="flex flex-col gap-4">
-                  <h4 className="text-black/30 text-[12px] font-bold uppercase tracking-widest mb-1 lg:mb-2">Menu</h4>
+                  <h4 className="text-black/60 text-[12px] font-bold uppercase tracking-widest mb-1 lg:mb-2">Menu</h4>
                   {[
                     { label: t('navHome'), href: '/' },
                     { label: t('navShop'), href: '/shop' },
@@ -298,7 +298,7 @@ const FooterContent = () => {
 
                 {/* Link Col 2 */}
                 <div className="flex flex-col gap-4">
-                  <h4 className="text-black/30 text-[12px] font-bold uppercase tracking-widest mb-1 lg:mb-2">Resources</h4>
+                  <h4 className="text-black/60 text-[12px] font-bold uppercase tracking-widest mb-1 lg:mb-2">Resources</h4>
                   {[
                     { label: t('navCalculator'), href: '/peptide-calculator' },
                     { label: t('navFaq'), href: '/faq' },
@@ -312,7 +312,7 @@ const FooterContent = () => {
 
                 {/* Link Col 3 */}
                 <div className="flex flex-col gap-4">
-                  <h4 className="text-black/30 text-[12px] font-bold uppercase tracking-widest mb-1 lg:mb-2">Contact</h4>
+                  <h4 className="text-black/60 text-[12px] font-bold uppercase tracking-widest mb-1 lg:mb-2">Contact</h4>
                   <Link href="/contact-us" className="text-black/60 hover:text-black text-sm md:text-base font-medium transition-colors tracking-wide w-fit">
                     Contact Us
                   </Link>
@@ -323,7 +323,7 @@ const FooterContent = () => {
 
                 {/* Link Col 4 */}
                 <div className="flex flex-col gap-4">
-                  <h4 className="text-black/30 text-[12px] font-bold uppercase tracking-widest mb-1 lg:mb-2">Legal</h4>
+                  <h4 className="text-black/60 text-[12px] font-bold uppercase tracking-widest mb-1 lg:mb-2">Legal</h4>
                   {[
                     { label: t('termsOfService'), href: '/terms-and-conditions' },
                     { label: t('privacyPolicy'), href: '/privacy-policy' },
@@ -331,7 +331,7 @@ const FooterContent = () => {
                     { label: t('shippingPolicy'), href: '/shipping-policy' },
                     { label: t('medicalDisclaimer'), href: '/medical-disclaimer' },
                   ].map(link => (
-                    <Link key={link.label} href={link.href} className="text-black/50 hover:text-black text-sm md:text-base font-medium transition-colors tracking-wide w-fit">
+                    <Link key={link.label} href={link.href} className="text-black/60 hover:text-black text-sm md:text-base font-medium transition-colors tracking-wide w-fit">
                       {link.label}
                     </Link>
                   ))}
@@ -343,7 +343,7 @@ const FooterContent = () => {
                 
                 {/* Copyright */}
                 <div className="flex flex-col gap-4 text-left">
-                  <div className="text-black/40 text-[12px] font-medium leading-relaxed tracking-wide mt-2">
+                  <div className="text-black/60 text-[12px] font-medium leading-relaxed tracking-wide mt-2">
                     HelixBio - {new Date().getFullYear()} © All rights reserved
                   </div>
                 </div>
@@ -366,13 +366,13 @@ const FooterContent = () => {
           
           {/* Disclaimer & Footer Bottom */}
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 border-t border-black/5 pt-8 lg:pt-12 w-full mt-12 lg:mt-16">
-             <p className="text-black/40 text-[10px] md:text-xs leading-relaxed max-w-4xl text-left">
-               <span className="font-bold text-black/50 uppercase tracking-wider mr-2">{t('disclaimerLabel')}:</span>
+             <p className="text-black/60 text-[10px] md:text-xs leading-relaxed max-w-4xl text-left">
+               <span className="font-bold text-black/70 uppercase tracking-wider mr-2">{t('disclaimerLabel')}:</span>
                {t('disclaimerText')}
              </p>
              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 shrink-0">
 
-                <span className="text-black/40 text-[11px] md:text-xs font-medium tracking-wide">{t('designedBy')} <a href="https://belkdigital.com" target="_blank" className="text-black/70 hover:text-black transition-colors font-semibold">Belk Digital</a></span>
+                <span className="text-black/60 text-[11px] md:text-xs font-medium tracking-wide">{t('designedBy')} <a href="https://belkdigital.com" target="_blank" className="text-black/70 hover:text-black transition-colors font-semibold">Belk Digital</a></span>
              </div>
           </div>
 

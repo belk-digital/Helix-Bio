@@ -1,4 +1,4 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig, Where } from 'payload'
 import { beforeChangeEmailLowercase, afterCreateUserTodo } from '@/hooks/users'
 import { accessUsers } from '@/access/users'
 
@@ -141,14 +141,42 @@ export const Users: CollectionConfig = {
       type: 'relationship',
       relationTo: 'addresses',
       hasMany: false,
-      // TODO: implement lazy loading / null handling once Addresses collection is ready
+      filterOptions: ({ id, data }): Where => {
+        const userId = id || (data && data.id)
+        if (userId) {
+          return {
+            user: {
+              equals: userId,
+            },
+          }
+        }
+        return {
+          id: {
+            equals: 'none',
+          },
+        }
+      },
     },
     {
       name: 'defaultBillingAddress',
       type: 'relationship',
       relationTo: 'addresses',
       hasMany: false,
-      // TODO: implement lazy loading / null handling once Addresses collection is ready
+      filterOptions: ({ id, data }): Where => {
+        const userId = id || (data && data.id)
+        if (userId) {
+          return {
+            user: {
+              equals: userId,
+            },
+          }
+        }
+        return {
+          id: {
+            equals: 'none',
+          },
+        }
+      },
     },
     {
       name: 'lastLoginAt',

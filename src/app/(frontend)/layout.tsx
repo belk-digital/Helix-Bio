@@ -43,8 +43,7 @@ export default async function FrontendLayout({ children }: { children: React.Rea
         <meta name="google" content="notranslate" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://pub-0b0f2f98407442588d161ae09cb84207.r2.dev" />
-        <link rel="preconnect" href="https://i.pravatar.cc" />
+        <link rel="preconnect" href="https://pub-0b0f2f98407442588d161ae09cb84207.r2.dev" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&family=Big+Shoulders+Display:wght@100..900&display=swap"
           rel="stylesheet"
@@ -61,6 +60,17 @@ export default async function FrontendLayout({ children }: { children: React.Rea
               `}
             </Script>
           </>
+        )}
+        {process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID && (
+          <Script id="microsoft-clarity-init" strategy="afterInteractive">
+            {`
+              (function(c,l,a,r,i,t,y){
+                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "${process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID}");
+            `}
+          </Script>
         )}
       </head>
       <body className="min-h-screen antialiased" suppressHydrationWarning>

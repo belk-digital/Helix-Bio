@@ -53,7 +53,7 @@ export function WhatSetsUsApart() {
               {/* Top Row for Mobile (Number + Image) */}
               <div className="flex flex-row items-center gap-6 md:gap-0 w-full md:w-auto">
                 {/* Number */}
-                <div className="w-12 md:w-24 shrink-0 text-white/30 md:text-white/20 md:group-hover:text-cyan-400 font-heading text-xl sm:text-2xl md:text-3xl font-black tracking-widest transition-colors duration-500">
+                <div className="w-12 md:w-24 shrink-0 text-white/50 md:text-white/40 md:group-hover:text-cyan-400 font-heading text-xl sm:text-2xl md:text-3xl font-black tracking-widest transition-colors duration-500">
                   {`0${index + 1}`}
                 </div>
 
@@ -69,7 +69,7 @@ export function WhatSetsUsApart() {
                       fill 
                       className="object-cover transition-transform duration-1000 ease-out md:group-hover:scale-110" 
                     />
-                    <div className="absolute inset-0 bg-black/20 md:bg-black/40 md:group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
+                    <div className="absolute inset-0 bg-black/40 md:bg-black/60 md:group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
                   </div>
                 </div>
               </div>
@@ -83,15 +83,15 @@ export function WhatSetsUsApart() {
 
               {/* Description & Link */}
               <div className="w-full md:w-[35%] xl:w-1/3 shrink-0 flex flex-col items-start gap-4 sm:gap-5 transform transition-transform duration-500 md:group-hover:translate-x-2">
-                <p className="text-white/70 md:text-white/50 md:group-hover:text-white/70 text-sm sm:text-base leading-relaxed font-medium transition-colors duration-500">
+                <p className="text-white/80 md:text-white/60 md:group-hover:text-white/80 text-sm sm:text-base leading-relaxed font-medium transition-colors duration-500">
                   {t(`items.${adv.key}.description`)}
                 </p>
                 <Link
                   href="/about-us"
-                  aria-label={`Learn more about ${t(`items.${adv.key}.title`)}`}
                   className="inline-flex items-center gap-3 text-white uppercase tracking-[0.2em] text-[10px] md:text-[11px] font-bold border border-white/20 bg-white/5 rounded-[10px] px-6 py-3 hover:bg-white hover:text-black transition-all duration-300 mt-2 md:mt-0"
                 >
-                  Learn More
+                  <span className="sr-only">Learn more about {t(`items.${adv.key}.title`)}</span>
+                  <span aria-hidden="true">Learn More</span>
                   <ArrowRight size={14} className="md:group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>

@@ -14,6 +14,10 @@ import { MilitaryDiscountSection } from '@/components/home/MilitaryDiscountSecti
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { getOgImageUrl } from '@/lib/utils'
+import { getPayload } from 'payload'
+import configPromise from '@payload-config'
+import { getFeaturedImageUrl, formatPostDate } from '@/lib/blog/postDisplay'
+import { estimateReadingTime } from '@/lib/blog/readingTime'
 
 export async function generateMetadata({
   params,
@@ -58,10 +62,32 @@ export default async function Homepage() {
   const description = t('metaDescription')
   let products: any[] = []
   let categories: any[] = []
+  let blogPosts: any[] = []
   try {
     categories = await getVisibleCategories()
   } catch (e) {
     console.error("Failed to fetch categories", e)
+  }
+  try {
+    const payload = await getPayload({ config: configPromise })
+    const { docs } = await payload.find({
+      collection: 'blog-posts',
+      where: { status: { equals: 'published' } },
+      sort: '-publishedAt',
+      limit: 4,
+      depth: 1,
+    })
+    blogPosts = docs.map((post: any) => ({
+      slug: post.slug,
+      title: post.title,
+      category: post.category || '',
+      excerpt: post.excerpt || '',
+      imageSrc: getFeaturedImageUrl(post),
+      readTime: post.readTime || estimateReadingTime(post.content),
+      date: formatPostDate(post.publishedAt || post.createdAt),
+    }))
+  } catch (e) {
+    console.error("Failed to fetch blog posts", e)
   }
   try {
     const bestSellers = await getShopProducts({ limit: 8, sort: 'newest', bestSellersOnly: true })
@@ -94,7 +120,7 @@ export default async function Homepage() {
         <MilitaryDiscountSection />
         <JourneySection />
         <WhyChooseUs />
-        <BlogSection />
+        <BlogSection posts={blogPosts} />
         <FaqSection />
       </div>
 

@@ -103,8 +103,35 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
   const isStripeLink = order.paymentMethod === 'stripe_link' || order.paymentMethod === 'amex'
 
   React.useEffect(() => {
+    // GA4 eCommerce tracking
+    if (typeof window !== 'undefined' && !sessionStorage.getItem(`ga_tracked_${order.id}`)) {
+      const w = window as any;
+      w.dataLayer = w.dataLayer || [];
+      w.dataLayer.push({ ecommerce: null }); // Clear previous eCommerce object
+      w.dataLayer.push({
+        event: 'purchase',
+        ecommerce: {
+          transaction_id: order.orderId || order.id,
+          value: order.total,
+          tax: 0,
+          shipping: order.shipping,
+          currency: 'USD',
+          coupon: order.couponCode || '',
+          items: order.items.map((item, index) => ({
+            item_id: item.id,
+            item_name: item.name,
+            item_variant: item.variant,
+            price: item.price,
+            quantity: item.quantity,
+            index: index
+          }))
+        }
+      });
+      sessionStorage.setItem(`ga_tracked_${order.id}`, 'true');
+    }
+
     useCartStore.getState().clear()
-  }, [])
+  }, [order])
 
   React.useEffect(() => {
     if (order.paymentMethod === 'circoflows') {

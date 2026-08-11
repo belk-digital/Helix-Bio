@@ -10,6 +10,7 @@ import { resendAdapter } from '@payloadcms/email-resend'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { BlogMedia } from './collections/BlogMedia'
 import { Documents } from './collections/Documents'
 import { Addresses } from './collections/Addresses'
 import { Categories } from './collections/Categories'
@@ -34,6 +35,7 @@ import { ProcessingFees } from './collections/ProcessingFees'
 import { MilitaryDiscountRequests } from './collections/MilitaryDiscountRequests'
 import { Trash } from './collections/Trash'
 import { AffiliateSettings } from './globals/AffiliateSettings'
+import { BlogAuthorProfile } from './globals/BlogAuthorProfile'
 import { OrderCounters } from './collections/OrderCounters'
 
 const filename = fileURLToPath(import.meta.url)
@@ -66,12 +68,14 @@ export default buildConfig({
   },
   globals: [
     AffiliateSettings,
+    BlogAuthorProfile,
   ],
   collections: [
     Trash,
     OrderCounters,
     Users,
     Media,
+    BlogMedia,
     Documents,
     Addresses,
     Categories,
@@ -193,6 +197,7 @@ export default buildConfig({
       uploadsCollection: 'media',
       generateTitle: ({ doc }: any) => (doc?.title ? `${doc.title} | Helix Bio` : 'Helix Bio'),
       generateDescription: ({ doc }: any) => doc?.excerpt || doc?.seoDescription || '',
+      generateImage: ({ doc }: any) => doc?.featuredImage || doc?.meta?.image,
       generateURL: ({ doc }: any) => {
         const base = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
         return `${base}/${doc?.slug || ''}`

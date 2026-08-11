@@ -60,7 +60,7 @@ export function ImageSliderSection() {
             <button
               key={index}
               onClick={() => setSelectedIndex(index)}
-              className="p-3 -m-3 outline-none"
+              className="min-w-[48px] min-h-[48px] flex items-center justify-center outline-none -mx-2"
               aria-label={`Go to slide ${index + 1}`}
             >
               <div
