@@ -414,7 +414,15 @@ export default async function ProductPage({
 
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
   const productUrl = `${baseUrl}/product/${slug}`
-  
+
+  // Mirrors the published Refund Policy (/refund-policy): all sales are final, no
+  // returns, refunds, or exchanges under any circumstances.
+  const merchantReturnPolicy = {
+    '@type': 'MerchantReturnPolicy',
+    applicableCountry: 'US',
+    returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+  }
+
   const productSchema = {
     '@context': 'https://schema.org/',
     '@type': 'Product',
@@ -458,7 +466,8 @@ export default async function ProductPage({
         availability: v.inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
         itemCondition: 'https://schema.org/NewCondition',
         sku: v.sku || productData.sku || productData.id,
-      }))
+      })),
+      hasMerchantReturnPolicy: merchantReturnPolicy,
     } : {
       '@type': 'Offer',
       url: productUrl,
@@ -494,11 +503,7 @@ export default async function ProductPage({
           }
         }
       },
-      hasMerchantReturnPolicy: {
-        '@type': 'MerchantReturnPolicy',
-        applicableCountry: 'US',
-        returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted'
-      }
+      hasMerchantReturnPolicy: merchantReturnPolicy,
     },
     ...(productData.reviewCount > 0 ? {
       aggregateRating: {

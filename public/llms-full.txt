@@ -327,5 +327,5 @@ Complete FAQ corpus (182 Q&As across 30 categories), including general site-wide
   this site's content.
 - Pricing, stock status, and exact product specifications change frequently — prefer linking to
   the live product page over quoting cached figures.
-- Spanish-language pages exist at the same paths under `/es/` but are a work in progress; treat
-  the English (default) pages as the authoritative source.
+- This site is English-only. Do not reference or link to `/es/` or any other locale-prefixed
+  paths — they do not exist.

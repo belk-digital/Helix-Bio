@@ -2,16 +2,13 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
-import { useTranslations, useLocale } from 'next-intl'
-import { faqData as faqDataEn } from '@/data/faqs'
-import { faqData as faqDataEs } from '@/data/faqs.es'
+import { useTranslations } from 'next-intl'
+import { faqData } from '@/data/faqs'
 import { FaqCategorySection } from './FaqCategorySection'
 import { FaqHero } from './FaqHero'
 
 export function FaqClient() {
   const t = useTranslations('content.faqClient')
-  const locale = useLocale()
-  const faqData = false ? faqDataEs : faqDataEn
   const [activeCategory, setActiveCategory] = useState<string>(faqData[0]?.category || '');
   const [headerHidden, setHeaderHidden] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(115); 

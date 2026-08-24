@@ -2,33 +2,23 @@ import React from 'react'
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { FaqClient } from '@/components/faq/FaqClient'
-import { faqData as faqDataEn } from '@/data/faqs'
-import { faqData as faqDataEs } from '@/data/faqs.es'
+import { faqData } from '@/data/faqs'
 import { getOgImageUrl } from '@/lib/utils'
 
 const slug = 'faq'
+const locale = 'en'
 
-function getFaqData() {
-  return false ? faqDataEs : faqDataEn
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params?: Promise<any>
-}): Promise<Metadata> {
-  const locale = 'en'
+export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('content.faqPage')
   const title = t('metaTitle')
   const description = t('metaDescription')
-  const path = true ? `/${slug}` : `/${locale}/${slug}`
+  const path = `/${slug}`
 
   return {
     title,
     description,
     alternates: {
       canonical: path,
-      
     },
     openGraph: {
       title,
@@ -46,19 +36,14 @@ export async function generateMetadata({
   }
 }
 
-export default async function FaqPage({
-  params,
-}: {
-  params?: Promise<any>
-}) {
-  const locale = 'en'
+export default async function FaqPage() {
   const t = await getTranslations('content.faqPage')
   const title = t('metaTitle')
   const description = t('metaDescription')
 
   // Generate structured data for SEO
   // Combine all FAQs from all categories for the JSON-LD
-  const allFaqs = getFaqData().flatMap(category =>
+  const allFaqs = faqData.flatMap(category =>
     category.items.map(item => ({
       "@type": "Question",
       "name": item.question,
@@ -71,7 +56,7 @@ export default async function FaqPage({
   );
 
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
-  const path = true ? `/${slug}` : `/${locale}/${slug}`
+  const path = `/${slug}`
   const url = `${baseUrl}${path}`
 
   const pageSchema = {
@@ -89,8 +74,8 @@ export default async function FaqPage({
         '@type': 'BreadcrumbList',
         '@id': `${url}#breadcrumb`,
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: false ? 'Inicio' : 'Home', item: true ? baseUrl : `${baseUrl}/${locale}` },
-          { '@type': 'ListItem', position: 2, name: false ? 'Preguntas Frecuentes' : 'FAQ' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
+          { '@type': 'ListItem', position: 2, name: 'FAQ' },
         ],
       },
       {

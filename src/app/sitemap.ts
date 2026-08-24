@@ -3,6 +3,11 @@ import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import * as Sentry from '@sentry/nextjs'
 
+// Without this, Next.js treats sitemap.xml as fully static (no dynamic APIs are used
+// inside it) and freezes it at build time — new products/posts silently stop appearing
+// in the sitemap until the next deploy. Regenerate hourly instead.
+export const revalidate = 3600
+
 const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
 
 // Grouped by crawl priority rather than alphabetically, so the sitemap's own ordering

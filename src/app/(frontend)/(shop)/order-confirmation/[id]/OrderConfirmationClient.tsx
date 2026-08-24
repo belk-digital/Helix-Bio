@@ -53,7 +53,7 @@ type OrderData = {
   paymentMethod: 'stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link'
 }
 
-const ZELLE_RECIPIENT_EMAIL = 'support@helixbiochem.com'
+const ZELLE_RECIPIENT_PHONE = '832-705-9377'
 
 const CONFETTI_PIECES = [
   { x: -80, y: -60, color: '#92DCE5', delay: 0.0, rotation: 45, scale: 1.2 },
@@ -309,13 +309,13 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
                     <div className="flex flex-col sm:flex-row items-center gap-6 bg-white rounded-[12px] p-4 border border-gray-200">
                       <div className="w-24 h-24 sm:w-32 sm:h-32 shrink-0 bg-white border border-gray-100 rounded-[8px] overflow-hidden p-1 shadow-sm">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="https://res.cloudinary.com/denskvdyt/image/upload/v1783110064/zelle-qr_h2xhvt.jpg" alt="Zelle QR" className="w-full h-full object-contain" />
+                        <img src="https://pub-0b0f2f98407442588d161ae09cb84207.r2.dev/email-assets/HB-zelle-qr.webp" alt="Zelle QR" className="w-full h-full object-contain" />
                       </div>
                       <div className="flex flex-col gap-3 w-full">
                          <div className="bg-gray-50 rounded-[8px] p-3 flex justify-between items-center w-full">
                            <div className="flex flex-col">
-                             <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Send To</span>
-                             <span className="text-sm font-bold text-purple-700">{ZELLE_RECIPIENT_EMAIL}</span>
+                             <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Send To (Phone)</span>
+                             <span className="text-sm font-bold text-purple-700">{ZELLE_RECIPIENT_PHONE}</span>
                            </div>
                          </div>
                          <div className="bg-gray-50 rounded-[8px] p-3 flex justify-between items-center w-full">

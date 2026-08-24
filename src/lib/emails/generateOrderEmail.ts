@@ -206,13 +206,14 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
 
                 <div style="display: block; margin-bottom: 20px;">
                   <div style="background-color: #ffffff; border: 1px solid #E9D5FF; border-radius: 12px; padding: 8px; display: inline-block;">
+                    <img src="https://pub-0b0f2f98407442588d161ae09cb84207.r2.dev/email-assets/HB-zelle-qr.webp" alt="Zelle QR Code" width="150" style="display: block; width: 150px; height: auto;" />
                   </div>
                 </div>
                 
                 <div style="display: block; margin-bottom: 16px;">
                   <div style="background-color: #ffffff; border-radius: 8px; padding: 12px 24px; display: inline-block; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-                    <p style="margin: 0 0 4px 0; color: #A855F7; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Send To</p>
-                    <p style="margin: 0; color: #6B21A8; font-size: 16px; font-weight: 700;">support@helixbiochem.com</p>
+                    <p style="margin: 0 0 4px 0; color: #A855F7; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Send To (Phone)</p>
+                    <p style="margin: 0; color: #6B21A8; font-size: 16px; font-weight: 700;">832-705-9377</p>
                   </div>
                 </div>
                 

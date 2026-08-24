@@ -57,8 +57,8 @@ export async function generateMetadata({
     return { title: 'Post Not Found | Helix Bio' }
   }
 
-  const title = `${post.title} | Helix Bio`
-  const description = post.excerpt || ''
+  const title = post.meta?.title || `${post.title} | Helix Bio`
+  const description = post.meta?.description || post.excerpt || ''
   const path = `/${slug}`
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
   const imageUrl = toAbsoluteUrl(baseUrl, getFeaturedImageUrl(post))
@@ -224,7 +224,7 @@ export default async function BlogPostPage({
         publisher: {
           '@type': 'Organization',
           name: 'Helix Bio',
-          logo: { '@type': 'ImageObject', url: `${baseUrl}/logo.png` },
+          logo: { '@type': 'ImageObject', url: `${baseUrl}/HelixBio%20Images/hb-logo.png` },
         },
         mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
         ...(productSchemas.length > 0

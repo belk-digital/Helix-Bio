@@ -1,9 +1,9 @@
 'use client'
 
-import React from 'react'
+import React, { useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { ChevronLeft, Calendar, Clock, ArrowUpRight, ShoppingBag } from 'lucide-react'
 
 export function BlogPostHero({
@@ -25,6 +25,14 @@ export function BlogPostHero({
   imageSrc: string
   imageAlt: string
 }) {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  })
+  
+  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"])
+
   return (
     <div className="w-full bg-[#FAFAFA] font-sans">
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 pt-32 sm:pt-36 md:pt-44 pb-8 mx-auto max-w-[1920px]">
@@ -89,18 +97,21 @@ export function BlogPostHero({
 
         {/* Banner Image */}
         <motion.div
+          ref={containerRef}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative w-full h-[300px] sm:h-[420px] md:h-[520px] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl bg-zinc-900"
         >
-          <Image
-            src={imageSrc}
-            alt={imageAlt}
-            fill
-            priority
-            className="object-cover opacity-90"
-          />
+          <motion.div style={{ y, scale: 1.4 }} className="absolute inset-0 w-full h-full">
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              fill
+              priority
+              className="object-cover opacity-90"
+            />
+          </motion.div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none" />
 
           <Link

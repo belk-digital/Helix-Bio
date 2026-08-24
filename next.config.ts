@@ -84,6 +84,17 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(dirname),
   },
+  // Next.js streams <title>/meta/canonical/OG tags in on any page whose generateMetadata
+  // depends on async data (every CMS-driven page here) instead of blocking on them, on the
+  // assumption that the requester will render the follow-up JS and pick the tags up then.
+  // Its default bot list already blocks-and-waits for Bing/Twitter/Facebook/etc. for exactly
+  // this reason, but deliberately excludes plain "Googlebot", trusting its headless renderer
+  // to catch the injected tags in a later render pass — a separate, slower queue than the
+  // initial crawl. Adding Googlebot to the default list (verbatim, from next/dist/shared/lib/
+  // router/utils/html-bots.js) forces the same safe blocking behavior for it too, so title/
+  // description/canonical/robots are guaranteed present on Google's very first fetch.
+  htmlLimitedBots:
+    /Googlebot|[\w-]+-Google|Google-[\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight/i,
 }
 
 export default withSentryConfig(

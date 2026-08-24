@@ -234,10 +234,15 @@ export default async function Homepage() {
             {
               "@context": "https://schema.org",
               "@type": "Organization",
+              "@id": "https://helixbiochem.com/#organization",
               "name": "Helix Bio",
               "url": "https://helixbiochem.com",
               "description": "USA-based supplier of research-use-only synthetic peptides for laboratory research.",
-              "email": "support@helixbiochem.com"
+              "email": "support@helixbiochem.com",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://helixbiochem.com/HelixBio%20Images/hb-logo.png"
+              }
             },
             {
               "@context": "https://schema.org",

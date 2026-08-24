@@ -1,18 +1,9 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Search, Calculator } from 'lucide-react'
+import { Search, Mail } from 'lucide-react'
 import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
-
 export function Hero() {
-  const images = [
-    '/HelixBio Images/hero-1.webp',
-    '/HelixBio Images/hero-2.webp',
-    '/HelixBio Images/hero-3.webp'
-  ]
-  
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [emailStatus, setEmailStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [emailMessage, setEmailMessage] = useState('')
 
@@ -57,32 +48,21 @@ export function Hero() {
       }, 3000)
     }
   }
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % images.length)
-    }, 4000)
-    return () => clearInterval(timer)
-  }, [])
+
   return (
     <section className="bg-[#FAFAFA] w-full px-4 sm:px-6 md:px-12 pb-6 md:pb-8 min-[1600px]:pb-12 pt-[140px] font-sans min-h-screen flex flex-col">
-      {/* Hero Image Container */}
+      {/* Hero Video Container */}
       <div className="relative w-full flex-1 min-h-[400px] md:min-h-[380px] min-[1600px]:min-h-[450px] rounded-[32px] overflow-visible bg-zinc-200">
-        <AnimatePresence>
-          <motion.img
-            key={currentImageIndex}
-            src={images[currentImageIndex]}
-            alt="Researcher handling a Helix Bio research peptide vial in a laboratory setting."
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="absolute top-0 left-0 w-full h-full object-cover object-[75%_center] sm:object-center rounded-[32px]"
-            fetchPriority={currentImageIndex === 0 ? "high" : "auto"}
-            loading={currentImageIndex === 0 ? "eager" : "lazy"}
-          />
-        </AnimatePresence>
-        
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent rounded-[32px] pointer-events-none" />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover object-[75%_center] sm:object-center rounded-[32px]"
+        >
+          <source src="/Homepage/Helix Bio Hero Video.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent rounded-[32px] pointer-events-none" />
 
         {/* Hero Content */}
         <div className="absolute top-8 sm:top-12 md:top-[15%] min-[1600px]:top-1/4 left-6 sm:left-8 md:left-16 flex flex-col items-start text-white max-w-3xl lg:max-w-[800px] pr-4 md:pr-12 z-10">
@@ -106,15 +86,15 @@ export function Hero() {
         {/* Floating Action Bar */}
         <div className="absolute -bottom-24 sm:-bottom-28 md:-bottom-8 min-[1600px]:-bottom-10 left-1/2 -translate-x-1/2 w-[95%] md:w-[90%] lg:w-[80%] max-w-5xl bg-white rounded-[24px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] p-3 min-[1600px]:p-4 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-0 z-20">
           
-          {/* Item 1: Calculator */}
+          {/* Item 1: Contact */}
           <div className="flex-1 flex justify-start md:justify-center w-full md:w-auto">
-            <Link href="/peptide-calculator" className="flex items-center gap-3 px-1 md:px-3 py-2 rounded-xl hover:bg-gray-50 transition-colors shrink-0 group w-full md:w-auto">
-              <div className="hidden sm:flex w-10 h-10 rounded-full bg-blue-50 items-center justify-center text-blue-500 group-hover:scale-110 transition-transform">
-                <Calculator size={18} strokeWidth={2} />
+            <Link href="/contact-us" className="flex items-center gap-3 px-1 md:px-3 py-2 rounded-xl hover:bg-gray-50 transition-colors shrink-0 group w-full md:w-auto">
+              <div className="hidden sm:flex w-10 h-10 rounded-full bg-emerald-50 items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform">
+                <Mail size={18} strokeWidth={2} />
               </div>
               <div className="flex flex-col text-left">
-                <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">Tools</span>
-                <span className="text-sm font-semibold text-gray-800">Calculator</span>
+                <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">Support</span>
+                <span className="text-sm font-semibold text-gray-800">Contact Us</span>
               </div>
             </Link>
           </div>
