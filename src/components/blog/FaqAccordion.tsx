@@ -40,21 +40,19 @@ export function FaqAccordion({ faqs }: { faqs: { question: string; answer: strin
                 </AnimatePresence>
               </div>
             </button>
-            <AnimatePresence initial={false}>
-              {isOpen && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.28, ease: [0.25, 0, 0.1, 1] }}
-                  className="overflow-hidden"
-                >
-                  <p className="pb-6 text-ink-muted leading-relaxed text-sm sm:text-base pr-10">
-                    {faq.answer}
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {/* Always mounted (not conditionally rendered) so every answer is present in the
+                server-rendered HTML — non-JS crawlers (AI bots, etc.) never execute the click
+                that would otherwise be required to inject this text into the DOM. */}
+            <motion.div
+              initial={false}
+              animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+              transition={{ duration: 0.28, ease: [0.25, 0, 0.1, 1] }}
+              className="overflow-hidden"
+            >
+              <p className="pb-6 text-ink-muted leading-relaxed text-sm sm:text-base pr-10">
+                {faq.answer}
+              </p>
+            </motion.div>
           </div>
         )
       })}

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Plus } from 'lucide-react'
 import { FaqCategoryType, FaqItemType } from '@/data/faqs'
 
@@ -50,23 +50,21 @@ const FaqItem = ({
           </div>
         </div>
 
-        {/* Answer Content */}
-        <AnimatePresence initial={false}>
-          {isOpen && (
-            <motion.div 
-               initial={{ height: 0, opacity: 0 }}
-               animate={{ height: 'auto', opacity: 1 }}
-               exit={{ height: 0, opacity: 0 }}
-               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-               className="overflow-hidden w-full pl-0 sm:pl-[3.25rem] pr-8 lg:pr-16"
-            >
-              <div 
-                className="text-ink/80 text-sm md:text-base leading-relaxed pt-4 pb-2 prose prose-sm max-w-none prose-a:text-primary hover:prose-a:text-primary-dark"
-                dangerouslySetInnerHTML={{ __html: faq.answer }}
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Answer Content — always mounted (not conditionally rendered) so every answer ships
+            in the server HTML. Non-JS crawlers (AI bots, etc.) never click to expand an
+            accordion, so a conditionally-mounted answer is invisible to them; this page's
+            entire value is ~150 Q&A pairs, so that would mean almost no crawlable content. */}
+        <motion.div
+           initial={false}
+           animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+           className="overflow-hidden w-full pl-0 sm:pl-[3.25rem] pr-8 lg:pr-16"
+        >
+          <div
+            className="text-ink/80 text-sm md:text-base leading-relaxed pt-4 pb-2 prose prose-sm max-w-none prose-a:text-primary hover:prose-a:text-primary-dark"
+            dangerouslySetInnerHTML={{ __html: faq.answer }}
+          />
+        </motion.div>
       </div>
     </motion.div>
     </React.Fragment>

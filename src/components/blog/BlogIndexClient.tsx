@@ -74,7 +74,6 @@ export function BlogIndexClient({ posts }: { posts: BlogIndexPost[] }) {
   const filteredPosts =
     activeCategory === ALL_LABEL ? sortedPosts : sortedPosts.filter((post) => post.category === activeCategory)
 
-  const displayedPosts = filteredPosts.slice(0, visibleCount)
   const hasMore = visibleCount < filteredPosts.length
 
   return (
@@ -231,11 +230,18 @@ export function BlogIndexClient({ posts }: { posts: BlogIndexPost[] }) {
       )}
 
       {/* Grid */}
+      {/* All matching posts are always rendered (not just the visible slice) so every post
+          has a real crawlable link in the server HTML — "Load More" only toggles a CSS class,
+          it never controls what's actually in the DOM. */}
       <section className="px-4 md:px-6 max-w-[1280px] mx-auto mb-16 md:mb-24">
-        {displayedPosts.length > 0 ? (
+        {filteredPosts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
-            {displayedPosts.map((post, index) => (
-              <FadeUp key={post.slug} delay={0.1 * (index % 3)}>
+            {filteredPosts.map((post, index) => (
+              <FadeUp
+                key={post.slug}
+                delay={0.1 * (index % 3)}
+                className={index >= visibleCount ? 'hidden' : undefined}
+              >
                 <BlogPostCard {...post} />
               </FadeUp>
             ))}

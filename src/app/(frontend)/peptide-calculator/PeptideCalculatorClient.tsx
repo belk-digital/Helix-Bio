@@ -9,6 +9,7 @@ import { SharedFaqSection } from '@/components/shared/SharedFaqSection'
 import { CalculatorsHub } from './components/CalculatorsHub'
 import { CalculatorHero } from '@/components/calculator/CalculatorHero'
 import Image from 'next/image'
+import Link from 'next/link'
 import { FluidButton } from '@/components/ui/fluid-button'
 
 const FAQ_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10'] as const
@@ -292,6 +293,13 @@ export default function PeptideCalculatorPage() {
                   </div>
                 </div>
               </div>
+
+              <p className="text-ink/50 text-sm mt-8 text-center md:text-left">
+                Want the full breakdown of every conversion this formula touches?{' '}
+                <Link href="/peptide-dosage-calculator-mg-mcg-mL-IU-conversions" className="font-bold text-primary underline underline-offset-4 hover:text-primary-dark transition-colors">
+                  Read the complete mg, mcg, mL &amp; IU conversion guide
+                </Link>.
+              </p>
             </FadeUp>
           </div>
         </section>

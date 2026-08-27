@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Plus, Minus } from 'lucide-react'
 import { Tab } from './ProductTabs'
 import { cn } from '@/lib/utils'
@@ -47,30 +47,30 @@ export function ProductDetailTabs({ tabs }: ProductDetailTabsProps) {
               </div>
             </button>
 
-            <AnimatePresence initial={false}>
-              {isActive && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="overflow-hidden"
-                >
-                  <div className="pb-12 lg:pb-16 max-w-4xl pr-8 lg:pr-16">
-                    {typeof tab.content === 'string' ? (
-                      <div
-                        className="text-ink/60 leading-[1.8] text-[15px] lg:text-[18px] prose prose-lg max-w-none prose-headings:text-ink prose-headings:font-black prose-headings:tracking-tighter prose-headings:uppercase prose-a:text-ink prose-a:underline-offset-4 prose-strong:text-ink prose-li:text-ink/60"
-                        dangerouslySetInnerHTML={{ __html: tab.content }}
-                      />
-                    ) : (
-                      <div className="text-ink/60 leading-[1.8] text-[15px] lg:text-[18px]">
-                        {tab.content}
-                      </div>
-                    )}
+            {/* Always mounted (not conditionally rendered) so every tab's content — Product
+                Details, Research Focus & Mechanism, Quality & Purity, Compliance Notice — ships
+                in the server HTML, not just whichever tab starts open. Non-JS crawlers never
+                click a tab to reveal it, so a conditionally-mounted panel is invisible to them;
+                this is most of a product page's actual unique content. */}
+            <motion.div
+              initial={false}
+              animate={{ height: isActive ? 'auto' : 0, opacity: isActive ? 1 : 0 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="overflow-hidden"
+            >
+              <div className="pb-12 lg:pb-16 max-w-4xl pr-8 lg:pr-16">
+                {typeof tab.content === 'string' ? (
+                  <div
+                    className="text-ink/60 leading-[1.8] text-[15px] lg:text-[18px] prose prose-lg max-w-none prose-headings:text-ink prose-headings:font-black prose-headings:tracking-tighter prose-headings:uppercase prose-a:text-ink prose-a:underline-offset-4 prose-strong:text-ink prose-li:text-ink/60"
+                    dangerouslySetInnerHTML={{ __html: tab.content }}
+                  />
+                ) : (
+                  <div className="text-ink/60 leading-[1.8] text-[15px] lg:text-[18px]">
+                    {tab.content}
                   </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                )}
+              </div>
+            </motion.div>
           </div>
         )
       })}

@@ -530,6 +530,9 @@ export default async function ProductPage({
     }))
   } : undefined
 
+  // Mirrors the visible breadcrumb trail in ProductClient exactly (Home > Shop > Product) —
+  // a schema.org BreadcrumbList that includes a step not shown on the page is a
+  // markup/visible-content mismatch per Google's structured data guidelines.
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -543,18 +546,12 @@ export default async function ProductPage({
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Research Peptides',
+        name: 'Shop',
         item: `${baseUrl}/shop`
       },
       {
         '@type': 'ListItem',
         position: 3,
-        name: productData.categories[0] || 'Category',
-        item: `${baseUrl}/shop?category=${encodeURIComponent(productData.categories[0] || '')}`
-      },
-      {
-        '@type': 'ListItem',
-        position: 4,
         name: productData.name,
         item: productUrl
       }
