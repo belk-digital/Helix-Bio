@@ -83,13 +83,13 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Floating Action Bar */}
-        <div className="absolute -bottom-24 sm:-bottom-28 md:-bottom-8 min-[1600px]:-bottom-10 left-1/2 -translate-x-1/2 w-[95%] md:w-[90%] lg:w-[80%] max-w-5xl bg-white rounded-[24px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] p-3 min-[1600px]:p-4 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-0 z-20">
+        {/* Desktop Floating Action Bar */}
+        <div className="hidden md:flex absolute -bottom-8 min-[1600px]:-bottom-10 left-1/2 -translate-x-1/2 w-[90%] lg:w-[80%] max-w-5xl bg-white rounded-[24px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] p-4 min-[1600px]:p-4 flex-row items-center justify-between gap-0 z-20">
           
           {/* Item 1: Contact */}
-          <div className="flex-1 flex justify-start md:justify-center w-full md:w-auto">
-            <Link href="/contact-us" className="flex items-center gap-3 px-1 md:px-3 py-2 rounded-xl hover:bg-gray-50 transition-colors shrink-0 group w-full md:w-auto">
-              <div className="hidden sm:flex w-10 h-10 rounded-full bg-emerald-50 items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform">
+          <div className="flex-1 flex justify-center w-auto">
+            <Link href="/contact-us" className="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-50 transition-colors shrink-0 group w-auto">
+              <div className="flex w-10 h-10 rounded-full bg-emerald-50 items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform">
                 <Mail size={18} strokeWidth={2} />
               </div>
               <div className="flex flex-col text-left">
@@ -100,10 +100,10 @@ export function Hero() {
           </div>
 
           {/* Divider 1 */}
-          <div className="hidden md:block w-px h-10 bg-gray-100 shrink-0 mx-2 lg:mx-4" />
+          <div className="w-px h-10 bg-gray-100 shrink-0 mx-2 lg:mx-4" />
 
           {/* Item 2: Newsletter Input */}
-          <div className="flex-[1.5] flex justify-center w-full md:w-auto px-1 md:px-0">
+          <div className="flex-[1.5] flex justify-center w-auto">
             <form onSubmit={handleSubscribe} className="relative w-full max-w-sm">
               <input 
                 type="email" 
@@ -135,13 +135,13 @@ export function Hero() {
           </div>
 
           {/* Divider 2 */}
-          <div className="hidden md:block w-px h-10 bg-gray-100 shrink-0 mx-2 lg:mx-4" />
+          <div className="w-px h-10 bg-gray-100 shrink-0 mx-2 lg:mx-4" />
 
           {/* Item 3: Search Button */}
-          <div className="flex-1 flex justify-end md:justify-center w-full md:w-auto">
+          <div className="flex-1 flex justify-center w-auto">
             <button 
               onClick={() => typeof window !== 'undefined' && window.dispatchEvent(new Event('open-search-modal'))}
-              className="w-full md:w-auto bg-[#121212] text-white px-6 xl:px-8 py-3.5 rounded-[16px] font-semibold flex items-center justify-center gap-2 hover:bg-gray-900 transition-colors shrink-0 shadow-md group"
+              className="w-auto bg-[#121212] text-white px-6 xl:px-8 py-3.5 rounded-[16px] font-semibold flex items-center justify-center gap-2 hover:bg-gray-900 transition-colors shrink-0 shadow-md group"
             >
               <Search size={18} className="group-hover:scale-110 transition-transform" />
               <span className="whitespace-nowrap">Search Peptides</span>
@@ -151,8 +151,61 @@ export function Hero() {
         </div>
       </div>
 
+      {/* Mobile Action Bar (Positioned cleanly between Video and Stats Cards) */}
+      <div className="flex md:hidden mt-4 w-full bg-white rounded-[24px] shadow-[0_4px_20px_rgba(0,0,0,0.06)] p-4 flex-col items-center justify-between gap-3.5 z-20">
+        {/* Item 1: Contact */}
+        <Link href="/contact-us" className="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-50 transition-colors shrink-0 group w-full">
+          <div className="flex w-10 h-10 rounded-full bg-emerald-50 items-center justify-center text-emerald-600 shrink-0">
+            <Mail size={18} strokeWidth={2} />
+          </div>
+          <div className="flex flex-col text-left">
+            <span className="text-[9px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">Support</span>
+            <span className="text-sm font-semibold text-gray-800">Contact Us</span>
+          </div>
+        </Link>
+
+        {/* Item 2: Newsletter Input */}
+        <form onSubmit={handleSubscribe} className="relative w-full">
+          <input 
+            type="email" 
+            name="email"
+            required
+            disabled={emailStatus === 'loading' || emailStatus === 'success'}
+            placeholder={emailMessage || "Subscribe to newsletter..."} 
+            className={`w-full bg-gray-50 border border-transparent focus:border-black/10 focus:bg-white rounded-[16px] px-4 py-3.5 pr-10 text-sm outline-none transition-all ${
+              emailStatus === 'success' ? 'text-green-600 placeholder:text-green-600 bg-green-50' : 
+              emailStatus === 'error' ? 'text-red-600 placeholder:text-red-600 bg-red-50' : 
+              'text-black placeholder:text-gray-400'
+            }`}
+          />
+          <button 
+            type="submit"
+            disabled={emailStatus === 'loading' || emailStatus === 'success'}
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black text-white p-2 rounded-[10px] hover:bg-gray-800 transition-colors disabled:opacity-50"
+            aria-label="Subscribe"
+          >
+            {emailStatus === 'loading' ? (
+              <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+            ) : emailStatus === 'success' ? (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            ) : (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            )}
+          </button>
+        </form>
+
+        {/* Item 3: Search Button */}
+        <button 
+          onClick={() => typeof window !== 'undefined' && window.dispatchEvent(new Event('open-search-modal'))}
+          className="w-full bg-[#121212] text-white px-6 py-3.5 rounded-[16px] font-semibold flex items-center justify-center gap-2 hover:bg-gray-900 transition-colors shrink-0 shadow-md group"
+        >
+          <Search size={18} className="group-hover:scale-110 transition-transform" />
+          <span className="whitespace-nowrap">Search Peptides</span>
+        </button>
+      </div>
+
       {/* Stats Cards */}
-      <div className="mt-32 sm:mt-36 md:mt-10 min-[1600px]:mt-20 shrink-0 w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+      <div className="mt-4 md:mt-10 min-[1600px]:mt-20 shrink-0 w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
         
         {/* Card 1 */}
         <div className="bg-white rounded-3xl p-4 min-[1600px]:p-6 flex flex-col justify-center gap-4">

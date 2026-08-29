@@ -1,27 +1,34 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { Payload } from 'payload'
 import { escapeHtml } from './escapeHtml'
 import { emailLayout } from './emailLayout'
 
-export async function generateOrderInvoiceHtml(order: any, payload?: any, customNote?: string, statusContext: 'success' | 'failed' | 'cancelled' | 'refunded' = 'success'): Promise<string> {
+export async function generateOrderInvoiceHtml(
+  order: any,
+  payload?: Payload,
+  customNote?: string,
+  statusContext: 'success' | 'failed' | 'cancelled' | 'refunded' = 'success',
+): Promise<string> {
   const orderNumber = order.orderNumber || order.id;
   const orderDate = order.createdAt ? new Date(order.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   const serverUrl = 'https://helixbiochem.com';
   
-  const formatMoney = (amount: number) => `$${(amount).toFixed(2)}`;
+  const formatMoney = (amount: number) => `$${(amount || 0).toFixed(2)}`;
   
-  const subtotal = order.subtotal || 0;
-  const discountTotal = order.discountTotal || 0;
-  const redeemedPoints = order.redeemedPoints || 0;
-  const shippingTotal = order.shippingTotal || 0;
-  const taxTotal = order.taxTotal || 0;
-  const feeTotal = order.feeTotal || 0;
-  const total = order.total || 0;
+  const subtotal = Number(order.subtotal) || 0;
+  const discountTotal = Number(order.discountTotal) || 0;
+  const redeemedPoints = Number(order.redeemedPoints) || 0;
+  const shippingTotal = Number(order.shippingTotal) || 0;
+  const feeTotal = Number(order.feeTotal) || 0;
+  const total = Number(order.total) || 0;
   
   const customerName = escapeHtml(`${order.customerFirstName || ''} ${order.customerLastName || ''}`.trim() || 'Customer');
   
-  let customerEmail = order.guestEmail || '';
+  let customerEmail = (order.guestEmail as string) || '';
   if (!customerEmail && order.owner && payload) {
     try {
-      const userDoc = typeof order.owner === 'object' ? order.owner : await payload.findByID({ collection: 'users', id: order.owner, depth: 0 });
+      const owner = order.owner;
+      const userDoc: any = typeof owner === 'object' && owner !== null ? owner : await payload.findByID({ collection: 'users', id: owner, depth: 0 });
       if (userDoc?.email) customerEmail = userDoc.email;
     } catch (e) {
       console.error('Failed to fetch user email for invoice', e);
@@ -32,12 +39,12 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
   const rawHasBilling = order.billingAddress && order.billingAddress.line1;
   const rawBillAddr = rawHasBilling ? order.billingAddress : rawShipAddr;
   const escapeAddr = (a: any) => ({
-    line1: escapeHtml(a.line1),
-    line2: escapeHtml(a.line2),
-    city: escapeHtml(a.city),
-    state: escapeHtml(a.state),
-    postalCode: escapeHtml(a.postalCode),
-    country: escapeHtml(a.country),
+    line1: escapeHtml(a?.line1 || ''),
+    line2: escapeHtml(a?.line2 || ''),
+    city: escapeHtml(a?.city || ''),
+    state: escapeHtml(a?.state || ''),
+    postalCode: escapeHtml(a?.postalCode || ''),
+    country: escapeHtml(a?.country || ''),
   })
   const shipAddr = escapeAddr(rawShipAddr);
   const billAddr = escapeAddr(rawBillAddr);
@@ -61,7 +68,7 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
                imageUrl = vImgRef.url.startsWith('http') ? vImgRef.url : `${serverUrl}${vImgRef.url.startsWith('/') ? '' : '/'}${vImgRef.url}`;
             } else if ((typeof vImgRef === 'string' || typeof vImgRef === 'number') && payload) {
                try {
-                  const mediaDoc = await payload.findByID({ collection: 'media', id: vImgRef, depth: 0 });
+                  const mediaDoc: any = await payload.findByID({ collection: 'media', id: vImgRef, depth: 0 });
                   if (mediaDoc && mediaDoc.url) {
                      imageUrl = mediaDoc.url.startsWith('http') ? mediaDoc.url : `${serverUrl}${mediaDoc.url.startsWith('/') ? '' : '/'}${mediaDoc.url}`;
                   }
@@ -79,7 +86,7 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
           imageUrl = imgRef.url.startsWith('http') ? imgRef.url : `${serverUrl}${imgRef.url.startsWith('/') ? '' : '/'}${imgRef.url}`;
         } else if ((typeof imgRef === 'string' || typeof imgRef === 'number') && payload) {
           try {
-            const mediaDoc = await payload.findByID({ collection: 'media', id: imgRef, depth: 0 });
+            const mediaDoc: any = await payload.findByID({ collection: 'media', id: imgRef, depth: 0 });
             if (mediaDoc && mediaDoc.url) {
               imageUrl = mediaDoc.url.startsWith('http') ? mediaDoc.url : `${serverUrl}${mediaDoc.url.startsWith('/') ? '' : '/'}${mediaDoc.url}`;
             }
@@ -158,7 +165,7 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
     circoflows: 'Card',
     stripe_link: 'Stripe (Custom Link)',
   }
-  const paymentMethodLabel = paymentMethodLabels[order.paymentMethod] || 'Card'
+  const paymentMethodLabel = paymentMethodLabels[order.paymentMethod as string] || 'Card'
 
   const feeRow = feeTotal > 0 ? `
     <tr>
@@ -329,6 +336,36 @@ export async function generateOrderInvoiceHtml(order: any, payload?: any, custom
                   </td>
                 </tr>
               </table>
+              </div>
+
+          <!-- Trustpilot Review Card -->
+              <div style="background-color: #0E4352; border-radius: 24px; padding: 40px 28px; text-align: center; margin-bottom: 32px; color: #ffffff;">
+                <!-- 5 Stars -->
+                <div style="margin-bottom: 16px;">
+                  <span style="font-size: 24px; color: #00C896; letter-spacing: 4px;">★ ★ ★ ★ ★</span>
+                </div>
+                
+                <!-- Title -->
+                <h3 style="margin: 0 0 16px 0; font-size: 24px; font-weight: 800; color: #ffffff; letter-spacing: -0.02em;">
+                  Earn a <span style="color: #FACC15;">$20 Reward</span> 🎁
+                </h3>
+                
+                <!-- Main Body Text -->
+                <p style="margin: 0 0 24px 0; font-size: 14px; color: #E2E8F0; line-height: 1.6; max-width: 480px; display: inline-block;">
+                  Love your experience? Leave us a 5-star review on Trustpilot, send us a screenshot, and we'll instantly add <strong>$20 in Helix Points</strong> to your account for your next order!
+                </p>
+                
+                <!-- Inner Information Box -->
+                <div style="background-color: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 16px 20px; margin-bottom: 28px; text-align: center; display: inline-block; width: 100%; box-sizing: border-box;">
+                  <p style="margin: 0; font-size: 13px; color: #F8FAFC; line-height: 1.5;">
+                    💡 <strong style="color: #FACC15;">Helix Points</strong> are as good as cash on our store. Stack them up and apply them as a discount at checkout!
+                  </p>
+                </div>
+                
+                <!-- CTA Button -->
+                <div>
+                  <a href="https://www.trustpilot.com/review/helixbiochem.com" target="_blank" style="display: inline-block; padding: 16px 40px; background-color: #00C896; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 800; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 4px 14px rgba(0, 200, 150, 0.35);">REVIEW ON TRUSTPILOT</a>
+                </div>
               </div>
 
           <!-- View Order Button -->
