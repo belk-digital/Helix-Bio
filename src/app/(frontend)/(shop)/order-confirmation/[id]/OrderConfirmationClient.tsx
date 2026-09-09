@@ -50,7 +50,7 @@ type OrderData = {
   discountTotal?: number
   redeemedPoints?: number
   couponCode?: string
-  paymentMethod: 'stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link'
+  paymentMethod: 'stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link' | 'nextlvlpay'
 }
 
 const ZELLE_RECIPIENT_PHONE = '832-705-9377'
@@ -137,6 +137,9 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
     if (order.paymentMethod === 'circoflows') {
       import('../../checkout/circoflowsActions').then(m => m.syncCircoFlowsPaymentStatus(order.orderId))
     }
+    if (order.paymentMethod === 'nextlvlpay') {
+      import('../../checkout/nextlvlpayActions').then(m => m.syncNextlvlpayPaymentStatus(order.orderId))
+    }
   }, [order.paymentMethod, order.orderId])
 
   const handleCopyOrderId = () => {
@@ -150,6 +153,7 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
     amex: 'American Express',
     circoflows: t('paymentMethodCard'),
     stripe_link: 'Stripe (Custom Link)',
+    nextlvlpay: t('paymentMethodCard'),
   }
 
   const renderOrderSummary = () => (

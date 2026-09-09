@@ -25,6 +25,7 @@ import * as migration_20260710_120000_convert_cents_to_dollars from './20260710_
 import * as migration_20260710_130000_fix_legacy_order_item_prices from './20260710_130000_fix_legacy_order_item_prices';
 import * as migration_20260710_140000_fix_legacy_order_discount_and_tax from './20260710_140000_fix_legacy_order_discount_and_tax';
 import * as migration_20260710_150000_fix_legacy_order_subtotal from './20260710_150000_fix_legacy_order_subtotal';
+import * as migration_20260909_200000_add_payment_methods_global from './20260909_200000_add_payment_methods_global';
 
 export const migrations = [
   {
@@ -161,5 +162,10 @@ export const migrations = [
     up: migration_20260710_150000_fix_legacy_order_subtotal.up,
     down: migration_20260710_150000_fix_legacy_order_subtotal.down,
     name: '20260710_150000_fix_legacy_order_subtotal',
+  },
+  {
+    up: migration_20260909_200000_add_payment_methods_global.up,
+    down: migration_20260909_200000_add_payment_methods_global.down,
+    name: '20260909_200000_add_payment_methods_global',
   },
 ];

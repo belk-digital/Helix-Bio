@@ -228,6 +228,7 @@ export const Orders: CollectionConfig = {
         { label: 'American Express', value: 'amex' },
         { label: 'Card (CircoFlows)', value: 'circoflows' },
         { label: 'Stripe (Custom Payment Link)', value: 'stripe_link' },
+        { label: 'Card (via NextLvlPay)', value: 'nextlvlpay' },
       ],
       admin: {
         position: 'sidebar',
@@ -242,6 +243,16 @@ export const Orders: CollectionConfig = {
         readOnly: true,
         description: 'CircoFlows transaction_id, for support/reconciliation lookups.',
         condition: (data) => data?.paymentMethod === 'circoflows',
+      },
+    },
+    {
+      name: 'nextlvlpayPaymentIntentId',
+      type: 'text',
+      admin: {
+        position: 'sidebar',
+        readOnly: true,
+        description: 'PaymentIntent id in nextlvlpay\'s own Stripe account, for support/reconciliation lookups.',
+        condition: (data) => data?.paymentMethod === 'nextlvlpay',
       },
     },
     { name: 'couponCode', type: 'text', admin: { position: 'sidebar' } },

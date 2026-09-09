@@ -14,6 +14,12 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: '2024-04-10' as any,
 })
 
+export async function getPaymentMethodsSettings() {
+  const payload = await getPayload({ config: configPromise })
+  const settings = await payload.findGlobal({ slug: 'payment-methods' })
+  return settings.methods || []
+}
+
 export async function getShippingMethods() {
   const payload = await getPayload({ config: configPromise })
   const zones = await payload.find({
@@ -196,7 +202,7 @@ export async function createPayloadOrder(
   formData: any,
   paymentIntentId: string,
   userId?: string,
-  paymentMethod: 'stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link' = 'stripe',
+  paymentMethod: 'stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link' | 'nextlvlpay' = 'stripe',
   isNewAddress = false
 ) {
   const payload = await getPayload({ config: configPromise })
@@ -633,7 +639,8 @@ export async function notifyAdminFailedPayment(orderId: string, errorMessage: st
       zelle: 'Zelle',
       amex: 'American Express',
       circoflows: 'Card',
-      stripe_link: 'Stripe Link'
+      stripe_link: 'Stripe Link',
+      nextlvlpay: 'Card (via NextLvlPay)'
     }
     const paymentMethod = (order.paymentMethod && paymentMethodLabels[order.paymentMethod]) || order.paymentMethod || 'N/A'
 

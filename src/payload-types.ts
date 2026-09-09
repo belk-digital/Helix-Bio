@@ -140,10 +140,12 @@ export interface Config {
   globals: {
     'affiliate-settings': AffiliateSetting;
     'blog-author-profile': BlogAuthorProfile;
+    'payment-methods': PaymentMethod;
   };
   globalsSelect: {
     'affiliate-settings': AffiliateSettingsSelect<false> | AffiliateSettingsSelect<true>;
     'blog-author-profile': BlogAuthorProfileSelect<false> | BlogAuthorProfileSelect<true>;
+    'payment-methods': PaymentMethodsSelect<false> | PaymentMethodsSelect<true>;
   };
   locale: 'en' | 'es';
   widgets: {
@@ -807,11 +809,15 @@ export interface Order {
   /**
    * Zelle orders require manual payment confirmation before fulfillment.
    */
-  paymentMethod?: ('stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link') | null;
+  paymentMethod?: ('stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link' | 'nextlvlpay') | null;
   /**
    * CircoFlows transaction_id, for support/reconciliation lookups.
    */
   circoflowsTransactionId?: string | null;
+  /**
+   * PaymentIntent id in nextlvlpay's own Stripe account, for support/reconciliation lookups.
+   */
+  nextlvlpayPaymentIntentId?: string | null;
   couponCode?: string | null;
   /**
    * Affiliate ID if referred
@@ -2009,6 +2015,7 @@ export interface OrdersSelect<T extends boolean = true> {
   sendTrackingEmail?: T;
   paymentMethod?: T;
   circoflowsTransactionId?: T;
+  nextlvlpayPaymentIntentId?: T;
   couponCode?: T;
   affiliateId?: T;
   clickId?: T;
@@ -2472,6 +2479,36 @@ export interface BlogAuthorProfile {
   createdAt?: string | null;
 }
 /**
+ * Controls which payment options appear at checkout, their order, and their label/description. Drag rows to reorder.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payment-methods".
+ */
+export interface PaymentMethod {
+  id: number;
+  /**
+   * Only methods with a working checkout handler can be added here — this list controls display only (order, on/off, label, description), not the underlying payment logic.
+   */
+  methods: {
+    /**
+     * Which checkout code path this row controls.
+     */
+    key: 'zelle' | 'nextlvlpay' | 'stripe_link' | 'circoflows';
+    enabled?: boolean | null;
+    /**
+     * Shown as the option's title at checkout, e.g. "Zelle" or "Credit / Debit Card".
+     */
+    label: string;
+    /**
+     * Shown as the small subtitle under the label.
+     */
+    description: string;
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "affiliate-settings_select".
  */
@@ -2501,6 +2538,24 @@ export interface BlogAuthorProfileSelect<T extends boolean = true> {
     | {
         platform?: T;
         url?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payment-methods_select".
+ */
+export interface PaymentMethodsSelect<T extends boolean = true> {
+  methods?:
+    | T
+    | {
+        key?: T;
+        enabled?: T;
+        label?: T;
+        description?: T;
         id?: T;
       };
   updatedAt?: T;
