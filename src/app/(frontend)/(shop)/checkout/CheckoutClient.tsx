@@ -31,28 +31,38 @@ const stripePromise = typeof window !== 'undefined' ? loadStripe(process.env.NEX
 
 // Icon/badge per method — a visual/branding detail kept in code rather than the CMS, which only
 // controls order, on/off, label, and description (see the "payment-methods" Payload global).
+// Major card networks + wallet/alt-pay methods actually enabled on the processing Stripe
+// account (confirmed via its payment method configuration) — purely an informational display
+// on this card, not a selector; the real method picker is Stripe's own Payment Element on the
+// hosted pay page.
+const CARD_BRAND_BADGES = (
+  <div className="flex flex-wrap gap-1 mt-1.5">
+    <span className="px-1.5 py-0.5 border border-gray-200 bg-white rounded shadow-sm text-[8px] font-black italic text-blue-900 tracking-wider">VISA</span>
+    <span className="px-1.5 py-0.5 border border-gray-200 bg-white rounded shadow-sm text-[8px] font-bold text-red-600 tracking-wider">MC</span>
+    <span className="px-1.5 py-0.5 border border-gray-200 bg-[#006FCF] rounded shadow-sm text-[8px] font-bold text-white tracking-wider">AMEX</span>
+    <span className="px-1.5 py-0.5 border border-gray-200 bg-white rounded shadow-sm text-[8px] font-bold text-orange-600 tracking-wider">DISCOVER</span>
+    <span className="px-1.5 py-0.5 border border-gray-200 bg-black rounded shadow-sm text-[8px] font-bold text-white tracking-wider">Apple Pay</span>
+    <span className="px-1.5 py-0.5 border border-gray-200 bg-[#00D632] rounded shadow-sm text-[8px] font-black text-white tracking-wider">Cash App</span>
+    <span className="px-1.5 py-0.5 border border-gray-200 bg-[#00D66F] rounded shadow-sm text-[8px] font-black text-black tracking-wider">Link</span>
+  </div>
+)
+
 const PAYMENT_METHOD_VISUALS: Record<string, { icon: React.ReactNode; badge?: React.ReactNode }> = {
   circoflows: {
     icon: <CreditCard size={14} className="text-gray-400" />,
-    badge: (
-      <div className="flex gap-1.5 ml-2">
-        <span className="px-1.5 py-0.5 border border-gray-200 bg-white rounded shadow-sm text-[8px] font-black italic text-blue-900 tracking-wider">VISA</span>
-        <span className="px-1.5 py-0.5 border border-gray-200 bg-white rounded shadow-sm text-[8px] font-bold text-red-600 tracking-wider">MC</span>
-      </div>
-    ),
+    badge: CARD_BRAND_BADGES,
   },
   nextlvlpay: {
     icon: <CreditCard size={14} className="text-gray-400" />,
-    badge: (
-      <div className="flex gap-1.5 ml-2">
-        <span className="px-1.5 py-0.5 border border-gray-200 bg-white rounded shadow-sm text-[8px] font-black italic text-blue-900 tracking-wider">VISA</span>
-        <span className="px-1.5 py-0.5 border border-gray-200 bg-white rounded shadow-sm text-[8px] font-bold text-red-600 tracking-wider">MC</span>
-      </div>
-    ),
+    badge: CARD_BRAND_BADGES,
   },
   zelle: {
     icon: <Wallet size={14} className="text-purple-600" />,
-    badge: <span className="px-1.5 py-0.5 border border-gray-200 bg-[#741acb] rounded shadow-sm text-[8px] font-black text-white tracking-widest ml-2">Z</span>,
+    badge: (
+      <div className="flex mt-1.5">
+        <span className="px-1.5 py-0.5 border border-gray-200 bg-[#741acb] rounded shadow-sm text-[8px] font-black text-white tracking-widest">Z</span>
+      </div>
+    ),
   },
   stripe_link: {
     icon: <CreditCard size={14} className="text-gray-400" />,
@@ -1167,9 +1177,9 @@ export function CheckoutClient() {
                                 <span className={`text-sm font-bold transition-colors flex items-center gap-2 ${isSelected ? 'text-black' : 'text-gray-700'}`}>
                                   {visuals.icon}
                                   {method.label}
-                                  {visuals.badge}
                                 </span>
                                 <span className="text-xs text-gray-500 mt-0.5">{method.description}</span>
+                                {visuals.badge}
                               </div>
                             </div>
                           </label>

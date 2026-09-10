@@ -246,6 +246,15 @@ export async function generateOrderInvoiceHtml(
               </div>
           ` : ''}
 
+          ${statusContext === 'success' && order.paymentMethod === 'nextlvlpay' ? `
+          <!-- NextLvlPay Statement Descriptor Note -->
+              <div style="background-color: #EFF6FF; border-left: 4px solid #2563EB; padding: 20px 24px; border-radius: 0 12px 12px 0; margin-bottom: 32px;">
+                <p style="margin: 0; color: #1E3A8A; font-size: 13px; line-height: 1.6;">
+                  💳 Heads up: this charge will appear on your statement as <strong>"NEXT LVL LASH BEAUTY"</strong> — that's NextLvlPay, our payment partner.
+                </p>
+              </div>
+          ` : ''}
+
           ${statusContext === 'success' && safeTrackingLink ? `
           <!-- Tracking Link -->
               <div style="background-color: #FAFAFA; border-left: 4px solid #10B981; padding: 24px; border-radius: 0 12px 12px 0; margin-bottom: 32px;">

@@ -4,7 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Check, Printer, Copy, MapPin, Truck, CreditCard, Wallet, Smartphone, ShieldCheck } from 'lucide-react'
+import { Check, Printer, Copy, MapPin, Truck, CreditCard, Wallet, Smartphone, ShieldCheck, AlertTriangle } from 'lucide-react'
 import { Container } from '@/components/ui/container'
 import { FadeUp } from '@/components/motion/FadeUp'
 import { buttonVariants } from '@/components/ui/button'
@@ -51,6 +51,7 @@ type OrderData = {
   redeemedPoints?: number
   couponCode?: string
   paymentMethod: 'stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link' | 'nextlvlpay'
+  paymentStatus: 'unpaid' | 'authorized' | 'captured' | 'refunded'
 }
 
 const ZELLE_RECIPIENT_PHONE = '832-705-9377'
@@ -101,8 +102,17 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
   const t = useTranslations('orderConfirmation')
   const isZelle = order.paymentMethod === 'zelle'
   const isStripeLink = order.paymentMethod === 'stripe_link' || order.paymentMethod === 'amex'
+  // An automated card method (nextlvlpay/circoflows/stripe) whose payment was never actually
+  // captured — the customer landed on this page without completing payment (e.g. abandoning an
+  // alternate payment method mid-flow and hitting the browser back button). Unlike Zelle/Stripe
+  // Link, "unpaid" is not an expected state for these methods, so this needs its own messaging
+  // rather than being read as a success.
+  const isPendingCardPayment =
+    ['nextlvlpay', 'circoflows', 'stripe'].includes(order.paymentMethod) && order.paymentStatus !== 'captured'
 
   React.useEffect(() => {
+    if (isPendingCardPayment) return
+
     // GA4 eCommerce tracking
     if (typeof window !== 'undefined' && !sessionStorage.getItem(`ga_tracked_${order.id}`)) {
       const w = window as any;
@@ -131,7 +141,7 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
     }
 
     useCartStore.getState().clear()
-  }, [order])
+  }, [order, isPendingCardPayment])
 
   React.useEffect(() => {
     if (order.paymentMethod === 'circoflows') {
@@ -269,24 +279,28 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
               {/* Header Section */}
               <div className="flex flex-col items-center lg:items-start text-center lg:text-left print:hidden">
                 <div className="relative">
-                  <ConfettiBurst />
-                  <motion.div 
+                  {!isPendingCardPayment && <ConfettiBurst />}
+                  <motion.div
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                    className="w-16 h-16 md:w-20 md:h-20 rounded-[16px] bg-black text-white flex items-center justify-center mb-8 shadow-lg relative z-10"
+                    className={`w-16 h-16 md:w-20 md:h-20 rounded-[16px] flex items-center justify-center mb-8 shadow-lg relative z-10 ${isPendingCardPayment ? 'bg-amber-500 text-white' : 'bg-black text-white'}`}
                   >
-                    <Check size={36} strokeWidth={2.5} />
+                    {isPendingCardPayment ? <AlertTriangle size={32} strokeWidth={2.5} /> : <Check size={36} strokeWidth={2.5} />}
                   </motion.div>
                 </div>
-                
+
                 <FadeUp delay={0.1}>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">{t('confirmationEmailSent')} {order.email}</p>
+                  {!isPendingCardPayment && (
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">{t('confirmationEmailSent')} {order.email}</p>
+                  )}
                   <h1 className="text-3xl md:text-5xl font-bold text-black mb-4 tracking-tight">
-                    {isZelle || isStripeLink ? t('orderPlaced') : t('paymentSuccessful')}
+                    {isPendingCardPayment ? 'Payment Not Completed' : isZelle || isStripeLink ? t('orderPlaced') : t('paymentSuccessful')}
                   </h1>
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-lg">
-                    {isZelle
+                    {isPendingCardPayment
+                      ? "It looks like your payment wasn't finished — you have not been charged. Your order has been saved, so you can pick up right where you left off."
+                      : isZelle
                       ? t('thankYouZelle', { name: order.customerName })
                       : isStripeLink
                       ? "Thank you for your order! Your items have been successfully reserved."
@@ -295,7 +309,27 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
                 </FadeUp>
               </div>
 
-              {/* Dynamic Action Modules (Zelle/Amex) */}
+              {/* Dynamic Action Modules (Zelle/Amex/Pending Card Payment) */}
+              {isPendingCardPayment && (
+                <FadeUp delay={0.15} className="print:hidden">
+                  <div className="bg-amber-50 border-2 border-amber-100 rounded-[12px] p-6 md:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left relative overflow-hidden">
+                    <div className="w-12 h-12 rounded-[12px] bg-amber-100 flex items-center justify-center text-amber-700 shrink-0">
+                      <AlertTriangle size={24} />
+                    </div>
+                    <div className="flex flex-col gap-4 w-full">
+                      <div>
+                        <h2 className="text-lg font-bold text-black mb-2">Finish Your Payment</h2>
+                        <p className="text-sm text-gray-600 leading-relaxed">
+                          Your order is saved but not yet paid for, so it hasn&apos;t shipped. If you selected a different payment option (like Cash App) and didn&apos;t complete it, or navigated back before finishing, just return to checkout to try again — nothing has been charged.
+                        </p>
+                      </div>
+                      <Link href="/checkout" className={buttonVariants({ variant: 'dark', size: 'lg', className: '!rounded-[12px] px-8 tracking-widest text-[11px] uppercase shadow-md hover:-translate-y-0.5 transition-all h-14 w-full sm:w-fit' })}>
+                        Return to Checkout
+                      </Link>
+                    </div>
+                  </div>
+                </FadeUp>
+              )}
               {isZelle && (
                 <FadeUp delay={0.15} className="print:hidden">
                   <div className="bg-[#fafafa] border-2 border-purple-100 rounded-[12px] p-6 md:p-8 flex flex-col gap-6 relative overflow-hidden">

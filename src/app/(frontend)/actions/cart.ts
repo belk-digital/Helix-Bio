@@ -182,14 +182,13 @@ export async function revalidateCartPrices(items: CartLine[]): Promise<CartLine[
 }
 
 /**
- * Fetches the current price/stock for the two required-accessory products (BAC water's
- * 30ML variant, and the needles product) so the cart store can silently add them whenever
- * a peptide product is added. Always reads fresh from Payload rather than caching, since
- * these prices can change independently of whatever page the shopper is currently on.
+ * Fetches the current price/stock for the required-accessory product (BAC water's 30ML
+ * variant) so the cart store can silently add it whenever a peptide product is added.
+ * Always reads fresh from Payload rather than caching, since price can change independently
+ * of whatever page the shopper is currently on. Needles are no longer auto-added.
  */
 export async function getAutoAddAccessoryItems(): Promise<{
   bacWater: Omit<CartLine, 'lineId' | 'quantity'> | null
-  needles: Omit<CartLine, 'lineId' | 'quantity'> | null
 }> {
   try {
     const payload = await getPayload({ config: configPromise })
@@ -197,10 +196,7 @@ export async function getAutoAddAccessoryItems(): Promise<{
     // depth: 1 so `images[].image` (and variant images) resolve to populated media docs
     // with a usable `.url` — depth: 0 would leave them as bare numeric IDs, which is why
     // the cart line images broke.
-    const [bacWaterRes, needlesRes] = await Promise.all([
-      payload.find({ collection: 'products', where: { slug: { equals: 'bac-water' } }, limit: 1, depth: 1 }),
-      payload.find({ collection: 'products', where: { slug: { equals: '10-needles' } }, limit: 1, depth: 1 }),
-    ])
+    const bacWaterRes = await payload.find({ collection: 'products', where: { slug: { equals: 'bac-water' } }, limit: 1, depth: 1 })
 
     let bacWater: Omit<CartLine, 'lineId' | 'quantity'> | null = null
     const bacProduct = bacWaterRes.docs[0]
@@ -235,29 +231,10 @@ export async function getAutoAddAccessoryItems(): Promise<{
       console.log('BAC AUTO-ADD DEBUG: bacProduct is undefined!')
     }
 
-    let needles: Omit<CartLine, 'lineId' | 'quantity'> | null = null
-    const needlesProduct = needlesRes.docs[0]
-    if (needlesProduct) {
-      const pPrice = typeof needlesProduct.price === 'number' ? needlesProduct.price : parseFloat(String(needlesProduct.price).replace(/[^0-9.]/g, ''))
-      const pSale = needlesProduct.salePrice ? (typeof needlesProduct.salePrice === 'number' ? needlesProduct.salePrice : parseFloat(String(needlesProduct.salePrice).replace(/[^0-9.]/g, ''))) : null
-      needles = {
-        productId: String(needlesProduct.id),
-        variantSku: needlesProduct.sku || '10-NEEDLES',
-        variantTitle: null,
-        priceSnapshot: pSale || pPrice,
-        product: {
-          id: String(needlesProduct.id),
-          name: needlesProduct.name,
-          slug: needlesProduct.slug,
-          imageUrl: (needlesProduct.images?.[0]?.image as any)?.url || '/placeholder.png',
-        },
-      }
-    }
-
-    return { bacWater, needles }
+    return { bacWater }
   } catch (error) {
     console.error('Error fetching auto-add accessory items:', error)
-    return { bacWater: null, needles: null }
+    return { bacWater: null }
   }
 }
 

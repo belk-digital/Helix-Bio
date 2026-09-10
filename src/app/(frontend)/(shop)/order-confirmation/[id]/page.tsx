@@ -154,6 +154,11 @@ export default async function OrderConfirmationPage({ params }: { params: Promis
     redeemedPoints: order.redeemedPoints || 0,
     couponCode: order.couponCode || '',
     paymentMethod: order.paymentMethod || 'stripe',
+    // Needed so the confirmation page can tell a genuinely finalized order apart from one where
+    // the customer merely landed back here without actually completing payment (e.g. abandoning
+    // an alternate payment method mid-flow and hitting the browser back button) — see the
+    // isPendingCardPayment check in OrderConfirmationClient.
+    paymentStatus: order.paymentStatus || 'unpaid',
   }
 
   return (

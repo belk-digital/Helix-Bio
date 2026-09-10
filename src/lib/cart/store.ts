@@ -58,31 +58,18 @@ export const useCartStore = create<CartState>()(
       const maybeAutoAddAccessories = async () => {
         const state = get()
         const hasBacWater = state.items.some((i) => i.product?.slug === 'bac-water')
-        const hasNeedles = state.items.some((i) => i.product?.slug === '10-needles')
-        if (hasBacWater && hasNeedles) return
+        if (hasBacWater) return
 
-        const { bacWater, needles } = await getAutoAddAccessoryItems()
-        const addedNames: string[] = []
+        const { bacWater } = await getAutoAddAccessoryItems()
+        if (!bacWater) return
 
         set((current) => {
-          const newItems = [...current.items]
-          if (!hasBacWater && bacWater) {
-            newItems.push({ ...bacWater, lineId: generateLineId(), quantity: 1 })
-            addedNames.push('BAC Water')
-          }
-          if (!hasNeedles && needles) {
-            newItems.push({ ...needles, lineId: generateLineId(), quantity: 1 })
-            addedNames.push('Needles')
-          }
-          if (addedNames.length === 0) return current
-
+          const newItems = [...current.items, { ...bacWater, lineId: generateLineId(), quantity: 1 }]
           syncCartToPayload(newItems).catch(console.error)
           return { items: newItems }
         })
 
-        if (addedNames.length > 0) {
-          toast.success(`Added ${addedNames.join(' & ')} — required for reconstitution`)
-        }
+        toast.success('Added BAC Water — required for reconstitution')
       }
 
       return {
@@ -129,9 +116,9 @@ export const useCartStore = create<CartState>()(
         })
 
         // Every product except the accessories themselves is a research peptide that needs
-        // reconstituting — silently add BAC water + needles alongside it (capped at one of
-        // each total, regardless of how many peptides/quantity end up in the cart) rather
-        // than requiring the shopper to remember to add them separately.
+        // reconstituting — silently add BAC water alongside it (capped at one total, regardless
+        // of how many peptides/quantity end up in the cart) rather than requiring the shopper
+        // to remember to add it separately. Needles are no longer auto-added.
         if (!product.slug || !ACCESSORY_PRODUCT_SLUGS.includes(product.slug as any)) {
           maybeAutoAddAccessories()
         }
