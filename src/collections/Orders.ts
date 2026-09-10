@@ -229,10 +229,31 @@ export const Orders: CollectionConfig = {
         { label: 'Card (CircoFlows)', value: 'circoflows' },
         { label: 'Stripe (Custom Payment Link)', value: 'stripe_link' },
         { label: 'Card (via NextLvlPay)', value: 'nextlvlpay' },
+        { label: 'Crypto (via Data-opt)', value: 'dataopt' },
       ],
       admin: {
         position: 'sidebar',
         description: 'Zelle orders require manual payment confirmation before fulfillment.',
+      },
+    },
+    {
+      name: 'dataoptReceiptId',
+      type: 'text',
+      admin: {
+        position: 'sidebar',
+        readOnly: true,
+        description: 'Data-opt receiptId, for support/reconciliation lookups.',
+        condition: (data) => data?.paymentMethod === 'dataopt',
+      },
+    },
+    {
+      name: 'dataoptTransactionHash',
+      type: 'text',
+      admin: {
+        position: 'sidebar',
+        readOnly: true,
+        description: 'On-chain transaction hash reported by Data-opt once the payment settles.',
+        condition: (data) => data?.paymentMethod === 'dataopt',
       },
     },
     {

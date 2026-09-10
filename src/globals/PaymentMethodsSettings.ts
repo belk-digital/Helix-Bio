@@ -36,6 +36,7 @@ export const PaymentMethodsSettings: GlobalConfig = {
             { label: 'Card (via NextLvlPay)', value: 'nextlvlpay' },
             { label: 'Stripe (Custom Payment Link)', value: 'stripe_link' },
             { label: 'Card (via CircoFlows)', value: 'circoflows' },
+            { label: 'Crypto (via Data-opt)', value: 'dataopt' },
           ],
           admin: {
             description: 'Which checkout code path this row controls.',

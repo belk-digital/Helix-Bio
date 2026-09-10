@@ -286,7 +286,194 @@ export function AffiliatesLandingClient({ userStatus }: Props) {
 
       <main className="max-w-[1600px] mx-auto px-4 sm:px-8 md:px-10 py-10 md:py-16 relative z-10">
 
-        {/* 1. Intro Section (Bento Grid) */}
+        {/* 1. Application Form */}
+        <section id="apply" className="mb-32 max-w-[1200px] mx-auto scroll-mt-32">
+          <FadeUp>
+            <div className="relative w-full bg-white rounded-2xl md:rounded-3xl border border-ink/10 overflow-hidden text-left p-8 sm:p-12 md:p-16 font-sans shadow-[0_20px_40px_rgba(0,0,0,0.05)]">
+
+              <div className="mb-12 relative z-10">
+                <span className="font-heading font-bold text-primary tracking-[0.15em] uppercase text-xs block mb-3">
+                  {t('applyEyebrow')}
+                </span>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-ink uppercase tracking-tighter leading-tight max-w-2xl">
+                  {t('applyTitle')}
+                </h2>
+              </div>
+
+              {userStatus === 'guest' ? (
+                <div className="text-center py-12 relative z-10">
+                  <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-primary/30">
+                    <ShieldCheck className="w-12 h-12 text-primary" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-3xl font-bold text-ink mb-4 tracking-tight">{t('loginRequiredTitle')}</h3>
+                  <p className="text-lg text-ink/60 max-w-md mx-auto leading-relaxed mb-10">
+                    {t('loginRequiredDesc')}
+                  </p>
+                  <Link href="/login?redirect=/affiliates#apply">
+                    <Button size="lg" className="h-14 px-10 rounded-lg bg-primary text-ink hover:bg-ink hover:text-white transition-all duration-300 font-bold tracking-wider uppercase text-sm border-none">
+                      {t('loginRequiredButton')}
+                    </Button>
+                  </Link>
+                  <p className="text-sm text-ink/50 mt-6">
+                    {t('loginRequiredSignupPrompt')}{' '}
+                    <Link href="/register?redirect=/affiliates#apply" className="text-primary font-bold hover:underline">
+                      {t('loginRequiredSignupLink')}
+                    </Link>
+                  </p>
+                </div>
+              ) : userStatus === 'affiliate_approved' ? (
+                <div className="text-center py-12 relative z-10">
+                  <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-primary/30">
+                    <Activity className="w-12 h-12 text-primary" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-3xl font-bold text-ink mb-4 tracking-tight">{t('approvedTitle')}</h3>
+                  <p className="text-lg text-ink/60 max-w-md mx-auto leading-relaxed mb-10">
+                    {t('approvedDesc')}
+                  </p>
+                  <Link href="/affiliates/dashboard">
+                    <Button size="lg" className="h-14 px-10 rounded-lg bg-primary text-ink hover:bg-ink hover:text-white transition-all duration-300 font-bold tracking-wider uppercase text-sm border-none">
+                      {t('approvedButton')}
+                    </Button>
+                  </Link>
+                </div>
+              ) : userStatus === 'affiliate_pending' || userStatus === 'pending_application' || submitted ? (
+                <div className="text-center py-12 relative z-10">
+                  <div className="w-24 h-24 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-green-500/30">
+                    <CheckCircle2 className="w-12 h-12 text-green-600" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-3xl font-bold text-ink mb-4 tracking-tight">{t('pendingTitle')}</h3>
+                  <p className="text-lg text-ink/60 max-w-md mx-auto leading-relaxed mb-10">
+                    {t('pendingDesc')}
+                  </p>
+                </div>
+              ) : userStatus === 'affiliate_rejected' ? (
+                <div className="text-center py-12 relative z-10">
+                  <div className="w-24 h-24 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-red-500/30">
+                    <XCircle className="w-12 h-12 text-red-600" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-3xl font-bold text-ink mb-4 tracking-tight">{t('rejectedTitle')}</h3>
+                  <p className="text-lg text-ink/60 max-w-md mx-auto leading-relaxed mb-10">
+                    {t('rejectedDesc')}
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-10 relative z-10">
+
+                  <div className="space-y-6">
+                    {error && (
+                      <div className="bg-red-50 text-red-600 p-4 rounded-lg border border-red-200 text-sm font-semibold">
+                        {error}
+                      </div>
+                    )}
+                    <h3 className="text-sm font-black text-ink tracking-widest uppercase border-b border-ink/10 pb-3">{t('basicInfoTitle')}</h3>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="displayName" className="text-xs font-bold tracking-widest uppercase text-ink/70 ml-1">{t('displayNameLabel')} <span className="text-primary">*</span></Label>
+                        <Input id="displayName" name="displayName" required placeholder={t('displayNamePlaceholder')} className="h-14 rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary px-4 text-ink placeholder:text-ink/30" />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="phone" className="text-xs font-bold tracking-widest uppercase text-ink/70 ml-1">{t('phoneLabel')} <span className="text-primary">*</span></Label>
+                        <Input id="phone" name="phone" type="tel" required placeholder={t('phonePlaceholder')} className="h-14 rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary px-4 text-ink placeholder:text-ink/30" />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="websiteUrl" className="text-xs font-bold tracking-widest uppercase text-ink/70 ml-1">{t('websiteUrlLabel')}</Label>
+                        <Input id="websiteUrl" name="websiteUrl" type="text" placeholder="https://example.com" className="h-14 rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary px-4 text-ink placeholder:text-ink/30" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-6">
+                    <h3 className="text-sm font-black text-ink tracking-widest uppercase border-b border-ink/10 pb-3 mt-8">{t('primaryPlatformTitle')}</h3>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="platform" className="text-xs font-bold tracking-widest uppercase text-ink/70 ml-1">{t('platformLabel')} <span className="text-primary">*</span></Label>
+                        <Select defaultValue="youtube" required name="platform">
+                          <SelectTrigger id="platform" className="h-14 rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary px-4 text-ink">
+                            <SelectValue placeholder={t('platformPlaceholder')} />
+                          </SelectTrigger>
+                          <SelectContent className="rounded-lg bg-white border-ink/10 text-ink shadow-xl">
+                            <SelectItem value="youtube">{t('platformYoutube')}</SelectItem>
+                            <SelectItem value="instagram">{t('platformInstagram')}</SelectItem>
+                            <SelectItem value="tiktok">{t('platformTiktok')}</SelectItem>
+                            <SelectItem value="twitter">{t('platformTwitter')}</SelectItem>
+                            <SelectItem value="reddit">{t('platformReddit')}</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="socialUrl" className="text-xs font-bold tracking-widest uppercase text-ink/70 ml-1">{t('profileUrlLabel')}</Label>
+                        <Input id="socialUrl" name="socialUrl" type="text" placeholder="https://youtube.com/c/... or @yourhandle" className="h-14 rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary px-4 text-ink placeholder:text-ink/30" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-6">
+                    <h3 className="text-sm font-black text-ink tracking-widest uppercase border-b border-ink/10 pb-3 mt-8">{t('audienceStrategyTitle')}</h3>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="reach" className="text-xs font-bold tracking-widest uppercase text-ink/70 ml-1">{t('reachLabel')} <span className="text-primary">*</span></Label>
+                        <Select defaultValue="1k-10k" required name="reach">
+                          <SelectTrigger id="reach" className="h-14 rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary px-4 text-ink">
+                            <SelectValue placeholder={t('reachPlaceholder')} />
+                          </SelectTrigger>
+                          <SelectContent className="rounded-lg bg-white border-ink/10 text-ink shadow-xl">
+                            <SelectItem value="<1k">{t('reachLess1k')}</SelectItem>
+                            <SelectItem value="1k-10k">{t('reach1k10k')}</SelectItem>
+                            <SelectItem value="10k-100k">{t('reach10k100k')}</SelectItem>
+                            <SelectItem value="100k+">{t('reach100kPlus')}</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="niche" className="text-xs font-bold tracking-widest uppercase text-ink/70 ml-1">{t('nicheLabel')}</Label>
+                        <Input id="niche" name="niche" placeholder={t('nichePlaceholder')} className="h-14 rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary px-4 text-ink placeholder:text-ink/30" />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="methods" className="text-xs font-bold tracking-widest uppercase text-ink/70 ml-1">{t('methodsLabel')} <span className="text-primary">*</span></Label>
+                      <Textarea
+                        id="methods"
+                        name="methods"
+                        required
+                        placeholder={t('methodsPlaceholder')}
+                        className="min-h-[120px] rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary p-4 text-ink placeholder:text-ink/30 resize-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-t border-ink/5">
+                    <div className="flex flex-row items-start space-x-3 space-y-0 bg-zinc-50 p-5 rounded-lg border border-ink/5 w-full md:w-auto md:flex-1">
+                      <Checkbox id="terms" name="terms" required className="mt-1 border-ink/30 data-[state=checked]:bg-primary data-[state=checked]:text-ink" />
+                      <div className="space-y-1 leading-none">
+                        <Label htmlFor="terms" className="text-sm font-semibold text-ink cursor-pointer">
+                          {t('termsLabel')}
+                        </Label>
+                        <p className="text-xs text-ink/50 font-medium mt-2 leading-relaxed">
+                          {t('termsDesc')}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="w-full md:w-auto flex justify-end shrink-0">
+                      <FluidButton
+                        onClick={() => document.getElementById('hidden-submit-btn')?.click()}
+                        text={<>{isSubmitting ? t('submitting') : t('submitNow')}</>}
+                        className={isSubmitting ? 'opacity-70 w-full md:w-auto' : 'w-full md:w-auto'}
+                      />
+                      <button type="submit" className="hidden" id="hidden-submit-btn"></button>
+                    </div>
+                  </div>
+                </form>
+              )}
+            </div>
+          </FadeUp>
+        </section>
+
+        {/* 2. Intro Section (Bento Grid) */}
         <section className="mb-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12">
             <FadeUp>
@@ -331,7 +518,7 @@ export function AffiliatesLandingClient({ userStatus }: Props) {
           </div>
         </section>
 
-        {/* 2. How it works */}
+        {/* 3. How it works */}
         <section className="mb-32">
           <FadeUp>
             <div className="text-center mb-16">
@@ -439,7 +626,7 @@ export function AffiliatesLandingClient({ userStatus }: Props) {
           </FadeUp>
         </section>
 
-        {/* 3. Commission Example & Metrics */}
+        {/* 4. Commission Example & Metrics */}
         <section className="mb-32">
           <div className="w-full bg-zinc-950 rounded-[3rem] p-8 md:p-16 text-white shadow-2xl relative overflow-hidden border border-white/10">
             {/* Deep background neon blurs */}
@@ -527,7 +714,7 @@ export function AffiliatesLandingClient({ userStatus }: Props) {
           </div>
         </section>
 
-        {/* 4. Comprehensive Management Tools */}
+        {/* 5. Comprehensive Management Tools */}
         <section className="mb-32">
           <div className="text-center mb-10 sm:mb-16 px-4">
             <h2 className="text-label-md uppercase tracking-widest text-primary mb-4 font-bold">{t('managementToolsTitle')}</h2>
@@ -626,7 +813,7 @@ export function AffiliatesLandingClient({ userStatus }: Props) {
           </div>
         </section>
 
-        {/* 5. Why Choose Grid */}
+        {/* 6. Why Choose Grid */}
         <section className="mb-32">
           <div className="text-center mb-10 sm:mb-16 px-4">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-ink mb-6 tracking-tighter uppercase">{t('whyChooseTitle')}</h2>
@@ -639,7 +826,7 @@ export function AffiliatesLandingClient({ userStatus }: Props) {
           </div>
         </section>
 
-        {/* 6. Standards */}
+        {/* 7. Standards */}
         <section className="pb-32 max-w-[1200px] mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <MagneticScrollWrapper className="h-full">
@@ -692,168 +879,6 @@ export function AffiliatesLandingClient({ userStatus }: Props) {
               </div>
             </MagneticScrollWrapper>
           </div>
-        </section>
-
-        {/* 7. Application Form */}
-        <section id="apply" className="pb-32 max-w-[1200px] mx-auto scroll-mt-32 px-4">
-          <FadeUp>
-            <div className="relative w-full bg-white rounded-2xl md:rounded-3xl border border-ink/10 overflow-hidden text-left p-8 sm:p-12 md:p-16 font-sans shadow-[0_20px_40px_rgba(0,0,0,0.05)]">
-              
-              <div className="mb-12 relative z-10">
-                <span className="font-heading font-bold text-primary tracking-[0.15em] uppercase text-xs block mb-3">
-                  {t('applyEyebrow')}
-                </span>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-ink uppercase tracking-tighter leading-tight max-w-2xl">
-                  {t('applyTitle')}
-                </h2>
-              </div>
-
-              {userStatus === 'affiliate_approved' ? (
-                <div className="text-center py-12 relative z-10">
-                  <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-primary/30">
-                    <Activity className="w-12 h-12 text-primary" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="text-3xl font-bold text-ink mb-4 tracking-tight">{t('approvedTitle')}</h3>
-                  <p className="text-lg text-ink/60 max-w-md mx-auto leading-relaxed mb-10">
-                    {t('approvedDesc')}
-                  </p>
-                  <Link href="/affiliates/dashboard">
-                    <Button size="lg" className="h-14 px-10 rounded-lg bg-primary text-ink hover:bg-ink hover:text-white transition-all duration-300 font-bold tracking-wider uppercase text-sm border-none">
-                      {t('approvedButton')}
-                    </Button>
-                  </Link>
-                </div>
-              ) : userStatus === 'affiliate_pending' || userStatus === 'pending_application' || submitted ? (
-                <div className="text-center py-12 relative z-10">
-                  <div className="w-24 h-24 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-green-500/30">
-                    <CheckCircle2 className="w-12 h-12 text-green-600" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="text-3xl font-bold text-ink mb-4 tracking-tight">{t('pendingTitle')}</h3>
-                  <p className="text-lg text-ink/60 max-w-md mx-auto leading-relaxed mb-10">
-                    {t('pendingDesc')}
-                  </p>
-                </div>
-              ) : userStatus === 'affiliate_rejected' ? (
-                <div className="text-center py-12 relative z-10">
-                  <div className="w-24 h-24 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-red-500/30">
-                    <XCircle className="w-12 h-12 text-red-600" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="text-3xl font-bold text-ink mb-4 tracking-tight">{t('rejectedTitle')}</h3>
-                  <p className="text-lg text-ink/60 max-w-md mx-auto leading-relaxed mb-10">
-                    {t('rejectedDesc')}
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-10 relative z-10">
-                  
-                  <div className="space-y-6">
-                    {error && (
-                      <div className="bg-red-50 text-red-600 p-4 rounded-lg border border-red-200 text-sm font-semibold">
-                        {error}
-                      </div>
-                    )}
-                    <h3 className="text-sm font-black text-ink tracking-widest uppercase border-b border-ink/10 pb-3">{t('basicInfoTitle')}</h3>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="displayName" className="text-xs font-bold tracking-widest uppercase text-ink/70 ml-1">{t('displayNameLabel')} <span className="text-primary">*</span></Label>
-                        <Input id="displayName" name="displayName" required placeholder={t('displayNamePlaceholder')} className="h-14 rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary px-4 text-ink placeholder:text-ink/30" />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="websiteUrl" className="text-xs font-bold tracking-widest uppercase text-ink/70 ml-1">{t('websiteUrlLabel')}</Label>
-                        <Input id="websiteUrl" name="websiteUrl" type="text" placeholder="https://example.com" className="h-14 rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary px-4 text-ink placeholder:text-ink/30" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-6">
-                    <h3 className="text-sm font-black text-ink tracking-widest uppercase border-b border-ink/10 pb-3 mt-8">{t('primaryPlatformTitle')}</h3>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="platform" className="text-xs font-bold tracking-widest uppercase text-ink/70 ml-1">{t('platformLabel')} <span className="text-primary">*</span></Label>
-                        <Select defaultValue="youtube" required name="platform">
-                          <SelectTrigger id="platform" className="h-14 rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary px-4 text-ink">
-                            <SelectValue placeholder={t('platformPlaceholder')} />
-                          </SelectTrigger>
-                          <SelectContent className="rounded-lg bg-white border-ink/10 text-ink shadow-xl">
-                            <SelectItem value="youtube">{t('platformYoutube')}</SelectItem>
-                            <SelectItem value="instagram">{t('platformInstagram')}</SelectItem>
-                            <SelectItem value="tiktok">{t('platformTiktok')}</SelectItem>
-                            <SelectItem value="twitter">{t('platformTwitter')}</SelectItem>
-                            <SelectItem value="reddit">{t('platformReddit')}</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="socialUrl" className="text-xs font-bold tracking-widest uppercase text-ink/70 ml-1">{t('profileUrlLabel')}</Label>
-                        <Input id="socialUrl" name="socialUrl" type="text" placeholder="https://youtube.com/c/... or @yourhandle" className="h-14 rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary px-4 text-ink placeholder:text-ink/30" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-6">
-                    <h3 className="text-sm font-black text-ink tracking-widest uppercase border-b border-ink/10 pb-3 mt-8">{t('audienceStrategyTitle')}</h3>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="reach" className="text-xs font-bold tracking-widest uppercase text-ink/70 ml-1">{t('reachLabel')} <span className="text-primary">*</span></Label>
-                        <Select defaultValue="1k-10k" required name="reach">
-                          <SelectTrigger id="reach" className="h-14 rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary px-4 text-ink">
-                            <SelectValue placeholder={t('reachPlaceholder')} />
-                          </SelectTrigger>
-                          <SelectContent className="rounded-lg bg-white border-ink/10 text-ink shadow-xl">
-                            <SelectItem value="<1k">{t('reachLess1k')}</SelectItem>
-                            <SelectItem value="1k-10k">{t('reach1k10k')}</SelectItem>
-                            <SelectItem value="10k-100k">{t('reach10k100k')}</SelectItem>
-                            <SelectItem value="100k+">{t('reach100kPlus')}</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="niche" className="text-xs font-bold tracking-widest uppercase text-ink/70 ml-1">{t('nicheLabel')}</Label>
-                        <Input id="niche" name="niche" placeholder={t('nichePlaceholder')} className="h-14 rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary px-4 text-ink placeholder:text-ink/30" />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="methods" className="text-xs font-bold tracking-widest uppercase text-ink/70 ml-1">{t('methodsLabel')} <span className="text-primary">*</span></Label>
-                      <Textarea
-                        id="methods"
-                        name="methods"
-                        required
-                        placeholder={t('methodsPlaceholder')}
-                        className="min-h-[120px] rounded-lg bg-zinc-50 border border-ink/10 focus:ring-1 focus:ring-primary focus:border-primary p-4 text-ink placeholder:text-ink/30 resize-none"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-t border-ink/5">
-                    <div className="flex flex-row items-start space-x-3 space-y-0 bg-zinc-50 p-5 rounded-lg border border-ink/5 w-full md:w-auto md:flex-1">
-                      <Checkbox id="terms" name="terms" required className="mt-1 border-ink/30 data-[state=checked]:bg-primary data-[state=checked]:text-ink" />
-                      <div className="space-y-1 leading-none">
-                        <Label htmlFor="terms" className="text-sm font-semibold text-ink cursor-pointer">
-                          {t('termsLabel')}
-                        </Label>
-                        <p className="text-xs text-ink/50 font-medium mt-2 leading-relaxed">
-                          {t('termsDesc')}
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="w-full md:w-auto flex justify-end shrink-0">
-                      <FluidButton
-                        onClick={() => document.getElementById('hidden-submit-btn')?.click()}
-                        text={<>{isSubmitting ? t('submitting') : t('submitNow')}</>}
-                        className={isSubmitting ? 'opacity-70 w-full md:w-auto' : 'w-full md:w-auto'}
-                      />
-                      <button type="submit" className="hidden" id="hidden-submit-btn"></button>
-                    </div>
-                  </div>
-                </form>
-              )}
-            </div>
-          </FadeUp>
         </section>
 
       </main>

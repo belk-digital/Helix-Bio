@@ -50,7 +50,7 @@ type OrderData = {
   discountTotal?: number
   redeemedPoints?: number
   couponCode?: string
-  paymentMethod: 'stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link' | 'nextlvlpay'
+  paymentMethod: 'stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link' | 'nextlvlpay' | 'dataopt'
   paymentStatus: 'unpaid' | 'authorized' | 'captured' | 'refunded'
 }
 
@@ -108,7 +108,7 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
   // Link, "unpaid" is not an expected state for these methods, so this needs its own messaging
   // rather than being read as a success.
   const isPendingCardPayment =
-    ['nextlvlpay', 'circoflows', 'stripe'].includes(order.paymentMethod) && order.paymentStatus !== 'captured'
+    ['nextlvlpay', 'circoflows', 'stripe', 'dataopt'].includes(order.paymentMethod) && order.paymentStatus !== 'captured'
 
   React.useEffect(() => {
     if (isPendingCardPayment) return
@@ -150,6 +150,9 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
     if (order.paymentMethod === 'nextlvlpay') {
       import('../../checkout/nextlvlpayActions').then(m => m.syncNextlvlpayPaymentStatus(order.orderId))
     }
+    if (order.paymentMethod === 'dataopt') {
+      import('../../checkout/dataoptActions').then(m => m.syncDataOptPaymentStatus(order.orderId))
+    }
   }, [order.paymentMethod, order.orderId])
 
   const handleCopyOrderId = () => {
@@ -164,6 +167,7 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
     circoflows: t('paymentMethodCard'),
     stripe_link: 'Stripe (Custom Link)',
     nextlvlpay: t('paymentMethodCard'),
+    dataopt: 'Cryptocurrency',
   }
 
   const renderOrderSummary = () => (

@@ -26,6 +26,8 @@ import * as migration_20260710_130000_fix_legacy_order_item_prices from './20260
 import * as migration_20260710_140000_fix_legacy_order_discount_and_tax from './20260710_140000_fix_legacy_order_discount_and_tax';
 import * as migration_20260710_150000_fix_legacy_order_subtotal from './20260710_150000_fix_legacy_order_subtotal';
 import * as migration_20260909_200000_add_payment_methods_global from './20260909_200000_add_payment_methods_global';
+import * as migration_20260911_100000_add_dataopt_payment_method from './20260911_100000_add_dataopt_payment_method';
+import * as migration_20260911_100100_seed_dataopt_payment_method_global from './20260911_100100_seed_dataopt_payment_method_global';
 
 export const migrations = [
   {
@@ -167,5 +169,15 @@ export const migrations = [
     up: migration_20260909_200000_add_payment_methods_global.up,
     down: migration_20260909_200000_add_payment_methods_global.down,
     name: '20260909_200000_add_payment_methods_global',
+  },
+  {
+    up: migration_20260911_100000_add_dataopt_payment_method.up,
+    down: migration_20260911_100000_add_dataopt_payment_method.down,
+    name: '20260911_100000_add_dataopt_payment_method',
+  },
+  {
+    up: migration_20260911_100100_seed_dataopt_payment_method_global.up,
+    down: migration_20260911_100100_seed_dataopt_payment_method_global.down,
+    name: '20260911_100100_seed_dataopt_payment_method_global',
   },
 ];

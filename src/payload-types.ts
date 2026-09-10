@@ -809,7 +809,15 @@ export interface Order {
   /**
    * Zelle orders require manual payment confirmation before fulfillment.
    */
-  paymentMethod?: ('stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link' | 'nextlvlpay') | null;
+  paymentMethod?: ('stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link' | 'nextlvlpay' | 'dataopt') | null;
+  /**
+   * Data-opt receiptId, for support/reconciliation lookups.
+   */
+  dataoptReceiptId?: string | null;
+  /**
+   * On-chain transaction hash reported by Data-opt once the payment settles.
+   */
+  dataoptTransactionHash?: string | null;
   /**
    * CircoFlows transaction_id, for support/reconciliation lookups.
    */
@@ -2014,6 +2022,8 @@ export interface OrdersSelect<T extends boolean = true> {
   trackingLink?: T;
   sendTrackingEmail?: T;
   paymentMethod?: T;
+  dataoptReceiptId?: T;
+  dataoptTransactionHash?: T;
   circoflowsTransactionId?: T;
   nextlvlpayPaymentIntentId?: T;
   couponCode?: T;
@@ -2493,7 +2503,7 @@ export interface PaymentMethod {
     /**
      * Which checkout code path this row controls.
      */
-    key: 'zelle' | 'nextlvlpay' | 'stripe_link' | 'circoflows';
+    key: 'zelle' | 'nextlvlpay' | 'stripe_link' | 'circoflows' | 'dataopt';
     enabled?: boolean | null;
     /**
      * Shown as the option's title at checkout, e.g. "Zelle" or "Credit / Debit Card".

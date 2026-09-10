@@ -164,6 +164,7 @@ export async function generateOrderInvoiceHtml(
     amex: 'American Express',
     circoflows: 'Card',
     stripe_link: 'Stripe (Custom Link)',
+    dataopt: 'Cryptocurrency',
   }
   const paymentMethodLabel = paymentMethodLabels[order.paymentMethod as string] || 'Card'
 

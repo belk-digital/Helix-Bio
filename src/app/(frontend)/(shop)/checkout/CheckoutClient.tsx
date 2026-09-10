@@ -56,6 +56,14 @@ const PAYMENT_METHOD_VISUALS: Record<string, { icon: React.ReactNode; badge?: Re
     icon: <CreditCard size={14} className="text-gray-400" />,
     badge: CARD_BRAND_BADGES,
   },
+  dataopt: {
+    icon: <Wallet size={14} className="text-amber-600" />,
+    badge: (
+      <div className="flex mt-1.5">
+        <span className="px-1.5 py-0.5 border border-gray-200 bg-amber-500 rounded shadow-sm text-[8px] font-black text-white tracking-widest">CRYPTO</span>
+      </div>
+    ),
+  },
   zelle: {
     icon: <Wallet size={14} className="text-purple-600" />,
     badge: (
@@ -76,6 +84,10 @@ const DEFAULT_PAYMENT_METHODS = [
   { key: 'nextlvlpay', enabled: true, label: 'Credit / Debit Card', description: 'Secure card checkout via NextLvlPay.' },
   { key: 'zelle', enabled: true, label: 'Zelle', description: "You'll receive Zelle payment instructions on the next page after placing your order." },
   { key: 'stripe_link', enabled: true, label: 'Stripe (Custom Payment Link)', description: 'Secure payment via an emailed Stripe link.' },
+  // Disabled by default until end-to-end tested against the live gateway (no sandbox exists) — an
+  // admin flips this on from the payment-methods CMS global once verified. Same pattern CircoFlows
+  // used while unverified.
+  { key: 'dataopt', enabled: false, label: 'Pay with Crypto', description: "You'll be securely redirected to complete your crypto payment." },
 ]
 
 export function CheckoutClient() {
@@ -102,7 +114,7 @@ export function CheckoutClient() {
   // Form State
   const [attemptedSubmit, setAttemptedSubmit] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'zelle' | 'amex' | 'circoflows' | 'stripe_link' | 'nextlvlpay'>(
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'zelle' | 'amex' | 'circoflows' | 'stripe_link' | 'nextlvlpay' | 'dataopt'>(
     (DEFAULT_PAYMENT_METHODS.find((m) => m.enabled)?.key as any) || 'zelle'
   )
   const [paymentMethodsConfig, setPaymentMethodsConfig] = useState<any[]>(DEFAULT_PAYMENT_METHODS)
@@ -625,6 +637,43 @@ export function CheckoutClient() {
 
       // Cart is intentionally left intact here — the customer hasn't paid yet, they're only
       // being redirected to nextlvlpay's hosted card page. It's cleared once payment actually
+      // succeeds (see OrderConfirmationClient's sync fallback / the webhook-driven finalize).
+      window.location.href = orderRes.redirectUrl
+    } catch (e: any) {
+      toast.error(t('unexpectedError'))
+      setIsProcessing(false)
+    }
+  }
+
+  const handleDataOptPlaceOrder = async () => {
+    setAttemptedSubmit(true)
+    if (!formData.email || !formData.firstName || !formData.address || !formData.city || !formData.state || !formData.zip || !formData.phone) {
+      toast.error(t('fillRequiredFieldsOrder'))
+      return
+    }
+
+    setIsProcessing(true)
+
+    try {
+      const { createDataOptPayment } = await import('./dataoptActions')
+      const orderRes = await createDataOptPayment(
+        items, shippingMethod, appliedCoupon?.code, isRedeemingPoints,
+        { ...formData, email: user?.email || formData.email },
+        user?.id as string,
+        selectedAddressId === 'new'
+      )
+
+      if (orderRes.error || !orderRes.redirectUrl) {
+        toast.error(orderRes.error || t('freeOrderInitFailed'))
+        if ((orderRes as any).priceChanged && (orderRes as any).updatedItems) {
+          useCartStore.getState().setItems((orderRes as any).updatedItems)
+        }
+        setIsProcessing(false)
+        return
+      }
+
+      // Cart is intentionally left intact here — the customer hasn't paid yet, they're only
+      // being redirected to Data-opt's hosted payment page. It's cleared once payment actually
       // succeeds (see OrderConfirmationClient's sync fallback / the webhook-driven finalize).
       window.location.href = orderRes.redirectUrl
     } catch (e: any) {
@@ -1191,6 +1240,7 @@ export function CheckoutClient() {
                       <Button onClick={
                         selectedPaymentMethod === 'circoflows' ? handleCircoFlowsPlaceOrder :
                         selectedPaymentMethod === 'nextlvlpay' ? handleNextlvlpayPlaceOrder :
+                        selectedPaymentMethod === 'dataopt' ? handleDataOptPlaceOrder :
                         selectedPaymentMethod === 'zelle' ? handleZellePlaceOrder : handleStripeLinkPlaceOrder
                       } disabled={isProcessing} size="lg" className="w-full h-14 rounded-[12px] bg-black font-bold text-[11px] tracking-[0.2em] uppercase text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all group">
                         {isProcessing ? <Loader2 className="animate-spin" /> : t('placeOrder')}

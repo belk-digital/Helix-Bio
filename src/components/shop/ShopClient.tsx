@@ -283,10 +283,10 @@ function ShopClientInner({ initialProducts, totalPages, categories }: ShopClient
       <Container size="page" className="pb-12" id="products-grid">
         {/* Modern Minimal Category Pills */}
         <div className={`flex flex-col gap-3 sm:gap-4 mb-8 sm:mb-12 py-4 sticky z-40 transition-all duration-300 ${isScrollingDown ? 'top-4 sm:top-6 opacity-100 translate-y-0' : 'top-[130px] sm:top-[140px] md:top-[150px] opacity-100 translate-y-0'}`}>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between w-full bg-white/95 backdrop-blur-3xl rounded-2xl p-2 sm:p-3 border border-black/5 shadow-[0_4px_25px_rgb(0,0,0,0.04)] gap-2 sm:gap-0">
-            
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between w-full bg-white/95 backdrop-blur-3xl rounded-2xl p-2 sm:p-3 border border-black/5 shadow-[0_4px_25px_rgb(0,0,0,0.04)] gap-2 lg:gap-0">
+
             {/* Scrollable Categories */}
-            <div className="relative w-full sm:flex-1">
+            <div className="relative w-full lg:flex-1">
               {/* Fade Indicator for scroll */}
               <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-white to-transparent pointer-events-none z-10 rounded-r-xl" />
               
@@ -332,29 +332,40 @@ function ShopClientInner({ initialProducts, totalPages, categories }: ShopClient
               </div>
             </div>
 
-            <div className="hidden sm:block w-px h-8 bg-ink/10 mx-2 sm:mx-4 shrink-0" />
+            <div className="hidden lg:block w-px h-8 bg-ink/10 mx-2 lg:mx-4 shrink-0" />
 
-            <div className="w-full sm:w-auto border-t border-ink/5 pt-2 sm:pt-0 sm:border-0 px-1 sm:px-0">
-              <Select 
-                defaultValue={searchParams.get('sort') || 'newest'}
-                onValueChange={(val) => {
-                  const params = new URLSearchParams(searchParams.toString())
-                  params.set('sort', val)
-                  router.push(`${pathname}?${params.toString()}`, { scroll: false })
-                }}
+            <div className="w-full lg:w-auto flex items-center gap-1 border-t border-ink/5 pt-2 lg:pt-0 lg:border-0 px-1 lg:px-0">
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new Event('open-search-modal'))}
+                aria-label={t('searchProducts')}
+                className="flex items-center justify-center shrink-0 w-10 h-10 rounded-xl text-ink/60 hover:text-ink hover:bg-ink/5 transition-all"
               >
-                <SelectTrigger className="w-full sm:w-auto min-w-0 sm:min-w-[140px] bg-transparent border-0 focus:ring-0 shadow-none hover:bg-ink/5 rounded-xl px-2 sm:px-4 h-10 text-[10px] md:text-xs font-semibold uppercase tracking-widest text-ink gap-2 transition-all shrink">
-                  <SelectValue placeholder={t('sortByPlaceholder')} />
-                </SelectTrigger>
-                <SelectContent align="end" className="bg-white/95 backdrop-blur-3xl border-ink/10 rounded-[1.5rem] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] p-2 min-w-[180px] sm:min-w-[200px] w-[90vw] max-w-[280px] sm:w-auto sm:max-w-none">
-                <SelectItem value="newest" className="rounded-xl cursor-pointer text-[10px] sm:text-xs uppercase tracking-widest font-bold focus:bg-primary/5 focus:text-primary py-3 px-4 transition-colors">{t('sortNewest')}</SelectItem>
-                <SelectItem value="price-asc" className="rounded-xl cursor-pointer text-[10px] sm:text-xs uppercase tracking-widest font-bold focus:bg-primary/5 focus:text-primary py-3 px-4 transition-colors">{t('sortPriceAsc')}</SelectItem>
-                <SelectItem value="price-desc" className="rounded-xl cursor-pointer text-[10px] sm:text-xs uppercase tracking-widest font-bold focus:bg-primary/5 focus:text-primary py-3 px-4 transition-colors">{t('sortPriceDesc')}</SelectItem>
-                <SelectItem value="name-asc" className="rounded-xl cursor-pointer text-[10px] sm:text-xs uppercase tracking-widest font-bold focus:bg-primary/5 focus:text-primary py-3 px-4 transition-colors">{t('sortNameAsc')}</SelectItem>
-              </SelectContent>
-            </Select>
+                <Search size={18} strokeWidth={2} />
+              </button>
+
+              <div className="flex-1 min-w-0 lg:flex-initial lg:w-auto">
+                <Select
+                  defaultValue={searchParams.get('sort') || 'newest'}
+                  onValueChange={(val) => {
+                    const params = new URLSearchParams(searchParams.toString())
+                    params.set('sort', val)
+                    router.push(`${pathname}?${params.toString()}`, { scroll: false })
+                  }}
+                >
+                  <SelectTrigger className="w-full lg:w-auto min-w-0 lg:min-w-[140px] bg-transparent border-0 focus:ring-0 shadow-none hover:bg-ink/5 rounded-xl px-2 sm:px-4 h-10 text-[10px] md:text-xs font-semibold uppercase tracking-widest text-ink gap-2 transition-all shrink">
+                    <SelectValue placeholder={t('sortByPlaceholder')} />
+                  </SelectTrigger>
+                  <SelectContent align="end" className="bg-white/95 backdrop-blur-3xl border-ink/10 rounded-[1.5rem] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] p-2 min-w-[180px] sm:min-w-[200px] w-[90vw] max-w-[280px] sm:w-auto sm:max-w-none">
+                  <SelectItem value="newest" className="rounded-xl cursor-pointer text-[10px] sm:text-xs uppercase tracking-widest font-bold focus:bg-primary/5 focus:text-primary py-3 px-4 transition-colors">{t('sortNewest')}</SelectItem>
+                  <SelectItem value="price-asc" className="rounded-xl cursor-pointer text-[10px] sm:text-xs uppercase tracking-widest font-bold focus:bg-primary/5 focus:text-primary py-3 px-4 transition-colors">{t('sortPriceAsc')}</SelectItem>
+                  <SelectItem value="price-desc" className="rounded-xl cursor-pointer text-[10px] sm:text-xs uppercase tracking-widest font-bold focus:bg-primary/5 focus:text-primary py-3 px-4 transition-colors">{t('sortPriceDesc')}</SelectItem>
+                  <SelectItem value="name-asc" className="rounded-xl cursor-pointer text-[10px] sm:text-xs uppercase tracking-widest font-bold focus:bg-primary/5 focus:text-primary py-3 px-4 transition-colors">{t('sortNameAsc')}</SelectItem>
+                </SelectContent>
+              </Select>
+              </div>
+            </div>
           </div>
-        </div>
 
         {/* Active Chips Row removed as requested */}
       </div>

@@ -202,7 +202,7 @@ export async function createPayloadOrder(
   formData: any,
   paymentIntentId: string,
   userId?: string,
-  paymentMethod: 'stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link' | 'nextlvlpay' = 'stripe',
+  paymentMethod: 'stripe' | 'zelle' | 'amex' | 'circoflows' | 'stripe_link' | 'nextlvlpay' | 'dataopt' = 'stripe',
   isNewAddress = false
 ) {
   const payload = await getPayload({ config: configPromise })
@@ -487,6 +487,18 @@ export async function createPayloadOrder(
       cookieStore.delete('order_source')
     }
 
+    // Same one-shot consumption for affiliate attribution: only the first order placed after
+    // clicking an affiliate link should earn that affiliate a commission. Clearing the cookies
+    // here (now that they're already stored on this order) means a later, unrelated order in
+    // the same browser during the cookie window won't also get attributed — the customer has
+    // to click the affiliate link again for a future purchase to count.
+    if (affiliateRef) {
+      cookieStore.delete('affiliate_ref')
+    }
+    if (clickCookie) {
+      cookieStore.delete('affiliate_click_id')
+    }
+
     // Update Stripe PaymentIntent with the Order ID (unless it's a free order or Zelle, which has no PaymentIntent)
     if (paymentMethod === 'stripe' && paymentIntentId && paymentIntentId !== 'free_order') {
        await stripe.paymentIntents.update(paymentIntentId, {
@@ -499,8 +511,8 @@ export async function createPayloadOrder(
        const { finalizeOrder } = await import('@/lib/orders/finalizeOrder')
        await finalizeOrder(order.id, {
           cartId: undefined, // user cart cleared in finalizeOrder, guest cart is in formData guestCart
-          affiliateId: (await cookies()).get('affiliate_ref')?.value,
-          clickId: (await cookies()).get('affiliate_click_id')?.value,
+          affiliateId: affiliateRef,
+          clickId: clickCookie,
        })
     } else if (paymentMethod === 'zelle' || paymentMethod === 'amex' || paymentMethod === 'stripe_link') {
        // Send initial order invoice immediately for Zelle/AMEX/Stripe Link manual orders
@@ -640,7 +652,8 @@ export async function notifyAdminFailedPayment(orderId: string, errorMessage: st
       amex: 'American Express',
       circoflows: 'Card',
       stripe_link: 'Stripe Link',
-      nextlvlpay: 'Card (via NextLvlPay)'
+      nextlvlpay: 'Card (via NextLvlPay)',
+      dataopt: 'Crypto (via Data-opt)'
     }
     const paymentMethod = (order.paymentMethod && paymentMethodLabels[order.paymentMethod]) || order.paymentMethod || 'N/A'
 

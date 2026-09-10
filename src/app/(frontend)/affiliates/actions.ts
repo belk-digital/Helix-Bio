@@ -41,6 +41,7 @@ export async function submitAffiliateApplication(formData: FormData) {
 
     // Extract form data
     const displayName = formData.get('displayName') as string
+    const phone = formData.get('phone') as string
     const websiteUrl = formData.get('websiteUrl') as string
     const platform = formData.get('platform') as string
     const socialUrl = formData.get('socialUrl') as string
@@ -49,9 +50,23 @@ export async function submitAffiliateApplication(formData: FormData) {
     const promotionMethods = formData.get('methods') as string
     const agreedToTerms = formData.get('terms') === 'on' || formData.get('terms') === 'true'
 
-    if (!displayName || !platform || !estimatedMonthlyReach || !promotionMethods || !agreedToTerms) {
+    if (!displayName || !phone || !platform || !estimatedMonthlyReach || !promotionMethods || !agreedToTerms) {
       return { success: false, error: t('errorMissingFields') }
     }
+
+    // Users.phone requires E.164 (e.g. +15551234567) — strip the punctuation people
+    // naturally type (spaces, dashes, parens) before validating/saving it there.
+    const normalizedPhone = phone.replace(/[\s().-]/g, '')
+    if (!/^\+?[1-9]\d{1,14}$/.test(normalizedPhone)) {
+      return { success: false, error: t('errorInvalidPhone') }
+    }
+
+    await payload.update({
+      collection: 'users',
+      id: user.id,
+      data: { phone: normalizedPhone } as any,
+      overrideAccess: true,
+    })
 
     // Create the application
     await payload.create({
