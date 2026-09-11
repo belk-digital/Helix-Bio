@@ -639,6 +639,10 @@ export interface Coupon {
    */
   newCustomersOnly?: boolean | null;
   /**
+   * Max times a single customer may redeem this coupon (requires login). Leave blank for unlimited. Set to 1 for the classic "once per user" behavior.
+   */
+  perUserLimit?: number | null;
+  /**
    * Restrict coupon usage to specific email addresses (leave empty for unrestricted).
    */
   lockedEmails?:
@@ -1923,6 +1927,7 @@ export interface CouponsSelect<T extends boolean = true> {
   excludeSaleItems?: T;
   autoApply?: T;
   newCustomersOnly?: T;
+  perUserLimit?: T;
   lockedEmails?:
     | T
     | {

@@ -54,6 +54,17 @@ export const couponsHook: CollectionBeforeChangeHook = async ({ data, originalDo
     }
   }
 
+  if (data?.perUserLimit !== undefined) {
+    if (data.perUserLimit === '' || data.perUserLimit === null) {
+      data.perUserLimit = null // Normalize empty inputs (unlimited)
+    } else {
+      const limit = Number(data.perUserLimit)
+      if (isNaN(limit) || limit <= 0 || !Number.isInteger(limit)) {
+        throw new Error('perUserLimit must be a whole number greater than zero')
+      }
+    }
+  }
+
   // expiresAt must be a future date if provided (only validate if it's being set to a new value)
   if (data?.expiresAt && data.expiresAt !== originalDoc?.expiresAt) {
     const expires = new Date(data.expiresAt)

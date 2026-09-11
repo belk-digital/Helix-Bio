@@ -21,7 +21,7 @@ const CartDrawer = dynamic(() => import('@/components/cart/CartDrawer').then(mod
 const ANNOUNCEMENTS = [
   {
     key: "puritySale",
-    couponCode: "PURITY20",
+    couponCode: "PURITY10",
     expiresAt: new Date(Date.now() + 86400000).toISOString() // 24 hours
   },
   {
@@ -31,12 +31,7 @@ const ANNOUNCEMENTS = [
   },
   {
     key: "newCustomerDiscount",
-    couponCode: null,
-    expiresAt: null
-  },
-  {
-    key: "kitsDiscount",
-    couponCode: null,
+    couponCode: "NEW15",
     expiresAt: null
   }
 ]
@@ -105,6 +100,8 @@ function CouponBox({ code }: { code: string }) {
 
   return (
     <motion.button
+      type="button"
+      onClick={handleCopy}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className="flex items-center gap-2 border border-dashed border-white/60 hover:border-white bg-white/10 hover:bg-white/20 transition-colors px-3 py-1 rounded-md text-[10px] font-bold tracking-widest text-white shadow-sm"
@@ -446,9 +443,11 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
                       <span className="text-[10px] lg:text-[11px] font-heading font-extrabold tracking-[0.2em] uppercase text-center shrink-0 mt-[2px] drop-shadow-sm">
                         {t(`announcements.${ANNOUNCEMENTS[announcementIndex].key}`)}
                       </span>
-                      {ANNOUNCEMENTS[announcementIndex].couponCode && ANNOUNCEMENTS[announcementIndex].expiresAt && (
+                      {ANNOUNCEMENTS[announcementIndex].couponCode && (
                         <div className="flex items-center gap-3 shrink-0">
-                          <CountdownTimer expiresAt={ANNOUNCEMENTS[announcementIndex].expiresAt} />
+                          {ANNOUNCEMENTS[announcementIndex].expiresAt && (
+                            <CountdownTimer expiresAt={ANNOUNCEMENTS[announcementIndex].expiresAt} />
+                          )}
                           <CouponBox code={ANNOUNCEMENTS[announcementIndex].couponCode} />
                         </div>
                       )}
@@ -477,7 +476,9 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
                             transition={{ duration: 0.2 }}
                             className="flex items-center justify-center gap-2 scale-90 absolute w-full"
                           >
-                            <CountdownTimer expiresAt={ANNOUNCEMENTS[announcementIndex].expiresAt} />
+                            {ANNOUNCEMENTS[announcementIndex].expiresAt && (
+                              <CountdownTimer expiresAt={ANNOUNCEMENTS[announcementIndex].expiresAt} />
+                            )}
                             <CouponBox code={ANNOUNCEMENTS[announcementIndex].couponCode} />
                           </motion.div>
                         )}

@@ -361,7 +361,7 @@ export function CartClient() {
     if (activeCoupon.type === 'percentage') {
       discountAmount = eligibleSubtotal * (activeCoupon.value / 100)
     } else if (activeCoupon.type === 'fixed_amount') {
-      discountAmount = Math.min((activeCoupon.value / 100), eligibleSubtotal)
+      discountAmount = Math.min(activeCoupon.value, eligibleSubtotal)
     }
   }
 

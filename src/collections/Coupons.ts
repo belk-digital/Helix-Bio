@@ -123,6 +123,16 @@ export const Coupons: CollectionConfig = {
       },
     },
     {
+      name: 'perUserLimit',
+      type: 'number',
+      required: false,
+      min: 1,
+      admin: {
+        description: 'Max times a single customer may redeem this coupon (requires login). Leave blank for unlimited. Set to 1 for the classic "once per user" behavior.',
+        position: 'sidebar',
+      },
+    },
+    {
       name: 'lockedEmails',
       type: 'array',
       admin: {

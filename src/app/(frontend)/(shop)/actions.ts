@@ -370,6 +370,34 @@ export async function verifyCoupon(couponCode: string, subtotal: number, clientC
       }
     }
 
+    // Limit how many times a single customer may redeem this coupon — a cancelled/refunded
+    // order already releases the coupon's usage slot (see hooks/orders.ts), so it shouldn't
+    // count toward this limit either.
+    const perUserLimit = Number((coupon as any).perUserLimit) || 0
+    if (perUserLimit > 0) {
+      if (!user) return { valid: false, error: 'You must be logged in to use this coupon' }
+      const priorUsage = await payload.find({
+        collection: 'orders',
+        where: {
+          and: [
+            { owner: { equals: user.id } },
+            { couponCode: { equals: coupon.code } },
+            { status: { not_in: ['cancelled', 'refunded'] } },
+          ],
+        },
+        limit: 1,
+        overrideAccess: true,
+      })
+      if (priorUsage.totalDocs >= perUserLimit) {
+        return {
+          valid: false,
+          error: perUserLimit === 1
+            ? 'You have already used this coupon'
+            : `You've already used this coupon the maximum of ${perUserLimit} times`,
+        }
+      }
+    }
+
     if (eligibleSubtotal === 0 && coupon.type !== 'free_shipping') {
       const reasonMessages: Record<string, string> = {
         sale_excluded: 'This coupon cannot be combined with items already on sale',
