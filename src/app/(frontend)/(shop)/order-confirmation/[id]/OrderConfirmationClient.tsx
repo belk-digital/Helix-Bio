@@ -4,7 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Check, Printer, Copy, MapPin, Truck, CreditCard, Wallet, Smartphone, ShieldCheck, AlertTriangle } from 'lucide-react'
+import { Check, Printer, Copy, MapPin, Truck, CreditCard, Wallet, Smartphone, ShieldCheck, AlertTriangle, Loader2, Clock } from 'lucide-react'
 import { Container } from '@/components/ui/container'
 import { FadeUp } from '@/components/motion/FadeUp'
 import { buttonVariants } from '@/components/ui/button'
@@ -56,6 +56,19 @@ type OrderData = {
 
 const ZELLE_RECIPIENT_PHONE = '832-705-9377'
 
+type PaymentCheck = 'verified' | 'confirming' | 'processing' | 'not_completed' | 'needs_review'
+type SyncResult = { success?: boolean; status?: string; error?: string }
+
+// Methods paid through an automated gateway, whose payment is verified against that gateway
+// (as opposed to Zelle / Stripe Link, where "unpaid" is the expected state until a person
+// confirms it by hand).
+const VERIFIABLE_METHODS: string[] = ['nextlvlpay', 'circoflows', 'dataopt']
+
+// Gateway statuses meaning "no payment was made" — as opposed to one still in progress.
+const NOT_PAID_STATUSES = ['requires_payment_method', 'requires_action', 'canceled', 'declined', 'failed', 'tx_mismatch']
+
+const CHECK_INTERVAL_MS = 2500
+
 const CONFETTI_PIECES = [
   { x: -80, y: -60, color: '#92DCE5', delay: 0.0, rotation: 45, scale: 1.2 },
   { x: 40, y: -90, color: '#6B8E5E', delay: 0.1, rotation: -20, scale: 0.9 },
@@ -102,16 +115,87 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
   const t = useTranslations('orderConfirmation')
   const isZelle = order.paymentMethod === 'zelle'
   const isStripeLink = order.paymentMethod === 'stripe_link' || order.paymentMethod === 'amex'
-  // An automated card method (nextlvlpay/circoflows/stripe) whose payment was never actually
-  // captured — the customer landed on this page without completing payment (e.g. abandoning an
-  // alternate payment method mid-flow and hitting the browser back button). Unlike Zelle/Stripe
-  // Link, "unpaid" is not an expected state for these methods, so this needs its own messaging
-  // rather than being read as a success.
-  const isPendingCardPayment =
-    ['nextlvlpay', 'circoflows', 'stripe', 'dataopt'].includes(order.paymentMethod) && order.paymentStatus !== 'captured'
+
+  // For automated methods, the order's `paymentStatus` in the server-rendered props is only a
+  // snapshot from the instant this page rendered — and a customer who just paid is redirected
+  // here *before* the gateway webhook / sync has had time to mark the order captured, so
+  // "not captured yet" does NOT mean "not paid". Never decide success/failure from that
+  // snapshot: start as "confirming", ask the gateway directly, and only then pick a state.
+  const isVerifiableMethod = VERIFIABLE_METHODS.includes(order.paymentMethod)
+  const [paymentCheck, setPaymentCheck] = React.useState<PaymentCheck>(
+    !isVerifiableMethod || order.paymentStatus === 'captured' ? 'verified' : 'confirming',
+  )
+  const showPaymentPending = isVerifiableMethod && paymentCheck !== 'verified'
 
   React.useEffect(() => {
-    if (isPendingCardPayment) return
+    if (!isVerifiableMethod || order.paymentStatus === 'captured') return
+    let cancelled = false
+    const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+
+    // Stripe's redirect back here carries redirect_status. It is only a hint used to decide how
+    // patient to be (never trusted to mark anything paid — that stays with the gateway check).
+    const redirectSaysPaid = new URLSearchParams(window.location.search).get('redirect_status') === 'succeeded'
+    const maxAttempts = redirectSaysPaid ? 12 : 3
+
+    const runSync = async (): Promise<SyncResult> => {
+      try {
+        if (order.paymentMethod === 'circoflows') {
+          return await (await import('../../checkout/circoflowsActions')).syncCircoFlowsPaymentStatus(order.orderId)
+        }
+        if (order.paymentMethod === 'dataopt') {
+          return await (await import('../../checkout/dataoptActions')).syncDataOptPaymentStatus(order.orderId)
+        }
+        return await (await import('../../checkout/nextlvlpayActions')).syncNextlvlpayPaymentStatus(order.orderId)
+      } catch {
+        return { error: 'request failed' }
+      }
+    }
+
+    const verify = async () => {
+      let last: PaymentCheck = 'confirming'
+      for (let attempt = 0; attempt < maxAttempts; attempt++) {
+        const result = await runSync()
+        if (cancelled) return
+
+        if (result.success) {
+          setPaymentCheck('verified')
+          return
+        }
+
+        if (result.error) {
+          last = 'needs_review'
+        } else if (NOT_PAID_STATUSES.includes(result.status ?? '')) {
+          // The gateway says nothing was paid. If we were NOT just redirected back as "succeeded"
+          // that is a definitive answer; if we were, the gateway may simply not have caught up yet.
+          if (!redirectSaysPaid) {
+            setPaymentCheck('not_completed')
+            return
+          }
+          last = 'confirming'
+        } else {
+          last = 'processing'
+        }
+
+        // Transient errors keep showing the calm "confirming" state rather than an alarm.
+        setPaymentCheck(last === 'needs_review' ? 'confirming' : last)
+        if (attempt < maxAttempts - 1) await sleep(CHECK_INTERVAL_MS)
+        if (cancelled) return
+      }
+      // Out of attempts without a definitive answer. Never claim "not paid" here — the customer
+      // may well have paid and the confirmation email/webhook will follow.
+      setPaymentCheck(last === 'confirming' ? 'processing' : last)
+    }
+
+    verify()
+    return () => {
+      cancelled = true
+    }
+  }, [order.paymentMethod, order.orderId, order.paymentStatus, isVerifiableMethod])
+
+  React.useEffect(() => {
+    // Only a confirmed payment counts as a purchase: fire the GA4 event and empty the cart.
+    // (Leaving the cart intact otherwise means an unfinished payment can be picked back up.)
+    if (showPaymentPending) return
 
     // GA4 eCommerce tracking
     if (typeof window !== 'undefined' && !sessionStorage.getItem(`ga_tracked_${order.id}`)) {
@@ -141,19 +225,29 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
     }
 
     useCartStore.getState().clear()
-  }, [order, isPendingCardPayment])
+  }, [order, showPaymentPending])
 
-  React.useEffect(() => {
-    if (order.paymentMethod === 'circoflows') {
-      import('../../checkout/circoflowsActions').then(m => m.syncCircoFlowsPaymentStatus(order.orderId))
-    }
-    if (order.paymentMethod === 'nextlvlpay') {
-      import('../../checkout/nextlvlpayActions').then(m => m.syncNextlvlpayPaymentStatus(order.orderId))
-    }
-    if (order.paymentMethod === 'dataopt') {
-      import('../../checkout/dataoptActions').then(m => m.syncDataOptPaymentStatus(order.orderId))
-    }
-  }, [order.paymentMethod, order.orderId])
+  // Copy for each not-yet-verified state. Deliberately never asserts "you have not been charged"
+  // — the customer may have paid and we simply haven't been able to confirm it yet.
+  const PENDING_COPY: Record<Exclude<PaymentCheck, 'verified'>, { title: string; body: string }> = {
+    confirming: {
+      title: 'Confirming your payment…',
+      body: "Hang tight — we're confirming your payment. This usually takes a few seconds. Please don't close this page or pay again.",
+    },
+    processing: {
+      title: 'Payment Processing',
+      body: "Your payment is still being processed. You'll receive a confirmation email as soon as it's complete — there's no need to pay again.",
+    },
+    needs_review: {
+      title: "We're Verifying Your Payment",
+      body: "We couldn't confirm your payment automatically yet. If you were charged, please don't pay again — we'll get this sorted for you.",
+    },
+    not_completed: {
+      title: 'Payment Not Completed',
+      body: "We haven't received your payment for this order yet, so it hasn't shipped. Your order is saved, so you can pick up right where you left off.",
+    },
+  }
+  const pendingCopy = paymentCheck !== 'verified' ? PENDING_COPY[paymentCheck] : null
 
   const handleCopyOrderId = () => {
     navigator.clipboard.writeText(order.id)
@@ -283,27 +377,35 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
               {/* Header Section */}
               <div className="flex flex-col items-center lg:items-start text-center lg:text-left print:hidden">
                 <div className="relative">
-                  {!isPendingCardPayment && <ConfettiBurst />}
+                  {!showPaymentPending && <ConfettiBurst />}
                   <motion.div
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                    className={`w-16 h-16 md:w-20 md:h-20 rounded-[16px] flex items-center justify-center mb-8 shadow-lg relative z-10 ${isPendingCardPayment ? 'bg-amber-500 text-white' : 'bg-black text-white'}`}
+                    className={`w-16 h-16 md:w-20 md:h-20 rounded-[16px] flex items-center justify-center mb-8 shadow-lg relative z-10 ${paymentCheck === 'not_completed' || paymentCheck === 'needs_review' ? 'bg-amber-500 text-white' : 'bg-black text-white'}`}
                   >
-                    {isPendingCardPayment ? <AlertTriangle size={32} strokeWidth={2.5} /> : <Check size={36} strokeWidth={2.5} />}
+                    {paymentCheck === 'confirming' ? (
+                      <Loader2 size={32} strokeWidth={2.5} className="animate-spin" />
+                    ) : paymentCheck === 'processing' ? (
+                      <Clock size={32} strokeWidth={2.5} />
+                    ) : paymentCheck === 'not_completed' || paymentCheck === 'needs_review' ? (
+                      <AlertTriangle size={32} strokeWidth={2.5} />
+                    ) : (
+                      <Check size={36} strokeWidth={2.5} />
+                    )}
                   </motion.div>
                 </div>
 
                 <FadeUp delay={0.1}>
-                  {!isPendingCardPayment && (
+                  {!showPaymentPending && (
                     <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">{t('confirmationEmailSent')} {order.email}</p>
                   )}
                   <h1 className="text-3xl md:text-5xl font-bold text-black mb-4 tracking-tight">
-                    {isPendingCardPayment ? 'Payment Not Completed' : isZelle || isStripeLink ? t('orderPlaced') : t('paymentSuccessful')}
+                    {pendingCopy ? pendingCopy.title : isZelle || isStripeLink ? t('orderPlaced') : t('paymentSuccessful')}
                   </h1>
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-lg">
-                    {isPendingCardPayment
-                      ? "It looks like your payment wasn't finished — you have not been charged. Your order has been saved, so you can pick up right where you left off."
+                    {pendingCopy
+                      ? pendingCopy.body
                       : isZelle
                       ? t('thankYouZelle', { name: order.customerName })
                       : isStripeLink
@@ -314,7 +416,7 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
               </div>
 
               {/* Dynamic Action Modules (Zelle/Amex/Pending Card Payment) */}
-              {isPendingCardPayment && (
+              {paymentCheck === 'not_completed' && (
                 <FadeUp delay={0.15} className="print:hidden">
                   <div className="bg-amber-50 border-2 border-amber-100 rounded-[12px] p-6 md:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left relative overflow-hidden">
                     <div className="w-12 h-12 rounded-[12px] bg-amber-100 flex items-center justify-center text-amber-700 shrink-0">
@@ -324,13 +426,23 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
                       <div>
                         <h2 className="text-lg font-bold text-black mb-2">Finish Your Payment</h2>
                         <p className="text-sm text-gray-600 leading-relaxed">
-                          Your order is saved but not yet paid for, so it hasn&apos;t shipped. If you selected a different payment option (like Cash App) and didn&apos;t complete it, or navigated back before finishing, just return to checkout to try again — nothing has been charged.
+                          If you chose another payment option (like Cash App) and didn&apos;t finish it, or went back before completing, just return to checkout to try again. If you believe you already paid, please don&apos;t pay again — email <a href="mailto:support@helixbiochem.com" className="underline">support@helixbiochem.com</a> with order #{order.id} and we&apos;ll sort it out.
                         </p>
                       </div>
                       <Link href="/checkout" className={buttonVariants({ variant: 'dark', size: 'lg', className: '!rounded-[12px] px-8 tracking-widest text-[11px] uppercase shadow-md hover:-translate-y-0.5 transition-all h-14 w-full sm:w-fit' })}>
                         Return to Checkout
                       </Link>
                     </div>
+                  </div>
+                </FadeUp>
+              )}
+              {(paymentCheck === 'processing' || paymentCheck === 'needs_review') && (
+                <FadeUp delay={0.15} className="print:hidden">
+                  <div className="bg-[#fafafa] border-2 border-gray-200 rounded-[12px] p-6 md:p-8 text-center sm:text-left">
+                    <h2 className="text-lg font-bold text-black mb-2">No need to pay again</h2>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      Your order #{order.id} is saved. Once your payment is confirmed you&apos;ll get an email right away. Questions? Email <a href="mailto:support@helixbiochem.com" className="underline">support@helixbiochem.com</a> with your order number.
+                    </p>
                   </div>
                 </FadeUp>
               )}

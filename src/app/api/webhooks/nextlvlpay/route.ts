@@ -4,7 +4,9 @@
 // fresh authenticated status check against nextlvlpay's own /api/payments/status before anything
 // is finalized. A 'failed' ping only cancels a still-pending order to release its reservation —
 // a safe, reversible action — mirroring HelixBio's own native Stripe webhook's
-// payment_intent.payment_failed handler.
+// payment_intent.payment_failed handler (and if the customer retries the same PaymentIntent and
+// pays after all, finalizeOrder reinstates the cancelled order). A 'refunded' ping re-reads the
+// refunded amount from the gateway and marks the order refunded only for a full refund.
 export async function POST(req: Request) {
   const authHeader = req.headers.get('authorization')
   if (!process.env.NEXTLVLPAY_API_SECRET || authHeader !== `Bearer ${process.env.NEXTLVLPAY_API_SECRET}`) {
@@ -24,6 +26,12 @@ export async function POST(req: Request) {
       const result = await syncNextlvlpayPaymentStatus(String(orderId))
       if (result.error) {
         // Let nextlvlpay retry — this failed for a reason other than "not paid yet".
+        return new Response(result.error, { status: 500 })
+      }
+    } else if (eventType === 'refunded') {
+      const { syncNextlvlpayRefund } = await import('@/lib/orders/nextlvlpayGateway')
+      const result = await syncNextlvlpayRefund(String(orderId))
+      if (result.error) {
         return new Response(result.error, { status: 500 })
       }
     } else if (eventType === 'failed') {

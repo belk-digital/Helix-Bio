@@ -4,6 +4,7 @@ import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { headers } from 'next/headers'
 import { createPayloadOrder, notifyAdminFailedPayment } from './actions'
+import { fetchNextlvlpayStatus, findExistingNextlvlpayPayment } from '@/lib/orders/nextlvlpayGateway'
 
 const NEXTLVLPAY_API_BASE_URL = process.env.NEXTLVLPAY_API_BASE_URL as string
 const NEXTLVLPAY_API_SECRET = process.env.NEXTLVLPAY_API_SECRET as string
@@ -48,6 +49,17 @@ export async function createNextlvlpayPayment(
 
   const headersList = await headers()
   const origin = headersList.get('origin') || `https://${headersList.get('host')}`
+
+  // The duplicate-click guard in createPayloadOrder can hand back an order that already has a
+  // PaymentIntent. Keep that one rather than opening a second — see findExistingNextlvlpayPayment.
+  const existing = await findExistingNextlvlpayPayment(order)
+  if (existing.kind === 'reuse') {
+    return { orderId: orderRes.orderId, redirectUrl: `${NEXTLVLPAY_CHECKOUT_URL}?pi=${existing.paymentIntentId}` }
+  }
+  if (existing.kind === 'already_paid') {
+    // Paid (or paying) already: send them to the confirmation page, which verifies and finalizes.
+    return { orderId: orderRes.orderId, redirectUrl: `${origin}/order-confirmation/${order.id}` }
+  }
 
   try {
     const response = await fetch(`${NEXTLVLPAY_API_BASE_URL}/payments/create`, {
@@ -118,20 +130,10 @@ export async function syncNextlvlpayPaymentStatus(orderId: string): Promise<{ su
     const paymentIntentId = order.nextlvlpayPaymentIntentId
     if (!paymentIntentId) return { error: 'No payment reference on this order' }
 
-    const response = await fetch(`${NEXTLVLPAY_API_BASE_URL}/payments/status`, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${NEXTLVLPAY_API_SECRET}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ paymentIntentId }),
-    })
-
-    if (!response.ok) {
+    const data = await fetchNextlvlpayStatus(paymentIntentId)
+    if (!data) {
       return { error: 'Failed to reach nextlvlpay for status check' }
     }
-
-    const data = await response.json()
 
     // Never trust the caller-supplied orderId beyond using it to look up the order above — the
     // order to finalize is only ever the one nextlvlpay's own PaymentIntent metadata names.
