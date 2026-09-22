@@ -15,20 +15,20 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'content.contactPage' })
   const title = t('metaTitle')
   const description = t('metaDescription')
-  const path = true ? `/${slug}` : `/${locale}/${slug}`
+  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
+  const canonicalUrl = `${baseUrl}/${slug}`
 
   return {
     title,
     description,
     alternates: {
-      canonical: path,
-      
+      canonical: canonicalUrl,
     },
     openGraph: {
       title,
       description,
       type: 'website',
-      url: path,
+      url: canonicalUrl,
       images: [getOgImageUrl(title, description)],
     },
     twitter: {
@@ -61,7 +61,7 @@ export default async function ContactPage({
   const contactInfoFaq = {
     question: tClient('faqs.contactInfo.question'),
     answer:
-      'Reach us via email at support@helixbiochem.com for lab inquiries.',
+      'Email is the direct line: support@helixbiochem.com. That address handles order questions, product specifications, certificate of analysis requests, and anything else about a shipment or a lot. The contact form on this page routes to the same inbox, so either route reaches the same US-based team. Expect a reply within one business day.',
   }
 
   const schema = {
@@ -86,7 +86,7 @@ export default async function ContactPage({
       {
         '@type': 'Organization',
         '@id': `${baseUrl}/#organization`,
-        name: 'Helix Bio',
+        name: 'Helix Bio Chem',
         url: baseUrl,
         email: 'support@helixbiochem.com',
 

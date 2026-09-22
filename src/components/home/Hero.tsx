@@ -66,11 +66,14 @@ export function Hero() {
 
         {/* Hero Content */}
         <div className="absolute top-8 sm:top-12 md:top-[15%] min-[1600px]:top-1/4 left-6 sm:left-8 md:left-16 flex flex-col items-start text-white max-w-3xl lg:max-w-[800px] pr-4 md:pr-12 z-10">
+          <div className="inline-block border border-white/20 rounded-full px-4 py-1.5 mb-3 bg-white/10 backdrop-blur-sm">
+            <span className="text-white/90 text-xs font-bold tracking-[0.15em] uppercase">Helix Bio Chem / Research-use-only peptides</span>
+          </div>
           <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] min-[1600px]:text-[4rem] font-bold leading-[1.1] tracking-tight mb-4 text-left drop-shadow-sm">
-            Discover Premium<br className="hidden sm:block" /> Research Peptides
+            US Research Peptides, Verified Before They Ship
           </h1>
           <p className="hidden md:block text-white text-sm md:text-base min-[1600px]:text-lg font-medium max-w-xl lg:max-w-2xl text-left leading-relaxed drop-shadow-md">
-            Research-grade peptides, synthesized for precision and verified for purity. Every batch ships with third-party HPLC and mass spectrometry testing, so you know exactly what you're studying before it reaches your bench.
+            Helix Bio Chem supplies research-use-only peptides for laboratory research, not for human or veterinary use. Every order ships with its batch-specific certificate of analysis.
           </p>
           <div className="mt-4 min-[1600px]:mt-8 flex flex-wrap gap-4">
             <Link 
@@ -212,9 +215,9 @@ export function Hero() {
           <div className="flex items-center gap-2">
             <h2 className="text-3xl min-[1600px]:text-4xl font-bold text-black tracking-tight">10K+</h2>
             <div className="flex -space-x-3 ml-auto">
-              <img src="https://i.pravatar.cc/100?img=33" className="w-8 h-8 min-[1600px]:w-10 min-[1600px]:h-10 rounded-full border-2 border-white object-cover" alt="Portrait of a Helix Bio research customer" />
-              <img src="https://i.pravatar.cc/100?img=47" className="w-8 h-8 min-[1600px]:w-10 min-[1600px]:h-10 rounded-full border-2 border-white object-cover" alt="Portrait of a Helix Bio research customer" />
-              <img src="https://i.pravatar.cc/100?img=12" className="w-8 h-8 min-[1600px]:w-10 min-[1600px]:h-10 rounded-full border-2 border-white object-cover" alt="Portrait of a Helix Bio research customer" />
+              <img src="https://i.pravatar.cc/100?img=33" className="w-8 h-8 min-[1600px]:w-10 min-[1600px]:h-10 rounded-full border-2 border-white object-cover" alt="Portrait of a Helix Bio Chem research customer" />
+              <img src="https://i.pravatar.cc/100?img=47" className="w-8 h-8 min-[1600px]:w-10 min-[1600px]:h-10 rounded-full border-2 border-white object-cover" alt="Portrait of a Helix Bio Chem research customer" />
+              <img src="https://i.pravatar.cc/100?img=12" className="w-8 h-8 min-[1600px]:w-10 min-[1600px]:h-10 rounded-full border-2 border-white object-cover" alt="Portrait of a Helix Bio Chem research customer" />
             </div>
           </div>
           <p className="text-gray-500 font-medium text-xs min-[1600px]:text-sm">Research orders fulfilled in the USA</p>

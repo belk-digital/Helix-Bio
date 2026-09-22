@@ -115,7 +115,7 @@ export function MilitaryDiscountSection() {
               >
                 <Image 
                   src={militaryImages[currentImageIndex]}
-                  alt="Active-duty military and veteran researcher discount at Helix Bio"
+                  alt="Active-duty military and veteran researcher discount at Helix Bio Chem"
                   fill 
                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
                   priority={currentImageIndex === 0}

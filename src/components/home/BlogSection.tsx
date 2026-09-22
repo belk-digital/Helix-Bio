@@ -63,9 +63,9 @@ export function BlogSection({ posts }: { posts: BlogSectionPost[] }) {
                 <div className="flex items-center justify-between mt-auto pt-6 border-t border-gray-100">
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-full bg-gray-200 overflow-hidden relative">
-                      <Image src="/HelixBio Images/hero-1.png" alt="HelixBio Research team author avatar" fill className="object-cover" />
+                      <Image src="/HelixBio Images/hero-1.png" alt="Helix Bio Chem Research team author avatar" fill className="object-cover" />
                     </div>
-                    <span className="text-sm font-semibold text-gray-700">HelixBio Research</span>
+                    <span className="text-sm font-semibold text-gray-700">Helix Bio Chem Research</span>
                   </div>
                   <span className="text-sm text-gray-500 font-medium">{featuredPost.date}</span>
                 </div>
@@ -97,7 +97,7 @@ export function BlogSection({ posts }: { posts: BlogSectionPost[] }) {
                     {post.title}
                   </h3>
                   <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between">
-                     <span className="text-sm font-semibold text-gray-700">HelixBio</span>
+                     <span className="text-sm font-semibold text-gray-700">Helix Bio Chem</span>
                      <span className="text-xs text-gray-500 font-medium">{post.readTime}</span>
                   </div>
                 </div>

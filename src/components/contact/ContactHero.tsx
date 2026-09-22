@@ -54,7 +54,7 @@ export function ContactHero() {
                 CONTACT US
               </span>
               <p className="text-white text-xs sm:text-base md:text-lg font-medium tracking-wide mb-1 leading-relaxed line-clamp-3 sm:line-clamp-none">
-                Our dedicated support team is available to assist you with order inquiries, product information, and research guidance.
+                Questions about an order, a product spec, or a certificate of analysis all come to the same inbox, and a person on the US support team reads them.
               </p>
             </div>
           </div>
@@ -74,11 +74,11 @@ export function ContactHero() {
             className="bg-white rounded-[1.5rem] p-6 sm:p-8 flex items-end justify-between hover:shadow-lg transition-all duration-300 cursor-default border border-black/5 shadow-[0_4px_20px_rgb(0,0,0,0.03)]"
           >
             <div className="flex flex-col">
-              <span className="text-4xl sm:text-5xl font-black text-ink font-heading tracking-tighter">
-                &lt; 24H
+              <span className="text-2xl sm:text-3xl font-black text-ink font-heading tracking-tighter">
+                1 BUSINESS DAY
               </span>
               <span className="text-[10px] sm:text-xs font-bold text-ink/50 uppercase tracking-widest mt-1">
-                RESPONSE TIME
+                TYPICAL REPLY
               </span>
             </div>
           </motion.div>

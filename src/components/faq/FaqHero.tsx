@@ -90,7 +90,7 @@ export function FaqHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-white rounded-[1.5rem] p-6 sm:p-8 flex justify-between relative hover:shadow-lg transition-all duration-300 cursor-default border border-black/5 shadow-[0_4px_20px_rgb(0,0,0,0.03)]"
+            className="bg-white rounded-[1.5rem] p-6 sm:p-8 flex items-end justify-between relative hover:shadow-lg transition-all duration-300 cursor-default border border-black/5 shadow-[0_4px_20px_rgb(0,0,0,0.03)]"
           >
             <div className="flex flex-col justify-end h-full">
               <span className="text-4xl sm:text-5xl font-black text-ink font-heading tracking-tighter">
@@ -100,16 +100,16 @@ export function FaqHero() {
                 PURITY GUARANTEED
               </span>
             </div>
-            <span className="absolute top-6 right-6 border border-ink/10 text-ink/60 text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-ink/5">
-              TESTED
-            </span>
+            <Link href="/certificates" className="w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center mb-1 hover:bg-primary transition-colors cursor-pointer pointer-events-auto z-10">
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </motion.div>
 
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="bg-ink rounded-[1.5rem] p-6 sm:p-8 flex items-end relative hover:bg-black transition-all duration-300 cursor-default shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
+            className="bg-ink rounded-[1.5rem] p-6 sm:p-8 flex items-end justify-between relative hover:bg-black transition-all duration-300 cursor-default shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
           >
             <div className="flex flex-col">
               <span className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tighter">
@@ -119,6 +119,9 @@ export function FaqHero() {
                 SHIPPING DISPATCH
               </span>
             </div>
+            <Link href="/shipping-policy" className="w-8 h-8 rounded-full bg-white text-ink flex items-center justify-center mb-1 hover:bg-primary hover:text-white transition-colors cursor-pointer pointer-events-auto">
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </motion.div>
         </div>
       </div>

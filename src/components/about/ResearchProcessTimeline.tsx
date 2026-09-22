@@ -2,32 +2,40 @@
 
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform, MotionValue } from 'framer-motion'
-import { FlaskConical, Microscope, ShieldCheck, Package } from 'lucide-react'
+import { Package, FlaskConical, ShieldCheck, Microscope, FileCheck } from 'lucide-react'
+import Link from 'next/link'
 
 const PROCESS_STEPS = [
   {
     id: 'sourcing',
     icon: Package,
     title: 'Sourcing',
-    description: 'Production starts with raw materials from vetted sources, screened against our specifications before they\'re accepted into the production line.'
+    description: "Production starts with raw materials from vetted sources, screened against our specifications before they're accepted into the production line."
   },
   {
-    id: 'synthesis',
+    id: 'evaluation',
     icon: FlaskConical,
-    title: 'Synthesis',
-    description: 'Compounds are assembled amino acid by amino acid using solid-phase peptide synthesis under controlled reaction conditions.'
+    title: 'Evaluation',
+    description: "Every batch is inspected against a documented baseline, and finished material is verified by an independent third-party laboratory. HPLC measures purity. Mass spectrometry confirms molecular identity and weight. Neither method substitutes for the other."
   },
   {
-    id: 'purification',
+    id: 'clear-classification',
     icon: ShieldCheck,
-    title: 'Purification',
-    description: 'We source the highest-grade raw materials and apply advanced purification techniques to isolate each target peptide from synthesis byproducts before a batch ever reaches analytical testing.'
+    title: 'Clear Classification',
+    description: "Each compound is classified plainly as research use only, with labeling that reflects its intended laboratory application and no use beyond it."
   },
   {
-    id: 'verification',
+    id: 'controlled-handling',
     icon: Microscope,
-    title: 'Verification',
-    description: 'Purified batches are tested using HPLC and mass spectrometry to confirm identity and purity before a certificate of analysis is issued for that lot.'
+    title: 'Controlled Handling',
+    description: "Peptides move through storage, packaging, and shipping under conditions designed to protect stability, from lyophilization through to delivery."
+  },
+  {
+    id: 'operational-transparency',
+    icon: FileCheck,
+    title: 'Operational Transparency',
+    description: "Batch and lot information stays traceable from production through delivery, so a researcher can connect a specific order back to the testing that verified it.",
+    link: '/certificates'
   }
 ];
 
@@ -44,12 +52,13 @@ function PhaseNode({
 }) {
   const Icon = step.icon;
 
-  // Tighter timing logic to prevent overlaps
-  const startEmerge = Math.max(0, index * 0.25 - 0.05); // starts emerging later
-  const readStart = index * 0.25;
-  const readEnd = readStart + 0.1; // stays readable for shorter time
-  const fadeOutEnd = readEnd + 0.05; // Fades out completely BEFORE the next one becomes readable
-  const flyPast = readEnd + 0.15; // continues scaling up
+  // Timing logic adjusted for 5 steps
+  const stepInterval = 1 / 5;
+  const startEmerge = Math.max(0, index * stepInterval - 0.04);
+  const readStart = index * stepInterval;
+  const readEnd = readStart + 0.08;
+  const fadeOutEnd = readEnd + 0.04;
+  const flyPast = readEnd + 0.12;
 
   const scaleRanges = isLast 
     ? [startEmerge, readStart, 1] 
@@ -57,11 +66,11 @@ function PhaseNode({
     
   const scaleValues = isLast 
     ? [0.2, 1, 1] 
-    : [0.2, 1, 1, 7]; // Scales larger to get past camera
+    : [0.2, 1, 1, 7];
 
   const opacityRanges = isLast 
     ? [startEmerge, readStart, 1] 
-    : [startEmerge, readStart, readEnd, fadeOutEnd]; // Uses fadeOutEnd to disappear sooner
+    : [startEmerge, readStart, readEnd, fadeOutEnd];
     
   const opacityValues = isLast 
     ? [0, 1, 1] 
@@ -70,7 +79,6 @@ function PhaseNode({
   const scale = useTransform(scrollYProgress, scaleRanges, scaleValues);
   const opacity = useTransform(scrollYProgress, opacityRanges, opacityValues);
   
-  // Hardware acceleration and fixing rendering overlaps
   const pointerEvents = useTransform(opacity, (v) => v > 0.5 ? "auto" : "none");
   const display = useTransform(opacity, (v) => v === 0 ? "none" : "flex");
 
@@ -107,7 +115,16 @@ function PhaseNode({
           </h4>
           
           <p className="text-ink/70 text-base sm:text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
-            {step.description}
+            {step.link ? (
+              <>
+                Batch and lot information stays traceable from production through delivery, so a researcher can connect a specific order back to the{' '}
+                <Link href={step.link} className="underline text-primary hover:text-ink transition-colors">
+                  testing that verified it
+                </Link>.
+              </>
+            ) : (
+              step.description
+            )}
           </p>
         </div>
 
@@ -119,7 +136,6 @@ function PhaseNode({
 export function ResearchProcessTimeline() {
   const containerRef = useRef<HTMLDivElement>(null);
   
-  // Track scroll progress through this massive container
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]

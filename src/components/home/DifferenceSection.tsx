@@ -14,12 +14,12 @@ const STATS = [
   {
     value: "99%+",
     label: "Guaranteed Purity",
-    description: "Guaranteed purity, confirmed by third-party testing on every batch."
+    description: "Each batch is HPLC-tested for purity, and the result is published on that batch's certificate of analysis."
   },
   {
     value: "10+",
     label: "Years Experience",
-    description: "Combined scientific expertise in peptide synthesis and quality assurance."
+    description: "A defined sourcing, testing, and documentation process applied to every batch."
   },
   {
     value: "24/7",
@@ -52,7 +52,7 @@ export function DifferenceSection() {
             {/* The Floating Badge */}
             <div className="absolute top-6 left-6 md:top-8 md:left-8 z-20 bg-white/95 backdrop-blur-md px-6 py-3 rounded-2xl shadow-sm border border-white/60">
               <span className="text-ink font-bold text-sm tracking-tight">
-                Why choose Helix Bio?
+                Why choose Helix Bio Chem?
               </span>
             </div>
 

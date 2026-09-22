@@ -38,57 +38,84 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function FaqPage() {
   const t = await getTranslations('content.faqPage')
-  const title = t('metaTitle')
-  const description = t('metaDescription')
-
-  // Generate structured data for SEO
-  // Combine all FAQs from all categories for the JSON-LD
   const allFaqs = faqData.flatMap(category =>
     category.items.map(item => ({
-      "@type": "Question",
-      "name": item.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        // Strip HTML tags for clean text in structured data
-        "text": item.answer.replace(/<[^>]*>?/gm, '')
-      }
+      '@type': 'Question',
+      'name': item.question,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': item.answer,
+      },
     }))
-  );
+  )
 
-  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
-  const path = `/${slug}`
-  const url = `${baseUrl}${path}`
-
-  const pageSchema = {
+  const schema = {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'WebPage',
-        '@id': `${url}#webpage`,
-        url,
-        name: title,
-        description,
-        inLanguage: locale,
+        '@id': 'https://helixbiochem.com/#organization',
+        '@type': 'Organization',
+        'alternateName': 'Helix Bio',
+        'description': 'US supplier of research-grade peptides, sold strictly for laboratory research use only.',
+        'email': 'support@helixbiochem.com',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': 'https://helixbiochem.com/HelixBio%20Images/hb-logo.webp',
+        },
+        'name': 'Helix Bio Chem',
+        'sameAs': [],
+        'url': 'https://helixbiochem.com/',
       },
       {
+        '@id': 'https://helixbiochem.com/#website',
+        '@type': 'WebSite',
+        'name': 'Helix Bio Chem',
+        'publisher': {
+          '@id': 'https://helixbiochem.com/#organization',
+        },
+        'url': 'https://helixbiochem.com/',
+      },
+      {
+        '@id': 'https://helixbiochem.com/faq#webpage',
+        '@type': 'WebPage',
+        'breadcrumb': {
+          '@id': 'https://helixbiochem.com/faq#breadcrumb',
+        },
+        'description': 'Answers on research peptides, analytical standards, ordering, and laboratory handling. All products are for research use only.',
+        'isPartOf': {
+          '@id': 'https://helixbiochem.com/#website',
+        },
+        'name': 'Frequently Asked Questions',
+        'publisher': {
+          '@id': 'https://helixbiochem.com/#organization',
+        },
+        'url': 'https://helixbiochem.com/faq',
+      },
+      {
+        '@id': 'https://helixbiochem.com/faq#breadcrumb',
         '@type': 'BreadcrumbList',
-        '@id': `${url}#breadcrumb`,
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
-          { '@type': 'ListItem', position: 2, name: 'FAQ' },
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'item': 'https://helixbiochem.com/',
+            'name': 'Home',
+            'position': 1,
+          },
+          {
+            '@type': 'ListItem',
+            'item': 'https://helixbiochem.com/faq',
+            'name': 'FAQ',
+            'position': 2,
+          },
         ],
       },
       {
-        '@type': 'WebSite',
-        '@id': `${baseUrl}/#website`,
-        url: baseUrl,
-        name: 'Helix Bio',
-      },
-      {
-        '@type': 'Organization',
-        '@id': `${baseUrl}/#organization`,
-        name: 'Helix Bio',
-        url: baseUrl,
+        '@id': 'https://helixbiochem.com/faq#faq',
+        '@type': 'FAQPage',
+        'isPartOf': {
+          '@id': 'https://helixbiochem.com/faq#webpage',
+        },
+        'mainEntity': allFaqs,
       },
     ],
   }
@@ -100,17 +127,7 @@ export default async function FaqPage() {
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": allFaqs
-          })
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
     </>
   )

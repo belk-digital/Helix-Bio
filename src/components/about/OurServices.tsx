@@ -4,6 +4,7 @@ import React from 'react'
 import { motion, Variants } from 'framer-motion'
 import { CheckCircle2, ArrowRight, Beaker, ShieldAlert, FileText, Search } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 
 export function OurServices() {
@@ -28,6 +29,51 @@ export function OurServices() {
       transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
     }
   };
+
+  const areas = [
+    {
+      title: t('areas.area1.title'),
+      description: (
+        <>
+          Status, invoicing, and account access, handled by our{' '}
+          <Link href="/contact-us" className="underline text-primary hover:text-ink font-medium">
+            support team
+          </Link>.
+        </>
+      ),
+      icon: ArrowRight
+    },
+    {
+      title: t('areas.area2.title'),
+      description: (
+        <>
+          <Link href="/certificates" className="underline text-primary hover:text-ink font-medium">
+            Certificates of analysis
+          </Link>{' '}
+          for any lot, available before you order or after delivery.
+        </>
+      ),
+      icon: FileText
+    },
+    {
+      title: t('areas.area3.title'),
+      description: (
+        <>
+          Compound identity, format, and vial contents as recorded on the{' '}
+          <Link href="/shop" className="underline text-primary hover:text-ink font-medium">
+            product page
+          </Link>{' '}
+          and its lot documentation.
+        </>
+      ),
+      icon: Search
+    },
+    {
+      title: t('areas.area4.title'),
+      description: t('areas.area4.description'),
+      icon: Beaker
+    }
+  ];
 
   return (
     <section className="py-24 lg:py-40 bg-[#FAFAFA] relative overflow-hidden">
@@ -79,7 +125,7 @@ export function OurServices() {
           >
             {/* Background Image Fade */}
             <div className="absolute top-0 right-0 w-full md:w-2/3 h-full opacity-10 group-hover:opacity-15 transition-opacity duration-700 pointer-events-none mask-image-gradient-to-l from-black to-transparent">
-              <Image src="/HelixBio Images/mutiple-vial-1.webp" alt="Row of multiple Helix Bio research peptide vials" fill className="object-cover object-right" />
+              <Image src="/HelixBio Images/mutiple-vial-1.webp" alt="Row of multiple Helix Bio Chem research peptide vials" fill className="object-cover object-right" />
             </div>
 
             <div className="relative z-10 max-w-xl">
@@ -89,9 +135,15 @@ export function OurServices() {
               <h4 className="text-3xl sm:text-4xl font-heading font-black text-ink uppercase tracking-tight mb-4">
                 {t('card1Title')}
               </h4>
-              <p className="text-ink/60 text-lg font-medium leading-relaxed">
+              <p className="text-ink/60 text-lg font-medium leading-relaxed mb-6">
                 {t('card1Text')}
               </p>
+              <Link 
+                href="/shop" 
+                className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary hover:underline group/link"
+              >
+                View Catalogue <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+              </Link>
             </div>
           </motion.div>
 
@@ -143,22 +195,22 @@ export function OurServices() {
 
               {/* Right Side Grid */}
               <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  { text: t('listItems.orderProcessing'), icon: ArrowRight },
-                  { text: t('listItems.documentationAccess'), icon: FileText },
-                  { text: t('listItems.productClassification'), icon: Search },
-                  { text: t('listItems.sourcingInquiries'), icon: Beaker }
-                ].map((item, i) => (
+                {areas.map((area, i) => (
                   <div 
                     key={i}
-                    className="flex items-center gap-4 p-4 rounded-2xl bg-black/[0.02] border border-black/5 group/item hover:bg-white hover:border-black/10 hover:shadow-sm transition-all duration-300"
+                    className="flex flex-col gap-2 p-5 rounded-2xl bg-black/[0.02] border border-black/5 group/item hover:bg-white hover:border-black/10 hover:shadow-sm transition-all duration-300"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-white border border-black/5 flex items-center justify-center shrink-0 shadow-sm group-hover/item:text-primary transition-colors">
-                      <item.icon className="w-4 h-4 text-ink/40 group-hover/item:text-primary transition-colors" />
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-white border border-black/5 flex items-center justify-center shrink-0 shadow-sm group-hover/item:text-primary transition-colors">
+                        <area.icon className="w-4 h-4 text-ink/40 group-hover/item:text-primary transition-colors" />
+                      </div>
+                      <span className="font-bold text-ink text-base sm:text-lg">
+                        {area.title}
+                      </span>
                     </div>
-                    <span className="font-medium text-ink/80 text-sm sm:text-base">
-                      {item.text}
-                    </span>
+                    <div className="text-ink/60 text-sm leading-relaxed pl-11">
+                      {area.description}
+                    </div>
                   </div>
                 ))}
               </div>

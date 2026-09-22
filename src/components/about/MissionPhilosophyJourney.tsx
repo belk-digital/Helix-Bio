@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Microscope, ShieldCheck, FlaskConical } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 
 export function MissionPhilosophyJourney() {
@@ -152,7 +153,17 @@ export function MissionPhilosophyJourney() {
                         {card.title}
                       </h3>
                       <p className="text-base md:text-lg text-white/70 leading-relaxed font-light max-w-xl">
-                        {card.text}
+                        {card.id === 0 ? (
+                          <>
+                            A compound is only as useful as the documentation behind it. Every product we list carries a{' '}
+                            <Link href="/certificates" className="underline text-primary hover:text-white transition-colors font-medium">
+                              certificate of analysis
+                            </Link>{' '}
+                            tied to its specific lot, reporting purity measured by HPLC and identity confirmed by mass spectrometry. The lot number on that document matches the number on the vial, so a researcher can connect a result back to the exact material that produced it.
+                          </>
+                        ) : (
+                          card.text
+                        )}
                       </p>
                     </div>
                   </div>

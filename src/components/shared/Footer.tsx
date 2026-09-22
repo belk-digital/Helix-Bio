@@ -101,7 +101,7 @@ const FooterContent = () => {
               </h2>
               
               <p className="text-[#0B1221]/70 font-semibold text-xs md:text-sm max-w-xl tracking-wide mb-8 lg:mb-10">
-                Boost Your Research with High-Impact Peptides from our expert scientists. Our team is ready to propel your research forward with absolute precision and verifiable results.
+                Research-grade means documented purity, confirmed identity, and a batch-specific certificate to prove it. Every compound, every lot.
               </p>
             </div>
 
@@ -186,6 +186,36 @@ const FooterContent = () => {
                    ]
                  ].map((src, idx) => {
                    const angle = idx * (360 / 28);
+                   const galleryAlts = [
+                     "Lyophilized research peptide vial with certificate of analysis on lab bench",
+                     "HPLC testing equipment used to verify Helix Bio Chem peptide batch purity",
+                     "Vacuum-sealed peptide vials packaged for cold-chain shipping",
+                     "Mass spectrometry analytical documentation alongside a sealed research vial",
+                     "High-purity lyophilized synthetic peptide in clear glass laboratory vial",
+                     "ISO-certified USA laboratory environment for synthetic peptide research",
+                     "Precision automated liquid chromatography system performing peptide purity analysis",
+                     "Helix Bio Chem research peptide vials with batch-specific QR codes",
+                     "Analytical spectrum report confirming synthetic peptide molecular weight",
+                     "Reconstituted research compound prepared for in-vitro assay testing",
+                     "Cryogenic cold-storage storage tray holding lyophilized peptide vials",
+                     "HPLC chromatogram showing single peak 99% purity verification",
+                     "Laboratory research technician preparing high-purity peptide reagent sample",
+                     "Sealed research peptide vial with tamper-evident security seal",
+                     "Mass spectrometer ion source chamber during peptide identity verification",
+                     "Sterile laboratory hood for research peptide handling and aliquot preparation",
+                     "Helix Bio Chem batch certificate of analysis documenting HPLC purity testing",
+                     "Solid-phase peptide synthesis reaction vessel in US manufacturing facility",
+                     "Calibrated precision micropipette dispensing research peptide reagent solution",
+                     "Lyophilization vacuum chamber drying pure synthetic peptide sequence",
+                     "Close-up of laboratory-grade glass vial containing research peptide powder",
+                     "High-resolution mass spectrum confirming exact molecular weight of peptide",
+                     "Cold-chain insulated shipping container for temperature-sensitive peptide delivery",
+                     "Spectrophotometer assay plate for peptide concentration measurement",
+                     "Helix Bio Chem catalog research vials aligned for quality control inspection",
+                     "Microcentrifuge tube containing reconstituted peptide sample for analysis",
+                     "Analytical balance measuring precise milligram mass of peptide material",
+                     "Final quality assurance inspection of sealed Helix Bio Chem peptide batch"
+                   ];
                    return (
                       <div 
                         key={idx} 
@@ -195,7 +225,7 @@ const FooterContent = () => {
                          backfaceVisibility: 'hidden'
                        }}
                      >
-                       <img src={src} alt="Helix Bio research laboratory and peptide vial photo gallery" className="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-110" />
+                       <img src={src} alt={galleryAlts[idx]} className="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-110" />
                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 pointer-events-none" />
                      </div>
                    );

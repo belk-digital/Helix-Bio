@@ -152,10 +152,10 @@ export function HomePreloaderWrapper({ children }: { children: React.ReactNode }
              {/* Branding */}
              <div ref={brandRef} className="flex flex-col items-center opacity-0 px-6 max-w-[90vw]">
                 <div className="text-2xl sm:text-3xl md:text-4xl font-heading tracking-[0.15em] text-white font-medium text-center drop-shadow-sm">
-                  HELIX BIO
+                  HELIX BIO CHEM
                 </div>
                 <p className="text-white/40 text-[9px] sm:text-[10px] md:text-xs tracking-[0.3em] font-sans uppercase text-center mt-3">
-                  Clinical Research Synthesis
+                  Research-use-only peptides
                 </p>
              </div>
 

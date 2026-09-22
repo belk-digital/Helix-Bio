@@ -13,8 +13,8 @@ const FAQ_KEYS = [
   'assayDevelopment',
   'commonImpurities',
   'receptorBindingStudies',
-  'vendorQuestions',
   'supplierLegitimacy',
+  'publishCoaBeforeListing',
 ];
 
 export function FaqSection() {

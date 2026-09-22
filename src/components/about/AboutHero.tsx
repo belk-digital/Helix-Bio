@@ -4,6 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 
 export function AboutHero() {
@@ -20,11 +21,12 @@ export function AboutHero() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-ink uppercase tracking-tighter leading-[0.9] mb-2 sm:mb-4">
-              ABOUT US
+              {t('h1')}
             </h1>
-            <p className="text-ink/50 text-sm md:text-base tracking-wide font-medium max-w-xl">
-              {t('subtitle')}
-            </p>
+            <div className="text-ink/50 text-sm md:text-base tracking-wide font-medium max-w-xl space-y-4">
+              <p>{t('subtitle')}</p>
+              <p>{t('subtitle2')}</p>
+            </div>
           </motion.div>
         </div>
 
@@ -37,7 +39,7 @@ export function AboutHero() {
         >
           <Image
             src="/HelixBio Images/vial-on-sand.webp"
-            alt="Vial of Helix Bio synthetic research peptide against a desert landscape backdrop"
+            alt="Vial of Helix Bio Chem synthetic research peptide against a desert landscape backdrop"
             fill
             className="object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"
             priority
@@ -73,10 +75,10 @@ export function AboutHero() {
           >
             <div className="flex flex-col">
               <span className="text-4xl sm:text-5xl font-black text-ink font-heading tracking-tighter">
-                2018
+                100%
               </span>
               <span className="text-[10px] sm:text-xs font-bold text-ink/50 uppercase tracking-widest mt-1">
-                FOUNDED
+                BATCH-VERIFIED BEFORE LISTING
               </span>
             </div>
             <button className="w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center mb-1 hover:bg-primary transition-colors">
@@ -88,19 +90,22 @@ export function AboutHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-white rounded-[1.5rem] p-6 sm:p-8 flex justify-between relative hover:shadow-lg transition-all duration-300 cursor-default border border-black/5 shadow-[0_4px_20px_rgb(0,0,0,0.03)]"
+            className="bg-white rounded-[1.5rem] p-6 sm:p-8 flex flex-col justify-between relative hover:shadow-lg transition-all duration-300 cursor-default border border-black/5 shadow-[0_4px_20px_rgb(0,0,0,0.03)]"
           >
             <div className="flex flex-col justify-end h-full">
               <span className="text-4xl sm:text-5xl font-black text-ink font-heading tracking-tighter">
                 50+
               </span>
               <span className="text-[10px] sm:text-xs font-bold text-ink/50 uppercase tracking-widest mt-1">
-                RESEARCH PEPTIDES IN CATALOGUE
+                RESEARCH COMPOUNDS IN CATALOGUE
               </span>
+              <Link 
+                href="/shop" 
+                className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-primary hover:underline mt-3 group/link"
+              >
+                VIEW CATALOGUE <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
+              </Link>
             </div>
-            <span className="absolute top-6 right-6 border border-ink/10 text-ink/60 text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-ink/5">
-              GROWING
-            </span>
           </motion.div>
 
           <motion.div 
@@ -111,10 +116,10 @@ export function AboutHero() {
           >
             <div className="flex flex-col">
               <span className="text-4xl sm:text-5xl font-black text-white font-heading tracking-tighter">
-                100%
+                HPLC + MS
               </span>
               <span className="text-[10px] sm:text-xs font-bold text-white/50 uppercase tracking-widest mt-1">
-                BATCH-TESTED BEFORE RELEASE
+                THIRD-PARTY VERIFIED, EVERY BATCH
               </span>
             </div>
           </motion.div>
