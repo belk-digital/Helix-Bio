@@ -5,6 +5,8 @@ import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { AffiliatesLandingClient, UserAffiliateStatus } from './AffiliatesLandingClient'
 import { getOgImageUrl } from '@/lib/utils'
+import { JsonLd } from '@/components/shared/JsonLd'
+import { UNIFIED_ORGANIZATION_NODE, UNIFIED_WEBSITE_NODE } from '@/lib/schema'
 
 const slug = 'affiliates'
 
@@ -71,6 +73,8 @@ export default async function AffiliatesLandingPage({
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
+      UNIFIED_ORGANIZATION_NODE,
+      UNIFIED_WEBSITE_NODE,
       {
         '@type': 'WebPage',
         '@id': `${url}#webpage`,
@@ -78,6 +82,12 @@ export default async function AffiliatesLandingPage({
         name: title,
         description,
         inLanguage: locale,
+        'isPartOf': {
+          '@id': 'https://helixbiochem.com/#website',
+        },
+        'publisher': {
+          '@id': 'https://helixbiochem.com/#organization',
+        },
       },
       {
         '@type': 'BreadcrumbList',
@@ -133,10 +143,7 @@ export default async function AffiliatesLandingPage({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
+      <JsonLd id="schema-affiliates" data={schema} />
       <AffiliatesLandingClient userStatus={status} />
     </>
   )

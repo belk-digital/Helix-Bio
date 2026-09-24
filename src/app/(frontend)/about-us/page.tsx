@@ -10,6 +10,8 @@ import { OurServices } from '@/components/about/OurServices'
 import { ComplianceStatement } from '@/components/about/ComplianceStatement'
 import { SharedFaqSection } from '@/components/shared/SharedFaqSection'
 import { getOgImageUrl } from '@/lib/utils'
+import { JsonLd } from '@/components/shared/JsonLd'
+import { UNIFIED_ORGANIZATION_NODE, UNIFIED_WEBSITE_NODE } from '@/lib/schema'
 
 const ABOUT_FAQ_KEYS = [
   'trustworthySupplier',
@@ -121,20 +123,8 @@ export default async function AboutPage({
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
-      {
-        '@id': 'https://helixbiochem.com/#organization',
-        '@type': 'Organization',
-        'alternateName': 'Helix Bio',
-        'description': 'US supplier of research-grade peptides, sold strictly for laboratory research use only.',
-        'email': 'support@helixbiochem.com',
-        'logo': {
-          '@type': 'ImageObject',
-          'url': 'https://helixbiochem.com/HelixBio%20Images/hb-logo.webp',
-        },
-        'name': 'Helix Bio Chem',
-        'sameAs': [],
-        'url': 'https://helixbiochem.com/',
-      },
+      UNIFIED_ORGANIZATION_NODE,
+      UNIFIED_WEBSITE_NODE,
       {
         '@type': 'AboutPage',
         '@id': `${url}#webpage`,
@@ -170,10 +160,7 @@ export default async function AboutPage({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
+      <JsonLd id="schema-about" data={schema} />
       <main className="bg-[#FAFAFA] min-h-screen">
         <AboutHero />
         <MissionPhilosophyJourney />

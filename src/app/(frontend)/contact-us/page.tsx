@@ -3,6 +3,8 @@ import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { ContactClient } from '@/components/contact/ContactClient'
 import { getOgImageUrl } from '@/lib/utils'
+import { JsonLd } from '@/components/shared/JsonLd'
+import { UNIFIED_ORGANIZATION_NODE, UNIFIED_WEBSITE_NODE } from '@/lib/schema'
 
 const slug = 'contact-us'
 
@@ -68,28 +70,7 @@ export default async function ContactPage({
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'WebPage',
-        '@id': `${url}#webpage`,
-        url,
-        name: title,
-        description,
-        inLanguage: locale,
-      },
-      {
-        '@type': 'BreadcrumbList',
-        '@id': `${url}#breadcrumb`,
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
-          { '@type': 'ListItem', position: 2, name: 'Contact Us' },
-        ],
-      },
-      {
-        '@type': 'Organization',
-        '@id': `${baseUrl}/#organization`,
-        name: 'Helix Bio Chem',
-        url: baseUrl,
-        email: 'support@helixbiochem.com',
-
+        ...UNIFIED_ORGANIZATION_NODE,
         contactPoint: [
           {
             '@type': 'ContactPoint',
@@ -99,7 +80,29 @@ export default async function ContactPage({
             availableLanguage: ['English', 'Spanish'],
             hoursAvailable: 'Mo-Fr 09:00-17:00',
           },
-
+        ],
+      },
+      UNIFIED_WEBSITE_NODE,
+      {
+        '@type': 'WebPage',
+        '@id': `${url}#webpage`,
+        url,
+        name: title,
+        description,
+        inLanguage: locale,
+        'isPartOf': {
+          '@id': 'https://helixbiochem.com/#website',
+        },
+        'publisher': {
+          '@id': 'https://helixbiochem.com/#organization',
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${url}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
+          { '@type': 'ListItem', position: 2, name: 'Contact Us', item: url },
         ],
       },
       {
@@ -129,10 +132,7 @@ export default async function ContactPage({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
+      <JsonLd id="schema-contact" data={schema} />
       <ContactClient />
     </>
   )

@@ -592,13 +592,23 @@ export async function getShopProducts(params: {
         }
       }
 
+      let totalStock = typeof doc.stock === 'number' ? doc.stock : 0
+      if (doc.hasVariants && doc.variants && doc.variants.length > 0) {
+        totalStock = doc.variants.reduce((acc: number, v: any) => acc + (typeof v.stock === 'number' ? v.stock : 0), 0)
+      }
+      const effectivePrice = displaySalePrice !== undefined ? displaySalePrice : displayPrice
+      const productDescription = doc.description || doc.seoDescription || ''
+
       return {
         id: doc.id as number,
         name: doc.name,
         slug: doc.slug || '',
         image: imageUrl,
         hoverImage: hoverImageUrl,
-        shortDescription: doc.description || '',
+        shortDescription: productDescription,
+        description: productDescription,
+        price: effectivePrice,
+        stock: totalStock,
         priceRange: displaySalePrice 
           ? `${isFrom ? 'From ' : ''}$${displaySalePrice.toFixed(2)}` 
           : `${isFrom ? 'From ' : ''}$${displayPrice.toFixed(2)}`,

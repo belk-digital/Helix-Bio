@@ -4,6 +4,8 @@ import { getTranslations } from 'next-intl/server'
 import { FaqClient } from '@/components/faq/FaqClient'
 import { faqData } from '@/data/faqs'
 import { getOgImageUrl } from '@/lib/utils'
+import { JsonLd } from '@/components/shared/JsonLd'
+import { UNIFIED_ORGANIZATION_NODE, UNIFIED_WEBSITE_NODE } from '@/lib/schema'
 
 const slug = 'faq'
 const locale = 'en'
@@ -52,29 +54,8 @@ export default async function FaqPage() {
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
-      {
-        '@id': 'https://helixbiochem.com/#organization',
-        '@type': 'Organization',
-        'alternateName': 'Helix Bio',
-        'description': 'US supplier of research-grade peptides, sold strictly for laboratory research use only.',
-        'email': 'support@helixbiochem.com',
-        'logo': {
-          '@type': 'ImageObject',
-          'url': 'https://helixbiochem.com/HelixBio%20Images/hb-logo.webp',
-        },
-        'name': 'Helix Bio Chem',
-        'sameAs': [],
-        'url': 'https://helixbiochem.com/',
-      },
-      {
-        '@id': 'https://helixbiochem.com/#website',
-        '@type': 'WebSite',
-        'name': 'Helix Bio Chem',
-        'publisher': {
-          '@id': 'https://helixbiochem.com/#organization',
-        },
-        'url': 'https://helixbiochem.com/',
-      },
+      UNIFIED_ORGANIZATION_NODE,
+      UNIFIED_WEBSITE_NODE,
       {
         '@id': 'https://helixbiochem.com/faq#webpage',
         '@type': 'WebPage',
@@ -123,12 +104,7 @@ export default async function FaqPage() {
   return (
     <>
       <FaqClient />
-
-      {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
+      <JsonLd id="schema-faq" data={schema} />
     </>
   )
 }

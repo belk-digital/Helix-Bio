@@ -6,6 +6,8 @@ import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { Metadata } from 'next'
 import { getCategoryDisplayName } from '@/lib/categoryDisplay'
+import { JsonLd } from '@/components/shared/JsonLd'
+import { UNIFIED_ORGANIZATION_NODE, UNIFIED_WEBSITE_NODE } from '@/lib/schema'
 
 export async function generateMetadata({
   params,
@@ -517,9 +519,9 @@ export default async function ProductPage({
     } : {}),
   }
 
-  const faqSchema = productData.faqs.length > 0 ? {
-    '@context': 'https://schema.org',
+  const faqSchemaNode = productData.faqs.length > 0 ? {
     '@type': 'FAQPage',
+    '@id': `${productUrl}#faq`,
     mainEntity: productData.faqs.map(faq => ({
       '@type': 'Question',
       name: faq.question,
@@ -533,9 +535,9 @@ export default async function ProductPage({
   // Mirrors the visible breadcrumb trail in ProductClient exactly (Home > Shop > Product) —
   // a schema.org BreadcrumbList that includes a step not shown on the page is a
   // markup/visible-content mismatch per Google's structured data guidelines.
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
+  const breadcrumbSchemaNode = {
     '@type': 'BreadcrumbList',
+    '@id': `${productUrl}#breadcrumb`,
     itemListElement: [
       {
         '@type': 'ListItem',
@@ -558,22 +560,20 @@ export default async function ProductPage({
     ]
   }
 
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      UNIFIED_ORGANIZATION_NODE,
+      UNIFIED_WEBSITE_NODE,
+      productSchema,
+      breadcrumbSchemaNode,
+      ...(faqSchemaNode ? [faqSchemaNode] : [])
+    ]
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
-      />
-      {faqSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-      )}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+      <JsonLd id="schema-product" data={schema} />
       <main className="flex-1">
         <ProductClient product={productData as any} />
       </main>

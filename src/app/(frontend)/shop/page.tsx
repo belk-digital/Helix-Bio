@@ -6,6 +6,8 @@ import configPromise from '@payload-config'
 import { getTranslations } from 'next-intl/server'
 import { getShopProducts } from '../(shop)/actions'
 import { getOgImageUrl } from '@/lib/utils'
+import { JsonLd } from '@/components/shared/JsonLd'
+import { UNIFIED_ORGANIZATION_NODE, UNIFIED_WEBSITE_NODE } from '@/lib/schema'
 
 const SHOP_FAQ_KEYS = [
   'availablePeptides',
@@ -115,6 +117,49 @@ export default async function ShopPage() {
     answer: t(`faqs.${key}.answer`),
   }))
 
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      UNIFIED_ORGANIZATION_NODE,
+      UNIFIED_WEBSITE_NODE,
+      {
+        '@type': 'WebPage',
+        '@id': `${siteUrl}/shop#webpage`,
+        url: `${siteUrl}/shop`,
+        name: title,
+        description,
+      },
+      {
+        '@type': 'CollectionPage',
+        '@id': `${siteUrl}/shop#collectionpage`,
+        url: `${siteUrl}/shop`,
+        name: title,
+        description,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${siteUrl}/shop#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+          { '@type': 'ListItem', position: 2, name: 'Shop', item: `${siteUrl}/shop` },
+          { '@type': 'ListItem', position: 3, name: 'All Research Peptides', item: `${siteUrl}/shop` },
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${siteUrl}/shop#faq`,
+        mainEntity: shopFaqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  }
+
   return (
     <>
       <ShopClient
@@ -123,64 +168,7 @@ export default async function ShopPage() {
         categories={categories}
       />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@graph': [
-              {
-                '@type': 'WebPage',
-                '@id': `${siteUrl}/shop#webpage`,
-                url: `${siteUrl}/shop`,
-                name: title,
-                description,
-              },
-              {
-                '@type': 'CollectionPage',
-                '@id': `${siteUrl}/shop#collectionpage`,
-                url: `${siteUrl}/shop`,
-                name: title,
-                description,
-              },
-              {
-                '@type': 'BreadcrumbList',
-                '@id': `${siteUrl}/shop#breadcrumb`,
-                itemListElement: [
-                  { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-                  { '@type': 'ListItem', position: 2, name: 'Shop', item: `${siteUrl}/shop` },
-                  { '@type': 'ListItem', position: 3, name: 'All Research Peptides', item: `${siteUrl}/shop` },
-                ],
-              },
-              {
-                '@type': 'WebSite',
-                '@id': `${siteUrl}/#website`,
-                url: siteUrl,
-                name: 'Helix Bio',
-              },
-              {
-                '@type': 'Organization',
-                '@id': `${siteUrl}/#organization`,
-                name: 'Helix Bio',
-                url: siteUrl,
-                description: 'USA-based supplier of research-use-only synthetic peptides for laboratory research.',
-              },
-              {
-                '@type': 'FAQPage',
-                '@id': `${siteUrl}/shop#faq`,
-                mainEntity: shopFaqs.map((faq) => ({
-                  '@type': 'Question',
-                  name: faq.question,
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text: faq.answer,
-                  },
-                })),
-              },
-            ],
-          }),
-        }}
-      />
+      <JsonLd id="schema-shop" data={schema} />
     </>
   )
 }

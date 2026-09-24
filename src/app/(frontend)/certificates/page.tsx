@@ -5,6 +5,8 @@ import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { CertificatesClient, type COA } from './CertificatesClient'
 import { getOgImageUrl } from '@/lib/utils'
+import { JsonLd } from '@/components/shared/JsonLd'
+import { UNIFIED_ORGANIZATION_NODE, UNIFIED_WEBSITE_NODE } from '@/lib/schema'
 
 const slug = 'certificates'
 
@@ -90,6 +92,8 @@ export default async function CertificatesPage() {
   const pageSchema = {
     '@context': 'https://schema.org',
     '@graph': [
+      UNIFIED_ORGANIZATION_NODE,
+      UNIFIED_WEBSITE_NODE,
       {
         '@type': 'WebPage',
         '@id': `${url}#webpage`,
@@ -97,36 +101,27 @@ export default async function CertificatesPage() {
         name: title,
         description,
         inLanguage: locale,
+        'isPartOf': {
+          '@id': 'https://helixbiochem.com/#website',
+        },
+        'publisher': {
+          '@id': 'https://helixbiochem.com/#organization',
+        },
       },
       {
         '@type': 'BreadcrumbList',
         '@id': `${url}#breadcrumb`,
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
-          { '@type': 'ListItem', position: 2, name: 'Certificates' },
+          { '@type': 'ListItem', position: 2, name: 'Certificates', item: url },
         ],
-      },
-      {
-        '@type': 'WebSite',
-        '@id': `${baseUrl}/#website`,
-        url: baseUrl,
-        name: 'Helix Bio',
-      },
-      {
-        '@type': 'Organization',
-        '@id': `${baseUrl}/#organization`,
-        name: 'Helix Bio',
-        url: baseUrl,
       },
     ],
   }
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
-      />
+      <JsonLd id="schema-certificates" data={pageSchema} />
       <CertificatesClient coas={coas} />
     </>
   )

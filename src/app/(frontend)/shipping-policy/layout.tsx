@@ -1,6 +1,8 @@
 import React from 'react'
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
+import { JsonLd } from '@/components/shared/JsonLd'
+import { UNIFIED_ORGANIZATION_NODE, UNIFIED_WEBSITE_NODE } from '@/lib/schema'
 
 const breadcrumbName = 'Shipping Policy'
 const slug = 'shipping-policy'
@@ -14,14 +16,13 @@ export async function generateMetadata({
   const t = await getTranslations('legal.shippingPolicy')
   const title = t('metaTitle')
   const description = t('metaDescription')
-  const path = true ? `/${slug}` : `/${locale}/${slug}`
+  const path = `/${slug}`
 
   return {
     title,
     description,
     alternates: {
       canonical: path,
-      
     },
     openGraph: {
       title,
@@ -49,12 +50,14 @@ export default async function ShippingPolicyLayout({
   const title = t('metaTitle')
   const description = t('metaDescription')
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
-  const path = true ? `/${slug}` : `/${locale}/${slug}`
+  const path = `/${slug}`
   const url = `${baseUrl}${path}`
 
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
+      UNIFIED_ORGANIZATION_NODE,
+      UNIFIED_WEBSITE_NODE,
       {
         '@type': 'WebPage',
         '@id': `${url}#webpage`,
@@ -62,13 +65,19 @@ export default async function ShippingPolicyLayout({
         name: title,
         description,
         inLanguage: locale,
+        'isPartOf': {
+          '@id': 'https://helixbiochem.com/#website',
+        },
+        'publisher': {
+          '@id': 'https://helixbiochem.com/#organization',
+        },
       },
       {
         '@type': 'BreadcrumbList',
         '@id': `${url}#breadcrumb`,
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
-          { '@type': 'ListItem', position: 2, name: breadcrumbName },
+          { '@type': 'ListItem', position: 2, name: breadcrumbName, item: url },
         ],
       },
     ],
@@ -76,10 +85,7 @@ export default async function ShippingPolicyLayout({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
+      <JsonLd id="schema-legal-shipping" data={schema} />
       {children}
     </>
   )

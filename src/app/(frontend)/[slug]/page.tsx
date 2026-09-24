@@ -17,6 +17,8 @@ import { ReferencesList } from '@/components/blog/ReferencesList'
 import { AuthorCard } from '@/components/blog/AuthorCard'
 import { RelatedProductsSlider } from '@/components/blog/RelatedProductsSlider'
 import { estimateReadingTime } from '@/lib/blog/readingTime'
+import { JsonLd } from '@/components/shared/JsonLd'
+import { UNIFIED_ORGANIZATION_NODE, UNIFIED_WEBSITE_NODE } from '@/lib/schema'
 import { splitFirstParagraph } from '@/lib/blog/splitContent'
 import { getFeaturedImageUrl, formatPostDate, FALLBACK_BLOG_IMAGE as FALLBACK_IMAGE } from '@/lib/blog/postDisplay'
 import { encodeImageUrl, getOgImageUrl, toAbsoluteUrl } from '@/lib/utils'
@@ -205,6 +207,8 @@ export default async function BlogPostPage({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
+      UNIFIED_ORGANIZATION_NODE,
+      UNIFIED_WEBSITE_NODE,
       {
         '@type': 'BlogPosting',
         '@id': `${postUrl}#article`,
@@ -222,9 +226,7 @@ export default async function BlogPostPage({
           name: authorProfile?.name || 'Helix Bio Team',
         },
         publisher: {
-          '@type': 'Organization',
-          name: 'Helix Bio',
-          logo: { '@type': 'ImageObject', url: `${baseUrl}/HelixBio%20Images/hb-logo.png` },
+          '@id': 'https://helixbiochem.com/#organization',
         },
         mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
         ...(productSchemas.length > 0
@@ -244,6 +246,7 @@ export default async function BlogPostPage({
         ? [
             {
               '@type': 'FAQPage',
+              '@id': `${postUrl}#faq`,
               mainEntity: post.faqs.map((faq: any) => ({
                 '@type': 'Question',
                 name: faq.question,
@@ -258,10 +261,7 @@ export default async function BlogPostPage({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd id="schema-blog" data={jsonLd} />
       <main className="bg-[#FAFAFA] min-h-screen pb-32">
         <ReadingProgress />
 
