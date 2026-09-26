@@ -8,8 +8,8 @@ export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url)
 
     let title = searchParams.has('title')
-      ? searchParams.get('title') || 'Helix Bio'
-      : 'Helix Bio'
+      ? searchParams.get('title') || 'Helix Bio Chem'
+      : 'Helix Bio Chem'
       
     // Strip redundant brand name to keep text short and clean
     if (title.includes(' | HelixBioPeptides')) {
@@ -73,7 +73,7 @@ export async function GET(req: NextRequest) {
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <img
                 src={logoUrl}
-                alt="Helix Bio"
+                alt="Helix Bio Chem"
                 style={{ height: '95px', objectFit: 'contain' }}
               />
             </div>

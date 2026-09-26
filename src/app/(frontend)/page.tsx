@@ -128,13 +128,8 @@ export default async function Homepage() {
         'name': title,
         'description': description,
       },
-      {
-        '@type': 'BreadcrumbList',
-        '@id': 'https://helixbiochem.com/#breadcrumb',
-        'itemListElement': [
-          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://helixbiochem.com/' },
-        ],
-      },
+      // No BreadcrumbList on the homepage: a one-item trail carries no hierarchy and is not
+      // eligible for a breadcrumb rich result.
       {
         '@type': 'FAQPage',
         'mainEntity': [

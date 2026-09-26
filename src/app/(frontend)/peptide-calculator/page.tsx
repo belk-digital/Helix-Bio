@@ -47,6 +47,7 @@ export default async function Page({
 }) {
   const locale = 'en'
   const t = await getTranslations('calculator.page')
+  const tMain = await getTranslations('calculator.main')
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
   const path = `/${slug}`
   const url = `${baseUrl}${path}`
@@ -134,6 +135,22 @@ export default async function Page({
             'acceptedAnswer': {
               '@type': 'Answer',
               'text': t('faq.q3Answer'),
+            },
+          },
+          {
+            '@type': 'Question',
+            'name': tMain('faq.q11.question'),
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': tMain('faq.q11.answer'),
+            },
+          },
+          {
+            '@type': 'Question',
+            'name': tMain('faq.q12.question'),
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': tMain('faq.q12.answer'),
             },
           },
         ],

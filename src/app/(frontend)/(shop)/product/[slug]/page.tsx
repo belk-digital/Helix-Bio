@@ -6,6 +6,7 @@ import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { Metadata } from 'next'
 import { getCategoryDisplayName } from '@/lib/categoryDisplay'
+import { getShippingMethods } from '@/app/(frontend)/(shop)/checkout/actions'
 import { JsonLd } from '@/components/shared/JsonLd'
 import { UNIFIED_ORGANIZATION_NODE, UNIFIED_WEBSITE_NODE } from '@/lib/schema'
 
@@ -20,7 +21,9 @@ export async function generateMetadata({
   
   const { docs } = await payload.find({
     collection: 'products',
-    where: { slug: { equals: slug } },
+    // Only active products are public. The local API bypasses collection access rules by default,
+    // so without this filter draft/archived products were reachable (and indexable) by URL.
+    where: { and: [{ slug: { equals: slug } }, { status: { equals: 'active' } }] },
     limit: 1,
     depth: 1, // Need media depth for images
     locale: locale as 'en' | 'es',
@@ -50,6 +53,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
+      url: `/product/${slug}`,
       images: [{ url: getOgImageUrl(title, description) }],
       type: 'website',
     },
@@ -79,11 +83,7 @@ export default async function ProductPage({
 
   const { docs } = await payload.find({
     collection: 'products',
-    where: {
-      slug: {
-        equals: slug,
-      },
-    },
+    where: { and: [{ slug: { equals: slug } }, { status: { equals: 'active' } }] },
     limit: 1,
     depth: 2, // To fetch categories and media
     locale: locale as 'en' | 'es',
@@ -425,13 +425,42 @@ export default async function ProductPage({
     returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
   }
 
+  // Shipping is derived from the SAME methods checkout charges (ShippingZones, or the checkout
+  // fallback of Standard $25 / Express $50), never hard-coded. It previously claimed free shipping
+  // with 0–1 day handling, contradicting both the real rates and the Shipping Policy (1–3 business
+  // day order review) — a structured-data/visible-content mismatch that risks merchant-listing
+  // disqualification. International methods are excluded: schema declares US delivery only.
+  const shippingMethods = (await getShippingMethods()).filter((m: any) => !m.isInternational)
+  const shippingDetails = shippingMethods.map((m: any) => ({
+    '@type': 'OfferShippingDetails',
+    shippingLabel: m.method,
+    shippingRate: {
+      '@type': 'MonetaryAmount',
+      value: Number(m.price || 0).toFixed(2),
+      currency: 'USD',
+    },
+    shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'US' },
+    deliveryTime: {
+      '@type': 'ShippingDeliveryTime',
+      // Shipping Policy: every order goes through a 1–3 business day review before it ships.
+      handlingTime: { '@type': 'QuantitativeValue', minValue: 1, maxValue: 3, unitCode: 'DAY' },
+      transitTime: {
+        '@type': 'QuantitativeValue',
+        minValue: 1,
+        maxValue: Math.max(1, Number(m.estimatedDays) || 5),
+        unitCode: 'DAY',
+      },
+    },
+  }))
+  const priceValidUntil = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10)
+
   const productSchema = {
     '@context': 'https://schema.org/',
     '@type': 'Product',
     name: productData.name,
     description: productData.shortDescription,
     image: (productData.images.length > 0 ? productData.images : (
-      productData.variants.find(v => v.images?.length > 0)?.images || ['/HelixBio Images/featured-research-2.webp']
+      productData.variants.find(v => v.images?.length > 0)?.images || [encodeURI('/HelixBio Images/featured-research-2.webp')]
     )).map((img: string) => img.startsWith('http') ? img : `${baseUrl}${img}`),
     sku: productData.sku || productData.id,
     mpn: productData.sku || productData.id,
@@ -446,11 +475,11 @@ export default async function ProductPage({
     } : {}),
     brand: {
       '@type': 'Brand',
-      name: 'Helix Bio'
+      name: 'Helix Bio Chem'
     },
     manufacturer: {
       '@type': 'Organization',
-      name: 'Helix Bio'
+      name: 'Helix Bio Chem'
     },
     offers: productData.variants.length > 1 ? {
       '@type': 'AggregateOffer',
@@ -465,11 +494,15 @@ export default async function ProductPage({
         url: productUrl,
         priceCurrency: 'USD',
         price: (v.salePrice || v.price).replace(/[^0-9.]/g, ''),
+        priceValidUntil,
         availability: v.inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
         itemCondition: 'https://schema.org/NewCondition',
         sku: v.sku || productData.sku || productData.id,
+        // Merchant listings are evaluated per Offer, so shipping + returns live on each variant
+        // offer, not only on the AggregateOffer wrapper.
+        shippingDetails,
+        hasMerchantReturnPolicy: merchantReturnPolicy,
       })),
-      hasMerchantReturnPolicy: merchantReturnPolicy,
     } : {
       '@type': 'Offer',
       url: productUrl,
@@ -478,33 +511,8 @@ export default async function ProductPage({
       availability: productData.variants[0]?.inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
       itemCondition: 'https://schema.org/NewCondition',
       sku: productData.variants[0]?.sku || productData.sku || productData.id,
-      shippingDetails: {
-        '@type': 'OfferShippingDetails',
-        shippingRate: {
-          '@type': 'MonetaryAmount',
-          value: '0',
-          currency: 'USD'
-        },
-        shippingDestination: {
-          '@type': 'DefinedRegion',
-          addressCountry: 'US'
-        },
-        deliveryTime: {
-          '@type': 'ShippingDeliveryTime',
-          handlingTime: {
-            '@type': 'QuantitativeValue',
-            minValue: 0,
-            maxValue: 1,
-            unitCode: 'd'
-          },
-          transitTime: {
-            '@type': 'QuantitativeValue',
-            minValue: 1,
-            maxValue: 5,
-            unitCode: 'd'
-          }
-        }
-      },
+      priceValidUntil,
+      shippingDetails,
       hasMerchantReturnPolicy: merchantReturnPolicy,
     },
     ...(productData.reviewCount > 0 ? {

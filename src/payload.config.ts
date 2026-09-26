@@ -207,7 +207,7 @@ export default buildConfig({
       collections: ['pages', 'blog-posts'],
       tabbedUI: true,
       uploadsCollection: 'media',
-      generateTitle: ({ doc }: any) => (doc?.title ? `${doc.title} | Helix Bio` : 'Helix Bio'),
+      generateTitle: ({ doc }: any) => (doc?.title ? `${doc.title} | Helix Bio Chem` : 'Helix Bio Chem'),
       generateDescription: ({ doc }: any) => doc?.excerpt || doc?.seoDescription || '',
       generateImage: ({ doc }: any) => doc?.featuredImage || doc?.meta?.image,
       generateURL: ({ doc }: any) => {
@@ -218,7 +218,7 @@ export default buildConfig({
   ],
   email: resendAdapter({
     defaultFromAddress: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
-    defaultFromName: 'Helix Bio',
+    defaultFromName: 'Helix Bio Chem',
     apiKey: process.env.RESEND_API_KEY || '',
   }),
 })

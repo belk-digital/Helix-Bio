@@ -99,10 +99,10 @@ export const authOptions: NextAuthOptions = {
         try {
           const { sendTrackedEmail } = await import('@/lib/emails/sendTrackedEmail')
           await sendTrackedEmail(payload, {
-            from: 'Support | Helix Bio <support@helixbiochem.com>',
+            from: 'Support | Helix Bio Chem <support@helixbiochem.com>',
             to: linked.email,
             subject: 'A new sign-in method was added to your account',
-            html: `<p>Google sign-in was just linked to your Helix Bio account (${linked.email}). If this wasn't you, please contact support immediately.</p>`,
+            html: `<p>Google sign-in was just linked to your Helix Bio Chem account (${linked.email}). If this wasn't you, please contact support immediately.</p>`,
           })
         } catch (err) {
           console.error('Failed to send Google-link notice email:', err)

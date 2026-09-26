@@ -15,7 +15,11 @@ export default function CartPage() {
   return (
     <div className="bg-[#fafafa] min-h-screen">
       <div className="pt-20">
-        <CartClient />
+        {/* CartClient reads useSearchParams(), which needs its own Suspense boundary now that the
+            root (frontend)/loading.tsx no longer wraps every page. */}
+        <React.Suspense fallback={null}>
+          <CartClient />
+        </React.Suspense>
       </div>
     </div>
   )

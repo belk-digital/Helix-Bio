@@ -5,11 +5,11 @@ import Script from 'next/script'
 import { AuthSessionProvider } from '@/components/providers/AuthSessionProvider'
 import '@/app/globals.css'
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+import { GA_MEASUREMENT_ID, IS_PRODUCTION_DEPLOYMENT, IS_PRODUCTION_HOST_JS } from '@/lib/analyticsConfig'
 
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'),
-  title: 'Helix Bio',
+  title: 'Helix Bio Chem',
   description: 'Premium Peptides for Peak Performance',
 }
 
@@ -28,13 +28,14 @@ export default async function AuthLayout({ children }: { children: React.ReactNo
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&family=Big+Shoulders+Display:wght@100..900&display=swap"
           rel="stylesheet"
         />
-        {GA_MEASUREMENT_ID && (
+        {IS_PRODUCTION_DEPLOYMENT && GA_MEASUREMENT_ID && (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
             <Script id="ga4-init" strategy="afterInteractive">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
+                if (!${IS_PRODUCTION_HOST_JS}) { window['ga-disable-${GA_MEASUREMENT_ID}'] = true; }
                 gtag('js', new Date());
                 gtag('config', '${GA_MEASUREMENT_ID}');
               `}

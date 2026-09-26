@@ -12,7 +12,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FluidButton } from '@/components/ui/fluid-button'
 
-const FAQ_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10'] as const
+const FAQ_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12'] as const
 
 export default function PeptideCalculatorPage() {
   const t = useTranslations('calculator.main')
@@ -592,6 +592,32 @@ export default function PeptideCalculatorPage() {
               </div>
             </FadeUp>
           </div>
+        </section>
+
+        {/* RELATED GUIDES — makes this page the hub of its topic cluster (calculator <-> guides) */}
+        <section className="relative">
+          <FadeUp>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-black text-ink tracking-tighter uppercase mb-6">Related Research Guides</h2>
+              <p className="text-ink/60 text-lg max-w-2xl mx-auto">Go deeper on the math and handling behind the calculator.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                { href: '/peptide-reconstitution-guide-bacteriostatic-water-storage-stability', title: 'Reconstitution guide', desc: 'Bacteriostatic water, technique, storage and stability after mixing.' },
+                { href: '/peptide-concentration-calculation-reconstitution-dilution-math', title: 'Peptide concentration & dilution math', desc: 'The concentration formula and dilution ratios, worked step by step.' },
+                { href: '/peptide-dosage-calculator-mg-mcg-mL-IU-conversions', title: 'mg, mcg, mL & IU conversions', desc: 'Unit conversions, syringe units and the most common calculation errors.' },
+              ].map((guide) => (
+                <Link
+                  key={guide.href}
+                  href={guide.href}
+                  className="group bg-white p-8 rounded-[2rem] border border-black/5 hover:-translate-y-2 hover:shadow-xl transition-all duration-500"
+                >
+                  <h3 className="font-black text-ink uppercase tracking-tight text-lg mb-3 group-hover:text-primary transition-colors">{guide.title}</h3>
+                  <p className="text-ink/60 text-sm leading-relaxed">{guide.desc}</p>
+                </Link>
+              ))}
+            </div>
+          </FadeUp>
         </section>
 
       </div>

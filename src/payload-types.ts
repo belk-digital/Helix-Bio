@@ -2462,7 +2462,7 @@ export interface AffiliateSetting {
   createdAt?: string | null;
 }
 /**
- * The single byline used across every blog post (the Helix Bio Team account is the only author). Feeds Author/Person schema.org markup for E-E-A-T.
+ * The single byline used across every blog post (the Helix Bio Chem Team account is the only author). Feeds Author/Person schema.org markup for E-E-A-T.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "blog-author-profile".

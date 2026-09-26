@@ -10,10 +10,18 @@ export const revalidate = 3600
 
 const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
 
+type Freq = MetadataRoute.Sitemap[number]['changeFrequency']
+
 // Grouped by crawl priority rather than alphabetically, so the sitemap's own ordering
 // reflects which pages matter most (highest first) — homepage/shop first, then core
 // conversion-adjacent pages, then supporting/legal pages.
-const STATIC_PATHS: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'] }[] = [
+//
+// `lastModified` is deliberately NOT set for pages whose content has no reliable "last changed"
+// date. Emitting `new Date()` (the request time) made every static URL claim it changed on every
+// regeneration, which teaches search engines to ignore <lastmod> everywhere. Where a truthful date
+// exists (home / shop / blog index — derived from the newest product/post below) it is applied;
+// otherwise the field is omitted, which is valid and honest.
+const STATIC_PATHS: { path: string; priority: number; changeFrequency: Freq }[] = [
   { path: '', priority: 1.0, changeFrequency: 'daily' },
   { path: '/shop', priority: 0.9, changeFrequency: 'daily' },
   { path: '/blog', priority: 0.8, changeFrequency: 'daily' },
@@ -32,22 +40,26 @@ const STATIC_PATHS: { path: string; priority: number; changeFrequency: MetadataR
 
 function entry(
   path: string,
-  opts?: { lastModified?: Date; priority?: number; changeFrequency?: MetadataRoute.Sitemap[number]['changeFrequency'] },
-) {
+  opts?: { lastModified?: Date; priority?: number; changeFrequency?: Freq },
+): MetadataRoute.Sitemap[number] {
   return {
     url: `${baseUrl}${path}`,
-    lastModified: opts?.lastModified || new Date(),
+    ...(opts?.lastModified ? { lastModified: opts.lastModified } : {}),
     ...(opts?.priority !== undefined ? { priority: opts.priority } : {}),
     ...(opts?.changeFrequency ? { changeFrequency: opts.changeFrequency } : {}),
   }
 }
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const entries: MetadataRoute.Sitemap = []
+function newest(dates: (Date | undefined)[]): Date | undefined {
+  const valid = dates.filter((d): d is Date => !!d && !Number.isNaN(d.getTime()))
+  return valid.length ? new Date(Math.max(...valid.map((d) => d.getTime()))) : undefined
+}
 
-  for (const { path, priority, changeFrequency } of STATIC_PATHS) {
-    entries.push(entry(path, { priority, changeFrequency }))
-  }
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const productEntries: MetadataRoute.Sitemap = []
+  const postEntries: MetadataRoute.Sitemap = []
+  const productDates: Date[] = []
+  const postDates: Date[] = []
 
   try {
     const payload = await getPayload({ config: configPromise })
@@ -59,9 +71,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
 
     for (const product of products) {
-      const path = `/product/${product.slug}`
       const lastModified = product.updatedAt ? new Date(product.updatedAt) : undefined
-      entries.push(entry(path, { lastModified, priority: 0.8, changeFrequency: 'weekly' }))
+      if (lastModified) productDates.push(lastModified)
+      productEntries.push(entry(`/product/${product.slug}`, { lastModified, priority: 0.8, changeFrequency: 'weekly' }))
     }
   } catch (error) {
     console.error('sitemap: failed to fetch products', error)
@@ -78,14 +90,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
 
     for (const post of posts) {
-      const path = `/${post.slug}`
       const lastModified = post.updatedAt ? new Date(post.updatedAt) : undefined
-      entries.push(entry(path, { lastModified, priority: 0.6, changeFrequency: 'monthly' }))
+      if (lastModified) postDates.push(lastModified)
+      postEntries.push(entry(`/${post.slug}`, { lastModified, priority: 0.6, changeFrequency: 'monthly' }))
     }
   } catch (error) {
     console.error('sitemap: failed to fetch blog posts', error)
     Sentry.captureException(error, { tags: { route: 'sitemap.xml' } })
   }
 
-  return entries
+  // Truthful dates for the listing pages: they change when their contents change.
+  const derivedLastModified: Record<string, Date | undefined> = {
+    '': newest([...productDates, ...postDates]),
+    '/shop': newest(productDates),
+    '/blog': newest(postDates),
+  }
+
+  const staticEntries = STATIC_PATHS.map(({ path, priority, changeFrequency }) =>
+    entry(path, { priority, changeFrequency, lastModified: derivedLastModified[path] }),
+  )
+
+  return [...staticEntries, ...productEntries, ...postEntries]
 }

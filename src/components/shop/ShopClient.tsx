@@ -204,16 +204,16 @@ function ShopClientInner({ initialProducts, totalPages, categories }: ShopClient
               Shop Research Peptides
             </h1>
             <p className="text-ink/50 text-sm md:text-base tracking-wide font-medium">
-              Browse Helix Bio&apos;s full catalog of research-use-only peptides. Every batch is third-party tested for purity, shipped from the USA, and backed by a certificate of analysis you can review before you order.
+              Browse Helix Bio Chem&apos;s full catalog of research-use-only peptides. Every batch is third-party tested for purity, shipped from the USA, and backed by a certificate of analysis you can review before you order.
             </p>
           </div>
         </div>
 
         {/* Banner Row */}
-        <div className="relative w-full h-[350px] sm:h-[450px] md:h-[550px] rounded-[2rem] md:rounded-[3rem] overflow-hidden mb-4 sm:mb-6 shadow-2xl group cursor-pointer bg-zinc-900">
+        <div className="hidden sm:block relative w-full sm:h-[450px] md:h-[550px] rounded-[2rem] md:rounded-[3rem] overflow-hidden mb-4 sm:mb-6 shadow-2xl group bg-zinc-900">
           <Image
             src="/HelixBio Images/mutiple-vial-1.webp"
-            alt="Helix Bio research peptide vials with certificate of analysis, USA laboratory supply"
+            alt="Helix Bio Chem research peptide vials with certificate of analysis, USA laboratory supply"
             fill
             className="object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"
           />
@@ -231,14 +231,14 @@ function ShopClientInner({ initialProducts, totalPages, categories }: ShopClient
                  Our products: research peptides, amino acids, and laboratory compounds.
                </p>
             </div>
-            <button className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white flex items-center justify-center shrink-0 shadow-lg group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+            <span aria-hidden="true" className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white flex items-center justify-center shrink-0 shadow-lg group-hover:bg-primary group-hover:text-white transition-colors duration-300">
               <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={2.5} />
-            </button>
+            </span>
           </div>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+        <div className="hidden sm:grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
           <div className="bg-white rounded-[1.5rem] p-6 sm:p-8 flex items-end justify-between hover:shadow-lg transition-all duration-300 cursor-default border border-black/5 shadow-[0_4px_20px_rgb(0,0,0,0.03)]">
             <div className="flex flex-col">
               <span className="text-4xl sm:text-5xl font-black text-ink font-heading tracking-tighter">

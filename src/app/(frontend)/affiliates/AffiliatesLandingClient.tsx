@@ -488,6 +488,13 @@ export function AffiliatesLandingClient({ userStatus }: Props) {
                 <p className="font-light text-lg md:text-xl text-ink/70 leading-relaxed max-w-xl">
                   {t('introDescription')}
                 </p>
+                <p className="text-ink/50 text-base mt-6 max-w-xl">
+                  New to affiliate marketing in this space? Read{' '}
+                  <Link href="/research-peptide-affiliate-programs-explained" className="font-bold text-primary underline underline-offset-4 hover:text-primary-dark transition-colors">
+                    how research peptide affiliate programs work
+                  </Link>{' '}
+                  before you apply.
+                </p>
               </div>
             </FadeUp>
           </div>

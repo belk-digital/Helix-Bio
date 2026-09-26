@@ -58,6 +58,13 @@ const nextConfig: NextConfig = {
   async redirects() {
     return []
   },
+  async rewrites() {
+    return [
+      // IndexNow ownership file: engines require https://<host>/<key>.txt at the site root.
+      // afterFiles semantics mean real files in /public (llms.txt, llms-full.txt) still win.
+      { source: '/:k([A-Za-z0-9-]{8,128}).txt', destination: '/api/indexnow/key?k=:k' },
+    ]
+  },
   async headers() {
     return [
       {

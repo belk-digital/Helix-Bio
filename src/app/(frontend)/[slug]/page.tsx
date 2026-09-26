@@ -56,17 +56,17 @@ export async function generateMetadata({
   const post = await getPost(slug)
 
   if (!post) {
-    return { title: 'Post Not Found | Helix Bio' }
+    return { title: 'Post Not Found | Helix Bio Chem' }
   }
 
-  const title = post.meta?.title || `${post.title} | Helix Bio`
+  const title = post.meta?.title || `${post.title} | Helix Bio Chem`
   const description = post.meta?.description || post.excerpt || ''
   const path = `/${slug}`
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
   const imageUrl = toAbsoluteUrl(baseUrl, getFeaturedImageUrl(post))
   const payload = await getPayload({ config: configPromise })
   const authorProfile = await payload.findGlobal({ slug: 'blog-author-profile' })
-  const authorName = authorProfile?.name || 'Helix Bio Team'
+  const authorName = authorProfile?.name || 'Helix Bio Chem Team'
   const publishedIso = post.publishedAt
     ? new Date(post.publishedAt).toISOString()
     : new Date(post.createdAt).toISOString()
@@ -79,7 +79,7 @@ export async function generateMetadata({
       ? post.keywords.split(',').map((k: string) => k.trim()).filter(Boolean)
       : undefined,
     authors: [{ name: authorName }],
-    publisher: 'Helix Bio',
+    publisher: 'Helix Bio Chem',
     robots: { index: true, follow: true },
     alternates: { canonical: path },
     openGraph: {
@@ -87,7 +87,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       url: path,
-      siteName: 'Helix Bio',
+      siteName: 'Helix Bio Chem',
       publishedTime: publishedIso,
       modifiedTime: modifiedIso,
       authors: [authorName],
@@ -191,7 +191,7 @@ export default async function BlogPostPage({
       image: productImage,
       sku: product.sku || String(product.id),
       url: productUrl,
-      brand: { '@type': 'Brand', name: 'Helix Bio' },
+      brand: { '@type': 'Brand', name: 'Helix Bio Chem' },
       offers: {
         '@type': 'Offer',
         url: productUrl,
@@ -223,7 +223,7 @@ export default async function BlogPostPage({
         keywords: post.keywords || undefined,
         author: {
           '@type': 'Person',
-          name: authorProfile?.name || 'Helix Bio Team',
+          name: authorProfile?.name || 'Helix Bio Chem Team',
         },
         publisher: {
           '@id': 'https://helixbiochem.com/#organization',
@@ -316,7 +316,7 @@ export default async function BlogPostPage({
                 )}
 
                 <AuthorCard
-                  name={authorProfile?.name || 'Helix Bio Team'}
+                  name={authorProfile?.name || 'Helix Bio Chem Team'}
                   title={authorProfile?.title ?? undefined}
                   bio={authorProfile?.bio ?? undefined}
                   credentials={authorProfile?.credentials ?? undefined}

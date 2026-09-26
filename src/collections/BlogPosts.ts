@@ -2,6 +2,13 @@ import { CollectionConfig } from 'payload'
 import { lexicalEditor, EXPERIMENTAL_TableFeature, BlocksFeature } from '@payloadcms/richtext-lexical'
 import { accessContent } from '../access/content'
 import { CalloutBox } from '../blocks/CalloutBox'
+import { indexNowHooks } from '../hooks/indexnow'
+
+// Ping IndexNow (Bing/Copilot) when a published post is created, edited or removed.
+const blogIndexNow = indexNowHooks({
+  pathFor: (doc) => (doc?.slug ? `/${doc.slug}` : null),
+  isLive: (doc) => doc?.status === 'published',
+})
 
 export const BlogPosts: CollectionConfig = {
   slug: 'blog-posts',
@@ -94,6 +101,8 @@ export const BlogPosts: CollectionConfig = {
     },
   ],
   hooks: {
+    afterChange: [blogIndexNow.afterChange],
+    afterDelete: [blogIndexNow.afterDelete],
     beforeChange: [
       ({ data, operation }) => {
         if (operation === 'create' && !data.slug && data.title) {

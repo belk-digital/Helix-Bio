@@ -46,7 +46,7 @@ export async function requestPasswordReset(input: ForgotPasswordInput) {
         await sendTrackedEmail(payload, {
           from: 'support@helixbiochem.com',
           to: parsed.data.email,
-          subject: 'Reset Your Password - Helix Bio',
+          subject: 'Reset Your Password - Helix Bio Chem',
           html,
         })
       }

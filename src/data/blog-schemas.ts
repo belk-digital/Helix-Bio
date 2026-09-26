@@ -14,11 +14,11 @@ export const BLOG_SCHEMAS: Record<string, SchemaScript[]> = {
         description: 'An in-depth, systematic comparison of Semaglutide, Tirzepatide, and Retatrutide. Explore the mechanisms of action, receptor affinities, and research applications.',
         author: {
           '@type': 'Organization',
-          name: 'Helix Bio Research',
+          name: 'Helix Bio Chem Research',
         },
         publisher: {
           '@type': 'Organization',
-          name: 'Helix Bio',
+          name: 'Helix Bio Chem',
           logo: {
             '@type': 'ImageObject',
             url: 'https://helixbiochem.com/icon.png',
@@ -167,11 +167,11 @@ export const BLOG_SCHEMAS: Record<string, SchemaScript[]> = {
         description: 'Discover the profound synergistic effects of BPC-157, TB-500, and GHK-Cu. This comprehensive guide outlines the molecular mechanisms behind advanced tissue repair.',
         author: {
           '@type': 'Organization',
-          name: 'Helix Bio Research',
+          name: 'Helix Bio Chem Research',
         },
         publisher: {
           '@type': 'Organization',
-          name: 'Helix Bio',
+          name: 'Helix Bio Chem',
           logo: {
             '@type': 'ImageObject',
             url: 'https://helixbiochem.com/icon.png',

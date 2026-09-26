@@ -28,9 +28,9 @@ export async function resendVerificationEmail(rawEmail: string) {
       const verifyUrl = `${base}/api/verify-email?token=${token}`
       const html = generateVerifyEmailEmail(user.firstName, verifyUrl)
       await sendTrackedEmail(payload, {
-        from: 'Support | Helix Bio <support@helixbiochem.com>',
+        from: 'Support | Helix Bio Chem <support@helixbiochem.com>',
         to: email,
-        subject: 'Verify your email - Helix Bio',
+        subject: 'Verify your email - Helix Bio Chem',
         html,
       })
     } catch (err) {

@@ -1,7 +1,11 @@
 import type { MetadataRoute } from 'next'
 
-// Paths that exist under the application.
-const LOCALIZED_PRIVATE_PATHS = [
+// Private / transactional routes that should never be crawled.
+const PRIVATE_PATHS = [
+  '/admin',
+  '/api',
+  '/my-route',
+  '/ref',
   '/account',
   '/cart',
   '/checkout',
@@ -14,21 +18,14 @@ const LOCALIZED_PRIVATE_PATHS = [
   '/reset-password',
 ]
 
-// Global paths
-const GLOBAL_PRIVATE_PATHS = [
-  '/admin',
-  '/api',
-  '/my-route',
-  '/ref',
-]
+// robots.txt rules are PREFIX matches: a bare `Disallow: /ref` also blocks `/refund-policy`
+// (it did, while that page sat in the sitemap). Each rule is therefore emitted as an exact match
+// (`/path$`) plus a directory match (`/path/`), so a future blog slug that merely starts with
+// "cart", "account", "login", etc. can never be swept up. `$` is supported by Google and Bing.
+const disallow = PRIVATE_PATHS.flatMap((p) => [`${p}$`, `${p}/`])
 
 export default function robots(): MetadataRoute.Robots {
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
-
-  const disallow = [
-    ...GLOBAL_PRIVATE_PATHS,
-    ...LOCALIZED_PRIVATE_PATHS,
-  ]
 
   return {
     rules: {

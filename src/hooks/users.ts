@@ -30,9 +30,9 @@ export const afterCreateUserTodo: CollectionAfterChangeHook = async ({ doc, oper
         
         try {
           await sendTrackedEmail(req.payload, {
-            from: 'Support | Helix Bio <support@helixbiochem.com>',
+            from: 'Support | Helix Bio Chem <support@helixbiochem.com>',
             to: doc.email,
-            subject: 'Welcome to Helix Bio!',
+            subject: 'Welcome to Helix Bio Chem!',
             html: welcomeHtml,
           })
           req.payload.logger.info(`Sent welcome email to new user ${doc.email}`)
@@ -43,7 +43,7 @@ export const afterCreateUserTodo: CollectionAfterChangeHook = async ({ doc, oper
         // Notify admin
         const { escapeHtml } = await import('@/lib/emails/escapeHtml')
         await sendTrackedEmail(req.payload, {
-          from: 'Support | Helix Bio <support@helixbiochem.com>',
+          from: 'Support | Helix Bio Chem <support@helixbiochem.com>',
           to: 'support@helixbiochem.com',
           subject: `New User Registration: ${doc.firstName || ''} ${doc.lastName || ''}`,
           html: `<p>A new user has registered an account.</p><p><strong>Email:</strong> ${escapeHtml(doc.email)}</p><p><strong>Name:</strong> ${escapeHtml(doc.firstName || '')} ${escapeHtml(doc.lastName || '')}</p>`

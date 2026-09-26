@@ -1,6 +1,13 @@
 import { CollectionConfig } from 'payload'
 import { productsAccess } from '../access/products'
 import { productsBeforeChange } from '../hooks/products'
+import { indexNowHooks } from '../hooks/indexnow'
+
+// Ping IndexNow (Bing/Copilot) when an active product is created, edited or removed.
+const productIndexNow = indexNowHooks({
+  pathFor: (doc) => (doc?.slug ? `/product/${doc.slug}` : null),
+  isLive: (doc) => doc?.status === 'active',
+})
 
 export const Products: CollectionConfig = {
   slug: 'products',
@@ -11,6 +18,8 @@ export const Products: CollectionConfig = {
   access: productsAccess,
   hooks: {
     beforeChange: [productsBeforeChange],
+    afterChange: [productIndexNow.afterChange],
+    afterDelete: [productIndexNow.afterDelete],
   },
   fields: [
     {

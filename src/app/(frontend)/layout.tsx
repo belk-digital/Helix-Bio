@@ -16,20 +16,20 @@ import { getOgImageUrl } from '@/lib/utils'
 
 import '@/app/globals.css'
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+import { GA_MEASUREMENT_ID, CLARITY_PROJECT_ID, IS_PRODUCTION_DEPLOYMENT, IS_PRODUCTION_HOST_JS } from '@/lib/analyticsConfig'
 
 export async function generateMetadata() {
   const t = await getTranslations('common')
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'),
-    title: 'Helix Bio',
+    title: 'Helix Bio Chem',
     description: t('siteTagline'),
     openGraph: {
-      images: [{ url: getOgImageUrl('Helix Bio', t('siteTagline')) }],
+      images: [{ url: getOgImageUrl('Helix Bio Chem', t('siteTagline')) }],
     },
     twitter: {
       card: 'summary_large_image',
-      images: [getOgImageUrl('Helix Bio', t('siteTagline'))],
+      images: [getOgImageUrl('Helix Bio Chem', t('siteTagline'))],
     },
   }
 }
@@ -48,27 +48,28 @@ export default async function FrontendLayout({ children }: { children: React.Rea
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&family=Big+Shoulders+Display:wght@100..900&display=swap"
           rel="stylesheet"
         />
-        {GA_MEASUREMENT_ID && (
+        {IS_PRODUCTION_DEPLOYMENT && GA_MEASUREMENT_ID && (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
             <Script id="ga4-init" strategy="afterInteractive">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
+                if (!${IS_PRODUCTION_HOST_JS}) { window['ga-disable-${GA_MEASUREMENT_ID}'] = true; }
                 gtag('js', new Date());
                 gtag('config', '${GA_MEASUREMENT_ID}');
               `}
             </Script>
           </>
         )}
-        {process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID && (
+        {IS_PRODUCTION_DEPLOYMENT && CLARITY_PROJECT_ID && (
           <Script id="microsoft-clarity-init" strategy="afterInteractive">
             {`
-              (function(c,l,a,r,i,t,y){
+              if (${IS_PRODUCTION_HOST_JS}) (function(c,l,a,r,i,t,y){
                   c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                   t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "${process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID}");
+              })(window, document, "clarity", "script", "${CLARITY_PROJECT_ID}");
             `}
           </Script>
         )}

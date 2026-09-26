@@ -32,12 +32,13 @@ export async function getShippingMethods() {
     return zones.docs[0].methods
   }
   
-  // Fallback if none exist (no ShippingZones doc currently exists in this project's DB,
-  // so this fallback is what's actually active in production right now)
+  // Fallback used only when no ShippingZones doc exists. Mirrors the configured Domestic zone
+  // so amounts don't change depending on whether the CMS record is present.
   return [
-    { method: 'Standard Shipping', price: 25, estimatedDays: 5 },
-    { method: 'Express Shipping', price: 50, estimatedDays: 2 },
-    { method: 'International Shipping', price: 50, estimatedDays: null, isInternational: true },
+    { method: 'Standard Shipping', price: 25, estimatedDays: null },
+    { method: 'Express Shipping', price: 45, estimatedDays: null },
+    { method: 'Free Secured Shipping', price: 0, estimatedDays: null, minOrderAmount: 300 },
+    { method: 'Secured International Shipping', price: 50, estimatedDays: null, isInternational: true },
   ]
 }
 
@@ -523,7 +524,7 @@ export async function createPayloadOrder(
                const invoiceHtml = await generateOrderInvoiceHtml(order, payload);
 
                await sendTrackedEmail(payload, {
-                   from: 'Orders | Helix Bio <support@helixbiochem.com>',
+                   from: 'Orders | Helix Bio Chem <support@helixbiochem.com>',
                    to: customerEmail,
                    bcc: 'support@helixbiochem.com',
                    subject: `Order Invoice #${order.orderNumber || order.id}`,
@@ -698,7 +699,7 @@ export async function notifyAdminFailedPayment(orderId: string, errorMessage: st
     })
 
     await sendTrackedEmail(payload, {
-      from: 'Support | Helix Bio <support@helixbiochem.com>',
+      from: 'Support | Helix Bio Chem <support@helixbiochem.com>',
       to: 'support@helixbiochem.com',
       subject: `⚠️ Payment Failed - Order #${orderNumber}`,
       html: html,

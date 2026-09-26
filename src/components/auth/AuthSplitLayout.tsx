@@ -56,7 +56,7 @@ export function AuthSplitLayout({ children, mode }: AuthSplitLayoutProps) {
           <Link href="/" className="inline-block hover:opacity-80 transition-opacity">
             <Image 
               src="/HelixBio Images/hb-logo.png" 
-              alt="Helix Bio" 
+              alt="Helix Bio Chem" 
               width={200} 
               height={60} 
               className="h-8 lg:h-14 w-auto" 
@@ -107,7 +107,7 @@ export function AuthSplitLayout({ children, mode }: AuthSplitLayoutProps) {
           <div className="bg-[#111] rounded-3xl p-6 xl:p-8 w-full max-w-[420px] relative overflow-hidden flex flex-col justify-end min-h-[180px] xl:min-h-[220px]">
             <Image
               src="/HelixBio Images/vial-on-sand.webp"
-              alt="Helix Bio research peptide vial resting on sand, representing precision laboratory synthesis"
+              alt="Helix Bio Chem research peptide vial resting on sand, representing precision laboratory synthesis"
               fill
               className="object-cover opacity-20"
             />

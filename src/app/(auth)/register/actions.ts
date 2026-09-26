@@ -59,9 +59,9 @@ export async function registerUser(input: RegisterInput) {
         const verifyUrl = `${base}/api/verify-email?token=${token}`
         const html = generateVerifyEmailEmail(firstName, verifyUrl)
         await sendTrackedEmail(payload, {
-          from: 'Support | Helix Bio <support@helixbiochem.com>',
+          from: 'Support | Helix Bio Chem <support@helixbiochem.com>',
           to: email.toLowerCase(),
-          subject: 'Verify your email - Helix Bio',
+          subject: 'Verify your email - Helix Bio Chem',
           html,
         })
       } catch (err) {

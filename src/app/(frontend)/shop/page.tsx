@@ -32,8 +32,8 @@ const SHOP_FAQ_KEYS = [
   'fdaApproval',
 ]
 
-const title = 'Research Peptides Shop | Lab-Verified Purity | Helix Bio'
-const description = 'Shop research peptides online with verified COA on every batch, 99% purity, and fast USA shipping. Browse the Helix Bio catalog and order today.'
+const title = 'Research Peptides Shop | Lab-Verified Purity | Helix Bio Chem'
+const description = 'Shop research peptides online with verified COA on every batch, 99% purity, and fast USA shipping. Browse the Helix Bio Chem catalog and order today.'
 
 export async function generateMetadata({
   params,
@@ -142,7 +142,6 @@ export default async function ShopPage() {
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
           { '@type': 'ListItem', position: 2, name: 'Shop', item: `${siteUrl}/shop` },
-          { '@type': 'ListItem', position: 3, name: 'All Research Peptides', item: `${siteUrl}/shop` },
         ],
       },
       {

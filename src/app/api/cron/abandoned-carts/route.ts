@@ -74,7 +74,7 @@ export async function GET(req: Request) {
       <tr>
         <td class="header">
           <a href="https://helixbiochem.com">
-            <img src="https://pub-0b0f2f98407442588d161ae09cb84207.r2.dev/email-assets/hb-logo.png" alt="Helix Bio" class="logo-img" />
+            <img src="https://pub-0b0f2f98407442588d161ae09cb84207.r2.dev/email-assets/hb-logo.png" alt="Helix Bio Chem" class="logo-img" />
           </a>
         </td>
       </tr>

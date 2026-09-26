@@ -96,6 +96,15 @@ afterEach(() => {
   vi.useRealTimers()
 })
 
+// The site uses plain gtag.js, which only consumes `gtag('event', name, params)` calls (queued on
+// dataLayer as `arguments` objects). The old GTM-style `{ event: 'purchase' }` object shape is
+// ignored by gtag.js, so asserting on that shape would pass while GA4 recorded nothing.
+const sentPurchaseToGA4 = () =>
+  (window as any).dataLayer.some((entry: any) => {
+    const args = Array.from(entry ?? [])
+    return args[0] === 'event' && args[1] === 'purchase'
+  })
+
 describe('OrderConfirmationClient payment verification', () => {
   it('a customer who really paid is never told the payment failed, even while the order still reads unpaid', async () => {
     // The exact production failure: Stripe redirects back with redirect_status=succeeded while the
@@ -117,7 +126,7 @@ describe('OrderConfirmationClient payment verification', () => {
     await flush(2500)
     expect(headline()).toBe('paymentSuccessful')
     expect(clearCart).toHaveBeenCalledTimes(1)
-    expect((window as any).dataLayer.some((e: any) => e.event === 'purchase')).toBe(true)
+    expect(sentPurchaseToGA4()).toBe(true)
   })
 
   it('an abandoned payment is reported as not completed, and keeps the cart', async () => {
@@ -129,7 +138,7 @@ describe('OrderConfirmationClient payment verification', () => {
     expect(headline()).toBe('Payment Not Completed')
     expect(syncNextlvlpay).toHaveBeenCalledTimes(1) // definitive answer, no polling
     expect(clearCart).not.toHaveBeenCalled()
-    expect((window as any).dataLayer.some((e: any) => e.event === 'purchase')).toBe(false)
+    expect(sentPurchaseToGA4()).toBe(false)
     expect(document.body.textContent).not.toContain('have not been charged')
     expect(document.body.textContent).toContain('Return to Checkout')
   })

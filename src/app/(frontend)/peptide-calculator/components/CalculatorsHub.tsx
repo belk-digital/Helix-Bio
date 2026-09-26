@@ -6,11 +6,12 @@ import { useTranslations } from 'next-intl'
 import { PeptideReconstitution } from './PeptideReconstitution'
 import { BmiBmrCalculator } from './BmiBmrCalculator'
 import { UnitConverter } from './UnitConverter'
+import { BlendReconstitution } from './BlendReconstitution'
 import { CreatinineClearance } from './CreatinineClearance'
 import { FadeUp } from '@/components/motion/FadeUp'
-import { Syringe, Scale, ArrowRightLeft, FlaskConical } from 'lucide-react'
+import { Syringe, Scale, ArrowRightLeft, FlaskConical, Layers } from 'lucide-react'
 
-type CalculatorTab = 'reconstitution' | 'bmi' | 'unit' | 'creatinine';
+type CalculatorTab = 'reconstitution' | 'blend' | 'bmi' | 'unit' | 'creatinine';
 
 export function CalculatorsHub() {
   const t = useTranslations('calculator.hub')
@@ -18,6 +19,7 @@ export function CalculatorsHub() {
 
   const TABS: { id: CalculatorTab; label: string; icon: React.ReactNode }[] = [
     { id: 'reconstitution', label: t('tabReconstitution'), icon: <Syringe className="w-4 h-4" /> },
+    { id: 'blend', label: t('tabBlend'), icon: <Layers className="w-4 h-4" /> },
     { id: 'bmi', label: t('tabBmiBmr'), icon: <Scale className="w-4 h-4" /> },
     { id: 'unit', label: t('tabUnitConverter'), icon: <ArrowRightLeft className="w-4 h-4" /> },
     { id: 'creatinine', label: t('tabCreatinineClearance'), icon: <FlaskConical className="w-4 h-4" /> },
@@ -99,6 +101,17 @@ export function CalculatorsHub() {
               transition={{ duration: 0.3 }}
             >
               <PeptideReconstitution />
+            </motion.div>
+          )}
+          {activeTab === 'blend' && (
+            <motion.div
+              key="blend"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <BlendReconstitution />
             </motion.div>
           )}
           {activeTab === 'bmi' && (
