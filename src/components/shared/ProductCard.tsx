@@ -18,8 +18,16 @@ export interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   // Helpers to safely pull data
   const getImageUrl = (prod: any) => prod.imageUrl || prod.image || prod.images?.[0]?.image?.url || '/HelixBio Images/featured-research-2.webp';
-  const getCategory = (prod: any) => prod.category || prod.categories?.[0]?.title || 'RESEARCH PEPTIDE';
-  const getDescription = (prod: any) => prod.shortDescription || prod.meta?.description || 'Highly purified synthetic peptide prepared for rigorous laboratory research.';
+  const getCategory = (prod: any) => {
+    if (prod.slug === 'bac-water' || prod.slug === 'bacteriostatic-water' || prod.name?.includes('BAC')) return 'LABORATORY SOLVENT';
+    return prod.category || prod.categories?.[0]?.title || 'RESEARCH PEPTIDE';
+  };
+  const getDescription = (prod: any) => {
+    if (prod.slug === 'bac-water' || prod.slug === 'bacteriostatic-water' || prod.name?.includes('BAC')) {
+      return prod.description || prod.shortDescription || prod.seoDescription || 'Sterile bacteriostatic water for reconstituting lyophilized research compounds.';
+    }
+    return prod.description || prod.shortDescription || prod.seoDescription || prod.meta?.description || 'Highly purified research compound prepared for rigorous laboratory research.';
+  };
   const getPrice = (prod: any) => prod.isFrom ? `From $${prod.price}` : (prod.priceRange ?? prod.price);
 
   const addWishlistItem = useWishlistStore(state => state.addItem)

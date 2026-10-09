@@ -1104,7 +1104,6 @@
       "couponCode": "Coupons code",
       "enterCodePlaceholder": "Coupons code",
       "haveCoupon": "Have a coupon? Enter your code.",
-      "couponCode": "Coupons code",
       "apply": "Apply",
       "secureCheckout": "SECURE CHECKOUT",
       "encrypted": "Encrypted",
@@ -1600,7 +1599,7 @@
       }
     },
     "certificates": {
-      "metaTitle": "Certificate of 99% Purity Peptides | Lab-Tested COA Reports",
+      "metaTitle": "Peptide COA Reports | Third-Party Tested | Helix Bio Chem",
       "metaDescription": "View certified lab reports for 99% purity peptides. Transparent COA documents ensuring quality, accuracy, and trusted research-grade standards.",
       "eyebrow": "Verification",
       "title": "Certificates of Analysis",

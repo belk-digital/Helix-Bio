@@ -133,7 +133,7 @@ export function PeptideReconstitution() {
   }
 
   return (
-    <section className="w-full rounded-3xl bg-white p-4 sm:p-6 md:p-12 lg:p-16 border border-black/5 shadow-[0_20px_60px_rgb(0,0,0,0.05)] relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-20">
+    <section className="w-full rounded-3xl bg-white p-6 sm:p-8 md:p-10 border border-black/5 shadow-[0_20px_60px_rgb(0,0,0,0.05)] relative z-10 flex flex-col xl:flex-row gap-8 xl:gap-12">
       
       {/* Left: The Conversational Form */}
       <div className="flex-1 flex flex-col justify-center">
@@ -170,9 +170,9 @@ export function PeptideReconstitution() {
       </div>
 
       {/* Right: Minimalist Result Display with Syringe */}
-      <div className="w-full lg:w-[450px] shrink-0 flex flex-col gap-6">
+      <div className="w-full xl:w-[420px] shrink-0 flex flex-col gap-6">
         <FadeUp delay={0.2} className="h-full">
-          <div className="bg-[#FAFAFA] rounded-2xl border border-black/5 p-8 md:p-10 flex flex-col items-center justify-between text-center h-full shadow-[inset_0_2px_20px_rgba(0,0,0,0.02)] min-h-[400px] relative">
+          <div className="bg-[#FAFAFA] rounded-2xl border border-black/5 p-6 md:p-8 flex flex-col items-center justify-between text-center h-full shadow-[inset_0_2px_20px_rgba(0,0,0,0.02)] relative">
             
             <div className="w-full flex-1 flex flex-col md:flex-row items-center justify-center gap-12 my-8">
               

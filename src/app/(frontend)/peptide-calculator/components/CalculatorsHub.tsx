@@ -4,31 +4,31 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { PeptideReconstitution } from './PeptideReconstitution'
-import { BmiBmrCalculator } from './BmiBmrCalculator'
+import { BlendVial } from './BlendVial'
 import { UnitConverter } from './UnitConverter'
-import { BlendReconstitution } from './BlendReconstitution'
-import { CreatinineClearance } from './CreatinineClearance'
 import { FadeUp } from '@/components/motion/FadeUp'
-import { Syringe, Scale, ArrowRightLeft, FlaskConical, Layers } from 'lucide-react'
+import { Syringe, Layers, ArrowRightLeft } from 'lucide-react'
 
-type CalculatorTab = 'reconstitution' | 'blend' | 'bmi' | 'unit' | 'creatinine';
+type CalculatorTab = 'reconstitution' | 'blend' | 'unit';
 
-export function CalculatorsHub() {
+interface CalculatorsHubProps {
+  isEmbedded?: boolean
+}
+
+export function CalculatorsHub({ isEmbedded = false }: CalculatorsHubProps) {
   const t = useTranslations('calculator.hub')
   const [activeTab, setActiveTab] = useState<CalculatorTab>('reconstitution');
 
   const TABS: { id: CalculatorTab; label: string; icon: React.ReactNode }[] = [
-    { id: 'reconstitution', label: t('tabReconstitution'), icon: <Syringe className="w-4 h-4" /> },
-    { id: 'blend', label: t('tabBlend'), icon: <Layers className="w-4 h-4" /> },
-    { id: 'bmi', label: t('tabBmiBmr'), icon: <Scale className="w-4 h-4" /> },
-    { id: 'unit', label: t('tabUnitConverter'), icon: <ArrowRightLeft className="w-4 h-4" /> },
-    { id: 'creatinine', label: t('tabCreatinineClearance'), icon: <FlaskConical className="w-4 h-4" /> },
+    { id: 'reconstitution', label: 'Reconstitution', icon: <Syringe className="w-4 h-4" /> },
+    { id: 'blend', label: 'Blend Vial', icon: <Layers className="w-4 h-4" /> },
+    { id: 'unit', label: 'Unit Converter', icon: <ArrowRightLeft className="w-4 h-4" /> },
   ];
 
   return (
-    <div className="w-full flex flex-col items-center pt-20 lg:pt-32 pb-16 lg:pb-24 relative z-10 px-4 sm:px-6">
+    <div className={`w-full flex flex-col items-center relative z-10 ${isEmbedded ? 'pt-2 pb-6 px-0' : 'pt-20 lg:pt-32 pb-16 lg:pb-24 px-4 sm:px-6'}`}>
       
-      <FadeUp className="w-full max-w-5xl mx-auto mb-10 lg:mb-16 flex justify-center">
+      <FadeUp className={`w-full max-w-5xl mx-auto flex justify-center ${isEmbedded ? 'mb-6' : 'mb-10 lg:mb-16'}`}>
         {/* Navigation Tabs - Floating Island Design */}
         <div className="inline-flex flex-wrap items-center justify-center gap-1 sm:gap-2 p-2 sm:p-3 bg-white/90 backdrop-blur-3xl rounded-2xl border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative group transition-all duration-700 hover:shadow-xl hover:border-black/10 z-20">
           
@@ -111,18 +111,7 @@ export function CalculatorsHub() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
             >
-              <BlendReconstitution />
-            </motion.div>
-          )}
-          {activeTab === 'bmi' && (
-            <motion.div
-              key="bmi"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              <BmiBmrCalculator />
+              <BlendVial />
             </motion.div>
           )}
           {activeTab === 'unit' && (
@@ -136,18 +125,10 @@ export function CalculatorsHub() {
               <UnitConverter />
             </motion.div>
           )}
-          {activeTab === 'creatinine' && (
-            <motion.div
-              key="creatinine"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              <CreatinineClearance />
-            </motion.div>
-          )}
         </AnimatePresence>
+        <p className="mt-6 text-center text-xs text-ink/50 font-medium tracking-wide">
+          For laboratory research use only. Not for human or veterinary use.
+        </p>
       </div>
 
     </div>

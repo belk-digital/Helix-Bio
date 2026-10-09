@@ -28,6 +28,38 @@ const jsxConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
       </figure>
     )
   },
+  link: ({ node, nodesToJSX }) => {
+    const fields = (node as any).fields || {}
+    const url = fields?.url || ''
+    const target = fields?.newTab ? '_blank' : undefined
+    const competitorDomains = [
+      'aeropeptides.com',
+      'peptpedia.org',
+      'apexlab.org',
+      'peptidedosage.org',
+      'peptide-science.org',
+      'milo-lab.com',
+      'peptideprescriber.com',
+      'peptides.nyc',
+    ]
+    const isCompetitor = competitorDomains.some((d) => url.includes(d))
+    const rel = isCompetitor
+      ? 'noopener noreferrer nofollow'
+      : target
+        ? 'noopener noreferrer'
+        : undefined
+
+    return (
+      <a
+        href={url}
+        target={target}
+        rel={rel}
+        className="hover:text-ink transition-colors inline-flex items-start gap-1.5 underline underline-offset-4 decoration-ink/20 hover:decoration-ink/50"
+      >
+        {nodesToJSX({ nodes: (node as any).children })}
+      </a>
+    )
+  },
   blocks: {
     calloutBox: ({ node }: { node: any }) => (
       <CalloutBox style={node.fields.style as any} text={node.fields.text as string} />

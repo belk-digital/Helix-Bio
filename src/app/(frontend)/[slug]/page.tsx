@@ -16,6 +16,7 @@ import { FaqAccordion } from '@/components/blog/FaqAccordion'
 import { ReferencesList } from '@/components/blog/ReferencesList'
 import { AuthorCard } from '@/components/blog/AuthorCard'
 import { RelatedProductsSlider } from '@/components/blog/RelatedProductsSlider'
+import { CalculatorsHub } from '@/app/(frontend)/peptide-calculator/components/CalculatorsHub'
 import { estimateReadingTime } from '@/lib/blog/readingTime'
 import { JsonLd } from '@/components/shared/JsonLd'
 import { UNIFIED_ORGANIZATION_NODE, UNIFIED_WEBSITE_NODE } from '@/lib/schema'
@@ -60,7 +61,10 @@ export async function generateMetadata({
   }
 
   const title = post.meta?.title || `${post.title} | Helix Bio Chem`
-  const description = post.meta?.description || post.excerpt || ''
+  let description = post.meta?.description || post.excerpt || ''
+  if (slug === 'peptide-dosage-calculator-mg-mcg-mL-IU-conversions') {
+    description = 'Free peptide dosage calculator: mg to mcg, mL to syringe units, and IU conversions with reconstitution math and worked examples. For research use.'
+  }
   const path = `/${slug}`
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
   const imageUrl = toAbsoluteUrl(baseUrl, getFeaturedImageUrl(post))
@@ -166,7 +170,8 @@ export default async function BlogPostPage({
     name: product.name,
     slug: product.slug,
     image: getProductImageUrl(product),
-    category: typeof product.categories?.[0] === 'object' ? product.categories[0].title : '',
+    category: product.slug === 'bac-water' || product.slug === 'bacteriostatic-water' || product.name?.includes('BAC') ? 'LABORATORY SOLVENT' : (typeof product.categories?.[0] === 'object' ? product.categories[0].title : ''),
+    description: product.description || product.seoDescription || '',
     price: Number(product.price || 0).toFixed(2),
   }))
 
@@ -204,6 +209,8 @@ export default async function BlogPostPage({
     }
   })
 
+  const isGuidePage = slug === 'peptide-dosage-calculator-mg-mcg-mL-IU-conversions'
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -229,7 +236,7 @@ export default async function BlogPostPage({
           '@id': 'https://helixbiochem.com/#organization',
         },
         mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
-        ...(productSchemas.length > 0
+        ...(productSchemas.length > 0 && !isGuidePage
           ? { mentions: productSchemas.map((p) => ({ '@id': p['@id'] })) }
           : {}),
       },
@@ -255,7 +262,7 @@ export default async function BlogPostPage({
             },
           ]
         : []),
-      ...productSchemas,
+      ...(isGuidePage ? [] : productSchemas),
     ],
   }
 
@@ -284,6 +291,12 @@ export default async function BlogPostPage({
           <article className="max-w-[820px] w-full mx-auto lg:mx-0 space-y-10">
             <FadeUp>
               <div className="space-y-10">
+                {isGuidePage && (
+                  <div className="w-full -mt-4 mb-8">
+                    <CalculatorsHub isEmbedded={true} />
+                  </div>
+                )}
+
                 {post.keyTakeaways && post.keyTakeaways.length > 0 && (
                   <KeyTakeaways items={post.keyTakeaways.map((t: any) => t.text)} />
                 )}

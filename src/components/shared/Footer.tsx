@@ -402,7 +402,7 @@ const FooterContent = () => {
              </p>
              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 shrink-0">
 
-                <span className="text-black/60 text-[11px] md:text-xs font-medium tracking-wide">{t('designedBy')} <a href="https://belkdigital.com" target="_blank" className="text-black/70 hover:text-black transition-colors font-semibold">Belk Digital</a></span>
+                <span className="text-black/60 text-[11px] md:text-xs font-medium tracking-wide">{t('designedBy')} <a href="https://belkdigital.com" target="_blank" rel="noopener" className="text-black/70 hover:text-black transition-colors font-semibold">Belk Digital</a></span>
              </div>
           </div>
 
