@@ -29,6 +29,7 @@ import * as migration_20260909_200000_add_payment_methods_global from './2026090
 import * as migration_20260911_100000_add_dataopt_payment_method from './20260911_100000_add_dataopt_payment_method';
 import * as migration_20260911_100100_seed_dataopt_payment_method_global from './20260911_100100_seed_dataopt_payment_method_global';
 import * as migration_20260912_100000_add_coupon_per_user_limit from './20260912_100000_add_coupon_per_user_limit';
+import * as migration_20261011_030000_fix_order_total_precision from './20261011_030000_fix_order_total_precision';
 
 export const migrations = [
   {
@@ -185,5 +186,10 @@ export const migrations = [
     up: migration_20260912_100000_add_coupon_per_user_limit.up,
     down: migration_20260912_100000_add_coupon_per_user_limit.down,
     name: '20260912_100000_add_coupon_per_user_limit',
+  },
+  {
+    up: migration_20261011_030000_fix_order_total_precision.up,
+    down: migration_20261011_030000_fix_order_total_precision.down,
+    name: '20261011_030000_fix_order_total_precision',
   },
 ];

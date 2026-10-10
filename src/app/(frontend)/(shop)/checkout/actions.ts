@@ -14,6 +14,12 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: '2024-04-10' as any,
 })
 
+// Every computed dollar amount below gets rounded through this — floating-point sums/subtractions
+// of decimals (e.g. 89.99 + 113.99 + ...) drift (299.96999999999997 instead of 299.97), and that
+// drift compounds through subtotal -> fees -> total if left unrounded at each step rather than
+// just the first one.
+const round2 = (n: number) => Math.round(n * 100) / 100
+
 export async function getPaymentMethodsSettings() {
   const payload = await getPayload({ config: configPromise })
   const settings = await payload.findGlobal({ slug: 'payment-methods' })
@@ -103,10 +109,13 @@ export async function createPaymentIntent(
      }
      subtotal += liveItem.priceSnapshot * item.quantity
   }
+  // Summing floating-point dollar amounts can drift (e.g. 299.96999999999997 instead of
+  // 299.97) — round once after the full summation, same as every other total computed below.
+  subtotal = round2(subtotal)
 
   if (pricesChanged) {
-    return { 
-      error: 'Prices for some items have updated since they were added to your cart. We have refreshed your cart with the latest live prices.', 
+    return {
+      error: 'Prices for some items have updated since they were added to your cart. We have refreshed your cart with the latest live prices.',
       updatedItems: liveItems,
       priceChanged: true
     }
@@ -135,7 +144,7 @@ export async function createPaymentIntent(
 
   const shippingCost = selectedMethod?.price || 0
 
-  const subtotalAfterDiscount = Math.max(0, subtotal - discountAmount)
+  const subtotalAfterDiscount = round2(Math.max(0, subtotal - discountAmount))
   const isInternational = !!country && country !== 'US'
   const isExpressShipping = shippingMethodName.toLowerCase().includes('express')
   const qualifiesForFreeShipping = freeShipping || false
@@ -147,15 +156,16 @@ export async function createPaymentIntent(
   activeFees.forEach((fee: any) => {
     if (!fee.isOptional) {
       if (fee.type === 'percentage') {
-        feeTotal += Math.round(subtotalAfterDiscount * (fee.amount / 100) * 100) / 100
+        feeTotal += round2(subtotalAfterDiscount * (fee.amount / 100))
       } else if (fee.type === 'fixed_amount') {
         feeTotal += fee.amount
       }
     }
   })
+  feeTotal = round2(feeTotal)
 
   const tax = 0 // Statically 0 now, handled by ProcessingFees
-  const totalBeforePoints = subtotalAfterDiscount + finalShipping + tax + feeTotal
+  const totalBeforePoints = round2(subtotalAfterDiscount + finalShipping + tax + feeTotal)
 
   let pointsToRedeem = 0;
   if (isRedeemingPoints) {
@@ -163,7 +173,7 @@ export async function createPaymentIntent(
     pointsToRedeem = Math.min(availablePoints, totalBeforePoints)
   }
 
-  const total = totalBeforePoints - pointsToRedeem
+  const total = round2(totalBeforePoints - pointsToRedeem)
   const amountInCents = Math.round(total * 100)
 
   if (amountInCents < 50) {
@@ -245,10 +255,13 @@ export async function createPayloadOrder(
      }
      subtotal += liveItem.priceSnapshot * item.quantity
   }
+  // Summing floating-point dollar amounts can drift (e.g. 299.96999999999997 instead of
+  // 299.97) — round once after the full summation, same as every other total computed below.
+  subtotal = round2(subtotal)
 
   if (pricesChanged) {
-    return { 
-      error: 'Prices for some items have updated since they were added to your cart. We have refreshed your cart with the latest live prices.', 
+    return {
+      error: 'Prices for some items have updated since they were added to your cart. We have refreshed your cart with the latest live prices.',
       updatedItems: liveItems,
       priceChanged: true
     }
@@ -277,7 +290,7 @@ export async function createPayloadOrder(
 
   const shippingCost = selectedMethod?.price || 0
 
-  const subtotalAfterDiscount = Math.max(0, subtotal - discountAmount)
+  const subtotalAfterDiscount = round2(Math.max(0, subtotal - discountAmount))
   const isInternational = !!formData?.country && formData.country !== 'US'
   const isExpressShipping = shippingMethodName.toLowerCase().includes('express')
   const qualifiesForFreeShipping = freeShipping || false
@@ -287,11 +300,11 @@ export async function createPayloadOrder(
   const activeFees = await getActiveProcessingFees()
   let feeTotal = 0
   const appliedFees: any[] = []
-  
+
   activeFees.forEach((fee: any) => {
     if (!fee.isOptional) {
       const amount = fee.type === 'percentage'
-        ? Math.round(subtotalAfterDiscount * (fee.amount / 100) * 100) / 100
+        ? round2(subtotalAfterDiscount * (fee.amount / 100))
         : fee.amount
 
       feeTotal += amount
@@ -306,9 +319,10 @@ export async function createPayloadOrder(
       })
     }
   })
+  feeTotal = round2(feeTotal)
 
   const tax = 0 // Statically 0 now, handled by ProcessingFees
-  const totalBeforePoints = subtotalAfterDiscount + finalShipping + tax + feeTotal
+  const totalBeforePoints = round2(subtotalAfterDiscount + finalShipping + tax + feeTotal)
 
   let pointsToRedeem = 0;
   if (isRedeemingPoints) {
@@ -405,7 +419,7 @@ export async function createPayloadOrder(
     if (pointsToRedeem > 0 && payloadUserId) {
       confirmedPointsToRedeem = await reservePoints(payload, payloadUserId, pointsToRedeem)
     }
-    const confirmedTotal = totalBeforePoints - confirmedPointsToRedeem
+    const confirmedTotal = round2(totalBeforePoints - confirmedPointsToRedeem)
 
     // Format order items for Payload
     const orderItems = items.map(item => {
