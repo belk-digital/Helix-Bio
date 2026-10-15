@@ -31,6 +31,7 @@ import { BlogPostCard } from '@/components/editorial/BlogPostCard'
 import { FadeUp } from '@/components/motion/FadeUp'
 import { FluidButton } from '@/components/ui/fluid-button'
 import { trackEvent } from '@/lib/analytics'
+import { trackViewContent, trackAddToCart } from '@/lib/metaPixel'
 
 interface ProductData {
   id: string
@@ -313,6 +314,15 @@ export function ProductClient({ product }: ProductClientProps) {
         }]
       });
       sessionStorage.setItem(`ga_view_${product.id}_${selectedVariant.id}`, 'true');
+
+      // Meta Pixel ViewContent tracking
+      trackViewContent({
+        content_ids: [String(selectedVariant.sku || product.sku || selectedVariant.id || product.id)],
+        content_type: 'product',
+        value: parseFloat((selectedVariant.salePrice || selectedVariant.price).replace(/[^0-9.]/g, '')) || 0,
+        currency: 'USD',
+        content_name: product.name,
+      });
     }
   }, [product, selectedVariant]);
 
@@ -340,6 +350,15 @@ export function ProductClient({ product }: ProductClientProps) {
         price: priceNum,
         quantity: quantity
       }]
+    })
+
+    // Meta Pixel AddToCart tracking
+    trackAddToCart({
+      content_ids: [String(selectedVariant.sku || product.sku || selectedVariant.id || product.id)],
+      content_type: 'product',
+      value: priceNum * quantity,
+      currency: 'USD',
+      content_name: product.name,
     })
 
     setJustAdded(true)
@@ -597,7 +616,15 @@ export function ProductClient({ product }: ProductClientProps) {
                     <button
                       key={bundle.id || idx}
                       onClick={() => {
-                        cartStore.addItem({ id: product.id, name: product.name, imageUrl: product.images[0], slug: product.slug }, bundleVariantSku, 1, salePriceNum || priceNum, bundleVariantTitle)
+                        const finalBundlePrice = salePriceNum || priceNum
+                        cartStore.addItem({ id: product.id, name: product.name, imageUrl: product.images[0], slug: product.slug }, bundleVariantSku, 1, finalBundlePrice, bundleVariantTitle)
+                        trackAddToCart({
+                          content_ids: [String(bundleVariantSku || product.id)],
+                          content_type: 'product',
+                          value: finalBundlePrice,
+                          currency: 'USD',
+                          content_name: bundle.name || product.name,
+                        })
                         setJustAdded(true)
                         toast.success(t('addedBundleToCart'), { action: { label: t('view'), onClick: cartStore.openCart } })
                         setTimeout(() => setJustAdded(false), 1500)

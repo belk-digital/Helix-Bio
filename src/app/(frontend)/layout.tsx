@@ -16,7 +16,8 @@ import { getOgImageUrl } from '@/lib/utils'
 
 import '@/app/globals.css'
 
-import { GA_MEASUREMENT_ID, CLARITY_PROJECT_ID, IS_PRODUCTION_DEPLOYMENT, IS_PRODUCTION_HOST_JS } from '@/lib/analyticsConfig'
+import { GA_MEASUREMENT_ID, CLARITY_PROJECT_ID, FB_PIXEL_ID, IS_PRODUCTION_DEPLOYMENT, IS_PRODUCTION_HOST_JS } from '@/lib/analyticsConfig'
+import { MetaPixelPageView } from '@/components/shared/MetaPixelPageView'
 
 export async function generateMetadata() {
   const t = await getTranslations('common')
@@ -73,6 +74,31 @@ export default async function FrontendLayout({ children }: { children: React.Rea
             `}
           </Script>
         )}
+        {IS_PRODUCTION_DEPLOYMENT && FB_PIXEL_ID && (
+          <>
+            <Script id="meta-pixel-init" strategy="afterInteractive">
+              {`
+                if (${IS_PRODUCTION_HOST_JS}) {
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '${FB_PIXEL_ID}');
+                fbq('track', 'PageView');
+                }
+              `}
+            </Script>
+            <noscript
+              dangerouslySetInnerHTML={{
+                __html: `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1" alt="" />`,
+              }}
+            />
+          </>
+        )}
       </head>
       <body className="min-h-screen antialiased" suppressHydrationWarning>
         <AuthSessionProvider>
@@ -80,6 +106,7 @@ export default async function FrontendLayout({ children }: { children: React.Rea
             <div className="min-h-screen bg-cream text-ink font-sans antialiased print:bg-white print:min-h-0">
               <AgeGate />
               <React.Suspense fallback={null}>
+                <MetaPixelPageView />
                 <GlobalNavigationSpinner />
               </React.Suspense>
               <SmoothScroll>

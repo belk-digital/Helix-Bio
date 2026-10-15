@@ -22,6 +22,7 @@ import { Elements } from '@stripe/react-stripe-js'
 import { StripeCheckoutForm } from './StripeCheckoutForm'
 import { createPaymentIntent, getShippingMethods, getPaymentMethodsSettings } from './actions'
 import { trackEvent } from '@/lib/analytics'
+import { trackInitiateCheckout } from '@/lib/metaPixel'
 
 
 // Card payments are temporarily disabled in favor of Zelle. Flip this back to re-enable Stripe —
@@ -399,6 +400,14 @@ export function CheckoutClient() {
         }))
       });
       sessionStorage.setItem('ga_begin_checkout', 'true');
+
+      // Meta Pixel InitiateCheckout tracking
+      trackInitiateCheckout({
+        value: subtotal,
+        currency: 'USD',
+        content_ids: items.map(item => String(item.variantSku || item.productId)),
+        num_items: items.reduce((sum, item) => sum + item.quantity, 0),
+      });
     }
   }, [items, subtotal])
 

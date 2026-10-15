@@ -12,6 +12,7 @@ import { useTranslations } from 'next-intl'
 import { useCartStore } from '@/lib/cart/store'
 import { toast } from 'sonner'
 import { trackEvent } from '@/lib/analytics'
+import { trackPurchase } from '@/lib/metaPixel'
 
 type OrderItem = {
   id: string
@@ -218,6 +219,17 @@ export function OrderConfirmationClient({ order }: { order: OrderData }) {
       });
       sessionStorage.setItem(`ga_tracked_${order.id}`, 'true');
     }
+
+    // Meta Pixel Purchase tracking
+    const orderIdentifier = String(order.orderId || order.id)
+    trackPurchase({
+      value: order.total,
+      currency: 'USD',
+      order_id: orderIdentifier,
+      content_ids: order.items.map(item => String(item.id || item.variant || item.name)),
+      content_type: 'product',
+      num_items: order.items.reduce((sum, item) => sum + (item.quantity || 1), 0),
+    })
 
     useCartStore.getState().clear()
   }, [order, showPaymentPending])

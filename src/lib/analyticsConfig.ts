@@ -14,6 +14,7 @@
  */
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 export const CLARITY_PROJECT_ID = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID
+export const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID
 
 export const IS_PRODUCTION_DEPLOYMENT = process.env.VERCEL_ENV
   ? process.env.VERCEL_ENV === 'production'
@@ -21,7 +22,9 @@ export const IS_PRODUCTION_DEPLOYMENT = process.env.VERCEL_ENV
 
 const PRODUCTION_HOST = (() => {
   try {
-    return new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com').hostname.replace(/^www\./, '')
+    // No `|| '...'` default here: NEXT_PUBLIC_SERVER_URL is the single source of truth. If it is
+    // unset or malformed, `new URL` throws and the catch below supplies the last-resort host.
+    return new URL(process.env.NEXT_PUBLIC_SERVER_URL as string).hostname.replace(/^www\./, '')
   } catch {
     return 'helixbiochem.com'
   }

@@ -9,6 +9,7 @@ import { useSession } from 'next-auth/react'
 import { useWishlistStore } from '@/lib/wishlist/store'
 import { useCartStore } from '@/lib/cart/store'
 import { toast } from 'sonner'
+import { trackAddToCart } from '@/lib/metaPixel'
 import { Product } from '@/components/shop/PrimaryProductCard' // Re-using the interface for now
 
 export interface ProductCardProps {
@@ -101,6 +102,13 @@ export function ProductCard({ product }: ProductCardProps) {
       1,
       priceVal || 0
     )
+    trackAddToCart({
+      content_ids: [String(product.id || product.slug)],
+      content_type: 'product',
+      value: priceVal || 0,
+      currency: 'USD',
+      content_name: product.name,
+    })
     toast.success('Added to cart', { action: { label: 'VIEW', onClick: cartStore.openCart } })
     cartStore.openCart()
   }

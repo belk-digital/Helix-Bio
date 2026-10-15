@@ -12,8 +12,12 @@ export const UNIFIED_ORGANIZATION_NODE = {
   },
   'description': 'US supplier of research-grade peptides, sold strictly for laboratory research use only.',
   'email': 'support@helixbiochem.com',
-  // `sameAs` is intentionally omitted: it must list only real, owned brand profiles. Add them here
-  // once they exist so every page picks them up — never placeholder handles.
+  'sameAs': [
+    'https://www.facebook.com/profile.php?id=61595200202970',
+    'https://www.linkedin.com/in/helix-bio-chem-a1a9aa442/',
+    'https://x.com/helixbiochem',
+    'https://www.reddit.com/user/HelixBioChem/',
+  ],
 }
 
 export const UNIFIED_WEBSITE_NODE = {

@@ -10,6 +10,7 @@ import { useTranslations } from 'next-intl'
 import { useWishlistStore } from '@/lib/wishlist/store'
 import { useCartStore } from '@/lib/cart/store'
 import { toast } from 'sonner'
+import { trackAddToCart } from '@/lib/metaPixel'
 
 export interface Product {
   id?: string // added id to support wishlist
@@ -49,12 +50,20 @@ function SlideToAddButton({ product }: { product: Product }) {
       return
     }
 
+    const itemPrice = parseFloat(product.priceRange.replace(/[^0-9.]/g, '')) || 0
     cartStore.addItem(
       { id: product.id || product.slug, name: product.name, imageUrl: product.image, slug: product.slug },
       'Default',
       1,
-      parseFloat(product.priceRange.replace(/[^0-9.]/g, '')) || 0
+      itemPrice
     )
+    trackAddToCart({
+      content_ids: [String(product.id || product.slug)],
+      content_type: 'product',
+      value: itemPrice,
+      currency: 'USD',
+      content_name: product.name,
+    })
     setIsAdded(true)
     toast.success(t('addedToCart'), {
       action: { label: t('view'), onClick: cartStore.openCart }
