@@ -381,18 +381,39 @@ export default async function ProductPage({
 
   // Generate JSON-LD Schemas
   
-  // Fetch Suggested Blogs
-  const { docs: blogDocs } = await payload.find({
+  // Fetch Suggested Blogs — posts that actually reference this product via the
+  // blog side's relatedProducts field, so each product page links to its own
+  // research rather than whatever happened to be published most recently.
+  const { docs: productBlogDocs } = await payload.find({
     collection: 'blog-posts',
     where: {
-      status: {
-        equals: 'published'
-      }
+      and: [
+        { status: { equals: 'published' } },
+        { relatedProducts: { in: [rawProduct.id] } },
+      ],
     },
     sort: '-publishedAt',
     limit: 3,
     depth: 1,
   })
+
+  // Not every product is covered yet (notably the -spray variants), so fall back
+  // to the newest posts instead of dropping the section entirely.
+  let blogDocs = productBlogDocs
+  if (blogDocs.length === 0) {
+    const { docs: recentBlogDocs } = await payload.find({
+      collection: 'blog-posts',
+      where: {
+        status: {
+          equals: 'published'
+        }
+      },
+      sort: '-publishedAt',
+      limit: 3,
+      depth: 1,
+    })
+    blogDocs = recentBlogDocs
+  }
 
   const mappedBlogs = blogDocs.map((post: any) => {
     let imageUrl = '/HelixBio Images/featured-research-2.webp'
