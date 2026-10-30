@@ -181,7 +181,7 @@ describe('AnnouncementBar', () => {
     expect(onVisibilityChange).toHaveBeenLastCalledWith(false)
   })
 
-  it('uses the Helix blue accent and no orange', async () => {
+  it('uses the orange-on-black Halloween theme', async () => {
     const Bar = await freshBar()
     let container!: HTMLElement
     await act(async () => {
@@ -189,8 +189,13 @@ describe('AnnouncementBar', () => {
     })
 
     const html = container.innerHTML.toLowerCase()
-    expect(html).toContain('text-primary')
-    for (const banned of ['orange', 'amber', 'gold', 'yellow']) {
+    // Orange accent on a black strip, deliberately departing from the blue theme
+    expect(html).toContain('bg-black')
+    expect(html).toContain('text-orange-500') // icon
+    expect(html).toContain('text-orange-400') // text + dismiss
+    // No stray second accent
+    expect(html).not.toContain('text-primary')
+    for (const banned of ['amber', 'yellow', 'gold']) {
       expect(html).not.toContain(banned)
     }
   })

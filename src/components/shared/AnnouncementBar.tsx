@@ -10,6 +10,10 @@ import { PumpkinIcon, BatIcon } from '@/components/sale/HalloweenIcons'
  * controls, no links. Retires itself once the sale has ended.
  *
  * Height is fixed at 44px because ClientHeader offsets the navbar against it.
+ *
+ * Theme: orange on black for the Halloween run, using Tailwind's stock orange
+ * palette (the project config extends colours, so the defaults are available).
+ * This is the one surface that departs from the Helix blue accent.
  */
 export const ANNOUNCEMENT_BAR_HEIGHT = 44
 
@@ -83,13 +87,13 @@ export function AnnouncementBar({
 
   return (
     <div
-      className="relative z-50 w-full bg-ink text-cream pointer-events-auto"
+      className="relative z-50 w-full bg-black text-orange-400 pointer-events-auto"
       style={{ height: ANNOUNCEMENT_BAR_HEIGHT }}
       role="status"
       aria-live="polite"
     >
       <div className="flex h-full items-center justify-center gap-2 px-10 sm:px-12">
-        <span className="shrink-0 text-primary" aria-hidden="true">
+        <span className="shrink-0 text-orange-500" aria-hidden="true">
           {Icon ? <Icon size={14} /> : <Moon size={13} strokeWidth={2} />}
         </span>
         {/* Plain text: not a link, nothing to click or hover. */}
@@ -102,7 +106,7 @@ export function AnnouncementBar({
         type="button"
         onClick={dismiss}
         aria-label="Dismiss announcement"
-        className="absolute right-1 top-1/2 -translate-y-1/2 p-2 text-cream/70 transition-colors hover:text-cream sm:right-3"
+        className="absolute right-1 top-1/2 -translate-y-1/2 p-2 text-orange-400/60 transition-colors hover:text-orange-400 sm:right-3"
       >
         <X size={16} strokeWidth={2.5} />
       </button>
