@@ -16,9 +16,12 @@ const line = (price: number, qty = 1, extra: Partial<SaleCartLine> = {}): SaleCa
 
 /** Node fill is read off the rendered circles rather than any local recomputation. */
 function nodeStates(container: HTMLElement) {
-  // Scoped to the track so the large headline percentage is not mistaken for a node label.
-  const track = container.querySelector('[role="progressbar"]') as HTMLElement
-  const labels = Array.from(track.querySelectorAll('span')).filter((el) =>
+  // Scoped to the label row under the track, so the large headline percentage
+  // is not mistaken for a node label.
+  // The header row also uses justify-between, so take the last one: the labels.
+  const rows = container.querySelectorAll('.justify-between')
+  const row = rows[rows.length - 1] as HTMLElement
+  const labels = Array.from(row.querySelectorAll('span')).filter((el) =>
     /^(20|25|30)%$/.test(el.textContent || ''),
   )
   return labels.map((el) => ({
@@ -39,6 +42,11 @@ function trackFillPercent(container: HTMLElement) {
   return m ? parseFloat(m[1]) : 0
 }
 
+/** Headline rate, read as text because the "%" sits in its own smaller span. */
+function bigPercent(container: HTMLElement) {
+  return container.querySelector('span.shrink-0')?.textContent ?? ''
+}
+
 afterEach(() => cleanup())
 
 describe('SaleTierProgress — three tier states', () => {
@@ -48,14 +56,14 @@ describe('SaleTierProgress — three tier states', () => {
 
     const { container } = render(React.createElement(SaleTierProgress, { sale }))
 
-    expect(screen.getByText('20%', { selector: 'span.shrink-0' })).toBeTruthy()
+    expect(bigPercent(container)).toBe('20%')
     expect(screen.getByText('Add $176.02 more to unlock 25% off')).toBeTruthy()
     expect(nodeStates(container)).toEqual([
       { label: '20%', filled: true },
       { label: '25%', filled: false },
       { label: '30%', filled: false },
     ])
-    expect(trackFillPercent(container)).toBeCloseTo(0, 2)
+    expect(trackFillPercent(container)).toBeCloseTo(14.8, 1)
   })
 
   it('25% state: first two nodes filled, track half, 30% is the goal', () => {
@@ -64,14 +72,14 @@ describe('SaleTierProgress — three tier states', () => {
 
     const { container } = render(React.createElement(SaleTierProgress, { sale }))
 
-    expect(screen.getByText('25%', { selector: 'span.shrink-0' })).toBeTruthy()
+    expect(bigPercent(container)).toBe('25%')
     expect(screen.getByText('Add $200.01 more to unlock 30% off')).toBeTruthy()
     expect(nodeStates(container)).toEqual([
       { label: '20%', filled: true },
       { label: '25%', filled: true },
       { label: '30%', filled: false },
     ])
-    expect(trackFillPercent(container)).toBeCloseTo(33.33, 1)
+    expect(trackFillPercent(container)).toBeCloseTo(60.0, 1)
   })
 
   it('30% state: all nodes filled, track full, unlocked message', () => {
@@ -81,24 +89,24 @@ describe('SaleTierProgress — three tier states', () => {
 
     const { container } = render(React.createElement(SaleTierProgress, { sale }))
 
-    expect(screen.getByText('30%', { selector: 'span.shrink-0' })).toBeTruthy()
+    expect(bigPercent(container)).toBe('30%')
     expect(screen.getByText('30% off unlocked — top tier')).toBeTruthy()
     expect(nodeStates(container)).toEqual([
       { label: '20%', filled: true },
       { label: '25%', filled: true },
       { label: '30%', filled: true },
     ])
-    expect(trackFillPercent(container)).toBeCloseTo(66.67, 1)
+    expect(trackFillPercent(container)).toBeCloseTo(100, 1)
   })
 
   it('shows the sale name and never disagrees with the sale module', () => {
     const lines = [line(129.99), line(99.99), line(14.0)] // 243.98 -> 20%
     const sale = computeSaleDiscount(lines, DURING)
-    render(React.createElement(SaleTierProgress, { sale }))
+    const { container } = render(React.createElement(SaleTierProgress, { sale }))
 
     expect(screen.getByText('Halloween Deals')).toBeTruthy()
     // The big percentage equals sale.percent, and the copy equals the module's gap
-    expect(screen.getByText(`${sale.percent}%`, { selector: 'span.shrink-0' })).toBeTruthy()
+    expect(bigPercent(container)).toBe(`${sale.percent}%`)
     expect(
       screen.getByText(`Add $${sale.progress!.amountToNextTier.toFixed(2)} more to unlock 25% off`),
     ).toBeTruthy()

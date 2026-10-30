@@ -45,11 +45,18 @@ export function SaleTierProgress({
   const reachedIndex = currentIndex === -1 ? 0 : currentIndex
   const hasDiscount = sale.amount > 0
 
-  // Three nodes in equal columns -> centres sit at 1/6, 1/2 and 5/6 of the width.
-  // The track spans between the outer centres so the line never pokes out past
-  // the first and last node.
-  const EDGE = 100 / (SALE_TIERS.length * 2) // 16.667%
-  const fillPercent = (reachedIndex / (SALE_TIERS.length - 1)) * 100
+  // Node centres sit at 0%, 50% and 100% of the track, so the first and last
+  // nodes anchor each end and the line spans the full width between them.
+  const segments = SALE_TIERS.length - 1
+
+  // The bar creeps forward on every item added, rather than snapping only when a
+  // threshold is crossed: the filled length is the current node plus however far
+  // the cart has travelled toward the next one. `percentToNextTier` is the sale
+  // module's own figure — nothing about the tier is recalculated here.
+  const withinTier = progress.isTopTier ? 0 : progress.percentToNextTier / 100
+  const fillPercent = hasDiscount
+    ? Math.min(100, ((reachedIndex + withinTier) / segments) * 100)
+    : 0
 
   return (
     <div
@@ -69,58 +76,70 @@ export function SaleTierProgress({
               : `Add items to unlock ${SALE_TIERS[0].percent}% off`}
           </p>
         </div>
-        <span className="shrink-0 font-heading text-4xl sm:text-5xl font-black leading-none tracking-tight text-white">
-          {currentPercent}%
+        <span className="shrink-0 font-heading text-4xl sm:text-5xl font-black leading-none tracking-tight text-primary">
+          {currentPercent}
+          <span className="text-2xl sm:text-3xl align-top">%</span>
         </span>
       </div>
 
-      {/* Track with one node per tier */}
-      <div className="relative mt-6">
+      {/* Track: one node per tier, outer nodes anchored to each end */}
+      <div className="mt-6">
         <div
-          className="absolute top-[13px] h-[2px] rounded-full bg-white/10"
-          style={{ left: `${EDGE}%`, right: `${EDGE}%` }}
-          aria-hidden="true"
-        />
-        <div
-          className="absolute top-[13px] h-[2px] rounded-full bg-primary transition-all duration-500"
-          style={{ left: `${EDGE}%`, width: `calc((100% - ${EDGE * 2}%) * ${fillPercent / 100})` }}
-          aria-hidden="true"
-        />
-
-        <div
-          className="relative grid"
-          style={{ gridTemplateColumns: `repeat(${SALE_TIERS.length}, minmax(0, 1fr))` }}
+          className="relative h-8"
           role="progressbar"
           aria-valuemin={0}
           aria-valuemax={100}
-          aria-valuenow={Math.round(progress.percentToNextTier)}
+          aria-valuenow={Math.round(fillPercent)}
           aria-label={`${SALE_NAME} tier progress — ${currentPercent}% off applied`}
         >
+          <div
+            className="absolute inset-x-0 top-1/2 h-[2px] -translate-y-1/2 rounded-full bg-white/10"
+            aria-hidden="true"
+          />
+          <div
+            className="absolute left-0 top-1/2 h-[2px] -translate-y-1/2 rounded-full bg-primary transition-all duration-500 ease-out"
+            style={{ width: `${fillPercent}%` }}
+            aria-hidden="true"
+          />
+
+          {SALE_TIERS.map((tier, i) => {
+            const reached = hasDiscount && i <= reachedIndex
+            const isCurrent = hasDiscount && i === reachedIndex
+            return (
+              <span
+                key={tier.percent}
+                className={`absolute top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border transition-colors duration-500 ${
+                  isCurrent ? 'h-8 w-8' : 'h-6 w-6'
+                } ${
+                  reached
+                    ? 'bg-primary border-primary text-ink'
+                    : 'bg-ink-soft border-white/15 text-white/25'
+                }`}
+                style={{ left: `${(i / segments) * 100}%` }}
+              >
+                {reached ? (
+                  <Check size={isCurrent ? 16 : 13} strokeWidth={3} aria-hidden="true" />
+                ) : (
+                  <Moon size={13} strokeWidth={2} aria-hidden="true" />
+                )}
+              </span>
+            )
+          })}
+        </div>
+
+        {/* Labels line up under the nodes: first left, last right, rest centred */}
+        <div className="mt-2 flex justify-between">
           {SALE_TIERS.map((tier, i) => {
             const reached = hasDiscount && i <= reachedIndex
             return (
-              <div key={tier.percent} className="flex flex-col items-center gap-2">
-                <span
-                  className={`flex h-7 w-7 items-center justify-center rounded-full border transition-colors duration-500 ${
-                    reached
-                      ? 'bg-primary border-primary text-ink'
-                      : 'bg-ink-soft border-white/15 text-white/25'
-                  }`}
-                >
-                  {reached ? (
-                    <Check size={14} strokeWidth={3} aria-hidden="true" />
-                  ) : (
-                    <Moon size={13} strokeWidth={2} aria-hidden="true" />
-                  )}
-                </span>
-                <span
-                  className={`text-[10px] font-bold tracking-[0.1em] ${
-                    reached ? 'text-white' : 'text-white/35'
-                  }`}
-                >
-                  {tier.percent}%
-                </span>
-              </div>
+              <span
+                key={tier.percent}
+                className={`text-[11px] font-bold tracking-[0.05em] ${
+                  reached ? 'text-white' : 'text-white/35'
+                }`}
+              >
+                {tier.percent}%
+              </span>
             )
           })}
         </div>
