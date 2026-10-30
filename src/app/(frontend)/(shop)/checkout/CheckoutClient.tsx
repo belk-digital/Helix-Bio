@@ -15,6 +15,9 @@ import { CheckoutPageSkeleton } from '@/components/ui/skeleton'
 import { COUNTRIES } from '@/lib/countries'
 import { useCartStore } from '@/lib/cart/store'
 import { verifyCoupon, getUserDefaultAddress, getUserHBPoints, getUserAddresses } from '../actions'
+import { useSaleDiscount } from '@/lib/sale/useSaleDiscount'
+import { SaleTierProgress } from '@/components/sale/SaleTierProgress'
+import { chooseDiscount, round2 } from '@/lib/sale/autoDiscount'
 import { toast } from 'sonner'
 import { useSession } from 'next-auth/react'
 import { loadStripe } from '@stripe/stripe-js'
@@ -273,6 +276,7 @@ export function CheckoutClient() {
 
   // Order Calculations
   const subtotal = items.reduce((acc, item) => acc + item.priceSnapshot * item.quantity, 0)
+  const sale = useSaleDiscount(items)
 
   // Fire the free-shipping toast once per crossing, not on every render while above the threshold.
   const previousSubtotal = useRef(subtotal)
@@ -345,22 +349,30 @@ export function CheckoutClient() {
   const isExpressShipping = shippingMethod.toLowerCase().includes('express')
   const qualifiesForFreeShipping = appliedCoupon?.freeShipping || false
   const finalShipping = (qualifiesForFreeShipping && !isExpressShipping && !isInternational) ? 0 : shippingCost
-  const discountAmount = appliedCoupon ? appliedCoupon.discount : 0
-  const subtotalAfterDiscount = Math.max(0, subtotal - discountAmount)
-  
+  // Coupons never stack with the auto-tier — the larger wins. Mirrors the
+  // recomputation in checkout/actions.ts so this summary matches what is charged.
+  const discountChoice = chooseDiscount(
+    sale,
+    appliedCoupon ? appliedCoupon.discount || 0 : 0,
+    appliedCoupon ? `${t('discount')}${appliedCoupon.code ? ` (${appliedCoupon.code})` : ''}` : '',
+  )
+  const discountAmount = discountChoice.amount
+  const subtotalAfterDiscount = Math.max(0, round2(subtotal - discountAmount))
+
   // Calculate dynamic fees
   let processingFeeAmount = 0
   let activeFeePercentage: number | null = null
   activeFees.forEach((fee: any) => {
     if (fee.type === 'percentage') {
-      processingFeeAmount += subtotalAfterDiscount * (fee.amount / 100)
+      processingFeeAmount += round2(subtotalAfterDiscount * (fee.amount / 100))
       activeFeePercentage = fee.amount
     } else if (fee.type === 'fixed_amount') {
       processingFeeAmount += fee.amount
     }
   })
+  processingFeeAmount = round2(processingFeeAmount)
 
-  const totalBeforePoints = subtotalAfterDiscount + finalShipping + processingFeeAmount
+  const totalBeforePoints = round2(subtotalAfterDiscount + finalShipping + processingFeeAmount)
   
   const pointsToRedeem = isRedeemingPoints ? Math.min(availablePoints, totalBeforePoints) : 0
   const total = totalBeforePoints - pointsToRedeem
@@ -855,7 +867,7 @@ export function CheckoutClient() {
                     </div>
 
                     <AnimatePresence>
-                      {appliedCoupon && (
+                      {appliedCoupon && discountChoice.source === 'coupon' && (
                         <motion.div
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: 'auto', opacity: 1 }}
@@ -890,6 +902,22 @@ export function CheckoutClient() {
                       <span>{t('processingFee')}{activeFeePercentage ? ` (${activeFeePercentage}%)` : ''}</span>
                       <span className="text-ink font-bold">${processingFeeAmount.toFixed(2)}</span>
                     </div>
+                    {discountChoice.source === 'sale' && (
+                      <div className="flex justify-between items-center text-sm font-medium text-emerald-600">
+                        <span>{discountChoice.saleLabel}</span>
+                        <span className="font-bold">-${discountChoice.saleAmount.toFixed(2)}</span>
+                      </div>
+                    )}
+                    {appliedCoupon && sale.amount > 0 && (
+                      <p className="text-[10px] leading-relaxed text-ink/40">
+                        {discountChoice.source === 'sale'
+                          ? `${discountChoice.saleLabel} -$${discountChoice.saleAmount.toFixed(2)} beats coupon -$${discountChoice.couponAmount.toFixed(2)} — the better discount is applied.`
+                          : `Coupon -$${discountChoice.couponAmount.toFixed(2)} beats ${sale.label} -$${discountChoice.saleAmount.toFixed(2)} — the better discount is applied.`}
+                      </p>
+                    )}
+                    {sale.active && sale.progress && (
+                      <SaleTierProgress sale={sale} className="pt-1" />
+                    )}
                   </div>
 
                   <div className="w-full h-px bg-ink/5" />
@@ -1376,8 +1404,27 @@ export function CheckoutClient() {
                   <span className="text-black font-medium">${processingFeeAmount.toFixed(2)}</span>
                 </div>
 
+                {discountChoice.source === 'sale' && (
+                  <div className="flex justify-between items-center text-emerald-600">
+                    <span>{discountChoice.saleLabel}</span>
+                    <span className="font-medium">-${discountChoice.saleAmount.toFixed(2)}</span>
+                  </div>
+                )}
+
+                {appliedCoupon && sale.amount > 0 && (
+                  <p className="text-[10px] leading-relaxed text-gray-400">
+                    {discountChoice.source === 'sale'
+                      ? `${discountChoice.saleLabel} -$${discountChoice.saleAmount.toFixed(2)} beats coupon -$${discountChoice.couponAmount.toFixed(2)} — the better discount is applied.`
+                      : `Coupon -$${discountChoice.couponAmount.toFixed(2)} beats ${sale.label} -$${discountChoice.saleAmount.toFixed(2)} — the better discount is applied.`}
+                  </p>
+                )}
+
+                {sale.active && sale.progress && (
+                  <SaleTierProgress sale={sale} className="pt-1" />
+                )}
+
                 <AnimatePresence>
-                  {appliedCoupon && (
+                  {appliedCoupon && discountChoice.source === 'coupon' && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}

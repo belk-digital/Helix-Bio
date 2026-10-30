@@ -7,6 +7,8 @@ import { verifyCoupon, getUserHBPoints } from '../actions'
 import { cookies } from 'next/headers'
 
 import { reserveStock, releaseStock, reserveCouponUsage, releaseCouponUsage, reservePoints, releasePoints } from '@/lib/orders/reserve'
+import { computeSaleDiscount, chooseDiscount } from '@/lib/sale/autoDiscount'
+import { buildSaleLines } from '@/lib/sale/serverLines'
 import { sendTrackedEmail } from '@/lib/emails/sendTrackedEmail'
 import { escapeHtml } from '@/lib/emails/escapeHtml'
 
@@ -123,14 +125,27 @@ export async function createPaymentIntent(
 
   let discountAmount = 0;
   let freeShipping = false;
+  let couponAmount = 0;
+  let couponLabel = '';
 
   if (couponCode) {
     const couponRes = await verifyCoupon(couponCode, subtotal, items)
     if (couponRes.valid) {
-      discountAmount = couponRes.discount || 0
+      couponAmount = couponRes.discount || 0
+      couponLabel = couponRes.description || `Coupon ${couponCode}`
+      // A free-shipping coupon carries no monetary discount, so it would always lose
+      // the comparison below. Shipping is a separate line from the discount, so the
+      // flag is honoured regardless of which monetary discount wins.
       freeShipping = couponRes.freeShipping || false
     }
   }
+
+  // Tier discount recomputed from live prices and the authoritative variant isKit
+  // flags — never taken from the browser. Coupons never stack: the larger wins.
+  const saleLines = await buildSaleLines(items, liveItems, payload)
+  const sale = computeSaleDiscount(saleLines)
+  const choice = chooseDiscount(sale, couponAmount, couponLabel)
+  discountAmount = choice.amount
 
   const methods = await getShippingMethods()
   const selectedMethod = resolveShippingMethod(methods, shippingMethodName, country)
@@ -269,14 +284,24 @@ export async function createPayloadOrder(
 
   let discountAmount = 0;
   let freeShipping = false;
+  let couponAmount = 0;
+  let couponLabel = '';
 
   if (couponCode) {
     const couponRes = await verifyCoupon(couponCode, subtotal, items)
     if (couponRes.valid) {
-      discountAmount = couponRes.discount || 0
+      couponAmount = couponRes.discount || 0
+      couponLabel = couponRes.description || `Coupon ${couponCode}`
       freeShipping = couponRes.freeShipping || false
     }
   }
+
+  // Same recomputation as createPaymentIntent, so the authorised amount and the
+  // persisted order total are derived from one rule rather than two.
+  const saleLines = await buildSaleLines(items, liveItems, payload, productsCache)
+  const sale = computeSaleDiscount(saleLines)
+  const saleChoice = chooseDiscount(sale, couponAmount, couponLabel)
+  discountAmount = saleChoice.amount
 
   const methods = await getShippingMethods()
   const selectedMethod = resolveShippingMethod(methods, shippingMethodName, formData?.country)
@@ -385,7 +410,10 @@ export async function createPayloadOrder(
     // usage-limited or store-credit coupon can't be over-redeemed by concurrent checkouts.
     let reservedCouponId: number | null = null
     let reservedCouponIsStoreCredit = false
-    if (couponCode && discountAmount > 0) {
+    // Only burn a coupon redemption when the coupon actually won the comparison —
+    // the tier discount is automatic and must not consume a usage/store-credit
+    // balance just because discountAmount is non-zero.
+    if (couponCode && discountAmount > 0 && saleChoice.source === 'coupon') {
       const couponLookup = await payload.find({
         collection: 'coupons',
         where: { code: { equals: couponCode.trim().toUpperCase() } },

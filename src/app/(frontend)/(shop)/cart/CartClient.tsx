@@ -17,6 +17,9 @@ import { StaggerChildren, staggerItemVariants } from '@/components/motion/Stagge
 
 import { useSearchParams, useRouter } from 'next/navigation'
 import { getProductsFromAffiliateCart } from '@/app/(frontend)/actions/cart'
+import { useSaleDiscount } from '@/lib/sale/useSaleDiscount'
+import { SaleTierProgress } from '@/components/sale/SaleTierProgress'
+import { chooseDiscount, round2 } from '@/lib/sale/autoDiscount'
 
 export function CartClient() {
   const t = useTranslations('checkout.cartClient')
@@ -58,6 +61,7 @@ export function CartClient() {
 
   // Base Subtotal
   const subtotal = items.reduce((acc, item) => acc + item.priceSnapshot * item.quantity, 0)
+  const sale = useSaleDiscount(items)
 
   // Handle Affiliate Cart URL Parameters
   useEffect(() => {
@@ -365,11 +369,28 @@ export function CartClient() {
     }
   }
 
+  // Coupons never stack with the auto-tier — the larger of the two applies, and
+  // both figures stay visible so the shopper can see why one won.
+  const discountChoice = chooseDiscount(
+    sale,
+    discountAmount,
+    activeCoupon ? `${t('discount')}${activeCoupon.code ? ` (${activeCoupon.code})` : ''}` : '',
+  )
+  const appliedDiscount = discountChoice.amount
+
   // Mirrors the rule enforced server-side in checkout/actions.ts —
   // Express shipping is never free.
   const qualifiesForFreeShipping = isFreeShipping || false
   const finalShipping = (qualifiesForFreeShipping || subtotal === 0) ? 0 : (shippingCost || 0)
-  const finalTotal = Math.max(0, subtotal - discountAmount + finalShipping + taxAmount)
+  // The processing fee is charged on the DISCOUNTED subtotal server-side, so the
+  // percentage portion of the fetched fee is rebased here instead of using the
+  // value computed against the full subtotal — otherwise the cart total and the
+  // checkout total disagree by the fee on the discount.
+  const discountedSubtotal = Math.max(0, round2(subtotal - appliedDiscount))
+  const feeOnDiscounted = feePercentage
+    ? round2(taxAmount - round2(subtotal * (feePercentage / 100)) + round2(discountedSubtotal * (feePercentage / 100)))
+    : taxAmount
+  const finalTotal = Math.max(0, round2(discountedSubtotal + finalShipping + feeOnDiscounted))
 
   if (!hasHydrated) {
     return (
@@ -562,15 +583,36 @@ export function CartClient() {
               <div className="flex justify-between items-center text-gray-500">
                 <span>{t('processingFee')}{feePercentage ? ` (${feePercentage}%)` : ''}</span>
                 <span className="text-black font-medium">
-                  {isLoadingData ? <Loader2 size={12} className="animate-spin text-gray-400" /> : `$${taxAmount.toFixed(2)}`}
+                  {isLoadingData ? <Loader2 size={12} className="animate-spin text-gray-400" /> : `$${feeOnDiscounted.toFixed(2)}`}
                 </span>
               </div>
 
-              {activeCoupon && (
+              {discountChoice.source === 'sale' && (
                 <div className="flex justify-between items-center text-emerald-600">
-                  <span>{t('discount')}</span>
-                  <span className="font-medium">-${discountAmount.toFixed(2)}</span>
+                  <span>{discountChoice.saleLabel}</span>
+                  <span className="font-medium">-${discountChoice.saleAmount.toFixed(2)}</span>
                 </div>
+              )}
+
+              {discountChoice.source === 'coupon' && (
+                <div className="flex justify-between items-center text-emerald-600">
+                  <span>{discountChoice.couponLabel}</span>
+                  <span className="font-medium">-${discountChoice.couponAmount.toFixed(2)}</span>
+                </div>
+              )}
+
+              {/* Both values shown whenever a coupon competes with the tier, so the
+                  shopper can see which one won and by how much. */}
+              {activeCoupon && sale.amount > 0 && (
+                <p className="text-[10px] leading-relaxed text-gray-400">
+                  {discountChoice.source === 'sale'
+                    ? `${discountChoice.saleLabel} -$${discountChoice.saleAmount.toFixed(2)} beats coupon -$${discountChoice.couponAmount.toFixed(2)} — the better discount is applied.`
+                    : `Coupon -$${discountChoice.couponAmount.toFixed(2)} beats ${sale.label} -$${discountChoice.saleAmount.toFixed(2)} — the better discount is applied.`}
+                </p>
+              )}
+
+              {sale.active && sale.progress && (
+                <SaleTierProgress sale={sale} className="pt-2" />
               )}
 
               <div className="flex justify-between items-center text-gray-500 mt-2">

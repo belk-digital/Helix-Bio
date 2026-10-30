@@ -8,6 +8,12 @@ export interface MarqueeProps {
   separator?: React.ReactNode
 }
 
+import { SALE_NAME, isSaleActive } from '@/lib/sale/autoDiscount'
+
+// Sale entry leads the rotation while the sale runs and disappears by itself
+// afterwards, so no edit is needed to retire it.
+const SALE_ITEM = `${SALE_NAME.toUpperCase()} — 20% OFF, UP TO 30% OVER $500`
+
 const DEFAULT_ITEMS = [
   '≥99% HPLC PURITY',
   'LC-MS VERIFIED IDENTITY',
@@ -17,8 +23,8 @@ const DEFAULT_ITEMS = [
   'ENDOTOXIN-FREE COMPOUNDS'
 ]
 
-export function Marquee({ 
-  items = DEFAULT_ITEMS,
+export function Marquee({
+  items = isSaleActive() ? [SALE_ITEM, ...DEFAULT_ITEMS] : DEFAULT_ITEMS,
   className = "bg-ink border-y border-border-subtle",
   textClassName = "text-cream",
   dotClassName = "text-gold",

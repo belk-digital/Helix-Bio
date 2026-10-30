@@ -14,6 +14,8 @@ import { ShoppingBag } from 'lucide-react'
 import { useLenis } from 'lenis/react'
 import { FluidButton } from '@/components/ui/fluid-button'
 import { toast } from 'sonner'
+import { useSaleDiscount } from '@/lib/sale/useSaleDiscount'
+import { SaleTierProgress } from '@/components/sale/SaleTierProgress'
 
 
 export function CartDrawer() {
@@ -46,6 +48,7 @@ export function CartDrawer() {
   }, [closeCart])
 
   const subtotal = items.reduce((acc, item) => acc + item.priceSnapshot * item.quantity, 0)
+  const sale = useSaleDiscount(items)
 
   const [isReady, setIsReady] = useState(false)
   const [freeShippingThreshold, setFreeShippingThreshold] = useState<number | null>(null)
@@ -232,10 +235,19 @@ export function CartDrawer() {
 
                 {/* Sticky Summary */}
                 <div className="px-6 pt-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] md:px-8 md:pb-8 bg-zinc-950/80 backdrop-blur-xl shrink-0 border-t border-white/10 z-10 relative">
+                  {sale.active && sale.progress && (
+                    <SaleTierProgress sale={sale} variant="dark" className="mb-5" />
+                  )}
                   <div className="flex justify-between items-center mb-3">
                     <span className="text-[10px] font-bold text-white/50 uppercase tracking-[0.2em]">{t('subtotal')}</span>
                     <span className="text-2xl text-white font-black font-heading tracking-tight">${subtotal.toFixed(2)}</span>
                   </div>
+                  {sale.amount > 0 && (
+                    <div className="flex justify-between items-center mb-3">
+                      <span className="text-[10px] font-bold text-gold uppercase tracking-[0.2em]">{sale.label}</span>
+                      <span className="text-sm text-gold font-bold">-${sale.amount.toFixed(2)}</span>
+                    </div>
+                  )}
                   <div className="flex justify-between items-center mb-6">
                     <span className="text-[10px] font-bold text-white/50 uppercase tracking-[0.2em]">{t('shipping')}</span>
                     <span className="text-sm text-primary font-bold">
