@@ -1,7 +1,8 @@
 'use client'
 
 import React from 'react'
-import { Check, Moon } from 'lucide-react'
+import { Moon } from 'lucide-react'
+import { PumpkinIcon, BatIcon } from './HalloweenIcons'
 import {
   SALE_NAME,
   SALE_TIERS,
@@ -21,6 +22,17 @@ import {
  *
  * Accent is the Helix logo blue (`primary`, #92DCE5) from the Tailwind theme.
  */
+/**
+ * Each tier carries its own Halloween icon rather than a state icon, so a node's
+ * shape stays put and only its colour changes as the tier is reached. Any tier
+ * beyond the third falls back to the moon.
+ */
+function NodeIcon({ index, size }: { index: number; size: number }) {
+  if (index === 0) return <PumpkinIcon size={size} />
+  if (index === 1) return <BatIcon size={size} />
+  return <Moon size={size} strokeWidth={2} aria-hidden="true" />
+}
+
 export function SaleTierProgress({
   sale,
   variant = 'light',
@@ -117,11 +129,7 @@ export function SaleTierProgress({
                 }`}
                 style={{ left: `${(i / segments) * 100}%` }}
               >
-                {reached ? (
-                  <Check size={isCurrent ? 16 : 13} strokeWidth={3} aria-hidden="true" />
-                ) : (
-                  <Moon size={13} strokeWidth={2} aria-hidden="true" />
-                )}
+                <NodeIcon index={i} size={isCurrent ? 16 : 13} />
               </span>
             )
           })}
