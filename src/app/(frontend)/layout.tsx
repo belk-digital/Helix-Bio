@@ -8,6 +8,7 @@ import { Header } from '@/components/shared/Header'
 import { Footer } from '@/components/shared/Footer'
 import { SmoothScroll } from '@/components/shared/SmoothScroll'
 import { Toaster } from '@/components/ui/sonner'
+import { SalePopup } from '@/components/sale/SalePopup'
 import { GlobalNavigationSpinner } from '@/components/shared/GlobalNavigationSpinner'
 import { CustomScrollbar } from '@/components/shared/CustomScrollbar'
 import { AgeGate } from '@/components/shared/AgeGate'
@@ -115,6 +116,7 @@ export default async function FrontendLayout({ children }: { children: React.Rea
                   <HomePreloaderWrapper>{children}</HomePreloaderWrapper>
                 </LayoutClientWrapper>
                 <Toaster />
+                <SalePopup />
               </SmoothScroll>
             </div>
           </NextIntlClientProvider>
