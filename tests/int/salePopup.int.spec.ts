@@ -57,52 +57,27 @@ describe('SalePopup', () => {
     expect(container.querySelector('[role="dialog"]')).toBeTruthy()
   })
 
-  it('shows the three tiers with names, conditions and the best-deal pill', async () => {
+  it('shows the supplied banner, and the banner itself is the link to /shop', async () => {
     const Popup = await freshPopup()
     const { container } = await openPopup(Popup)
 
-    const rows = container.querySelectorAll('li')
-    expect(rows).toHaveLength(3)
-
-    expect(rows[0].textContent).toMatch(/dusk/i)
-    expect(rows[0].textContent).toMatch(/every order/i)
-    expect(rows[1].textContent).toMatch(/nightfall/i)
-    expect(rows[1].textContent).toMatch(/orders over \$250/i)
-    expect(rows[2].textContent).toMatch(/midnight/i)
-    expect(rows[2].textContent).toMatch(/orders over \$500/i)
-    expect(rows[2].textContent).toMatch(/best deal/i)
-    expect(rows[0].textContent).not.toMatch(/best deal/i)
-
-    // Thresholds come from the sale module, not hardcoded copy
-    expect(SALE_TIERS.map((t) => t.over)).toEqual([0, 250, 500])
+    const img = container.querySelector('img')!
+    // next/image rewrites src through the optimiser, so assert on the source path
+    expect(img.outerHTML).toContain('halloween-sale-banner.png')
+    expect(img.getAttribute('width')).toBe('1677')
+    expect(img.getAttribute('height')).toBe('938')
+    expect(img.closest('a')!.getAttribute('href')).toBe('/shop')
   })
 
-  it('counts the percentages up from zero and settles on 20/25/30', async () => {
+  it('alt text states the offer and matches the sale module rates', async () => {
     const Popup = await freshPopup()
     const { container } = await openPopup(Popup)
+    const alt = container.querySelector('img')!.getAttribute('alt')!
 
-    // The percentage is the row's last direct child span; a plain
-    // span:last-of-type lookup matches the nested tier label instead.
-    const read = () =>
-      Array.from(container.querySelectorAll('li')).map((li) =>
-        parseInt(
-          (li.querySelector(':scope > span:last-child')?.textContent || '0').replace(/\D/g, ''),
-          10,
-        ),
-      )
-
-    // First frame of the animation is still well below target
-    await act(async () => {
-      vi.advanceTimersByTime(16)
-    })
-    const early = read()
-    expect(early.every((n) => n < 20)).toBe(true)
-
-    await act(async () => {
-      vi.advanceTimersByTime(1200)
-    })
-    expect(read()).toEqual([20, 25, 30])
-    expect(read()).toEqual(SALE_TIERS.map((t) => t.percent))
+    for (const tier of SALE_TIERS) {
+      expect(alt).toContain(`${tier.percent}% off`)
+    }
+    expect(alt).toMatch(/research use only/i)
   })
 
   it('closes on the X, on Escape and on a backdrop click', async () => {
@@ -152,9 +127,9 @@ describe('SalePopup', () => {
     })
     expect(container.querySelector('[role="dialog"]')).toBeNull()
 
-    // ...but the badge is there and reopens the popup
+    // ...but the badge is there, in the Helix blue, and reopens the popup
     const badge = screen.getByText(new RegExp(`up to ${SALE_TIERS[2].percent}% off`, 'i'))
-    expect(badge).toBeTruthy()
+    expect(badge.className).toContain('text-primary')
     await act(async () => {
       fireEvent.click(badge)
     })
@@ -176,14 +151,13 @@ describe('SalePopup', () => {
     expect(window.localStorage.getItem('helix-halloween-badge-dismissed')).toBe('1')
   })
 
-  it('Shop the sale points at plain /shop with no query string', async () => {
+  it('the banner link points at plain /shop and closes the popup', async () => {
     const Popup = await freshPopup()
     const { container } = await openPopup(Popup)
-    const cta = screen.getByText(/shop the sale/i).closest('a')!
+    const cta = screen.getByLabelText('Shop the sale')
     expect(cta.getAttribute('href')).toBe('/shop')
     expect(cta.getAttribute('href')).not.toContain('?')
 
-    // Clicking it also closes the popup
     await act(async () => {
       fireEvent.click(cta)
     })
@@ -208,17 +182,27 @@ describe('SalePopup', () => {
     expect(container.innerHTML).toBe('')
   })
 
-  it('carries no countdown and no orange', async () => {
+  it('states the end date as plain text, with no countdown', async () => {
     const Popup = await freshPopup()
     const { container } = await openPopup(Popup)
-    const html = container.innerHTML.toLowerCase()
 
-    expect(html).not.toMatch(/\d{1,2}:\d{2}:\d{2}/) // no ticking clock
-    for (const banned of ['orange', 'amber', 'gold', 'yellow']) {
-      expect(html).not.toContain(banned)
-    }
-    expect(html).toContain('text-primary')
-    // End date is plain text
+    expect(container.innerHTML).not.toMatch(/\d{1,2}:\d{2}:\d{2}/) // no ticking clock
     expect(container.textContent).toMatch(/ends sunday, november 1 at 11:59 pm et/i)
+    expect(container.textContent).toMatch(/research use only/i)
+  })
+
+  it('the component itself introduces no orange classes', async () => {
+    // The banner artwork is orange; what is checked here is the component code,
+    // whose own styling stays on the Helix dark/blue tokens.
+    const Popup = await freshPopup()
+    const { container } = await openPopup(Popup)
+    const classes = Array.from(container.querySelectorAll('*'))
+      .map((el) => el.getAttribute('class') || '')
+      .join(' ')
+      .toLowerCase()
+
+    for (const banned of ['orange', 'amber', 'gold', 'yellow']) {
+      expect(classes).not.toContain(banned)
+    }
   })
 })
