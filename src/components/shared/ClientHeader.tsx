@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { Link, usePathname } from '@/i18n/navigation'
 import Image from 'next/image'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
@@ -15,6 +15,7 @@ import { toast } from 'sonner'
 import { useTranslations } from 'next-intl'
 
 import { getCategoryDisplayName } from '@/lib/categoryDisplay'
+import { AnnouncementBar } from './AnnouncementBar'
 
 const CartDrawer = dynamic(() => import('@/components/cart/CartDrawer').then(mod => mod.CartDrawer), { ssr: false })
 
@@ -130,8 +131,6 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
   }, [mobileMenuOpen, setUiMobileMenuOpen])
   const [hidden, setHidden] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [announcementIndex, setAnnouncementIndex] = useState(0)
-  const [showMobileTimer, setShowMobileTimer] = useState(false)
   const [announcementClosed, setAnnouncementClosed] = useState(true)
   const [mounted, setMounted] = useState(false)
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
@@ -230,29 +229,12 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
     setMounted(true)
   }, [])
 
-  useEffect(() => {
-    // Reset announcement state on route change
-    setAnnouncementClosed(false)
-    document.body.classList.remove('announcement-closed')
-    
-    let tick = 0;
-    const timer = setInterval(() => {
-      tick++;
-      if (tick % 2 !== 0) {
-        setShowMobileTimer(true)
-      } else {
-        setShowMobileTimer(false)
-        setAnnouncementIndex((prev) => (prev + 1) % ANNOUNCEMENTS.length)
-      }
-    }, 4000)
-    
-    return () => clearInterval(timer)
-  }, [pathname])
-
-  const closeAnnouncement = () => {
-    setAnnouncementClosed(true)
-    document.body.classList.add('announcement-closed')
-  }
+  // AnnouncementBar owns its own rotation, dismissal and sale-expiry check, and
+  // reports whether it is on screen so the navbar can sit flush against it.
+  const handleAnnouncementVisibility = useCallback((visible: boolean) => {
+    setAnnouncementClosed(!visible)
+    document.body.classList.toggle('announcement-closed', !visible)
+  }, [])
   
   const { scrollY } = useScroll()
   const lastYRef = useRef(0)
@@ -420,82 +402,8 @@ export function ClientHeader({ cartItemCount = 0, wishlistItemCount = 0, isLogge
           transition={{ duration: 0.35, ease: "easeOut" }}
           className="w-full flex flex-col"
         >
-          {/* Announcement Bar */}
-          <AnimatePresence>
-            {!announcementClosed && (
-              <motion.div 
-                initial={{ height: 44, opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="w-full bg-black text-white flex items-center justify-center pointer-events-auto overflow-hidden relative z-50"
-              >
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={announcementIndex}
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -20, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute w-full px-4 md:px-12 h-full flex items-center justify-center"
-                  >
-                    {/* Desktop & Tablet Layout */}
-                    <div className="hidden sm:flex flex-row items-center justify-center gap-4 lg:gap-6 w-full">
-                      <span className="text-[10px] lg:text-[11px] font-heading font-extrabold tracking-[0.2em] uppercase text-center shrink-0 mt-[2px] drop-shadow-sm">
-                        {t(`announcements.${ANNOUNCEMENTS[announcementIndex].key}`)}
-                      </span>
-                      {ANNOUNCEMENTS[announcementIndex].couponCode && (
-                        <div className="flex items-center gap-3 shrink-0">
-                          {ANNOUNCEMENTS[announcementIndex].expiresAt && (
-                            <CountdownTimer expiresAt={ANNOUNCEMENTS[announcementIndex].expiresAt} />
-                          )}
-                          <CouponBox code={ANNOUNCEMENTS[announcementIndex].couponCode} />
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Mobile Layout */}
-                    <div className="flex sm:hidden flex-row items-center justify-center w-full h-full relative">
-                      <AnimatePresence mode="wait">
-                        {(!ANNOUNCEMENTS[announcementIndex].couponCode || !showMobileTimer) ? (
-                          <motion.span
-                            key={`text-${announcementIndex}`}
-                            initial={{ y: 10, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -10, opacity: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="text-[9px] font-heading font-extrabold tracking-[0.1em] uppercase text-center mt-[1px] absolute w-full px-6 leading-snug drop-shadow-sm"
-                          >
-                            {t(`announcements.${ANNOUNCEMENTS[announcementIndex].key}`)}
-                          </motion.span>
-                        ) : (
-                          <motion.div
-                            key={`timer-${announcementIndex}`}
-                            initial={{ y: 10, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -10, opacity: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="flex items-center justify-center gap-2 scale-90 absolute w-full"
-                          >
-                            {ANNOUNCEMENTS[announcementIndex].expiresAt && (
-                              <CountdownTimer expiresAt={ANNOUNCEMENTS[announcementIndex].expiresAt} />
-                            )}
-                            <CouponBox code={ANNOUNCEMENTS[announcementIndex].couponCode} />
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-                <button 
-                  onClick={closeAnnouncement}
-                  className="absolute right-2 md:right-4 text-white/80 hover:text-white transition-colors z-50 p-2 md:p-0 bg-black/10 hover:bg-black/20 rounded-full md:bg-transparent md:hover:bg-transparent"
-                  aria-label={t('closeAnnouncement')}
-                >
-                  <X size={16} strokeWidth={2.5} />
-                </button>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {/* Announcement Bar — rotation, dismissal and sale expiry live in the component */}
+          <AnnouncementBar onVisibilityChange={handleAnnouncementVisibility} />
 
           <div className={`w-full relative pointer-events-auto bg-[#FAFAFA] transition-all duration-500 z-50 ${isScrolled ? 'shadow-[0_4px_20px_rgba(0,0,0,0.03)]' : ''}`}>
             <div className="w-full mx-auto">
