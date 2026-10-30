@@ -127,9 +127,9 @@ describe('SalePopup', () => {
     })
     expect(container.querySelector('[role="dialog"]')).toBeNull()
 
-    // ...but the badge is there, in the Helix blue, and reopens the popup
+    // ...but the badge is there, in the sale orange, and reopens the popup
     const badge = screen.getByText(new RegExp(`up to ${SALE_TIERS[2].percent}% off`, 'i'))
-    expect(badge.className).toContain('text-primary')
+    expect(badge.className).toContain('text-orange-400')
     await act(async () => {
       fireEvent.click(badge)
     })

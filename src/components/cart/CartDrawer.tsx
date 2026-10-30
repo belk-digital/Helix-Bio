@@ -244,8 +244,8 @@ export function CartDrawer() {
                   </div>
                   {sale.amount > 0 && (
                     <div className="flex justify-between items-center mb-3">
-                      <span className="text-[10px] font-bold text-gold uppercase tracking-[0.2em]">{sale.label}</span>
-                      <span className="text-sm text-gold font-bold">-${sale.amount.toFixed(2)}</span>
+                      <span className="text-[10px] font-bold text-orange-400 uppercase tracking-[0.2em]">{sale.label}</span>
+                      <span className="text-sm text-orange-400 font-bold">-${sale.amount.toFixed(2)}</span>
                     </div>
                   )}
                   <div className="flex justify-between items-center mb-6">

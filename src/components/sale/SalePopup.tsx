@@ -95,11 +95,11 @@ export function SalePopup() {
   if (!open) {
     if (!popupDismissed || badgeDismissed) return null
     return (
-      <div className="fixed bottom-4 left-4 z-[190] flex items-center gap-1 rounded-full border border-primary/30 bg-ink/95 py-1.5 pl-3 pr-1.5 shadow-xl backdrop-blur print:hidden">
+      <div className="fixed bottom-4 left-4 z-[190] flex items-center gap-1 rounded-full border border-orange-500/35 bg-ink/95 py-1.5 pl-3 pr-1.5 shadow-xl backdrop-blur print:hidden">
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="text-[10px] font-bold uppercase tracking-[0.14em] text-primary transition-colors hover:text-white"
+          className="text-[10px] font-bold uppercase tracking-[0.14em] text-orange-400 transition-colors hover:text-white"
         >
           {SALE_NAME}: up to {topTier.percent}% off
         </button>

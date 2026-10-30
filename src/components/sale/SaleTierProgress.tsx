@@ -20,7 +20,9 @@ import {
  *
  * Renders nothing once the sale has ended, so callers need no date check.
  *
- * Accent is the Helix logo blue (`primary`, #92DCE5) from the Tailwind theme.
+ * Accent is Halloween orange, matching the announcement bar and the sale
+ * banner. This and the other sale surfaces deliberately sit outside the Helix
+ * blue palette for the duration of the sale.
  */
 /**
  * Each tier carries its own Halloween icon rather than a state icon, so a node's
@@ -79,7 +81,7 @@ export function SaleTierProgress({
       {/* Top row: sale name + message on the left, current rate on the right */}
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+          <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-orange-400">
             {SALE_NAME}
           </span>
           <p className="mt-1.5 text-[13px] sm:text-sm font-medium leading-snug text-white">
@@ -88,7 +90,7 @@ export function SaleTierProgress({
               : `Add items to unlock ${SALE_TIERS[0].percent}% off`}
           </p>
         </div>
-        <span className="shrink-0 font-heading text-4xl sm:text-5xl font-black leading-none tracking-tight text-primary">
+        <span className="shrink-0 font-heading text-4xl sm:text-5xl font-black leading-none tracking-tight text-orange-400">
           {currentPercent}
           <span className="text-2xl sm:text-3xl align-top">%</span>
         </span>
@@ -109,7 +111,7 @@ export function SaleTierProgress({
             aria-hidden="true"
           />
           <div
-            className="absolute left-0 top-1/2 h-[2px] -translate-y-1/2 rounded-full bg-primary transition-all duration-500 ease-out"
+            className="absolute left-0 top-1/2 h-[2px] -translate-y-1/2 rounded-full bg-orange-500 transition-all duration-500 ease-out"
             style={{ width: `${fillPercent}%` }}
             aria-hidden="true"
           />
@@ -124,7 +126,7 @@ export function SaleTierProgress({
                   isCurrent ? 'h-8 w-8' : 'h-6 w-6'
                 } ${
                   reached
-                    ? 'bg-primary border-primary text-ink'
+                    ? 'bg-orange-500 border-orange-500 text-ink'
                     : 'bg-ink-soft border-white/15 text-white/25'
                 }`}
                 style={{ left: `${(i / segments) * 100}%` }}

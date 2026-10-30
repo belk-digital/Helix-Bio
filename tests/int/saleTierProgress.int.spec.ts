@@ -37,7 +37,7 @@ function nodeStates(container: HTMLElement) {
  * reads ~66.67 and a half bar ~33.33.
  */
 function trackFillPercent(container: HTMLElement) {
-  const fill = container.querySelector('.bg-primary.transition-all') as HTMLElement | null
+  const fill = container.querySelector('.bg-orange-500.transition-all') as HTMLElement | null
   const m = (fill?.style.width ?? '').match(/([0-9.]+)%/)
   return m ? parseFloat(m[1]) : 0
 }
@@ -126,14 +126,16 @@ describe('SaleTierProgress — three tier states', () => {
     expect(b.innerHTML).toBe('')
   })
 
-  it('uses the Helix blue accent and contains no orange/amber/gold classes', () => {
+  it('uses the Halloween orange accent and no leftover blue', () => {
     const sale = computeSaleDiscount([line(300)], DURING)
     const { container } = render(React.createElement(SaleTierProgress, { sale }))
     const html = container.innerHTML
 
-    expect(html).toContain('bg-primary')
-    expect(html).toContain('text-primary')
-    for (const banned of ['orange', 'amber', 'gold', 'yellow', '#F', 'rgb(2']) {
+    // Orange for the sale run, matching the announcement bar and the banner
+    expect(html).toContain('bg-orange-500')
+    expect(html).toContain('text-orange-400')
+    // No leftover blue accent, and no third colour
+    for (const banned of ['text-primary', 'bg-primary', 'amber', 'gold', 'yellow']) {
       expect(html.toLowerCase()).not.toContain(banned.toLowerCase())
     }
   })

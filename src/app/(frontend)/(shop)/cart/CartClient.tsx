@@ -588,7 +588,7 @@ export function CartClient() {
               </div>
 
               {discountChoice.source === 'sale' && (
-                <div className="flex justify-between items-center text-emerald-600">
+                <div className="flex justify-between items-center text-orange-600">
                   <span>{discountChoice.saleLabel}</span>
                   <span className="font-medium">-${discountChoice.saleAmount.toFixed(2)}</span>
                 </div>

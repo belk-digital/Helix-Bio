@@ -903,7 +903,7 @@ export function CheckoutClient() {
                       <span className="text-ink font-bold">${processingFeeAmount.toFixed(2)}</span>
                     </div>
                     {discountChoice.source === 'sale' && (
-                      <div className="flex justify-between items-center text-sm font-medium text-emerald-600">
+                      <div className="flex justify-between items-center text-sm font-medium text-orange-600">
                         <span>{discountChoice.saleLabel}</span>
                         <span className="font-bold">-${discountChoice.saleAmount.toFixed(2)}</span>
                       </div>
@@ -1405,7 +1405,7 @@ export function CheckoutClient() {
                 </div>
 
                 {discountChoice.source === 'sale' && (
-                  <div className="flex justify-between items-center text-emerald-600">
+                  <div className="flex justify-between items-center text-orange-600">
                     <span>{discountChoice.saleLabel}</span>
                     <span className="font-medium">-${discountChoice.saleAmount.toFixed(2)}</span>
                   </div>

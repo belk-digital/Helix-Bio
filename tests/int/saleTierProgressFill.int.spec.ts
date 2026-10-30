@@ -11,7 +11,7 @@ function fillOf(lines: any[]) {
   cleanup()
   const sale = computeSaleDiscount(lines, D)
   const { container } = render(React.createElement(SaleTierProgress, { sale }))
-  const el = container.querySelector('.bg-primary.transition-all') as HTMLElement
+  const el = container.querySelector('.bg-orange-500.transition-all') as HTMLElement
   const m = (el?.style.width ?? '').match(/([0-9.]+)%/)
   return { pct: sale.percent, fill: m ? parseFloat(m[1]) : 0, gap: sale.progress!.amountToNextTier }
 }
