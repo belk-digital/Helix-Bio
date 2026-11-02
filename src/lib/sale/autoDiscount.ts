@@ -9,11 +9,14 @@
  * live product data at order creation and never trusts a client-supplied amount.
  */
 
-// Sale ends Nov 1, 11:59 PM ET. DST ends Sun Nov 1 2026 at 02:00, so 23:59 that
-// evening is already EST (UTC-5) -> 04:59Z on Nov 2. Stored as a fixed instant and
-// compared to `now` exactly the way the Coupons collection compares `expiresAt`.
+// Sale ends Nov 5, 11:59 PM ET (extended from Nov 1). DST ended Sun Nov 1 2026,
+// so early November is EST (UTC-5) -> 04:59Z on Nov 6. Stored as a fixed instant
+// and compared to `now` exactly the way the Coupons collection compares
+// `expiresAt`. Every sale surface reads this one value, so moving the date here
+// moves the discount, the banner popup, the announcement bar and the tier bar
+// together.
 export const SALE_NAME = 'Halloween Deals'
-export const SALE_ENDS_AT = '2026-11-02T04:59:00.000Z'
+export const SALE_ENDS_AT = '2026-11-06T04:59:00.000Z'
 
 /** Free-shipping threshold already advertised by the marquee and the shipping zones. */
 export const FREE_SHIPPING_THRESHOLD = 300

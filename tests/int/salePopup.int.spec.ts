@@ -4,7 +4,7 @@ import { render, screen, cleanup, act, fireEvent } from '@testing-library/react'
 import { SALE_TIERS } from '@/lib/sale/autoDiscount'
 
 const DURING = new Date('2026-10-30T12:00:00.000Z')
-const AFTER = new Date('2026-11-02T05:00:00.000Z')
+const AFTER = new Date('2026-11-06T05:00:00.000Z')
 
 let pathname = '/'
 vi.mock('next/navigation', () => ({ usePathname: () => pathname }))
@@ -187,7 +187,7 @@ describe('SalePopup', () => {
     const { container } = await openPopup(Popup)
 
     expect(container.innerHTML).not.toMatch(/\d{1,2}:\d{2}:\d{2}/) // no ticking clock
-    expect(container.textContent).toMatch(/ends sunday, november 1 at 11:59 pm et/i)
+    expect(container.textContent).toMatch(/ends thursday, november 5 at 11:59 pm et/i)
     expect(container.textContent).toMatch(/research use only/i)
   })
 

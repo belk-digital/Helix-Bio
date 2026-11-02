@@ -13,7 +13,7 @@ import {
 } from '@/lib/sale/autoDiscount'
 
 const DURING = new Date('2026-10-30T12:00:00.000Z')
-const AFTER = new Date('2026-11-02T05:00:00.000Z') // one minute past the end instant
+const AFTER = new Date('2026-11-06T05:00:00.000Z') // one minute past the end instant
 
 const line = (price: number, qty = 1, extra: Partial<SaleCartLine> = {}): SaleCartLine => ({
   priceSnapshot: price,

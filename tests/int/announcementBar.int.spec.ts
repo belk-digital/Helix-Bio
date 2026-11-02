@@ -4,7 +4,7 @@ import { render, screen, cleanup, act, fireEvent } from '@testing-library/react'
 import { SALE_ENDS_AT } from '@/lib/sale/autoDiscount'
 
 const DURING = new Date('2026-10-30T12:00:00.000Z')
-const AFTER = new Date('2026-11-02T05:00:00.000Z')
+const AFTER = new Date('2026-11-06T05:00:00.000Z')
 
 /** Fresh module each time, so the module-scoped session dismissal starts clean. */
 async function freshBar() {
