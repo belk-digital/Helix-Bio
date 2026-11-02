@@ -3,6 +3,17 @@ import React from 'react'
 import { render, screen, cleanup, act, fireEvent } from '@testing-library/react'
 import { SALE_ENDS_AT } from '@/lib/sale/autoDiscount'
 
+// The post-sale set renders translated copy and a click-to-copy coupon pill.
+vi.mock('next-intl', () => ({
+  useTranslations: () => (key: string) =>
+    ({
+      'announcements.puritySale': 'PURITY SALE: 10% OFF ALL PEPTIDES',
+      'announcements.freeShipping': 'FREE SECURED SHIPPING ON ORDERS OVER $300',
+      'announcements.newCustomerDiscount': 'NEW CUSTOMERS: 15% OFF YOUR FIRST ORDER',
+    })[key] ?? key,
+}))
+vi.mock('sonner', () => ({ toast: { success: vi.fn() } }))
+
 const DURING = new Date('2026-10-30T12:00:00.000Z')
 const AFTER = new Date('2026-11-06T05:00:00.000Z')
 
@@ -166,7 +177,7 @@ describe('AnnouncementBar', () => {
     expect(Object.keys(window.sessionStorage)).toHaveLength(0)
   })
 
-  it('renders nothing once the sale has ended', async () => {
+  it('falls back to the pre-sale announcements once the sale has ended', async () => {
     vi.setSystemTime(AFTER)
     expect(new Date(SALE_ENDS_AT) <= AFTER).toBe(true)
 
@@ -177,8 +188,41 @@ describe('AnnouncementBar', () => {
       container = render(React.createElement(Bar, { onVisibilityChange })).container
     })
 
-    expect(container.innerHTML).toBe('')
-    expect(onVisibilityChange).toHaveBeenLastCalledWith(false)
+    // The strip stays — the header is never left empty
+    expect(container.querySelector('[role="status"]')).toBeTruthy()
+    expect(onVisibilityChange).toHaveBeenLastCalledWith(true)
+
+    const seen: string[] = []
+    for (let i = 0; i < 3; i++) {
+      seen.push(container.textContent || '')
+      await act(async () => {
+        vi.advanceTimersByTime(5000)
+      })
+    }
+
+    expect(seen[0]).toMatch(/purity sale: 10% off all peptides/i)
+    expect(seen[1]).toMatch(/free secured shipping on orders over \$300/i)
+    expect(seen[2]).toMatch(/new customers: 15% off your first order/i)
+
+    // Coupon pills are back; the sale styling is not
+    expect(seen[0]).toContain('PURITY10')
+    expect(seen[2]).toContain('NEW15')
+    expect(container.innerHTML).not.toContain('text-orange')
+    expect(container.innerHTML).not.toMatch(/halloween/i)
+  })
+
+  it('shows no coupon pill on the free-shipping message', async () => {
+    vi.setSystemTime(AFTER)
+    const Bar = await freshBar()
+    let container!: HTMLElement
+    await act(async () => {
+      container = render(React.createElement(Bar)).container
+    })
+    await act(async () => {
+      vi.advanceTimersByTime(5000)
+    })
+    expect(container.textContent).toMatch(/free secured shipping/i)
+    expect(container.querySelector('button[title]')).toBeNull()
   })
 
   it('uses the orange-on-black Halloween theme', async () => {
