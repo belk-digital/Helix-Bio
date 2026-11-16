@@ -9,6 +9,8 @@ import { getCategoryDisplayName } from '@/lib/categoryDisplay'
 import { getShippingMethods } from '@/app/(frontend)/(shop)/checkout/actions'
 import { JsonLd } from '@/components/shared/JsonLd'
 import { UNIFIED_ORGANIZATION_NODE, UNIFIED_WEBSITE_NODE } from '@/lib/schema'
+import { rankSuggestedBlogs, MAX_BLOG_CANDIDATES } from '@/lib/blog/rankSuggestedBlogs'
+import { truncateAtWord } from '@/lib/truncate'
 
 export async function generateMetadata({
   params,
@@ -36,7 +38,13 @@ export async function generateMetadata({
 
   const product = docs[0]
   const title = product.seoTitle || product.name || 'Product'
-  const description = product.seoDescription || product.description?.substring(0, 160) || ''
+  // substring(0, 160) cut mid-word and could silently drop a trailing research-use-only
+  // statement; truncateAtWord keeps whole words and refuses to look complete when it has
+  // dropped protected wording. Only reached when seoDescription is empty.
+  const description =
+    product.seoDescription ||
+    truncateAtWord(product.description, 160, { protect: /research use only|\bRUO\b/i }) ||
+    ''
 
   // Get primary image for open graph
   let imageUrl = undefined
@@ -393,13 +401,46 @@ export default async function ProductPage({
       ],
     },
     sort: '-publishedAt',
-    limit: 3,
+    // Ranking has to see every match, so this is a candidate cap, not the display count.
+    // Payload defaults to 10 when omitted, which would silently truncate before ranking.
+    limit: MAX_BLOG_CANDIDATES,
     depth: 1,
+    // Raising the limit from 3 to MAX_BLOG_CANDIDATES also multiplied the response, because
+    // every candidate arrived with its full Lexical `content` (~96 KB per post; the busiest
+    // product has 14 related posts). Nothing here reads `content` — ranking uses only
+    // title/focusKeyphrase/keywords/publishedAt, and the card below uses the rest — so it is
+    // excluded. `id` is always returned by Payload and does not need listing; `status` and
+    // `relatedProducts` drive the `where` clause, which does not require selecting them.
+    select: {
+      // Ranking signals (see rankSuggestedBlogs.ts).
+      title: true,
+      focusKeyphrase: true,
+      keywords: true,
+      publishedAt: true,
+      // Card fields consumed by mappedBlogs below.
+      slug: true,
+      author: true,
+      featuredImage: true,
+      excerpt: true,
+      readTime: true,
+      category: true,
+      // seoPlugin-injected group; `meta.description` is the preferred excerpt source.
+      meta: true,
+      // Date fallback when publishedAt is unset. Payload does not return timestamps
+      // automatically under an inclusive select, so it has to be named.
+      createdAt: true,
+    },
   })
+
+  // Order by how topical each post is to THIS product, newest-first only as a tie-breaker.
+  // Previously the three newest matches won outright, so a generic post that tags a popular
+  // product displaced the article actually written about it. Posts that score nothing keep
+  // their original date order, so products whose posts never name them are unaffected.
+  const rankedBlogDocs = rankSuggestedBlogs(productBlogDocs, rawProduct.name)
 
   // Not every product is covered yet (notably the -spray variants), so fall back
   // to the newest posts instead of dropping the section entirely.
-  let blogDocs = productBlogDocs
+  let blogDocs = rankedBlogDocs
   if (blogDocs.length === 0) {
     const { docs: recentBlogDocs } = await payload.find({
       collection: 'blog-posts',

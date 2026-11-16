@@ -5,6 +5,7 @@ import {
   type JSXConvertersFunction,
 } from '@payloadcms/richtext-lexical/react'
 import { CalloutBox } from './CalloutBox'
+import { blogLinkRel, BLOG_LINK_CLASS } from '@/lib/blog/markdownLinks'
 
 const jsxConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
   ...defaultConverters,
@@ -32,29 +33,16 @@ const jsxConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
     const fields = (node as any).fields || {}
     const url = fields?.url || ''
     const target = fields?.newTab ? '_blank' : undefined
-    const competitorDomains = [
-      'aeropeptides.com',
-      'peptpedia.org',
-      'apexlab.org',
-      'peptidedosage.org',
-      'peptide-science.org',
-      'milo-lab.com',
-      'peptideprescriber.com',
-      'peptides.nyc',
-    ]
-    const isCompetitor = competitorDomains.some((d) => url.includes(d))
-    const rel = isCompetitor
-      ? 'noopener noreferrer nofollow'
-      : target
-        ? 'noopener noreferrer'
-        : undefined
+    // Competitor list and rel/class rules now live in one place so the Lexical path and the
+    // Markdown-link path inside CalloutBox cannot drift apart. Behaviour is unchanged.
+    const rel = blogLinkRel(url, Boolean(target))
 
     return (
       <a
         href={url}
         target={target}
         rel={rel}
-        className="hover:text-ink transition-colors inline-flex items-start gap-1.5 underline underline-offset-4 decoration-ink/20 hover:decoration-ink/50"
+        className={BLOG_LINK_CLASS}
       >
         {nodesToJSX({ nodes: (node as any).children })}
       </a>

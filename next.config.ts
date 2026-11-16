@@ -56,7 +56,31 @@ const nextConfig: NextConfig = {
     ],
   },
   async redirects() {
-    return []
+    return [
+      // Product 121 was renamed Retatrutide -> GLP-3RTA (see scripts/rename-glp-products.ts),
+      // which also changed its slug, so /product/retatrutide stopped resolving. With no redirect
+      // it fell through to the existence check in product/[slug]/layout.tsx and served the global
+      // 404 "Formula Not Found" page, which Next renders with <meta name="robots" content="noindex">
+      // — hence Search Console reporting the old URL as "Excluded by 'noindex' tag" while the new
+      // URL inherited none of its search equity.
+      //
+      // `statusCode: 301` rather than `permanent: true` on purpose: `permanent` emits a 308. Both
+      // are permanent and Google honours them the same way, but 301 is the status this migration
+      // specifies and the one third-party SEO crawlers and log analysis expect here.
+      //
+      // The source is an exact path, not a wildcard: every other unknown product slug must keep
+      // the genuine 404 from the layout guard. Next forwards the query string automatically, and
+      // the destination is a different path that returns 200, so this cannot loop.
+      { source: '/product/retatrutide', destination: '/product/glp-3rta', statusCode: 301 },
+      // Product 123 was renamed Tirzepatide -> GLP-1TRZ in the same pass, with the same
+      // consequence: /product/tirzepatide 404s and its search equity goes nowhere. Both renames
+      // are confirmed permanent, so both old URLs get a 301 to the SAME product record under its
+      // new slug — this maps a URL, it asserts nothing about the compounds themselves.
+      //
+      // No -spray entries: /product/retatrutide-spray and /product/tirzepatide-spray never
+      // existed (zero commits in full git history), so there is no origin URL to redirect.
+      { source: '/product/tirzepatide', destination: '/product/glp-1trz', statusCode: 301 },
+    ]
   },
   async rewrites() {
     return [

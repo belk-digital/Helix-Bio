@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/og'
 import { NextRequest } from 'next/server'
+import { truncateAtWord } from '@/lib/truncate'
 
 export const runtime = 'edge'
 
@@ -17,8 +18,12 @@ export async function GET(req: NextRequest) {
     }
     title = title.slice(0, 90)
       
-    let description = searchParams.has('description')
-      ? searchParams.get('description')?.slice(0, 120) // Shorter limit for description
+    // Same 120-character budget as before — it is what the layout affords — but cut on a
+    // word boundary instead of mid-word. Sentence preference is off here: at this length a
+    // trailing research-use-only sentence usually cannot fit, and a clean sentence cut would
+    // hide that. The RESEARCH USE ONLY badge below carries that statement unconditionally.
+    const description = searchParams.has('description')
+      ? truncateAtWord(searchParams.get('description'), 120, { sentenceThreshold: 0 })
       : 'Research-grade excellence. Dedicated to purity.'
 
     const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'
@@ -90,7 +95,7 @@ export async function GET(req: NextRequest) {
             >
               <h1
                 style={{
-                  fontSize: '76px',
+                  fontSize: '64px',
                   fontWeight: 800,
                   color: '#ffffff',
                   margin: 0,
@@ -134,6 +139,30 @@ export async function GET(req: NextRequest) {
                 }}
               >
                 helixbiochem.com
+              </div>
+
+              {/*
+                Research-use-only positioning must appear on every product share image.
+                The description is truncated to fit the layout, so it cannot be relied on
+                to carry it. This badge is unconditional. The row is already
+                justifyContent: space-between with a single child, so adding this sibling
+                aligns it flush right without changing any existing styling.
+              */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  padding: '12px 32px',
+                  borderRadius: '100px',
+                  color: '#ffffff',
+                  fontSize: '24px',
+                  fontWeight: 600,
+                  letterSpacing: '0.02em',
+                }}
+              >
+                RESEARCH USE ONLY
               </div>
             </div>
           </div>

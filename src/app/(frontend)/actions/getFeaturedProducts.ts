@@ -3,6 +3,7 @@
 import { getPayload } from 'payload'
 import { getLocale } from 'next-intl/server'
 import configPromise from '@/payload.config'
+import { truncateAtWord } from '@/lib/truncate'
 
 export async function getFeaturedProducts() {
   try {
@@ -22,7 +23,9 @@ export async function getFeaturedProducts() {
       const imageUrl = p.images?.[0]?.image?.url || '/hero-image.png'
       // Use the actual description and truncate it if it's too long
       const rawDesc = p.description || ''
-      const shortDesc = rawDesc.length > 120 ? rawDesc.substring(0, 117) + '...' : rawDesc
+      // Same 120-character budget as before, but cut on a word boundary. The three-dot
+      // suffix is kept so the existing card styling is unchanged.
+      const shortDesc = truncateAtWord(rawDesc, 120, { suffix: '...' })
       
       return {
         title: p.name,

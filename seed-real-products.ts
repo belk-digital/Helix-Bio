@@ -26,7 +26,13 @@ type ProductSeed = {
 const productsToSeed: ProductSeed[] = [
   {
     name: 'Retatrutide',
-    slug: 'retatrutide',
+    // Canonical slug is `glp-3rta`, NOT `retatrutide`. This product was renamed in the CMS
+    // (see scripts/rename-glp-products.ts: Retatrutide -> GLP-3RTA, product 121) and the old
+    // URL is now a 301 in next.config.ts. Seeding `retatrutide` here would recreate the product
+    // at the dead URL while /product/glp-3rta stopped existing — the 301 would then point at a
+    // 404 and the page would be unreachable. The display name and copy are left as-is; the
+    // rename script rewrites those fields separately and deliberately.
+    slug: 'glp-3rta',
     imageFile: 'RETATRUTIDE 10MG.png',
     categoryName: 'GLP-1 & Metabolic',
     description: 'Retatrutide is a synthetic research peptide studied for triple hormone receptor agonism — activity across the GLP-1, GIP, and glucagon receptors within a single molecule. Originally advanced through Eli Lilly\'s clinical research pipeline, it has become one of the most closely watched compounds in metabolic and endocrine research because of that three-receptor mechanism, which sets it apart from single- or dual-agonist peptides such as semaglutide and tirzepatide. Helix Bio supplies Retatrutide as a lyophilized powder intended strictly for laboratory and preclinical research, manufactured to a high-purity standard and backed by third-party verification. It is not intended for human consumption, diagnostic use, or any therapeutic application.',
@@ -8436,6 +8442,20 @@ const productsToSeed: ProductSeed[] = [
 ]
 
 async function runSeed() {
+  // DESTRUCTIVE, and irreversibly so: the first thing this does is
+  // `payload.delete({ collection: 'products', where: {} })` — it wipes the ENTIRE products
+  // collection and then recreates only the entries hardcoded above. The live catalog is larger
+  // than this list, so an accidental run silently destroys the difference, every CMS-side edit
+  // (including the GLP renames from scripts/rename-glp-products.ts), and the product IDs that
+  // blog `relatedProducts`, wishlists and orders point at. This is a one-time bootstrap, not a
+  // maintenance script, so it refuses to run unless the destruction is asked for explicitly.
+  if (!process.argv.includes('--apply')) {
+    console.error('Refusing to run.')
+    console.error(`This DELETES ALL products, then recreates the ${productsToSeed.length} hardcoded here.`)
+    console.error('Any product or edit not in this file is lost. Re-run with --apply if that is intended.')
+    process.exit(1)
+  }
+
   const { getPayload } = await import('payload')
   const { default: configPromise } = await import('./src/payload.config')
   const payload = await getPayload({ config: configPromise })

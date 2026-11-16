@@ -55,3 +55,7 @@ node_modules/
 # Already hosted on Cloudflare R2 — kept locally for reference only
 /public/99pp Products images
 /public/BioTide COA
+
+# Unpublished blog drafts (JSON + hero PNGs) staged locally before CMS import.
+# Anchored to the repo root so it cannot match a "blog-drafts" folder nested elsewhere.
+/blog-drafts/
