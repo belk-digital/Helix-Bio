@@ -6,7 +6,7 @@ import { Link } from '@/i18n/navigation'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent, useMotionValue, useSpring } from 'framer-motion'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
-import { Heart, ChevronRight, ChevronLeft, Download, Check, ShieldCheck, FlaskConical, MapPin, Zap, ShoppingCart, Truck, Sparkles, Loader2, Award, Globe, Lock, RotateCcw, CheckCircle2 } from 'lucide-react'
+import { Heart, ChevronRight, ChevronLeft, Download, Check, ShieldCheck, FlaskConical, MapPin, Zap, ShoppingCart, Truck, Sparkles, Loader2, Award, Globe, Lock, RotateCcw, CheckCircle2, Mail, X } from 'lucide-react'
 import { Container } from '@/components/ui/container'
 import { Button } from '@/components/ui/button'
 import { PinterestGlassCard } from '@/components/home/PinterestGlassCard'
@@ -25,6 +25,7 @@ import { ProductTabs, Tab } from '@/components/shop/ProductTabs'
 import { ProductAccordion } from '@/components/shop/ProductAccordion'
 import { ProductDetailTabs } from '@/components/shop/ProductDetailTabs'
 import { PrimaryProductCard } from '@/components/shop/PrimaryProductCard'
+import { EnquirePanel } from '@/components/shop/EnquirePanel'
 import { ProductCard } from '@/components/shared/ProductCard'
 import { SharedFaqSection } from '@/components/shared/SharedFaqSection'
 import { BlogPostCard } from '@/components/editorial/BlogPostCard'
@@ -231,6 +232,16 @@ export function ProductClient({ product }: ProductClientProps) {
     ...(product.images || [])
   ]
   const galleryImages = Array.from(new Set(allImages)).filter(Boolean)
+
+  // Availability-enquiry panel. Held here rather than inside EnquirePanel so the sticky bar
+  // can open the same panel instead of rendering a competing second copy of it.
+  const [enquireOpen, setEnquireOpen] = useState(false)
+  const enquireRef = React.useRef<HTMLDivElement>(null)
+
+  const openEnquiry = () => {
+    setEnquireOpen(true)
+    enquireRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
 
   const [justAdded, setJustAdded] = useState(false)
   const cartStore = useCartStore()
@@ -469,6 +480,48 @@ export function ProductClient({ product }: ProductClientProps) {
 
           {/* CTA Action Box */}
           <div className="flex flex-col gap-4 mb-8 bg-white p-6 sm:p-8 rounded-[32px] md:rounded-[40px] shadow-[0_8px_48px_-12px_rgba(0,0,0,0.05)] border border-ink/5">
+            {!selectedVariant?.inStock ? (
+              /* Unbuyable variant: the purchase actions are replaced outright rather than shown
+                 disabled, and a quantity stepper is meaningless here so it goes too. Wishlist
+                 stays — saving an out-of-stock item is exactly when you want it, and it rides
+                 along as the panel's `trailing` slot so both controls share one row while the
+                 helper text and the expanding form span the full width beneath them. */
+              <div ref={enquireRef} className="flex flex-col gap-4">
+                <div className="flex items-center gap-2.5">
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#E9ECEE] text-[#5C6870]">
+                    <X className="w-4 h-4" strokeWidth={2.5} />
+                  </span>
+                  <span className="text-[15px] font-bold text-ink">{t('outOfStock')}</span>
+                </div>
+
+                <EnquirePanel
+                  productName={product.name}
+                  productSlug={product.slug}
+                  variantTitle={selectedVariant?.title || ''}
+                  variantSku={selectedVariant?.sku || ''}
+                  open={enquireOpen}
+                  onOpenChange={setEnquireOpen}
+                  trailing={
+                    <button
+                      onClick={handleWishlistClick}
+                      disabled={isWishlistPending}
+                      aria-label={t('toggleWishlist')}
+                      className={`h-[60px] w-[60px] flex items-center justify-center shrink-0 rounded-[20px] border transition-colors duration-200 ${
+                        inWishlist
+                          ? 'border-red-100 bg-red-50 text-red-500'
+                          : 'border-ink/10 bg-white hover:bg-gray-50 text-ink/40'
+                      }`}
+                    >
+                      {isWishlistPending
+                        ? <Loader2 className="w-5 h-5 animate-spin text-ink/30" />
+                        : <Heart className={`w-5 h-5 ${inWishlist ? "fill-current" : ""}`} strokeWidth={inWishlist ? 2.5 : 2} />
+                      }
+                    </button>
+                  }
+                />
+              </div>
+            ) : (
+            <>
             {/* Row: Quantity + Add to Cart + Wishlist */}
             <div className="flex flex-col sm:flex-row items-stretch gap-3">
               <div className="flex gap-3 h-[60px]">
@@ -530,6 +583,8 @@ export function ProductClient({ product }: ProductClientProps) {
             >
               {t('buyNow')}
             </button>
+            </>
+            )}
           </div>
 
           {/* Trust Badges (Minimalist Grid) */}
@@ -855,6 +910,20 @@ export function ProductClient({ product }: ProductClientProps) {
               </motion.div>
             </motion.button>
 
+            {!selectedVariant?.inStock ? (
+              /* Mirrors the main CTA: an unbuyable variant gets one honest action, not a
+                 greyed-out cart button beside a Buy Now that cannot run. This scrolls to and
+                 opens the single panel above rather than duplicating the form down here. */
+              <Button
+                variant="dark"
+                className="flex-1 h-11 rounded-full font-bold text-white bg-gradient-to-r from-black to-gray-800 hover:from-black hover:to-black transition-all duration-300 text-[11px] uppercase tracking-widest border-none shadow-[0_4px_14px_rgba(0,0,0,0.1)] hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                onClick={openEnquiry}
+              >
+                <Mail size={16} strokeWidth={2} />
+                {t('enquireNow')}
+              </Button>
+            ) : (
+            <>
             <Button 
               variant="outline" 
               className="w-11 h-11 p-0 flex-shrink-0 rounded-full font-bold text-black border border-black bg-white hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center group"
@@ -886,6 +955,8 @@ export function ProductClient({ product }: ProductClientProps) {
             >
               {t('buyNow')}
             </Button>
+            </>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

@@ -30,6 +30,8 @@ import * as migration_20260911_100000_add_dataopt_payment_method from './2026091
 import * as migration_20260911_100100_seed_dataopt_payment_method_global from './20260911_100100_seed_dataopt_payment_method_global';
 import * as migration_20260912_100000_add_coupon_per_user_limit from './20260912_100000_add_coupon_per_user_limit';
 import * as migration_20261011_030000_fix_order_total_precision from './20261011_030000_fix_order_total_precision';
+import * as migration_20261117_120000_add_product_enquiries from './20261117_120000_add_product_enquiries';
+import * as migration_20261117_160000_remove_product_enquiries from './20261117_160000_remove_product_enquiries';
 
 export const migrations = [
   {
@@ -191,5 +193,15 @@ export const migrations = [
     up: migration_20261011_030000_fix_order_total_precision.up,
     down: migration_20261011_030000_fix_order_total_precision.down,
     name: '20261011_030000_fix_order_total_precision',
+  },
+  {
+    up: migration_20261117_120000_add_product_enquiries.up,
+    down: migration_20261117_120000_add_product_enquiries.down,
+    name: '20261117_120000_add_product_enquiries',
+  },
+  {
+    up: migration_20261117_160000_remove_product_enquiries.up,
+    down: migration_20261117_160000_remove_product_enquiries.down,
+    name: '20261117_160000_remove_product_enquiries',
   },
 ];
