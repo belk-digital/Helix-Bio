@@ -79,10 +79,15 @@ export function BestSellerSection({ products = [] }: { products?: any[] }) {
   const startX = useRef(0);
   const scrollLeft = useRef(0);
   const isDraggingRef = useRef(false);
+  // Pointer is over the track. Held in a ref rather than state so the autoplay interval
+  // below reads the live value without being torn down and recreated on every hover.
+  const isHovering = useRef(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!isDown.current && scrollContainerRef.current) {
+      // Hold position while the pointer is over the track, so a card can't slide out from
+      // under the cursor mid-click, and while a drag is in progress.
+      if (!isDown.current && !isHovering.current && scrollContainerRef.current) {
         const container = scrollContainerRef.current;
         if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
           container.scrollTo({ left: 0, behavior: 'smooth' });
@@ -104,7 +109,12 @@ export function BestSellerSection({ products = [] }: { products?: any[] }) {
     scrollLeft.current = scrollContainerRef.current.scrollLeft;
   };
 
+  const handleMouseEnter = () => {
+    isHovering.current = true;
+  };
+
   const handleMouseLeave = () => {
+    isHovering.current = false;
     isDown.current = false;
     if (scrollContainerRef.current) {
       scrollContainerRef.current.style.cursor = 'grab';
@@ -160,6 +170,7 @@ export function BestSellerSection({ products = [] }: { products?: any[] }) {
             className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8 cursor-grab active:cursor-grabbing"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             onMouseDown={handleMouseDown}
+            onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onMouseUp={handleMouseUp}
             onMouseMove={handleMouseMove}

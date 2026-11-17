@@ -96,11 +96,18 @@ export function ProductCard({ product }: ProductCardProps) {
     const priceRaw = getPrice(product)
     const priceVal = typeof priceRaw === 'string' ? parseFloat(priceRaw.replace(/[^0-9.]/g, '')) : Number(priceRaw)
 
+    // Single-variant products reach here (nothing to choose), but they still have a real
+    // SKU and option label. Use them so the cart shows the variant name rather than
+    // "DEFAULT", and so checkout can resolve the line back to that variant's own price.
+    // "Default" remains only for products that genuinely have no variants at all.
+    const sole = (product as any).soleVariant
+
     cartStore.addItem(
       { id: product.id || product.slug, name: product.name, imageUrl: getImageUrl(product), slug: product.slug },
-      'Default',
+      sole?.sku || 'Default',
       1,
-      priceVal || 0
+      priceVal || 0,
+      sole?.title || undefined
     )
     trackAddToCart({
       content_ids: [String(product.id || product.slug)],

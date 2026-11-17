@@ -599,6 +599,21 @@ export async function getShopProducts(params: {
       const effectivePrice = displaySalePrice !== undefined ? displaySalePrice : displayPrice
       const productDescription = doc.description || doc.seoDescription || ''
 
+      // A product with exactly one variant is quick-addable (there is nothing to choose),
+      // but it still has a real SKU and option label. Surfacing them lets the card add the
+      // actual variant instead of the placeholder "Default" — which showed as "DEFAULT" in
+      // the cart and, because checkout resolves variants by SKU, could not be matched back
+      // to the variant's own price.
+      const variantList = Array.isArray(doc.variants) ? doc.variants : []
+      const lone = doc.hasVariants && variantList.length === 1 ? (variantList[0] as any) : null
+      const soleVariant = lone
+        ? {
+            sku: lone.sku || '',
+            title:
+              lone.options?.map((o: any) => o.value).filter(Boolean).join(' ') || lone.sku || '',
+          }
+        : undefined
+
       return {
         id: doc.id as number,
         name: doc.name,
@@ -618,7 +633,10 @@ export async function getShopProducts(params: {
         discountPercentage: (displaySalePrice && displayPrice > 0)
           ? Math.round(((displayPrice - displaySalePrice) / displayPrice) * 100)
           : undefined,
+        // True only when the shopper actually has a choice to make, i.e. 2+ variants.
+        // Single-variant products stay quick-addable and carry `soleVariant` instead.
         hasVariants: !!(doc.hasVariants && (doc.variants?.length || 0) > 1),
+        soleVariant,
         category: categoryName
       }
     })

@@ -51,11 +51,17 @@ function SlideToAddButton({ product }: { product: Product }) {
     }
 
     const itemPrice = parseFloat(product.priceRange.replace(/[^0-9.]/g, '')) || 0
+
+    // Same rule as the shared ProductCard: a single-variant product is quick-addable but
+    // must carry its real SKU and option label, not the "Default" placeholder.
+    const sole = (product as any).soleVariant
+
     cartStore.addItem(
       { id: product.id || product.slug, name: product.name, imageUrl: product.image, slug: product.slug },
-      'Default',
+      sole?.sku || 'Default',
       1,
-      itemPrice
+      itemPrice,
+      sole?.title || undefined
     )
     trackAddToCart({
       content_ids: [String(product.id || product.slug)],

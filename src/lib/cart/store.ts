@@ -156,6 +156,28 @@ export const useCartStore = create<CartState>()(
     },
     {
       name: 'Helix Bio-cart-storage',
+      /**
+       * A browser that ran a build using a different `version` marker still carries that
+       * marker in localStorage. When it doesn't match the version this build expects,
+       * zustand looks for a migrate function and, finding none, logs
+       *   "State loaded from storage couldn't be migrated since no migrate function was provided"
+       * and DISCARDS the persisted state — silently emptying the shopper's cart on load.
+       *
+       * Accepting any earlier (or later) marker and normalising the shape is the safe
+       * default: an unrecognised version costs a shrug rather than the cart. If a future
+       * change ever needs a real transform, bump `version` here and branch on the
+       * `version` argument.
+       */
+      migrate: (persistedState) => {
+        const state = (persistedState ?? {}) as Partial<CartState>
+
+        return {
+          ...state,
+          // Guard the one field everything else reduces over, so a corrupt or
+          // partially-written payload can't crash hydration.
+          items: Array.isArray(state.items) ? state.items : [],
+        } as CartState
+      },
     },
   ),
 )
