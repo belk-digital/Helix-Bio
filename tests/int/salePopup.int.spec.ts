@@ -3,8 +3,8 @@ import React from 'react'
 import { render, screen, cleanup, act, fireEvent } from '@testing-library/react'
 import { SALE_TIERS } from '@/lib/sale/autoDiscount'
 
-const DURING = new Date('2026-10-30T12:00:00.000Z')
-const AFTER = new Date('2026-11-06T05:00:00.000Z')
+const DURING = new Date('2026-11-19T12:00:00.000Z')
+const AFTER = new Date('2026-11-24T18:30:00.000Z')
 
 let pathname = '/'
 vi.mock('next/navigation', () => ({ usePathname: () => pathname }))
@@ -63,9 +63,12 @@ describe('SalePopup', () => {
 
     const img = container.querySelector('img')!
     // next/image rewrites src through the optimiser, so assert on the source path
-    expect(img.outerHTML).toContain('halloween-sale-banner.png')
-    expect(img.getAttribute('width')).toBe('1677')
-    expect(img.getAttribute('height')).toBe('938')
+    expect(img.outerHTML).toContain('early-black-friday-banner.png')
+    expect(img.outerHTML).not.toContain('halloween')
+    // The supplied PNG's own pixel dimensions, so its aspect ratio is preserved
+    // and next/image only ever scales it down.
+    expect(img.getAttribute('width')).toBe('1672')
+    expect(img.getAttribute('height')).toBe('941')
     expect(img.closest('a')!.getAttribute('href')).toBe('/shop')
   })
 
@@ -113,7 +116,7 @@ describe('SalePopup', () => {
     await act(async () => {
       fireEvent.click(screen.getByLabelText('Close'))
     })
-    expect(window.localStorage.getItem('helix-halloween-popup-dismissed')).toBe('1')
+    expect(window.localStorage.getItem('helix-black-friday-popup-dismissed')).toBe('1')
     cleanup()
 
     // A fresh module + fresh mount stands in for a reload or a new tab
@@ -127,9 +130,9 @@ describe('SalePopup', () => {
     })
     expect(container.querySelector('[role="dialog"]')).toBeNull()
 
-    // ...but the badge is there, in the sale orange, and reopens the popup
-    const badge = screen.getByText(new RegExp(`up to ${SALE_TIERS[2].percent}% off`, 'i'))
-    expect(badge.className).toContain('text-orange-400')
+    // ...but the badge is there, in the monochrome sale styling, and reopens it
+    const badge = screen.getByText(new RegExp(`${SALE_TIERS[0].percent}% off`, 'i'))
+    expect(badge.className).toContain('text-white')
     await act(async () => {
       fireEvent.click(badge)
     })
@@ -137,7 +140,7 @@ describe('SalePopup', () => {
   })
 
   it('the badge can itself be dismissed, and stays gone', async () => {
-    window.localStorage.setItem('helix-halloween-popup-dismissed', '1')
+    window.localStorage.setItem('helix-black-friday-popup-dismissed', '1')
     const Popup = await freshPopup()
     let container!: HTMLElement
     await act(async () => {
@@ -148,7 +151,7 @@ describe('SalePopup', () => {
       fireEvent.click(screen.getByLabelText('Dismiss sale badge'))
     })
     expect(container.innerHTML).toBe('')
-    expect(window.localStorage.getItem('helix-halloween-badge-dismissed')).toBe('1')
+    expect(window.localStorage.getItem('helix-black-friday-badge-dismissed')).toBe('1')
   })
 
   it('the banner link points at plain /shop and closes the popup', async () => {
@@ -187,8 +190,26 @@ describe('SalePopup', () => {
     const { container } = await openPopup(Popup)
 
     expect(container.innerHTML).not.toMatch(/\d{1,2}:\d{2}:\d{2}/) // no ticking clock
-    expect(container.textContent).toMatch(/ends thursday, november 5 at 11:59 pm et/i)
+    // Derived from SALE_ENDS_AT, so the copy cannot state a different day from
+    // the one the discount actually stops on.
+    expect(container.textContent).toMatch(
+      /ends tuesday, november 24 at 11:59 pm ist \(1:29 pm et\)/i,
+    )
     expect(container.textContent).toMatch(/research use only/i)
+  })
+
+  it('states the exclusions, so no shopper expects 30% off BAC water or needles', async () => {
+    const Popup = await freshPopup()
+    const { container } = await openPopup(Popup)
+    expect(container.textContent).toMatch(/bac water, needles, kits and bundles are excluded/i)
+    expect(container.textContent).toMatch(/eligible products/i)
+  })
+
+  it('carries no Halloween artwork, copy or storage keys', async () => {
+    const Popup = await freshPopup()
+    const { container } = await openPopup(Popup)
+    expect(container.innerHTML.toLowerCase()).not.toMatch(/halloween|pumpkin/)
+    expect(Object.keys(window.localStorage).join(' ')).not.toMatch(/halloween/)
   })
 
   it('the component itself introduces no orange classes', async () => {

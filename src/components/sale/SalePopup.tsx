@@ -5,25 +5,36 @@ import Image from 'next/image'
 import { X } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { Link } from '@/i18n/navigation'
-import { SALE_NAME, SALE_TIERS, SALE_ENDS_AT, isSaleActive } from '@/lib/sale/autoDiscount'
+import {
+  SALE_NAME,
+  SALE_TIERS,
+  SALE_EXCLUSION_NOTE,
+  isSaleActive,
+  saleEndsLabel,
+} from '@/lib/sale/autoDiscount'
 
 /**
- * Sale popup: the supplied Halloween banner over a dimmed page.
+ * Sale popup: the supplied Early Black Friday banner over a dimmed page.
  *
- * The banner already carries the headline, the three tiers and the
- * "applied automatically at checkout" line, so the card is the artwork plus a
- * close control and the compliance fine print the image does not state in text.
+ * The banner carries the headline and the rate, so the card is the artwork plus
+ * a close control and the compliance fine print the image does not state in
+ * text. The artwork is shown whole — intrinsic size, `h-auto w-full`, no crop
+ * and no forced aspect ratio — so next/image only ever scales it down.
  *
  * The end date still comes from lib/sale/autoDiscount, so the popup retires
  * itself on the same instant the discount does.
  */
 
-const BANNER_SRC = '/images/halloween-sale-banner.png'
-const BANNER_WIDTH = 1677
-const BANNER_HEIGHT = 938
+const BANNER_SRC = '/images/early-black-friday-banner.png'
+// The supplied PNG's own pixel dimensions, so the rendered box matches its
+// aspect ratio exactly and the layout does not shift as it loads.
+const BANNER_WIDTH = 1672
+const BANNER_HEIGHT = 941
 
-const POPUP_DISMISSED_KEY = 'helix-halloween-popup-dismissed'
-const BADGE_DISMISSED_KEY = 'helix-halloween-badge-dismissed'
+// Keyed to this sale, so a visitor who dismissed the Halloween popup still sees
+// this one.
+const POPUP_DISMISSED_KEY = 'helix-black-friday-popup-dismissed'
+const BADGE_DISMISSED_KEY = 'helix-black-friday-badge-dismissed'
 const OPEN_DELAY_MS = 3000
 
 /** The popup is a marketing surface — never over the funnel. */
@@ -84,24 +95,19 @@ export function SalePopup() {
   if (!mounted || suppressed || !isSaleActive()) return null
 
   const topTier = SALE_TIERS[SALE_TIERS.length - 1]
-  const endsLabel = new Date(SALE_ENDS_AT).toLocaleString('en-US', {
-    timeZone: 'America/New_York',
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-  })
+  const endsLabel = saleEndsLabel()
 
   // Badge stands in for the popup once dismissed.
   if (!open) {
     if (!popupDismissed || badgeDismissed) return null
     return (
-      <div className="fixed bottom-4 left-4 z-[190] flex items-center gap-1 rounded-full border border-orange-500/35 bg-ink/95 py-1.5 pl-3 pr-1.5 shadow-xl backdrop-blur print:hidden">
+      <div className="fixed bottom-4 left-4 z-[190] flex items-center gap-1 rounded-full border border-white/20 bg-ink/95 py-1.5 pl-3 pr-1.5 shadow-xl backdrop-blur print:hidden">
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="text-[10px] font-bold uppercase tracking-[0.14em] text-orange-400 transition-colors hover:text-white"
+          className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/80 transition-colors hover:text-white"
         >
-          {SALE_NAME}: up to {topTier.percent}% off
+          {SALE_NAME}: {topTier.percent}% off
         </button>
         <button
           type="button"
@@ -127,7 +133,7 @@ export function SalePopup() {
       <div
         role="dialog"
         aria-modal="true"
-        aria-label={`${SALE_NAME} — up to ${topTier.percent}% off`}
+        aria-label={`${SALE_NAME} — ${topTier.percent}% off eligible products`}
         onClick={(e) => e.stopPropagation()}
         className="relative w-full max-w-[980px] overflow-hidden rounded-[18px] border border-white/10 bg-ink shadow-2xl"
       >
@@ -145,7 +151,7 @@ export function SalePopup() {
         <Link href="/shop" onClick={close} className="block" aria-label="Shop the sale">
           <Image
             src={BANNER_SRC}
-            alt={`${SALE_NAME}: ${SALE_TIERS.map((t) => `${t.percent}% off`).join(', ')} — premium peptides for research use only`}
+            alt={`${SALE_NAME}: ${SALE_TIERS.map((t) => `${t.percent}% off`).join(', ')} on eligible products — premium peptides for research use only`}
             width={BANNER_WIDTH}
             height={BANNER_HEIGHT}
             priority
@@ -157,10 +163,9 @@ export function SalePopup() {
         {/* Compliance line: the banner states the offer but not the end date or
             the research-use restriction in text. */}
         <p className="border-t border-white/[0.07] px-4 py-3 text-[10px] leading-relaxed text-white/35 sm:px-6">
-          Applies automatically at checkout to your whole cart, no code needed. It can&apos;t be
-          combined with coupon codes: if you enter one, we&apos;ll show you which is the better
-          deal. Ends {endsLabel} at 11:59 PM ET. Research use only, not for human or veterinary
-          use.
+          Applies automatically at checkout to eligible products, no code needed. {SALE_EXCLUSION_NOTE}.
+          It can&apos;t be combined with coupon codes: if you enter one, we&apos;ll show you which
+          is the better deal. Ends {endsLabel}. Research use only, not for human or veterinary use.
         </p>
       </div>
     </div>

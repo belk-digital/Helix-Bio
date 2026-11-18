@@ -17,6 +17,7 @@ import { useWishlistStore } from '@/lib/wishlist/store'
 import { useSession } from 'next-auth/react'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
+import { SaleNote } from '@/components/sale/SaleBadge'
 
 import { ImageGallery } from '@/components/shop/ImageGallery'
 import { VariantSelector, Variant } from '@/components/shop/VariantSelector'
@@ -446,6 +447,10 @@ export function ProductClient({ product }: ProductClientProps) {
             <span className="text-3xl sm:text-4xl font-bold text-ink tracking-tight">
               {selectedVariant?.salePrice || selectedVariant?.price}
             </span>
+            {/* Site-wide sale. Phrased as a checkout discount, not a price cut:
+                the listed price is unchanged and the 30% comes off the eligible
+                subtotal. Renders nothing for excluded products. */}
+            <SaleNote productSlug={product.slug} />
             {selectedVariant?.salePrice && (
               <>
                 <span className="text-lg text-ink/40 line-through font-medium">{selectedVariant.price}</span>

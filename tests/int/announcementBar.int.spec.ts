@@ -14,8 +14,8 @@ vi.mock('next-intl', () => ({
 }))
 vi.mock('sonner', () => ({ toast: { success: vi.fn() } }))
 
-const DURING = new Date('2026-10-30T12:00:00.000Z')
-const AFTER = new Date('2026-11-06T05:00:00.000Z')
+const DURING = new Date('2026-11-19T12:00:00.000Z')
+const AFTER = new Date('2026-11-24T18:30:00.000Z')
 
 /** Fresh module each time, so the module-scoped session dismissal starts clean. */
 async function freshBar() {
@@ -53,9 +53,9 @@ describe('AnnouncementBar', () => {
       seen.push(textOf())
     }
 
-    expect(seen[0]).toMatch(/halloween deals . 20% off everything/i)
+    expect(seen[0]).toMatch(/early black friday . 30% off eligible products/i)
     expect(seen[1]).toMatch(/free secured shipping on orders over \$300/i)
-    expect(seen[2]).toMatch(/over \$250 for 25%, over \$500 for 30%/i)
+    expect(seen[2]).toMatch(/applied automatically at checkout . no coupon needed/i)
     // Loops back round
     expect(seen[3]).toBe(seen[0])
     expect(seen[4]).toBe(seen[1])
@@ -170,7 +170,7 @@ describe('AnnouncementBar', () => {
       fresh = render(React.createElement(Reloaded)).container
     })
     expect(fresh.querySelector('[role="status"]')).toBeTruthy()
-    expect(textOf()).toMatch(/halloween deals . 20% off everything/i)
+    expect(textOf()).toMatch(/early black friday . 30% off eligible products/i)
 
     // Nothing was written to storage
     expect(Object.keys(window.localStorage)).toHaveLength(0)
@@ -208,7 +208,7 @@ describe('AnnouncementBar', () => {
     expect(seen[0]).toContain('PURITY10')
     expect(seen[2]).toContain('NEW15')
     expect(container.innerHTML).not.toContain('text-orange')
-    expect(container.innerHTML).not.toMatch(/halloween/i)
+    expect(container.innerHTML).not.toMatch(/halloween|black friday/i)
   })
 
   it('shows no coupon pill on the free-shipping message', async () => {
@@ -225,7 +225,7 @@ describe('AnnouncementBar', () => {
     expect(container.querySelector('button[title]')).toBeNull()
   })
 
-  it('uses the orange-on-black Halloween theme', async () => {
+  it('uses the white-on-black Black Friday theme, with no Halloween leftovers', async () => {
     const Bar = await freshBar()
     let container!: HTMLElement
     await act(async () => {
@@ -233,14 +233,36 @@ describe('AnnouncementBar', () => {
     })
 
     const html = container.innerHTML.toLowerCase()
-    // Orange accent on a black strip, deliberately departing from the blue theme
+    // Monochrome strip, matching the sale banner and deliberately departing
+    // from the blue theme for the duration of the sale.
     expect(html).toContain('bg-black')
-    expect(html).toContain('text-orange-500') // icon
-    expect(html).toContain('text-orange-400') // text + dismiss
-    // No stray second accent
+    expect(html).toContain('text-white')
+    // No stray second accent, and nothing left of the Halloween palette
     expect(html).not.toContain('text-primary')
-    for (const banned of ['amber', 'yellow', 'gold']) {
+    for (const banned of ['orange', 'amber', 'yellow', 'gold']) {
       expect(html).not.toContain(banned)
     }
+  })
+
+  it('advertises only the rate the sale module actually applies', async () => {
+    const { SALE_TIERS } = await import('@/lib/sale/autoDiscount')
+    const Bar = await freshBar()
+    let container!: HTMLElement
+    await act(async () => {
+      container = render(React.createElement(Bar)).container
+    })
+
+    // One flat tier, so the strip may name 30% and no other rate.
+    expect(SALE_TIERS).toHaveLength(1)
+    const seen: string[] = []
+    for (let i = 0; i < 3; i++) {
+      seen.push(container.textContent || '')
+      await act(async () => {
+        vi.advanceTimersByTime(5000)
+      })
+    }
+    const all = seen.join(' ')
+    expect(all).toContain('30%')
+    expect(all).not.toMatch(/\b(20|25)%/)
   })
 })

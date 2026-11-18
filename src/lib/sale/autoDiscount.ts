@@ -1,28 +1,42 @@
 /**
- * Halloween Deals — automatic tiered cart discount.
+ * Early Black Friday — automatic cart discount on eligible products.
  *
- * Single source of truth for the tier rule. The cart drawer, cart page, checkout
+ * Single source of truth for the rule. The cart drawer, cart page, checkout
  * summary AND the two server-side totals paths (createPaymentIntent /
- * createPayloadOrder) all call into here, so a rate change happens in one place.
+ * createPayloadOrder) all call into here, so a rate, date or exclusion change
+ * happens in one place.
  *
  * The browser value is a preview only — the server recomputes the discount from
  * live product data at order creation and never trusts a client-supplied amount.
+ * For that preview to agree with what is charged, both sides must feed the same
+ * fields into `SaleCartLine`; see `isExcludedLine` for what those are.
  */
 
-// Sale ends Nov 5, 11:59 PM ET (extended from Nov 1). DST ended Sun Nov 1 2026,
-// so early November is EST (UTC-5) -> 04:59Z on Nov 6. Stored as a fixed instant
-// and compared to `now` exactly the way the Coupons collection compares
-// `expiresAt`. Every sale surface reads this one value, so moving the date here
-// moves the discount, the banner popup, the announcement bar and the tier bar
-// together.
-export const SALE_NAME = 'Halloween Deals'
-export const SALE_ENDS_AT = '2026-11-06T04:59:00.000Z'
+/**
+ * Sale window. Both are fixed instants compared against `now` exactly the way
+ * the Coupons collection compares `expiresAt`. Every sale surface — the
+ * discount, the banner popup, the announcement bar, the marquee and the cart
+ * card — reads these two values, so moving a date here moves all of them.
+ *
+ * SALE_STARTS_AT is null, which means the sale is live the moment this code
+ * deploys. Set it to an ISO instant to gate the start instead.
+ *
+ * SALE_ENDS_AT: Nov 24 2026, 11:59 PM IST. IST is UTC+5:30 year-round (no DST),
+ * so 23:59 IST on the 24th is 18:29Z the same day.
+ */
+export const SALE_NAME = 'Early Black Friday'
+export const SALE_STARTS_AT: string | null = null
+export const SALE_ENDS_AT = '2026-11-24T18:29:00.000Z'
+
+/** Timezone the end date is advertised in, so copy cannot drift from the instant. */
+export const SALE_ENDS_TIMEZONE = 'Asia/Kolkata'
+export const SALE_ENDS_TIMEZONE_LABEL = 'IST'
 
 /** Free-shipping threshold already advertised by the marquee and the shipping zones. */
 export const FREE_SHIPPING_THRESHOLD = 300
 
 export type SaleTier = {
-  /** Discount rate as a fraction, e.g. 0.25 */
+  /** Discount rate as a fraction, e.g. 0.3 */
   rate: number
   /** Rate as a whole percentage, for labels. */
   percent: number
@@ -30,12 +44,43 @@ export type SaleTier = {
   over: number
 }
 
-/** Ordered low -> high. "Over $250" means $250.01 qualifies, $250.00 does not. */
-export const SALE_TIERS: SaleTier[] = [
-  { rate: 0.2, percent: 20, over: 0 },
-  { rate: 0.25, percent: 25, over: 250 },
-  { rate: 0.3, percent: 30, over: 500 },
-]
+/**
+ * Ordered low -> high. Early Black Friday is a single flat tier with no minimum
+ * purchase, so every eligible cart gets the same rate. The tier machinery is
+ * kept because the cart, checkout and progress card all read their figures off
+ * it, and a future multi-tier sale needs only this array back.
+ */
+export const SALE_TIERS: SaleTier[] = [{ rate: 0.3, percent: 30, over: 0 }]
+
+/** True while the sale has exactly one rate, so no "unlock the next tier" copy applies. */
+export const IS_FLAT_SALE = SALE_TIERS.length === 1
+
+/**
+ * Products excluded from the sale, by slug.
+ *
+ * Deliberately an explicit list rather than a category or name rule. Verified
+ * against the live catalogue: `bac-water` (id 152) and `10-needles` (id 180) are
+ * the only BAC water and needle products, and neither carries a category — but
+ * five ordinary peptides are uncategorised too, so "no category" would exclude
+ * the wrong things. Name matching is worse still: six eligible products are
+ * blends and combinations ("BPC-157 / TB-500 Blend", "Glow", "Klow" and the
+ * rest), which are single-vial products and must keep the discount.
+ *
+ * Add a slug here to pull a product out of the sale; nothing else needs editing.
+ */
+export const SALE_EXCLUDED_SLUGS: string[] = ['bac-water', '10-needles']
+
+/**
+ * SKU backstop for the same two products, used when a line has no slug — an old
+ * persisted cart, or any caller that cannot resolve the product. Matched as a
+ * prefix and case-insensitively against the live SKUs: BACWAT-3ML / -10ML /
+ * -30ML and 10-NEEDLES. Confirmed that no other product's SKU begins with
+ * either, so this cannot catch an eligible line.
+ */
+export const SALE_EXCLUDED_SKU_PREFIXES: string[] = ['BACWAT-', '10-NEEDLES']
+
+/** Plain-English exclusion note, shown wherever the sale is explained. */
+export const SALE_EXCLUSION_NOTE = 'BAC water, needles, kits and bundles are excluded'
 
 /**
  * Same rounding the checkout totals use everywhere else — floating-point sums of
@@ -48,6 +93,13 @@ export type SaleCartLine = {
   quantity: number
   variantSku?: string | null
   /**
+   * Product slug, the primary eligibility key. Server-side callers read it off
+   * the product record they already load; the browser reads it from the cart
+   * line's stored product. Both must pass it or the preview and the charged
+   * amount can disagree.
+   */
+  productSlug?: string | null
+  /**
    * Authoritative kit flag from products.variants[].isKit. Server-side callers
    * resolve and pass it; the browser usually cannot and falls back to the sku rule.
    */
@@ -58,20 +110,48 @@ export type SaleCartLine = {
  * Kits and bundles are excluded from the sale. Mirrors the rule already used by
  * coupon eligibility in (shop)/actions.ts: the variant's isKit flag, falling back
  * to the legacy " - " bundle marker in the sku.
+ *
+ * No catalogue row currently sets either, so this excludes nothing today — it is
+ * kept so a kit added later is out of the sale without a code change.
  */
 export function isKitLine(line: SaleCartLine): boolean {
   if (line.isKit === true) return true
   return typeof line.variantSku === 'string' && line.variantSku.includes(' - ')
 }
 
+/** True when a line is named in the exclusions, by slug or by its SKU backstop. */
+export function isExcludedProduct(
+  productSlug?: string | null,
+  variantSku?: string | null,
+): boolean {
+  const slug = typeof productSlug === 'string' ? productSlug.trim().toLowerCase() : ''
+  if (slug && SALE_EXCLUDED_SLUGS.includes(slug)) return true
+
+  const sku = typeof variantSku === 'string' ? variantSku.trim().toUpperCase() : ''
+  if (sku && SALE_EXCLUDED_SKU_PREFIXES.some((prefix) => sku.startsWith(prefix))) return true
+
+  return false
+}
+
+/**
+ * The one eligibility rule. Every surface that decides whether a line is in the
+ * sale — the browser preview, the server totals, the product badge — goes
+ * through here, so they cannot drift apart.
+ */
+export function isExcludedLine(line: SaleCartLine): boolean {
+  if (isKitLine(line)) return true
+  return isExcludedProduct(line.productSlug, line.variantSku)
+}
+
 export function isSaleActive(now: Date = new Date()): boolean {
+  if (SALE_STARTS_AT && now < new Date(SALE_STARTS_AT)) return false
   return now < new Date(SALE_ENDS_AT)
 }
 
-/** Subtotal of sale-eligible lines only: singles, sprays and auto-added accessories. */
+/** Subtotal of sale-eligible lines only — excluded products and kits left out. */
 export function eligibleSubtotalOf(lines: SaleCartLine[]): number {
   const sum = (lines || []).reduce(
-    (acc, line) => (isKitLine(line) ? acc : acc + line.priceSnapshot * line.quantity),
+    (acc, line) => (isExcludedLine(line) ? acc : acc + line.priceSnapshot * line.quantity),
     0,
   )
   return round2(sum)
@@ -100,15 +180,15 @@ export type SaleProgress = {
 
 export type SaleDiscount = {
   active: boolean
-  /** Eligible subtotal the rate was applied to (kits excluded). */
+  /** Eligible subtotal the rate was applied to (exclusions removed). */
   eligibleSubtotal: number
-  /** Subtotal of excluded kit/bundle lines, for display. */
+  /** Subtotal of excluded lines, for display. */
   excludedSubtotal: number
   /** Discount in dollars, rounded to cents. */
   amount: number
   rate: number
   percent: number
-  /** e.g. "Halloween Deals (20% off)" */
+  /** e.g. "Early Black Friday (30% off)" */
   label: string
   progress: SaleProgress | null
 }
@@ -125,8 +205,8 @@ const INACTIVE: SaleDiscount = {
 }
 
 /**
- * The tier discount for a cart. Returns an inactive result after the end date so
- * callers can hide both the discount line and the progress bar with one check.
+ * The discount for a cart. Returns an inactive result outside the sale window so
+ * callers can hide both the discount line and the sale card with one check.
  */
 export function computeSaleDiscount(
   lines: SaleCartLine[],
@@ -185,18 +265,18 @@ export type DiscountChoice = {
   amount: number
   /** Label for the applied line. */
   label: string
-  /** Tier value on this cart, shown even when the coupon wins. */
+  /** Sale value on this cart, shown even when the coupon wins. */
   saleAmount: number
   saleLabel: string
-  /** Coupon value on this cart, shown even when the tier wins. */
+  /** Coupon value on this cart, shown even when the sale wins. */
   couponAmount: number
   couponLabel: string
 }
 
 /**
- * Coupons never stack with the auto-tier: compute both on the same cart and apply
- * the larger. Ties go to the sale, so removing a coupon can never reduce the
- * discount. Both figures are returned so the UI can show why one won.
+ * Coupons never stack with the automatic sale: compute both on the same cart and
+ * apply the larger. Ties go to the sale, so removing a coupon can never reduce
+ * the discount. Both figures are returned so the UI can show why one won.
  *
  * `couponAmount` must be whatever the caller's own coupon path produced, so the
  * comparison matches the value that will actually be charged.
@@ -221,9 +301,41 @@ export function chooseDiscount(
   return { ...base, source: 'none', amount: 0, label: '' }
 }
 
-/** Progress-bar copy, e.g. "Add $176.02 more to unlock 25% off". */
+/**
+ * Cart-card copy. With one flat tier there is nothing to unlock, so it states
+ * the rate instead of inviting the shopper to spend more; a multi-tier sale gets
+ * the "add $X more" message back automatically.
+ */
 export function progressMessage(progress: SaleProgress | null): string {
   if (!progress) return ''
+  if (IS_FLAT_SALE) return `${progress.tier.percent}% off eligible products, applied at checkout`
   if (progress.isTopTier) return `${progress.tier.percent}% off unlocked — top tier`
   return `Add $${progress.amountToNextTier.toFixed(2)} more to unlock ${progress.nextTier!.percent}% off`
+}
+
+/**
+ * The end date as advertised, derived from SALE_ENDS_AT so the copy can never
+ * state a different day from the one the discount actually stops on. Rendered in
+ * the timezone the sale was set in, with the US Eastern equivalent alongside,
+ * since the store prices and ships from the US.
+ */
+export function saleEndsLabel(): string {
+  const ends = new Date(SALE_ENDS_AT)
+  const day = ends.toLocaleString('en-US', {
+    timeZone: SALE_ENDS_TIMEZONE,
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+  })
+  const time = ends.toLocaleString('en-US', {
+    timeZone: SALE_ENDS_TIMEZONE,
+    hour: 'numeric',
+    minute: '2-digit',
+  })
+  const et = ends.toLocaleString('en-US', {
+    timeZone: 'America/New_York',
+    hour: 'numeric',
+    minute: '2-digit',
+  })
+  return `${day} at ${time} ${SALE_ENDS_TIMEZONE_LABEL} (${et} ET)`
 }

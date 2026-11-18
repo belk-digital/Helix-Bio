@@ -2,45 +2,31 @@ import { describe, it, expect, afterEach } from 'vitest'
 import React from 'react'
 import { render, screen, cleanup } from '@testing-library/react'
 import { SaleTierProgress } from '@/components/sale/SaleTierProgress'
-import { computeSaleDiscount, type SaleCartLine } from '@/lib/sale/autoDiscount'
+import {
+  computeSaleDiscount,
+  SALE_NAME,
+  SALE_EXCLUSION_NOTE,
+  type SaleCartLine,
+} from '@/lib/sale/autoDiscount'
 
-const DURING = new Date('2026-10-30T12:00:00.000Z')
-const AFTER = new Date('2026-11-06T05:00:00.000Z')
+/**
+ * The cart/checkout sale card under a flat sale.
+ *
+ * Early Black Friday has one rate and no minimum, so the card states the rate
+ * and nothing else: no track, no tier nodes and no "add $X more to unlock"
+ * message, which would be false when there is nothing to unlock.
+ */
+
+const DURING = new Date('2026-11-19T12:00:00.000Z')
+const AFTER = new Date('2026-11-24T18:30:00.000Z')
 
 const line = (price: number, qty = 1, extra: Partial<SaleCartLine> = {}): SaleCartLine => ({
   priceSnapshot: price,
   quantity: qty,
   variantSku: 'SINGLE-10MG',
+  productSlug: 'bpc-157',
   ...extra,
 })
-
-/** Node fill is read off the rendered circles rather than any local recomputation. */
-function nodeStates(container: HTMLElement) {
-  // Scoped to the label row under the track, so the large headline percentage
-  // is not mistaken for a node label.
-  // The header row also uses justify-between, so take the last one: the labels.
-  const rows = container.querySelectorAll('.justify-between')
-  const row = rows[rows.length - 1] as HTMLElement
-  const labels = Array.from(row.querySelectorAll('span')).filter((el) =>
-    /^(20|25|30)%$/.test(el.textContent || ''),
-  )
-  return labels.map((el) => ({
-    label: el.textContent,
-    filled: !(el.className.includes('text-white/35')),
-  }))
-}
-
-/**
- * Fill width as a percentage of the card. jsdom collapses the calc() to a single
- * value, so the number is parsed out rather than matched as a string. The track
- * spans 66.667% of the card (inset by half a node at each end), so a full bar
- * reads ~66.67 and a half bar ~33.33.
- */
-function trackFillPercent(container: HTMLElement) {
-  const fill = container.querySelector('.bg-orange-500.transition-all') as HTMLElement | null
-  const m = (fill?.style.width ?? '').match(/([0-9.]+)%/)
-  return m ? parseFloat(m[1]) : 0
-}
 
 /** Headline rate, read as text because the "%" sits in its own smaller span. */
 function bigPercent(container: HTMLElement) {
@@ -49,94 +35,79 @@ function bigPercent(container: HTMLElement) {
 
 afterEach(() => cleanup())
 
-describe('SaleTierProgress — three tier states', () => {
-  it('20% state: first node filled, track empty, 25% is the goal', () => {
-    const sale = computeSaleDiscount([line(59.99), line(14.0)], DURING) // 73.99
-    expect(sale.percent).toBe(20) // guard: driven by the sale module, not the view
+describe('SaleTierProgress — flat sale card', () => {
+  it('states the flat 30% rate and names the sale', () => {
+    const sale = computeSaleDiscount([line(59.99)], DURING)
+    expect(sale.percent).toBe(30) // guard: driven by the sale module, not the view
 
     const { container } = render(React.createElement(SaleTierProgress, { sale }))
 
-    expect(bigPercent(container)).toBe('20%')
-    expect(screen.getByText('Add $176.02 more to unlock 25% off')).toBeTruthy()
-    expect(nodeStates(container)).toEqual([
-      { label: '20%', filled: true },
-      { label: '25%', filled: false },
-      { label: '30%', filled: false },
-    ])
-    expect(trackFillPercent(container)).toBeCloseTo(14.8, 1)
-  })
-
-  it('25% state: first two nodes filled, track half, 30% is the goal', () => {
-    const sale = computeSaleDiscount([line(300)], DURING)
-    expect(sale.percent).toBe(25)
-
-    const { container } = render(React.createElement(SaleTierProgress, { sale }))
-
-    expect(bigPercent(container)).toBe('25%')
-    expect(screen.getByText('Add $200.01 more to unlock 30% off')).toBeTruthy()
-    expect(nodeStates(container)).toEqual([
-      { label: '20%', filled: true },
-      { label: '25%', filled: true },
-      { label: '30%', filled: false },
-    ])
-    expect(trackFillPercent(container)).toBeCloseTo(60.0, 1)
-  })
-
-  it('30% state: all nodes filled, track full, unlocked message', () => {
-    const sale = computeSaleDiscount([line(600)], DURING)
-    expect(sale.percent).toBe(30)
-    expect(sale.progress?.isTopTier).toBe(true)
-
-    const { container } = render(React.createElement(SaleTierProgress, { sale }))
-
+    expect(screen.getByText(SALE_NAME)).toBeTruthy()
     expect(bigPercent(container)).toBe('30%')
-    expect(screen.getByText('30% off unlocked — top tier')).toBeTruthy()
-    expect(nodeStates(container)).toEqual([
-      { label: '20%', filled: true },
-      { label: '25%', filled: true },
-      { label: '30%', filled: true },
-    ])
-    expect(trackFillPercent(container)).toBeCloseTo(100, 1)
+    expect(screen.getByText('30% off eligible products, applied at checkout')).toBeTruthy()
   })
 
-  it('shows the sale name and never disagrees with the sale module', () => {
-    const lines = [line(129.99), line(99.99), line(14.0)] // 243.98 -> 20%
-    const sale = computeSaleDiscount(lines, DURING)
+  it('shows no progress track, no tier nodes and no unlock message', () => {
+    const sale = computeSaleDiscount([line(59.99)], DURING)
     const { container } = render(React.createElement(SaleTierProgress, { sale }))
 
-    expect(screen.getByText('Halloween Deals')).toBeTruthy()
-    // The big percentage equals sale.percent, and the copy equals the module's gap
-    expect(bigPercent(container)).toBe(`${sale.percent}%`)
-    expect(
-      screen.getByText(`Add $${sale.progress!.amountToNextTier.toFixed(2)} more to unlock 25% off`),
-    ).toBeTruthy()
+    expect(container.querySelector('[role="progressbar"]')).toBeNull()
+    expect(container.querySelectorAll('span.absolute.rounded-full')).toHaveLength(0)
+    expect(container.textContent).not.toMatch(/unlock|top tier|add \$[\d.]+ more/i)
   })
 
-  it('flags excluded kits and renders nothing once the sale has ended', () => {
-    const withKit = computeSaleDiscount(
-      [line(100), line(400, 1, { variantSku: 'KIT-10MG - 5 Kits' })],
+  it('the rate does not change with cart size — there is no minimum and no next tier', () => {
+    for (const subtotal of [10, 250.01, 500.01, 2000]) {
+      cleanup()
+      const sale = computeSaleDiscount([line(subtotal)], DURING)
+      const { container } = render(React.createElement(SaleTierProgress, { sale }))
+      expect(bigPercent(container)).toBe('30%')
+      expect(sale.amount).toBe(Math.round(subtotal * 0.3 * 100) / 100)
+    }
+  })
+
+  it('prompts for eligible items on an empty cart rather than showing a discount', () => {
+    const sale = computeSaleDiscount([], DURING)
+    const { container } = render(React.createElement(SaleTierProgress, { sale }))
+
+    expect(sale.amount).toBe(0)
+    expect(screen.getByText('Add eligible items to get 30% off')).toBeTruthy()
+    expect(bigPercent(container)).toBe('30%') // the rate on offer, not an applied one
+  })
+
+  it('names the exclusions when something in the cart was left out', () => {
+    const withExcluded = computeSaleDiscount(
+      [line(99.99), line(14, 1, { productSlug: 'bac-water', variantSku: 'BACWAT-10ML' })],
       DURING,
     )
-    const { container: a } = render(React.createElement(SaleTierProgress, { sale: withKit }))
-    expect(a.textContent).toContain('Kits & bundles excluded from the sale')
+    const { container } = render(React.createElement(SaleTierProgress, { sale: withExcluded }))
 
-    cleanup()
-    const ended = computeSaleDiscount([line(600)], AFTER)
-    const { container: b } = render(React.createElement(SaleTierProgress, { sale: ended }))
-    expect(b.innerHTML).toBe('')
+    expect(withExcluded.excludedSubtotal).toBe(14)
+    expect(container.textContent).toContain(SALE_EXCLUSION_NOTE)
   })
 
-  it('uses the Halloween orange accent and no leftover blue', () => {
+  it('says nothing about exclusions when every line is eligible', () => {
+    const allEligible = computeSaleDiscount([line(99.99), line(129, 1, { productSlug: 'glow' })], DURING)
+    const { container } = render(React.createElement(SaleTierProgress, { sale: allEligible }))
+
+    expect(allEligible.excludedSubtotal).toBe(0)
+    expect(container.textContent).not.toContain(SALE_EXCLUSION_NOTE)
+  })
+
+  it('renders nothing at all once the sale has ended', () => {
+    const ended = computeSaleDiscount([line(600)], AFTER)
+    const { container } = render(React.createElement(SaleTierProgress, { sale: ended }))
+    expect(container.innerHTML).toBe('')
+  })
+
+  it('carries no Halloween styling or artwork', () => {
     const sale = computeSaleDiscount([line(300)], DURING)
     const { container } = render(React.createElement(SaleTierProgress, { sale }))
-    const html = container.innerHTML
 
-    // Orange for the sale run, matching the announcement bar and the banner
-    expect(html).toContain('bg-orange-500')
-    expect(html).toContain('text-orange-400')
-    // No leftover blue accent, and no third colour
-    for (const banned of ['text-primary', 'bg-primary', 'amber', 'gold', 'yellow']) {
-      expect(html.toLowerCase()).not.toContain(banned.toLowerCase())
+    const html = container.innerHTML.toLowerCase()
+    expect(html).not.toMatch(/halloween|pumpkin|bat\b/)
+    for (const banned of ['orange', 'amber', 'yellow', 'gold']) {
+      expect(html).not.toContain(banned)
     }
   })
 })

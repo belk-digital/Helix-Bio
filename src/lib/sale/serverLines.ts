@@ -8,6 +8,11 @@ import type { SaleCartLine } from './autoDiscount'
  *
  * Kit detection mirrors coupon eligibility in (shop)/actions.ts: the variant's
  * isKit flag, falling back to the legacy " - " marker in the sku.
+ *
+ * The product slug is carried through as well: it is the sale's eligibility key
+ * (BAC water and needles are excluded), and the product record is already loaded
+ * here, so resolving it costs nothing extra. This is the authoritative value —
+ * the browser passes its own copy for the preview, and the server's wins.
  */
 export async function buildSaleLines(
   items: any[],
@@ -41,6 +46,7 @@ export async function buildSaleLines(
       priceSnapshot: Number(live.priceSnapshot) || 0,
       quantity: item.quantity || 1,
       variantSku: item.variantSku ?? null,
+      productSlug: product?.slug ?? item.product?.slug ?? null,
       isKit: matchedVariant ? !!matchedVariant.isKit : undefined,
     })
   }

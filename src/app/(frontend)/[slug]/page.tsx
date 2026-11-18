@@ -23,6 +23,7 @@ import { UNIFIED_ORGANIZATION_NODE, UNIFIED_WEBSITE_NODE } from '@/lib/schema'
 import { splitFirstParagraph } from '@/lib/blog/splitContent'
 import { getFeaturedImageUrl, formatPostDate, FALLBACK_BLOG_IMAGE as FALLBACK_IMAGE } from '@/lib/blog/postDisplay'
 import { encodeImageUrl, getOgImageUrl, toAbsoluteUrl } from '@/lib/utils'
+import { availableStockOf } from '@/lib/products/availableStock'
 
 async function getPost(slug: string) {
   const payload = await getPayload({ config: configPromise })
@@ -173,6 +174,8 @@ export default async function BlogPostPage({
     category: product.slug === 'bac-water' || product.slug === 'bacteriostatic-water' || product.name?.includes('BAC') ? 'LABORATORY SOLVENT' : (typeof product.categories?.[0] === 'object' ? product.categories[0].title : ''),
     description: product.description || product.seoDescription || '',
     price: Number(product.price || 0).toFixed(2),
+    // Already on the related-products relationship at depth 1 — no extra query.
+    stock: availableStockOf(product),
   }))
 
   const { first: introContent, rest: restContent } = splitFirstParagraph(post.content)

@@ -20,6 +20,7 @@ import { getProductsFromAffiliateCart } from '@/app/(frontend)/actions/cart'
 import { useSaleDiscount } from '@/lib/sale/useSaleDiscount'
 import { SaleTierProgress } from '@/components/sale/SaleTierProgress'
 import { chooseDiscount, round2 } from '@/lib/sale/autoDiscount'
+import { availableStockOf } from '@/lib/products/availableStock'
 
 export function CartClient() {
   const t = useTranslations('checkout.cartClient')
@@ -212,6 +213,8 @@ export function CartClient() {
               discountPercentage: (displaySalePrice && displayPrice > 0)
                 ? Math.round(((displayPrice - displaySalePrice) / displayPrice) * 100)
                 : undefined,
+              // Already in the /api/products?depth=1 response — no extra query.
+              stock: availableStockOf(p),
               category: typeof p.category === 'object' ? p.category?.name : t('categoryFallback'),
             }
           })
@@ -588,7 +591,7 @@ export function CartClient() {
               </div>
 
               {discountChoice.source === 'sale' && (
-                <div className="flex justify-between items-center text-orange-600">
+                <div className="flex justify-between items-center text-ink">
                   <span>{discountChoice.saleLabel}</span>
                   <span className="font-medium">-${discountChoice.saleAmount.toFixed(2)}</span>
                 </div>

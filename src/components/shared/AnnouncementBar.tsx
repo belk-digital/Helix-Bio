@@ -1,10 +1,14 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { X, Moon } from 'lucide-react'
+import { X, Tag, Truck, Sparkles } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { SALE_NAME, SALE_TIERS, isSaleActive, FREE_SHIPPING_THRESHOLD } from '@/lib/sale/autoDiscount'
-import { PumpkinIcon, BatIcon } from '@/components/sale/HalloweenIcons'
+import {
+  SALE_NAME,
+  SALE_TIERS,
+  isSaleActive,
+  FREE_SHIPPING_THRESHOLD,
+} from '@/lib/sale/autoDiscount'
 import { LEGACY_ANNOUNCEMENTS, CouponBox } from './AnnouncementLegacy'
 
 /**
@@ -12,9 +16,10 @@ import { LEGACY_ANNOUNCEMENTS, CouponBox } from './AnnouncementLegacy'
  * no controls.
  *
  * Two sets, chosen by the sale clock:
- *  - while the Halloween sale runs: the three sale messages, orange on black
- *  - once it expires: the evergreen announcements that ran before it, white on
- *    black, with their click-to-copy coupon pills
+ *  - while the Early Black Friday sale runs: the three sale messages, white on
+ *    black, matching the sale banner
+ *  - once it expires: the evergreen announcements that ran before it, with their
+ *    click-to-copy coupon pills
  *
  * So the header is never left empty, and the sale retires itself without anyone
  * having to edit a file.
@@ -33,18 +38,25 @@ const ROTATE_MS = 5000
  */
 let dismissedThisSession = false
 
+/**
+ * Rates come from SALE_TIERS rather than being typed out, so the strip cannot
+ * advertise a percentage the discount does not apply. With one flat tier that is
+ * a single figure; the last tier is the headline rate either way.
+ */
+const SALE_PERCENT = SALE_TIERS[SALE_TIERS.length - 1].percent
+
 const SALE_MESSAGES = [
   {
-    Icon: PumpkinIcon,
-    text: `${SALE_NAME} — ${SALE_TIERS[0].percent}% off everything`,
+    Icon: Tag,
+    text: `${SALE_NAME} — ${SALE_PERCENT}% off eligible products`,
   },
   {
-    Icon: BatIcon,
+    Icon: Truck,
     text: `Free secured shipping on orders over $${FREE_SHIPPING_THRESHOLD}`,
   },
   {
-    Icon: null, // lucide Moon, rendered below
-    text: `Over $${SALE_TIERS[1].over} for ${SALE_TIERS[1].percent}%, over $${SALE_TIERS[2].over} for ${SALE_TIERS[2].percent}%`,
+    Icon: Sparkles,
+    text: 'Applied automatically at checkout — no coupon needed',
   },
 ] as const
 
@@ -100,9 +112,7 @@ export function AnnouncementBar({
 
   return (
     <div
-      className={`relative z-50 w-full bg-black pointer-events-auto ${
-        saleRunning ? 'text-orange-400' : 'text-white'
-      }`}
+      className="relative z-50 w-full bg-black text-white pointer-events-auto"
       style={{ height: ANNOUNCEMENT_BAR_HEIGHT }}
       role="status"
       aria-live="polite"
@@ -110,8 +120,8 @@ export function AnnouncementBar({
       <div className="flex h-full items-center justify-center gap-2 px-10 sm:gap-4 sm:px-12">
         {sale && (
           <>
-            <span className="shrink-0 text-orange-500" aria-hidden="true">
-              {Icon ? <Icon size={14} /> : <Moon size={13} strokeWidth={2} />}
+            <span className="shrink-0 text-white/70" aria-hidden="true">
+              {Icon ? <Icon size={14} strokeWidth={2.5} /> : null}
             </span>
             {/* Plain text: not a link, nothing to click or hover. */}
             <span className="text-center text-[9px] font-heading font-extrabold uppercase leading-snug tracking-[0.14em] sm:text-[10px] sm:tracking-[0.2em] lg:text-[11px]">
@@ -138,11 +148,7 @@ export function AnnouncementBar({
         type="button"
         onClick={dismiss}
         aria-label="Dismiss announcement"
-        className={`absolute right-1 top-1/2 -translate-y-1/2 p-2 transition-colors sm:right-3 ${
-          saleRunning
-            ? 'text-orange-400/60 hover:text-orange-400'
-            : 'text-white/60 hover:text-white'
-        }`}
+        className="absolute right-1 top-1/2 -translate-y-1/2 p-2 text-white/60 transition-colors hover:text-white sm:right-3"
       >
         <X size={16} strokeWidth={2.5} />
       </button>

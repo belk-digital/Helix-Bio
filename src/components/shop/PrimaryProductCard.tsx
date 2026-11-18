@@ -11,6 +11,7 @@ import { useWishlistStore } from '@/lib/wishlist/store'
 import { useCartStore } from '@/lib/cart/store'
 import { toast } from 'sonner'
 import { trackAddToCart } from '@/lib/metaPixel'
+import { SaleBadge } from '@/components/sale/SaleBadge'
 
 export interface Product {
   id?: string // added id to support wishlist
@@ -207,14 +208,17 @@ export function PrimaryProductCard({ product, size = 'small', id }: PrimaryProdu
       {/* Image Area */}
       <div className={`relative w-full ${imageAspectClass} overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] bg-[#F5F5F7] mb-4 sm:mb-6`}>
         
-        {/* SALE Badge */}
-        {(product.originalPrice || product.discountPercentage) && (
-          <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20">
+        {/* Badges: the product's own sale price, then the site-wide sale rate.
+            SaleBadge renders nothing for products the sale excludes, so an
+            excluded item can never advertise a discount it will not get. */}
+        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20 flex flex-col items-start gap-1.5">
+          {(product.originalPrice || product.discountPercentage) && (
             <span className="bg-red-600 text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-sm shadow-sm">
               {t('sale')}
             </span>
-          </div>
-        )}
+          )}
+          <SaleBadge productSlug={product.slug} />
+        </div>
 
         <Image
           src={product.image}

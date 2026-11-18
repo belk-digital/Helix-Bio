@@ -11,6 +11,7 @@ import { JsonLd } from '@/components/shared/JsonLd'
 import { UNIFIED_ORGANIZATION_NODE, UNIFIED_WEBSITE_NODE } from '@/lib/schema'
 import { rankSuggestedBlogs, MAX_BLOG_CANDIDATES } from '@/lib/blog/rankSuggestedBlogs'
 import { truncateAtWord } from '@/lib/truncate'
+import { availableStockOf } from '@/lib/products/availableStock'
 
 export async function generateMetadata({
   params,
@@ -326,6 +327,9 @@ export default async function ProductPage({
           category: typeof p.categories?.[0] === 'object' ? p.categories[0].title : '',
           priceRange: `$${p.price?.toFixed(2) || '0.00'}`,
           originalPrice: p.salePrice ? `$${p.salePrice.toFixed(2)}` : undefined,
+          // Already on the doc at depth 1 — no extra query. The card needs it to
+          // decide whether a sale badge may be shown.
+          stock: availableStockOf(p),
           isFrom: p.bulkBundles && p.bulkBundles.length > 0,
         }
       })
@@ -382,6 +386,8 @@ export default async function ProductPage({
         category: typeof p.categories?.[0] === 'object' ? p.categories[0].title : '',
         priceRange: `$${p.price?.toFixed(2) || '0.00'}`,
         originalPrice: p.salePrice ? `$${p.salePrice.toFixed(2)}` : undefined,
+        // Already on the doc at depth 1 — no extra query.
+        stock: availableStockOf(p),
         isFrom: p.bulkBundles && p.bulkBundles.length > 0,
       }
     })

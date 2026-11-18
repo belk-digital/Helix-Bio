@@ -7,6 +7,7 @@ import { revalidatePath } from 'next/cache'
 import { cookies } from 'next/headers'
 import { getLocale } from 'next-intl/server'
 import { getCategoryDisplayName } from '@/lib/categoryDisplay'
+import { availableStockOf } from '@/lib/products/availableStock'
 
 export async function addToCart(productId: string | number, quantity: number = 1, providedVariantSku?: string, providedPriceSnapshot?: number, providedVariantTitle?: string) {
   try {
@@ -592,10 +593,7 @@ export async function getShopProducts(params: {
         }
       }
 
-      let totalStock = typeof doc.stock === 'number' ? doc.stock : 0
-      if (doc.hasVariants && doc.variants && doc.variants.length > 0) {
-        totalStock = doc.variants.reduce((acc: number, v: any) => acc + (typeof v.stock === 'number' ? v.stock : 0), 0)
-      }
+      const totalStock = availableStockOf(doc)
       const effectivePrice = displaySalePrice !== undefined ? displaySalePrice : displayPrice
       const productDescription = doc.description || doc.seoDescription || ''
 

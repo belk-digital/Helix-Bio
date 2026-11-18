@@ -6,6 +6,7 @@ import { Link } from '@/i18n/navigation'
 import { motion } from 'framer-motion'
 import { Heart } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
+import { SaleBadge } from '@/components/sale/SaleBadge'
 import { toast } from 'sonner'
 import { useTranslations } from 'next-intl'
 import { useWishlistStore } from '@/lib/wishlist/store'
@@ -128,14 +129,16 @@ export function CompactProductCard({ product }: { product: StandardProduct }) {
             </div>
           )}
 
-          {/* Optional Badge */}
-          {product.badge && (
-            <div className="absolute top-4 left-4 z-10">
+          {/* Optional badge, then the site-wide sale rate. SaleBadge renders
+              nothing for products the sale excludes. */}
+          <div className="absolute top-4 left-4 z-10 flex flex-col items-start gap-1.5">
+            {product.badge && (
               <Badge variant={product.badge}>
                 {product.badge === 'bestseller' ? t('bestSeller') : product.badge}
               </Badge>
-            </div>
-          )}
+            )}
+            <SaleBadge productSlug={product.slug} />
+          </div>
 
           {/* Wishlist Heart */}
           <motion.div

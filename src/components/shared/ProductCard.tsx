@@ -11,6 +11,7 @@ import { useCartStore } from '@/lib/cart/store'
 import { toast } from 'sonner'
 import { trackAddToCart } from '@/lib/metaPixel'
 import { Product } from '@/components/shop/PrimaryProductCard' // Re-using the interface for now
+import { SaleBadge } from '@/components/sale/SaleBadge'
 
 export interface ProductCardProps {
   product: Product | any
@@ -133,6 +134,14 @@ export function ProductCard({ product }: ProductCardProps) {
           draggable={false}
           className="object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-110 pointer-events-none"
         />
+
+        {/* Sale badge. SaleBadge owns every condition — the sale window, the
+            BAC water / needle / kit exclusions and the stock check — so nothing
+            about eligibility is decided or duplicated here. It renders null
+            whenever stock is zero, missing or the product is excluded. */}
+        <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-30 pointer-events-none">
+          <SaleBadge productSlug={product.slug} stock={product.stock} />
+        </div>
 
         {/* Wishlist Button */}
         <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-30 pointer-events-auto">

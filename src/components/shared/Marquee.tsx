@@ -8,11 +8,13 @@ export interface MarqueeProps {
   separator?: React.ReactNode
 }
 
-import { SALE_NAME, isSaleActive } from '@/lib/sale/autoDiscount'
+import { SALE_NAME, SALE_TIERS, isSaleActive } from '@/lib/sale/autoDiscount'
 
 // Sale entry leads the rotation while the sale runs and disappears by itself
-// afterwards, so no edit is needed to retire it.
-const SALE_ITEM = `${SALE_NAME.toUpperCase()} — 20% OFF, UP TO 30% OVER $500`
+// afterwards, so no edit is needed to retire it. The rate is read off SALE_TIERS
+// rather than written out, so the marquee cannot advertise a stale percentage.
+const SALE_PERCENT = SALE_TIERS[SALE_TIERS.length - 1].percent
+const SALE_ITEM = `${SALE_NAME.toUpperCase()} — ${SALE_PERCENT}% OFF ELIGIBLE PRODUCTS`
 
 const DEFAULT_ITEMS = [
   '≥99% HPLC PURITY',

@@ -2,36 +2,42 @@
 
 import React from 'react'
 import { Moon } from 'lucide-react'
-import { PumpkinIcon, BatIcon } from './HalloweenIcons'
 import {
   SALE_NAME,
   SALE_TIERS,
+  SALE_EXCLUSION_NOTE,
+  IS_FLAT_SALE,
   progressMessage,
   type SaleDiscount,
 } from '@/lib/sale/autoDiscount'
 
 /**
- * Tier progress bar shared by the cart drawer, cart page and checkout summary.
+ * Sale card shared by the cart drawer, cart page and checkout summary.
  *
  * Every figure shown here comes straight off the `sale` object computed by
  * lib/sale/autoDiscount — the current rate, the eligible subtotal it was derived
- * from and the gap to the next tier. Nothing is recalculated locally, so the bar
+ * from and the gap to the next tier. Nothing is recalculated locally, so the card
  * cannot disagree with the cart totals.
  *
  * Renders nothing once the sale has ended, so callers need no date check.
  *
- * Accent is Halloween orange, matching the announcement bar and the sale
- * banner. This and the other sale surfaces deliberately sit outside the Helix
- * blue palette for the duration of the sale.
+ * Two layouts, chosen by the shape of SALE_TIERS:
+ *  - one tier (Early Black Friday): a flat card stating the single rate. There is
+ *    nothing to unlock, so no track, no nodes and no "add $X more" message —
+ *    a progress bar that is always full would just be noise.
+ *  - two or more: the original tier track, one node per tier.
+ *
+ * Accent is white on black, matching the Black Friday banner and the announcement
+ * bar. These sale surfaces deliberately sit outside the Helix blue palette for
+ * the duration of the sale.
  */
+
 /**
- * Each tier carries its own Halloween icon rather than a state icon, so a node's
- * shape stays put and only its colour changes as the tier is reached. Any tier
- * beyond the third falls back to the moon.
+ * Multi-tier only. Tier nodes previously carried Halloween artwork; with that
+ * sale retired they fall back to lucide's moon, which is the icon the third node
+ * already used. A future themed sale can swap this one function.
  */
-function NodeIcon({ index, size }: { index: number; size: number }) {
-  if (index === 0) return <PumpkinIcon size={size} />
-  if (index === 1) return <BatIcon size={size} />
+function NodeIcon({ size }: { index: number; size: number }) {
   return <Moon size={size} strokeWidth={2} aria-hidden="true" />
 }
 
@@ -59,6 +65,49 @@ export function SaleTierProgress({
   const reachedIndex = currentIndex === -1 ? 0 : currentIndex
   const hasDiscount = sale.amount > 0
 
+  const shellClass = `w-full rounded-[16px] border p-5 sm:p-6 bg-ink ${
+    variant === 'dark' ? 'border-white/10' : 'border-ink/80'
+  } ${className}`
+
+  // Header is identical in both layouts: sale name and message on the left, the
+  // rate on the right.
+  const header = (
+    <div className="flex items-start justify-between gap-4">
+      <div className="min-w-0">
+        <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
+          {SALE_NAME}
+        </span>
+        <p className="mt-1.5 text-[13px] sm:text-sm font-medium leading-snug text-white">
+          {hasDiscount
+            ? progressMessage(progress)
+            : `Add eligible items to get ${SALE_TIERS[0].percent}% off`}
+        </p>
+      </div>
+      <span className="shrink-0 font-heading text-4xl sm:text-5xl font-black leading-none tracking-tight text-white">
+        {currentPercent}
+        <span className="text-2xl sm:text-3xl align-top">%</span>
+      </span>
+    </div>
+  )
+
+  // The exclusion note is shown whenever something in the cart was left out, so
+  // the shopper can see why the discount is smaller than the subtotal implies.
+  const exclusionNote = sale.excludedSubtotal > 0 && (
+    <p className="mt-4 text-[9px] uppercase tracking-[0.15em] text-white/40">
+      {SALE_EXCLUSION_NOTE}
+    </p>
+  )
+
+  // Flat sale: one rate, no minimum, nothing to progress toward.
+  if (IS_FLAT_SALE) {
+    return (
+      <div className={shellClass}>
+        {header}
+        {exclusionNote}
+      </div>
+    )
+  }
+
   // Node centres sit at 0%, 50% and 100% of the track, so the first and last
   // nodes anchor each end and the line spans the full width between them.
   const segments = SALE_TIERS.length - 1
@@ -73,28 +122,8 @@ export function SaleTierProgress({
     : 0
 
   return (
-    <div
-      className={`w-full rounded-[16px] border p-5 sm:p-6 bg-ink ${
-        variant === 'dark' ? 'border-white/10' : 'border-ink/80'
-      } ${className}`}
-    >
-      {/* Top row: sale name + message on the left, current rate on the right */}
-      <div className="flex items-start justify-between gap-4">
-        <div className="min-w-0">
-          <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-orange-400">
-            {SALE_NAME}
-          </span>
-          <p className="mt-1.5 text-[13px] sm:text-sm font-medium leading-snug text-white">
-            {hasDiscount
-              ? progressMessage(progress)
-              : `Add items to unlock ${SALE_TIERS[0].percent}% off`}
-          </p>
-        </div>
-        <span className="shrink-0 font-heading text-4xl sm:text-5xl font-black leading-none tracking-tight text-orange-400">
-          {currentPercent}
-          <span className="text-2xl sm:text-3xl align-top">%</span>
-        </span>
-      </div>
+    <div className={shellClass}>
+      {header}
 
       {/* Track: one node per tier, outer nodes anchored to each end */}
       <div className="mt-6">
@@ -111,7 +140,7 @@ export function SaleTierProgress({
             aria-hidden="true"
           />
           <div
-            className="absolute left-0 top-1/2 h-[2px] -translate-y-1/2 rounded-full bg-orange-500 transition-all duration-500 ease-out"
+            className="absolute left-0 top-1/2 h-[2px] -translate-y-1/2 rounded-full bg-white transition-all duration-500 ease-out"
             style={{ width: `${fillPercent}%` }}
             aria-hidden="true"
           />
@@ -126,7 +155,7 @@ export function SaleTierProgress({
                   isCurrent ? 'h-8 w-8' : 'h-6 w-6'
                 } ${
                   reached
-                    ? 'bg-orange-500 border-orange-500 text-ink'
+                    ? 'bg-white border-white text-ink'
                     : 'bg-ink-soft border-white/15 text-white/25'
                 }`}
                 style={{ left: `${(i / segments) * 100}%` }}
@@ -155,11 +184,7 @@ export function SaleTierProgress({
         </div>
       </div>
 
-      {sale.excludedSubtotal > 0 && (
-        <p className="mt-4 text-[9px] uppercase tracking-[0.15em] text-white/40">
-          Kits &amp; bundles excluded from the sale
-        </p>
-      )}
+      {exclusionNote}
     </div>
   )
 }
