@@ -5,6 +5,7 @@ import { attributeOrder } from '@/lib/affiliates/commission'
 import { appendOrderToSheet } from '@/lib/google/sheets'
 import { sendTrackedEmail } from '@/lib/emails/sendTrackedEmail'
 import { reserveStock, reserveCouponUsage, reservePoints } from '@/lib/orders/reserve'
+import { sendMetaPurchaseEvent } from '@/lib/metaConversionsApi'
 
 /**
  * A gateway can report a payment as failed while the customer is still free to retry the very same
@@ -173,6 +174,34 @@ export async function finalizeOrder(orderId: string | number, paymentIntentMetad
         }
     } catch (err) {
         console.error('Failed to send confirmation email', err)
+    }
+
+    // 5. Meta Conversions API (server-side Purchase)
+    // Deduplicated against the browser Pixel's Purchase event by order id (see
+    // src/lib/metaConversionsApi.ts and OrderConfirmationClient's trackPurchase call — both use
+    // the exact same event_id). Fires here, not just client-side, so the conversion still lands
+    // for async/offline-confirmed methods (Zelle, crypto, admin mark-as-paid) and for customers
+    // who never load the confirmation page.
+    try {
+      let capiEmail: string | undefined | null = order.guestEmail
+      if (!capiEmail && order.owner) {
+        const userDoc = typeof order.owner === 'object' ? order.owner : await payload.findByID({ collection: 'users', id: order.owner })
+        capiEmail = userDoc?.email
+      }
+      const orderIdentifier = String((order as any).orderId || order.id)
+      const items = Array.isArray(order.items) ? order.items : []
+      sendMetaPurchaseEvent({
+        orderId: orderIdentifier,
+        value: order.total || 0,
+        email: capiEmail,
+        phone: (order as any).customerPhone,
+        externalId: order.owner ? String(typeof order.owner === 'object' ? (order.owner as any).id : order.owner) : null,
+        contentIds: items.map((item: any) => String(item.id || item.variant || item.name)),
+        numItems: items.reduce((sum: number, item: any) => sum + (item.quantity || 1), 0),
+        eventSourceUrl: `${process.env.NEXT_PUBLIC_SERVER_URL || 'https://helixbiochem.com'}/order-confirmation/${order.id}`,
+      }).catch((err) => console.error('[meta-capi] Purchase send failed', err))
+    } catch (err) {
+      console.error('[meta-capi] Failed to prepare Purchase event', err)
     }
 
     return true
